@@ -1,0 +1,701 @@
+<title>Rota do Zenbook Duo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;800&family=Overpass+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+<style>
+  :root {
+    --ground:      #EEF0EC;
+    --surface:     #FFFFFF;
+    --surface-sub: #E4E8E2;
+    --ink:         #131B17;
+    --ink-soft:    #4A554E;
+    --ink-faint:   #77817A;
+    --rule:        #CBD2C8;
+    --guide:       #1D5C43;
+    --guide-soft:  #E0EBE4;
+    --on-guide:    #F2F7F4;
+    --sun:         #B3591A;
+    --sun-soft:    #F6E7D9;
+    --shield:      #17325C;
+
+    --font-display: "Overpass", "Helvetica Neue", Arial, sans-serif;
+    --font-body:    "Source Serif 4", Georgia, "Times New Roman", serif;
+    --font-mono:    "Overpass Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+    --wrap: 62rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #0E1411;
+      --surface:     #161E1A;
+      --surface-sub: #1E2823;
+      --ink:         #E7EDE8;
+      --ink-soft:    #A9B4AD;
+      --ink-faint:   #7C877F;
+      --rule:        #2C3831;
+      --guide:       #5FB48D;
+      --guide-soft:  #1A2E25;
+      --on-guide:    #08130E;
+      --sun:         #E2934F;
+      --sun-soft:    #2E2318;
+      --shield:      #8FB2E6;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #0E1411;
+    --surface:     #161E1A;
+    --surface-sub: #1E2823;
+    --ink:         #E7EDE8;
+    --ink-soft:    #A9B4AD;
+    --ink-faint:   #7C877F;
+    --rule:        #2C3831;
+    --guide:       #5FB48D;
+    --guide-soft:  #1A2E25;
+    --on-guide:    #08130E;
+    --sun:         #E2934F;
+    --sun-soft:    #2E2318;
+    --shield:      #8FB2E6;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 0 1.25rem 5rem;
+  }
+
+  a { color: var(--guide); text-underline-offset: 0.15em; }
+  a:focus-visible,
+  button:focus-visible { outline: 2px solid var(--sun); outline-offset: 2px; border-radius: 2px; }
+
+  /* ---------- header ---------- */
+
+  .masthead {
+    padding: 3.25rem 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .eyebrow {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.4rem, 7vw, 4rem);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  .standfirst {
+    font-size: 1.1875rem;
+    color: var(--ink-soft);
+    max-width: 40ch;
+    margin: 0;
+  }
+
+  /* the route strip: SF -> SD -> PHX */
+  .strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+  .strip > div {
+    flex: 1 1 8rem;
+    padding: 0.7rem 0.9rem;
+    border-right: 1px solid var(--rule);
+    font-family: var(--font-display);
+  }
+  .strip > div:last-child { border-right: 0; }
+  .strip .city {
+    font-weight: 800;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+    display: block;
+  }
+  .strip .note {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.02em;
+  }
+  .strip .hit { color: var(--guide); }
+
+  /* ---------- generic section ---------- */
+
+  section { padding-top: 3.5rem; }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0 0 0.4rem;
+    text-wrap: balance;
+  }
+
+  .sec-intro {
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin: 0 0 1.75rem;
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    margin: 0;
+  }
+
+  p { margin: 0 0 1rem; max-width: 66ch; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ---------- alert (modelo certo) ---------- */
+
+  .alert {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 1rem;
+    background: var(--sun-soft);
+    border-left: 4px solid var(--sun);
+    padding: 1.1rem 1.25rem;
+    border-radius: 0 3px 3px 0;
+  }
+  .alert .mark {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--sun);
+    line-height: 1.45;
+  }
+  .alert p { font-size: 1rem; max-width: 58ch; }
+
+  /* ---------- spec table ---------- */
+
+  .table-scroll { overflow-x: auto; margin-top: 1.5rem; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    min-width: 34rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.7rem 0.9rem 0.7rem 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  th {
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    border-bottom-color: var(--ink-faint);
+  }
+  td.sku { font-family: var(--font-mono); font-weight: 600; white-space: nowrap; }
+  td.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* ---------- the road ---------- */
+
+  .road { display: flex; flex-direction: column; gap: 0; }
+
+  .leg {
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    gap: 0 1.5rem;
+  }
+
+  .leg-rail {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding-top: 0.15rem;
+  }
+
+  /* lane markings */
+  .leg-rail::after {
+    content: "";
+    position: absolute;
+    top: 3.9rem;
+    bottom: -0.4rem;
+    width: 3px;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      var(--rule) 0 14px,
+      transparent 14px 26px
+    );
+  }
+  .leg:last-child .leg-rail::after { display: none; }
+
+  .shield {
+    width: 3.1rem;
+    height: 3.1rem;
+    display: grid;
+    place-items: center;
+    background: var(--guide);
+    color: var(--on-guide);
+    border-radius: 3px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.35rem;
+    font-variant-numeric: tabular-nums;
+    flex: none;
+  }
+  .leg.optional .shield { background: var(--surface-sub); color: var(--ink-faint); }
+
+  .miles {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
+    color: var(--ink-faint);
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  .leg-body { padding-bottom: 2.75rem; min-width: 0; }
+
+  .leg-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem 0.75rem;
+    margin-bottom: 0.35rem;
+  }
+  .leg-head h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+  }
+  .tag {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.66rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    padding: 0.16rem 0.45rem;
+    border-radius: 2px;
+    background: var(--guide-soft);
+    color: var(--guide);
+    white-space: nowrap;
+  }
+  .tag.backup { background: var(--surface-sub); color: var(--ink-faint); }
+
+  .leg-note { color: var(--ink-soft); font-size: 1rem; margin-bottom: 1rem; max-width: 60ch; }
+
+  /* primary store — the ones that matter */
+  .store {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--guide);
+    border-radius: 0 3px 3px 0;
+    padding: 1rem 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .store-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+  }
+
+  .store-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .store-facts span { white-space: nowrap; }
+  .store-facts .addr { white-space: normal; }
+
+  .store-why {
+    font-size: 0.98rem;
+    color: var(--ink-soft);
+    max-width: 58ch;
+  }
+
+  /* backup stores — deliberately NOT cards */
+  .backups {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .backups li {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.2rem 0.9rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+  }
+  .backups .b-name { font-weight: 600; }
+  .backups .b-addr { font-family: var(--font-mono); font-size: 0.76rem; color: var(--ink-faint); }
+  ul.backups { margin: 0; padding: 0; }
+
+  /* ---------- checklist ---------- */
+
+  .checks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .checks li {
+    background: var(--surface);
+    padding: 1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .checks .c-head {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+  .checks .c-num {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--sun);
+    font-weight: 600;
+  }
+  .checks p { font-size: 0.92rem; color: var(--ink-soft); margin: 0; }
+
+  /* ---------- phone script ---------- */
+
+  .script {
+    background: var(--surface-sub);
+    border-radius: 3px;
+    padding: 1.1rem 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: var(--ink);
+    max-width: 52rem;
+    overflow-x: auto;
+  }
+  .script .q { display: block; margin-bottom: 0.6rem; }
+  .script .q:last-child { margin-bottom: 0; }
+  .script .pt {
+    color: var(--ink-faint);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+
+  /* ---------- verdict ---------- */
+
+  .verdict {
+    background: var(--guide);
+    color: var(--on-guide);
+    border-radius: 3px;
+    padding: 1.75rem 1.75rem 1.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .verdict h2 { margin: 0; color: inherit; }
+  .verdict p { color: inherit; opacity: 0.92; max-width: 58ch; }
+  .verdict strong { font-weight: 600; }
+
+  .footnote {
+    margin-top: 3rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    max-width: 66ch;
+  }
+  .footnote p { max-width: none; margin-bottom: 0.6rem; }
+
+  @media (max-width: 34rem) {
+    .leg { grid-template-columns: 3.4rem 1fr; gap: 0 1rem; }
+    .shield { width: 2.6rem; height: 2.6rem; font-size: 1.1rem; }
+    .leg-rail::after { top: 3.2rem; }
+    .miles { font-size: 0.62rem; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <span class="eyebrow">Setembro 2026 &middot; RV de San Francisco a Phoenix</span>
+    <h1>Rota do<br>Zenbook Duo</h1>
+    <p class="standfirst">Onde parar pra pôr a mão no notebook de duas telas antes de gastar US$&nbsp;2.500 nele.</p>
+
+    <div class="strip">
+      <div><span class="city">San Francisco</span><span class="note">saída</span></div>
+      <div><span class="city">Santa Clara</span><span class="note hit">Micro Center</span></div>
+      <div><span class="city">Tustin</span><span class="note hit">Micro Center</span></div>
+      <div><span class="city">San Diego</span><span class="note">só Best Buy</span></div>
+      <div><span class="city">Phoenix</span><span class="note hit">Micro Center + entrega do RV</span></div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Primeiro: você quer o UX8407</h2>
+    <p class="sec-intro">Esse é o detalhe que faz a diferença entre voltar pra casa com a máquina certa ou com a do ano passado.</p>
+
+    <div class="alert">
+      <span class="mark">!</span>
+      <div>
+        <p>Existem dois Zenbook Duo na prateleira agora, e eles são quase idênticos por fora. O <strong>UX8406</strong> é o de 2024/2025. O <strong>UX8407</strong> é o de 2026 &mdash; chassi 5% menor, dobradiça nova (o vão entre as telas encolheu de verdade), bateria de 99&nbsp;Wh no lugar de 75&nbsp;Wh, teclado com fecho magnético e chip Panther Lake.</p>
+        <p>Na loja, vire a etiqueta e leia o código. Se estiver escrito 8406, não é esse.</p>
+      </div>
+    </div>
+
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>SKU</th>
+            <th>Processador</th>
+            <th>Gráficos</th>
+            <th>RAM / SSD</th>
+            <th>Preço de tabela</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="sku">UX8407AA-DS99T</td>
+            <td>Core Ultra 9 386H</td>
+            <td>Intel integrado</td>
+            <td class="num">32 GB / 1 TB</td>
+            <td class="num">US$ 2.499</td>
+          </tr>
+          <tr>
+            <td class="sku">UX8407AA-MSX9T</td>
+            <td>Core Ultra X9 388H</td>
+            <td>Intel Arc (Xe3)</td>
+            <td class="num">32 GB / 1 TB</td>
+            <td class="num">US$ 2.699</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:1.25rem; color:var(--ink-soft);">As duas telas são iguais nos dois: 14&#8221; OLED 3K, 144&nbsp;Hz, 500&nbsp;nits em SDR. A diferença real é o gráfico. Se o uso for edição de vídeo, o X9 com Arc paga a diferença. Se for escrita, planilha e navegador em duas telas, não paga.</p>
+  </section>
+
+  <section>
+    <h2>As paradas</h2>
+    <p class="sec-intro">A sorte aqui é grande: o Micro Center &mdash; que é a loja que de fato mantém notebook ligado na bancada pra você usar &mdash; abriu duas lojas novas exatamente no seu caminho, e uma delas fica em Phoenix, onde você entrega o RV.</p>
+
+    <div class="road">
+
+      <div class="leg">
+        <div class="leg-rail">
+          <div class="shield">1</div>
+          <div class="miles">~75 km<br>de SF</div>
+        </div>
+        <div class="leg-body">
+          <div class="leg-head">
+            <h3>Santa Clara, CA</h3>
+            <span class="tag">Primeira chance</span>
+          </div>
+          <p class="leg-note">Faça essa parada <em>antes</em> de pegar a estrada de verdade. É a única loja onde você ainda pode mudar de ideia sem custo nenhum: se não gostar, o assunto morre e você economiza US$ 2.500.</p>
+          <div class="store">
+            <span class="store-name">Micro Center Santa Clara</span>
+            <div class="store-facts">
+              <span class="addr">5201 Stevens Creek Blvd, Santa Clara, CA 95051</span>
+              <span>Seg&ndash;Sáb 10h&ndash;21h &middot; Dom 11h&ndash;18h</span>
+              <span><a href="tel:+18337121438">(833) 712-1438</a></span>
+            </div>
+            <p class="store-why">É o antigo prédio da Fry&#8217;s: estacionamento gigante, o único da lista onde você entra de RV sem suar frio.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="leg optional">
+        <div class="leg-rail">
+          <div class="shield">2</div>
+          <div class="miles">~370 km</div>
+        </div>
+        <div class="leg-body">
+          <div class="leg-head">
+            <h3>San Luis Obispo &rarr; Oxnard</h3>
+            <span class="tag backup">Só se der ruim antes</span>
+          </div>
+          <p class="leg-note">Trecho longo sem Micro Center. Best Buy resolve se você só quiser conferir se o modelo já chegou às lojas &mdash; mas raramente tem o Duo ligado pra teste, e quando tem costuma ser o 8406.</p>
+          <ul class="backups">
+            <li><span class="b-name">Best Buy San Luis Obispo</span><span class="b-addr">255 Madonna Rd</span></li>
+            <li><span class="b-name">Best Buy Goleta</span><span class="b-addr">7090 Market Place Dr</span></li>
+            <li><span class="b-name">Best Buy Oxnard</span><span class="b-addr">2300 N Rose Ave</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="leg">
+        <div class="leg-rail">
+          <div class="shield">3</div>
+          <div class="miles">~370 km</div>
+        </div>
+        <div class="leg-body">
+          <div class="leg-head">
+            <h3>Tustin, CA</h3>
+            <span class="tag">Melhor combinação</span>
+          </div>
+          <p class="leg-note">Micro Center antigo, de 1993 &mdash; estoque grande e vendedor que conhece o produto. E, por acaso, é onde o imposto é mais baixo da rota inteira.</p>
+          <div class="store">
+            <span class="store-name">Micro Center Tustin</span>
+            <div class="store-facts">
+              <span class="addr">1100 E Edinger Ave, Tustin, CA 92780</span>
+              <span>Seg&ndash;Sáb 10h&ndash;21h &middot; Dom 11h&ndash;18h</span>
+              <span><a href="tel:+17145668500">(714) 566-8500</a></span>
+            </div>
+            <p class="store-why">Se você já testou em Santa Clara e decidiu comprar, compre aqui: 7,75% de imposto contra ~9,4% em Santa Clara. São uns US$ 40 no bolso.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="leg optional">
+        <div class="leg-rail">
+          <div class="shield">4</div>
+          <div class="miles">~140 km</div>
+        </div>
+        <div class="leg-body">
+          <div class="leg-head">
+            <h3>San Diego, CA</h3>
+            <span class="tag backup">Sem Micro Center</span>
+          </div>
+          <p class="leg-note">Não tem Micro Center em San Diego. Se precisar, é Best Buy mesmo.</p>
+          <ul class="backups">
+            <li><span class="b-name">Best Buy Mission Valley</span><span class="b-addr">5151 Mission Center Rd</span><span class="b-addr"><a href="tel:+16195741076">(619) 574-1076</a></span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="leg">
+        <div class="leg-rail">
+          <div class="shield">5</div>
+          <div class="miles">~570 km<br>via I-8</div>
+        </div>
+        <div class="leg-body">
+          <div class="leg-head">
+            <h3>Phoenix, AZ</h3>
+            <span class="tag">Onde eu compraria</span>
+          </div>
+          <p class="leg-note">Loja nova, aberta em novembro de 2025, a poucos minutos do centro. Você entrega o RV e passa lá com a mala já na mão.</p>
+          <div class="store">
+            <span class="store-name">Micro Center Phoenix</span>
+            <div class="store-facts">
+              <span class="addr">4531 E Thomas Rd, Phoenix, AZ 85008</span>
+              <span>Seg&ndash;Sáb 10h&ndash;21h &middot; Dom 11h&ndash;18h</span>
+              <span><a href="tel:+14802409700">(480) 240-9700</a></span>
+            </div>
+            <p class="store-why">A vantagem não é preço, é logística: você não passa uma semana com um notebook de US$ 2.500 balançando dentro de um motorhome, e não corre risco de furto em parada de estrada.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>O teste de cinco minutos na bancada</h2>
+    <p class="sec-intro">Duas telas é uma daquelas coisas que parece incrível no vídeo do YouTube e some do seu dia a dia em duas semanas. O teste abaixo serve pra descobrir isso na loja, não em casa.</p>
+
+    <ul class="checks">
+      <li>
+        <span class="c-head"><span class="c-num">01</span> Cabe na mesa?</span>
+        <p>Abra o kickstand e monte no modo duas telas empilhadas. Ele pede uns 30 cm de profundidade. Meça mentalmente contra a mesinha do RV, a bandeja do avião e a mesa de café que você usa. Se não couber, o resto não importa.</p>
+      </li>
+      <li>
+        <span class="c-head"><span class="c-num">02</span> Tire o teclado</span>
+        <p>Esse ano o encaixe é magnético. Solte e recoloque três vezes. Repare em quanto tempo o Bluetooth reconecta &mdash; é o gesto que você vai repetir todo dia.</p>
+      </li>
+      <li>
+        <span class="c-head"><span class="c-num">03</span> A emenda</span>
+        <p>Abra uma planilha e arraste até ela atravessar as duas telas. A dobradiça nova diminuiu o vão, mas ele existe. Ou te incomoda na hora, ou nunca mais te incomoda.</p>
+      </li>
+      <li>
+        <span class="c-head"><span class="c-num">04</span> Leve pra perto da porta</span>
+        <p>OLED é lindo na loja e vira espelho no sol. Caminhe com ele até a entrada da loja e olhe a tela com a luz de fora batendo. Você vai passar dias em deserto.</p>
+      </li>
+      <li>
+        <span class="c-head"><span class="c-num">05</span> Peso na mão</span>
+        <p>São cerca de 1,65 kg com o teclado. Levante com uma mão só e segure trinta segundos. Não é leve &mdash; a questão é se é leve o suficiente pra você.</p>
+      </li>
+      <li>
+        <span class="c-head"><span class="c-num">06</span> Digite de verdade</span>
+        <p>Abra o Bloco de Notas e escreva três linhas de texto real, não &#8220;asdf&#8221;. Teclado destacável é sempre um acordo: você ganha a segunda tela e perde alguma firmeza.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Ligue antes de dirigir até lá</h2>
+    <p class="sec-intro">Estoque de lançamento é irregular, e não adianta desviar a rota pra encontrar prateleira vazia. Duas perguntas resolvem &mdash; e a segunda é a que importa.</p>
+
+    <div class="script">
+      <span class="q">&#8220;Hi &mdash; do you have the ASUS Zenbook Duo 2026, model U-X-8-4-0-7, in stock?&#8221;<br><span class="pt">Vocês têm o Zenbook Duo 2026, modelo UX8407, em estoque?</span></span>
+      <span class="q">&#8220;And do you have one set up on display that I can actually use before buying?&#8221;<br><span class="pt">E tem uma unidade montada na loja que eu possa usar antes de comprar?</span></span>
+      <span class="q">&#8220;I'm driving an RV &mdash; is there parking for a large vehicle?&#8221;<br><span class="pt">Estou de motorhome &mdash; tem estacionamento pra veículo grande?</span></span>
+    </div>
+  </section>
+
+  <section>
+    <div class="verdict">
+      <h2>O plano em uma linha</h2>
+      <p><strong>Testa em Santa Clara na saída. Compra em Phoenix na chegada.</strong></p>
+      <p>Você separa a decisão da compra. Testa cedo, com tempo e sem pressão &mdash; e se não gostar, cancela a missão no primeiro dia. Se gostar, dirige a viagem inteira leve e pega a máquina na última parada, com nota fiscal fresca e caixa lacrada pra despachar.</p>
+      <p>Se Phoenix estiver sem estoque quando você ligar, o plano B é Tustin: imposto mais baixo e ainda a 570 km do fim da viagem.</p>
+    </div>
+
+    <div class="footnote">
+      <p><strong>Coisas que eu não pude confirmar daqui:</strong> estoque em tempo real e se cada loja tem uma unidade ligada pra demonstração &mdash; isso muda toda semana e só o telefonema resolve. Confirme também horários no feriado, se pegar algum.</p>
+      <p><strong>Imposto:</strong> as alíquotas variam por endereço exato e as fontes divergem um pouco. Tustin e San Diego ficam em 7,75%; Santa Clara aparece entre 9,1% e 9,8%; Phoenix, entre 8,6% e 9,1%. Na prática a diferença total é de uns US$ 40 &mdash; não vale desviar a rota por isso, mas vale escolher entre duas lojas que você ia visitar de qualquer jeito.</p>
+      <p><strong>Garantia:</strong> notebook comprado nos EUA vem com teclado americano (ANSI) e garantia atendida nos EUA. Se a máquina vai viver fora do país, pergunte no balcão como fica o suporte antes de fechar.</p>
+    </div>
+  </section>
+
+</div>
