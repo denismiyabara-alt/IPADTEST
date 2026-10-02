@@ -1,0 +1,65 @@
+<div id="ir-fii-venda" class="iec-ferramenta">
+  <header>
+    <p class="eyebrow">FIIs · Ferramenta</p>
+    <h2 class="titulo">Calculadora de IR na venda de cotas de FII</h2>
+    <p>Vendeu cotas de fundo imobiliário com lucro? Diferente das ações, não existe isenção para vendas pequenas: o lucro paga 20% de Imposto de Renda, e quem gera e paga o DARF é você. Veja quanto pagar e até quando.</p>
+  </header>
+  <div class="grid">
+    <div class="card">
+      <h3>A venda</h3>
+      <div class="row2">
+        <div><label for="fv-pm">Preço médio de compra (R$)</label><input id="fv-pm" type="number" inputmode="decimal" min="0.01" step="0.01" value="100.00"></div>
+        <div><label for="fv-venda">Preço de venda (R$)</label><input id="fv-venda" type="number" inputmode="decimal" min="0.01" step="0.01" value="110.00"></div>
+      </div>
+      <label for="fv-qtd">Quantidade de cotas vendidas</label>
+      <input id="fv-qtd" type="number" inputmode="numeric" min="1" step="1" value="100">
+      <label for="fv-custos">Custos da operação (R$)</label>
+      <input id="fv-custos" type="number" inputmode="decimal" min="0" step="0.01" value="0">
+      <div class="hint">Corretagem e taxas da venda, e as da compra se elas ainda não estiverem no seu preço médio.</div>
+      <label for="fv-prejuizo">Prejuízo anterior com FIIs ainda não compensado (R$)</label>
+      <input id="fv-prejuizo" type="number" inputmode="decimal" min="0" step="10" value="0">
+      <label for="fv-data">Data da venda</label>
+      <input id="fv-data" type="date" value="">
+      <div class="hint">Valores de exemplo. Se vendeu cotas de mais de um FII no mesmo mês, some os resultados de todas as vendas: o imposto é apurado por mês.</div>
+      <div class="err" id="fv-err" hidden></div>
+    </div>
+    <div class="stack">
+      <div class="card">
+        <div class="fine" id="fv-label"></div>
+        <div class="big" id="fv-darf"></div>
+        <div class="fine" id="fv-venc"></div>
+        <div class="stats">
+          <div class="stat"><div class="k">Resultado da venda</div><div class="v" id="fv-lucro"></div></div>
+          <div class="stat"><div class="k">Prejuízo compensado</div><div class="v" id="fv-comp"></div></div>
+          <div class="stat"><div class="k">IR devido (20%)</div><div class="v" id="fv-ir"></div></div>
+          <div class="stat"><div class="k">Já retido na fonte (0,005%)</div><div class="v" id="fv-dedo"></div></div>
+          <div class="stat"><div class="k">Prejuízo que sobra para depois</div><div class="v" id="fv-resto"></div></div>
+        </div>
+        <div class="story" id="fv-story"></div>
+      </div>
+      <div class="card">
+        <h3>As regras, em uma frase cada</h3>
+        <ul class="regras">
+          <li><strong>Venda com lucro:</strong> o ganho na venda de cotas de FII paga 20% de IR, sem a isenção de vendas até R$ 20 mil por mês que vale para ações.<span class="fonte">Fonte: Lei 8.668/1993, art. 18; Receita Federal. Conferido em 02/10/2026.</span></li>
+          <li><strong>DARF:</strong> você mesmo paga, com o código 6015, até o último dia útil do mês seguinte ao da venda; DARF abaixo de R$ 10 não se paga, o valor passa para o mês seguinte.<span class="fonte">Fonte: Receita Federal (renda variável, código de receita 6015). Conferido em 02/10/2026.</span></li>
+          <li><strong>Prejuízo:</strong> prejuízo na venda de FII só pode ser abatido de lucros futuros na venda de FII, não de ações.<span class="fonte">Fonte: Instrução Normativa RFB 1.585/2015. Conferido em 02/10/2026.</span></li>
+          <li><strong>Rendimento mensal é outra coisa:</strong> o "aluguel" que o fundo paga todo mês é isento para pessoa física se o fundo tiver pelo menos 100 cotistas, cotas negociadas só em bolsa ou balcão organizado, e você tiver menos de 10% das cotas.<span class="fonte">Fonte: Lei 11.033/2004, art. 3º, com a redação da Lei 14.754/2023. Conferido em 02/10/2026.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <section class="explain">
+    <h2>Como a conta é feita</h2>
+    <p>Lucro = (preço de venda − preço médio) × quantidade − custos. Se você tem prejuízo de vendas anteriores de FII, ele é abatido primeiro. Sobre o que sobra, 20%.</p>
+    <p>Na venda, a corretora retém 0,005% do valor vendido, o "dedo-duro". Ele serve para avisar a Receita da operação e pode ser descontado do DARF. Quando esse valor dá R$ 1 ou menos, não há retenção. Exemplo: 100 cotas compradas a R$ 100 e vendidas a R$ 110, sem custos, dão R$ 1.000 de lucro e R$ 200 de IR. O dedo-duro seria R$ 0,55, abaixo de R$ 1, então não é retido e o DARF fica em R$ 200.</p>
+    <h2 class="secao">Premissas da calculadora</h2>
+    <ul class="fine">
+      <li>Investidor pessoa física residente no Brasil, em operação comum (compra e venda em dias diferentes). Day trade também paga 20%, mas a retenção na fonte é outra.</li>
+      <li>Imposto apurado por mês: lucros e prejuízos de todas as vendas de FII no mês se somam antes dos 20%.</li>
+      <li>Retenção na fonte de 0,005% sobre o valor de venda, dispensada quando der R$ 1 ou menos (Lei 11.033/2004, art. 2º).</li>
+      <li>O vencimento considera fins de semana e feriados nacionais. Confira no calendário se há outro feriado no dia.</li>
+      <li>Atraso no DARF tem multa e juros (Selic). A calculadora não calcula esses acréscimos: use o Sicalc, da Receita Federal.</li>
+      <li>Regras conferidas em 02/10/2026. Leis mudam: confira no site da Receita Federal. Ferramenta educativa, não é recomendação de investimento nem indicação de qualquer fundo.</li>
+    </ul>
+  </section>
+</div>

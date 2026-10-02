@@ -228,3 +228,6 @@
 #calc-rf .pergunta p { margin: 0 0 6px; font-weight: 600; }
 #calc-rf .selo { display: inline-block; padding: 3px 8px; border-radius: 3px; background: var(--accent-soft); color: var(--accent); font: 700 11.5px/1.3 var(--font-display); text-transform: uppercase; letter-spacing: .08em; }
 #calc-rf .rolagem table { min-width: 520px; }
+
+/* ---------- Modo compacto (shortcode modo="compacto") ---------- */
+#calc-rf .iec-compacto { margin: 24px 0 0; font-size: 14px; color: var(--muted); }

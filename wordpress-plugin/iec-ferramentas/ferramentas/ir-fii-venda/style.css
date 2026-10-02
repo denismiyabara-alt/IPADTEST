@@ -1,0 +1,281 @@
+/* IR na venda de cotas de FII · Investir e Coçar. Tudo escopado em #ir-fii-venda. */
+
+#ir-fii-venda {
+  --surface: #fff;
+  --surface-2: #EDF0F3;
+  --border: #DFE3E8;
+  --grid: #EBEEF1;
+  --text: #191C21;
+  --muted: #5C6570;
+  --accent: #1F6B3B;
+  --accent-soft: #E7F1EA;
+  --serie2: #A9B1BA;
+  --neg: #B42318;
+  --neg-soft: #FBEAE8;
+  --pos: #1F6B3B;
+  --pos-soft: #E7F1EA;
+  --amber: #E0A500;
+  --link: #123E72;
+  --axis: #A3ABB4;
+  --radius: 4px;
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  color: var(--text);
+  background: transparent;
+  font: 16px/1.55 var(--font-body);
+  -webkit-text-size-adjust: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding-block: 8px 40px;
+}
+#ir-fii-venda, #ir-fii-venda * { box-sizing: border-box; }
+
+/* ---------- Cabeçalho ---------- */
+#ir-fii-venda header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+#ir-fii-venda .eyebrow {
+  margin: 0 0 10px;
+  font: 700 11.5px/1.2 var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--accent);
+}
+#ir-fii-venda header h2.titulo {
+  margin: 0 0 12px;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  line-height: 1.11;
+  letter-spacing: -.018em;
+  text-transform: none;
+  color: var(--text);
+  text-wrap: balance;
+}
+#ir-fii-venda header p:not(.eyebrow) { margin: 0; color: var(--muted); max-width: 680px; }
+
+/* ---------- Layout ---------- */
+#ir-fii-venda .grid {
+  display: grid;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+@media (max-width: 760px) {
+  #ir-fii-venda .grid { grid-template-columns: minmax(0, 1fr); }
+}
+#ir-fii-venda .stack { display: grid; gap: 16px; min-width: 0; }
+
+#ir-fii-venda .card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  min-width: 0;
+}
+#ir-fii-venda .card h2,
+#ir-fii-venda .card h3 {
+  display: inline-block;
+  margin: 0 0 14px;
+  padding: 0 0 6px;
+  border: 0;
+  border-bottom: 2px solid var(--amber);
+  font: 700 12px/1.35 var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  color: var(--text);
+}
+
+/* ---------- Formulário ---------- */
+#ir-fii-venda label {
+  display: block;
+  margin: 12px 0 4px;
+  font: 600 13.5px/1.35 var(--font-body);
+  color: var(--muted);
+}
+#ir-fii-venda label:first-of-type { margin-top: 0; }
+#ir-fii-venda input,
+#ir-fii-venda select {
+  width: 100%;
+  margin: 0;
+  min-height: 0;
+  height: auto;
+  padding: 9px 11px;
+  font: 400 16px/1.4 var(--font-body);
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  box-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+}
+#ir-fii-venda input:focus,
+#ir-fii-venda select:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+#ir-fii-venda input[type=range] {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  accent-color: var(--accent);
+}
+#ir-fii-venda .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: end; }
+#ir-fii-venda .hint { font-size: 13px; color: var(--muted); margin-top: 4px; }
+#ir-fii-venda .slider-val { font-weight: 700; color: var(--text); }
+
+/* ---------- Resultados ---------- */
+#ir-fii-venda .big {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+#ir-fii-venda .neg { color: var(--neg); }
+#ir-fii-venda .pos { color: var(--pos); }
+#ir-fii-venda .stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+#ir-fii-venda .stat { background: var(--surface-2); border-radius: 3px; padding: 10px 12px; }
+#ir-fii-venda .stat .k { font-size: 12.5px; color: var(--muted); }
+#ir-fii-venda .stat .v {
+  font: 700 18px/1.3 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+#ir-fii-venda .story {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 3px;
+  background: var(--accent-soft);
+  font-size: 15px;
+}
+#ir-fii-venda .story.bad { background: var(--neg-soft); }
+#ir-fii-venda .err { color: var(--neg); font-weight: 600; margin-top: 10px; }
+#ir-fii-venda .fine { font-size: 13px; color: var(--muted); }
+#ir-fii-venda .nota-topo { margin-bottom: 8px; }
+#ir-fii-venda .nota-base { margin-top: 8px; }
+
+/* ---------- Gráficos ---------- */
+#ir-fii-venda svg { display: block; width: 100%; height: auto; max-width: 100%; }
+#ir-fii-venda svg text { fill: var(--muted); font-size: 12px; font-family: var(--font-body); }
+
+/* ---------- Tabela ---------- */
+#ir-fii-venda table {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-collapse: collapse;
+  background: transparent;
+  font-variant-numeric: tabular-nums;
+  font-size: 15px;
+}
+#ir-fii-venda th,
+#ir-fii-venda td {
+  padding: 7px 6px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  text-align: right;
+}
+#ir-fii-venda th:first-child,
+#ir-fii-venda td:first-child { text-align: left; }
+#ir-fii-venda th { color: var(--muted); font-weight: 600; font-size: 12.5px; }
+
+/* ---------- Texto explicativo ---------- */
+#ir-fii-venda .explain { margin-top: 32px; }
+#ir-fii-venda .explain h2 {
+  margin: 0 0 8px;
+  padding: 0;
+  border: 0;
+  font: 700 1.3rem/1.2 var(--font-display);
+  letter-spacing: -.01em;
+  text-transform: none;
+  color: var(--text);
+}
+#ir-fii-venda .explain h2.secao { margin-top: 24px; }
+#ir-fii-venda .explain p,
+#ir-fii-venda .explain li { max-width: 720px; }
+#ir-fii-venda .explain p { margin: 0 0 12px; }
+#ir-fii-venda .explain ul { padding-left: 20px; margin: 0 0 12px; }
+#ir-fii-venda .explain strong { color: var(--text); }
+#ir-fii-venda a { color: var(--link); }
+
+/* ---------- Comum às calculadoras ---------- */
+#ir-fii-venda > .grid { margin-top: 24px; }
+#ir-fii-venda .bloco { margin-top: 16px; }
+#ir-fii-venda .rolagem { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+#ir-fii-venda .barras { display: grid; gap: 10px; margin-top: 6px; }
+#ir-fii-venda .barra { display: grid; grid-template-columns: minmax(0, 150px) minmax(0, 1fr); gap: 4px 12px; align-items: center; }
+#ir-fii-venda .barra .nome { font-size: 14px; font-weight: 600; }
+#ir-fii-venda .barra .trilho { position: relative; height: 26px; background: var(--surface-2); border-radius: 3px; }
+#ir-fii-venda .barra .cheio { position: absolute; inset: 0 auto 0 0; background: var(--serie2); border-radius: 3px; min-width: 2px; }
+#ir-fii-venda .barra.top .cheio { background: var(--accent); }
+#ir-fii-venda .barra .val { position: absolute; left: 8px; top: 50%; transform: translateY(-50%); font: 700 13px/1 var(--font-display); color: var(--text); white-space: nowrap; }
+@media (max-width: 480px) { #ir-fii-venda .barra { grid-template-columns: minmax(0, 1fr); } }
+#ir-fii-venda .opcoes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+#ir-fii-venda .opcoes label { display: inline-flex; align-items: center; gap: 6px; margin: 0; padding: 8px 12px; border: 1px solid var(--border); border-radius: 3px; background: var(--surface-2); color: var(--text); font-weight: 500; cursor: pointer; }
+#ir-fii-venda .opcoes input { width: auto; margin: 0; accent-color: var(--accent); }
+#ir-fii-venda .opcoes label:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+#ir-fii-venda .pergunta { padding: 14px 0; border-bottom: 1px solid var(--border); }
+#ir-fii-venda .pergunta:last-child { border-bottom: 0; }
+#ir-fii-venda .pergunta p { margin: 0 0 6px; font-weight: 600; }
+#ir-fii-venda .selo { display: inline-block; padding: 3px 8px; border-radius: 3px; background: var(--accent-soft); color: var(--accent); font: 700 11.5px/1.3 var(--font-display); text-transform: uppercase; letter-spacing: .08em; }
+#ir-fii-venda .rolagem table { min-width: 520px; }
+
+
+/* ---------- Comum às ferramentas 1.3.0 ---------- */
+#ir-fii-venda [hidden] { display: none !important; }
+#ir-fii-venda .tabela-card { margin-top: 16px; }
+#ir-fii-venda th { white-space: normal; vertical-align: bottom; }
+#ir-fii-venda .legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: -4px 0 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+#ir-fii-venda .legenda span { display: inline-flex; align-items: center; gap: 6px; }
+#ir-fii-venda .sw { display: inline-block; width: 18px; height: 3px; border-radius: 2px; }
+#ir-fii-venda .sw-a { background: var(--accent); height: 4px; }
+#ir-fii-venda .sw-b { background: var(--serie2); }
+#ir-fii-venda .sw-meta { background: repeating-linear-gradient(90deg, var(--amber) 0 5px, transparent 5px 9px); }
+#ir-fii-venda .duplo { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; margin-top: 8px; }
+#ir-fii-venda .duplo .k { font-size: 12.5px; font-weight: 600; color: var(--muted); }
+#ir-fii-venda .duplo .big { font-size: clamp(1.5rem, 4.4vw, 2.3rem); }
+@media (max-width: 420px) { #ir-fii-venda .duplo { grid-template-columns: 1fr; } }
+#ir-fii-venda .cenarios { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+#ir-fii-venda .cenarios button {
+  margin: 0;
+  padding: 6px 10px;
+  font: 600 13px/1.2 var(--font-body);
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-soft);
+  border-radius: 3px;
+  box-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  cursor: pointer;
+}
+#ir-fii-venda .cenarios button:hover { border-color: var(--accent); }
+#ir-fii-venda .cenarios button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+#ir-fii-venda .aviso {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-left: 3px solid var(--amber);
+  background: var(--surface-2);
+  border-radius: 0 3px 3px 0;
+  font-size: 13.5px;
+}
+#ir-fii-venda .fonte { display: block; margin-top: 2px; font-size: 12.5px; color: var(--muted); }
+#ir-fii-venda .regras { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+#ir-fii-venda .regras li { padding: 10px 12px; background: var(--surface-2); border-radius: 3px; font-size: 14.5px; }
+#ir-fii-venda .iec-compacto { margin: 24px 0 0; font-size: 14px; color: var(--muted); }

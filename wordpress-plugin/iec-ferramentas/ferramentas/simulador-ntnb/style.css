@@ -244,3 +244,6 @@
 #sim-ntnb .explain ul { padding-left: 20px; margin: 0 0 12px; }
 #sim-ntnb .explain strong { color: var(--text); }
 #sim-ntnb a { color: var(--link); }
+
+/* ---------- Modo compacto (shortcode modo="compacto") ---------- */
+#sim-ntnb .iec-compacto { margin: 24px 0 0; font-size: 14px; color: var(--muted); }

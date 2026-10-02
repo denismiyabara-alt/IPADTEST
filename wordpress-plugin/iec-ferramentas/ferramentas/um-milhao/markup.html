@@ -1,0 +1,84 @@
+<div id="um-milhao" class="iec-ferramenta">
+  <header>
+    <p class="eyebrow">Planejamento · Ferramenta</p>
+    <h2 class="titulo">Quanto tempo para juntar R$ 1 milhão?</h2>
+    <p>Guardando um valor todo mês, em quanto tempo você chega a R$ 1 milhão, ou a qualquer outra meta? E o contrário: quanto precisa guardar por mês para chegar lá num prazo que você escolhe.</p>
+  </header>
+  <div class="grid">
+    <div class="card">
+      <h3>Seus números</h3>
+      <label for="um-aporte">Quanto você guarda por mês (R$)</label>
+      <input id="um-aporte" type="number" inputmode="decimal" min="0" step="100" value="1000">
+      <label for="um-inicial">Quanto já tem guardado hoje (R$)</label>
+      <input id="um-inicial" type="number" inputmode="decimal" min="0" step="1000" value="0">
+      <label for="um-taxa">Rendimento real (% ao ano, acima da inflação)</label>
+      <input id="um-taxa" type="number" inputmode="decimal" min="0" max="20" step="0.5" value="6">
+      <div class="cenarios" role="group" aria-label="Cenários de rendimento real">
+        <button type="button" data-taxa="3">3% (cauteloso)</button>
+        <button type="button" data-taxa="5">5% (intermediário)</button>
+        <button type="button" data-taxa="7">7% (otimista)</button>
+      </div>
+      <div class="hint">"Real" quer dizer acima da inflação. Usando a taxa real, o resultado sai em dinheiro de hoje: R$ 1 milhão lá na frente compra o que R$ 1 milhão compra hoje. Os três botões são só cenários para comparar, não promessa de rendimento.</div>
+      <label for="um-meta">Meta (R$)</label>
+      <input id="um-meta" type="number" inputmode="decimal" min="1" step="10000" value="1000000">
+      <div class="err" id="um-err" hidden></div>
+    </div>
+    <div class="stack">
+      <div class="card">
+        <div class="fine" id="um-label"></div>
+        <div class="big pos" id="um-tempo"></div>
+        <div class="fine" id="um-tempo-nota"></div>
+        <div class="stats">
+          <div class="stat"><div class="k">Saiu do seu bolso</div><div class="v" id="um-bolso"></div></div>
+          <div class="stat"><div class="k">Veio dos juros</div><div class="v" id="um-juros"></div></div>
+          <div class="stat"><div class="k">Patrimônio no mês da meta</div><div class="v" id="um-final"></div></div>
+        </div>
+        <div class="story" id="um-story"></div>
+      </div>
+      <div class="card">
+        <h3>Patrimônio ao longo do tempo</h3>
+        <div class="legenda">
+          <span><i class="sw sw-a"></i>Patrimônio</span>
+          <span><i class="sw sw-b"></i>Só o que você guardou</span>
+          <span><i class="sw sw-meta"></i>Meta</span>
+        </div>
+        <svg id="um-graf" viewBox="0 0 600 300" role="img" aria-label="Patrimônio acumulado mês a mês até a meta, comparado ao total guardado"></svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="card tabela-card">
+    <h3>E o inverso: quanto guardar por mês?</h3>
+    <div class="row2">
+      <div><label for="um-anos">Quero chegar à meta em (anos)</label><input id="um-anos" type="number" inputmode="numeric" min="1" max="60" step="1" value="20"></div>
+      <div><div class="fine">Você precisa guardar por mês</div><div class="big pos" id="um-inv"></div></div>
+    </div>
+    <div class="fine nota-base" id="um-inv-nota"></div>
+  </div>
+
+  <div class="card tabela-card">
+    <h3>Ano a ano</h3>
+    <div class="rolagem">
+      <table>
+        <thead><tr><th>Ano</th><th>Guardado no total</th><th>Juros acumulados</th><th>Patrimônio no fim do ano</th></tr></thead>
+        <tbody id="um-tabela"></tbody>
+      </table>
+    </div>
+    <div class="fine nota-base">Valores em dinheiro de hoje, porque a taxa é real. A tabela vai até o ano em que a meta é alcançada.</div>
+  </div>
+
+  <section class="explain">
+    <h2>Por que o começo parece tão lento?</h2>
+    <p>Nos primeiros anos, quase tudo o que aparece no patrimônio é dinheiro que saiu do seu bolso. Os juros ainda são pequenos porque incidem sobre pouco. Com o tempo, o saldo cresce e os juros de cada ano passam a ser maiores que os seus aportes. É aí que a curva do gráfico empina.</p>
+    <p>Por isso, dois caminhos encurtam o prazo: guardar mais e começar antes. Mexa no aporte e veja quantos anos cada R$ 100 a mais por mês economiza.</p>
+    <h2 class="secao">Premissas da calculadora</h2>
+    <ul class="fine">
+      <li>Taxa real constante durante todo o prazo. Na vida real o rendimento varia, e pode ser negativo em alguns anos.</li>
+      <li>A taxa mensal é a equivalente da anual: (1 + taxa ao ano) elevado a 1/12, menos 1. Com 6% ao ano, dá cerca de 0,487% ao mês.</li>
+      <li>O aporte entra no fim de cada mês, sempre do mesmo valor em dinheiro de hoje (ou seja, você o corrige pela inflação todo ano).</li>
+      <li>Para transformar uma taxa nominal em real: (1 + taxa nominal) ÷ (1 + inflação) − 1. Exemplo: 11% ao ano com inflação de 4,5% dá cerca de 6,2% real.</li>
+      <li>Sem Imposto de Renda, taxas ou custos. Na prática eles reduzem o rendimento e alongam o prazo.</li>
+      <li>Fórmulas de matemática financeira, conferidas em 02/10/2026. Ferramenta educativa: não é recomendação de investimento nem promessa de rendimento.</li>
+    </ul>
+  </section>
+</div>

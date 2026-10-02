@@ -14,7 +14,7 @@ Metodologia: fluxos descontados por (1 + taxa)^(DU/252), cupom de 2,956301% ao s
 O jeito mais robusto de publicar é o plugin em `wordpress-plugin/`. Ele carrega o CSS e o JS como arquivos, sem colar script na página, e já vem com o visual do site.
 
 - Pacote instalável: `wordpress-plugin/dist/iec-ferramentas.zip`
-- Shortcode: `[iec_ferramenta id="simulador-ntnb"]`
+- Shortcode: `[iec_ferramenta id="simulador-ntnb"]` (11 ferramentas na versão 1.3.0, lista e atributos opcionais no README do plugin)
 - Instruções: `wordpress-plugin/iec-ferramentas/README.md`
 - Para regerar o .zip: `wordpress-plugin/empacotar.sh`
 

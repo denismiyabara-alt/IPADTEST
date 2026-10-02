@@ -1,0 +1,66 @@
+<div id="jcp-liquido" class="iec-ferramenta">
+  <header>
+    <p class="eyebrow">Ações · Ferramenta</p>
+    <h2 class="titulo">Calculadora de JCP líquido</h2>
+    <p>A empresa anunciou juros sobre capital próprio (JCP)? Veja quanto cai de fato na sua conta depois do Imposto de Renda retido na fonte e compare com um dividendo do mesmo valor.</p>
+  </header>
+  <div class="grid">
+    <div class="card">
+      <h3>O JCP anunciado</h3>
+      <fieldset class="opcoes" id="jcp-forma">
+        <legend>Como você quer informar</legend>
+        <label><input type="radio" name="jcp-forma" value="acao" checked> Valor por ação</label>
+        <label><input type="radio" name="jcp-forma" value="total"> Valor total</label>
+      </fieldset>
+      <div id="jcp-campos-acao">
+        <label for="jcp-por-acao">JCP bruto por ação (R$)</label>
+        <input id="jcp-por-acao" type="number" inputmode="decimal" min="0" step="0.01" value="1.00">
+        <label for="jcp-qtd">Quantidade de ações</label>
+        <input id="jcp-qtd" type="number" inputmode="numeric" min="1" step="1" value="100">
+      </div>
+      <div id="jcp-campos-total" hidden>
+        <label for="jcp-total">JCP bruto total (R$)</label>
+        <input id="jcp-total" type="number" inputmode="decimal" min="0" step="10" value="100">
+      </div>
+      <label for="jcp-data">Data do crédito ou do pagamento (o que vier primeiro)</label>
+      <input id="jcp-data" type="date" value="">
+      <div class="hint">O valor anunciado pela empresa é o bruto. Valores de exemplo: troque pelos do comunicado da empresa.</div>
+      <div class="err" id="jcp-err" hidden></div>
+    </div>
+    <div class="stack">
+      <div class="card">
+        <div class="fine" id="jcp-label"></div>
+        <div class="big pos" id="jcp-liq"></div>
+        <div class="fine" id="jcp-liq-acao"></div>
+        <div class="stats">
+          <div class="stat"><div class="k">JCP bruto</div><div class="v" id="jcp-bruto"></div></div>
+          <div class="stat"><div class="k" id="jcp-ir-k">IR retido</div><div class="v neg" id="jcp-ir"></div></div>
+          <div class="stat"><div class="k">Dividendo do mesmo valor, líquido</div><div class="v" id="jcp-div"></div></div>
+          <div class="stat"><div class="k">Diferença a favor do dividendo</div><div class="v" id="jcp-dif"></div></div>
+        </div>
+        <div class="story" id="jcp-story"></div>
+      </div>
+      <div class="card">
+        <h3>As regras, em uma frase cada</h3>
+        <ul class="regras">
+          <li><strong>JCP:</strong> desde 01/01/2026, a empresa retém 17,5% de Imposto de Renda sobre o JCP pago ou creditado; até 31/12/2025 eram 15%. Para pessoa física, essa retenção é definitiva: não há imposto a mais na declaração.<span class="fonte">Fonte: Lei 9.249/1995, art. 9º, com a alíquota alterada pela Lei Complementar 224/2025. Conferido em 02/10/2026.</span></li>
+          <li><strong>Dividendo:</strong> continua isento até R$ 50 mil por mês da mesma empresa; acima disso, a empresa retém 10% sobre o total pago no mês, como antecipação do imposto da declaração anual.<span class="fonte">Fonte: Lei 15.270/2025, em vigor desde 01/01/2026, e orientação da Receita Federal. Conferido em 02/10/2026.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <section class="explain">
+    <h2>JCP e dividendo: qual a diferença?</h2>
+    <p>Os dois são formas de a empresa dividir o lucro com os acionistas. A diferença está no imposto. O JCP é uma despesa para a empresa, que paga menos imposto por isso, e quem recebe paga IR na fonte. O dividendo sai do lucro já tributado da empresa e, para a maioria das pessoas, chega sem desconto.</p>
+    <p>Por isso, R$ 1,00 de JCP vira R$ 0,825 na sua conta, enquanto R$ 1,00 de dividendo continua R$ 1,00, a não ser que a mesma empresa pague a você mais de R$ 50 mil no mês.</p>
+    <h2 class="secao">Premissas da calculadora</h2>
+    <ul class="fine">
+      <li>Investidor pessoa física residente no Brasil. Fundos, empresas, investidores estrangeiros e contas isentas seguem outras regras.</li>
+      <li>A alíquota do JCP depende da data em que ele foi pago ou creditado, o que vier primeiro: 15% até 31/12/2025 e 17,5% a partir de 01/01/2026 (Lei Complementar 224/2025).</li>
+      <li>Na comparação, o dividendo é o único que você recebe da empresa naquele mês. Se houver outros pagamentos de lucros ou dividendos da mesma empresa no mês, é a soma deles que conta para o limite de R$ 50 mil (Lei 15.270/2025).</li>
+      <li>Lucros apurados até 2025, com distribuição aprovada até 31/12/2025, ficam fora da retenção de 10%, pela regra de transição da Lei 15.270/2025.</li>
+      <li>A retenção de 10% sobre dividendos é antecipação: ela entra na declaração anual, onde também se calcula o imposto mínimo de quem tem renda alta (mesma lei). A calculadora não faz esse ajuste.</li>
+      <li>Regras conferidas em 02/10/2026. Leis mudam: confira o informe de rendimentos da sua corretora e o site da Receita Federal. Ferramenta educativa, não é recomendação de investimento.</li>
+    </ul>
+  </section>
+</div>

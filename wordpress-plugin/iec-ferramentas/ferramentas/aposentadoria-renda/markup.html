@@ -1,0 +1,70 @@
+<div id="aposentadoria-renda" class="iec-ferramenta">
+  <header>
+    <p class="eyebrow">Planejamento · Ferramenta</p>
+    <h2 class="titulo">Simulador de aposentadoria: renda passiva e INSS</h2>
+    <p>Quanto patrimônio você precisaria para viver de renda, somando o que espera do INSS? E quanto falta, no ritmo de hoje? Uma simulação para ter ordem de grandeza, não um plano de aposentadoria.</p>
+  </header>
+  <div class="grid">
+    <div class="card">
+      <h3>Seus números</h3>
+      <div class="row2">
+        <div><label for="ap-idade">Sua idade hoje</label><input id="ap-idade" type="number" inputmode="numeric" min="14" max="90" step="1" value="35"></div>
+        <div><label for="ap-alvo">Idade para parar</label><input id="ap-alvo" type="number" inputmode="numeric" min="15" max="100" step="1" value="60"></div>
+      </div>
+      <label for="ap-renda">Renda mensal que você quer (R$ de hoje)</label>
+      <input id="ap-renda" type="number" inputmode="decimal" min="1" step="500" value="6000">
+      <label for="ap-inss">Benefício do INSS que você espera (R$ de hoje por mês)</label>
+      <input id="ap-inss" type="number" inputmode="decimal" min="0" step="100" value="0">
+      <div class="hint">O valor depende do seu histórico de contribuições e das regras de cada caso. Veja a sua estimativa no Meu INSS. Em 2026, nenhum benefício passa do teto de R$ 8.475,55 por mês (Portaria Interministerial MPS/MF nº 13/2026, conferido em 02/10/2026). Deixe 0 para não contar com o INSS.</div>
+      <label for="ap-patrimonio">Quanto já tem investido (R$)</label>
+      <input id="ap-patrimonio" type="number" inputmode="decimal" min="0" step="1000" value="50000">
+      <label for="ap-aporte">Quanto guarda por mês (R$)</label>
+      <input id="ap-aporte" type="number" inputmode="decimal" min="0" step="100" value="1500">
+      <div class="row2">
+        <div><label for="ap-taxa">Rendimento real (% ao ano)</label><input id="ap-taxa" type="number" inputmode="decimal" min="0" max="15" step="0.5" value="4"></div>
+        <div><label for="ap-retirada">Retirada anual (% do patrimônio)</label><input id="ap-retirada" type="number" inputmode="decimal" min="1" max="10" step="0.25" value="4"></div>
+      </div>
+      <div class="hint">"Real" quer dizer acima da inflação: assim tudo fica em dinheiro de hoje. A retirada é quanto do patrimônio você tira por ano depois de parar; o padrão de 4% está explicado abaixo.</div>
+      <div class="err" id="ap-err" hidden></div>
+      <div class="aviso" id="ap-aviso" hidden></div>
+    </div>
+    <div class="stack">
+      <div class="card">
+        <div class="fine" id="ap-label"></div>
+        <div class="big" id="ap-necessario"></div>
+        <div class="fine" id="ap-necessario-nota"></div>
+        <div class="stats">
+          <div class="stat"><div class="k" id="ap-proj-k">Você teria aos 60</div><div class="v" id="ap-proj"></div></div>
+          <div class="stat"><div class="k">Quanto falta</div><div class="v" id="ap-falta"></div></div>
+          <div class="stat"><div class="k">Aporte mensal necessário</div><div class="v" id="ap-aporte-nec"></div></div>
+          <div class="stat"><div class="k">No ritmo de hoje, chega com</div><div class="v" id="ap-idade-chega"></div></div>
+        </div>
+        <div class="story" id="ap-story"></div>
+      </div>
+      <div class="card">
+        <h3>Patrimônio até a idade de parar</h3>
+        <div class="legenda">
+          <span><i class="sw sw-a"></i>Com o aporte de hoje</span>
+          <span><i class="sw sw-b"></i>Com o aporte necessário</span>
+          <span><i class="sw sw-meta"></i>Patrimônio necessário</span>
+        </div>
+        <svg id="ap-graf" viewBox="0 0 600 300" role="img" aria-label="Patrimônio projetado por idade com o aporte atual e com o aporte necessário, comparado ao patrimônio necessário"></svg>
+      </div>
+    </div>
+  </div>
+  <section class="explain">
+    <h2>De onde vem a "regra dos 4%"?</h2>
+    <p>De estudos com dados históricos dos Estados Unidos, como o de William Bengen (1994) e o chamado Trinity Study (1998). Eles testaram quanto uma pessoa poderia tirar por ano de uma carteira de ações e títulos, corrigindo pela inflação, sem o dinheiro acabar em 30 anos. Em quase todos os períodos, 4% do patrimônio inicial aguentaram.</p>
+    <p>Isso não é garantia, e não existe estudo equivalente com o mesmo peso para o Brasil. Por isso a retirada é ajustável: com 3% você precisa de mais patrimônio, mas tem mais folga; com 5%, precisa de menos, mas o risco de o dinheiro acabar é maior. Se a retirada for igual ou menor que o rendimento real, em tese você vive só dos rendimentos e o patrimônio não encolhe.</p>
+    <p>A conta do patrimônio necessário é simples: (renda desejada − INSS) × 12 ÷ retirada. Com R$ 6.000 por mês e retirada de 4%, dá R$ 6.000 × 12 ÷ 0,04 = R$ 1,8 milhão.</p>
+    <h2 class="secao">Premissas do simulador</h2>
+    <ul class="fine">
+      <li>É uma simulação, não um planejamento financeiro. Não considera sua saúde, sua família, imprevistos, imposto nem mudanças de regra.</li>
+      <li>Tudo em dinheiro de hoje: rendimento, renda desejada e benefício do INSS são reais, acima da inflação. O aporte mensal é corrigido pela inflação todo ano.</li>
+      <li>Rendimento real constante, com taxa mensal equivalente: (1 + taxa ao ano) elevado a 1/12, menos 1. O aporte entra no fim de cada mês.</li>
+      <li>O benefício do INSS é o valor que você informar. O simulador não calcula benefício, tempo de contribuição nem idade mínima. Teto de 2026: R$ 8.475,55 (Portaria Interministerial MPS/MF nº 13, de 09/01/2026; conferido em 02/10/2026).</li>
+      <li>Sem Imposto de Renda e sem custos sobre os rendimentos e as retiradas. Na prática eles aumentam o patrimônio necessário.</li>
+      <li>Ferramenta educativa. Não é recomendação de investimento nem promessa de rendimento.</li>
+    </ul>
+  </section>
+</div>

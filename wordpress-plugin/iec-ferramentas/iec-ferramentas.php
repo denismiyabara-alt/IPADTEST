@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       IEC Ferramentas
  * Description:       Calculadoras e simuladores do Investir e Coçar. Use o shortcode [iec_ferramenta id="..."], por exemplo [iec_ferramenta id="simulador-ntnb"].
- * Version:           1.2.0
+ * Version:           1.3.0
  * Requires at least: 5.6
  * Requires PHP:      7.4
  * Author:            Investir e Coçar
@@ -91,13 +91,71 @@ function iec_ferramentas_wp_enqueue_scripts() {
 add_action( 'wp_enqueue_scripts', 'iec_ferramentas_wp_enqueue_scripts' );
 
 /**
+ * Preenche campos da ferramenta com atributos do shortcode.
+ * Cada atributo extra cujo nome é o id de um <input> do markup troca o value desse campo.
+ * Só aceita número (ex.: 1500 ou 6,5) ou data (AAAA-MM-DD); qualquer outra coisa é ignorada.
+ */
+function iec_ferramentas_preencher( $markup, $atts ) {
+	foreach ( $atts as $campo => $valor ) {
+		if ( ! is_string( $campo ) || in_array( $campo, array( 'id', 'modo', 'metodologia' ), true ) ) {
+			continue;
+		}
+		if ( ! preg_match( '/^[a-z0-9][a-z0-9_-]*$/', $campo ) ) {
+			continue;
+		}
+		$valor = trim( (string) $valor );
+		if ( preg_match( '/^-?\d+(?:[.,]\d+)?$/', $valor ) ) {
+			$valor = str_replace( ',', '.', $valor );
+		} elseif ( ! preg_match( '/^\d{4}-\d{2}-\d{2}$/', $valor ) ) {
+			continue;
+		}
+		$markup = preg_replace(
+			'/(<input id="' . preg_quote( $campo, '/' ) . '"[^>]*?\svalue=")[^"]*(")/',
+			'${1}' . $valor . '${2}',
+			$markup,
+			1
+		);
+	}
+	return $markup;
+}
+
+/**
+ * modo="compacto": tira a seção explicativa (<section class="explain">) e põe uma linha
+ * com o aviso educativo e, se houver, o link para a metodologia. Serve para páginas que
+ * repetem a mesma ferramenta muitas vezes (ex.: uma página por ativo).
+ */
+function iec_ferramentas_compactar( $markup, $metodologia ) {
+	$linha = 'Ferramenta educativa, não é recomendação de investimento.';
+	if ( '' !== $metodologia ) {
+		$linha .= ' <a href="' . esc_url( $metodologia ) . '">Veja as premissas e a metodologia</a>.';
+	}
+	$markup = preg_replace_callback(
+		'/\s*<section class="explain">.*?<\/section>/s',
+		function () use ( $linha ) {
+			return "\n  <p class=\"iec-compacto\">" . $linha . '</p>';
+		},
+		$markup,
+		1
+	);
+	return preg_replace(
+		'/<div id="([a-z0-9_-]+)" class="iec-ferramenta"/',
+		'<div id="$1" class="iec-ferramenta" data-modo="compacto"',
+		$markup,
+		1
+	);
+}
+
+/**
  * [iec_ferramenta id="simulador-ntnb"]
+ * Opcional: modo="compacto", metodologia="/link/" e um atributo por campo a preencher,
+ * ex.: [iec_ferramenta id="um-milhao" um-aporte="1500" um-taxa="5" modo="compacto"].
  * Devolve só o HTML. CSS e JS vão por wp_enqueue_*, fora do the_content.
  */
 function iec_ferramentas_shortcode( $atts ) {
-	$atts  = shortcode_atts( array( 'id' => '' ), $atts, 'iec_ferramenta' );
-	$id    = sanitize_key( $atts['id'] );
-	$pasta = iec_ferramentas_pasta( $id );
+	$brutos = is_array( $atts ) ? $atts : array();
+	$atts   = shortcode_atts( array( 'id' => '', 'modo' => '', 'metodologia' => '' ), $brutos, 'iec_ferramenta' );
+	$id     = sanitize_key( $atts['id'] );
+	$pasta  = iec_ferramentas_pasta( $id );
 
 	if ( null === $pasta ) {
 		if ( current_user_can( 'edit_posts' ) ) {
@@ -110,6 +168,13 @@ function iec_ferramentas_shortcode( $atts ) {
 	iec_ferramentas_enfileirar( $id );
 
 	$markup = file_get_contents( $pasta . 'markup.html' );
-	return false === $markup ? '' : $markup;
+	if ( false === $markup ) {
+		return '';
+	}
+	$markup = iec_ferramentas_preencher( $markup, $brutos );
+	if ( 'compacto' === $atts['modo'] ) {
+		$markup = iec_ferramentas_compactar( $markup, trim( (string) $atts['metodologia'] ) );
+	}
+	return $markup;
 }
 add_shortcode( 'iec_ferramenta', 'iec_ferramentas_shortcode' );

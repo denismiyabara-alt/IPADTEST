@@ -255,3 +255,6 @@
   letter-spacing: .1em;
   color: var(--muted);
 }
+
+/* ---------- Modo compacto (shortcode modo="compacto") ---------- */
+#renda-fii .iec-compacto { margin: 24px 0 0; font-size: 14px; color: var(--muted); }
