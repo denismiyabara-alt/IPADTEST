@@ -2,21 +2,21 @@
  "post_id": 15955,
  "url": "https://investirecocaresocomecar.com.br/trxf11-queda-23-por-cento-13a-emissao-dividendos/",
  "lote": "L3",
- "motivo": "Links internos: TRXF11 -> /trxf11-faria-lima-dos-galpoes-vale-o-hype/",
+ "motivo": "Links internos: TRXF11 -> /trxf11-buraco-22-reais-cota-compensacao-de-creditos/",
  "trocas": [
   {
    "de": "dizendo que o TRXF11 é uma",
-   "para": "dizendo que o <a href=\"https://investirecocaresocomecar.com.br/trxf11-faria-lima-dos-galpoes-vale-o-hype/\">TRXF11</a> é uma",
+   "para": "dizendo que o <a href=\"https://investirecocaresocomecar.com.br/trxf11-buraco-22-reais-cota-compensacao-de-creditos/\">TRXF11</a> é uma",
    "de_rendered": "dizendo que o TRXF11 é uma"
   }
  ],
  "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
  "links": [
   {
-   "url": "https://investirecocaresocomecar.com.br/trxf11-faria-lima-dos-galpoes-vale-o-hype/",
-   "destino": "TRXF11 pagou R$1,43 bilhão num galpão — vale a pena investir?",
+   "url": "https://investirecocaresocomecar.com.br/trxf11-buraco-22-reais-cota-compensacao-de-creditos/",
+   "destino": "TRXF11: de onde vem o buraco de R$ 22 por cota e quem paga essa conta",
    "ancora": "TRXF11",
-   "similaridade": 0.258
+   "similaridade": 0.222
   }
  ]
 }

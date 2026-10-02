@@ -6,14 +6,16 @@ Feito em 02/10/2026, só leitura no site. Aqui ficam os **patches**. Quem aplica
 
 | Lote | O que liga | Posts (patches) | Links novos |
 |---|---|---|---|
-| **L1** | as 11 ferramentas do plugin `iec-ferramentas` 1.3.0 | 61 | 80 |
+| **L1** | as 11 ferramentas do plugin `iec-ferramentas` 1.3.0 | 60 | 80 |
 | **L2** | os 6 guias corrigidos ou reescritos (4873, 4874, 5091, 1053, 993, 4537) | 33 | 40 |
-| **L3** | órfãos restantes do `seo/sugestoes-links.csv`, pelo ticker do título | 22 | 26 |
-| **Total** | | **116** | **146** |
+| **L3** | órfãos restantes do `seo/sugestoes-links.csv` e substitutos neutros, pelo ticker do título | 10 | 10 |
+| **Total** | | **103** | **130** |
 
-Cada post entra em um lote só, e cada lote tem um patch por post. Dos 116 posts, 89 ganham 1 link, 24 ganham 2 e 3 ganham 3. Nenhum post passa de 3.
+Cada post entra em um lote só, e cada lote tem um patch por post. Dos 103 posts, 80 ganham 1 link, 19 ganham 2 e 4 ganham 3. Nenhum post passa de 3.
 
-O detalhe de cada link está em [`resumo.csv`](resumo.csv): lote, origem, destino, âncora, `de`, `para` e se o destino era órfão.
+A primeira versão tinha 116 posts e 146 links (L1 61/80, L2 33/40, L3 22/26). Depois da revisão, saíram os destinos com título ou endereço de recomendação e os posts do `posts-para-refresh.csv`; veja [Destinos excluídos por título](#destinos-excluídos-por-título). Também saíram os posts 1198 e 2649, que viraram rascunho. Quem mais perdeu foi o L3. L1 e L2 continuam com os mesmos destinos e as mesmas contagens.
+
+O detalhe de cada link está em [`resumo.csv`](resumo.csv): lote, origem, destino, âncora, `de`, `para` e se o destino era órfão. Os destinos barrados estão em [`destinos-bloqueados.csv`](destinos-bloqueados.csv).
 
 ## Onde as ferramentas estão publicadas
 
@@ -33,7 +35,7 @@ Nenhum post em cache tem o shortcode `[iec_ferramenta]`. As ferramentas estão e
 | aposentadoria-renda | `/calculadora-aposentadoria-renda-passiva/` (19545) |
 | ir-fii-venda | `/calculadora-ir-venda-fii/` (19547) |
 
-⚠️ O **post 1198** e a **página 19504** usam o mesmo endereço, `/calculadora-juros-anual-para-mensal/`. O mesmo acontece com o post 2649 e a página 2658 (`/carteira-recomendada-fundos-imobiliarios-agosto-2025/`). Só um dos dois aparece para o visitante. Vale tirar o post antigo do ar ou mudar o slug dele. O 1198 ficou fora como origem.
+**Posts 1198 e 2649 (rascunho):** os dois viraram rascunho no WordPress. O endereço `/calculadora-juros-anual-para-mensal/` ficou com a página da ferramenta (19504), e `/carteira-recomendada-fundos-imobiliarios-agosto-2025/` ficou com a página 2658. Os dois posts estão fora como origem e como destino (`RASCUNHO` no `gerar_links.py`): nenhum patch para eles e nenhum link para eles. Os 3 links para `/calculadora-juros-anual-para-mensal/` continuam valendo, porque o endereço agora é da ferramenta.
 
 ## Destinos: quantos links cada um recebe
 
@@ -61,11 +63,58 @@ Nenhum post em cache tem o shortcode `[iec_ferramenta]`. As ferramentas estão e
 
 O teto foi de 8 links por ferramenta e 10 por guia. Os que ficaram abaixo do teto não tinham mais frases boas: o "juros anual para mensal" pede "taxa mensal" ou "juros ao mês" num post de tema próximo, e o 4537 pede "JEPI39" ou "ETF de dividendos", mas sem citar o JEPQ39 na mesma frase.
 
-## Órfãos que deixam de ser órfãos (31)
+## Destinos excluídos por título
+
+Nenhum post recebe link se:
+
+- o título for barrado pela regra **RECOMENDACAO_TITULO** do gate de qualidade (`pipeline/gate_qualidade.py`, branch `gate-qualidade` do repositório investir-e-cocar). A regex `RE_RECOM_TITULO` foi copiada sem mudança, e um teste compara a cópia com o gate quando ele está na máquina;
+- **o endereço** cair na mesma regra. Isso vale também quando o título já foi neutralizado, como em `/ambev-abev3-resultado-1t26-vale-a-pena-investir/`, cujo título passa no gate mas cujo slug diz "vale a pena";
+- o post estiver no **`site-ativos/posts-para-refresh.csv`**.
+
+Os links que caíram foram trocados, quando deu, por outro post do mesmo ativo com título e endereço neutros, que recebe as mesmas origens sugeridas (coluna "substituto"). Não há página de ativo do site-ativos publicada para usar no lugar. Quando não há substituto, a frase fica sem link.
+
+A coluna "links" mostra quantos links o post receberia se o bloqueio caísse: a mesma seleção, refeita com ele na lista. Quando o título (e o slug, com 301) for corrigido e o post sair do `posts-para-refresh.csv`, basta rodar o `gerar_links.py` de novo para ele voltar a receber links.
+
+| Destino | Links | Motivo | Substituto |
+|---|---|---|---|
+| /ambev-abev3-resultado-1t26-vale-a-pena-investir/ | 2 | endereço com "vale a pena" | — |
+| /banco-do-brasil-bbas3-corte-dividendo-payout-2026/ | 2 | título com "vale a pena" (RECOMENDACAO_TITULO); está no site-ativos/posts-para-refresh.csv | /bbas3-resultado-2t-cartao-de-credito-inadimplencia/ |
+| /banco-do-brasil-ou-itau-melhor-acao-dividendos-2026/ | 2 | título com "qual a melhor" (RECOMENDACAO_TITULO); endereço com "melhor acao" | — |
+| /bbas3-roe-abaixo-selic-banco-do-brasil-dividendos-2026/ | 2 | título com "Vale a Pena" (RECOMENDACAO_TITULO); está no site-ativos/posts-para-refresh.csv | — |
+| /o-melhor-etf-de-bitcoin-da-b3-hodl11-comparacao-completa-com-bith11-qbtc11-e-biti11/ | 2 | título com "Melhor ETF" (RECOMENDACAO_TITULO); endereço com "melhor etf" | — |
+| /bradsaude-saud3-lucro-sobe-acao-cai-sinistralidade/ | 1 | título com "vale a pena" (RECOMENDACAO_TITULO) | — |
+| /copel-cple3-dividendo-cortado-vale-a-pena-investir/ | 1 | título com "Vale a pena" (RECOMENDACAO_TITULO); endereço com "vale a pena" | — |
+| /cxse3-bbse3-rebaixamento-jpmorgan-vale-a-pena/ | 1 | título com "Vale a pena" (RECOMENDACAO_TITULO); endereço com "vale a pena" | — |
+| /ipo-compass-pass3-vale-a-pena-investir/ | 1 | título com "Vale a Pena" (RECOMENDACAO_TITULO); endereço com "vale a pena" | /pass3-compass-ipo-conflito-de-interesse-bancos-coordenadores/ |
+| /opa-santander-brasil-sanb11-minoritario-refem/ | 1 | título com "vale a pena" (RECOMENDACAO_TITULO) | — |
+| /trxf11-faria-lima-dos-galpoes-vale-o-hype/ | 1 | título com "vale a pena" (RECOMENDACAO_TITULO); está no site-ativos/posts-para-refresh.csv | /trxf11-buraco-22-reais-cota-compensacao-de-creditos/ |
+| /vale3-cobre-ia-vale-a-pena-investir/ | 1 | título com "vale a pena" (RECOMENDACAO_TITULO); endereço com "vale a pena"; está no site-ativos/posts-para-refresh.csv | — |
+| /vivt3-dividendos-conta-celular-gratis-para-sempre/ | 1 | título com "Vale a Pena" (RECOMENDACAO_TITULO) | — |
+| /weg-wege3-lucro-cai-acao-sobe-vale-a-pena-investir/ | 1 | título com "vale a pena" (RECOMENDACAO_TITULO); endereço com "vale a pena" | — |
+| /%f0%9f%9a%80-tesla-tsla34-vale-a-pena-descubra-se-ainda-faz-sentido-investir-em-2025/ | 0 | título com "Vale a Pena" (RECOMENDACAO_TITULO); endereço com "vale a pena" | — |
+| /auau3-petz-cobasi-sinergia-vale-a-pena-investir/ | 0 | título com "vale a pena" (RECOMENDACAO_TITULO); endereço com "vale a pena" | — |
+| /aura-minerals-aura33-vale-a-pena-investir-turnaround/ | 0 | título com "Vale a Pena" (RECOMENDACAO_TITULO); endereço com "vale a pena" | — |
+| /brco11-gpa-quebrou-contrato-vale-a-pena-investir/ | 0 | endereço com "vale a pena" | — |
+| /calendario-dividendos-julho-2026-logg3-vale-a-pena/ | 0 | título com "Vale a Pena" (RECOMENDACAO_TITULO); endereço com "vale a pena" | — |
+| /goat11-o-etf-hibrido-da-b3-com-80-em-renda-fixa-e-20-em-variavel-vale-a-pena-investir/ | 0 | título com "Vale a Pena" (RECOMENDACAO_TITULO); endereço com "vale a pena" | — |
+| /hype3-santander-conviccao-corte-preco-alvo-vale-a-pena/ | 0 | título com "vale a pena" (RECOMENDACAO_TITULO); endereço com "vale a pena" | — |
+| /kncr11-subscricao-vale-a-pena/ | 0 | título com "Vale a Pena" (RECOMENDACAO_TITULO); endereço com "vale a pena"; está no site-ativos/posts-para-refresh.csv | — |
+| /nike-adidas-copa-2026-bolsa-nike34-vale-a-pena/ | 0 | título com "Vale a pena" (RECOMENDACAO_TITULO); endereço com "vale a pena" | — |
+| /petr4-65-por-cento-lucro-estatais-vale-a-pena-investir/ | 0 | título com "vale a pena" (RECOMENDACAO_TITULO); endereço com "vale a pena"; está no site-ativos/posts-para-refresh.csv | — |
+| /radl3-mercado-livre-ozempic-vale-a-pena-comprar-a-queda/ | 0 | título com "vale a pena" (RECOMENDACAO_TITULO); endereço com "vale a pena" | — |
+| /rara11-etf-terras-raras-vale-a-pena-investir/ | 0 | título com "vale a pena" (RECOMENDACAO_TITULO); endereço com "vale a pena" | — |
+| /ugpa3-ultrapar-dividendos-2026-vale-a-pena/ | 0 | endereço com "vale a pena" | — |
+| /weg-wege3-cai-mais-de-7-apos-resultados-do-4t24-e-hora-de-comprar/ | 0 | título com "Hora de Comprar" (RECOMENDACAO_TITULO); endereço com "hora de comprar" | — |
+
+São 28 destinos, que receberiam 19 links no total. Os que aparecem com 0 não ganhariam link de qualquer jeito, porque não houve frase boa nas origens sugeridas.
+
+## Órfãos que deixam de ser órfãos (17)
 
 - **Ferramentas (9):** `/simulador-renda-fii/`, `/calculadora-lci-lca-cdb/`, `/calculadora-cdb-lci-prefixado-ipca/`, `/quiz-perfil-de-investidor/`, `/calculadora-preco-justo/`, `/calculadora-1-milhao/`, `/calculadora-jcp-liquido/`, `/calculadora-aposentadoria-renda-passiva/` e `/calculadora-ir-venda-fii/`.
 - **Guias (3):** `/fundos-imobiliarios-o-que-sao-fiis/` (4874), `/quem-a-itausa-controla-conheca-suas-empresas/` (993) e `/o-que-e-bova11/` (5091).
-- **L3 (19):** `/abev3-copa-2026-vale-investir-pausa-hidratacao/`, `/ambev-abev3-resultado-1t26-vale-a-pena-investir/`, `/acoes-do-nubank-roxo34-despencam-10-o-que-aconteceu-e-o-que-esperar/`, `/banco-do-brasil-bbas3-corte-dividendo-payout-2026/`, `/banco-do-brasil-ou-itau-melhor-acao-dividendos-2026/`, `/bbas3-roe-abaixo-selic-banco-do-brasil-dividendos-2026/`, `/bbse3-cxse3-pssa3-melhor-seguradora-dividendos/`, `/cxse3-bbse3-rebaixamento-jpmorgan-vale-a-pena/`, `/bradsaude-saud3-lucro-sobe-acao-cai-sinistralidade/`, `/saud3-bradesco-vai-fechar-capital-bradsaude/`, `/compass-pass3-bancos-ipo-recomendam-compra-conflito-interesse/`, `/ipo-compass-pass3-vale-a-pena-investir/`, `/copel-cple3-dividendo-cortado-vale-a-pena-investir/`, `/o-melhor-etf-de-bitcoin-da-b3-hodl11-comparacao-completa-com-bith11-qbtc11-e-biti11/`, `/opa-santander-brasil-sanb11-minoritario-refem/`, `/trxf11-faria-lima-dos-galpoes-vale-o-hype/`, `/vale3-cobre-ia-vale-a-pena-investir/`, `/vivt3-dividendos-conta-celular-gratis-para-sempre/` e `/weg-wege3-lucro-cai-acao-sobe-vale-a-pena-investir/`.
+- **L3 (5):** `/abev3-copa-2026-vale-investir-pausa-hidratacao/`, `/acoes-do-nubank-roxo34-despencam-10-o-que-aconteceu-e-o-que-esperar/`, `/bbse3-cxse3-pssa3-melhor-seguradora-dividendos/`, `/compass-pass3-bancos-ipo-recomendam-compra-conflito-interesse/` e `/saud3-bradesco-vai-fechar-capital-bradsaude/`.
+- O L3 também manda links para 2 substitutos que já recebiam link, então não contam como órfãos resolvidos: `/bbas3-resultado-2t-cartao-de-credito-inadimplencia/` (2 links) e `/trxf11-buraco-22-reais-cota-compensacao-de-creditos/` (1 link).
+- ⚠️ `/bbse3-cxse3-pssa3-melhor-seguradora-dividendos/` tem o título "BBSE3 vs CXSE3 vs PSSA3: qual **é** a melhor seguradora para dividendos?". Ele passa no gate, porque a regra pega "qual a melhor" e não "qual é a melhor". Se quiserem barrar esse também, a mudança tem de ser no gate.
 
 Os outros órfãos do `sugestoes-links.csv` continuam sem link. Ou o título não tem um ticker que apareça numa frase boa das origens sugeridas, ou o post tem achado CRÍTICO sem correção, ou ele vai ser redirecionado. Para eles, a âncora precisa ser escolhida à mão.
 
@@ -87,8 +136,8 @@ Quem faz tudo é o [`gerar_links.py`](gerar_links.py), sem rede. Ele lê o cache
 - **Distribuição:** cada destino escolhe, uma rodada de cada vez, a melhor origem livre. Os guias (L2) escolhem primeiro, porque as âncoras deles são mais raras. Um post fica num lote só, para que um lote aplicado não quebre o patch de outro.
 - **Âncora:** um termo que já está na frase (como "marcação a mercado", "tabela regressiva", "dividend yield", "BOVA11" ou "juros sobre capital próprio") vira link. Nenhuma palavra é acrescentada ou trocada, e o teste confere que o texto visível fica idêntico. Algumas âncoras só valem com contexto na mesma frase: "ganho de capital" e "DARF" só com FII ou cota, e "ITUB4" só com Itaúsa ou ITSA4.
 - **Onde o link não entra:** em `<a>`, títulos, `<th>`/`<td>`, botões, legendas, FAQ, índice, `<script>`, frase com JEPQ39, aviso legal ("não é recomendação…") e frase que tenha achado na `achados.csv`, porque essas ainda vão mudar.
-- **Destinos proibidos:** posts que serão redirecionados ou despublicados (1033, 998, 1073, 1083, 1113, 1178, 1183, e também 983, 1003, 1013, 1038, 1063, 1068, 1078, 1098, 1128, 1168, 1188 e 1193, do RELATORIO da auditoria), `cotacao-*`, duplicados que vão para 301, páginas do Elementor e posts com CRÍTICO que não está corrigido nos lotes A/B.
-- **Origens excluídas:** as mesmas, mais os posts marcados para reescrever (1008, 1043, 1158 e 4816), onde o link se perderia, e o post que divide o endereço com a página da ferramenta (1198).
+- **Destinos proibidos:** título ou endereço com recomendação (regra do gate), posts do `posts-para-refresh.csv`, os rascunhos 1198 e 2649, posts que serão redirecionados ou despublicados (1033, 998, 1073, 1083, 1113, 1178, 1183, e também 983, 1003, 1013, 1038, 1063, 1068, 1078, 1098, 1128, 1168, 1188 e 1193, do RELATORIO da auditoria), `cotacao-*`, duplicados que vão para 301, páginas do Elementor e posts com CRÍTICO que não está corrigido nos lotes A/B.
+- **Origens excluídas:** as mesmas, mais os posts marcados para reescrever (1008, 1043, 1158 e 4816), onde o link se perderia, e os rascunhos 1198 e 2649.
 - **Regras do `de`** (as do `gerar_patches.py`): trecho seguro, sem aspas, travessão, reticências, `&`, `<`, `>`, quebra ou NxN; dentro de um único nó de texto; e **1 vez no post todo**, contando o `<script>`, porque o `para` leva aspas no `href` e não pode cair num JSON-LD.
 - **Convivência com os lotes A/B:** 21 posts têm patch nos dois lugares (4873, 4874, 5042, 7376 e outros). Para eles, o `de` do link não encosta em nenhuma troca de A/B, e as duas aplicações funcionam em qualquer ordem. O teste confere isso.
 
@@ -98,14 +147,16 @@ Quem faz tudo é o [`gerar_links.py`](gerar_links.py), sem rede. Ele lê o cache
 python3 -m pytest -q links-internos/tests auditoria-fatos/tests
 ```
 
-O resultado foi 134 testes passando.
+O resultado foi 124 testes passando.
 
 - `links-internos/tests/test_links.py` confere estes pontos:
-  - Cada um dos 116 patches segue as regras: `de` seguro, único e com `de_rendered`; um único `<a href>` por troca; texto visível igual; nenhum destino proibido, repetido ou que o post já linka; no máximo 3 links.
+  - Cada um dos 103 patches segue as regras: `de` seguro, único e com `de_rendered`; um único `<a href>` por troca; texto visível igual; nenhum destino proibido, repetido ou que o post já linka; no máximo 3 links.
   - Cada post está num lote só.
   - Com um WordPress falso, o `aplicar_patches.py` faz `--checar` e `--aplicar` em **2 patches reais** (o primeiro do L1 e o primeiro do L2). Ele grava o backup, insere os links e não muda mais nada, e uma segunda aplicação é pulada.
   - Pela opção `--pasta`, o `main()` confere os lotes L1, L2 e L3 inteiros: todos os posts saem "PRONTO".
   - Os posts em comum com os lotes A/B aceitam as duas ordens.
+  - Nenhum `para` aponta para post cujo título ou endereço o gate barra, nem para post do `posts-para-refresh.csv`. A regex copiada é igual à do gate.
+  - Não há patch para 1198 nem para 2649, e nenhum link aponta para eles. Os links para `/calculadora-juros-anual-para-mensal/`, que agora é a página da ferramenta, continuam.
   - Sem o cache dos posts, o teste é pulado.
 - `auditoria-fatos/tests/test_aplicar_patches.py` ganhou 2 testes. O primeiro cobre `--pasta` com um lote `L1` (`--checar` não grava, `--aplicar` aplica, e lote ou pasta inexistente dá erro claro). O segundo confere que, sem `--pasta`, `--lote A` continua lendo `auditoria-fatos/patches/LOTE_A.json`. Os 10 testes antigos seguem passando.
 
@@ -140,5 +191,5 @@ Para refazer os patches depois de novas mudanças no site:
 ```
 python3 auditoria-fatos/auditar.py baixar        # posts, 1 req/s, em auditoria-fatos/cache/
 python3 links-internos/baixar_paginas.py         # páginas, 1 req/s
-python3 links-internos/gerar_links.py            # regrava patches/, LOTE_L*.json e resumo.csv
+python3 links-internos/gerar_links.py            # regrava patches/, LOTE_L*.json, resumo.csv e destinos-bloqueados.csv
 ```

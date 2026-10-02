@@ -2,32 +2,21 @@
  "post_id": 7380,
  "url": "https://investirecocaresocomecar.com.br/bbas3-roe-abaixo-selic-banco-do-brasil-dividendos-2026/",
  "lote": "L3",
- "motivo": "Links internos: BBAS3 -> /banco-do-brasil-bbas3-corte-dividendo-payout-2026/; BBAS3 -> /banco-do-brasil-ou-itau-melhor-acao-dividendos-2026/",
+ "motivo": "Links internos: BBAS3 -> /bbas3-resultado-2t-cartao-de-credito-inadimplencia/",
  "trocas": [
   {
    "de": "Quem entrou em BBAS3 pelo dividend",
-   "para": "Quem entrou em <a href=\"https://investirecocaresocomecar.com.br/banco-do-brasil-bbas3-corte-dividendo-payout-2026/\">BBAS3</a> pelo dividend",
+   "para": "Quem entrou em <a href=\"https://investirecocaresocomecar.com.br/bbas3-resultado-2t-cartao-de-credito-inadimplencia/\">BBAS3</a> pelo dividend",
    "de_rendered": "Quem entrou em BBAS3 pelo dividend"
-  },
-  {
-   "de": "por carregar BBAS3 em vez do",
-   "para": "por carregar <a href=\"https://investirecocaresocomecar.com.br/banco-do-brasil-ou-itau-melhor-acao-dividendos-2026/\">BBAS3</a> em vez do",
-   "de_rendered": "por carregar BBAS3 em vez do"
   }
  ],
  "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
  "links": [
   {
-   "url": "https://investirecocaresocomecar.com.br/banco-do-brasil-bbas3-corte-dividendo-payout-2026/",
-   "destino": "Banco do Brasil (BBAS3) ainda vale a pena para dividendos em 2026?",
+   "url": "https://investirecocaresocomecar.com.br/bbas3-resultado-2t-cartao-de-credito-inadimplencia/",
+   "destino": "BBAS3: não foi o agro. O rombo novo do Banco do Brasil nasceu no cartão de crédito",
    "ancora": "BBAS3",
-   "similaridade": 0.23
-  },
-  {
-   "url": "https://investirecocaresocomecar.com.br/banco-do-brasil-ou-itau-melhor-acao-dividendos-2026/",
-   "destino": "Banco do Brasil (BBAS3) ou Itaú (ITUB4): qual a melhor ação para dividendos em 2026?",
-   "ancora": "BBAS3",
-   "similaridade": 0.215
+   "similaridade": 0.155
   }
  ]
 }

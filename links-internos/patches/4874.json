@@ -2,7 +2,7 @@
  "post_id": 4874,
  "url": "https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/",
  "lote": "L1",
- "motivo": "Links internos: DARF -> /calculadora-ir-venda-fii/; renda mensal -> /simulador-renda-fii/",
+ "motivo": "Links internos: DARF -> /calculadora-ir-venda-fii/; renda mensal -> /simulador-renda-fii/; chegar em R$ 1 milhão -> /calculadora-1-milhao/",
  "trocas": [
   {
    "de": "recolhido via DARF pelo próprio",
@@ -13,6 +13,11 @@
    "de": "renda mensal recorrente",
    "para": "<a href=\"https://investirecocaresocomecar.com.br/simulador-renda-fii/\">renda mensal</a> recorrente",
    "de_rendered": "renda mensal recorrente"
+  },
+  {
+   "de": "real é chegar em R$ 1 milhão e manter o",
+   "para": "real é <a href=\"https://investirecocaresocomecar.com.br/calculadora-1-milhao/\">chegar em R$ 1 milhão</a> e manter o",
+   "de_rendered": "real é chegar em R$ 1 milhão e manter o"
   }
  ],
  "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
@@ -28,6 +33,12 @@
    "destino": "Simulador de renda mensal com FIIs",
    "ancora": "renda mensal",
    "similaridade": 0.104
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-1-milhao/",
+   "destino": "Calculadora: quanto falta para juntar 1 milhão",
+   "ancora": "chegar em R$ 1 milhão",
+   "similaridade": 0.051
   }
  ]
 }

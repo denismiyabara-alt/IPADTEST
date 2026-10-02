@@ -2,27 +2,16 @@
  "post_id": 11719,
  "url": "https://investirecocaresocomecar.com.br/ambev-abev3-volta-carteira-btg-13-anos/",
  "lote": "L3",
- "motivo": "Links internos: ABEV3 -> /ambev-abev3-resultado-1t26-vale-a-pena-investir/; ABEV3 -> /abev3-copa-2026-vale-investir-pausa-hidratacao/",
+ "motivo": "Links internos: ABEV3 -> /abev3-copa-2026-vale-investir-pausa-hidratacao/",
  "trocas": [
   {
    "de": "não compra ABEV3.",
-   "para": "não compra <a href=\"https://investirecocaresocomecar.com.br/ambev-abev3-resultado-1t26-vale-a-pena-investir/\">ABEV3</a>.",
+   "para": "não compra <a href=\"https://investirecocaresocomecar.com.br/abev3-copa-2026-vale-investir-pausa-hidratacao/\">ABEV3</a>.",
    "de_rendered": "não compra ABEV3."
-  },
-  {
-   "de": "total de ABEV3 (dividendo +",
-   "para": "total de <a href=\"https://investirecocaresocomecar.com.br/abev3-copa-2026-vale-investir-pausa-hidratacao/\">ABEV3</a> (dividendo +",
-   "de_rendered": "total de ABEV3 (dividendo +"
   }
  ],
  "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
  "links": [
-  {
-   "url": "https://investirecocaresocomecar.com.br/ambev-abev3-resultado-1t26-vale-a-pena-investir/",
-   "destino": "Ambev (ABEV3) em 2026: os números que o mercado ainda não precificou",
-   "ancora": "ABEV3",
-   "similaridade": 0.202
-  },
   {
    "url": "https://investirecocaresocomecar.com.br/abev3-copa-2026-vale-investir-pausa-hidratacao/",
    "destino": "ABEV3 na Copa 2026: a cerveja grátis do Ancelotti já foi pro preço?",

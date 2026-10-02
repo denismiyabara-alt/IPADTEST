@@ -131,3 +131,48 @@ def test_links_sobrevivem_aos_lotes_a_b():
                 raw = AP.aplicar_trocas(raw, trocas)
             for t in li:
                 assert raw.count(t["para"]) == 1
+
+
+def _destinos_dos_patches():
+    for pid, d in PATCHES.items():
+        for t in d["trocas"]:
+            yield pid, LINK.findall(t["para"])[0][0]
+
+
+def test_nenhum_link_para_titulo_bloqueado_ou_refresh():
+    """Nenhum 'para' aponta para post cujo título (ou endereço) o gate barra por RECOMENDACAO_TITULO,
+    nem para post do site-ativos/posts-para-refresh.csv."""
+    refresh = G.urls_refresh()
+    por_url = {p["link"]: p for p in POSTS.values()}
+    for pid, url in _destinos_dos_patches():
+        assert url not in refresh, (pid, url)
+        assert not G.slug_bloqueado(url), (pid, url)
+        if url in por_url:
+            assert not G.titulo_bloqueado(html.unescape(por_url[url]["title"]["rendered"])), (pid, url)
+    # e a regra pega os casos que motivaram a mudança
+    assert G.titulo_bloqueado("O Melhor ETF de Bitcoin da B3: HODL11")
+    assert G.slug_bloqueado(G.SITE + "/ambev-abev3-resultado-1t26-vale-a-pena-investir/")
+    assert not G.titulo_bloqueado("O que é BOVA11? ETF do Ibovespa explicado")
+
+
+def test_regra_igual_a_do_gate():
+    """A regex copiada é a mesma do gate (pipeline/gate_qualidade.py, branch gate-qualidade), quando ele está aqui."""
+    import subprocess
+    try:
+        fonte = subprocess.run(["git", "-C", "/home/user/investir-e-cocar", "show",
+                                "gate-qualidade:pipeline/gate_qualidade.py"], capture_output=True, text=True,
+                               check=True).stdout
+    except (OSError, subprocess.CalledProcessError):
+        pytest.skip("gate de qualidade não está nesta máquina")
+    ns = {}
+    bloco = re.search(r"RE_RECOM_TITULO = re\.compile\(.*?, re\.I\)", fonte, re.S).group(0)
+    exec("import re\n" + bloco, ns)
+    assert ns["RE_RECOM_TITULO"].pattern == G.RE_RECOM_TITULO.pattern
+
+
+def test_rascunhos_fora_dos_patches():
+    """1198 e 2649 viraram rascunho: sem patch e sem link para eles; o endereço da calculadora de juros é da página."""
+    assert 1198 not in PATCHES and 2649 not in PATCHES
+    urls = {u for _, u in _destinos_dos_patches()}
+    assert G.SITE + "/carteira-recomendada-fundos-imobiliarios-agosto-2025/" not in urls
+    assert G.SITE + "/calculadora-juros-anual-para-mensal/" in urls  # agora é a página 19504 (ferramenta)

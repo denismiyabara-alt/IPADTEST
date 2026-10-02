@@ -17,6 +17,9 @@ Regras de cada troca (as mesmas do gerar_patches.py, mais as de link):
 - o nó de texto está num <p>, <li>, <td> ou <blockquote>, fora de <a>, títulos, botões, FAQ e índice;
 - a âncora é um termo que já está na frase (nada é reescrito, o termo só vira link);
 - no máximo 3 links novos por post, nenhum destino repetido no post, nenhum destino que o post já linka;
+- nenhum link para post cujo título ou endereço o gate de qualidade barra (RECOMENDACAO_TITULO), nem para post do
+  site-ativos/posts-para-refresh.csv (lista em destinos-bloqueados.csv, com os links que receberiam);
+- os rascunhos 1198 e 2649 não são origem nem destino;
 - nenhum link para post que vai ser redirecionado ou despublicado, para cotacao-* ou para post com achado CRÍTICO
   (exceto os corrigidos nos lotes A/B);
 - para os posts que também estão nos lotes A/B, o "de" continua único depois de aplicar as trocas de lá
@@ -46,6 +49,9 @@ MAX_POR_POST = 3
 # posts que o RELATORIO da auditoria-fatos manda redirecionar (301) ou despublicar: nem origem nem destino
 REDIRECIONADOS = {1033, 998, 1073, 1083, 1113, 1178, 1183,
                   983, 1003, 1013, 1038, 1063, 1068, 1078, 1098, 1128, 1168, 1188, 1193}
+# posts que viraram rascunho no WordPress (02/10/2026): o endereço ficou com a página da ferramenta (19504) e com a
+# página 2658; nem origem nem destino
+RASCUNHO = {1198, 2649}
 # duplicados exatos do seo/RELATORIO.md (vão para 301)
 DUPLICADOS = ("-vale-a-pena-2/", "-vale-a-pena-investir-2/", "-vale-a-pena-investir-3/",
               "/como-funciona-um-fundo-imobiliario-entenda-agora/")
@@ -56,6 +62,46 @@ REESCREVER = {1008, 1043, 1158, 4816}
 # nem em aviso legal ("não é recomendação de compra ou venda")
 FRASE_RUIM = re.compile(r"JEPQ39|recomendação de compra ou venda|não é recomendação", re.I)
 FII = r"\bFIIs?\b|\bcotas?\b|fundos? imobiliários?"
+
+# Regra RECOMENDACAO_TITULO do gate de qualidade (investir-e-cocar, branch gate-qualidade,
+# pipeline/gate_qualidade.py, RE_RECOM_TITULO), copiada sem mudança: post com título assim não recebe link,
+# para não dar força ao que ainda vai ser corrigido. O teste compara com o gate quando ele está na máquina.
+RE_RECOM_TITULO = re.compile(
+    r"vale(m)? a pena|melhor(es)? (a[cç][aã]o|a[cç][oõ]es|fii|fiis|etf|etfs|fundo|fundos|investimento|investimentos|bdr|bdrs|dividendos|op[cç][aã]o|op[cç][oõ]es)|"
+    r"qual (a |o )?melhor|(qual|quais) (a[cç][oõ]es |fii |fiis |etfs? )?(devo )?comprar|hora de (comprar|vender)|devo (comprar|vender|investir)|"
+    r"carteira recomendada|a[cç][oõ]es para comprar|comprar agora|vender agora|compre\b|venda j[aá]|onde investir", re.I)
+# posts que o site-ativos marcou para refresh de título/conteúdo: também não recebem link até o refresh
+REFRESH_CSV = RAIZ / "site-ativos" / "posts-para-refresh.csv"
+
+
+def titulo_bloqueado(titulo):
+    m = RE_RECOM_TITULO.search(titulo or "")
+    return m.group(0) if m else None
+
+
+def urls_refresh():
+    return {l["url"] for l in csv.DictReader(open(REFRESH_CSV, encoding="utf-8"))}
+
+
+def slug_bloqueado(url):
+    """A mesma regra aplicada ao endereço (o slug aparece no Google): /ambev-abev3-resultado-1t26-vale-a-pena-investir/."""
+    from urllib.parse import unquote
+    return titulo_bloqueado(unquote(caminho(url)).replace("-", " ").replace("/", " "))
+
+
+def motivo_bloqueio(titulo, url, refresh):
+    """Por que o destino não pode receber link (ou None)."""
+    m = []
+    t = titulo_bloqueado(titulo)
+    if t:
+        m.append(f'título com "{t}" (RECOMENDACAO_TITULO)')
+    u = slug_bloqueado(url)
+    if u:
+        m.append(f'endereço com "{u}"')
+    if url in refresh:
+        m.append("está no site-ativos/posts-para-refresh.csv")
+    return "; ".join(m) or None
+
 
 # ---------------------------------------------------------------- destinos
 # ancoras: regex, em ordem de preferência (a primeira que casar num nó elegível vira link)
@@ -351,7 +397,7 @@ def main():
             raise SystemExit(f"ferramenta {f['id']} sem página publicada em {f['url']} (rode links-internos/baixar_paginas.py)")
     # origens: posts do sitemap, fora dos que vão sair do ar
     def excluido(p):
-        return (p["id"] in REDIRECIONADOS or p["id"] in REESCREVER or "elementor" in p["slug"] or p["slug"].startswith("cotacao") or any(d in p["link"] for d in DUPLICADOS)
+        return (p["id"] in REDIRECIONADOS or p["id"] in REESCREVER or p["id"] in RASCUNHO or "elementor" in p["slug"] or p["slug"].startswith("cotacao") or any(d in p["link"] for d in DUPLICADOS)
                 or p["link"] not in varr or varr[p["link"]]["noindex"])
     origens = {pid: p for pid, p in posts.items() if not excluido(p) and varr[p["link"]]["palavras"] >= 300}
 
@@ -385,21 +431,56 @@ def main():
         if l["tipo"] == "orfao":
             orfaos[l["destino"]].append(l["origem"])
     por_caminho = {caminho(p["link"]): p for p in posts.values()}
+    refresh = urls_refresh()
+    for d in destinos:  # ferramentas e guias não podem estar bloqueados
+        m = motivo_bloqueio(d["nome"] if d["lote"] == "L1" else html.unescape(posts[d["post_id"]]["title"]["rendered"]),
+                            d["url"], refresh)
+        if m:
+            raise SystemExit(f"destino {d['url']} bloqueado: {m}")
+
+    def bom_destino(p):
+        return not (p["id"] in criticos or p["id"] in REDIRECIONADOS or excluido(p))
+
     ja_destino = {d["post_id"] for d in destinos if d["post_id"]}
+    bloqueados = []
     for cam, srcs in orfaos.items():
         p = por_caminho.get(cam)
-        if not p or p["id"] in criticos or p["id"] in REDIRECIONADOS or p["id"] in ja_destino or excluido(p):
+        if not p or p["id"] in ja_destino or not bom_destino(p):
             continue
-        anc = ancoras_do_titulo(html.unescape(p["title"]["rendered"]), p["slug"])
+        titulo = html.unescape(p["title"]["rendered"])
+        anc = ancoras_do_titulo(titulo, p["slug"])
         if not anc:
             continue
-        destinos.append(dict(lote="L3", chave=("post", p["id"]), url=p["link"], nome=html.unescape(p["title"]["rendered"]),
-                             ancoras=anc, tema=None, min_tema=0, quota=QUOTA_ORFAO, post_id=p["id"],
-                             sugeridas=[por_caminho[s]["id"] for s in srcs if s in por_caminho]))
+        d = dict(lote="L3", chave=("post", p["id"]), url=p["link"], nome=titulo, ancoras=anc, tema=None, min_tema=0,
+                 quota=QUOTA_ORFAO, post_id=p["id"], sugeridas=[por_caminho[s]["id"] for s in srcs if s in por_caminho])
+        ja_destino.add(p["id"])
+        m = motivo_bloqueio(titulo, p["link"], refresh)
+        if not m:
+            destinos.append(d)
+            continue
+        d["bloqueio"] = m
+        bloqueados.append(d)
+    # substitutos: para cada destino bloqueado, outro post do mesmo ativo (ticker no título) com título neutro,
+    # que recebe as mesmas origens sugeridas; não há página de ativo do site-ativos publicada para usar no lugar
+    for b in bloqueados:
+        tickers = set(re.findall(r"\b[A-Z]{4}(?:3|4|5|6|11|33|34|39)\b", b["nome"]))
+        for p in sorted(posts.values(), key=lambda x: -varr.get(x["link"], {}).get("links_recebidos", 0)):
+            titulo = html.unescape(p["title"]["rendered"])
+            if p["id"] in ja_destino or not bom_destino(p) or motivo_bloqueio(titulo, p["link"], refresh):
+                continue
+            comuns = tickers & set(re.findall(r"\b[A-Z]{4}(?:3|4|5|6|11|33|34|39)\b", titulo))
+            if not comuns:
+                continue
+            destinos.append(dict(lote="L3", chave=("post", p["id"]), url=p["link"], nome=titulo,
+                                 ancoras=[re.escape(t) for t in sorted(comuns)], tema=None, min_tema=0,
+                                 quota=QUOTA_ORFAO, post_id=p["id"], sugeridas=b["sugeridas"],
+                                 substituto_de=caminho(b["url"])))
+            ja_destino.add(p["id"])
+            break
 
-    # pares candidatos por destino, ordenados por relevância (similaridade × tráfego provável da origem)
+    # pares candidatos por destino (também para os bloqueados, para contar quantos links receberiam), ordenados por relevância (similaridade × tráfego provável da origem)
     cands = {}
-    for d in destinos:
+    for d in destinos + bloqueados:
         lista = []
         pool = d.get("sugeridas") if d["lote"] == "L3" else origens
         for pid in pool:
@@ -418,7 +499,32 @@ def main():
         lista.sort(reverse=True)
         cands[id(d)] = lista
 
-    # rodízio: em cada rodada cada destino pega a melhor origem livre; um post fica num lote só
+    escolha, lote_do_post, recebidos = selecionar(destinos, cands, posts, trocas_ab, trechos)
+    # contrafactual: quantos links os bloqueados receberiam se o título estivesse corrigido
+    _, _, rec_todos = selecionar([d for d in destinos if not d.get("substituto_de")] + bloqueados, cands, posts,
+                                 trocas_ab, trechos)
+    for b in bloqueados:
+        b["receberia"] = len(rec_todos[b["url"]])
+    gravar(posts, escolha, lote_do_post, destinos, recebidos, varr, trocas_ab)
+    resumir(posts, paginas, escolha, lote_do_post, destinos)
+    gravar_bloqueados(bloqueados, destinos)
+
+
+def gravar_bloqueados(bloqueados, destinos):
+    subst = {d["substituto_de"]: caminho(d["url"]) for d in destinos if d.get("substituto_de")}
+    linhas = [{"destino": caminho(b["url"]), "titulo": b["nome"], "motivo": b["bloqueio"],
+               "links_que_receberia": b["receberia"], "substituto": subst.get(caminho(b["url"]), "")}
+              for b in sorted(bloqueados, key=lambda b: (-b["receberia"], b["url"]))]
+    with open(AQUI / "destinos-bloqueados.csv", "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=["destino", "titulo", "motivo", "links_que_receberia", "substituto"])
+        w.writeheader()
+        w.writerows(linhas)
+    print(f"destinos bloqueados por título/refresh: {len(linhas)}, "
+          f"{sum(l['links_que_receberia'] for l in linhas)} links que receberiam")
+
+
+def selecionar(destinos, cands, posts, trocas_ab, trechos):
+    """Rodízio: em cada rodada cada destino pega a melhor origem livre; um post fica num lote só."""
     escolha = defaultdict(list)       # pid -> [trocas]
     lote_do_post = {}
     recebidos = defaultdict(list)     # url destino -> [pid]
@@ -449,9 +555,7 @@ def main():
                     recebidos[d["url"]].append(pid)
                     mudou = True
                     break
-
-    gravar(posts, escolha, lote_do_post, destinos, recebidos, varr, trocas_ab)
-    resumir(posts, paginas, escolha, lote_do_post, destinos)
+    return escolha, lote_do_post, recebidos
 
 
 def resumir(posts, paginas, escolha, lote_do_post, destinos):
