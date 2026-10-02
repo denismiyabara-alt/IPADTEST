@@ -18,15 +18,20 @@
    "acima_da_tendencia": 0.09
   },
   "motivo_score": "replay 0,85×0,40 · ret. relativa 0,03×0,25 · queda 0,00×0,10 · frase 1,00×0,15 · gancho 0,50×0,10 = 0,55",
-  "precisa_texto": false
+  "precisa_texto": false,
+  "titulo_rascunho": "Eles estão propondo uma mudança #shorts",
+  "overlay_rascunho": "ELES ESTÃO PROPONDO UMA MUDANÇA",
+  "skip": true,
+  "motivo_skip": "trecho político (fala de campanha sobre modelo de governo): fora do escopo do canal",
+  "revisado": "redação revisada em 02/10/2026; conferir no vídeo antes de renderizar"
  },
  {
   "src": "fJj367I1MnQ",
   "start": "5:20",
   "end": "6:02",
   "dur_s": 42,
-  "overlay": "ACABOU DE FAZER OS 30%",
-  "titulo": "Acabou de fazer os 30% mais ou menos #shorts",
+  "overlay": "SEU EXTRATO É EM REAL",
+  "titulo": "35% de queda em dólar: e no seu extrato em real? #shorts",
   "transcricao": "Só que 35% de queda é a medida em dólar, tanacão. Para quem vive em dólar, o seu extrato é em real. E em real a conta é que você acabou de fazer os 30% mais ou menos, né? E a conta de hoje ficou pior que a do dia do relatório, Tanacão. Quando Morgan Stan escreveu o relatório, a bolsa tava mais baixa e a bolsa subiu em setembro e o chão do Brasil ruim continuou no mesmo lugar. E após que você viu a bolsa subir em setembro e pensou o seguinte: \"Ufa, o Morgan Stanley errou\". Pois é, Tanacão, cada ponto que a bolsa sobe antes de outubro é um ponto a mais para cair.",
   "quem_fala": "Denis",
   "conferir_quem_fala": false,
@@ -39,15 +44,19 @@
    "acima_da_tendencia": 0.056
   },
   "motivo_score": "replay 0,44×0,40 · ret. relativa 0,64×0,25 · queda 0,70×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,66",
-  "precisa_texto": false
+  "precisa_texto": false,
+  "titulo_rascunho": "Acabou de fazer os 30% mais ou menos #shorts",
+  "overlay_rascunho": "ACABOU DE FAZER OS 30%",
+  "revisao_nota": "cita relatório do Morgan Stanley e a alta de setembro: datado",
+  "revisado": "redação revisada em 02/10/2026; conferir no vídeo antes de renderizar"
  },
  {
   "src": "fJj367I1MnQ",
   "start": "15:52",
   "end": "16:34",
   "dur_s": 42,
-  "overlay": "18% É A PLACA RUIM",
-  "titulo": "18% é a placa ruim e 12 é a placa da #shorts",
+  "overlay": "A PLACA DO JURO FUTURO",
+  "titulo": "Juro futuro: a placa que avisa antes de qualquer banco #shorts",
   "transcricao": "18% é a placa ruim e 12 é a placa da pista boa. Se a taxa andar pro 18, o mercado já está pagando o preço do Brasil ruim e nenhum banco precisa te avisar. Por isso que eu sempre falo para você colocar aí no seu home broker DI1F, que é o vencimento de janeiro de vários anos, para você ir acompanhando como o mercado tá precificando esse valor futuro, tá bom, Tana? Então você precisa abrir o olho aí. A placa dois é o dólar, né? Depois passar a eleição, você anota quanto ele tá. Na verdade, se ele não sobe e não volta, o carro está virando pra pista em placa três, o plano de quem ganhar, você não precisa ler em relatório nenhum, né?",
   "quem_fala": "Denis",
   "conferir_quem_fala": false,
@@ -60,6 +69,10 @@
    "acima_da_tendencia": 0.003
   },
   "motivo_score": "replay 0,06×0,40 · ret. relativa 0,98×0,25 · queda 0,08×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,53",
-  "precisa_texto": false
+  "precisa_texto": false,
+  "titulo_rascunho": "18% é a placa ruim e 12 é a placa da #shorts",
+  "overlay_rascunho": "18% É A PLACA RUIM",
+  "revisao_nota": "cita \"depois da eleição\" no fim: datado; conferir se dá para cortar antes",
+  "revisado": "redação revisada em 02/10/2026; conferir no vídeo antes de renderizar"
  }
 ]

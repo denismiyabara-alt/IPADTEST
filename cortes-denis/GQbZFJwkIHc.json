@@ -4,8 +4,8 @@
   "start": "0:06",
   "end": "0:54",
   "dur_s": 48,
-  "overlay": "NINGUÉM TE PERGUNTAR NADA NÉ",
-  "titulo": "Ninguém te perguntar nada, né? #shorts",
+  "overlay": "MESMA DÍVIDA, DOIS PREÇOS",
+  "titulo": "Prefixado ou IPCA+? É a mesma dívida com dois preços #shorts",
   "transcricao": "Aconteça o que acontecer, você empresta pro governo hoje já sabe o número que volta lá na frente. Duas linhas abaixo, mesma tela, mesmo governo, mesmo ano. E PCA+ 2032, 7.97% mais inflação. E PCA é a inflação oficial. Aqui o IBG acaba medindo no arroz e também na luz e que você duvida que tá certo, que provavelmente sua inflação é muito diferente da DBGE. Não são duas opções, Tana. É a mesma dívida com dois preços e a diferença é uma aposta já feita com o seu dinheiro, sem ninguém te perguntar nada, né? Guarda esse número aqui, ó.",
   "quem_fala": "Denis",
   "conferir_quem_fala": true,
@@ -18,7 +18,11 @@
    "acima_da_tendencia": 0.088
   },
   "motivo_score": "replay 0,70×0,40 · ret. relativa 0,30×0,25 · queda 0,00×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,61",
-  "precisa_texto": false
+  "precisa_texto": false,
+  "titulo_rascunho": "Ninguém te perguntar nada, né? #shorts",
+  "overlay_rascunho": "NINGUÉM TE PERGUNTAR NADA NÉ",
+  "revisao_nota": "cita a taxa de tela do IPCA+ 2032 (7,97%): datado; publicar logo ou cortar o número",
+  "revisado": "redação revisada em 02/10/2026; conferir no vídeo antes de renderizar"
  },
  {
   "src": "GQbZFJwkIHc",
@@ -39,15 +43,20 @@
    "acima_da_tendencia": 0.024
   },
   "motivo_score": "replay 0,19×0,40 · ret. relativa 0,93×0,25 · queda 0,17×0,10 · frase 1,00×0,15 · gancho 0,50×0,10 = 0,53",
-  "precisa_texto": false
+  "precisa_texto": false,
+  "titulo_rascunho": "Do dia é a mesma escolha e ela sempre #shorts",
+  "overlay_rascunho": "DO DIA É A MESMA",
+  "skip": true,
+  "motivo_skip": "abstrato fora de contexto (\"a picanha que você imaginou\", \"sua irmã\"): depende do vídeo",
+  "revisado": "redação revisada em 02/10/2026; conferir no vídeo antes de renderizar"
  },
  {
   "src": "GQbZFJwkIHc",
   "start": "11:35",
   "end": "12:10",
   "dur_s": 35,
-  "overlay": "R$ 10 000 NO",
-  "titulo": "R$ 10.000 no #shorts",
+  "overlay": "SÓ VALE ATÉ O VENCIMENTO",
+  "titulo": "R$ 10 mil no prefixado viram R$ 19.700, com uma condição #shorts",
   "transcricao": "R$ 10.000 no pré-fixado com a taxa de tela de hoje viram 19,700, mais ou menos em 5 anos. Só que esse número vem com uma condição colada nele. Você segurando o papel até o vencimento, sem vender no meio do caminho, como eu expliquei para vocês lá atrás, né? E até o vencimento são 5 anos e pouquinho. A conta de 5 anos redondos aqui para caber na sua cabeça, não para bater no calendário, tá bom?",
   "quem_fala": "Denis",
   "conferir_quem_fala": true,
@@ -60,6 +69,10 @@
    "acima_da_tendencia": 0.094
   },
   "motivo_score": "replay 0,84×0,40 · ret. relativa 0,98×0,25 · queda 0,74×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,90",
-  "precisa_texto": false
+  "precisa_texto": false,
+  "titulo_rascunho": "R$ 10.000 no #shorts",
+  "overlay_rascunho": "R$ 10 000 NO",
+  "revisao_nota": "usa a taxa de tela do dia da gravação: datado",
+  "revisado": "redação revisada em 02/10/2026; conferir no vídeo antes de renderizar"
  }
 ]

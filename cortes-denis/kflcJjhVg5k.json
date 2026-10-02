@@ -4,8 +4,8 @@
   "start": "0:40",
   "end": "1:10",
   "dur_s": 30,
-  "overlay": "MÊS É O DIVIDENDO QUE",
-  "titulo": "Mês é o dividendo que a cota do TRX F11 #shorts",
+  "overlay": "93 CENTAVOS EM JOGO",
+  "titulo": "TRXF11: os 93 centavos por mês que estão em jogo #shorts",
   "transcricao": "93 centavos por mês é o dividendo que a cota do TRX F11 paga hoje e ele é que tá em jogo nessa história toda. Se você pensa em comprar mais, em vender ou se já é cotista e vai ficar com a cota, esses 93 centavos pesam diferente em cada casa, tá? Na cão. E o detalhe começa no tombo de agosto, não é verdade?",
   "quem_fala": "Denis",
   "conferir_quem_fala": false,
@@ -18,15 +18,19 @@
    "acima_da_tendencia": 0.128
   },
   "motivo_score": "replay 0,75×0,40 · ret. relativa 0,00×0,25 · queda 0,00×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,55",
-  "precisa_texto": false
+  "precisa_texto": false,
+  "titulo_rascunho": "Mês é o dividendo que a cota do TRX F11 #shorts",
+  "overlay_rascunho": "MÊS É O DIVIDENDO QUE",
+  "revisao_nota": "legenda: \"TRX F11\" → TRXF11; termina em gancho (\"o tombo de agosto\")",
+  "revisado": "redação revisada em 02/10/2026; conferir no vídeo antes de renderizar"
  },
  {
   "src": "kflcJjhVg5k",
   "start": "5:50",
   "end": "6:22",
   "dur_s": 32,
-  "overlay": "CONTADA A R$ 94 NÉ",
-  "titulo": "Contada a R$ 94, né, o preço do caixa #shorts",
+  "overlay": "PAGOU O PRÉDIO COM COTA",
+  "titulo": "TRXF11 pagou o prédio com cota nova a R$ 94 #shorts",
   "transcricao": "paga o prédio com a cota nova, cada cota contada a R$ 94, né, o preço do caixa. No comunicado oficial que o fundo é obrigado a publicar o tal do fato relevante, esse pagamento tem nome de cartório, compensação de crédito. A tradução Patanaqui, o fundo deve o preço do prédio pro vendedor. O vendedor se comprometeu a comprar cada cota nova do fundo Tanaca.",
   "quem_fala": "Denis",
   "conferir_quem_fala": false,
@@ -39,7 +43,11 @@
    "acima_da_tendencia": 0.058
   },
   "motivo_score": "replay 0,35×0,40 · ret. relativa 0,45×0,25 · queda 0,77×0,10 · frase 1,00×0,15 · gancho 0,50×0,10 = 0,53",
-  "precisa_texto": false
+  "precisa_texto": false,
+  "titulo_rascunho": "Contada a R$ 94, né, o preço do caixa #shorts",
+  "overlay_rascunho": "CONTADA A R$ 94 NÉ",
+  "revisao_nota": "legenda: \"Patanaqui\"/\"Tanaca\" → Tanaka",
+  "revisado": "redação revisada em 02/10/2026; conferir no vídeo antes de renderizar"
  },
  {
   "src": "kflcJjhVg5k",
@@ -60,6 +68,11 @@
    "acima_da_tendencia": 0.04
   },
   "motivo_score": "replay 0,24×0,40 · ret. relativa 0,98×0,25 · queda 0,52×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,64",
-  "precisa_texto": false
+  "precisa_texto": false,
+  "titulo_rascunho": "Quanto a ficha valia na porta, Tanacão #shorts",
+  "overlay_rascunho": "QUANTO A FICHA VALIA NA",
+  "skip": true,
+  "motivo_skip": "brincadeira solta (\"Slackline\", \"tá careca\") e \"vale a pena\" no fim; não se sustenta sozinho",
+  "revisado": "redação revisada em 02/10/2026; conferir no vídeo antes de renderizar"
  }
 ]

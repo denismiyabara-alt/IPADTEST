@@ -4,8 +4,8 @@
   "start": "0:40",
   "end": "1:28",
   "dur_s": 48,
-  "overlay": "SÓ QUE R$ 10 000",
-  "titulo": "Só que R$ 10.000 por mês #shorts",
+  "overlay": "A CONTA DOS 10 MIL",
+  "titulo": "R$ 10 mil por mês: a conta tem três regras, Tanaka #shorts",
   "transcricao": "Só que R$ 10.000 por mês, Tanaka, é poder parar de trocar hora por dinheiro. Por isso, esse plano não sai da cabeça de todo tanquinha. Só que R$ 10.000 no Brasil é o número ideal que a maioria das pessoas almejam para conseguir poder parar de trabalhar ou pelo menos começar a ter aquele pezinho de liberdade. Só que para esses 10.000 caírem todo mês, a conta segue três regras, tá? Na cama. Primeira é a mais fácil, dá para fazer de cabeça. R$ 10.000 por mês dá R$ 120.000 R$ 1000 por ano. Em cinco ações, basicamente R$ 24.000 em cada ação. E até aqui é conta de padaria, né?",
   "quem_fala": "Denis",
   "conferir_quem_fala": false,
@@ -18,7 +18,11 @@
    "acima_da_tendencia": 0.098
   },
   "motivo_score": "replay 0,70×0,40 · ret. relativa 0,24×0,25 · queda 0,11×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,60",
-  "precisa_texto": false
+  "precisa_texto": false,
+  "titulo_rascunho": "Só que R$ 10.000 por mês #shorts",
+  "overlay_rascunho": "SÓ QUE R$ 10 000",
+  "revisao_nota": "conferir se o trecho fecha a 1ª regra antes do fim (termina em \"Em cinco...\")",
+  "revisado": "redação revisada em 02/10/2026; conferir no vídeo antes de renderizar"
  },
  {
   "src": "Rgfh5HuNdJo",
@@ -39,15 +43,20 @@
    "acima_da_tendencia": 0.032
   },
   "motivo_score": "replay 0,24×0,40 · ret. relativa 0,98×0,25 · queda 0,38×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,63",
-  "precisa_texto": false
+  "precisa_texto": false,
+  "titulo_rascunho": "Na cão todo mês por 10 anos esse #shorts",
+  "overlay_rascunho": "NA CÃO TODO MÊS POR",
+  "skip": true,
+  "motivo_skip": "começa no meio da frase (\"na cão todo mês...\") e depende do plano explicado antes",
+  "revisado": "redação revisada em 02/10/2026; conferir no vídeo antes de renderizar"
  },
  {
   "src": "Rgfh5HuNdJo",
   "start": "9:24",
   "end": "9:56",
   "dur_s": 32,
-  "overlay": "TODO MUNDO QUER O PREÇO",
-  "titulo": "Todo mundo quer, o preço #shorts",
+  "overlay": "ESTABILIDADE NÃO SAI DE GRAÇA",
+  "titulo": "Todo mundo quer essa ação? Então seu dividendo encolhe #shorts",
   "transcricao": "Todo mundo quer, o preço sobe, o dividendo vira uma fatia menor do que você paga por essa ação, né? Nessas cinco, o dividendo do ano do meio dividido pelo que você paga por elas hoje dá 6,8% ao ano. É o ass de novo aqui, tá na a carne que nunca decepciona é a que tem o quilo mais caro. Estabilidade, infelizmente não sai de graça.",
   "quem_fala": "Denis",
   "conferir_quem_fala": false,
@@ -60,6 +69,10 @@
    "acima_da_tendencia": 0.063
   },
   "motivo_score": "replay 0,40×0,40 · ret. relativa 0,30×0,25 · queda 0,74×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,56",
-  "precisa_texto": false
+  "precisa_texto": false,
+  "titulo_rascunho": "Todo mundo quer, o preço #shorts",
+  "overlay_rascunho": "TODO MUNDO QUER O PREÇO",
+  "revisao_nota": "\"nessas cinco\" remete às ações do vídeo; o trecho se sustenta pela ideia",
+  "revisado": "redação revisada em 02/10/2026; conferir no vídeo antes de renderizar"
  }
 ]

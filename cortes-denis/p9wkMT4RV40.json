@@ -4,8 +4,8 @@
   "start": "0:25",
   "end": "0:55",
   "dur_s": 30,
-  "overlay": "VENCEU AGORA EM JANEIRO DE",
-  "titulo": "Venceu agora em janeiro de 2026 #shorts",
+  "overlay": "PAGOU TUDO E FALTOU DINHEIRO",
+  "titulo": "O Tesouro pagou tudo e mesmo assim faltaram R$ 2.265 #shorts",
   "transcricao": "Os 100.000 compravam quando você começou. a investir nesse título do tesouro que venceu agora em janeiro de 2026. Pagou tudo no dia certo. Ninguém deixou de pagar o Brasil pagou. O Tesouro Direto foi lá e flau, pagou. Ninguém bloqueou conta nenhuma, Tanaca. Só que no final das contas ainda faltaram R$ 2.265 de poder de compra.",
   "quem_fala": "Denis",
   "conferir_quem_fala": false,
@@ -18,15 +18,19 @@
    "acima_da_tendencia": 0.096
   },
   "motivo_score": "replay 0,88×0,40 · ret. relativa 0,00×0,25 · queda 0,00×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,60",
-  "precisa_texto": false
+  "precisa_texto": false,
+  "titulo_rascunho": "Venceu agora em janeiro de 2026 #shorts",
+  "overlay_rascunho": "VENCEU AGORA EM JANEIRO DE",
+  "revisao_nota": "o começo (\"Os 100.000 compravam quando você começou.\") está quebrado: conferir o ponto de entrada",
+  "revisado": "redação revisada em 02/10/2026; conferir no vídeo antes de renderizar"
  },
  {
   "src": "p9wkMT4RV40",
   "start": "4:36",
   "end": "5:06",
   "dur_s": 30,
-  "overlay": "O QUE MUITA GENTE FEZ",
-  "titulo": "O que muita gente fez, inclusive, né? #shorts",
+  "overlay": "ELES ACERTARAM A CONTA",
+  "titulo": "Travou 6,27% ao ano com inflação de 5,89%: acertou? #shorts",
   "transcricao": "Travar essa taxa pagando três vezes mais qualquer um defenderia na época, que foi o que muita gente fez, inclusive, né? Muita gente tirou o print da tela, mandou no grupo, escreveu: \"Travei antes de cair\". E sabe o mais birulab de tudo isso, Tanacão, eles acertaram. 5 anos seguintes, os preços subiram 5,89% ao ano. A taxa travada pagava 6,27% ao ano.",
   "quem_fala": "Denis",
   "conferir_quem_fala": false,
@@ -39,7 +43,11 @@
    "acima_da_tendencia": 0.023
   },
   "motivo_score": "replay 0,18×0,40 · ret. relativa 0,95×0,25 · queda 0,56×0,10 · frase 1,00×0,15 · gancho 0,50×0,10 = 0,56",
-  "precisa_texto": false
+  "precisa_texto": false,
+  "titulo_rascunho": "O que muita gente fez, inclusive, né? #shorts",
+  "overlay_rascunho": "O QUE MUITA GENTE FEZ",
+  "revisao_nota": "legenda: \"birulab\" → (ouvir)",
+  "revisado": "redação revisada em 02/10/2026; conferir no vídeo antes de renderizar"
  },
  {
   "src": "p9wkMT4RV40",
@@ -60,6 +68,11 @@
    "acima_da_tendencia": 0.044
   },
   "motivo_score": "replay 0,35×0,40 · ret. relativa 0,61×0,25 · queda 0,79×0,10 · frase 1,00×0,15 · gancho 0,50×0,10 = 0,57",
-  "precisa_texto": false
+  "precisa_texto": false,
+  "titulo_rascunho": "Para todo mundo há anos #shorts",
+  "overlay_rascunho": "PARA TODO MUNDO HÁ ANOS",
+  "skip": true,
+  "motivo_skip": "depende da lista de custos do vídeo (\"o quarto\", \"o terceiro\") e termina em piada sobre o confisco",
+  "revisado": "redação revisada em 02/10/2026; conferir no vídeo antes de renderizar"
  }
 ]

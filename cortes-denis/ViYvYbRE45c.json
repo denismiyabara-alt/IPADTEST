@@ -4,8 +4,8 @@
   "start": "0:08",
   "end": "0:55",
   "dur_s": 47,
-  "overlay": "PENSA EM R$ 10 000",
-  "titulo": "Pensa em R$ 10.000 12 #shorts",
+  "overlay": "MESMO COBRE, OUTRO RESULTADO",
+  "titulo": "Mesmo cobre: R$ 10 mil viraram R$ 20 mil ou R$ 2.900 #shorts",
   "transcricao": "Pensa em R$ 10.000 12 meses atrás na mineradora que o Michael Burg, é isso mesmo, velho. Michael Burg acabou de comprar hoje, tá valendo quase R$ 20.000, os mesmos R$ 10.000 na PMANzinha, na Paranapanema, empresa que o velho Barce é acionista, vale mais ou menos hoje R$ 2.900. E as duas vivem do mesmo cobre, da mesma Bahia. A mineradora do Burry mandava o cobre dela de caminhão pra fundição da Paranapanema, Tanacão. E entre a mina do Burry e o forno da empresa, que o Barça se é acionista, a diferença chegou a R$ 17.000 para cada R$ 10.000 R$ 1.000 investidos em somente um ano.",
   "quem_fala": "Denis",
   "conferir_quem_fala": false,
@@ -18,7 +18,11 @@
    "acima_da_tendencia": 0.114
   },
   "motivo_score": "replay 0,79×0,40 · ret. relativa 0,00×0,25 · queda 0,00×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,57",
-  "precisa_texto": false
+  "precisa_texto": false,
+  "titulo_rascunho": "Pensa em R$ 10.000 12 #shorts",
+  "overlay_rascunho": "PENSA EM R$ 10 000",
+  "revisao_nota": "legenda: \"Michael Burg\" → Burry; \"PMANzinha\" → Paranapanema (PMAM3); \"Barce\" → Barsi",
+  "revisado": "redação revisada em 02/10/2026; conferir no vídeo antes de renderizar"
  },
  {
   "src": "ViYvYbRE45c",
@@ -39,15 +43,20 @@
    "acima_da_tendencia": 0.051
   },
   "motivo_score": "replay 0,35×0,40 · ret. relativa 0,25×0,25 · queda 0,73×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,53",
-  "precisa_texto": false
+  "precisa_texto": false,
+  "titulo_rascunho": "O que fica com ele é #shorts",
+  "overlay_rascunho": "O QUE FICA COM ELE",
+  "skip": true,
+  "motivo_skip": "depende da analogia do açougue explicada antes (\"nesse caso é o açou...\")",
+  "revisado": "redação revisada em 02/10/2026; conferir no vídeo antes de renderizar"
  },
  {
   "src": "ViYvYbRE45c",
   "start": "13:06",
   "end": "13:37",
   "dur_s": 31,
-  "overlay": "VENDIDO É QUEM APOSTA NA",
-  "titulo": "Vendido é quem aposta na #shorts",
+  "overlay": "A IA PRECISA DE COBRE",
+  "titulo": "Burry aposta contra a IA, mas a IA precisa de cobre #shorts",
   "transcricao": "Vendido é quem aposta na queda, né? Segundo a cobertura, o Michael Burry aposta na queda de empresas ligadas à inteligência artificial. Já fiz vários vídeos aqui e o Burry também escreveu que não desmontou nenhuma dessas vendas ainda. Tá nacão ainda tá apostando no colapso das IA. Todavia, porém, o prédio é o data center, o galpão de computador, a afiação é o cobre lá dentro.",
   "quem_fala": "Denis",
   "conferir_quem_fala": false,
@@ -60,6 +69,10 @@
    "acima_da_tendencia": 0.039
   },
   "motivo_score": "replay 0,28×0,40 · ret. relativa 0,56×0,25 · queda 0,54×0,10 · frase 1,00×0,15 · gancho 0,50×0,10 = 0,51",
-  "precisa_texto": false
+  "precisa_texto": false,
+  "titulo_rascunho": "Vendido é quem aposta na #shorts",
+  "overlay_rascunho": "VENDIDO É QUEM APOSTA NA",
+  "revisao_nota": "legenda: \"Tá nacão\" → Tanaka; \"afiação\" → a fiação",
+  "revisado": "redação revisada em 02/10/2026; conferir no vídeo antes de renderizar"
  }
 ]
