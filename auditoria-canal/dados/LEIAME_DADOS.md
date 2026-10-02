@@ -133,7 +133,7 @@ Gerado por `exportar.py`. Não edite à mão: rode o exportador de novo.
 - Retenção nos primeiros 30 s (abertura): não existe por API para lista de vídeos; o proxy é averageViewPercentage.
 
 <!-- termos-busca -->
-## Termos de busca (exportados em 2026-10-02 20:47 UTC; quota da Data API: 0; consultas ao Analytics: 63)
+## Termos de busca (exportados em 2026-10-02 21:02 UTC; quota da Data API: 0; consultas ao Analytics: 144)
 
 ### termos_busca_canal.csv (325 linhas)
 
@@ -142,7 +142,6 @@ Gerado por `exportar.py`. Não edite à mão: rode o exportador de novo.
 - `termo`: termo buscado no YouTube (insightTrafficSourceDetail com origem YT_SEARCH)
 - `views`: views que vieram desse termo
 - `minutos`: minutos assistidos vindos desse termo
-- Nota: a API devolve no máximo 25 termos por consulta (maxResults ≤ 25 para insightTrafficSourceDetail)
 
 ### termos_busca_por_video.csv (1250 linhas)
 
@@ -151,6 +150,17 @@ Gerado por `exportar.py`. Não edite à mão: rode o exportador de novo.
 - `posicao`: posição do termo no vídeo
 - `termo`: termo buscado
 - `views`: views desse termo no vídeo (período inteiro)
+- `minutos`: minutos
+
+### termos_busca_recentes.csv (1698 linhas)
+
+- `video_id`: id do vídeo
+- `titulo`: título
+- `publicado`: data de publicação (Brasília)
+- `desde`: início do período (fim = data de corte da exportação)
+- `posicao`: posição do termo no vídeo
+- `termo`: termo buscado
+- `views`: views desse termo no vídeo, no período
 - `minutos`: minutos
 
 <!-- /termos-busca -->
