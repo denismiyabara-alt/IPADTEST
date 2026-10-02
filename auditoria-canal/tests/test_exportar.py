@@ -94,6 +94,12 @@ class FakeAPI:
             if m in self.recusar:
                 raise ex.ErroHTTP(400, "badRequest", f"Unknown identifier ({m}) given in field parameters.metrics.")
         dims = q.get("dimensions", "").split(",")
+        if dims[0] == "month":
+            # Como a API real: com a dimensão month, startDate e endDate têm de cair no dia 1.
+            for campo in ("startDate", "endDate"):
+                if not q.get(campo, "").endswith("-01"):
+                    raise ex.ErroHTTP(400, "badRequest", f"Date range ({q.get(campo)}) in field parameters."
+                                      f"{'end' if campo == 'endDate' else 'start'}-date does not align to chosen date dimension.")
         cab = [{"name": d} for d in dims] + [{"name": m} for m in mets]
         filtro = q.get("filters", "")
         ids = filtro[len("video=="):].split(",") if filtro.startswith("video==") else []
@@ -367,7 +373,7 @@ def test_canal_por_mes_e_trafego(tmp_path):
     m = ler(tmp_path / "canal_por_mes.csv")
     assert m[0]["views_shorts"] == "5" and m[0]["inscritos_ganhos_longos"] == "5" and m[0]["engagedViews"] == "7"
     q = dict(urllib.parse.parse_qsl(next(u for u in api.chamadas if "dimensions=month&" in u).split("?")[1]))
-    assert q["startDate"] == "2025-04-01" and q["endDate"] == "2026-09-30"   # 18 meses fechados
+    assert q["startDate"] == "2025-04-01" and q["endDate"] == "2026-09-01"   # 18 meses fechados; month exige dia 1
     t = ler(tmp_path / "trafego_por_mes.csv")
     assert t[0]["origem"] == "BROWSE" and t[0]["pct_views_mes"] == "71.0"
     assert t[1]["origem_pt"].startswith("Vídeos sugeridos")

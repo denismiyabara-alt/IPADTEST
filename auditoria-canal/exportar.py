@@ -620,11 +620,18 @@ class Exportador:
         fim = self.data_fim if self.data_fim == fim_do_mes(self.data_fim) else self.data_fim.replace(day=1) - timedelta(days=1)
         return meses_para_tras(fim, self.meses), fim
 
+    def periodo_meses_api(self):
+        """Datas para consultas com dimensions=month: a API exige startDate e endDate no dia 1
+        (endDate = 1º dia do último mês, que entra inteiro). Com o último dia do mês dá
+        HTTP 400 "does not align to chosen date dimension" (visto no Mac em 02/10/2026)."""
+        ini, fim = self.periodo_meses()
+        return ini, fim.replace(day=1)
+
     def exportar_canal_por_mes(self):
         arq = "canal_por_mes.csv"
         ini, fim = self.periodo_meses()
         self.c.log(f"5/7 canal por mês ({ini:%Y-%m} a {fim:%Y-%m}; o mês corrente, incompleto, fica fora)")
-        q = {"startDate": str(ini), "endDate": str(fim), "dimensions": "month", "sort": "month"}
+        q = {"startDate": str(ini), "endDate": str(self.periodo_meses_api()[1]), "dimensions": "month", "sort": "month"}
         regs = {}
         for r in self.c.analytics_tabela(metrics=",".join(METRICAS_MES), **q):
             regs[r["month"]] = {"mes": r["month"], "views": r["views"], "minutos": r["estimatedMinutesWatched"],
@@ -688,7 +695,7 @@ class Exportador:
         met = "views,estimatedMinutesWatched"
         regs = []
         try:
-            rs = self.c.analytics_tabela(startDate=str(ini), endDate=str(fim), metrics=met,
+            rs = self.c.analytics_tabela(startDate=str(ini), endDate=str(self.periodo_meses_api()[1]), metrics=met,
                                          dimensions="month,insightTrafficSourceType", sort="month")
             regs = [{"mes": r["month"], "origem": r["insightTrafficSourceType"], "views": r["views"],
                      "minutos": r["estimatedMinutesWatched"]} for r in rs]
