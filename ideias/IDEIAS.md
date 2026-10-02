@@ -8,7 +8,7 @@ Tarefa 26 do pacote. Todos os números vêm de arquivos deste repo ou dos repos 
 
 | # | ideia | impacto | esforço do Denis | número que sustenta |
 |---|---|---|---|---|
-| 1 | Regravar os 6 temas perenes dos longos fora do ar (não republicar) | médio-alto | baixo (confirmar 7 linhas) | 285 longos fora do ar fizeram 32,7% dos inscritos de longos; dos 30 maiores, 23 são recomendação datada e 7 são tema perene (8.137 inscritos) |
+| 1 | Regravar os temas perenes dos longos fora do ar (não republicar): 5 no canal, 1 a 2 no Faz a Conta | médio-alto | baixo (confirmar 7 linhas) | 285 longos fora do ar fizeram 32,7% dos inscritos de longos; dos 30 maiores, 23 são recomendação datada e 7 são tema perene (8.137 inscritos) |
 | 2 | Série fixa de renda mensal, 1 por semana | alto | baixo (já está no calendário) | 14,5 inscritos por mil views intencionais, contra 8,2 do resto (n = 6) |
 | 3 | Continuações dos 10 longos top do ano | alto | baixo | os 10 melhores fizeram 58% dos inscritos dos 80 longos novos |
 | 4 | Título de busca e "Testar e comparar" em todo longo | médio | baixo (5 min por vídeo) | CTR de busca 12,3% contra 7,2% da página inicial |
@@ -28,13 +28,17 @@ Tarefa 26 do pacote. Todos os números vêm de arquivos deste repo ou dos repos 
 - **O dado:** 285 longos estão no Studio, mas fora da playlist pública (privados, não listados ou excluídos). Eles somam 4,15 milhões de views e 52.351 inscritos, que são **32,7% de todos os inscritos que vieram de longos**. Fonte: `auditoria-canal/RELATORIO.md`, seção 4.
 - **O que a lista dos 30 maiores mostrou** (`fora-do-ar-top30.csv`, gerado por `fora_do_ar.py`): 23 dos 30 são chamadas de compra ou venda, ou notícias de 2019 a 2022 ("COMPRE SÓ HOJE", "preço-alvo", "melhores ações para 2020", IRBR3, OIBR3, VVAR3). **Esses não devem voltar:** é provável que tenham saído justamente por isso, e o gate barraria todos. Republicar seria risco sem retorno.
 - **O que vale:** 7 dos 30 tratam de temas que continuam sendo buscados e que dá para fazer sem recomendar ativo. Juntos, fizeram 8.137 inscritos e 383.912 views:
-  - comparar bancos digitais (o Next × Nubank, com 3.474 inscritos, é o maior dos 285);
-  - cheque especial e os dias sem juros;
   - quanto rendem R$ 100, R$ 1.000 e R$ 10.000;
   - como investir em empresa americana pela B3 (BDR);
   - desdobramento de ações;
-  - follow-on (2 vídeos).
-- **O que fazer:** regravar esses 6 temas, atualizados para 2026, com título de busca e sem nome de banco no título. O Denis confirma na coluna `decisao_denis` do CSV.
+  - follow-on (2 vídeos);
+  - comparar bancos digitais (o Next × Nubank, com 3.474 inscritos, é o maior dos 285);
+  - cheque especial e os dias sem juros.
+- **Regra de nicho do Denis:** o Investir e Coçar não faz dívida, cartão nem finanças pessoais.
+  - **Canal principal (4 temas, 5 dos vídeos antigos):** quanto rendem R$ 100, R$ 1.000 e R$ 10.000; empresa americana pela B3 (BDR); desdobramento; follow-on.
+  - **Bancos digitais:** fica no principal só com ângulo de investimento ("onde deixar a reserva": rendimento da conta, CDB de liquidez diária, FGC). Se for comparação de conta e tarifa, vai para o Faz a Conta.
+  - **Cheque especial:** é dívida. Sai do principal e vira candidato ao Faz a Conta, que trata exatamente esse tipo de tema.
+- **O que fazer:** regravar os temas do canal principal, atualizados para 2026, com título de busca e sem nome de banco no título, e passar o cheque especial para a fila de pautas do Faz a Conta. A coluna `destino` do CSV diz para onde vai cada um, e o Denis confirma na coluna `decisao_denis`.
 - **Impacto:** a demanda está provada pelo próprio canal, mas um vídeo novo não herda os inscritos do antigo. O efeito esperado é o de um longo de busca bom, não o de "recuperar 8 mil inscritos".
 
 ### 2. Série fixa de renda mensal
