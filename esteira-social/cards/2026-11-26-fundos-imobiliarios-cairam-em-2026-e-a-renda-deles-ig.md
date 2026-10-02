@@ -13,6 +13,7 @@ video_titulo: "Fundos imobiliários caíram em 2026: e a renda deles?"
 assunto: "FII"
 termo_busca: "fundos imobiliarios"
 gancho: "Fundos imobiliários caíram em 2026. E a renda deles?"
+temas: ["FII"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #FII #FundosImobiliarios #RendaMensal #Imoveis #Aluguel #IFIX
+#InvestirECocar #EducacaoFinanceira #FII #FundosImobiliarios #IFIX #RendaMensal
 
 ## SLIDES DO CARROSSEL
 
@@ -89,9 +90,13 @@ pendencias_checar: 0
   "cta": "O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Carrossel com duas linhas (cota e rendimento) que se separam no slide 4.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "carrossel",
+  "temas": [
+    "FII"
+  ],
   "instagram_caption": "Fundos imobiliários caíram em 2026. E a renda deles?\n\nCota e rendimento são coisas diferentes: a cota é o preço de hoje, o rendimento é o aluguel ou juro repassado. O vídeo separa o que caiu do que não caiu, sem indicar fundo.\n\nO vizinho vendeu barato. O inquilino continua pagando.\n\nNo seu extrato, caiu a cota ou o rendimento?",
   "slides": [
     {
@@ -119,6 +124,6 @@ pendencias_checar: 0
       "texto": "O vizinho vendeu barato. O inquilino continua pagando."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #FII #FundosImobiliarios #RendaMensal #Imoveis #Aluguel #IFIX"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #FII #FundosImobiliarios #IFIX #RendaMensal"
 }
 ---FIM---

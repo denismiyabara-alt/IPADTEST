@@ -13,6 +13,7 @@ video_titulo: "Tesouro Direto na reserva de emergência: Selic, CDB ou conta"
 assunto: "tesouro e renda fixa"
 termo_busca: "tesouro direto"
 gancho: "Tesouro Direto na reserva de emergência: Tesouro Selic, CDB de liquidez diária ou conta remunerada?"
+temas: ["Tesouro", "renda fixa bancária"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros
+#InvestirECocar #EducacaoFinanceira #TesouroDireto #TesouroIPCA #TesouroSelic #TitulosPublicos #RendaFixa #CDB #LCI #LCA
 
 ## SLIDES DO CARROSSEL
 
@@ -89,9 +90,14 @@ pendencias_checar: 0
   "cta": "O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Carrossel com o cofrinho bocejando; slides 3 a 5 em três cores.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "carrossel",
+  "temas": [
+    "Tesouro",
+    "renda fixa bancária"
+  ],
   "instagram_caption": "Tesouro Direto na reserva de emergência: Tesouro Selic, CDB de liquidez diária ou conta remunerada?\n\nO vídeo faz a conta líquida de cada opção, com imposto, prazo de saque e garantia (Tesouro Nacional ou FGC). Sem indicar banco nem corretora.\n\nReserva boa é chata. Não dá assunto no churrasco.\n\nA sua reserva dá assunto?",
   "slides": [
     {
@@ -119,6 +125,6 @@ pendencias_checar: 0
       "texto": "Reserva boa é chata. Se dá assunto no churrasco, não é reserva."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #TesouroDireto #TesouroIPCA #TesouroSelic #TitulosPublicos #RendaFixa #CDB #LCI #LCA"
 }
 ---FIM---

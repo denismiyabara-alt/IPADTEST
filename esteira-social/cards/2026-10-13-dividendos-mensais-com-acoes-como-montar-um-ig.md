@@ -13,6 +13,7 @@ video_titulo: "Dividendos mensais com ações: como montar um calendário"
 assunto: "renda mensal"
 termo_busca: "dividendos mensais"
 gancho: "Dividendos mensais com ações: o segredo é o calendário, não a ação."
+temas: ["ações e dividendos"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaMensal #DividendosMensais #Dividendos #ETF #FundosImobiliarios #RendaPassiva
+#InvestirECocar #EducacaoFinanceira #Dividendos #Acoes #DividendosMensais #RendaMensal
 
 ## SLIDES DO CARROSSEL
 
@@ -89,9 +90,13 @@ pendencias_checar: 0
   "cta": "O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Carrossel com um calendário anual que vai sendo preenchido slide a slide, sem tickers.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "carrossel",
+  "temas": [
+    "ações e dividendos"
+  ],
   "instagram_caption": "Dividendos mensais com ações: o segredo é o calendário, não a ação.\n\nCada empresa paga em meses diferentes. O que decide se você recebe é a data com. O que decide quando recebe é a data de pagamento. E o valor muda, porque dividendo sai do lucro.\n\nSem lista de compra aqui. Só o mapa.\n\nEm que mês o seu calendário tem buraco?",
   "slides": [
     {
@@ -119,6 +124,6 @@ pendencias_checar: 0
       "texto": "Renda mensal com ação é escala de churrasco: cada mês um primo paga a carne."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaMensal #DividendosMensais #Dividendos #ETF #FundosImobiliarios #RendaPassiva"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #Dividendos #Acoes #DividendosMensais #RendaMensal"
 }
 ---FIM---

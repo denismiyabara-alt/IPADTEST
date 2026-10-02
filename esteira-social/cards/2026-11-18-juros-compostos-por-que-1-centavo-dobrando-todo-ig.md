@@ -13,6 +13,7 @@ video_titulo: "Juros compostos: por que 1 centavo dobrando todo dia não existe"
 assunto: "juntar dinheiro e aposentadoria"
 termo_busca: "—"
 gancho: "Juros compostos: por que 1 centavo dobrando todo dia não existe."
+temas: ["juntar dinheiro"]
 pendencias_checar: 0
 ---
 
@@ -34,7 +35,7 @@ pendencias_checar: 0
 > Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #JurosCompostos #Aposentadoria #PrimeiroMilhao #Poupar #LongoPrazo #Planejamento
+#InvestirECocar #EducacaoFinanceira #JurosCompostos #PrimeiroMilhao #Aposentadoria #LongoPrazo
 
 ## TEXTOS NA TELA DO REELS
 
@@ -131,9 +132,13 @@ pendencias_checar: 0
       "trecho": "Com 6% ao ano acima da inflação, ~R$ 535 mil em 22 anos e 1 milhão em ~30"
     }
   ],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "reels",
+  "temas": [
+    "juntar dinheiro"
+  ],
   "instagram_caption": "Juros compostos: por que 1 centavo dobrando todo dia não existe.\n\nA conta é real: 30 dobras levam 1 centavo a R$ 10,7 milhões. O investimento é que não existe. Na vida real, a curva é a mesma, só que em anos: R$ 1.000 por mês a 6% ao ano acima da inflação somam cerca de R$ 535 mil em 22 anos.\n\nVocê acreditou no centavo?",
   "slides": [
     {
@@ -153,6 +158,6 @@ pendencias_checar: 0
       "texto": "Vida real: R$ 1.000 por mês a 6% acima da inflação, cerca de R$ 535 mil em 22 anos."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #JurosCompostos #Aposentadoria #PrimeiroMilhao #Poupar #LongoPrazo #Planejamento"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #JurosCompostos #PrimeiroMilhao #Aposentadoria #LongoPrazo"
 }
 ---FIM---

@@ -13,7 +13,8 @@ video_titulo: "Perfil de investidor: 3 perguntas antes de investir"
 assunto: "comportamento e família"
 termo_busca: "—"
 gancho: "Tanaka, o questionário do banco é longo."
-estrutura: "D (A Pergunta Que Ninguém Faz)"
+temas: ["comportamento"]
+estrutura: "B (O Personagem → O Twist)"
 mecanica: "manual-invertido"
 pendencias_checar: 0
 ---
@@ -21,7 +22,7 @@ pendencias_checar: 0
 # 🧵 THREAD — Perfil de investidor: 3 perguntas antes de investir (16/11)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 16/11 às 12:00 (D+0, no dia do Short)
-**Estrutura:** D (A Pergunta Que Ninguém Faz) · **mecanica:** manual-invertido
+**Estrutura:** B (O Personagem → O Twist) · **mecanica:** manual-invertido
 
 ## GANCHO
 > Tanaka, o questionário do banco é longo.
@@ -84,9 +85,10 @@ pendencias_checar: 0
   "cta": "O Short: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Formulário com a caixinha 'arrojado' marcada e uma gota de suor.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
-  "estrutura": "D",
+  "estrutura": "B",
   "mecanica": "manual-invertido",
   "tweets": [
     {

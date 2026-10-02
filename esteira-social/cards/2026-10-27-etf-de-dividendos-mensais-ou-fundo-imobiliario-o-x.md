@@ -13,15 +13,16 @@ video_titulo: "ETF de dividendos mensais ou fundo imobiliário: o que sobra"
 assunto: "renda mensal"
 termo_busca: "etf dividendos"
 gancho: "Tanaka, ETF ou FII pra renda mensal?"
-estrutura: "D (A Pergunta Que Ninguém Faz)"
-mecanica: "eco-do-gatilho (sobrar)"
+temas: ["ETF", "FII"]
+estrutura: "C (O Antes / Depois)"
+mecanica: "contraste"
 pendencias_checar: 0
 ---
 
 # 🧵 THREAD — ETF de dividendos mensais ou fundo imobiliário: o que sobra (27/10)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 27/10 às 19:30 (D+0, 30 min depois do vídeo (19h))
-**Estrutura:** D (A Pergunta Que Ninguém Faz) · **mecanica:** eco-do-gatilho (sobrar)
+**Estrutura:** C (O Antes / Depois) · **mecanica:** contraste
 
 ## GANCHO
 > Tanaka, ETF ou FII pra renda mensal?
@@ -96,10 +97,11 @@ pendencias_checar: 0
   "cta": "Vídeo completo aqui: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Cartaz de churrascaria com picanha enorme ao lado de um prato com uma fatia fina.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
-  "estrutura": "D",
-  "mecanica": "eco-do-gatilho (sobrar)",
+  "estrutura": "C",
+  "mecanica": "contraste",
   "tweets": [
     {
       "numero": 1,

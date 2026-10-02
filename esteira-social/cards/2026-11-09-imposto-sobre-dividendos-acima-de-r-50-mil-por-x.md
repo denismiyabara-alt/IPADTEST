@@ -13,15 +13,16 @@ video_titulo: "Imposto sobre dividendos acima de R$ 50 mil por mês: quem paga"
 assunto: "imposto e regras"
 termo_busca: "—"
 gancho: "Tanaka, dividendo agora paga imposto?"
+temas: ["IR", "ações e dividendos"]
 estrutura: "D (A Pergunta Que Ninguém Faz)"
-mecanica: "atendimento-ao-cliente"
+mecanica: "mito-x-fato"
 pendencias_checar: 0
 ---
 
 # 🧵 THREAD — Imposto sobre dividendos acima de R$ 50 mil por mês: quem paga (09/11)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 09/11 às 12:00 (D+0, no dia do Short)
-**Estrutura:** D (A Pergunta Que Ninguém Faz) · **mecanica:** atendimento-ao-cliente
+**Estrutura:** D (A Pergunta Que Ninguém Faz) · **mecanica:** mito-x-fato
 
 ## GANCHO
 > Tanaka, dividendo agora paga imposto?
@@ -40,11 +41,12 @@ pendencias_checar: 0
 >
 > A regra nova tem endereço. E não é o seu, a não ser que uma empresa te pague mais de R$ 50 mil num mês só.
 
-## TWEET 3️⃣ — FECHAMENTO (127/280)
-> — Recebo de várias empresas e a soma passa de R$ 50 mil. Pago?
-> — A conta é por empresa.
-> — Ufa.
-> — Se uma sozinha passar, aí sim.
+## TWEET 3️⃣ — FECHAMENTO (200/280)
+> Mito: "agora todo dividendo paga imposto."
+>
+> Fato: a conta é por empresa. Várias empresas pagando menos de R$ 50 mil cada não entram, mesmo que a soma passe.
+>
+> Entra quem recebe mais que isso de uma só.
 
 ## ↩️ CTA: RESPOSTA COM O LINK (reply depois do último tweet; link nunca no corpo da thread)
 > O Short: [LINK DO VÍDEO: preencher na publicação]
@@ -81,10 +83,11 @@ pendencias_checar: 0
   "cta": "O Short: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Envelope de carta com endereço de mansão e o Tanaka olhando pela janela do vizinho.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
   "estrutura": "D",
-  "mecanica": "atendimento-ao-cliente",
+  "mecanica": "mito-x-fato",
   "tweets": [
     {
       "numero": 1,
@@ -99,7 +102,7 @@ pendencias_checar: 0
     {
       "numero": 3,
       "tipo": "fechamento",
-      "texto": "— Recebo de várias empresas e a soma passa de R$ 50 mil. Pago?\n— A conta é por empresa.\n— Ufa.\n— Se uma sozinha passar, aí sim."
+      "texto": "Mito: \"agora todo dividendo paga imposto.\"\n\nFato: a conta é por empresa. Várias empresas pagando menos de R$ 50 mil cada não entram, mesmo que a soma passe.\n\nEntra quem recebe mais que isso de uma só."
     }
   ],
   "reply_com_link": "O Short: [LINK DO VÍDEO: preencher na publicação]"

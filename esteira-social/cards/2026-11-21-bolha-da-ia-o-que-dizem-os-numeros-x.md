@@ -13,7 +13,8 @@ video_titulo: "Bolha da IA: o que dizem os números"
 assunto: "crise e macro"
 termo_busca: "bolha da ia"
 gancho: "Tanaka, todo mundo grita \"bolha da IA\"."
-estrutura: "D (A Pergunta Que Ninguém Faz)"
+temas: ["IA"]
+estrutura: "B (O Personagem → O Twist)"
 mecanica: "boletim-escolar"
 pendencias_checar: 0
 ---
@@ -21,7 +22,7 @@ pendencias_checar: 0
 # 🧵 THREAD — Bolha da IA: o que dizem os números (21/11)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 21/11 às 19:30 (D+0, 30 min depois do vídeo (19h))
-**Estrutura:** D (A Pergunta Que Ninguém Faz) · **mecanica:** boletim-escolar
+**Estrutura:** B (O Personagem → O Twist) · **mecanica:** boletim-escolar
 
 ## GANCHO
 > Tanaka, todo mundo grita "bolha da IA".
@@ -97,9 +98,10 @@ pendencias_checar: 0
   "cta": "Vídeo completo aqui: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Boletim escolar com a matéria 'Data do estouro' em branco.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
-  "estrutura": "D",
+  "estrutura": "B",
   "mecanica": "boletim-escolar",
   "tweets": [
     {

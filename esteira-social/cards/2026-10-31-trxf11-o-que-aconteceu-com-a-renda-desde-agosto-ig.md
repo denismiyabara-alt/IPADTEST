@@ -13,6 +13,7 @@ video_titulo: "TRXF11: o que aconteceu com a renda desde agosto"
 assunto: "FII"
 termo_busca: "trxf11"
 gancho: "TRXF11: o que aconteceu com a renda desde agosto."
+temas: ["FII"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #FII #FundosImobiliarios #RendaMensal #Imoveis #Aluguel #IFIX
+#InvestirECocar #EducacaoFinanceira #FII #FundosImobiliarios #IFIX #RendaMensal
 
 ## SLIDES DO CARROSSEL
 
@@ -64,6 +65,9 @@ pendencias_checar: 0
 ## 📌 FONTES E NÚMEROS (para o juiz-post e o Denis; não vão no post)
 - Calendário (31/10): fontes a conferir: Relatórios gerenciais e informes do fundo (B3/CVM). Ângulo: TROCA pelos termos recentes (era 'ETF de bitcoin', com 21 views de busca no período): 'trxf11' é o termo de investimento mais buscado do canal nos últimos 6 meses (1.516). Acompanhamento neutro dos números do fundo (rendimento, vacância, cota), sem dizer se compra ou vende.
 - Números da própria linha do calendário: liberados (a linha é o briefing).
+- "lidera as buscas de investimento": pautas-canal/CALENDARIO-8-SEMANAS.csv: "'trxf11' é o termo de investimento mais buscado do canal nos últimos 6 meses"
+- "mais buscado do canal nos últimos 6 meses": pautas-canal/CALENDARIO-8-SEMANAS.csv: "'trxf11' é o termo de investimento mais buscado do canal nos últimos 6 meses"
+- "mais buscado no canal nos últimos 6 meses": pautas-canal/CALENDARIO-8-SEMANAS.csv: "'trxf11' é o termo de investimento mais buscado do canal nos últimos 6 meses"
 
 ## ⚠️ PENDÊNCIAS ANTES DE APROVAR
 - nenhuma
@@ -89,9 +93,29 @@ pendencias_checar: 0
   "cta": "O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Carrossel com os três termômetros; nenhuma seta de compra ou venda.",
   "numeros": [],
+  "afirmacoes": [
+    {
+      "texto": "lidera as buscas de investimento",
+      "arquivo": "pautas-canal/CALENDARIO-8-SEMANAS.csv",
+      "trecho": "'trxf11' é o termo de investimento mais buscado do canal nos últimos 6 meses"
+    },
+    {
+      "texto": "mais buscado do canal nos últimos 6 meses",
+      "arquivo": "pautas-canal/CALENDARIO-8-SEMANAS.csv",
+      "trecho": "'trxf11' é o termo de investimento mais buscado do canal nos últimos 6 meses"
+    },
+    {
+      "texto": "mais buscado no canal nos últimos 6 meses",
+      "arquivo": "pautas-canal/CALENDARIO-8-SEMANAS.csv",
+      "trecho": "'trxf11' é o termo de investimento mais buscado do canal nos últimos 6 meses"
+    }
+  ],
   "pendencias": [],
   "rede": "instagram",
   "formato": "carrossel",
+  "temas": [
+    "FII"
+  ],
   "instagram_caption": "TRXF11: o que aconteceu com a renda desde agosto.\n\nFoi o termo de investimento mais buscado no canal nos últimos 6 meses. Então o vídeo abre os números do fundo: rendimento distribuído, vacância e cota, mês a mês, a partir dos relatórios e informes.\n\nAcompanhamento neutro. Ninguém aqui diz compra ou vende.\n\nQual desses três números você olha primeiro?",
   "slides": [
     {
@@ -119,6 +143,6 @@ pendencias_checar: 0
       "texto": "Sem torcida, sem compra, sem venda. Só os números do fundo."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #FII #FundosImobiliarios #RendaMensal #Imoveis #Aluguel #IFIX"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #FII #FundosImobiliarios #IFIX #RendaMensal"
 }
 ---FIM---

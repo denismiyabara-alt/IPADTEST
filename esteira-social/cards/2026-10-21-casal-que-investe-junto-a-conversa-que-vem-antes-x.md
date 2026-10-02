@@ -13,6 +13,7 @@ video_titulo: "Casal que investe junto: a conversa que vem antes do dinheiro"
 assunto: "comportamento e família"
 termo_busca: "—"
 gancho: "Tanaka, casal briga por dinheiro."
+temas: ["comportamento"]
 estrutura: "B (O Personagem → O Twist)"
 mecanica: "manual-invertido"
 pendencias_checar: 0
@@ -82,6 +83,7 @@ pendencias_checar: 0
   "cta": "O Short: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Pizza meio a meio com sabores que não combinam.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
   "estrutura": "B",

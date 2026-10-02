@@ -13,6 +13,7 @@ video_titulo: "LCI e LCA ou CDB: a conta de 2026 com imposto e prazo"
 assunto: "tesouro e renda fixa"
 termo_busca: "lci e lca"
 gancho: "LCI e LCA ou CDB em 2026: a conta tem quatro itens, não um."
+temas: ["renda fixa bancária"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros
+#InvestirECocar #EducacaoFinanceira #CDB #LCI #LCA #FGC #RendaFixa
 
 ## SLIDES DO CARROSSEL
 
@@ -89,9 +90,13 @@ pendencias_checar: 0
   "cta": "O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Carrossel com contrato em letra miúda e lupa no slide 5.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "carrossel",
+  "temas": [
+    "renda fixa bancária"
+  ],
   "instagram_caption": "LCI e LCA ou CDB em 2026: a conta tem quatro itens, não um.\n\nImposto (LCI e LCA isentas pra pessoa física, CDB com IR que cai com o prazo), carência, liquidez e FGC. A pergunta \"80 mil em LCI por 12 meses?\" vira conta, sem recomendação.\n\nTaxa em letra grande. Carência em letra miúda.\n\nQual das duas você leu primeiro?",
   "slides": [
     {
@@ -119,6 +124,6 @@ pendencias_checar: 0
       "texto": "FGC: até onde a garantia cobre. Taxa em letra grande, carência em letra miúda."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #CDB #LCI #LCA #FGC #RendaFixa"
 }
 ---FIM---

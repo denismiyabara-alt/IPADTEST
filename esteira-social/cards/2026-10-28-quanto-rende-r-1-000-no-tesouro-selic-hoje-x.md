@@ -13,15 +13,16 @@ video_titulo: "Quanto rende R$ 1.000 no Tesouro Selic hoje"
 assunto: "tesouro e renda fixa"
 termo_busca: "qual investimento rende mais"
 gancho: "Tanaka, R$ 1.000 no Tesouro Selic."
-estrutura: "A (O Choque → A Causa Escondida)"
-mecanica: "atendimento-ao-cliente"
+temas: ["Tesouro"]
+estrutura: "D (A Pergunta Que Ninguém Faz)"
+mecanica: "conta-rapida"
 pendencias_checar: 1
 ---
 
 # 🧵 THREAD — Quanto rende R$ 1.000 no Tesouro Selic hoje (28/10)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 28/10 às 12:00 (D+0, no dia do Short)
-**Estrutura:** A (O Choque → A Causa Escondida) · **mecanica:** atendimento-ao-cliente
+**Estrutura:** D (A Pergunta Que Ninguém Faz) · **mecanica:** conta-rapida
 
 ## GANCHO
 > Tanaka, R$ 1.000 no Tesouro Selic.
@@ -40,11 +41,14 @@ pendencias_checar: 1
 >
 > E se sacar antes de 30 dias, ainda tem IOF na fila.
 
-## TWEET 3️⃣ — FECHAMENTO (176/280)
-> — E quanto sobra de R$ 1.000 em um ano?
-> — [CHECAR: valor líquido com a taxa do Tesouro Selic do dia da gravação].
-> — Só isso?
-> — Tesouro Selic não é pra ficar rico. É pra dormir.
+## TWEET 3️⃣ — FECHAMENTO (215/280)
+> Conta rápida pra R$ 1.000 em um ano:
+>
+> → bruto: a taxa do dia
+> → menos o IR do prazo
+> → líquido: [CHECAR: valor líquido com a taxa do Tesouro Selic do dia da gravação]
+>
+> Tesouro Selic não é pra ficar rico. É pra dormir.
 
 ## ↩️ CTA: RESPOSTA COM O LINK (reply depois do último tweet; link nunca no corpo da thread)
 > O Short: [LINK DO VÍDEO: preencher na publicação]
@@ -81,12 +85,13 @@ pendencias_checar: 1
   "cta": "O Short: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Nota de R$ 1.000 fictícia (sem marca) dentro de um travesseiro.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [
     "[CHECAR: valor líquido com a taxa do Tesouro Selic do dia da gravação]"
   ],
   "rede": "x",
-  "estrutura": "A",
-  "mecanica": "atendimento-ao-cliente",
+  "estrutura": "D",
+  "mecanica": "conta-rapida",
   "tweets": [
     {
       "numero": 1,
@@ -101,7 +106,7 @@ pendencias_checar: 1
     {
       "numero": 3,
       "tipo": "fechamento",
-      "texto": "— E quanto sobra de R$ 1.000 em um ano?\n— [CHECAR: valor líquido com a taxa do Tesouro Selic do dia da gravação].\n— Só isso?\n— Tesouro Selic não é pra ficar rico. É pra dormir."
+      "texto": "Conta rápida pra R$ 1.000 em um ano:\n\n→ bruto: a taxa do dia\n→ menos o IR do prazo\n→ líquido: [CHECAR: valor líquido com a taxa do Tesouro Selic do dia da gravação]\n\nTesouro Selic não é pra ficar rico. É pra dormir."
     }
   ],
   "reply_com_link": "O Short: [LINK DO VÍDEO: preencher na publicação]"

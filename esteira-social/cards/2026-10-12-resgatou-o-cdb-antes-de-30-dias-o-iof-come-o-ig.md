@@ -13,6 +13,7 @@ video_titulo: "Resgatou o CDB antes de 30 dias? O IOF come o rendimento"
 assunto: "tesouro e renda fixa"
 termo_busca: "—"
 gancho: "Resgatou o CDB antes de 30 dias? O IOF come o rendimento."
+temas: ["renda fixa bancária"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros
+#InvestirECocar #EducacaoFinanceira #CDB #LCI #LCA #FGC #RendaFixa
 
 ## TEXTOS NA TELA DO REELS
 
@@ -83,9 +84,13 @@ pendencias_checar: 0
   "cta": "Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Reels com o Short; capa com o calendário mordido.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "reels",
+  "temas": [
+    "renda fixa bancária"
+  ],
   "instagram_caption": "Resgatou o CDB antes de 30 dias? O IOF come o rendimento.\n\nO imposto é regressivo: quem saca nos primeiros dias deixa uma fatia grande do que rendeu. A cada dia a mordida diminui, e no dia 30 ela some. Aí sobra só o IR.\n\nDinheiro que pode sair a qualquer hora pede aplicação pensada pra isso.\n\nVocê já levou essa mordida?",
   "slides": [
     {
@@ -105,6 +110,6 @@ pendencias_checar: 0
       "texto": "No dia 30, o IOF zera. Sobra só o IR."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #CDB #LCI #LCA #FGC #RendaFixa"
 }
 ---FIM---

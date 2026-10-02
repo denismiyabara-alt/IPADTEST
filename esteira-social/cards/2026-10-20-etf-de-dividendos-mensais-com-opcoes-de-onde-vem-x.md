@@ -13,7 +13,8 @@ video_titulo: "ETF de dividendos mensais com opções: de onde vem a renda"
 assunto: "renda mensal"
 termo_busca: "etf dividendos mensais"
 gancho: "Tanaka, esse ETF paga renda alta todo mês."
-estrutura: "A (O Choque → A Causa Escondida)"
+temas: ["ETF"]
+estrutura: "C (O Antes / Depois)"
 mecanica: "tradutor-juramentado"
 pendencias_checar: 0
 ---
@@ -21,7 +22,7 @@ pendencias_checar: 0
 # 🧵 THREAD — ETF de dividendos mensais com opções: de onde vem a renda (20/10)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 20/10 às 19:30 (D+0, 30 min depois do vídeo (19h))
-**Estrutura:** A (O Choque → A Causa Escondida) · **mecanica:** tradutor-juramentado
+**Estrutura:** C (O Antes / Depois) · **mecanica:** tradutor-juramentado
 
 ## GANCHO
 > Tanaka, esse ETF paga renda alta todo mês.
@@ -96,9 +97,10 @@ pendencias_checar: 0
   "cta": "Vídeo completo aqui: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Vaga de garagem com placa 'alugada' em frente a um estádio lotado.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
-  "estrutura": "A",
+  "estrutura": "C",
   "mecanica": "tradutor-juramentado",
   "tweets": [
     {

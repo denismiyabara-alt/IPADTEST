@@ -13,15 +13,16 @@ video_titulo: "FII ou aluguel: quanto rende R$ 100 mil em cada um"
 assunto: "FII"
 termo_busca: "—"
 gancho: "Tanaka, R$ 100 mil: imóvel ou FII?"
+temas: ["FII"]
 estrutura: "A (O Choque → A Causa Escondida)"
-mecanica: "atendimento-ao-cliente"
+mecanica: "contraste"
 pendencias_checar: 0
 ---
 
 # 🧵 THREAD — FII ou aluguel: quanto rende R$ 100 mil em cada um (11/11)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 11/11 às 12:00 (D+0, no dia do Short)
-**Estrutura:** A (O Choque → A Causa Escondida) · **mecanica:** atendimento-ao-cliente
+**Estrutura:** A (O Choque → A Causa Escondida) · **mecanica:** contraste
 
 ## GANCHO
 > Tanaka, R$ 100 mil: imóvel ou FII?
@@ -41,11 +42,12 @@ pendencias_checar: 0
 >
 > Bruto contra bruto é conversa de churrasco.
 
-## TWEET 3️⃣ — FECHAMENTO (109/280)
-> — Quero vender meu FII.
-> — Um clique.
-> — Quero vender meu apartamento.
-> — Aguarde um comprador. E venda inteiro.
+## TWEET 3️⃣ — FECHAMENTO (179/280)
+> Cota de FII: vende num clique.
+>
+> Apartamento: vende quando aparecer comprador. E vende inteiro.
+>
+> Liquidez não aparece na planilha de rendimento. Aparece no dia em que você precisa.
 
 ## ↩️ CTA: RESPOSTA COM O LINK (reply depois do último tweet; link nunca no corpo da thread)
 > O Short: [LINK DO VÍDEO: preencher na publicação]
@@ -82,10 +84,11 @@ pendencias_checar: 0
   "cta": "O Short: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Chuveiro queimado ao lado de um celular com o app da corretora genérico (sem marca).",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
   "estrutura": "A",
-  "mecanica": "atendimento-ao-cliente",
+  "mecanica": "contraste",
   "tweets": [
     {
       "numero": 1,
@@ -100,7 +103,7 @@ pendencias_checar: 0
     {
       "numero": 3,
       "tipo": "fechamento",
-      "texto": "— Quero vender meu FII.\n— Um clique.\n— Quero vender meu apartamento.\n— Aguarde um comprador. E venda inteiro."
+      "texto": "Cota de FII: vende num clique.\n\nApartamento: vende quando aparecer comprador. E vende inteiro.\n\nLiquidez não aparece na planilha de rendimento. Aparece no dia em que você precisa."
     }
   ],
   "reply_com_link": "O Short: [LINK DO VÍDEO: preencher na publicação]"

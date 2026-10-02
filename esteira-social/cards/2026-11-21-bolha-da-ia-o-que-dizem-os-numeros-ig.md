@@ -13,6 +13,7 @@ video_titulo: "Bolha da IA: o que dizem os números"
 assunto: "crise e macro"
 termo_busca: "bolha da ia"
 gancho: "Bolha da IA: o que dizem os números de lucro, investimento e preço das empresas de inteligência artificial."
+temas: ["IA"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #Crise #Economia #MercadoFinanceiro #Bolsa #Macroeconomia #InteligenciaArtificial
+#InvestirECocar #EducacaoFinanceira #BolhaDaIA #InteligenciaArtificial #Tecnologia #MercadoFinanceiro
 
 ## SLIDES DO CARROSSEL
 
@@ -89,9 +90,13 @@ pendencias_checar: 0
   "cta": "O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Carrossel com três gráficos simples (lucro, investimento, preço) e o boletim no fim.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "carrossel",
+  "temas": [
+    "IA"
+  ],
   "instagram_caption": "Bolha da IA: o que dizem os números de lucro, investimento e preço das empresas de inteligência artificial.\n\nQuando o preço corre na frente do lucro por muito tempo, o mercado está pagando por esperança. O vídeo mostra onde estamos, sem prever topo nem data.\n\nBolha não é opinião. Deixa rastro.\n\nVocê acha que é bolha? Com base em quê?",
   "slides": [
     {
@@ -119,6 +124,6 @@ pendencias_checar: 0
       "texto": "Data do estouro: a matéria em que nenhum aluno passou."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #Crise #Economia #MercadoFinanceiro #Bolsa #Macroeconomia #InteligenciaArtificial"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #BolhaDaIA #InteligenciaArtificial #Tecnologia #MercadoFinanceiro"
 }
 ---FIM---

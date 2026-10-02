@@ -13,6 +13,7 @@ video_titulo: "Crise financeira: o gráfico de 1929, 2008 e 2020, hoje"
 assunto: "crise e macro"
 termo_busca: "crise financeira"
 gancho: "Tanaka, um gráfico acertou 1929, 2008 e 2020."
+temas: ["crise"]
 estrutura: "B (O Personagem → O Twist)"
 mecanica: "boletim-escolar"
 pendencias_checar: 0
@@ -26,10 +27,10 @@ pendencias_checar: 0
 ## GANCHO
 > Tanaka, um gráfico acertou 1929, 2008 e 2020.
 
-## TWEET 1️⃣ — HOOK (155/280)
+## TWEET 1️⃣ — HOOK (133/280)
 > Tanaka, um gráfico acertou 1929, 2008 e 2020.
 >
-> O vídeo sobre ele é um dos que mais trouxeram inscritos ao canal no ano.
+> O vídeo sobre ele foi o 3º melhor do canal no ano.
 >
 > Agora ele vai ter que se explicar.
 
@@ -71,6 +72,7 @@ pendencias_checar: 0
 ## 📌 FONTES E NÚMEROS (para o juiz-post e o Denis; não vão no post)
 - Calendário (15/10): fontes a conferir: Série do indicador original. Ângulo: Revisão honesta do indicador: o que marcava, o que marca, alarmes falsos. Inclui os sinais do vídeo de novembro de 2025 (tpobf1e1OtM), que perdeu a pauta própria por falta de busca.
 - Números da própria linha do calendário: liberados (a linha é o briefing).
+- "foi o 3º melhor do canal no ano": pautas-canal/CALENDARIO-8-SEMANAS.md: "continuação do 3º melhor vídeo do ano"
 
 ## ⚠️ PENDÊNCIAS ANTES DE APROVAR
 - nenhuma
@@ -96,6 +98,13 @@ pendencias_checar: 0
   "cta": "Vídeo completo aqui: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Boletim escolar com o nome 'Indicador' e as três crises como matérias.",
   "numeros": [],
+  "afirmacoes": [
+    {
+      "texto": "foi o 3º melhor do canal no ano",
+      "arquivo": "pautas-canal/CALENDARIO-8-SEMANAS.md",
+      "trecho": "continuação do 3º melhor vídeo do ano"
+    }
+  ],
   "pendencias": [],
   "rede": "x",
   "estrutura": "B",
@@ -104,7 +113,7 @@ pendencias_checar: 0
     {
       "numero": 1,
       "tipo": "hook",
-      "texto": "Tanaka, um gráfico acertou 1929, 2008 e 2020.\n\nO vídeo sobre ele é um dos que mais trouxeram inscritos ao canal no ano.\n\nAgora ele vai ter que se explicar."
+      "texto": "Tanaka, um gráfico acertou 1929, 2008 e 2020.\n\nO vídeo sobre ele foi o 3º melhor do canal no ano.\n\nAgora ele vai ter que se explicar."
     },
     {
       "numero": 2,

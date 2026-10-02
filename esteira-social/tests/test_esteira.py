@@ -116,6 +116,19 @@ def test_x_limites_e_regras_do_brief(arquivo):
     assert "LINK" in js["reply_com_link"] and not any("LINK" in t for t in tw)
 
 
+def test_x_nenhuma_mecanica_mais_de_5_vezes():
+    """Piada/formato (mecânica): no máximo 5 threads cada, para não virar molde."""
+    cont = Counter(c["mecanica"].split(" (")[0] for c in MONTADOS if c["rede"] == "x")
+    assert max(cont.values()) <= 5, cont.most_common(3)
+
+
+def test_x_estruturas_equilibradas():
+    """O brief só tem 5 estruturas (A-E) para 37 threads: o mínimo possível é 8 na mais usada.
+    O limite de 5 vale para a mecânica; aqui, nenhuma estrutura passa de 8."""
+    cont = Counter(c["estrutura"] for c in MONTADOS if c["rede"] == "x")
+    assert set(cont) == set("ABCDE") and max(cont.values()) <= 8, cont
+
+
 def test_x_rotacao_de_estrutura_e_mecanica():
     """X-COPYWRITER-BRIEF: nunca a mesma estrutura nem a mesma mecânica duas threads seguidas."""
     xs = sorted((c for c in MONTADOS if c["rede"] == "x"), key=lambda c: (c["data_publicacao"], c["horario"]))
@@ -134,13 +147,42 @@ def test_instagram_limites(arquivo):
     total = len(leg) + 2 + len(js["cta"]) + 2 + len(js["hashtags"])
     assert total <= 2200, "limite do Instagram"
     tags = js["hashtags"].split()
-    assert 8 <= len(tags) <= 20 and all(t.startswith("#") for t in tags) and len(set(tags)) == len(tags)
+    assert 5 <= len(tags) <= 10 and all(t.startswith("#") for t in tags) and len(set(tags)) == len(tags)
     n = len(js["slides"])
     assert n == (6 if fm["video_formato"] == "longo" else 4)
     assert js["formato"] == ("carrossel" if fm["video_formato"] == "longo" else "reels")
     for s in js["slides"]:
         assert 0 < len(s["texto"]) <= 120, f'slide {s["numero"]} com {len(s["texto"])} caracteres'
     assert "link na bio" in js["cta"].lower()
+
+
+@pytest.mark.parametrize("arquivo", IG)
+def test_instagram_hashtags_so_do_tema_do_video(arquivo):
+    """Nenhuma hashtag de outro tema: só as gerais da marca e as dos temas do próprio vídeo."""
+    _, fm, js = ler_card(arquivo)
+    temas = js["temas"]
+    assert temas and all(t in g.HASHTAGS_TEMA for t in temas)
+    permitidas = set(g.HASHTAGS_GERAL).union(*(g.HASHTAGS_TEMA[t] for t in temas))
+    fora = [h for h in js["hashtags"].split() if h not in permitidas]
+    assert not fora, f"hashtags de outro tema em {temas}: {fora}"
+
+
+def test_card_de_tesouro_nao_leva_hashtag_de_banco():
+    for c in MONTADOS:
+        if c["rede"] == "instagram" and "renda fixa bancária" not in c["temas"]:
+            assert not set(c["hashtags"].split()) & {"#CDB", "#LCI", "#LCA", "#LCIeLCA", "#FGC"}, c["id"]
+
+
+def test_temas_batem_com_o_titulo():
+    """Sanidade do mapa: título que fala de Tesouro, FII, ETF, CDB/LCI ou bitcoin tem o tema correspondente."""
+    chaves = {"tesouro": "Tesouro", "fii": "FII", "fundo imobili": "FII", "fundos imobili": "FII", "etf": "ETF",
+              "cdb": "renda fixa bancária", "lci": "renda fixa bancária", "fgc": "renda fixa bancária", "bitcoin": "cripto"}
+    for r in ROWS:
+        t = r["titulo"].lower()
+        temas = g.conteudo.TEMAS_VIDEO[r["data"]]
+        for k, tema in chaves.items():
+            if k in t:
+                assert tema in temas, (r["data"], k, temas)
 
 
 # ---------------------------------------------------------------- regras do canal
@@ -177,6 +219,18 @@ def test_sem_palavra_proibida_recomendacao_corretora_fonte(arquivo):
 def test_nenhum_numero_inventado(card):
     """Todo número vem da linha do calendário ou está declarado com trecho literal/conta que confere."""
     assert g.checar_numeros(card, card["_row"]) == []
+
+
+@pytest.mark.parametrize("card", MONTADOS, ids=[c["id"] for c in MONTADOS])
+def test_ranking_e_superlativo_so_com_fonte_literal(card):
+    """'top 10', '3º melhor', 'mais buscado', 'campeão', 'recorde'... só se estiver escrito no calendário,
+    nos TEMAS/TERMOS ou no RELATORIO da auditoria (trecho conferido no arquivo)."""
+    assert g.checar_afirmacoes(card) == []
+
+
+def test_checador_pega_ranking_sem_fonte():
+    c = dict(MONTADOS[0], texto_gate=MONTADOS[0]["texto_gate"] + "\nFoi o vídeo mais visto do canal, recorde do ano.")
+    assert g.checar_afirmacoes(c)
 
 
 def test_checador_de_numeros_pega_numero_inventado():

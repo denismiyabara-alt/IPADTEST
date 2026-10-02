@@ -13,6 +13,7 @@ video_titulo: "Fundos imobiliários para iniciantes: de onde vem a renda"
 assunto: "FII"
 termo_busca: "fundos imobiliarios"
 gancho: "Tanaka, fundo imobiliário não é mágica."
+temas: ["FII"]
 estrutura: "A (O Choque → A Causa Escondida)"
 mecanica: "tradutor-juramentado"
 pendencias_checar: 0
@@ -95,6 +96,7 @@ pendencias_checar: 0
   "cta": "Vídeo completo aqui: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Chaveiro com uma chave faltando, em frente a um shopping.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
   "estrutura": "A",

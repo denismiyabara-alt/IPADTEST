@@ -13,6 +13,7 @@ video_titulo: "Tesouro IPCA+ a 7% em janeiro: quanto ganhou quem comprou"
 assunto: "tesouro e renda fixa"
 termo_busca: "tesouro ipca"
 gancho: "Tesouro IPCA+ a 7% em janeiro: quanto ganhou quem comprou? Prestação de contas."
+temas: ["Tesouro"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros
+#InvestirECocar #EducacaoFinanceira #TesouroDireto #TesouroIPCA #TesouroSelic #TitulosPublicos #RendaFixa
 
 ## SLIDES DO CARROSSEL
 
@@ -44,7 +45,7 @@ pendencias_checar: 0
 > Tesouro IPCA+ a 7% em janeiro: quanto ganhou quem comprou?
 
 ### Slide 2
-> Janeiro: o Tesouro pagava IPCA+ 7%. Muita gente travou.
+> Janeiro: o Tesouro pagava IPCA+ 7%. Quem comprou, travou.
 
 ### Slide 3
 > Hoje: o preço na compra contra o preço de agora.
@@ -64,6 +65,8 @@ pendencias_checar: 0
 ## 📌 FONTES E NÚMEROS (para o juiz-post e o Denis; não vão no post)
 - Calendário (08/10): fontes a conferir: Tesouro Direto (histórico). Ângulo: Prestação de contas do vídeo de janeiro: preço na compra e hoje, cupons, marcação.
 - Números da própria linha do calendário: liberados (a linha é o briefing).
+- "está no top 10 do ano do canal": auditoria-canal/RELATORIO.md: "Dois dos top 10 (421 e 246)"
+- "está no top 10 do ano do canal": pautas-canal/CALENDARIO-8-SEMANAS.md: "tesouro: dHYQtxnMSrw"
 
 ## ⚠️ PENDÊNCIAS ANTES DE APROVAR
 - nenhuma
@@ -89,9 +92,24 @@ pendencias_checar: 0
   "cta": "O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Carrossel com linha do tempo janeiro -> hoje; slide 5 com uma gangorra juros x preço.",
   "numeros": [],
+  "afirmacoes": [
+    {
+      "texto": "está no top 10 do ano do canal",
+      "arquivo": "auditoria-canal/RELATORIO.md",
+      "trecho": "Dois dos top 10 (421 e 246)"
+    },
+    {
+      "texto": "está no top 10 do ano do canal",
+      "arquivo": "pautas-canal/CALENDARIO-8-SEMANAS.md",
+      "trecho": "tesouro: dHYQtxnMSrw"
+    }
+  ],
   "pendencias": [],
   "rede": "instagram",
   "formato": "carrossel",
+  "temas": [
+    "Tesouro"
+  ],
   "instagram_caption": "Tesouro IPCA+ a 7% em janeiro: quanto ganhou quem comprou? Prestação de contas.\n\nPreço na compra, preço hoje e os cupons do caminho. Se a tela mostra vermelho, o vídeo explica por que isso não é o mesmo que prejuízo pra quem leva até o vencimento.\n\nA taxa fica travada. O preço passeia.\n\nVocê abriu o extrato este mês ou preferiu não ver?",
   "slides": [
     {
@@ -100,7 +118,7 @@ pendencias_checar: 0
     },
     {
       "numero": 2,
-      "texto": "Janeiro: o Tesouro pagava IPCA+ 7%. Muita gente travou."
+      "texto": "Janeiro: o Tesouro pagava IPCA+ 7%. Quem comprou, travou."
     },
     {
       "numero": 3,
@@ -119,6 +137,6 @@ pendencias_checar: 0
       "texto": "A taxa você travou. O preço, ninguém trava."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #TesouroDireto #TesouroIPCA #TesouroSelic #TitulosPublicos #RendaFixa"
 }
 ---FIM---

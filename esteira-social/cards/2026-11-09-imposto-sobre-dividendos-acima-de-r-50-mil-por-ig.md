@@ -13,6 +13,7 @@ video_titulo: "Imposto sobre dividendos acima de R$ 50 mil por mês: quem paga"
 assunto: "imposto e regras"
 termo_busca: "—"
 gancho: "Imposto sobre dividendos em 2026: só acima de R$ 50 mil por mês pagos pela mesma empresa à mesma pessoa. Acima disso, 10% retidos na fonte."
+temas: ["IR", "ações e dividendos"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #ImpostoDeRenda #IR #Dividendos #JCP #FII #Tributacao
+#InvestirECocar #EducacaoFinanceira #ImpostoDeRenda #IR #Tributacao #JCP #Dividendos #Acoes #DividendosMensais #RendaMensal
 
 ## TEXTOS NA TELA DO REELS
 
@@ -83,9 +84,14 @@ pendencias_checar: 0
   "cta": "Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Reels com o Short; capa com o envelope endereçado à mansão.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "reels",
+  "temas": [
+    "IR",
+    "ações e dividendos"
+  ],
   "instagram_caption": "Imposto sobre dividendos em 2026: só acima de R$ 50 mil por mês pagos pela mesma empresa à mesma pessoa. Acima disso, 10% retidos na fonte.\n\nA conta é por empresa, não pela soma da carteira.\n\nA regra nova existe. Só não mora na casa da maioria.\n\nQual empresa te pagaria R$ 50 mil num mês?",
   "slides": [
     {
@@ -105,6 +111,6 @@ pendencias_checar: 0
       "texto": "A conta é por empresa, não pela soma."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #ImpostoDeRenda #IR #Dividendos #JCP #FII #Tributacao"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #ImpostoDeRenda #IR #Tributacao #JCP #Dividendos #Acoes #DividendosMensais #RendaMensal"
 }
 ---FIM---

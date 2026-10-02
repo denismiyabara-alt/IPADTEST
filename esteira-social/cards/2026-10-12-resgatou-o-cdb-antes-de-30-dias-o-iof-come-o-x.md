@@ -13,6 +13,7 @@ video_titulo: "Resgatou o CDB antes de 30 dias? O IOF come o rendimento"
 assunto: "tesouro e renda fixa"
 termo_busca: "—"
 gancho: "Tanaka, o CDB rendeu."
+temas: ["renda fixa bancária"]
 estrutura: "A (O Choque → A Causa Escondida)"
 mecanica: "manual-invertido"
 pendencias_checar: 0
@@ -84,6 +85,7 @@ pendencias_checar: 0
   "cta": "O Short: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Calendário de 30 dias com uma boca mordendo os primeiros dias.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
   "estrutura": "A",

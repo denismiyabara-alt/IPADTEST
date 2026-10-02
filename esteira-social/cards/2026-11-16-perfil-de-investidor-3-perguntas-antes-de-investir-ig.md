@@ -13,6 +13,7 @@ video_titulo: "Perfil de investidor: 3 perguntas antes de investir"
 assunto: "comportamento e família"
 termo_busca: "—"
 gancho: "Antes de qualquer aplicação, 3 perguntas."
+temas: ["comportamento"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #FinancasDoCasal #Planejamento #Objetivos #Comportamento #Familia #Dinheiro
+#InvestirECocar #EducacaoFinanceira #FinancasDoCasal #Planejamento #Objetivos #FinancasPessoais
 
 ## TEXTOS NA TELA DO REELS
 
@@ -83,9 +84,13 @@ pendencias_checar: 0
   "cta": "Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Reels com o Short; capa com o formulário.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "reels",
+  "temas": [
+    "comportamento"
+  ],
   "instagram_caption": "Antes de qualquer aplicação, 3 perguntas.\n\nPrazo: quando você vai precisar do dinheiro. Objetivo: pra que ele serve. Tolerância a queda: se cair, você vende ou espera.\n\nA terceira é a mais difícil. Todo mundo é arrojado até a primeira queda.\n\nQual das três você nunca respondeu?",
   "slides": [
     {
@@ -105,6 +110,6 @@ pendencias_checar: 0
       "texto": "Queda: se cair, eu vendo ou espero?"
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #FinancasDoCasal #Planejamento #Objetivos #Comportamento #Familia #Dinheiro"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #FinancasDoCasal #Planejamento #Objetivos #FinancasPessoais"
 }
 ---FIM---

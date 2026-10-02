@@ -13,6 +13,7 @@ video_titulo: "Tesouro IPCA+ a 7% em janeiro: quanto ganhou quem comprou"
 assunto: "tesouro e renda fixa"
 termo_busca: "tesouro ipca"
 gancho: "Tanaka, em janeiro o Tesouro pagava IPCA+ 7%."
+temas: ["Tesouro"]
 estrutura: "E (A Linha do Tempo Invertida)"
 mecanica: "atendimento-ao-cliente"
 pendencias_checar: 0
@@ -33,8 +34,8 @@ pendencias_checar: 0
 >
 > Agora a pergunta que ninguém refaz: quanto ganhou até hoje?
 
-## TWEET 2️⃣ — DESENVOLVIMENTO (159/280)
-> O vídeo de janeiro foi o segundo que mais trouxe inscritos ao canal no ano.
+## TWEET 2️⃣ — DESENVOLVIMENTO (134/280)
+> O vídeo de janeiro está no top 10 do ano do canal.
 >
 > Prometer é fácil. Prestar conta é que dá trabalho.
 >
@@ -72,6 +73,8 @@ pendencias_checar: 0
 ## 📌 FONTES E NÚMEROS (para o juiz-post e o Denis; não vão no post)
 - Calendário (08/10): fontes a conferir: Tesouro Direto (histórico). Ângulo: Prestação de contas do vídeo de janeiro: preço na compra e hoje, cupons, marcação.
 - Números da própria linha do calendário: liberados (a linha é o briefing).
+- "está no top 10 do ano do canal": auditoria-canal/RELATORIO.md: "Dois dos top 10 (421 e 246)"
+- "está no top 10 do ano do canal": pautas-canal/CALENDARIO-8-SEMANAS.md: "tesouro: dHYQtxnMSrw"
 
 ## ⚠️ PENDÊNCIAS ANTES DE APROVAR
 - nenhuma
@@ -97,6 +100,18 @@ pendencias_checar: 0
   "cta": "Vídeo completo aqui: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Capa: thumb do vídeo de janeiro ao lado de um extrato com 'janeiro' e 'hoje'.",
   "numeros": [],
+  "afirmacoes": [
+    {
+      "texto": "está no top 10 do ano do canal",
+      "arquivo": "auditoria-canal/RELATORIO.md",
+      "trecho": "Dois dos top 10 (421 e 246)"
+    },
+    {
+      "texto": "está no top 10 do ano do canal",
+      "arquivo": "pautas-canal/CALENDARIO-8-SEMANAS.md",
+      "trecho": "tesouro: dHYQtxnMSrw"
+    }
+  ],
   "pendencias": [],
   "rede": "x",
   "estrutura": "E",
@@ -110,7 +125,7 @@ pendencias_checar: 0
     {
       "numero": 2,
       "tipo": "desenvolvimento",
-      "texto": "O vídeo de janeiro foi o segundo que mais trouxe inscritos ao canal no ano.\n\nPrometer é fácil. Prestar conta é que dá trabalho.\n\nEntão eu fui atrás do extrato."
+      "texto": "O vídeo de janeiro está no top 10 do ano do canal.\n\nPrometer é fácil. Prestar conta é que dá trabalho.\n\nEntão eu fui atrás do extrato."
     },
     {
       "numero": 3,

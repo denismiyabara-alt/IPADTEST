@@ -13,6 +13,7 @@ video_titulo: "Tesouro IPCA+ negativo? Calma, isso tem nome"
 assunto: "tesouro e renda fixa"
 termo_busca: "—"
 gancho: "Tesouro IPCA+ negativo no app? Isso se chama marcação a mercado."
+temas: ["Tesouro"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > Esse é um pedaço do vídeo de 08/10. O completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros
+#InvestirECocar #EducacaoFinanceira #TesouroDireto #TesouroIPCA #TesouroSelic #TitulosPublicos #RendaFixa
 
 ## TEXTOS NA TELA DO REELS
 
@@ -83,9 +84,13 @@ pendencias_checar: 0
   "cta": "Esse é um pedaço do vídeo de 08/10. O completo está no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Reels com o Short (corte do longo de 08/10); capa com a gangorra juros x preço.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "reels",
+  "temas": [
+    "Tesouro"
+  ],
   "instagram_caption": "Tesouro IPCA+ negativo no app? Isso se chama marcação a mercado.\n\nO título tem preço todo dia. Quando os juros sobem, o preço cai. Quem leva até o vencimento recebe a taxa contratada. Quem vende no susto realiza a queda.\n\nO vermelho na tela é humor do mercado, não sentença.\n\nVocê já vendeu no susto?",
   "slides": [
     {
@@ -105,6 +110,6 @@ pendencias_checar: 0
       "texto": "Até o vencimento, vale a taxa que você travou."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #TesouroDireto #TesouroIPCA #TesouroSelic #TitulosPublicos #RendaFixa"
 }
 ---FIM---

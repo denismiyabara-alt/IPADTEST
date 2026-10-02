@@ -13,6 +13,7 @@ video_titulo: "LCI e LCA ou CDB: qual rende mais depois do imposto?"
 assunto: "tesouro e renda fixa"
 termo_busca: "o que é lci e lca"
 gancho: "LCI e LCA ou CDB: qual rende mais depois do imposto?"
+temas: ["renda fixa bancária"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros
+#InvestirECocar #EducacaoFinanceira #CDB #LCI #LCA #FGC #RendaFixa
 
 ## TEXTOS NA TELA DO REELS
 
@@ -83,9 +84,13 @@ pendencias_checar: 0
   "cta": "Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Reels com o Short; capa com as duas taxas e o leão no meio.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "reels",
+  "temas": [
+    "renda fixa bancária"
+  ],
   "instagram_caption": "LCI e LCA ou CDB: qual rende mais depois do imposto?\n\nA taxa do anúncio engana. A LCI paga menos e chega na frente quando o imposto do CDB come a diferença.\n\nO jeito de comparar é a taxa equivalente: quanto o CDB teria de pagar, já descontado o IR do prazo, pra empatar com a LCI.\n\nVocê compara a taxa bruta ou o que cai na conta?",
   "slides": [
     {
@@ -105,6 +110,6 @@ pendencias_checar: 0
       "texto": "Compare o que sobra, não a taxa do anúncio."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #CDB #LCI #LCA #FGC #RendaFixa"
 }
 ---FIM---

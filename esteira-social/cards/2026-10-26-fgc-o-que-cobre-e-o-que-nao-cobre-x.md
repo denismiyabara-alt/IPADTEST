@@ -13,6 +13,7 @@ video_titulo: "FGC: o que cobre e o que não cobre"
 assunto: "tesouro e renda fixa"
 termo_busca: "fgc"
 gancho: "Tanaka, o FGC não cobre tudo."
+temas: ["renda fixa bancária"]
 estrutura: "A (O Choque → A Causa Escondida)"
 mecanica: "atendimento-ao-cliente"
 pendencias_checar: 0
@@ -79,6 +80,7 @@ pendencias_checar: 0
   "cta": "O Short: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Guarda-chuva com o rótulo 'FGC' cobrindo só metade de uma mesa de investimentos.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
   "estrutura": "A",

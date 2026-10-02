@@ -13,7 +13,8 @@ video_titulo: "Copom hoje: 3 números para olhar no seu Tesouro"
 assunto: "tesouro e renda fixa"
 termo_busca: "—"
 gancho: "Tanaka, hoje tem Copom."
-estrutura: "A (O Choque → A Causa Escondida)"
+temas: ["Tesouro", "juros"]
+estrutura: "C (O Antes / Depois)"
 mecanica: "previsao-do-tempo"
 pendencias_checar: 0
 ---
@@ -21,7 +22,7 @@ pendencias_checar: 0
 # 🧵 THREAD — Copom hoje: 3 números para olhar no seu Tesouro (04/11)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 04/11 às 09:00 (D+0, de manhã, ANTES da decisão do Copom (evento ao vivo))
-**Estrutura:** A (O Choque → A Causa Escondida) · **mecanica:** previsao-do-tempo
+**Estrutura:** C (O Antes / Depois) · **mecanica:** previsao-do-tempo
 
 ## GANCHO
 > Tanaka, hoje tem Copom.
@@ -85,9 +86,10 @@ pendencias_checar: 0
   "cta": "O Short: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Mapa do tempo de telejornal com 'IPCA+', 'prefixado' e 'Selic' no lugar das cidades.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
-  "estrutura": "A",
+  "estrutura": "C",
   "mecanica": "previsao-do-tempo",
   "tweets": [
     {

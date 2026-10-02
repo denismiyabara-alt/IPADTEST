@@ -13,6 +13,7 @@ video_titulo: "Crise financeira: o gráfico de 1929, 2008 e 2020, hoje"
 assunto: "crise e macro"
 termo_busca: "crise financeira"
 gancho: "Crise financeira: o gráfico que acertou 1929, 2008 e 2020 passou por revisão."
+temas: ["crise"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #Crise #Economia #MercadoFinanceiro #Bolsa #Macroeconomia #InteligenciaArtificial
+#InvestirECocar #EducacaoFinanceira #Crise #CriseFinanceira #Recessao #MercadoFinanceiro
 
 ## SLIDES DO CARROSSEL
 
@@ -64,6 +65,7 @@ pendencias_checar: 0
 ## 📌 FONTES E NÚMEROS (para o juiz-post e o Denis; não vão no post)
 - Calendário (15/10): fontes a conferir: Série do indicador original. Ângulo: Revisão honesta do indicador: o que marcava, o que marca, alarmes falsos. Inclui os sinais do vídeo de novembro de 2025 (tpobf1e1OtM), que perdeu a pauta própria por falta de busca.
 - Números da própria linha do calendário: liberados (a linha é o briefing).
+- "foi o 3º melhor do canal no ano": pautas-canal/CALENDARIO-8-SEMANAS.md: "continuação do 3º melhor vídeo do ano"
 
 ## ⚠️ PENDÊNCIAS ANTES DE APROVAR
 - nenhuma
@@ -89,9 +91,19 @@ pendencias_checar: 0
   "cta": "O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Carrossel com o gráfico original e três marcações; slide 5 com balões de 'alarme' vazios.",
   "numeros": [],
+  "afirmacoes": [
+    {
+      "texto": "foi o 3º melhor do canal no ano",
+      "arquivo": "pautas-canal/CALENDARIO-8-SEMANAS.md",
+      "trecho": "continuação do 3º melhor vídeo do ano"
+    }
+  ],
   "pendencias": [],
   "rede": "instagram",
   "formato": "carrossel",
+  "temas": [
+    "crise"
+  ],
   "instagram_caption": "Crise financeira: o gráfico que acertou 1929, 2008 e 2020 passou por revisão.\n\nO que ele marcava antes de cada crise, o que marca hoje e os alarmes falsos no caminho. Mais os sinais do vídeo de novembro de 2025, conferidos um a um com o dado de agora.\n\nSem prever data de crash. Ninguém sabe.\n\nVocê confia em gráfico que acertou três vezes?",
   "slides": [
     {
@@ -119,6 +131,6 @@ pendencias_checar: 0
       "texto": "Indicador bom não é o que acerta. É o que você sabe quando erra."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #Crise #Economia #MercadoFinanceiro #Bolsa #Macroeconomia #InteligenciaArtificial"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #Crise #CriseFinanceira #Recessao #MercadoFinanceiro"
 }
 ---FIM---

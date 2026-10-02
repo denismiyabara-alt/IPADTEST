@@ -13,6 +13,7 @@ video_titulo: "LCI e LCA ou CDB: qual rende mais depois do imposto?"
 assunto: "tesouro e renda fixa"
 termo_busca: "o que é lci e lca"
 gancho: "Tanaka, LCI paga menos que CDB."
+temas: ["renda fixa bancária"]
 estrutura: "D (A Pergunta Que Ninguém Faz)"
 mecanica: "tradutor-juramentado"
 pendencias_checar: 0
@@ -82,6 +83,7 @@ pendencias_checar: 0
   "cta": "O Short: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Print genérico de vitrine de banco com duas taxas lado a lado, a maior riscada pelo leão do IR.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
   "estrutura": "D",

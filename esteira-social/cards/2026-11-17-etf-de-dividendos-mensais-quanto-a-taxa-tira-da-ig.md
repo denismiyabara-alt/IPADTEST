@@ -13,6 +13,7 @@ video_titulo: "ETF de dividendos mensais: quanto a taxa tira da renda"
 assunto: "renda mensal"
 termo_busca: "etf dividendos mensais"
 gancho: "ETF de dividendos mensais: quanto a taxa de administração tira da renda em 10 anos."
+temas: ["ETF"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaMensal #DividendosMensais #Dividendos #ETF #FundosImobiliarios #RendaPassiva
+#InvestirECocar #EducacaoFinanceira #ETF #ETFs #TaxaDeAdministracao #DividendosMensais #RendaMensal
 
 ## SLIDES DO CARROSSEL
 
@@ -116,9 +117,13 @@ pendencias_checar: 0
       "entradas": "1,5% ao ano por 10 anos, sem rendimento (CALENDARIO 25/11)"
     }
   ],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "carrossel",
+  "temas": [
+    "ETF"
+  ],
   "instagram_caption": "ETF de dividendos mensais: quanto a taxa de administração tira da renda em 10 anos.\n\nA taxa não chega como boleto. Sai do patrimônio do fundo, todo dia. Na conta simples, 0,5% ao ano come cerca de 5% do patrimônio em 10 anos. A de 1,5% come cerca de 14%.\n\nTaxa alta precisa se explicar todo ano.\n\nQuanto cobra o seu?",
   "slides": [
     {
@@ -146,6 +151,6 @@ pendencias_checar: 0
       "texto": "Taxa alta precisa explicar, todo ano, o que entrega a mais."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaMensal #DividendosMensais #Dividendos #ETF #FundosImobiliarios #RendaPassiva"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #ETF #ETFs #TaxaDeAdministracao #DividendosMensais #RendaMensal"
 }
 ---FIM---

@@ -13,6 +13,7 @@ video_titulo: "CDB prefixado ou pós-fixado: qual rende mais em 2026"
 assunto: "tesouro e renda fixa"
 termo_busca: "cdb prefixado"
 gancho: "Tanaka, prefixado ou pós?"
+temas: ["renda fixa bancária"]
 estrutura: "E (A Linha do Tempo Invertida)"
 mecanica: "atendimento-ao-cliente"
 pendencias_checar: 0
@@ -70,6 +71,7 @@ pendencias_checar: 0
 ## 📌 FONTES E NÚMEROS (para o juiz-post e o Denis; não vão no post)
 - Calendário (14/11): fontes a conferir: Taxas DI futuro (B3); Lei 11.033/2004; FGC. Ângulo: TROCA da v2 (era o cobre: commodities tem n = 1 e nenhum termo de busca): a conta prefixado × pós com a curva de juros de hoje; responde 'cdb prefixado ou pós fixado'.
 - Números da própria linha do calendário: liberados (a linha é o briefing).
+- "rendeu um vídeo aqui em 2018": pautas-canal/CALENDARIO-8-SEMANAS.csv: "7CdwOTT7U3o (CDB prefixado, 2018"
 
 ## ⚠️ PENDÊNCIAS ANTES DE APROVAR
 - nenhuma
@@ -95,6 +97,13 @@ pendencias_checar: 0
   "cta": "Vídeo completo aqui: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Guarda-chuva fechado num dia de sol, com uma nuvem pequena no canto.",
   "numeros": [],
+  "afirmacoes": [
+    {
+      "texto": "rendeu um vídeo aqui em 2018",
+      "arquivo": "pautas-canal/CALENDARIO-8-SEMANAS.csv",
+      "trecho": "7CdwOTT7U3o (CDB prefixado, 2018"
+    }
+  ],
   "pendencias": [],
   "rede": "x",
   "estrutura": "E",

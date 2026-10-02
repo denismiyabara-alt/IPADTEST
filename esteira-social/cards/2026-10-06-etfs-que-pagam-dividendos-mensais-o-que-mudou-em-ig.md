@@ -13,6 +13,7 @@ video_titulo: "ETFs que pagam dividendos mensais: o que mudou em 2026"
 assunto: "renda mensal"
 termo_busca: "etfs que pagam dividendos mensais"
 gancho: "ETFs que pagam dividendos mensais: em 2025 eu fiz uma lista. Em 2026 fui conferir."
+temas: ["ETF"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaMensal #DividendosMensais #Dividendos #ETF #FundosImobiliarios #RendaPassiva
+#InvestirECocar #EducacaoFinanceira #ETF #ETFs #TaxaDeAdministracao #DividendosMensais #RendaMensal
 
 ## SLIDES DO CARROSSEL
 
@@ -65,6 +66,8 @@ pendencias_checar: 0
 - Calendário (06/10): fontes a conferir: B3 (proventos); lâminas dos ETFs. Ângulo: O que aconteceu com cada ETF da lista de 2025 (pagamento real, taxa, patrimônio) e as dúvidas dos comentários.
 - Números da própria linha do calendário: liberados (a linha é o briefing).
 - 637: pautas-canal/TEMAS.md: "`Fb0l4KEq27o` | 637 |"
+- "entrou no top 10 do ano do canal": pautas-canal/CALENDARIO-8-SEMANAS.md: "renda mensal: Fb0l4KEq27o, TY8oLvUt2Qg e IB1mBcF00jc"
+- "entrou no top 10 do ano do canal": auditoria-canal/RELATORIO.md: "Dos 5 maiores do ano, 2 são dessa linha (637 e 324 inscritos)"
 
 ## ⚠️ PENDÊNCIAS ANTES DE APROVAR
 - nenhuma
@@ -96,9 +99,24 @@ pendencias_checar: 0
       "trecho": "`Fb0l4KEq27o` | 637 |"
     }
   ],
+  "afirmacoes": [
+    {
+      "texto": "entrou no top 10 do ano do canal",
+      "arquivo": "pautas-canal/CALENDARIO-8-SEMANAS.md",
+      "trecho": "renda mensal: Fb0l4KEq27o, TY8oLvUt2Qg e IB1mBcF00jc"
+    },
+    {
+      "texto": "entrou no top 10 do ano do canal",
+      "arquivo": "auditoria-canal/RELATORIO.md",
+      "trecho": "Dos 5 maiores do ano, 2 são dessa linha (637 e 324 inscritos)"
+    }
+  ],
   "pendencias": [],
   "rede": "instagram",
   "formato": "carrossel",
+  "temas": [
+    "ETF"
+  ],
   "instagram_caption": "ETFs que pagam dividendos mensais: em 2025 eu fiz uma lista. Em 2026 fui conferir.\n\nPagamento real, taxa e patrimônio de cada um, lado a lado com o que se esperava. Mais as dúvidas que vocês deixaram nos comentários.\n\nDividendo mensal chega todo mês. O valor, quem escolhe é o mercado.\n\nQual mês veio menor no seu extrato?",
   "slides": [
     {
@@ -126,6 +144,6 @@ pendencias_checar: 0
       "texto": "Dividendo mensal não é salário. É boleto ao contrário."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaMensal #DividendosMensais #Dividendos #ETF #FundosImobiliarios #RendaPassiva"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #ETF #ETFs #TaxaDeAdministracao #DividendosMensais #RendaMensal"
 }
 ---FIM---

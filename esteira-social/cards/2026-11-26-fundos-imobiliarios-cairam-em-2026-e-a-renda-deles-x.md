@@ -13,15 +13,16 @@ video_titulo: "Fundos imobiliários caíram em 2026: e a renda deles?"
 assunto: "FII"
 termo_busca: "fundos imobiliarios"
 gancho: "Tanaka, as cotas de FII caíram em 2026."
+temas: ["FII"]
 estrutura: "D (A Pergunta Que Ninguém Faz)"
-mecanica: "eco-do-gatilho (cair)"
+mecanica: "contraste"
 pendencias_checar: 0
 ---
 
 # 🧵 THREAD — Fundos imobiliários caíram em 2026: e a renda deles? (26/11)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 26/11 às 19:30 (D+0, 30 min depois do vídeo (19h))
-**Estrutura:** D (A Pergunta Que Ninguém Faz) · **mecanica:** eco-do-gatilho (cair)
+**Estrutura:** D (A Pergunta Que Ninguém Faz) · **mecanica:** contraste
 
 ## GANCHO
 > Tanaka, as cotas de FII caíram em 2026.
@@ -99,10 +100,11 @@ pendencias_checar: 0
   "cta": "Vídeo completo aqui: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Placa de 'vende-se' barata no prédio e um inquilino pagando o aluguel na porta ao lado.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
   "estrutura": "D",
-  "mecanica": "eco-do-gatilho (cair)",
+  "mecanica": "contraste",
   "tweets": [
     {
       "numero": 1,

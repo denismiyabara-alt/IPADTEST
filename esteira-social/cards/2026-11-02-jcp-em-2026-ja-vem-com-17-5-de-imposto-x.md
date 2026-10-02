@@ -12,35 +12,34 @@ video_formato: "short"
 video_titulo: "JCP em 2026: já vem com 17,5% de imposto"
 assunto: "imposto e regras"
 termo_busca: "—"
-gancho: "Tanaka, o JCP ficou mais caro em 2026."
+gancho: "Tanaka, o JCP de 2026 chega mordido."
+temas: ["IR", "ações e dividendos"]
 estrutura: "C (O Antes / Depois)"
-mecanica: "necrologio"
+mecanica: "contraste"
 pendencias_checar: 0
 ---
 
 # 🧵 THREAD — JCP em 2026: já vem com 17,5% de imposto (02/11)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 02/11 às 12:00 (D+0, no dia do Short)
-**Estrutura:** C (O Antes / Depois) · **mecanica:** necrologio
+**Estrutura:** C (O Antes / Depois) · **mecanica:** contraste
 
 ## GANCHO
-> Tanaka, o JCP ficou mais caro em 2026.
+> Tanaka, o JCP de 2026 chega mordido.
 
-## TWEET 1️⃣ — HOOK (114/280)
-> Tanaka, o JCP ficou mais caro em 2026.
+## TWEET 1️⃣ — HOOK (105/280)
+> Tanaka, o JCP de 2026 chega mordido.
 >
-> Não pra empresa. Pra você.
+> Não na empresa. Em você.
 >
-> Já chega com 17,5% de imposto retido na fonte.
+> Vem com 17,5% de imposto retido na fonte.
 
-## TWEET 2️⃣ — DESENVOLVIMENTO (173/280)
-> Necrológio: o JCP com a alíquota antiga.
+## TWEET 2️⃣ — DESENVOLVIMENTO (142/280)
+> O que a empresa anuncia: o JCP bruto.
 >
-> Faleceu na virada pra 2026.
+> O que cai na sua conta: o JCP menos 17,5%.
 >
-> Causa da morte: uma lei complementar de 2025.
->
-> O velório foi no seu extrato, e ninguém mandou convite.
+> A mordida acontece no caminho, antes de você ver o extrato.
 
 ## TWEET 3️⃣ — FECHAMENTO (200/280)
 > Na prática: o JCP cai na conta já descontado.
@@ -53,7 +52,7 @@ pendencias_checar: 0
 > O Short: [LINK DO VÍDEO: preencher na publicação]
 
 ## 🖼️ SUGESTÃO DE IMAGEM (capa da thread, upload nativo)
-- Imagem: Lápide com 'JCP, alíquota antiga (até 2025)' e uma coroa de flores.
+- Imagem: Dois envelopes: 'anunciado' cheio e 'recebido' com uma mordida no canto.
 - Alt text: JCP em 2026: já vem com 17,5% de imposto
 
 ## 📌 FONTES E NÚMEROS (para o juiz-post e o Denis; não vão no post)
@@ -81,9 +80,9 @@ pendencias_checar: 0
     "horario": "12:00",
     "relativa_ao_video": "D+0, no dia do Short"
   },
-  "gancho": "Tanaka, o JCP ficou mais caro em 2026.",
+  "gancho": "Tanaka, o JCP de 2026 chega mordido.",
   "cta": "O Short: [LINK DO VÍDEO: preencher na publicação]",
-  "imagem": "Lápide com 'JCP, alíquota antiga (até 2025)' e uma coroa de flores.",
+  "imagem": "Dois envelopes: 'anunciado' cheio e 'recebido' com uma mordida no canto.",
   "numeros": [
     {
       "valor": "50",
@@ -91,20 +90,21 @@ pendencias_checar: 0
       "trecho": "Retenção de 10% só acima de R$ 50 mil por mês da mesma empresa (Lei 15.270/2025)."
     }
   ],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
   "estrutura": "C",
-  "mecanica": "necrologio",
+  "mecanica": "contraste",
   "tweets": [
     {
       "numero": 1,
       "tipo": "hook",
-      "texto": "Tanaka, o JCP ficou mais caro em 2026.\n\nNão pra empresa. Pra você.\n\nJá chega com 17,5% de imposto retido na fonte."
+      "texto": "Tanaka, o JCP de 2026 chega mordido.\n\nNão na empresa. Em você.\n\nVem com 17,5% de imposto retido na fonte."
     },
     {
       "numero": 2,
       "tipo": "desenvolvimento",
-      "texto": "Necrológio: o JCP com a alíquota antiga.\n\nFaleceu na virada pra 2026.\n\nCausa da morte: uma lei complementar de 2025.\n\nO velório foi no seu extrato, e ninguém mandou convite."
+      "texto": "O que a empresa anuncia: o JCP bruto.\n\nO que cai na sua conta: o JCP menos 17,5%.\n\nA mordida acontece no caminho, antes de você ver o extrato."
     },
     {
       "numero": 3,

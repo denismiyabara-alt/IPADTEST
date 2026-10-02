@@ -13,6 +13,7 @@ video_titulo: "Tesouro IPCA+ acima de 7%: o que é travar a taxa"
 assunto: "tesouro e renda fixa"
 termo_busca: "tesouro ipca"
 gancho: "Tanaka, travar IPCA+ 7% parece simples."
+temas: ["Tesouro"]
 estrutura: "E (A Linha do Tempo Invertida)"
 mecanica: "eco-do-gatilho (travar)"
 pendencias_checar: 0
@@ -97,6 +98,7 @@ pendencias_checar: 0
   "cta": "Vídeo completo aqui: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Cadeado fechado na taxa e uma corrente solta no preço.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
   "estrutura": "E",

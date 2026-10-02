@@ -13,6 +13,7 @@ video_titulo: "Fundo imobiliário ou imóvel alugado: a conta de 2026"
 assunto: "FII"
 termo_busca: "fundo imobiliario"
 gancho: "Fundo imobiliário ou imóvel alugado em 2026: rendimento, custo, vacância, imposto e liquidez, lado a lado."
+temas: ["FII"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #FII #FundosImobiliarios #RendaMensal #Imoveis #Aluguel #IFIX
+#InvestirECocar #EducacaoFinanceira #FII #FundosImobiliarios #IFIX #RendaMensal
 
 ## SLIDES DO CARROSSEL
 
@@ -89,9 +90,13 @@ pendencias_checar: 0
   "cta": "O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Carrossel em duas colunas, com o lado escondido de cada um revelado no slide 5.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "carrossel",
+  "temas": [
+    "FII"
+  ],
   "instagram_caption": "Fundo imobiliário ou imóvel alugado em 2026: rendimento, custo, vacância, imposto e liquidez, lado a lado.\n\nO imóvel esconde o custo do mês vazio. O FII mostra a oscilação todo dia. Cada um tem a sua letra miúda, e o vídeo lê as duas sem indicar fundo.\n\nO apartamento não cai na tela. Não quer dizer que não caiu.\n\nQuando foi a última avaliação do seu?",
   "slides": [
     {
@@ -119,6 +124,6 @@ pendencias_checar: 0
       "texto": "O apartamento não cai na tela. Isso não quer dizer que não caiu."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #FII #FundosImobiliarios #RendaMensal #Imoveis #Aluguel #IFIX"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #FII #FundosImobiliarios #IFIX #RendaMensal"
 }
 ---FIM---

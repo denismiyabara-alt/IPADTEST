@@ -13,6 +13,7 @@ video_titulo: "Como juntar 1 milhão de reais com R$ 1.000 por mês"
 assunto: "juntar dinheiro e aposentadoria"
 termo_busca: "como juntar 1 milhão de reais"
 gancho: "Como juntar 1 milhão de reais com R$ 1.000 por mês: a conta sem maquiagem."
+temas: ["juntar dinheiro"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #JurosCompostos #Aposentadoria #PrimeiroMilhao #Poupar #LongoPrazo #Planejamento
+#InvestirECocar #EducacaoFinanceira #JurosCompostos #PrimeiroMilhao #Aposentadoria #LongoPrazo
 
 ## TEXTOS NA TELA DO REELS
 
@@ -97,9 +98,13 @@ pendencias_checar: 0
       "entradas": "R$ 1.000 por mês, 12 meses, 22 anos (CALENDARIO 07/10)"
     }
   ],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "reels",
+  "temas": [
+    "juntar dinheiro"
+  ],
   "instagram_caption": "Como juntar 1 milhão de reais com R$ 1.000 por mês: a conta sem maquiagem.\n\nEm 22 anos, só guardando, são R$ 264 mil. Rendendo 6% ao ano acima da inflação, cerca de R$ 535 mil, já em dinheiro de hoje. O milhão com poder de compra chega perto dos 30 anos.\n\nNão é mágica. É tempo e constância.\n\nQuantos anos a sua planilha promete?",
   "slides": [
     {
@@ -119,6 +124,6 @@ pendencias_checar: 0
       "texto": "O milhão de verdade: perto de 30 anos."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #JurosCompostos #Aposentadoria #PrimeiroMilhao #Poupar #LongoPrazo #Planejamento"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #JurosCompostos #PrimeiroMilhao #Aposentadoria #LongoPrazo"
 }
 ---FIM---

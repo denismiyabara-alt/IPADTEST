@@ -13,6 +13,7 @@ video_titulo: "FII é isento de imposto? Só se cumprir estas 3 regras"
 assunto: "imposto e regras"
 termo_busca: "—"
 gancho: "FII é isento de imposto? O rendimento é, se o fundo cumprir 3 regras: 100 cotistas ou mais, cotas negociadas em bolsa e você com menos de 10% das cotas."
+temas: ["IR", "FII"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #ImpostoDeRenda #IR #Dividendos #JCP #FII #Tributacao
+#InvestirECocar #EducacaoFinanceira #ImpostoDeRenda #IR #Tributacao #JCP #FII #FundosImobiliarios #IFIX #RendaMensal
 
 ## TEXTOS NA TELA DO REELS
 
@@ -83,9 +84,14 @@ pendencias_checar: 0
   "cta": "Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Reels com o Short; capa com o checklist das 3 regras.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "reels",
+  "temas": [
+    "IR",
+    "FII"
+  ],
   "instagram_caption": "FII é isento de imposto? O rendimento é, se o fundo cumprir 3 regras: 100 cotistas ou mais, cotas negociadas em bolsa e você com menos de 10% das cotas.\n\nA venda é outra história. Lucro na venda da cota paga 20%.\n\nIsenção tem condição. Quem lê só a manchete descobre na declaração.\n\nVocê já conferiu o número de cotistas do seu fundo?",
   "slides": [
     {
@@ -105,6 +111,6 @@ pendencias_checar: 0
       "texto": "Vendeu com lucro? Paga 20% sobre o ganho."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #ImpostoDeRenda #IR #Dividendos #JCP #FII #Tributacao"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #ImpostoDeRenda #IR #Tributacao #JCP #FII #FundosImobiliarios #IFIX #RendaMensal"
 }
 ---FIM---

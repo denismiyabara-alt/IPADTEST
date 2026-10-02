@@ -13,15 +13,16 @@ video_titulo: "Dividendos mensais de R$ 1.000: quanto precisa investir"
 assunto: "renda mensal"
 termo_busca: "dividendos mensais"
 gancho: "Tanaka, R$ 1.000 por mês de dividendo."
+temas: ["ações e dividendos", "FII", "Tesouro"]
 estrutura: "D (A Pergunta Que Ninguém Faz)"
-mecanica: "eco-do-gatilho (conta)"
+mecanica: "conta-rapida"
 pendencias_checar: 0
 ---
 
 # 🧵 THREAD — Dividendos mensais de R$ 1.000: quanto precisa investir (03/11)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 03/11 às 19:30 (D+0, 30 min depois do vídeo (19h))
-**Estrutura:** D (A Pergunta Que Ninguém Faz) · **mecanica:** eco-do-gatilho (conta)
+**Estrutura:** D (A Pergunta Que Ninguém Faz) · **mecanica:** conta-rapida
 
 ## GANCHO
 > Tanaka, R$ 1.000 por mês de dividendo.
@@ -106,10 +107,11 @@ pendencias_checar: 0
       "entradas": "R$ 1.000 por mês x 12 meses, em mil (título do vídeo)"
     }
   ],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
   "estrutura": "D",
-  "mecanica": "eco-do-gatilho (conta)",
+  "mecanica": "conta-rapida",
   "tweets": [
     {
       "numero": 1,

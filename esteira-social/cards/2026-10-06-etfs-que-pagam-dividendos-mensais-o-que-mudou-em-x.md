@@ -13,31 +13,33 @@ video_titulo: "ETFs que pagam dividendos mensais: o que mudou em 2026"
 assunto: "renda mensal"
 termo_busca: "etfs que pagam dividendos mensais"
 gancho: "Tanaka, a lista de 2025 fez aniversário."
-estrutura: "C (O Antes / Depois)"
-mecanica: "atendimento-ao-cliente"
+temas: ["ETF"]
+estrutura: "E (A Linha do Tempo Invertida)"
+mecanica: "mito-x-fato"
 pendencias_checar: 0
 ---
 
 # 🧵 THREAD — ETFs que pagam dividendos mensais: o que mudou em 2026 (06/10)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 06/10 às 19:30 (D+0, 30 min depois do vídeo (19h))
-**Estrutura:** C (O Antes / Depois) · **mecanica:** atendimento-ao-cliente
+**Estrutura:** E (A Linha do Tempo Invertida) · **mecanica:** mito-x-fato
 
 ## GANCHO
 > Tanaka, a lista de 2025 fez aniversário.
 
-## TWEET 1️⃣ — HOOK (180/280)
+## TWEET 1️⃣ — HOOK (174/280)
 > Tanaka, a lista de 2025 fez aniversário.
 >
-> Os ETFs que pagam todo mês viraram o vídeo que mais trouxe inscritos ao canal no ano: 637.
+> O vídeo dos ETFs que pagam todo mês entrou no top 10 do ano do canal: 637 inscritos.
 >
 > Agora vem a parte que ninguém grava: conferir.
 
-## TWEET 2️⃣ — DESENVOLVIMENTO (114/280)
-> — Vocês prometeram renda todo mês.
-> — Prometemos que pagaria todo mês.
-> — E o valor?
-> — Ah, o valor ninguém prometeu.
+## TWEET 2️⃣ — DESENVOLVIMENTO (152/280)
+> Mito: "ETF de dividendo mensal paga um salário."
+>
+> Fato: paga todo mês, mas o valor muda todo mês.
+>
+> A data de pagamento é previsível. O valor, nunca foi.
 
 ## TWEET 3️⃣ — DESENVOLVIMENTO (168/280)
 > O que eu fui olhar, ETF por ETF:
@@ -71,6 +73,8 @@ pendencias_checar: 0
 - Calendário (06/10): fontes a conferir: B3 (proventos); lâminas dos ETFs. Ângulo: O que aconteceu com cada ETF da lista de 2025 (pagamento real, taxa, patrimônio) e as dúvidas dos comentários.
 - Números da própria linha do calendário: liberados (a linha é o briefing).
 - 637: pautas-canal/TEMAS.md: "`Fb0l4KEq27o` | 637 |"
+- "entrou no top 10 do ano do canal": pautas-canal/CALENDARIO-8-SEMANAS.md: "renda mensal: Fb0l4KEq27o, TY8oLvUt2Qg e IB1mBcF00jc"
+- "entrou no top 10 do ano do canal": auditoria-canal/RELATORIO.md: "Dos 5 maiores do ano, 2 são dessa linha (637 e 324 inscritos)"
 
 ## ⚠️ PENDÊNCIAS ANTES DE APROVAR
 - nenhuma
@@ -102,20 +106,32 @@ pendencias_checar: 0
       "trecho": "`Fb0l4KEq27o` | 637 |"
     }
   ],
+  "afirmacoes": [
+    {
+      "texto": "entrou no top 10 do ano do canal",
+      "arquivo": "pautas-canal/CALENDARIO-8-SEMANAS.md",
+      "trecho": "renda mensal: Fb0l4KEq27o, TY8oLvUt2Qg e IB1mBcF00jc"
+    },
+    {
+      "texto": "entrou no top 10 do ano do canal",
+      "arquivo": "auditoria-canal/RELATORIO.md",
+      "trecho": "Dos 5 maiores do ano, 2 são dessa linha (637 e 324 inscritos)"
+    }
+  ],
   "pendencias": [],
   "rede": "x",
-  "estrutura": "C",
-  "mecanica": "atendimento-ao-cliente",
+  "estrutura": "E",
+  "mecanica": "mito-x-fato",
   "tweets": [
     {
       "numero": 1,
       "tipo": "hook",
-      "texto": "Tanaka, a lista de 2025 fez aniversário.\n\nOs ETFs que pagam todo mês viraram o vídeo que mais trouxe inscritos ao canal no ano: 637.\n\nAgora vem a parte que ninguém grava: conferir."
+      "texto": "Tanaka, a lista de 2025 fez aniversário.\n\nO vídeo dos ETFs que pagam todo mês entrou no top 10 do ano do canal: 637 inscritos.\n\nAgora vem a parte que ninguém grava: conferir."
     },
     {
       "numero": 2,
       "tipo": "desenvolvimento",
-      "texto": "— Vocês prometeram renda todo mês.\n— Prometemos que pagaria todo mês.\n— E o valor?\n— Ah, o valor ninguém prometeu."
+      "texto": "Mito: \"ETF de dividendo mensal paga um salário.\"\n\nFato: paga todo mês, mas o valor muda todo mês.\n\nA data de pagamento é previsível. O valor, nunca foi."
     },
     {
       "numero": 3,

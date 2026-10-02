@@ -13,7 +13,8 @@ video_titulo: "Renda mensal com Tesouro Direto: juros semestrais e RendA+"
 assunto: "renda mensal"
 termo_busca: "tesouro direto"
 gancho: "Tanaka, o Tesouro paga renda."
-estrutura: "C (O Antes / Depois)"
+temas: ["Tesouro"]
+estrutura: "B (O Personagem → O Twist)"
 mecanica: "extrato-falso"
 pendencias_checar: 0
 ---
@@ -21,7 +22,7 @@ pendencias_checar: 0
 # 🧵 THREAD — Renda mensal com Tesouro Direto: juros semestrais e RendA+ (10/11)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 10/11 às 19:30 (D+0, 30 min depois do vídeo (19h))
-**Estrutura:** C (O Antes / Depois) · **mecanica:** extrato-falso
+**Estrutura:** B (O Personagem → O Twist) · **mecanica:** extrato-falso
 
 ## GANCHO
 > Tanaka, o Tesouro paga renda.
@@ -98,9 +99,10 @@ pendencias_checar: 0
   "cta": "Vídeo completo aqui: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Extrato com cinco linhas em branco entre dois cupons.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
-  "estrutura": "C",
+  "estrutura": "B",
   "mecanica": "extrato-falso",
   "tweets": [
     {

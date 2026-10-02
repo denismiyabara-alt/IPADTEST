@@ -13,7 +13,8 @@ video_titulo: "Tesouro Direto na reserva de emergência: Selic, CDB ou conta"
 assunto: "tesouro e renda fixa"
 termo_busca: "tesouro direto"
 gancho: "Tanaka, sua reserva está na conta corrente?"
-estrutura: "A (O Choque → A Causa Escondida)"
+temas: ["Tesouro", "renda fixa bancária"]
+estrutura: "C (O Antes / Depois)"
 mecanica: "atendimento-ao-cliente"
 pendencias_checar: 0
 ---
@@ -21,7 +22,7 @@ pendencias_checar: 0
 # 🧵 THREAD — Tesouro Direto na reserva de emergência: Selic, CDB ou conta (28/11)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 28/11 às 19:30 (D+0, 30 min depois do vídeo (19h))
-**Estrutura:** A (O Choque → A Causa Escondida) · **mecanica:** atendimento-ao-cliente
+**Estrutura:** C (O Antes / Depois) · **mecanica:** atendimento-ao-cliente
 
 ## GANCHO
 > Tanaka, sua reserva está na conta corrente?
@@ -97,9 +98,10 @@ pendencias_checar: 0
   "cta": "Vídeo completo aqui: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Cofrinho bocejando numa mesa de churrasco animada.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
-  "estrutura": "A",
+  "estrutura": "C",
   "mecanica": "atendimento-ao-cliente",
   "tweets": [
     {

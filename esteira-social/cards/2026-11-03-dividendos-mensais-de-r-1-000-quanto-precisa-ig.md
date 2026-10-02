@@ -13,6 +13,7 @@ video_titulo: "Dividendos mensais de R$ 1.000: quanto precisa investir"
 assunto: "renda mensal"
 termo_busca: "dividendos mensais"
 gancho: "Dividendos mensais de R$ 1.000: quanto precisa investir?"
+temas: ["ações e dividendos", "FII", "Tesouro"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaMensal #DividendosMensais #Dividendos #ETF #FundosImobiliarios #RendaPassiva
+#InvestirECocar #EducacaoFinanceira #Dividendos #Acoes #DividendosMensais #RendaMensal #FII #FundosImobiliarios #IFIX #TesouroDireto
 
 ## SLIDES DO CARROSSEL
 
@@ -97,9 +98,15 @@ pendencias_checar: 0
       "entradas": "R$ 1.000 por mês x 12 meses, em mil (título do vídeo)"
     }
   ],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "carrossel",
+  "temas": [
+    "ações e dividendos",
+    "FII",
+    "Tesouro"
+  ],
   "instagram_caption": "Dividendos mensais de R$ 1.000: quanto precisa investir?\n\nA conta começa com R$ 12 mil por ano divididos pelo rendimento líquido anual. O vídeo faz isso em três classes (Tesouro, fundos imobiliários e ações), já descontado o imposto de cada uma. Sem indicar ativo.\n\nRendimento alto encolhe a conta e aumenta o balanço da renda.\n\nQual divisor você usa na sua planilha?",
   "slides": [
     {
@@ -127,6 +134,6 @@ pendencias_checar: 0
       "texto": "Paciência não tem ticker."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaMensal #DividendosMensais #Dividendos #ETF #FundosImobiliarios #RendaPassiva"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #Dividendos #Acoes #DividendosMensais #RendaMensal #FII #FundosImobiliarios #IFIX #TesouroDireto"
 }
 ---FIM---

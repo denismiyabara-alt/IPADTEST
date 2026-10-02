@@ -13,6 +13,7 @@ video_titulo: "Renda mensal com Tesouro Direto: juros semestrais e RendA+"
 assunto: "renda mensal"
 termo_busca: "tesouro direto"
 gancho: "Renda mensal com Tesouro Direto: dois caminhos."
+temas: ["Tesouro"]
 pendencias_checar: 0
 ---
 
@@ -34,7 +35,7 @@ pendencias_checar: 0
 > O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaMensal #DividendosMensais #Dividendos #ETF #FundosImobiliarios #RendaPassiva
+#InvestirECocar #EducacaoFinanceira #TesouroDireto #TesouroIPCA #TesouroSelic #TitulosPublicos #RendaFixa
 
 ## SLIDES DO CARROSSEL
 
@@ -87,9 +88,13 @@ pendencias_checar: 0
   "cta": "O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Carrossel com o extrato de cinco linhas vazias e, no slide 4, um carnê virado ao contrário.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "carrossel",
+  "temas": [
+    "Tesouro"
+  ],
   "instagram_caption": "Renda mensal com Tesouro Direto: dois caminhos.\n\nOs títulos com juros semestrais pagam cupom duas vezes por ano, e você divide em seis. O RendA+ acumula por anos e depois paga todo mês, corrigido pela inflação. Nos dois casos tem IR, e o vídeo faz a conta do que sobra.\n\nMesada semestral ou salário com data marcada?",
   "slides": [
     {
@@ -117,6 +122,6 @@ pendencias_checar: 0
       "texto": "Mesada semestral ou salário com data marcada?"
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaMensal #DividendosMensais #Dividendos #ETF #FundosImobiliarios #RendaPassiva"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #TesouroDireto #TesouroIPCA #TesouroSelic #TitulosPublicos #RendaFixa"
 }
 ---FIM---

@@ -13,6 +13,7 @@ video_titulo: "CDB prefixado ou pós-fixado: qual rende mais em 2026"
 assunto: "tesouro e renda fixa"
 termo_busca: "cdb prefixado"
 gancho: "CDB prefixado ou pós-fixado em 2026: a resposta depende da curva de juros, não do anúncio."
+temas: ["renda fixa bancária"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros
+#InvestirECocar #EducacaoFinanceira #CDB #LCI #LCA #FGC #RendaFixa
 
 ## SLIDES DO CARROSSEL
 
@@ -64,6 +65,7 @@ pendencias_checar: 0
 ## 📌 FONTES E NÚMEROS (para o juiz-post e o Denis; não vão no post)
 - Calendário (14/11): fontes a conferir: Taxas DI futuro (B3); Lei 11.033/2004; FGC. Ângulo: TROCA da v2 (era o cobre: commodities tem n = 1 e nenhum termo de busca): a conta prefixado × pós com a curva de juros de hoje; responde 'cdb prefixado ou pós fixado'.
 - Números da própria linha do calendário: liberados (a linha é o briefing).
+- "rendeu um vídeo aqui em 2018": pautas-canal/CALENDARIO-8-SEMANAS.csv: "7CdwOTT7U3o (CDB prefixado, 2018"
 
 ## ⚠️ PENDÊNCIAS ANTES DE APROVAR
 - nenhuma
@@ -89,9 +91,19 @@ pendencias_checar: 0
   "cta": "O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Carrossel com o guarda-chuva e, no slide 4, a curva de juros desenhada à mão.",
   "numeros": [],
+  "afirmacoes": [
+    {
+      "texto": "rendeu um vídeo aqui em 2018",
+      "arquivo": "pautas-canal/CALENDARIO-8-SEMANAS.csv",
+      "trecho": "7CdwOTT7U3o (CDB prefixado, 2018"
+    }
+  ],
   "pendencias": [],
   "rede": "instagram",
   "formato": "carrossel",
+  "temas": [
+    "renda fixa bancária"
+  ],
   "instagram_caption": "CDB prefixado ou pós-fixado em 2026: a resposta depende da curva de juros, não do anúncio.\n\nNo prefixado, você trava a taxa e ganha se os juros caírem. No pós, você acompanha o CDI. O vídeo faz a conta com a curva de hoje e lembra que os dois seguem a mesma tabela de IR.\n\nGuarda-chuva comprado com sol.\n\nVocê aposta em chuva ou em sol?",
   "slides": [
     {
@@ -119,6 +131,6 @@ pendencias_checar: 0
       "texto": "Prefixado é guarda-chuva comprado com sol."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #CDB #LCI #LCA #FGC #RendaFixa"
 }
 ---FIM---

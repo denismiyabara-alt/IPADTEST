@@ -13,6 +13,7 @@ video_titulo: "Tesouro IPCA+ negativo? Calma, isso tem nome"
 assunto: "tesouro e renda fixa"
 termo_busca: "—"
 gancho: "Tanaka, seu Tesouro IPCA+ ficou negativo?"
+temas: ["Tesouro"]
 estrutura: "A (O Choque → A Causa Escondida)"
 mecanica: "tradutor-juramentado"
 pendencias_checar: 0
@@ -83,6 +84,7 @@ pendencias_checar: 0
   "cta": "O Short: [LINK DO VÍDEO: preencher na publicação]\n\nE o vídeo completo de 08/10: [LINK DO VÍDEO DE 08/10]",
   "imagem": "Print genérico de app com '-' em vermelho e uma legenda 'humor do dia'.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
   "estrutura": "A",

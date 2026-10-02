@@ -13,7 +13,8 @@ video_titulo: "Dividendos mensais com a Selic caindo: o que acontece"
 assunto: "renda mensal"
 termo_busca: "dividendos mensais"
 gancho: "Tanaka, quando a Selic cai, quem perde?"
-estrutura: "C (O Antes / Depois)"
+temas: ["juros", "ações e dividendos", "FII"]
+estrutura: "D (A Pergunta Que Ninguém Faz)"
 mecanica: "eco-do-gatilho (vizinho)"
 pendencias_checar: 0
 ---
@@ -21,7 +22,7 @@ pendencias_checar: 0
 # 🧵 THREAD — Dividendos mensais com a Selic caindo: o que acontece (24/11)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 24/11 às 19:30 (D+0, 30 min depois do vídeo (19h))
-**Estrutura:** C (O Antes / Depois) · **mecanica:** eco-do-gatilho (vizinho)
+**Estrutura:** D (A Pergunta Que Ninguém Faz) · **mecanica:** eco-do-gatilho (vizinho)
 
 ## GANCHO
 > Tanaka, quando a Selic cai, quem perde?
@@ -40,12 +41,14 @@ pendencias_checar: 0
 >
 > Juro alto é o vizinho que faz churrasco toda semana. Ninguém aparece na sua festa.
 
-## TWEET 3️⃣ — DESENVOLVIMENTO (192/280)
+## TWEET 3️⃣ — DESENVOLVIMENTO (225/280)
 > Depois: com juro em queda, o vizinho diminui o churrasco.
 >
 > O dinheiro procura renda em outro lugar.
 >
-> FII e ação pagadora de dividendos costumam receber parte dessa visita. Costumam. Não é lei.
+> Parte dele pode ir pra FII e ação pagadora de dividendos. Pode.
+>
+> Se foi assim nas outras vezes, o histórico do vídeo mostra.
 
 ## TWEET 4️⃣ — DESENVOLVIMENTO (185/280)
 > E tem o efeito dentro das empresas e dos fundos:
@@ -96,9 +99,10 @@ pendencias_checar: 0
   "cta": "Vídeo completo aqui: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Dois quintais vizinhos: um churrasco minguando, o outro começando a encher.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
-  "estrutura": "C",
+  "estrutura": "D",
   "mecanica": "eco-do-gatilho (vizinho)",
   "tweets": [
     {
@@ -114,7 +118,7 @@ pendencias_checar: 0
     {
       "numero": 3,
       "tipo": "desenvolvimento",
-      "texto": "Depois: com juro em queda, o vizinho diminui o churrasco.\n\nO dinheiro procura renda em outro lugar.\n\nFII e ação pagadora de dividendos costumam receber parte dessa visita. Costumam. Não é lei."
+      "texto": "Depois: com juro em queda, o vizinho diminui o churrasco.\n\nO dinheiro procura renda em outro lugar.\n\nParte dele pode ir pra FII e ação pagadora de dividendos. Pode.\n\nSe foi assim nas outras vezes, o histórico do vídeo mostra."
     },
     {
       "numero": 4,

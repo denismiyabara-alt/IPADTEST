@@ -13,6 +13,7 @@ video_titulo: "Tesouro Direto após o Copom: o que muda no IPCA+ e prefixado"
 assunto: "tesouro e renda fixa"
 termo_busca: "tesouro direto"
 gancho: "Tesouro Direto após o Copom: o que muda no IPCA+ e no prefixado."
+temas: ["Tesouro", "juros"]
 pendencias_checar: 1
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 1
 > O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros
+#InvestirECocar #EducacaoFinanceira #TesouroDireto #TesouroIPCA #TesouroSelic #TitulosPublicos #RendaFixa #Copom #Selic #Juros
 
 ## SLIDES DO CARROSSEL
 
@@ -90,11 +91,16 @@ pendencias_checar: 1
   "cta": "O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Carrossel 'véspera x 24 h depois' com as taxas preenchidas na hora (CHECAR).",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [
     "[CHECAR: Selic decidida]"
   ],
   "rede": "instagram",
   "formato": "carrossel",
+  "temas": [
+    "Tesouro",
+    "juros"
+  ],
   "instagram_caption": "Tesouro Direto após o Copom: o que muda no IPCA+ e no prefixado.\n\nO vídeo compara as taxas da véspera com as de 24 h depois do comunicado de 04/11. O que mexe o preço é a diferença entre o esperado e o decidido.\n\nPra quem leva o título até o vencimento, o contrato não muda.\n\nVocê olhou o app hoje ou deixou pra semana que vem?",
   "slides": [
     {
@@ -122,6 +128,6 @@ pendencias_checar: 1
       "texto": "O contrato não muda. Muda o preço de quem sai antes."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #TesouroDireto #TesouroIPCA #TesouroSelic #TitulosPublicos #RendaFixa #Copom #Selic #Juros"
 }
 ---FIM---

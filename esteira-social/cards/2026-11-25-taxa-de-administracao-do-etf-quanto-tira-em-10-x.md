@@ -13,15 +13,16 @@ video_titulo: "Taxa de administração do ETF: quanto tira em 10 anos"
 assunto: "ETF e exterior"
 termo_busca: "—"
 gancho: "Tanaka, taxa de 1,5% ao ano parece pouco."
+temas: ["ETF"]
 estrutura: "A (O Choque → A Causa Escondida)"
-mecanica: "conta-no-guardanapo"
+mecanica: "conta-rapida"
 pendencias_checar: 0
 ---
 
 # 🧵 THREAD — Taxa de administração do ETF: quanto tira em 10 anos (25/11)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 25/11 às 12:00 (D+0, no dia do Short)
-**Estrutura:** A (O Choque → A Causa Escondida) · **mecanica:** conta-no-guardanapo
+**Estrutura:** A (O Choque → A Causa Escondida) · **mecanica:** conta-rapida
 
 ## GANCHO
 > Tanaka, taxa de 1,5% ao ano parece pouco.
@@ -102,10 +103,11 @@ pendencias_checar: 0
       "entradas": "R$ 100 mil, 1,5% ao ano, 10 anos (CALENDARIO 25/11 e 11/11)"
     }
   ],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
   "estrutura": "A",
-  "mecanica": "conta-no-guardanapo",
+  "mecanica": "conta-rapida",
   "tweets": [
     {
       "numero": 1,

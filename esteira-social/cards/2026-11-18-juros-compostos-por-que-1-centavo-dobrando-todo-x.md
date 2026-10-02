@@ -13,15 +13,16 @@ video_titulo: "Juros compostos: por que 1 centavo dobrando todo dia não existe"
 assunto: "juntar dinheiro e aposentadoria"
 termo_busca: "—"
 gancho: "Tanaka, 1 centavo dobrando vira milionário?"
-estrutura: "A (O Choque → A Causa Escondida)"
-mecanica: "atendimento-ao-cliente"
+temas: ["juntar dinheiro"]
+estrutura: "B (O Personagem → O Twist)"
+mecanica: "pergunta-do-leitor"
 pendencias_checar: 0
 ---
 
 # 🧵 THREAD — Juros compostos: por que 1 centavo dobrando todo dia não existe (18/11)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 18/11 às 12:00 (D+0, no dia do Short)
-**Estrutura:** A (O Choque → A Causa Escondida) · **mecanica:** atendimento-ao-cliente
+**Estrutura:** B (O Personagem → O Twist) · **mecanica:** pergunta-do-leitor
 
 ## GANCHO
 > Tanaka, 1 centavo dobrando vira milionário?
@@ -33,11 +34,12 @@ pendencias_checar: 0
 >
 > A conta está certa. O investimento é que não existe.
 
-## TWEET 2️⃣ — DESENVOLVIMENTO (159/280)
-> — Onde eu acho algo que dobra todo dia?
-> — Em lugar nenhum.
-> — Então a conta mentiu?
-> — Não. Ela mostrou a curva. A vida real anda na mesma curva, só que em anos.
+## TWEET 2️⃣ — DESENVOLVIMENTO (148/280)
+> "Onde eu acho algo que dobra todo dia?"
+>
+> Em lugar nenhum.
+>
+> A conta não mentiu: ela mostrou a curva. A vida real anda na mesma curva, só que em anos.
 
 ## TWEET 3️⃣ — FECHAMENTO (154/280)
 > Na vida real: R$ 1.000 por mês a 6% ao ano acima da inflação dá cerca de R$ 535 mil em 22 anos.
@@ -131,10 +133,11 @@ pendencias_checar: 0
       "trecho": "Com 6% ao ano acima da inflação, ~R$ 535 mil em 22 anos e 1 milhão em ~30"
     }
   ],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
-  "estrutura": "A",
-  "mecanica": "atendimento-ao-cliente",
+  "estrutura": "B",
+  "mecanica": "pergunta-do-leitor",
   "tweets": [
     {
       "numero": 1,
@@ -144,7 +147,7 @@ pendencias_checar: 0
     {
       "numero": 2,
       "tipo": "desenvolvimento",
-      "texto": "— Onde eu acho algo que dobra todo dia?\n— Em lugar nenhum.\n— Então a conta mentiu?\n— Não. Ela mostrou a curva. A vida real anda na mesma curva, só que em anos."
+      "texto": "\"Onde eu acho algo que dobra todo dia?\"\n\nEm lugar nenhum.\n\nA conta não mentiu: ela mostrou a curva. A vida real anda na mesma curva, só que em anos."
     },
     {
       "numero": 3,

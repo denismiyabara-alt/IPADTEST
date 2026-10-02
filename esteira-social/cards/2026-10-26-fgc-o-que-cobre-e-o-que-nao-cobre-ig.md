@@ -13,6 +13,7 @@ video_titulo: "FGC: o que cobre e o que não cobre"
 assunto: "tesouro e renda fixa"
 termo_busca: "fgc"
 gancho: "FGC: o que cobre e o que não cobre."
+temas: ["renda fixa bancária"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros
+#InvestirECocar #EducacaoFinanceira #CDB #LCI #LCA #FGC #RendaFixa
 
 ## TEXTOS NA TELA DO REELS
 
@@ -83,9 +84,13 @@ pendencias_checar: 0
   "cta": "Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Reels com o Short; capa com o guarda-chuva pela metade.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "reels",
+  "temas": [
+    "renda fixa bancária"
+  ],
   "instagram_caption": "FGC: o que cobre e o que não cobre.\n\nCobre até R$ 250 mil por CPF por instituição, com teto de R$ 1 milhão a cada 4 anos. Vale pra CDB, LCI e LCA, entre outros.\n\nNão cobre Tesouro Direto, fundos e ações. No Tesouro, quem responde é o Tesouro Nacional. Em fundo e ação, o risco é de quem investe.\n\nVocê sabe quanto tem em cada banco?",
   "slides": [
     {
@@ -105,6 +110,6 @@ pendencias_checar: 0
       "texto": "Não cobre: Tesouro Direto, fundos e ações."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #CDB #LCI #LCA #FGC #RendaFixa"
 }
 ---FIM---

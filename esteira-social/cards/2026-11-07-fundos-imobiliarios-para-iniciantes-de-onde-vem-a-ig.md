@@ -13,6 +13,7 @@ video_titulo: "Fundos imobiliários para iniciantes: de onde vem a renda"
 assunto: "FII"
 termo_busca: "fundos imobiliarios"
 gancho: "Fundos imobiliários para iniciantes: de onde vem a renda."
+temas: ["FII"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #FII #FundosImobiliarios #RendaMensal #Imoveis #Aluguel #IFIX
+#InvestirECocar #EducacaoFinanceira #FII #FundosImobiliarios #IFIX #RendaMensal
 
 ## SLIDES DO CARROSSEL
 
@@ -89,9 +90,13 @@ pendencias_checar: 0
   "cta": "O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Carrossel com tijolo x papel em cores diferentes.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "carrossel",
+  "temas": [
+    "FII"
+  ],
   "instagram_caption": "Fundos imobiliários para iniciantes: de onde vem a renda.\n\nO fundo tem imóveis ou títulos de dívida imobiliária, recebe aluguel ou juros e repassa a maior parte aos cotistas. Tijolo depende de inquilino. Papel depende de quem deve pagar. Sem indicar fundo.\n\nVocê vira dono de um pedaço do shopping, sem a chave.\n\nQual foi a sua primeira dúvida sobre FII?",
   "slides": [
     {
@@ -119,6 +124,6 @@ pendencias_checar: 0
       "texto": "Dono de um pedaço do shopping, sem a chave."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #FII #FundosImobiliarios #RendaMensal #Imoveis #Aluguel #IFIX"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #FII #FundosImobiliarios #IFIX #RendaMensal"
 }
 ---FIM---

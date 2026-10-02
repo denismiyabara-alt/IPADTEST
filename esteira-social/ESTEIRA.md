@@ -16,7 +16,7 @@ cd esteira-social
 python3 gerar_cards.py                 # gera os 74 cards, o INDICE.csv e roda o gate (GATE-RELATORIO.md)
 python3 gerar_cards.py --checar        # só confere números e limites, sem gravar
 python3 gerar_cards.py --sem-gate      # gera sem o gate
-python3 -m pytest -q tests/            # 306 testes; os de gate pulam se o gate não for encontrado
+python3 -m pytest -q tests/            # 422 testes; os de gate pulam se o gate não for encontrado
 ```
 
 - **Só biblioteca padrão** no gerador. Os testes precisam de `pytest`.
@@ -44,7 +44,7 @@ reconhecer um card de thread válido (`project_gate_fila_copywriter_ago2026`).
 | **corpo** | longo: thread de 5 posts. Short: thread de 3 posts | longo: carrossel de 6 slides. Short: Reels com 4 telas |
 | **gancho** | 1ª linha do tweet 1, sempre "Tanaka, …" e com até 8 palavras | 1ª linha da legenda |
 | **CTA para o vídeo** | numa **reply** depois do último tweet, com o link | última linha da legenda ("link na bio") |
-| **hashtags** | nenhuma (o brief do X proíbe) | 10, no fim |
+| **hashtags** | nenhuma (o brief do X proíbe) | de 5 a 10, só do tema do vídeo (`TEMAS_VIDEO` + `HASHTAGS_TEMA`) |
 | **fontes e números** | seção própria, que **não vai no post** | idem |
 | **pendências** | `[CHECAR: …]` que o Denis preenche antes de aprovar | idem |
 
@@ -63,6 +63,14 @@ reconhecer um card de thread válido (`project_gate_fila_copywriter_ago2026`).
 
   O teste reabre cada arquivo, procura o trecho e refaz cada conta. Quando o número depende do dia, fica `[CHECAR: …]`,
   como manda o X-COPYWRITER-BRIEF. São só dois casos: a taxa do Tesouro Selic do dia (28/10) e a decisão do Copom (05/11).
+- **Nenhum ranking ou superlativo sem fonte literal.** "top 10", "3º melhor", "mais buscado", "campeão", "recorde"
+  e parecidos só aparecem se estiverem escritos no calendário, nos TEMAS/TERMOS ou em `auditoria-canal/RELATORIO.md`.
+  Cada afirmação está em `conteudo.AFIRMACOES`, com o trecho, e o teste confere o trecho no arquivo. Exemplo: o vídeo
+  de janeiro (08/10) "está no top 10 do ano", que é literal no RELATORIO ("Dois dos top 10 (421 e 246)"). A versão
+  anterior dizia "o segundo que mais trouxe inscritos", e isso não está escrito em lugar nenhum.
+- **Hashtags do tema.** Um card de Tesouro não leva #CDB, #LCI nem #FGC. Os temas são: Tesouro, renda fixa
+  bancária, FII, ações e dividendos, ETF, IR, juros, crise, IA, cripto, juntar dinheiro e comportamento. Um vídeo pode
+  ter mais de um tema, por exemplo JCP: IR + ações e dividendos.
 - **Sem fonte e sem disclaimer no post** (`feedback_copywriter_sem_fonte_sem_disclaimer`). A fonte de cada número fica na
   seção "FONTES E NÚMEROS" do card, para o juiz e o Denis. O teste reprova "segundo…", "de acordo com", "Fonte:" e
   "não é recomendação".
@@ -70,7 +78,9 @@ reconhecer um card de thread válido (`project_gate_fila_copywriter_ago2026`).
   corretoras. O TRXF11 aparece só como acompanhamento neutro dos números do fundo, como o calendário pede.
 - **Voz.** As threads abrem com "Tanaka," e nunca com "Fala, Tanaka" (`feedback_persona_tanaka_voice`). A promessa cabe no
   bolso de quem tem de R$ 50 mil a R$ 100 mil (`feedback_promessa_perto_do_tanaka`). Não há palavra da lista anti-IA. A
-  estrutura (A-E) e a mecânica de piada **não se repetem** em duas threads seguidas.
+  estrutura (A-E) e a mecânica de piada **não se repetem** em duas threads seguidas. Cada mecânica (atendimento ao
+  cliente, contraste, conta rápida, mito × fato, pergunta do leitor, tradutor, manual invertido...) aparece **no máximo 5
+  vezes**. As estruturas A-E ficam entre 6 e 8 cada: com só 5 estruturas para 37 threads, 8 é o mínimo possível.
 - **Limites.** X: até 280 caracteres por post (o maior tem 217). IG: legenda de 200 a 500 caracteres; total com CTA e
   hashtags até 2.200; slide até 120.
 - **Gate.** Nenhum card é bloqueado. Os avisos estão em `cards/GATE-RELATORIO.md`.

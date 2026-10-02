@@ -13,6 +13,7 @@ video_titulo: "FII ou aluguel: quanto rende R$ 100 mil em cada um"
 assunto: "FII"
 termo_busca: "—"
 gancho: "FII ou aluguel: quanto rende R$ 100 mil em cada um."
+temas: ["FII"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #FII #FundosImobiliarios #RendaMensal #Imoveis #Aluguel #IFIX
+#InvestirECocar #EducacaoFinanceira #FII #FundosImobiliarios #IFIX #RendaMensal
 
 ## TEXTOS NA TELA DO REELS
 
@@ -83,9 +84,13 @@ pendencias_checar: 0
   "cta": "Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Reels com o Short; capa com o chuveiro.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "reels",
+  "temas": [
+    "FII"
+  ],
   "instagram_caption": "FII ou aluguel: quanto rende R$ 100 mil em cada um.\n\nA comparação honesta é líquida. No imóvel, saem IPTU e condomínio do mês vago, manutenção e IR do aluguel. No FII, o rendimento pode ser isento pra pessoa física, se o fundo cumprir as regras.\n\nE só um dos dois te liga quando o chuveiro queima.\n\nVocê já fez essa conta com o seu imóvel?",
   "slides": [
     {
@@ -105,6 +110,6 @@ pendencias_checar: 0
       "texto": "Liquidez: a cota sai num clique. O imóvel, quando aparecer comprador."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #FII #FundosImobiliarios #RendaMensal #Imoveis #Aluguel #IFIX"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #FII #FundosImobiliarios #IFIX #RendaMensal"
 }
 ---FIM---

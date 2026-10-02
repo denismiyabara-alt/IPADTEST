@@ -13,6 +13,7 @@ video_titulo: "Quanto rende R$ 1.000 no Tesouro Selic hoje"
 assunto: "tesouro e renda fixa"
 termo_busca: "qual investimento rende mais"
 gancho: "Quanto rende R$ 1.000 no Tesouro Selic hoje, já descontado o imposto."
+temas: ["Tesouro"]
 pendencias_checar: 2
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 2
 > Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros
+#InvestirECocar #EducacaoFinanceira #TesouroDireto #TesouroIPCA #TesouroSelic #TitulosPublicos #RendaFixa
 
 ## TEXTOS NA TELA DO REELS
 
@@ -84,12 +85,16 @@ pendencias_checar: 2
   "cta": "Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Reels com o Short; capa com o travesseiro.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [
     "[CHECAR: valor líquido de R$ 1.000 com a taxa do dia]",
     "[CHECAR: valor líquido em um ano]"
   ],
   "rede": "instagram",
   "formato": "reels",
+  "temas": [
+    "Tesouro"
+  ],
   "instagram_caption": "Quanto rende R$ 1.000 no Tesouro Selic hoje, já descontado o imposto.\n\nA conta é simples: rendimento bruto menos o IR do prazo, e IOF se o resgate vier antes de 30 dias. Com a taxa do dia da gravação, o líquido em um ano fica em [CHECAR: valor líquido em um ano].\n\nNão é pra enriquecer. É pra dormir.\n\nVocê sabe quanto rende o seu?",
   "slides": [
     {
@@ -109,6 +114,6 @@ pendencias_checar: 2
       "texto": "Em um ano: [CHECAR: valor líquido de R$ 1.000 com a taxa do dia]."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #TesouroDireto #TesouroIPCA #TesouroSelic #TitulosPublicos #RendaFixa"
 }
 ---FIM---

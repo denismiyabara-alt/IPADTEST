@@ -13,7 +13,8 @@ video_titulo: "Tesouro Direto após o Copom: o que muda no IPCA+ e prefixado"
 assunto: "tesouro e renda fixa"
 termo_busca: "tesouro direto"
 gancho: "Tanaka, o Copom decidiu ontem."
-estrutura: "C (O Antes / Depois)"
+temas: ["Tesouro", "juros"]
+estrutura: "E (A Linha do Tempo Invertida)"
 mecanica: "atendimento-ao-cliente"
 pendencias_checar: 1
 ---
@@ -21,7 +22,7 @@ pendencias_checar: 1
 # 🧵 THREAD — Tesouro Direto após o Copom: o que muda no IPCA+ e prefixado (05/11)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 05/11 às 19:30 (D+0, 30 min depois do vídeo (19h))
-**Estrutura:** C (O Antes / Depois) · **mecanica:** atendimento-ao-cliente
+**Estrutura:** E (A Linha do Tempo Invertida) · **mecanica:** atendimento-ao-cliente
 
 ## GANCHO
 > Tanaka, o Copom decidiu ontem.
@@ -96,11 +97,12 @@ pendencias_checar: 1
   "cta": "Vídeo completo aqui: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Duas fotos do mesmo painel de taxas: 'véspera' e '24 h depois'.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [
     "[CHECAR: decisão do Copom de 04/11]"
   ],
   "rede": "x",
-  "estrutura": "C",
+  "estrutura": "E",
   "mecanica": "atendimento-ao-cliente",
   "tweets": [
     {

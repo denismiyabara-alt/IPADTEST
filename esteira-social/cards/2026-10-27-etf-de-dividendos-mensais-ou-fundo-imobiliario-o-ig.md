@@ -13,6 +13,7 @@ video_titulo: "ETF de dividendos mensais ou fundo imobiliário: o que sobra"
 assunto: "renda mensal"
 termo_busca: "etf dividendos"
 gancho: "ETF de dividendos mensais ou fundo imobiliário? A pergunta certa é quanto sobra."
+temas: ["ETF", "FII"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaMensal #DividendosMensais #Dividendos #ETF #FundosImobiliarios #RendaPassiva
+#InvestirECocar #EducacaoFinanceira #ETF #ETFs #TaxaDeAdministracao #DividendosMensais #RendaMensal #FII #FundosImobiliarios #IFIX
 
 ## SLIDES DO CARROSSEL
 
@@ -89,9 +90,14 @@ pendencias_checar: 0
   "cta": "O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Carrossel com duas colunas (ETF | FII) que vão sendo preenchidas.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "carrossel",
+  "temas": [
+    "ETF",
+    "FII"
+  ],
   "instagram_caption": "ETF de dividendos mensais ou fundo imobiliário? A pergunta certa é quanto sobra.\n\nO vídeo compara como cada um paga, a tributação de cada um em 2026 e o quanto a renda varia de um mês pro outro. Sem indicar fundo nem ETF.\n\nA picanha do cartaz não é a do prato.\n\nVocê olha o valor pago ou o que sobra?",
   "slides": [
     {
@@ -119,6 +125,6 @@ pendencias_checar: 0
       "texto": "A picanha do cartaz não é a do prato."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaMensal #DividendosMensais #Dividendos #ETF #FundosImobiliarios #RendaPassiva"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #ETF #ETFs #TaxaDeAdministracao #DividendosMensais #RendaMensal #FII #FundosImobiliarios #IFIX"
 }
 ---FIM---

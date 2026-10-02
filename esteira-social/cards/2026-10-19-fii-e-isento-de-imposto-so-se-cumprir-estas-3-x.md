@@ -13,15 +13,16 @@ video_titulo: "FII é isento de imposto? Só se cumprir estas 3 regras"
 assunto: "imposto e regras"
 termo_busca: "—"
 gancho: "Tanaka, rendimento de FII é isento de IR."
+temas: ["IR", "FII"]
 estrutura: "D (A Pergunta Que Ninguém Faz)"
-mecanica: "atendimento-ao-cliente"
+mecanica: "pergunta-do-leitor"
 pendencias_checar: 0
 ---
 
 # 🧵 THREAD — FII é isento de imposto? Só se cumprir estas 3 regras (19/10)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 19/10 às 12:00 (D+0, no dia do Short)
-**Estrutura:** D (A Pergunta Que Ninguém Faz) · **mecanica:** atendimento-ao-cliente
+**Estrutura:** D (A Pergunta Que Ninguém Faz) · **mecanica:** pergunta-do-leitor
 
 ## GANCHO
 > Tanaka, rendimento de FII é isento de IR.
@@ -42,11 +43,12 @@ pendencias_checar: 0
 >
 > Falhou uma? O rendimento paga imposto.
 
-## TWEET 3️⃣ — FECHAMENTO (129/280)
-> — E quando eu vender a cota com lucro?
-> — Aí paga 20% sobre o ganho.
-> — Mas FII não era isento?
-> — O rendimento. A venda, nunca foi.
+## TWEET 3️⃣ — FECHAMENTO (139/280)
+> "Mas FII não era isento?"
+>
+> O rendimento, sim, com as regras.
+>
+> A venda da cota com lucro, não: paga 20% sobre o ganho. Isenção tem endereço.
 
 ## ↩️ CTA: RESPOSTA COM O LINK (reply depois do último tweet; link nunca no corpo da thread)
 > O Short: [LINK DO VÍDEO: preencher na publicação]
@@ -83,10 +85,11 @@ pendencias_checar: 0
   "cta": "O Short: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Checklist com três caixas, a terceira com o rosto do Tanaka.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
   "estrutura": "D",
-  "mecanica": "atendimento-ao-cliente",
+  "mecanica": "pergunta-do-leitor",
   "tweets": [
     {
       "numero": 1,
@@ -101,7 +104,7 @@ pendencias_checar: 0
     {
       "numero": 3,
       "tipo": "fechamento",
-      "texto": "— E quando eu vender a cota com lucro?\n— Aí paga 20% sobre o ganho.\n— Mas FII não era isento?\n— O rendimento. A venda, nunca foi."
+      "texto": "\"Mas FII não era isento?\"\n\nO rendimento, sim, com as regras.\n\nA venda da cota com lucro, não: paga 20% sobre o ganho. Isenção tem endereço."
     }
   ],
   "reply_com_link": "O Short: [LINK DO VÍDEO: preencher na publicação]"

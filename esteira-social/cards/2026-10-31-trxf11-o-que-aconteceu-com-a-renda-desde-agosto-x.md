@@ -12,24 +12,25 @@ video_formato: "longo"
 video_titulo: "TRXF11: o que aconteceu com a renda desde agosto"
 assunto: "FII"
 termo_busca: "trxf11"
-gancho: "Tanaka, TRXF11 virou a busca campeã do canal."
+gancho: "Tanaka, TRXF11 lidera as buscas de investimento."
+temas: ["FII"]
 estrutura: "B (O Personagem → O Twist)"
-mecanica: "atendimento-ao-cliente"
+mecanica: "mito-x-fato"
 pendencias_checar: 0
 ---
 
 # 🧵 THREAD — TRXF11: o que aconteceu com a renda desde agosto (31/10)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 31/10 às 19:30 (D+0, 30 min depois do vídeo (19h))
-**Estrutura:** B (O Personagem → O Twist) · **mecanica:** atendimento-ao-cliente
+**Estrutura:** B (O Personagem → O Twist) · **mecanica:** mito-x-fato
 
 ## GANCHO
-> Tanaka, TRXF11 virou a busca campeã do canal.
+> Tanaka, TRXF11 lidera as buscas de investimento.
 
-## TWEET 1️⃣ — HOOK (152/280)
-> Tanaka, TRXF11 virou a busca campeã do canal.
+## TWEET 1️⃣ — HOOK (166/280)
+> Tanaka, TRXF11 lidera as buscas de investimento.
 >
-> O termo de investimento mais buscado nos últimos 6 meses.
+> É o termo de investimento mais buscado do canal nos últimos 6 meses.
 >
 > Então vamos aos números do fundo, sem torcida.
 
@@ -42,13 +43,12 @@ pendencias_checar: 0
 >
 > O vídeo põe as três lado a lado, mês a mês.
 
-## TWEET 3️⃣ — DESENVOLVIMENTO (142/280)
-> — O rendimento caiu?
-> — O relatório mostra.
-> — E a vacância?
-> — Também.
-> — E eu compro ou vendo?
-> — Isso o relatório não diz. E o vídeo também não.
+## TWEET 3️⃣ — DESENVOLVIMENTO (157/280)
+> Mito: "o vídeo vai dizer se compra ou vende."
+>
+> Fato: o vídeo mostra rendimento, vacância e cota, mês a mês, e para aí.
+>
+> O número é do fundo. A decisão é sua.
 
 ## TWEET 4️⃣ — DESENVOLVIMENTO (160/280)
 > Por que tanta busca? Quem tem cota quer saber se a renda vai se manter.
@@ -72,6 +72,9 @@ pendencias_checar: 0
 ## 📌 FONTES E NÚMEROS (para o juiz-post e o Denis; não vão no post)
 - Calendário (31/10): fontes a conferir: Relatórios gerenciais e informes do fundo (B3/CVM). Ângulo: TROCA pelos termos recentes (era 'ETF de bitcoin', com 21 views de busca no período): 'trxf11' é o termo de investimento mais buscado do canal nos últimos 6 meses (1.516). Acompanhamento neutro dos números do fundo (rendimento, vacância, cota), sem dizer se compra ou vende.
 - Números da própria linha do calendário: liberados (a linha é o briefing).
+- "lidera as buscas de investimento": pautas-canal/CALENDARIO-8-SEMANAS.csv: "'trxf11' é o termo de investimento mais buscado do canal nos últimos 6 meses"
+- "mais buscado do canal nos últimos 6 meses": pautas-canal/CALENDARIO-8-SEMANAS.csv: "'trxf11' é o termo de investimento mais buscado do canal nos últimos 6 meses"
+- "mais buscado no canal nos últimos 6 meses": pautas-canal/CALENDARIO-8-SEMANAS.csv: "'trxf11' é o termo de investimento mais buscado do canal nos últimos 6 meses"
 
 ## ⚠️ PENDÊNCIAS ANTES DE APROVAR
 - nenhuma
@@ -93,19 +96,36 @@ pendencias_checar: 0
     "horario": "19:30",
     "relativa_ao_video": "D+0, 30 min depois do vídeo (19h)"
   },
-  "gancho": "Tanaka, TRXF11 virou a busca campeã do canal.",
+  "gancho": "Tanaka, TRXF11 lidera as buscas de investimento.",
   "cta": "Vídeo completo aqui: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Três termômetros lado a lado: rendimento, vacância, cota.",
   "numeros": [],
+  "afirmacoes": [
+    {
+      "texto": "lidera as buscas de investimento",
+      "arquivo": "pautas-canal/CALENDARIO-8-SEMANAS.csv",
+      "trecho": "'trxf11' é o termo de investimento mais buscado do canal nos últimos 6 meses"
+    },
+    {
+      "texto": "mais buscado do canal nos últimos 6 meses",
+      "arquivo": "pautas-canal/CALENDARIO-8-SEMANAS.csv",
+      "trecho": "'trxf11' é o termo de investimento mais buscado do canal nos últimos 6 meses"
+    },
+    {
+      "texto": "mais buscado no canal nos últimos 6 meses",
+      "arquivo": "pautas-canal/CALENDARIO-8-SEMANAS.csv",
+      "trecho": "'trxf11' é o termo de investimento mais buscado do canal nos últimos 6 meses"
+    }
+  ],
   "pendencias": [],
   "rede": "x",
   "estrutura": "B",
-  "mecanica": "atendimento-ao-cliente",
+  "mecanica": "mito-x-fato",
   "tweets": [
     {
       "numero": 1,
       "tipo": "hook",
-      "texto": "Tanaka, TRXF11 virou a busca campeã do canal.\n\nO termo de investimento mais buscado nos últimos 6 meses.\n\nEntão vamos aos números do fundo, sem torcida."
+      "texto": "Tanaka, TRXF11 lidera as buscas de investimento.\n\nÉ o termo de investimento mais buscado do canal nos últimos 6 meses.\n\nEntão vamos aos números do fundo, sem torcida."
     },
     {
       "numero": 2,
@@ -115,7 +135,7 @@ pendencias_checar: 0
     {
       "numero": 3,
       "tipo": "desenvolvimento",
-      "texto": "— O rendimento caiu?\n— O relatório mostra.\n— E a vacância?\n— Também.\n— E eu compro ou vendo?\n— Isso o relatório não diz. E o vídeo também não."
+      "texto": "Mito: \"o vídeo vai dizer se compra ou vende.\"\n\nFato: o vídeo mostra rendimento, vacância e cota, mês a mês, e para aí.\n\nO número é do fundo. A decisão é sua."
     },
     {
       "numero": 4,

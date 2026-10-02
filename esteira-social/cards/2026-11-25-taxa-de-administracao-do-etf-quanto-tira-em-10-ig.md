@@ -13,6 +13,7 @@ video_titulo: "Taxa de administração do ETF: quanto tira em 10 anos"
 assunto: "ETF e exterior"
 termo_busca: "—"
 gancho: "Taxa de administração do ETF: quanto tira em 10 anos."
+temas: ["ETF"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > Esse é um pedaço do vídeo de 17/11. O completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #ETF #TaxaDeAdministracao #Dividendos #RendaVariavel #LongoPrazo #Custos
+#InvestirECocar #EducacaoFinanceira #ETF #ETFs #TaxaDeAdministracao #DividendosMensais #RendaMensal
 
 ## TEXTOS NA TELA DO REELS
 
@@ -104,9 +105,13 @@ pendencias_checar: 0
       "entradas": "R$ 100 mil, 1,5% ao ano, 10 anos (CALENDARIO 25/11 e 11/11)"
     }
   ],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "reels",
+  "temas": [
+    "ETF"
+  ],
   "instagram_caption": "Taxa de administração do ETF: quanto tira em 10 anos.\n\nNa conta simples, em cada R$ 100 mil e sem contar rendimento, 0,5% ao ano levam cerca de R$ 4,9 mil. A de 1,5% leva cerca de R$ 14 mil. Um ponto de diferença, quase o triplo de mordida.\n\nA taxa não manda boleto. Sai do patrimônio, todo dia.\n\nVocê sabe a taxa do seu ETF?",
   "slides": [
     {
@@ -126,6 +131,6 @@ pendencias_checar: 0
       "texto": "A taxa não chega como boleto. Sai do patrimônio."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #ETF #TaxaDeAdministracao #Dividendos #RendaVariavel #LongoPrazo #Custos"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #ETF #ETFs #TaxaDeAdministracao #DividendosMensais #RendaMensal"
 }
 ---FIM---

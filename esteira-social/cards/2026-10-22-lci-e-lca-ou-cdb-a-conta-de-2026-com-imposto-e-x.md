@@ -13,7 +13,8 @@ video_titulo: "LCI e LCA ou CDB: a conta de 2026 com imposto e prazo"
 assunto: "tesouro e renda fixa"
 termo_busca: "lci e lca"
 gancho: "Tanaka, 80 mil na LCI por 12 meses?"
-estrutura: "D (A Pergunta Que Ninguém Faz)"
+temas: ["renda fixa bancária"]
+estrutura: "C (O Antes / Depois)"
 mecanica: "eco-do-gatilho (preso)"
 pendencias_checar: 0
 ---
@@ -21,15 +22,15 @@ pendencias_checar: 0
 # 🧵 THREAD — LCI e LCA ou CDB: a conta de 2026 com imposto e prazo (22/10)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 22/10 às 19:30 (D+0, 30 min depois do vídeo (19h))
-**Estrutura:** D (A Pergunta Que Ninguém Faz) · **mecanica:** eco-do-gatilho (preso)
+**Estrutura:** C (O Antes / Depois) · **mecanica:** eco-do-gatilho (preso)
 
 ## GANCHO
 > Tanaka, 80 mil na LCI por 12 meses?
 
-## TWEET 1️⃣ — HOOK (111/280)
+## TWEET 1️⃣ — HOOK (105/280)
 > Tanaka, 80 mil na LCI por 12 meses?
 >
-> A pergunta chegou assim, seca.
+> A pergunta é essa, seca.
 >
 > A resposta não é sim nem não. É uma conta.
 
@@ -95,15 +96,16 @@ pendencias_checar: 0
   "cta": "Vídeo completo aqui: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Cofre com a chave pendurada do lado de dentro, visto pela fechadura.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
-  "estrutura": "D",
+  "estrutura": "C",
   "mecanica": "eco-do-gatilho (preso)",
   "tweets": [
     {
       "numero": 1,
       "tipo": "hook",
-      "texto": "Tanaka, 80 mil na LCI por 12 meses?\n\nA pergunta chegou assim, seca.\n\nA resposta não é sim nem não. É uma conta."
+      "texto": "Tanaka, 80 mil na LCI por 12 meses?\n\nA pergunta é essa, seca.\n\nA resposta não é sim nem não. É uma conta."
     },
     {
       "numero": 2,

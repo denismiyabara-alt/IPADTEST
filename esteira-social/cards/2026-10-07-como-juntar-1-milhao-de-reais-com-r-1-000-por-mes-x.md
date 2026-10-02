@@ -13,6 +13,7 @@ video_titulo: "Como juntar 1 milhão de reais com R$ 1.000 por mês"
 assunto: "juntar dinheiro e aposentadoria"
 termo_busca: "como juntar 1 milhão de reais"
 gancho: "Tanaka, R$ 1.000 por mês vira 1 milhão."
+temas: ["juntar dinheiro"]
 estrutura: "A (O Choque → A Causa Escondida)"
 mecanica: "extrato-falso"
 pendencias_checar: 0
@@ -96,6 +97,7 @@ pendencias_checar: 0
       "entradas": "R$ 1.000 por mês, 12 meses, 22 anos (CALENDARIO 07/10)"
     }
   ],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
   "estrutura": "A",

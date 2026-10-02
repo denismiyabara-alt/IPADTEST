@@ -13,6 +13,7 @@ video_titulo: "ETF de dividendos mensais com opções: de onde vem a renda"
 assunto: "renda mensal"
 termo_busca: "etf dividendos mensais"
 gancho: "ETF de dividendos mensais com opções: a renda alta vem de vender opções de compra sobre as ações da carteira, não só de dividendo."
+temas: ["ETF"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaMensal #DividendosMensais #Dividendos #ETF #FundosImobiliarios #RendaPassiva
+#InvestirECocar #EducacaoFinanceira #ETF #ETFs #TaxaDeAdministracao #DividendosMensais #RendaMensal
 
 ## SLIDES DO CARROSSEL
 
@@ -89,9 +90,13 @@ pendencias_checar: 0
   "cta": "O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Carrossel com a vaga de garagem como fio condutor do slide 2 ao 6.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "carrossel",
+  "temas": [
+    "ETF"
+  ],
   "instagram_caption": "ETF de dividendos mensais com opções: a renda alta vem de vender opções de compra sobre as ações da carteira, não só de dividendo.\n\nFunciona como alugar a vaga de garagem: entra dinheiro todo mês, mas no dia da final a vaga já está alugada pelo preço de sempre. A alta forte fica limitada.\n\nO vídeo compara com o ETF de dividendos comum.\n\nDe onde vem a renda do seu ETF?",
   "slides": [
     {
@@ -119,6 +124,6 @@ pendencias_checar: 0
       "texto": "Renda alta tem preço. Ele não aparece no extrato do mês."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaMensal #DividendosMensais #Dividendos #ETF #FundosImobiliarios #RendaPassiva"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #ETF #ETFs #TaxaDeAdministracao #DividendosMensais #RendaMensal"
 }
 ---FIM---

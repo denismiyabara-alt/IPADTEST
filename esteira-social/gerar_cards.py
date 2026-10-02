@@ -48,18 +48,35 @@ CANAL = "Investir e Coçar"
 LIMITE_X = 280
 LINK = "[LINK DO VÍDEO: preencher na publicação]"
 
-HASHTAGS_BASE = ["#InvestirECocar", "#EducacaoFinanceira", "#Investimentos", "#FinancasPessoais"]
-HASHTAGS_ASSUNTO = {
-    "tesouro e renda fixa": ["#RendaFixa", "#TesouroDireto", "#CDB", "#LCIeLCA", "#FGC", "#Juros"],
-    "renda mensal": ["#RendaMensal", "#DividendosMensais", "#Dividendos", "#ETF", "#FundosImobiliarios", "#RendaPassiva"],
-    "crise e macro": ["#Crise", "#Economia", "#MercadoFinanceiro", "#Bolsa", "#Macroeconomia", "#InteligenciaArtificial"],
-    "FII": ["#FII", "#FundosImobiliarios", "#RendaMensal", "#Imoveis", "#Aluguel", "#IFIX"],
-    "imposto e regras": ["#ImpostoDeRenda", "#IR", "#Dividendos", "#JCP", "#FII", "#Tributacao"],
-    "comportamento e família": ["#FinancasDoCasal", "#Planejamento", "#Objetivos", "#Comportamento", "#Familia", "#Dinheiro"],
-    "juntar dinheiro e aposentadoria": ["#JurosCompostos", "#Aposentadoria", "#PrimeiroMilhao", "#Poupar", "#LongoPrazo", "#Planejamento"],
-    "cripto": ["#Bitcoin", "#Cripto", "#Criptomoedas", "#BTC", "#Risco", "#Volatilidade"],
-    "ETF e exterior": ["#ETF", "#TaxaDeAdministracao", "#Dividendos", "#RendaVariavel", "#LongoPrazo", "#Custos"],
+# Hashtags por TEMA do vídeo (conteudo.TEMAS_VIDEO), não por assunto do calendário: card de Tesouro não leva
+# #CDB nem #LCIeLCA. Um card leva as gerais da marca + as dos seus temas, de 5 a 10 no total.
+HASHTAGS_GERAL = ["#InvestirECocar", "#EducacaoFinanceira"]
+HASHTAGS_TEMA = {
+    "Tesouro": ["#TesouroDireto", "#TesouroIPCA", "#TesouroSelic", "#TitulosPublicos", "#RendaFixa"],
+    "renda fixa bancária": ["#CDB", "#LCI", "#LCA", "#FGC", "#RendaFixa"],
+    "FII": ["#FII", "#FundosImobiliarios", "#IFIX", "#RendaMensal"],
+    "ações e dividendos": ["#Dividendos", "#Acoes", "#DividendosMensais", "#RendaMensal"],
+    "ETF": ["#ETF", "#ETFs", "#TaxaDeAdministracao", "#DividendosMensais", "#RendaMensal"],
+    "IR": ["#ImpostoDeRenda", "#IR", "#Tributacao", "#JCP"],
+    "juros": ["#Copom", "#Selic", "#Juros"],
+    "crise": ["#Crise", "#CriseFinanceira", "#Recessao", "#MercadoFinanceiro"],
+    "IA": ["#BolhaDaIA", "#InteligenciaArtificial", "#Tecnologia", "#MercadoFinanceiro"],
+    "cripto": ["#Bitcoin", "#Cripto", "#Criptomoedas", "#BTC"],
+    "juntar dinheiro": ["#JurosCompostos", "#PrimeiroMilhao", "#Aposentadoria", "#LongoPrazo"],
+    "comportamento": ["#FinancasDoCasal", "#Planejamento", "#Objetivos", "#FinancasPessoais"],
 }
+MAX_HASHTAGS = 10
+
+
+def hashtags_do_video(temas):
+    tags = list(HASHTAGS_GERAL)
+    for t in temas:
+        for h in HASHTAGS_TEMA[t]:
+            if h not in tags and len(tags) < MAX_HASHTAGS:
+                tags.append(h)
+    return tags
+
+
 ESTRUTURAS = {
     "A": "O Choque → A Causa Escondida",
     "B": "O Personagem → O Twist",
@@ -152,6 +169,30 @@ def checar_numeros(card, row, pautas=PAUTAS):
     return probs
 
 
+RE_RANKING = re.compile(
+    r"top ?\d+|campe[ãa]|recorde|l[ií]der\w*|\d+º|mais buscad\w*|mais trouxe\w*|mais vist\w*|"
+    r"\b(?:o|a|os|as) (?:melhor|pior)(?:es)?\b|\bmelhor(?:es)? d[oa]\b|\bpior(?:es)? d[oa]\b|"
+    r"\b(?:o|a|os|as) maior(?:es)? (?:\w+ )?d[oa]s? (?:canal|ano|brasil|mercado|bolsa|hist[oó]ria)\b|"
+    r"\b(?:primeiro|segundo|terceiro) (?:que|mais|melhor|lugar)\b|\bnº", re.I)
+
+
+def checar_afirmacoes(card, raiz=AQUI.parent):
+    """Afirmação de ranking/superlativo no post precisa estar declarada e escrita literalmente na fonte."""
+    probs, texto = [], card["texto_gate"]
+    for a in card["afirmacoes"]:
+        arq_txt = (raiz / a["arquivo"]).read_text(encoding="utf-8")
+        if a["trecho"] not in arq_txt:
+            probs.append(f'trecho não está em {a["arquivo"]}: "{a["trecho"]}"')
+    cobertos = [a["texto"] for a in card["afirmacoes"] if a["texto"] in texto]
+    for m in RE_RANKING.finditer(texto):
+        ini = texto.rfind("\n", 0, m.start()) + 1
+        fim = texto.find("\n", m.end())
+        linha = texto[ini:fim if fim >= 0 else None]
+        if not any(c in linha for c in cobertos):
+            probs.append(f'afirmação de ranking sem fonte literal: "{linha.strip()}"')
+    return probs
+
+
 # ---------------------------------------------------------------- cards
 def montar_cards(rows=None):
     rows = rows if rows is not None else ler_calendario()
@@ -171,6 +212,7 @@ def montar_cards(rows=None):
             "angulo": row["angulo"], "fontes_a_conferir": row["fontes_a_conferir"],
             "numeros": c.get("numeros", []), "evento_ao_vivo": c.get("evento_ao_vivo", ""),
             "corte_de": c.get("corte_de", ""), "status": "rascunho", "_row": row,
+            "temas": conteudo.TEMAS_VIDEO[row["data"]], "afirmacoes": conteudo.AFIRMACOES.get(row["data"], []),
         }
         # X
         tw = c["x"]["tweets"]
@@ -194,7 +236,7 @@ def montar_cards(rows=None):
             cta = f"Esse é um pedaço do vídeo de {ddmm(c['corte_de'])}. O completo está no YouTube, no canal {CANAL}. Link na bio."
         else:
             cta = f"Mais contas assim no YouTube, no canal {CANAL}. Link na bio."
-        tags = HASHTAGS_BASE + HASHTAGS_ASSUNTO[row["assunto"]]
+        tags = hashtags_do_video(conteudo.TEMAS_VIDEO[row["data"]])
         i_g = dict(base, rede="instagram", id=f"{row['data']}-{slug}-ig", arquivo=f"{row['data']}-{slug}-ig.md",
                    formato=("carrossel" if longo else "reels") + f" ({len(ig['slides'])} {'slides' if longo else 'telas'})",
                    tipo_post="carrossel" if longo else "reels",
@@ -223,6 +265,8 @@ def _fontes_md(card):
             linhas.append(f'- {n["valor"]}: cálculo `{n["conta"]}` a partir de {n["entradas"]}')
         else:
             linhas.append(f'- {n["valor"]}: pautas-canal/{n["fonte"]}: "{n["trecho"]}"')
+    for a in card["afirmacoes"]:
+        linhas.append(f'- "{a["texto"]}": {a["arquivo"]}: "{a["trecho"]}"')
     return "\n".join(linhas)
 
 
@@ -233,12 +277,12 @@ def _json(card):
              "publicacao": {"data": card["data_publicacao"], "horario": card["horario"],
                             "relativa_ao_video": card["relativa_ao_video"]},
              "gancho": card["gancho"], "cta": card["cta"], "imagem": card["imagem"],
-             "numeros": card["numeros"], "pendencias": pendencias(card)}
+             "numeros": card["numeros"], "afirmacoes": card["afirmacoes"], "pendencias": pendencias(card)}
     if card["rede"] == "x":
         comum.update(rede="x", estrutura=card["estrutura"], mecanica=card["mecanica"], tweets=card["tweets"],
                      reply_com_link=card["cta"])
     else:
-        comum.update(rede="instagram", formato=card["tipo_post"], instagram_caption=card["legenda"],
+        comum.update(rede="instagram", formato=card["tipo_post"], temas=card["temas"], instagram_caption=card["legenda"],
                      slides=card["slides"], hashtags=card["hashtags"])
     return json.dumps(comum, ensure_ascii=False, indent=2)
 
@@ -250,7 +294,7 @@ def _frontmatter(card):
               ("relativa_ao_video", card["relativa_ao_video"]),
               ("video_data", card["video_data"]), ("video_formato", card["video_formato"]),
               ("video_titulo", card["video_titulo"]), ("assunto", card["assunto"]), ("termo_busca", card["termo_busca"]),
-              ("gancho", card["gancho"])]
+              ("gancho", card["gancho"]), ("temas", card["temas"])]
     if card["rede"] == "x":
         campos += [("estrutura", f'{card["estrutura"]} ({ESTRUTURAS[card["estrutura"]]})'), ("mecanica", card["mecanica"])]
     campos.append(("pendencias_checar", len(pendencias(card))))
@@ -381,7 +425,7 @@ def relatorio_gate(cards, res):
 def checar(cards):
     erros = []
     for c in cards:
-        for p in checar_numeros(c, c["_row"]):
+        for p in checar_numeros(c, c["_row"]) + checar_afirmacoes(c):
             erros.append(f'{c["arquivo"]}: {p}')
         if c["rede"] == "x":
             for t in c["tweets"]:

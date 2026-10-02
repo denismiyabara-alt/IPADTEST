@@ -13,6 +13,7 @@ video_titulo: "Tesouro IPCA+ acima de 7%: o que é travar a taxa"
 assunto: "tesouro e renda fixa"
 termo_busca: "tesouro ipca"
 gancho: "Tesouro IPCA+ acima de 7%: o que significa travar a taxa."
+temas: ["Tesouro"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros
+#InvestirECocar #EducacaoFinanceira #TesouroDireto #TesouroIPCA #TesouroSelic #TitulosPublicos #RendaFixa
 
 ## SLIDES DO CARROSSEL
 
@@ -89,9 +90,13 @@ pendencias_checar: 0
   "cta": "O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Carrossel com o cadeado da taxa e a corrente do preço.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "carrossel",
+  "temas": [
+    "Tesouro"
+  ],
   "instagram_caption": "Tesouro IPCA+ acima de 7%: o que significa travar a taxa.\n\nNo vencimento, você recebe a inflação do período mais a taxa contratada. No caminho, o título tem preço diário e pode cair se os juros subirem. Vender antes é aceitar o preço do dia.\n\nTravar a taxa é fácil. Difícil é travar a paciência.\n\nQuanto tempo você aguenta sem mexer?",
   "slides": [
     {
@@ -119,6 +124,6 @@ pendencias_checar: 0
       "texto": "Travou a taxa. Agora trava a paciência."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #TesouroDireto #TesouroIPCA #TesouroSelic #TitulosPublicos #RendaFixa"
 }
 ---FIM---

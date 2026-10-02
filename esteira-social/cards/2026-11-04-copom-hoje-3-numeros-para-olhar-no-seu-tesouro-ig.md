@@ -13,6 +13,7 @@ video_titulo: "Copom hoje: 3 números para olhar no seu Tesouro"
 assunto: "tesouro e renda fixa"
 termo_busca: "—"
 gancho: "Copom hoje: 3 números para anotar no seu Tesouro antes da decisão."
+temas: ["Tesouro", "juros"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros
+#InvestirECocar #EducacaoFinanceira #TesouroDireto #TesouroIPCA #TesouroSelic #TitulosPublicos #RendaFixa #Copom #Selic #Juros
 
 ## TEXTOS NA TELA DO REELS
 
@@ -84,9 +85,14 @@ pendencias_checar: 0
   "cta": "Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Reels com o Short; capa com o mapa do tempo.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "reels",
+  "temas": [
+    "Tesouro",
+    "juros"
+  ],
   "instagram_caption": "Copom hoje: 3 números para anotar no seu Tesouro antes da decisão.\n\nA taxa do IPCA+, a do prefixado e a Selic que o mercado espera. Se a decisão surpreender, as taxas e os preços dos títulos se mexem, e quem anotou entende o porquê.\n\nAmanhã sai o vídeo com o que mudou.\n\nVocê vai olhar antes ou só depois?",
   "slides": [
     {
@@ -106,6 +112,6 @@ pendencias_checar: 0
       "texto": "A Selic que o mercado espera."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #TesouroDireto #TesouroIPCA #TesouroSelic #TitulosPublicos #RendaFixa #Copom #Selic #Juros"
 }
 ---FIM---

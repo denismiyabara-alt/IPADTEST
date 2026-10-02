@@ -13,6 +13,7 @@ video_titulo: "ETF de dividendos mensais: quanto a taxa tira da renda"
 assunto: "renda mensal"
 termo_busca: "etf dividendos mensais"
 gancho: "Tanaka, \"essa taxa de 1,50 é alta?\""
+temas: ["ETF"]
 estrutura: "C (O Antes / Depois)"
 mecanica: "elogio-envenenado"
 pendencias_checar: 0
@@ -26,10 +27,10 @@ pendencias_checar: 0
 ## GANCHO
 > Tanaka, "essa taxa de 1,50 é alta?"
 
-## TWEET 1️⃣ — HOOK (101/280)
+## TWEET 1️⃣ — HOOK (95/280)
 > Tanaka, "essa taxa de 1,50 é alta?"
 >
-> A pergunta chegou assim.
+> A pergunta é essa.
 >
 > A resposta cabe numa conta de 10 anos.
 
@@ -124,6 +125,7 @@ pendencias_checar: 0
       "entradas": "1,5% ao ano por 10 anos, sem rendimento (CALENDARIO 25/11)"
     }
   ],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
   "estrutura": "C",
@@ -132,7 +134,7 @@ pendencias_checar: 0
     {
       "numero": 1,
       "tipo": "hook",
-      "texto": "Tanaka, \"essa taxa de 1,50 é alta?\"\n\nA pergunta chegou assim.\n\nA resposta cabe numa conta de 10 anos."
+      "texto": "Tanaka, \"essa taxa de 1,50 é alta?\"\n\nA pergunta é essa.\n\nA resposta cabe numa conta de 10 anos."
     },
     {
       "numero": 2,

@@ -13,6 +13,7 @@ video_titulo: "Casal que investe junto: a conversa que vem antes do dinheiro"
 assunto: "comportamento e família"
 termo_busca: "—"
 gancho: "Casal que investe junto começa por uma conversa, não por um produto."
+temas: ["comportamento"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #FinancasDoCasal #Planejamento #Objetivos #Comportamento #Familia #Dinheiro
+#InvestirECocar #EducacaoFinanceira #FinancasDoCasal #Planejamento #Objetivos #FinancasPessoais
 
 ## TEXTOS NA TELA DO REELS
 
@@ -83,9 +84,13 @@ pendencias_checar: 0
   "cta": "Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Reels com o Short; capa com a pizza meio a meio.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "reels",
+  "temas": [
+    "comportamento"
+  ],
   "instagram_caption": "Casal que investe junto começa por uma conversa, não por um produto.\n\nA pergunta é simples: esse dinheiro é pra quê, e pra quando? Viagem, casa, reserva e aposentadoria têm prazos diferentes. Misturar tudo na mesma aplicação é pedir briga no meio do caminho.\n\nIgual pizza: primeiro o sabor, depois a fatia.\n\nVocês já tiveram essa conversa?",
   "slides": [
     {
@@ -105,6 +110,6 @@ pendencias_checar: 0
       "texto": "Primeiro o sabor da pizza. Depois a fatia."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #FinancasDoCasal #Planejamento #Objetivos #Comportamento #Familia #Dinheiro"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #FinancasDoCasal #Planejamento #Objetivos #FinancasPessoais"
 }
 ---FIM---

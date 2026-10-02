@@ -13,6 +13,7 @@ video_titulo: "Dividendos mensais com ações: como montar um calendário"
 assunto: "renda mensal"
 termo_busca: "dividendos mensais"
 gancho: "Tanaka, dividendo não cai todo mês por mágica."
+temas: ["ações e dividendos"]
 estrutura: "D (A Pergunta Que Ninguém Faz)"
 mecanica: "eco-do-gatilho (cair)"
 pendencias_checar: 0
@@ -97,6 +98,7 @@ pendencias_checar: 0
   "cta": "Vídeo completo aqui: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Calendário de parede com nomes genéricos ('primo 1', 'primo 2') em cada mês, um deles riscado.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
   "estrutura": "D",

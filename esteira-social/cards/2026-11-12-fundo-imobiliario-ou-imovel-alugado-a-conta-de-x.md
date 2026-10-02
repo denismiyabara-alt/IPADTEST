@@ -13,7 +13,8 @@ video_titulo: "Fundo imobiliário ou imóvel alugado: a conta de 2026"
 assunto: "FII"
 termo_busca: "fundo imobiliario"
 gancho: "Tanaka, imóvel ou fundo imobiliário?"
-estrutura: "D (A Pergunta Que Ninguém Faz)"
+temas: ["FII"]
+estrutura: "C (O Antes / Depois)"
 mecanica: "eco-do-gatilho (escondido)"
 pendencias_checar: 0
 ---
@@ -21,7 +22,7 @@ pendencias_checar: 0
 # 🧵 THREAD — Fundo imobiliário ou imóvel alugado: a conta de 2026 (12/11)
 **Status:** rascunho para o juiz-post. Não publicar sem a aprovação do Denis.
 **Publicação sugerida:** 12/11 às 19:30 (D+0, 30 min depois do vídeo (19h))
-**Estrutura:** D (A Pergunta Que Ninguém Faz) · **mecanica:** eco-do-gatilho (escondido)
+**Estrutura:** C (O Antes / Depois) · **mecanica:** eco-do-gatilho (escondido)
 
 ## GANCHO
 > Tanaka, imóvel ou fundo imobiliário?
@@ -100,9 +101,10 @@ pendencias_checar: 0
   "cta": "Vídeo completo aqui: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Anúncio de apartamento com foto linda e, por trás, a planilha de custos.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
-  "estrutura": "D",
+  "estrutura": "C",
   "mecanica": "eco-do-gatilho (escondido)",
   "tweets": [
     {

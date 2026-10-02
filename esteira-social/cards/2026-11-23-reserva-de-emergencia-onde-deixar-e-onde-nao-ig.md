@@ -13,6 +13,7 @@ video_titulo: "Reserva de emergência: onde deixar e onde não deixar"
 assunto: "tesouro e renda fixa"
 termo_busca: "melhor cdb liquidez diaria"
 gancho: "Reserva de emergência: onde deixar e onde não deixar."
+temas: ["renda fixa bancária"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros
+#InvestirECocar #EducacaoFinanceira #CDB #LCI #LCA #FGC #RendaFixa
 
 ## TEXTOS NA TELA DO REELS
 
@@ -83,9 +84,13 @@ pendencias_checar: 0
   "cta": "Mais contas assim no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Reels com o Short; capa com o extintor no cofre.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "reels",
+  "temas": [
+    "renda fixa bancária"
+  ],
   "instagram_caption": "Reserva de emergência: onde deixar e onde não deixar.\n\nDeixar: aplicação com liquidez diária, rendendo perto de 100% do CDI e com cobertura do FGC dentro dos limites. Não deixar: aplicação com carência, ativo que oscila e conta corrente parada.\n\nReserva é extintor. Precisa estar perto e funcionando.\n\nSe precisasse amanhã, você sacava em quanto tempo?",
   "slides": [
     {
@@ -105,6 +110,6 @@ pendencias_checar: 0
       "texto": "Reserva é extintor, não investimento."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaFixa #TesouroDireto #CDB #LCIeLCA #FGC #Juros"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #CDB #LCI #LCA #FGC #RendaFixa"
 }
 ---FIM---

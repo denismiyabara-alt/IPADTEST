@@ -13,6 +13,7 @@ video_titulo: "Reserva de emergência: onde deixar e onde não deixar"
 assunto: "tesouro e renda fixa"
 termo_busca: "melhor cdb liquidez diaria"
 gancho: "Tanaka, reserva de emergência não é investimento."
+temas: ["renda fixa bancária"]
 estrutura: "A (O Choque → A Causa Escondida)"
 mecanica: "manual-invertido"
 pendencias_checar: 0
@@ -82,6 +83,7 @@ pendencias_checar: 0
   "cta": "O Short: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Extintor dentro de um cofre trancado.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "x",
   "estrutura": "A",

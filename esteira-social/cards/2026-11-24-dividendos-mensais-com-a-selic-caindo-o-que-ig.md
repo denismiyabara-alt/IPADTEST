@@ -13,6 +13,7 @@ video_titulo: "Dividendos mensais com a Selic caindo: o que acontece"
 assunto: "renda mensal"
 termo_busca: "dividendos mensais"
 gancho: "Dividendos mensais com a Selic caindo: o que acontece com dividendos, FIIs e renda fixa quando o juro cai."
+temas: ["juros", "ações e dividendos", "FII"]
 pendencias_checar: 0
 ---
 
@@ -36,7 +37,7 @@ pendencias_checar: 0
 > O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.
 
 ## 🏷️ HASHTAGS
-#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaMensal #DividendosMensais #Dividendos #ETF #FundosImobiliarios #RendaPassiva
+#InvestirECocar #EducacaoFinanceira #Copom #Selic #Juros #Dividendos #Acoes #DividendosMensais #RendaMensal #FII
 
 ## SLIDES DO CARROSSEL
 
@@ -89,9 +90,15 @@ pendencias_checar: 0
   "cta": "O vídeo completo está no YouTube, no canal Investir e Coçar. Link na bio.",
   "imagem": "Carrossel com os dois quintais; slide 6 com uma linha do tempo dos ciclos de juros.",
   "numeros": [],
+  "afirmacoes": [],
   "pendencias": [],
   "rede": "instagram",
   "formato": "carrossel",
+  "temas": [
+    "juros",
+    "ações e dividendos",
+    "FII"
+  ],
   "instagram_caption": "Dividendos mensais com a Selic caindo: o que acontece com dividendos, FIIs e renda fixa quando o juro cai.\n\nA renda fixa nova paga menos. FII de papel atrelado ao CDI recebe menos juros. Empresas endividadas respiram. O vídeo mostra, com o histórico, como cada renda reagiu nos ciclos anteriores.\n\nNão é previsão. É memória.\n\nSua renda depende de qual vizinho?",
   "slides": [
     {
@@ -119,6 +126,6 @@ pendencias_checar: 0
       "texto": "Cada renda reage de um jeito. O histórico mostra como."
     }
   ],
-  "hashtags": "#InvestirECocar #EducacaoFinanceira #Investimentos #FinancasPessoais #RendaMensal #DividendosMensais #Dividendos #ETF #FundosImobiliarios #RendaPassiva"
+  "hashtags": "#InvestirECocar #EducacaoFinanceira #Copom #Selic #Juros #Dividendos #Acoes #DividendosMensais #RendaMensal #FII"
 }
 ---FIM---

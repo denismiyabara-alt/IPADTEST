@@ -13,6 +13,7 @@ video_titulo: "Bitcoin depois do 'alerta': o que mudou desde fevereiro"
 assunto: "cripto"
 termo_busca: "bitcoin"
 gancho: "Tanaka, lembra do alerta do bitcoin?"
+temas: ["cripto"]
 estrutura: "E (A Linha do Tempo Invertida)"
 mecanica: "necrologio"
 pendencias_checar: 0
@@ -49,8 +50,8 @@ pendencias_checar: 0
 >
 > Sem torcida contra nem a favor. Bitcoin não lê comentário.
 
-## TWEET 4️⃣ — DESENVOLVIMENTO (174/280)
-> E a pergunta mais séria dos comentários:
+## TWEET 4️⃣ — DESENVOLVIMENTO (178/280)
+> E uma pergunta que apareceu nos comentários:
 >
 > "Posso perder mais do que investi?"
 >
@@ -73,6 +74,7 @@ pendencias_checar: 0
 ## 📌 FONTES E NÚMEROS (para o juiz-post e o Denis; não vão no post)
 - Calendário (19/11): fontes a conferir: Preço do BTC; regra de declaração (Receita). Ângulo: Os argumentos de fevereiro com os dados de hoje; 'posso perder mais do que investi?'.
 - Números da própria linha do calendário: liberados (a linha é o briefing).
+- "apareceu nos comentários": pautas-canal/PERGUNTAS-SEM-RESPOSTA.md: "Eu ficaria devendo se perdesse o valor investido?"
 
 ## ⚠️ PENDÊNCIAS ANTES DE APROVAR
 - nenhuma
@@ -98,6 +100,13 @@ pendencias_checar: 0
   "cta": "Vídeo completo aqui: [LINK DO VÍDEO: preencher na publicação]",
   "imagem": "Coroa de flores com a faixa 'Bitcoin' e um bitcoin vivo espiando por trás.",
   "numeros": [],
+  "afirmacoes": [
+    {
+      "texto": "apareceu nos comentários",
+      "arquivo": "pautas-canal/PERGUNTAS-SEM-RESPOSTA.md",
+      "trecho": "Eu ficaria devendo se perdesse o valor investido?"
+    }
+  ],
   "pendencias": [],
   "rede": "x",
   "estrutura": "E",
@@ -121,7 +130,7 @@ pendencias_checar: 0
     {
       "numero": 4,
       "tipo": "desenvolvimento",
-      "texto": "E a pergunta mais séria dos comentários:\n\n\"Posso perder mais do que investi?\"\n\nComprando à vista, o máximo que se perde é o que se colocou. Com alavancagem, é outra história."
+      "texto": "E uma pergunta que apareceu nos comentários:\n\n\"Posso perder mais do que investi?\"\n\nComprando à vista, o máximo que se perde é o que se colocou. Com alavancagem, é outra história."
     },
     {
       "numero": 5,
