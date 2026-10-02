@@ -34,7 +34,7 @@ def test_canal_presente(arvore):
     assert kp["Inscritos (contador público)"][0] == "165.000"
     assert "Vídeo do calendário HOJE" in kp and kp["Próximo do calendário"][0].startswith("06/10/2026")
     videos = [t for t in b["tabelas"] if t["titulo"] == "Últimos vídeos"][0]
-    assert videos["linhas"][0][2] == "Vídeo novo" and videos["linhas"][0][4] == "42%" and videos["linhas"][0][5] == "70%"
+    assert videos["linhas"][0][2] == "Vídeo novo" and videos["linhas"][0][4] == "3.100" and videos["linhas"][0][5] == "42%" and videos["linhas"][0][6] == "70%"
     r = b["fatos"]["ritmo"]
     assert r["base"] == "30d" and r["feito"] == 150 and r["abaixo"]
     assert any("mai/29" in n for n in b["notas"])
@@ -267,3 +267,21 @@ def test_config_por_variavel_de_ambiente(tmp_path):
     assert a.ipadtest == str(tmp_path) and a.trader == "/t" and a.max_horas == 48
     assert a.backup == str(tmp_path / "auditoria-fatos" / "backup") and a.radar_json == "/tmp/radar.json"
     assert a.agora.tzinfo is not None and not a.wp_rest
+
+
+def test_canal_usa_views_intencionais(arvore):
+    """Desde 27/08 o contador infla; o painel compara pelas intencionais (engagedViews)."""
+    b = gp.bloco_canal(arvore, AGORA, H)
+    kp = {r: (v, n) for r, v, n in b["kpis"]}
+    rot = [r for r in kp if r.startswith("Views intencionais em 7 dias")]
+    assert rot and kp[rot[0]][0] == "2.800"  # 7 × 400, não 7 × 1000
+    dias = [t for t in b["tabelas"] if t["titulo"] == "Últimos dias"][0]
+    assert dias["cab"][1] == "views intencionais"
+
+
+def test_canal_sem_intencionais_avisa_contador(tmp_path):
+    montar_canal(tmp_path)
+    p = tmp_path / "auditoria-canal" / "dados" / "canal_por_dia.csv"
+    p.write_text("\n".join(l.rsplit(",", 1)[0] for l in p.read_text().splitlines()) + "\n")
+    kp = [r for r, _, _ in gp.bloco_canal(tmp_path, AGORA, H)["kpis"]]
+    assert any(r.startswith("Views (contador, inflado desde 27/08)") for r in kp)

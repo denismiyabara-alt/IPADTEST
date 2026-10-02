@@ -46,7 +46,7 @@ def montar_canal(raiz, exportado="2026-10-05 10:00", dias_out=0):
              "tags,descricao_tamanho,thumbnail_url\n"
              "v1,Vídeo novo,2026-10-01 22:00:00,2026-10-01 19:00:00,quinta,19,600,longo,8805,1,1,,1,u\n"
              "v0,Vídeo velho,2026-09-01 22:00:00,2026-09-01 19:00:00,terça,19,30,short,100,1,1,,1,u\n")
-    escrever(dados / "analytics_por_video.csv", "video_id,averageViewPercentage\nv1,41.5\n")
+    escrever(dados / "analytics_por_video.csv", "video_id,averageViewPercentage,engagedViews\nv1,41.5,3100\n")
     escrever(dados / "studio" / "retencao_30s.csv", "video_id,pct_30s\nv1,70.2\n")
     pautas = raiz / "pautas-canal"
     escrever(pautas / "meta.csv", "tipo,periodo,inscritos_liquidos\nmes,2026-10,573\nmes,2026-11,925\n")

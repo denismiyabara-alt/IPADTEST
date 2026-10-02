@@ -210,11 +210,14 @@ def bloco_canal(ipadtest, agora, max_horas):
     if dias:
         dias.sort(key=lambda r: r["dia"])
         ult7, ant7 = dias[-7:], dias[-14:-7]
-        v7 = sum(inteiro(r["views"]) for r in ult7)
-        va = sum(inteiro(r["views"]) for r in ant7)
+        # views intencionais (engagedViews): desde 27/08 o contador público infla (auditoria-canal, H1)
+        col = "engagedViews" if all((r.get("engagedViews") or "").strip() for r in ult7 + ant7) else "views"
+        v7 = sum(inteiro(r[col]) for r in ult7)
+        va = sum(inteiro(r[col]) for r in ant7)
         liq7 = sum(inteiro(r["inscritos_ganhos"]) - inteiro(r["inscritos_perdidos"]) for r in ult7)
         var = (v7 / va - 1) * 100 if va else None
-        b["kpis"].append((f"Views em 7 dias (até {dmy(ler_data(dias[-1]['dia']))})", num(v7),
+        rot = "Views intencionais" if col == "engagedViews" else "Views (contador, inflado desde 27/08)"
+        b["kpis"].append((f"{rot} em 7 dias (até {dmy(ler_data(dias[-1]['dia']))})", num(v7),
                           f"{pct(var, 1, True)} contra os 7 anteriores" if var is not None else ""))
         b["kpis"].append(("Inscritos líquidos em 7 dias", num(liq7), "ganhos − perdidos"))
         b["fatos"]["ritmo"] = ritmo_meta(dias, pautas, agora)
@@ -223,8 +226,8 @@ def bloco_canal(ipadtest, agora, max_horas):
             b["kpis"].append((r["rotulo"], num(r["feito"]), r["nota"]))
         b["tabelas"].append({
             "titulo": "Últimos dias",
-            "cab": ["dia", "views", "ganhos", "perdidos", "líquidos"],
-            "linhas": [[dmy(ler_data(x["dia"])), num(inteiro(x["views"])), num(inteiro(x["inscritos_ganhos"])),
+            "cab": ["dia", "views intencionais" if col == "engagedViews" else "views", "ganhos", "perdidos", "líquidos"],
+            "linhas": [[dmy(ler_data(x["dia"])), num(inteiro(x[col])), num(inteiro(x["inscritos_ganhos"])),
                         num(inteiro(x["inscritos_perdidos"])),
                         num(inteiro(x["inscritos_ganhos"]) - inteiro(x["inscritos_perdidos"]))] for x in reversed(dias[-5:])],
         })
@@ -238,12 +241,14 @@ def bloco_canal(ipadtest, agora, max_horas):
             a = analytics.get(v["id"], {})
             linhas.append([dmy(ler_data(v.get("publicado_em_brt", "")[:10])), v.get("formato", ""),
                            _curto(v.get("titulo", ""), 70), num(inteiro(v.get("views"))),
+                           num(inteiro(a.get("engagedViews"))) if a.get("engagedViews") else "—",
                            pct(real(a.get("averageViewPercentage")), 0) if a.get("averageViewPercentage") else "—",
                            pct(real(r30.get(v["id"])), 0) if r30.get(v["id"]) else "—"])
-        b["tabelas"].append({"titulo": "Últimos vídeos", "cab": ["publicado", "formato", "título", "views",
+        b["tabelas"].append({"titulo": "Últimos vídeos", "cab": ["publicado", "formato", "título", "views", "intencionais",
                                                                  "% média assistida", "fica aos 30 s"],
                              "linhas": linhas})
-        b["notas"].append("Views = contador público na exportação. Retenção = Analytics (período todo); "
+        b["notas"].append("Views = contador público na exportação; desde 27/08 ele infla cerca de 3x nos longos novos, "
+                          "então compare vídeos pelas intencionais (Analytics, período todo). Retenção = Analytics (período todo); "
                           "“fica aos 30 s” vem do export do Studio, quando existe. Vídeo novo demais ainda não tem retenção.")
 
     meta_txt = ""
