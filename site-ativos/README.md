@@ -53,10 +53,20 @@ Posts antigos linkados pelas páginas com título a revisar ("vale a pena", "mel
 python3 -m iec_ativos publicar --destino pasta --para /caminho --simular   # lista o que mudou (por hash)
 python3 -m iec_ativos publicar --destino pasta --para /caminho             # copia só o que mudou
 python3 -m iec_ativos publicar --destino sftp          # stub: IEC_SFTP_HOST, IEC_SFTP_USUARIO, IEC_SFTP_CHAVE, IEC_SFTP_PASTA
-python3 -m iec_ativos publicar --destino cloudflare    # stub: CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID, IEC_CF_PROJETO
 ```
 
-Credenciais só por variável de ambiente. Os stubs explicam (em `iec_ativos/publicar.py`) o que falta para virarem envio real.
+Credenciais só por variável de ambiente. O stub de SFTP explica (em `iec_ativos/publicar.py`) o que falta para virar envio real.
+
+**Cloudflare (recomendado no `CUSTOS.md`):** Worker só de arquivos estáticos, configurado em `wrangler.toml`
+(cabeçalhos em `cloudflare/_headers`, arquivos internos fora do site por `cloudflare/.assetsignore`).
+Job diário modelo em `.github/workflows/diario.yml` (sem o secret `CLOUDFLARE_API_TOKEN`, só faz dry-run).
+Passo a passo, token e como voltar atrás: `DEPLOY.md`. Pergunta à B3 sobre a licença dos preços: `EMAIL-B3.md`.
+
+```sh
+bash scripts/preparar_cloudflare.sh            # copia _headers e .assetsignore para saida/ e confere o build
+npx wrangler deploy --dry-run --env=""         # teste (*.workers.dev); nada é publicado
+npx wrangler deploy --dry-run --env producao   # rotas /acoes/*, /fiis/*... do domínio; nada é publicado
+```
 
 ## Variáveis de ambiente
 
@@ -80,5 +90,8 @@ dados/referencia/  lista das cotacao-* linkadas (cópia versionada do seo/varred
 dados/dicionarios/ dicionários de dados da CVM (cadastro, DFP, ITR, FII mensal e trimestral)
 scripts/           extrair_fixtures.py, conferir_navegador.mjs, posts_para_refresh.py
 prints/            capturas do Chromium headless
+cloudflare/        _headers e .assetsignore do Worker (copiados para saida/ antes do deploy)
+.github/workflows/ diario.yml: job diário modelo (vale quando esta pasta virar a raiz do iec-ativos)
+wrangler.toml      configuração do Worker (teste em *.workers.dev e rotas de produção)
 cache/, saida/     gerados (fora do Git)
 ```

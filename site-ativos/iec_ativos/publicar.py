@@ -2,11 +2,11 @@
 
   pasta       (padrão) copia saida/ para uma pasta local, só os arquivos que mudaram (por hash).
   sftp        stub documentado: envia para a hospedagem (subpasta /acoes/, /fiis/... do domínio).
-  cloudflare  stub documentado: Cloudflare Pages (plano B, subdomínio dados.).
+  cloudflare  stub: o deploy real é feito pelo wrangler (Worker de arquivos estáticos, ver wrangler.toml e DEPLOY.md).
 
 Credenciais só por variável de ambiente (no GitHub Actions, em Secrets). Nada de senha no código.
   IEC_SFTP_HOST, IEC_SFTP_PORTA (22), IEC_SFTP_USUARIO, IEC_SFTP_CHAVE (caminho da chave), IEC_SFTP_PASTA
-  CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID, IEC_CF_PROJETO
+  CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID (lidas pelo wrangler; ver DEPLOY.md)
 Antes de publicar: rodar `validar` e `gerar`; páginas com teste bloqueante não estão em saida/ novas.
 """
 import hashlib
@@ -68,13 +68,12 @@ def publicar_sftp(simular=False):
 
 
 def publicar_cloudflare(simular=False):
-    """Stub. Implementação prevista (plano B, subdomínio): `npx wrangler pages deploy saida
-    --project-name $IEC_CF_PROJETO` com CLOUDFLARE_API_TOKEN e CLOUDFLARE_ACCOUNT_ID no ambiente. Nesse caso,
-    gerar com IEC_BASE_ATIVOS=https://dados.investirecocaresocomecar.com.br para canonical, sitemap e
-    redirecionamentos apontarem para o subdomínio."""
-    _exigir("CLOUDFLARE_API_TOKEN", "CLOUDFLARE_ACCOUNT_ID", "IEC_CF_PROJETO")
-    print(f"[stub] rodaria: npx wrangler pages deploy {config.SAIDA} --project-name {os.environ['IEC_CF_PROJETO']}")
-    raise SystemExit("Destino cloudflare ainda é stub: falta a decisão sobre a hospedagem.")
+    """Stub. O deploy no Cloudflare não passa por aqui: é um Worker só de arquivos estáticos, publicado pelo
+    wrangler (config em wrangler.toml, passo a passo em DEPLOY.md, job diário em .github/workflows/diario.yml):
+        bash scripts/preparar_cloudflare.sh && npx wrangler deploy --dry-run --env=""
+    Com CLOUDFLARE_API_TOKEN e CLOUDFLARE_ACCOUNT_ID no ambiente, o mesmo comando sem --dry-run publica."""
+    print("[stub] use: bash scripts/preparar_cloudflare.sh && npx wrangler deploy --dry-run --env=\"\"  (ver DEPLOY.md)")
+    raise SystemExit("Destino cloudflare: o deploy é feito pelo wrangler, não por este comando (ver DEPLOY.md).")
 
 
 def publicar(destino="pasta", para=None, simular=False):

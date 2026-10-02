@@ -3,3 +3,5 @@ saida/
 __pycache__/
 *.pyc
 .pytest_cache/
+.wrangler/
+node_modules/

@@ -1,0 +1,163 @@
+# MODELO para o repositório iec-ativos (ainda não existe). Dentro do IPADTEST este arquivo NÃO roda:
+# o GitHub só lê .github/workflows/ da raiz do repositório. Ao copiar site-ativos/ inteira para a raiz do
+# iec-ativos, ele passa a valer como .github/workflows/diario.yml. Passo a passo: DEPLOY.md.
+#
+# O que faz: baixa os dados (CVM, B3, BCB), roda os testes, gera o site e publica no Cloudflare.
+#   - Com os secrets CLOUDFLARE_API_TOKEN e CLOUDFLARE_ACCOUNT_ID: `wrangler deploy`.
+#   - Sem eles: `wrangler deploy --dry-run` (nada é publicado) e o job termina com sucesso.
+#   - Variável do repositório IEC_AMBIENTE=producao: publica nas rotas do domínio (env.producao do
+#     wrangler.toml). Sem ela: publica só no endereço de teste *.workers.dev (com noindex).
+# Nenhum token neste arquivo.
+#
+# Horário (o cron do GitHub é sempre em UTC; Brasília é UTC-3 o ano todo, sem horário de verão desde 2019):
+#   O COTAHIST do dia sai entre 20h16 e 00h24 (Brasília), ou seja, entre 23h16 e 03h24 UTC.
+#   - Execução principal: 05h17 UTC = 02h17 em Brasília, de terça a sábado (pega o pregão de segunda a
+#     sexta). Folga de quase 2 horas depois do horário mais tardio já visto (00h24). Minuto 17 de propósito:
+#     o GitHub atrasa mais os agendamentos na hora cheia.
+#   - Nova tentativa: 11h47 UTC = 08h47 em Brasília, mesmos dias. Só roda de verdade se a execução da
+#     madrugada não terminou com sucesso (job "checar"). Se as duas falharem, a próxima madrugada pega o
+#     atraso sozinha (o download traz tudo o que mudou desde a última vez) e a versão anterior do site
+#     continua no ar.
+#   Feriado da B3: o job roda, não acha pregão novo, gera páginas iguais e o deploy não muda nada.
+
+name: diario
+
+on:
+  schedule:
+    - cron: "17 5 * * 2-6"    # principal: 02h17 Brasília, terça a sábado
+    - cron: "47 11 * * 2-6"   # nova tentativa: 08h47 Brasília, terça a sábado
+  workflow_dispatch:          # rodar à mão (aba Actions > diario > Run workflow)
+    inputs:
+      somente_dry_run:
+        description: "Só dry-run, mesmo com o token configurado"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  actions: read               # o job "checar" lista as execuções do dia
+
+concurrency:
+  group: diario
+  cancel-in-progress: false   # nunca interromper um deploy no meio
+
+jobs:
+  checar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      pular: ${{ steps.c.outputs.pular }}
+    steps:
+      - id: c
+        name: Pular a nova tentativa se a execução da madrugada já deu certo
+        env:
+          GH_TOKEN: ${{ github.token }}
+          AGENDA: ${{ github.event.schedule }}
+        run: |
+          pular=nao
+          if [ "$AGENDA" = "47 11 * * 2-6" ]; then
+            hoje=$(date -u +%Y-%m-%d)
+            ok=$(gh run list -R "$GITHUB_REPOSITORY" --workflow diario.yml --status success \
+                   --created ">=$hoje" --json databaseId --jq 'length')
+            [ "${ok:-0}" -gt 0 ] && pular=sim
+          fi
+          echo "pular=$pular" >> "$GITHUB_OUTPUT"
+          echo "pular=$pular"
+
+  diario:
+    needs: checar
+    if: needs.checar.outputs.pular != 'sim'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      TZ: America/Sao_Paulo
+      PYTHONUNBUFFERED: "1"
+      # O plugin iec-ferramentas (fonte única das calculadoras) fica em vendor/ no repo iec-ativos.
+      IEC_PLUGIN: ${{ github.workspace }}/vendor/iec-ferramentas
+      # varredura.json não existe no repo: o código cai na lista versionada dados/referencia/cotacoes-linkadas.txt
+      # e lê os posts do canal de dados/referencia/varredura.csv (mesma pasta).
+      IEC_VARREDURA: ${{ github.workspace }}/dados/referencia/varredura.json
+      WRANGLER_VERSAO: "4.147.0"
+      WRANGLER_SEND_METRICS: "false"
+      TEM_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN != '' && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: true    # se o plugin entrar como submódulo em vendor/iec-ferramentas
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Testes sem rede (fixtures)
+        run: python -m pytest -q tests
+
+      # cache/ = arquivos baixados + SQLite; saida/ = site do dia anterior. Guardar saida/ é o que garante
+      # que um ativo bloqueado pelos testes continue com a versão de ontem (o gerador não regrava a página).
+      - name: Restaurar cache de dados e o site anterior
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            cache
+            saida
+          key: dados-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: dados-
+
+      - name: Gerar o site (baixar, normalizar, selecionar, calcular, validar, gerar)
+        run: python -m iec_ativos tudo
+
+      - name: Salvar cache de dados e o site
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            cache
+            saida
+          key: dados-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Guardar relatórios do build
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-${{ github.run_id }}
+          path: |
+            saida/_relatorio.json
+            saida/paginas.csv
+            saida/redirects.csv
+            saida/htaccess-exemplo.txt
+            saida/robots-trecho.txt
+            cache/validacao.json
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Preparar saida/ para o Cloudflare (_headers, .assetsignore e conferências)
+        run: bash scripts/preparar_cloudflare.sh
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+
+      - name: Dry-run (sem token ou pedido à mão)
+        if: env.TEM_TOKEN != 'true' || inputs.somente_dry_run == true
+        run: |
+          echo "::notice::Dry-run: nada foi publicado (sem CLOUDFLARE_API_TOKEN/CLOUDFLARE_ACCOUNT_ID ou pedido à mão)."
+          npx --yes "wrangler@${WRANGLER_VERSAO}" deploy --dry-run --env=""
+          npx --yes "wrangler@${WRANGLER_VERSAO}" deploy --dry-run --env producao
+
+      - name: Deploy no Cloudflare
+        if: env.TEM_TOKEN == 'true' && inputs.somente_dry_run != true
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          IEC_AMBIENTE: ${{ vars.IEC_AMBIENTE }}
+        run: |
+          if [ "$IEC_AMBIENTE" = "producao" ]; then
+            echo "Publicando em PRODUÇÃO (rotas do domínio)."
+            npx --yes "wrangler@${WRANGLER_VERSAO}" deploy --env producao --message "diario ${GITHUB_RUN_ID}"
+          else
+            echo "Publicando no endereço de TESTE (*.workers.dev, noindex)."
+            npx --yes "wrangler@${WRANGLER_VERSAO}" deploy --env="" --message "diario ${GITHUB_RUN_ID}"
+          fi

@@ -1,0 +1,19 @@
+# Copiado para saida/_headers por scripts/preparar_cloudflare.sh antes do deploy.
+# Formato: workers/static-assets/headers.mdx (até 100 regras). O arquivo não é servido, só lido pelo Cloudflare.
+#
+# Cache do HTML: fica o padrão do Cloudflare para arquivos estáticos
+# (Cache-Control: public, max-age=0, must-revalidate + ETag). O preço muda todo dia, então o navegador
+# sempre confere se há versão nova, mas só baixa de novo se o arquivo mudou (resposta 304, sem corpo).
+# Não precisa limpar cache depois do deploy.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# O sitemap muda pouco (o lastmod só muda com dado contábil ou informe novo).
+/sitemap-ativos.xml
+  Cache-Control: public, max-age=3600
+
+# Endereço de teste (*.workers.dev): nunca indexar, para não competir com o domínio principal.
+https://:worker.:subdomain.workers.dev/*
+  X-Robots-Tag: noindex

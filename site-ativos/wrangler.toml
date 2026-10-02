@@ -1,0 +1,39 @@
+# Worker só de arquivos estáticos (sem script) que serve o build de `saida/`.
+# Sintaxe conferida em 02/10/2026 na documentação do Cloudflare (repositório cloudflare/cloudflare-docs):
+#   workers/static-assets/binding.mdx, workers/static-assets/headers.mdx,
+#   workers/static-assets/routing/advanced/serving-a-subdirectory.mdx e workers/ci-cd/external-cicd/github-actions.mdx.
+# Testado com `wrangler deploy --dry-run` (wrangler 4.147.0). Passo a passo e como voltar atrás: DEPLOY.md.
+#
+# Sem `main`: não há código rodando. Pedido a arquivo estático é grátis e ilimitado, e o limite de
+# 100.000 requisições/dia do plano Free não se aplica. Cabeçalhos de cache e de segurança: cloudflare/_headers.
+#
+# Nenhuma credencial aqui. O wrangler lê CLOUDFLARE_API_TOKEN e CLOUDFLARE_ACCOUNT_ID do ambiente
+# (no GitHub Actions, dos Secrets do repositório).
+
+name = "iec-ativos"
+compatibility_date = "2026-09-01"
+
+# Ambiente padrão = TESTE: publica só no endereço *.workers.dev (com X-Robots-Tag: noindex, ver _headers).
+# Não mexe em nada do domínio principal.
+workers_dev = true
+preview_urls = false
+
+[assets]
+directory = "./saida"                  # o gerador grava em saida/acoes/..., saida/fiis/... (o caminho já é o da URL)
+html_handling = "auto-trailing-slash"  # /acoes/petr4 -> /acoes/petr4/ (index.html)
+not_found_handling = "none"            # página inexistente: 404 simples (não cai no WordPress)
+
+# Ambiente PRODUÇÃO: rotas no domínio principal. Só usar depois da resposta da B3 (EMAIL-B3.md) e do
+# teste no workers.dev. Publicar: `wrangler deploy --env producao` (no Actions: variável IEC_AMBIENTE=producao).
+# A rota de um Worker tem prioridade sobre a origem (WordPress na HostGator) só nestes caminhos.
+# O resto do site não muda. Conferir antes que o WordPress não usa /acoes/, /fiis/, /comparar/ nem /dividendos/calendario/.
+[env.producao]
+workers_dev = false
+preview_urls = false
+routes = [
+  { pattern = "investirecocaresocomecar.com.br/acoes/*", zone_name = "investirecocaresocomecar.com.br" },
+  { pattern = "investirecocaresocomecar.com.br/fiis/*", zone_name = "investirecocaresocomecar.com.br" },
+  { pattern = "investirecocaresocomecar.com.br/comparar/*", zone_name = "investirecocaresocomecar.com.br" },
+  { pattern = "investirecocaresocomecar.com.br/dividendos/calendario/*", zone_name = "investirecocaresocomecar.com.br" },
+  { pattern = "investirecocaresocomecar.com.br/sitemap-ativos.xml", zone_name = "investirecocaresocomecar.com.br" },
+]

@@ -1,0 +1,7 @@
+# Copiado para saida/.assetsignore por scripts/preparar_cloudflare.sh. Formato do .gitignore.
+# Relatórios internos do gerador: ficam no Actions como artefato, não vão para o site.
+_relatorio.json
+paginas.csv
+redirects.csv
+htaccess-exemplo.txt
+robots-trecho.txt
