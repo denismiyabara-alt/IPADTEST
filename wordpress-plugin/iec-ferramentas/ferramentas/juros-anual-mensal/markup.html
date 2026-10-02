@@ -1,0 +1,48 @@
+<div id="juros-conv" class="iec-ferramenta">
+  <header>
+    <p class="eyebrow">Renda fixa · Ferramenta</p>
+    <h2 class="titulo">Conversor de juros anual, mensal e diário</h2>
+    <p>14% ao ano não é 1,17% ao mês. Juro composto não se divide por 12. Converta qualquer taxa para o período que você precisa e veja o tamanho do erro da conta de padaria.</p>
+  </header>
+  <div class="grid">
+    <div class="card">
+      <h3>Sua taxa</h3>
+      <label for="j-taxa">Taxa (%)</label>
+      <input id="j-taxa" type="number" inputmode="decimal" min="0" max="1000" step="0.01" value="14.00">
+      <label for="j-periodo">Essa taxa é</label>
+      <select id="j-periodo">
+        <option value="12">ao ano</option>
+        <option value="6">ao semestre</option>
+        <option value="1">ao mês</option>
+      </select>
+      <div class="hint">Valor de exemplo. Funciona para rendimento de investimento e para juros de empréstimo.</div>
+      <div class="err" id="j-err" hidden></div>
+    </div>
+    <div class="stack">
+      <div class="card">
+        <div class="fine" id="j-label"></div>
+        <div class="big pos" id="j-principal"></div>
+        <div class="fine" id="j-errado"></div>
+        <div class="stats">
+          <div class="stat"><div class="k">Ao ano</div><div class="v" id="j-ano"></div></div>
+          <div class="stat"><div class="k">Ao semestre</div><div class="v" id="j-sem"></div></div>
+          <div class="stat"><div class="k">Ao mês</div><div class="v" id="j-mes"></div></div>
+          <div class="stat"><div class="k">Ao dia útil (252/ano)</div><div class="v" id="j-du"></div></div>
+        </div>
+        <div class="story" id="j-story"></div>
+      </div>
+    </div>
+  </div>
+  <section class="explain">
+    <h2>Por que não dá para dividir por 12?</h2>
+    <p>Porque o juro de cada mês rende juro no mês seguinte. Se você divide a taxa anual por 12 e aplica mês a mês, no fim do ano chega a um número maior que o original: a conta passa do ponto.</p>
+    <p>A conversão certa usa potência. De anual para mensal: (1 + taxa anual) elevado a 1/12, menos 1. De mensal para anual: (1 + taxa mensal) elevado a 12, menos 1.</p>
+    <p>É por isso que um empréstimo a "só 3% ao mês" custa mais de 42% ao ano. E é por isso que o CDI anual vira uma taxa diária minúscula que, somada dia após dia, entrega o ano inteiro. Veja também <a href="/o-que-e-selic/">o que é a Selic</a> e <a href="/o-que-e-cdb/">o que é CDB</a>.</p>
+    <h2 class="secao">Premissas</h2>
+    <ul class="fine">
+      <li>Taxas equivalentes em juros compostos, com capitalização a cada período.</li>
+      <li>Taxa diária em dias úteis pela convenção de 252 dias úteis por ano, usada no CDI e nos títulos públicos.</li>
+      <li>Ferramenta educativa. Não é recomendação de investimento.</li>
+    </ul>
+  </section>
+</div>

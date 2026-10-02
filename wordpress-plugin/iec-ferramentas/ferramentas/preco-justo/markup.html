@@ -1,0 +1,51 @@
+<div id="preco-justo" class="iec-ferramenta">
+  <header>
+    <p class="eyebrow">Ações · Ferramenta</p>
+    <h2 class="titulo">Calculadora de preço justo: métodos Bazin e Graham</h2>
+    <p>A ação está cara ou barata? Dois métodos clássicos dão um ponto de partida: Bazin olha os dividendos, Graham olha o lucro e o patrimônio. Coloque os números da empresa e compare com a cotação.</p>
+  </header>
+  <div class="grid">
+    <div class="card">
+      <h3>Dados da ação</h3>
+      <label for="g-preco">Cotação atual (R$)</label>
+      <input id="g-preco" type="number" inputmode="decimal" min="0.01" step="0.01" value="10.00">
+      <label for="g-dpa">Dividendos por ação nos últimos 12 meses (R$)</label>
+      <input id="g-dpa" type="number" inputmode="decimal" min="0" step="0.01" value="0.80">
+      <label for="g-taxa">Dividend yield mínimo que você exige (% ao ano)</label>
+      <input id="g-taxa" type="number" inputmode="decimal" min="1" max="30" step="0.5" value="6">
+      <div class="row2">
+        <div><label for="g-lpa">Lucro por ação (LPA, R$)</label><input id="g-lpa" type="number" inputmode="decimal" step="0.01" value="1.20"></div>
+        <div><label for="g-vpa">Valor patrimonial por ação (VPA, R$)</label><input id="g-vpa" type="number" inputmode="decimal" step="0.01" value="9.50"></div>
+      </div>
+      <div class="hint">Valores de exemplo, não de uma empresa real. Use os dados do último balanço e dos proventos pagos nos últimos 12 meses.</div>
+      <div class="err" id="g-err" hidden></div>
+    </div>
+    <div class="stack">
+      <div class="card">
+        <div class="duplo-pj">
+          <div><div class="k">Preço teto (Bazin)</div><div class="big" id="g-bazin"></div><div class="fine" id="g-bazin-m"></div></div>
+          <div><div class="k">Preço justo (Graham)</div><div class="big" id="g-graham"></div><div class="fine" id="g-graham-m"></div></div>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="k">Dividend yield atual</div><div class="v" id="g-dy"></div></div>
+          <div class="stat"><div class="k">P/L atual</div><div class="v" id="g-pl"></div></div>
+          <div class="stat"><div class="k">P/VP atual</div><div class="v" id="g-pvp"></div></div>
+        </div>
+        <div class="story" id="g-story"></div>
+      </div>
+    </div>
+  </div>
+  <section class="explain">
+    <h2>Como funcionam os dois métodos</h2>
+    <p><strong>Bazin:</strong> preço teto = dividendos por ação ÷ dividend yield mínimo. Com 6%, a pergunta é: até quanto posso pagar para receber pelo menos 6% ao ano em dividendos? Funciona melhor em empresas maduras, que pagam dividendos com regularidade.</p>
+    <p><strong>Graham:</strong> preço justo = raiz quadrada de 22,5 × LPA × VPA. O 22,5 vem de aceitar no máximo P/L de 15 e P/VP de 1,5. É um filtro de empresa sólida e barata, não uma previsão de preço.</p>
+    <p>Nenhum dos dois enxerga crescimento, dívida, qualidade da gestão ou o futuro do setor. Use como ponto de partida e aprofunde com <a href="/o-que-e-pl-acoes/">P/L</a>, <a href="/o-que-e-pvp-acoes/">P/VP</a> e <a href="/o-que-e-roe/">ROE</a>.</p>
+    <h2 class="secao">Premissas e limites</h2>
+    <ul class="fine">
+      <li>Bazin usa os dividendos dos últimos 12 meses. Um dividendo extraordinário, que não vai se repetir, infla o preço teto.</li>
+      <li>Graham só funciona com lucro e patrimônio positivos. Com prejuízo ou patrimônio negativo, o método não se aplica.</li>
+      <li>Margem de segurança = quanto o preço calculado está acima (ou abaixo) da cotação atual.</li>
+      <li>Ferramenta educativa. Não é recomendação de compra ou venda de nenhum ativo.</li>
+    </ul>
+  </section>
+</div>

@@ -1,0 +1,229 @@
+/* Conversor de juros · Investir e Coçar. Tudo escopado em #juros-conv. */
+
+#juros-conv {
+  --surface: #fff;
+  --surface-2: #EDF0F3;
+  --border: #DFE3E8;
+  --grid: #EBEEF1;
+  --text: #191C21;
+  --muted: #5C6570;
+  --accent: #1F5F6B;
+  --accent-soft: #E6EFF0;
+  --serie2: #A9B1BA;
+  --neg: #B42318;
+  --neg-soft: #FBEAE8;
+  --pos: #1F6B3B;
+  --pos-soft: #E7F1EA;
+  --amber: #E0A500;
+  --link: #123E72;
+  --axis: #A3ABB4;
+  --radius: 4px;
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  color: var(--text);
+  background: transparent;
+  font: 16px/1.55 var(--font-body);
+  -webkit-text-size-adjust: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding-block: 8px 40px;
+}
+#juros-conv, #juros-conv * { box-sizing: border-box; }
+
+/* ---------- Cabeçalho ---------- */
+#juros-conv header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+#juros-conv .eyebrow {
+  margin: 0 0 10px;
+  font: 700 11.5px/1.2 var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--accent);
+}
+#juros-conv header h2.titulo {
+  margin: 0 0 12px;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  line-height: 1.11;
+  letter-spacing: -.018em;
+  text-transform: none;
+  color: var(--text);
+  text-wrap: balance;
+}
+#juros-conv header p:not(.eyebrow) { margin: 0; color: var(--muted); max-width: 680px; }
+
+/* ---------- Layout ---------- */
+#juros-conv .grid {
+  display: grid;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+@media (max-width: 760px) {
+  #juros-conv .grid { grid-template-columns: minmax(0, 1fr); }
+}
+#juros-conv .stack { display: grid; gap: 16px; min-width: 0; }
+
+#juros-conv .card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  min-width: 0;
+}
+#juros-conv .card h2,
+#juros-conv .card h3 {
+  display: inline-block;
+  margin: 0 0 14px;
+  padding: 0 0 6px;
+  border: 0;
+  border-bottom: 2px solid var(--amber);
+  font: 700 12px/1.35 var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  color: var(--text);
+}
+
+/* ---------- Formulário ---------- */
+#juros-conv label {
+  display: block;
+  margin: 12px 0 4px;
+  font: 600 13.5px/1.35 var(--font-body);
+  color: var(--muted);
+}
+#juros-conv label:first-of-type { margin-top: 0; }
+#juros-conv input,
+#juros-conv select {
+  width: 100%;
+  margin: 0;
+  min-height: 0;
+  height: auto;
+  padding: 9px 11px;
+  font: 400 16px/1.4 var(--font-body);
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  box-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+}
+#juros-conv input:focus,
+#juros-conv select:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+#juros-conv input[type=range] {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  accent-color: var(--accent);
+}
+#juros-conv .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: end; }
+#juros-conv .hint { font-size: 13px; color: var(--muted); margin-top: 4px; }
+#juros-conv .slider-val { font-weight: 700; color: var(--text); }
+
+/* ---------- Resultados ---------- */
+#juros-conv .big {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+#juros-conv .neg { color: var(--neg); }
+#juros-conv .pos { color: var(--pos); }
+#juros-conv .stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+#juros-conv .stat { background: var(--surface-2); border-radius: 3px; padding: 10px 12px; }
+#juros-conv .stat .k { font-size: 12.5px; color: var(--muted); }
+#juros-conv .stat .v {
+  font: 700 18px/1.3 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+#juros-conv .story {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 3px;
+  background: var(--accent-soft);
+  font-size: 15px;
+}
+#juros-conv .story.bad { background: var(--neg-soft); }
+#juros-conv .err { color: var(--neg); font-weight: 600; margin-top: 10px; }
+#juros-conv .fine { font-size: 13px; color: var(--muted); }
+#juros-conv .nota-topo { margin-bottom: 8px; }
+#juros-conv .nota-base { margin-top: 8px; }
+
+/* ---------- Gráficos ---------- */
+#juros-conv svg { display: block; width: 100%; height: auto; max-width: 100%; }
+#juros-conv svg text { fill: var(--muted); font-size: 12px; font-family: var(--font-body); }
+
+/* ---------- Tabela ---------- */
+#juros-conv table {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-collapse: collapse;
+  background: transparent;
+  font-variant-numeric: tabular-nums;
+  font-size: 15px;
+}
+#juros-conv th,
+#juros-conv td {
+  padding: 7px 6px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  text-align: right;
+}
+#juros-conv th:first-child,
+#juros-conv td:first-child { text-align: left; }
+#juros-conv th { color: var(--muted); font-weight: 600; font-size: 12.5px; }
+
+/* ---------- Texto explicativo ---------- */
+#juros-conv .explain { margin-top: 32px; }
+#juros-conv .explain h2 {
+  margin: 0 0 8px;
+  padding: 0;
+  border: 0;
+  font: 700 1.3rem/1.2 var(--font-display);
+  letter-spacing: -.01em;
+  text-transform: none;
+  color: var(--text);
+}
+#juros-conv .explain h2.secao { margin-top: 24px; }
+#juros-conv .explain p,
+#juros-conv .explain li { max-width: 720px; }
+#juros-conv .explain p { margin: 0 0 12px; }
+#juros-conv .explain ul { padding-left: 20px; margin: 0 0 12px; }
+#juros-conv .explain strong { color: var(--text); }
+#juros-conv a { color: var(--link); }
+
+/* ---------- Comum às calculadoras ---------- */
+#juros-conv > .grid { margin-top: 24px; }
+#juros-conv .bloco { margin-top: 16px; }
+#juros-conv .rolagem { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+#juros-conv .barras { display: grid; gap: 10px; margin-top: 6px; }
+#juros-conv .barra { display: grid; grid-template-columns: minmax(0, 150px) minmax(0, 1fr); gap: 4px 12px; align-items: center; }
+#juros-conv .barra .nome { font-size: 14px; font-weight: 600; }
+#juros-conv .barra .trilho { position: relative; height: 26px; background: var(--surface-2); border-radius: 3px; }
+#juros-conv .barra .cheio { position: absolute; inset: 0 auto 0 0; background: var(--serie2); border-radius: 3px; min-width: 2px; }
+#juros-conv .barra.top .cheio { background: var(--accent); }
+#juros-conv .barra .val { position: absolute; left: 8px; top: 50%; transform: translateY(-50%); font: 700 13px/1 var(--font-display); color: var(--text); white-space: nowrap; }
+@media (max-width: 480px) { #juros-conv .barra { grid-template-columns: minmax(0, 1fr); } }
+#juros-conv .opcoes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+#juros-conv .opcoes label { display: inline-flex; align-items: center; gap: 6px; margin: 0; padding: 8px 12px; border: 1px solid var(--border); border-radius: 3px; background: var(--surface-2); color: var(--text); font-weight: 500; cursor: pointer; }
+#juros-conv .opcoes input { width: auto; margin: 0; accent-color: var(--accent); }
+#juros-conv .opcoes label:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+#juros-conv .pergunta { padding: 14px 0; border-bottom: 1px solid var(--border); }
+#juros-conv .pergunta:last-child { border-bottom: 0; }
+#juros-conv .pergunta p { margin: 0 0 6px; font-weight: 600; }
+#juros-conv .selo { display: inline-block; padding: 3px 8px; border-radius: 3px; background: var(--accent-soft); color: var(--accent); font: 700 11.5px/1.3 var(--font-display); text-transform: uppercase; letter-spacing: .08em; }

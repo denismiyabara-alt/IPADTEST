@@ -1,0 +1,233 @@
+/* Preço justo de ações · Investir e Coçar. Tudo escopado em #preco-justo. */
+
+#preco-justo {
+  --surface: #fff;
+  --surface-2: #EDF0F3;
+  --border: #DFE3E8;
+  --grid: #EBEEF1;
+  --text: #191C21;
+  --muted: #5C6570;
+  --accent: #123E72;
+  --accent-soft: #E8EEF6;
+  --serie2: #A9B1BA;
+  --neg: #B42318;
+  --neg-soft: #FBEAE8;
+  --pos: #1F6B3B;
+  --pos-soft: #E7F1EA;
+  --amber: #E0A500;
+  --link: #123E72;
+  --axis: #A3ABB4;
+  --radius: 4px;
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  color: var(--text);
+  background: transparent;
+  font: 16px/1.55 var(--font-body);
+  -webkit-text-size-adjust: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding-block: 8px 40px;
+}
+#preco-justo, #preco-justo * { box-sizing: border-box; }
+
+/* ---------- Cabeçalho ---------- */
+#preco-justo header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+#preco-justo .eyebrow {
+  margin: 0 0 10px;
+  font: 700 11.5px/1.2 var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--accent);
+}
+#preco-justo header h2.titulo {
+  margin: 0 0 12px;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  line-height: 1.11;
+  letter-spacing: -.018em;
+  text-transform: none;
+  color: var(--text);
+  text-wrap: balance;
+}
+#preco-justo header p:not(.eyebrow) { margin: 0; color: var(--muted); max-width: 680px; }
+
+/* ---------- Layout ---------- */
+#preco-justo .grid {
+  display: grid;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+@media (max-width: 760px) {
+  #preco-justo .grid { grid-template-columns: minmax(0, 1fr); }
+}
+#preco-justo .stack { display: grid; gap: 16px; min-width: 0; }
+
+#preco-justo .card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  min-width: 0;
+}
+#preco-justo .card h2,
+#preco-justo .card h3 {
+  display: inline-block;
+  margin: 0 0 14px;
+  padding: 0 0 6px;
+  border: 0;
+  border-bottom: 2px solid var(--amber);
+  font: 700 12px/1.35 var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  color: var(--text);
+}
+
+/* ---------- Formulário ---------- */
+#preco-justo label {
+  display: block;
+  margin: 12px 0 4px;
+  font: 600 13.5px/1.35 var(--font-body);
+  color: var(--muted);
+}
+#preco-justo label:first-of-type { margin-top: 0; }
+#preco-justo input,
+#preco-justo select {
+  width: 100%;
+  margin: 0;
+  min-height: 0;
+  height: auto;
+  padding: 9px 11px;
+  font: 400 16px/1.4 var(--font-body);
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  box-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+}
+#preco-justo input:focus,
+#preco-justo select:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+#preco-justo input[type=range] {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  accent-color: var(--accent);
+}
+#preco-justo .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: end; }
+#preco-justo .hint { font-size: 13px; color: var(--muted); margin-top: 4px; }
+#preco-justo .slider-val { font-weight: 700; color: var(--text); }
+
+/* ---------- Resultados ---------- */
+#preco-justo .big {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+#preco-justo .neg { color: var(--neg); }
+#preco-justo .pos { color: var(--pos); }
+#preco-justo .stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+#preco-justo .stat { background: var(--surface-2); border-radius: 3px; padding: 10px 12px; }
+#preco-justo .stat .k { font-size: 12.5px; color: var(--muted); }
+#preco-justo .stat .v {
+  font: 700 18px/1.3 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+#preco-justo .story {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 3px;
+  background: var(--accent-soft);
+  font-size: 15px;
+}
+#preco-justo .story.bad { background: var(--neg-soft); }
+#preco-justo .err { color: var(--neg); font-weight: 600; margin-top: 10px; }
+#preco-justo .fine { font-size: 13px; color: var(--muted); }
+#preco-justo .nota-topo { margin-bottom: 8px; }
+#preco-justo .nota-base { margin-top: 8px; }
+
+/* ---------- Gráficos ---------- */
+#preco-justo svg { display: block; width: 100%; height: auto; max-width: 100%; }
+#preco-justo svg text { fill: var(--muted); font-size: 12px; font-family: var(--font-body); }
+
+/* ---------- Tabela ---------- */
+#preco-justo table {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-collapse: collapse;
+  background: transparent;
+  font-variant-numeric: tabular-nums;
+  font-size: 15px;
+}
+#preco-justo th,
+#preco-justo td {
+  padding: 7px 6px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  text-align: right;
+}
+#preco-justo th:first-child,
+#preco-justo td:first-child { text-align: left; }
+#preco-justo th { color: var(--muted); font-weight: 600; font-size: 12.5px; }
+
+/* ---------- Texto explicativo ---------- */
+#preco-justo .explain { margin-top: 32px; }
+#preco-justo .explain h2 {
+  margin: 0 0 8px;
+  padding: 0;
+  border: 0;
+  font: 700 1.3rem/1.2 var(--font-display);
+  letter-spacing: -.01em;
+  text-transform: none;
+  color: var(--text);
+}
+#preco-justo .explain h2.secao { margin-top: 24px; }
+#preco-justo .explain p,
+#preco-justo .explain li { max-width: 720px; }
+#preco-justo .explain p { margin: 0 0 12px; }
+#preco-justo .explain ul { padding-left: 20px; margin: 0 0 12px; }
+#preco-justo .explain strong { color: var(--text); }
+#preco-justo a { color: var(--link); }
+
+/* ---------- Comum às calculadoras ---------- */
+#preco-justo > .grid { margin-top: 24px; }
+#preco-justo .bloco { margin-top: 16px; }
+#preco-justo .rolagem { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+#preco-justo .barras { display: grid; gap: 10px; margin-top: 6px; }
+#preco-justo .barra { display: grid; grid-template-columns: minmax(0, 150px) minmax(0, 1fr); gap: 4px 12px; align-items: center; }
+#preco-justo .barra .nome { font-size: 14px; font-weight: 600; }
+#preco-justo .barra .trilho { position: relative; height: 26px; background: var(--surface-2); border-radius: 3px; }
+#preco-justo .barra .cheio { position: absolute; inset: 0 auto 0 0; background: var(--serie2); border-radius: 3px; min-width: 2px; }
+#preco-justo .barra.top .cheio { background: var(--accent); }
+#preco-justo .barra .val { position: absolute; left: 8px; top: 50%; transform: translateY(-50%); font: 700 13px/1 var(--font-display); color: var(--text); white-space: nowrap; }
+@media (max-width: 480px) { #preco-justo .barra { grid-template-columns: minmax(0, 1fr); } }
+#preco-justo .opcoes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+#preco-justo .opcoes label { display: inline-flex; align-items: center; gap: 6px; margin: 0; padding: 8px 12px; border: 1px solid var(--border); border-radius: 3px; background: var(--surface-2); color: var(--text); font-weight: 500; cursor: pointer; }
+#preco-justo .opcoes input { width: auto; margin: 0; accent-color: var(--accent); }
+#preco-justo .opcoes label:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+#preco-justo .pergunta { padding: 14px 0; border-bottom: 1px solid var(--border); }
+#preco-justo .pergunta:last-child { border-bottom: 0; }
+#preco-justo .pergunta p { margin: 0 0 6px; font-weight: 600; }
+#preco-justo .selo { display: inline-block; padding: 3px 8px; border-radius: 3px; background: var(--accent-soft); color: var(--accent); font: 700 11.5px/1.3 var(--font-display); text-transform: uppercase; letter-spacing: .08em; }
+#preco-justo .duplo-pj { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; }
+#preco-justo .duplo-pj .k { font-size: 12.5px; font-weight: 600; color: var(--muted); }
+#preco-justo .duplo-pj .big { font-size: clamp(1.5rem, 4.4vw, 2.3rem); }
+@media (max-width: 420px) { #preco-justo .duplo-pj { grid-template-columns: 1fr; } }

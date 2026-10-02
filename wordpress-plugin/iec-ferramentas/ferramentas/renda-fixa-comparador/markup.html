@@ -1,0 +1,65 @@
+<div id="calc-rf" class="iec-ferramenta">
+  <header>
+    <p class="eyebrow">Renda fixa · Ferramenta</p>
+    <h2 class="titulo">Comparador de renda fixa: CDB, prefixado, IPCA+ e LCI/LCA</h2>
+    <p>Pós-fixado, prefixado ou atrelado à inflação? Coloque as taxas que o banco está oferecendo e veja quanto cada um deixa no seu bolso depois do Imposto de Renda, no prazo que você escolher.</p>
+  </header>
+  <div class="grid">
+    <div class="card">
+      <h3>Cenário</h3>
+      <label for="r-valor">Valor investido (R$)</label>
+      <input id="r-valor" type="number" inputmode="decimal" min="1" step="1000" value="10000">
+      <div class="row2">
+        <div><label for="r-meses">Prazo (meses)</label><input id="r-meses" type="number" inputmode="numeric" min="1" max="360" step="1" value="24"></div>
+        <div><label for="r-cdi">CDI (% ao ano)</label><input id="r-cdi" type="number" inputmode="decimal" min="0.1" max="50" step="0.05" value="14.90"></div>
+      </div>
+      <label for="r-ipca">Inflação esperada (% ao ano)</label>
+      <input id="r-ipca" type="number" inputmode="decimal" min="0" max="50" step="0.1" value="4.5">
+      <h3 class="bloco">Taxas oferecidas</h3>
+      <div class="row2">
+        <div><label for="r-cdb">CDB pós (% do CDI)</label><input id="r-cdb" type="number" inputmode="decimal" min="0" max="300" step="1" value="105"></div>
+        <div><label for="r-lci">LCI/LCA (% do CDI)</label><input id="r-lci" type="number" inputmode="decimal" min="0" max="300" step="1" value="90"></div>
+      </div>
+      <div class="row2">
+        <div><label for="r-pre">Prefixado (% ao ano)</label><input id="r-pre" type="number" inputmode="decimal" min="0" max="50" step="0.05" value="14.50"></div>
+        <div><label for="r-real">IPCA+ (% ao ano)</label><input id="r-real" type="number" inputmode="decimal" min="-5" max="30" step="0.05" value="7.50"></div>
+      </div>
+      <div class="hint">Todos os valores são exemplos. Para comparar só alguns produtos, deixe a taxa dos outros em zero.</div>
+      <div class="err" id="r-err" hidden></div>
+    </div>
+    <div class="stack">
+      <div class="card">
+        <div class="fine" id="r-label"></div>
+        <div class="big pos" id="r-vencedor"></div>
+        <div class="fine" id="r-vencedor-nota"></div>
+        <div class="barras" id="r-barras"></div>
+        <div class="story" id="r-story"></div>
+      </div>
+      <div class="card">
+        <h3>Conta detalhada</h3>
+        <div class="rolagem">
+          <table>
+            <thead><tr><th>Produto</th><th>Bruto no fim</th><th>IR</th><th>Líquido no fim</th><th>Líquido ao ano</th></tr></thead>
+            <tbody id="r-tabela"></tbody>
+          </table>
+        </div>
+        <div class="fine nota-base" id="r-ir-nota"></div>
+      </div>
+    </div>
+  </div>
+  <section class="explain">
+    <h2>Qual renda fixa rende mais?</h2>
+    <p>Depende do que acontece com os juros e a inflação até o vencimento, e isso ninguém sabe. O pós-fixado acompanha o CDI, para cima ou para baixo. O prefixado trava a taxa: ganha se os juros caírem, perde se subirem. O IPCA+ protege da inflação e paga um ganho real por cima.</p>
+    <p>O comparador mostra o resultado se o CDI e a inflação ficarem exatamente como você informou. Mude esses dois números para testar cenários: é aí que fica claro o risco de cada escolha.</p>
+    <p>Para se aprofundar: <a href="/o-que-e-cdb/">o que é CDB</a>, <a href="/o-que-e-tesouro-ipca/">o que é Tesouro IPCA+</a> e o <a href="/simulador-ntnb/">simulador de marcação a mercado da NTN-B</a>, que mostra o que acontece se você vender antes do vencimento.</p>
+    <h2 class="secao">Premissas do comparador</h2>
+    <ul class="fine">
+      <li>CDI e inflação constantes durante todo o prazo.</li>
+      <li>Pós-fixado e LCI/LCA: taxa diária do CDI multiplicada pelo percentual, sobre 252 dias úteis por ano.</li>
+      <li>Imposto de Renda pela tabela regressiva (22,5% até 180 dias; 20% até 360; 17,5% até 720; 15% acima), sobre o rendimento, no vencimento. LCI e LCA isentas para pessoa física pela regra em vigor.</li>
+      <li>Investimento levado até o vencimento: sem marcação a mercado, sem resgate antecipado e sem cupons semestrais.</li>
+      <li>Não considera taxa de custódia, risco de crédito, cobertura do FGC nem liquidez. Prazo em dias corridos estimado a partir dos meses.</li>
+      <li>Ferramenta educativa. Não é recomendação de investimento.</li>
+    </ul>
+  </section>
+</div>

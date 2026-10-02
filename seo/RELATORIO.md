@@ -132,3 +132,26 @@ As ferramentas novas entram no padrão do plugin `iec-ferramentas` (uma pasta po
 - Só HTML público. Sem acesso ao Search Console nem ao painel, os números de cliques e de indexação são os informados em 28/09.
 - "Links recebidos" conta só links dentro do conteúdo das páginas do sitemap. Menu, rodapé e barra lateral ficam de fora de propósito, porque não indicam relevância editorial.
 - A recomendação Yoast × WPSSO parte do HTML. As configurações internas dos plugins precisam ser conferidas no painel antes de desligar qualquer coisa.
+
+## 7. Entregas feitas a partir deste diagnóstico
+
+### Sugestões de links internos
+
+O arquivo [`sugestoes-links.csv`](sugestoes-links.csv) foi gerado por [`sugerir_links.py`](sugerir_links.py), a partir do HTML já baixado, sem nenhuma requisição nova.
+
+- **Tipo `orfao`:** 212 páginas órfãs com até 3 páginas de origem cada (670 linhas no total, contando as de ferramenta). A origem é a página com texto mais parecido (TF-IDF) que ainda não linka para o destino. A coluna `ancora_sugerida` traz o início do título do destino; ajuste o texto para caber na frase.
+- **Tipo `ferramenta`:** até 8 páginas de origem para cada ferramenta (simulador NTN-B, renda com FIIs, LCI/LCA × CDB, juros, comparador de renda fixa, perfil e preço justo), escolhidas pelo tema da URL.
+- Ficam de fora: páginas com noindex, institucionais, categorias, autor, páginas com menos de 400 palavras e os duplicados que vão receber 301.
+- Para cada linha: abrir a página de **origem**, achar o trecho que fala do assunto e linkar para o **destino**. Comece pelas linhas com maior `similaridade`.
+
+### Novas ferramentas no plugin (versão 1.2.0)
+
+| Shortcode | Ferramenta | Página sugerida |
+|---|---|---|
+| `[iec_ferramenta id="lci-lca-cdb"]` | Calculadora LCI e LCA × CDB | `/calculadora-lci/`, com a `/calculadora-lca/` redirecionada para ela |
+| `[iec_ferramenta id="juros-anual-mensal"]` | Conversor de juros anual, mensal e diário | `/calculadora-juros-anual-para-mensal/` |
+| `[iec_ferramenta id="renda-fixa-comparador"]` | Comparador de renda fixa | `/calculadora-renda-fixa/` |
+| `[iec_ferramenta id="perfil-investidor"]` | Quiz de perfil de investidor | `/perfil-de-investidor/`, com as 3 variações redirecionadas para ela |
+| `[iec_ferramenta id="preco-justo"]` | Preço justo (Bazin e Graham) | Página nova, linkada a partir do cluster Itaúsa |
+
+Cada ferramenta já vem com H1 de seção, texto explicativo, premissas e links internos para os verbetes do glossário (todos conferidos contra o sitemap).

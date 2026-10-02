@@ -1,0 +1,63 @@
+<div id="calc-lci-lca" class="iec-ferramenta">
+  <header>
+    <p class="eyebrow">Renda fixa · Ferramenta</p>
+    <h2 class="titulo">Calculadora LCI e LCA × CDB</h2>
+    <p>LCI a 92% do CDI ou CDB a 110%? A LCI e a LCA não pagam Imposto de Renda, o CDB paga. Veja quanto um CDB precisa render para empatar e qual deixa mais dinheiro no seu bolso.</p>
+  </header>
+  <div class="grid">
+    <div class="card">
+      <h3>Os números da oferta</h3>
+      <label for="l-taxa">LCI ou LCA (% do CDI)</label>
+      <input id="l-taxa" type="number" inputmode="decimal" min="1" max="300" step="1" value="92">
+      <label for="l-cdb">CDB para comparar (% do CDI)</label>
+      <input id="l-cdb" type="number" inputmode="decimal" min="1" max="300" step="1" value="110">
+      <div class="row2">
+        <div><label for="l-dias">Prazo (dias corridos)</label><input id="l-dias" type="number" inputmode="numeric" min="30" max="3650" step="1" value="365"></div>
+        <div><label for="l-cdi">CDI (% ao ano)</label><input id="l-cdi" type="number" inputmode="decimal" min="0.1" max="50" step="0.05" value="14.90"></div>
+      </div>
+      <label for="l-valor">Valor investido (R$)</label>
+      <input id="l-valor" type="number" inputmode="decimal" min="1" step="1000" value="10000">
+      <div class="hint">Todos os valores são exemplos. O CDI muda com a Selic: use a taxa do dia.</div>
+      <div class="err" id="l-err" hidden></div>
+    </div>
+    <div class="stack">
+      <div class="card">
+        <div class="fine" id="l-label"></div>
+        <div class="big pos" id="l-equiv"></div>
+        <div class="fine" id="l-equiv-nota"></div>
+        <div class="stats">
+          <div class="stat"><div class="k">Imposto de Renda do CDB</div><div class="v" id="l-ir"></div></div>
+          <div class="stat"><div class="k">LCI/LCA no fim (líquido)</div><div class="v" id="l-liq-lci"></div></div>
+          <div class="stat"><div class="k">CDB no fim (líquido)</div><div class="v" id="l-liq-cdb"></div></div>
+          <div class="stat"><div class="k">Diferença</div><div class="v" id="l-dif"></div></div>
+        </div>
+        <div class="story" id="l-story"></div>
+      </div>
+      <div class="card">
+        <h3>Quanto o CDB precisa render, prazo a prazo</h3>
+        <div class="rolagem">
+          <table>
+            <thead><tr><th>Prazo</th><th>IR do CDB</th><th>CDB equivalente</th></tr></thead>
+            <tbody id="l-tabela"></tbody>
+          </table>
+        </div>
+        <div class="fine nota-base">Calculado para a LCI/LCA e o CDI informados ao lado.</div>
+      </div>
+    </div>
+  </div>
+  <section class="explain">
+    <h2>Por que não basta comparar a porcentagem do CDI?</h2>
+    <p>Porque o CDB entrega o rendimento com o leão já mordendo um pedaço, e a LCI e a LCA não. Um CDB a 110% do CDI parece melhor que uma LCI a 92%, mas depois do imposto a conta pode virar.</p>
+    <p>E a mordida muda com o tempo: quanto mais você deixa o dinheiro no CDB, menor a alíquota. Em prazo curto, a isenção vale muito. Em prazo longo, vale menos.</p>
+    <p>Para entender cada produto, leia <a href="/o-que-e-lci/">o que é LCI</a>, <a href="/o-que-e-lca/">o que é LCA</a> e <a href="/o-que-e-cdb/">o que é CDB</a>.</p>
+    <h2 class="secao">Premissas da calculadora</h2>
+    <ul class="fine">
+      <li>Imposto de Renda do CDB pela tabela regressiva: 22,5% até 180 dias, 20% de 181 a 360, 17,5% de 361 a 720 e 15% acima de 720 dias. Sem IOF, que só existe em resgates com menos de 30 dias.</li>
+      <li>LCI e LCA isentas de IR para pessoa física, pela regra em vigor. Leis mudam: confira antes de investir.</li>
+      <li>O CDI é constante durante todo o prazo. A taxa diária é aplicada sobre 252 dias úteis por ano, e o prazo em dias corridos é convertido proporcionalmente.</li>
+      <li>"CDB equivalente" é a taxa que faz o CDB terminar com o mesmo valor líquido da LCI/LCA, calculada de forma exata, não pela fórmula aproximada de dividir pelo IR.</li>
+      <li>LCI e LCA têm carência mínima definida pelo Conselho Monetário Nacional: o resgate antes do prazo pode não ser possível. Confira as regras de cada emissão.</li>
+      <li>Não considera risco de crédito, cobertura do FGC, liquidez nem custos. Ferramenta educativa, não é recomendação de investimento.</li>
+    </ul>
+  </section>
+</div>

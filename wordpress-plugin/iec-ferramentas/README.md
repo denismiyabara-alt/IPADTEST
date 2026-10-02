@@ -56,8 +56,14 @@ Handles registrados, caso o WP-Optimize ou outro plugin peça por nome:
 
 - `simulador-ntnb`: simulador de marcação a mercado do Tesouro IPCA+ (NTN-B). Contêiner `#sim-ntnb`.
 - `renda-fii`: simulador de renda mensal com fundos imobiliários, reinvestindo ou não, em valores nominais e em dinheiro de hoje. Contêiner `#renda-fii`.
+- `lci-lca-cdb`: calculadora LCI/LCA × CDB, com o CDB equivalente prazo a prazo. Contêiner `#calc-lci-lca`.
+- `juros-anual-mensal`: conversor de taxa anual, semestral, mensal e diária. Contêiner `#juros-conv`.
+- `renda-fixa-comparador`: CDB pós, prefixado, IPCA+ e LCI/LCA lado a lado, depois do IR. Contêiner `#calc-rf`.
+- `perfil-investidor`: quiz de 7 perguntas (conservador, moderado ou arrojado). Contêiner `#perfil-inv`.
+- `preco-justo`: preço teto de Bazin e preço justo de Graham. Contêiner `#preco-justo`.
 
 ## Versões
 
+- 1.2.0: adiciona `lci-lca-cdb`, `juros-anual-mensal`, `renda-fixa-comparador`, `perfil-investidor` e `preco-justo`.
 - 1.1.0: adiciona `renda-fii`.
 - 1.0.0: primeira versão, com `simulador-ntnb`.
