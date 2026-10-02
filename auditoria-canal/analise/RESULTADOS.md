@@ -1,6 +1,6 @@
 # Resultados da auditoria (gerado por analisar.py)
 
-Dados até 2026-10-01. 1145 vídeos; 464 Shorts. Exportações do Studio: studio_conteudo_longos, studio_conteudo_shorts, studio_origem_trafego_mensal, studio_origem_trafego_mensal_longos.
+Dados até 2026-10-01. 1145 vídeos; 464 Shorts. Exportações do Studio: studio_conteudo_longos, studio_conteudo_shorts, studio_origem_trafego_mensal, studio_origem_trafego_mensal_longos, retencao_30s.
 
 Studio casado com videos.csv: 676 por ID, 1 por título, 294 sem par.
 
@@ -109,34 +109,34 @@ População: longos publicados nos últimos 365 dias, com ≥ 30 dias de vida e 
 | CTR mediano (%) | 6,67 | — |
 | impressões medianas | 181.226 | — |
 | % média assistida | 36,9 | 41,0 |
-| retenção aos 30 s (%) | — | — |
+| retenção aos 30 s (%) | 71,3 | 73,7 |
 
 ### 4b. Lista para anotar a retenção aos 30 s (10 top e 10 fracos)
 
 Critério: longos publicados nos últimos 365 dias, com ≥ 30 dias de vida e ≥ 500 views intencionais; ordem por inscritos ganhos (empate: views intencionais).
 
-| grupo | vídeo | título | publicado | inscritos | views intenc. | insc./mil intenc. | Studio |
-|---|---|---|---|---|---|---|---|
-| top | `Fb0l4KEq27o` | 6 ETFs que MAIS PAGARAM DIVIDENDOS MENSAIS em 2025 e devem c | 2026-01-13 | 637 | 32.294 | 19,7 | [abrir](https://studio.youtube.com/video/Fb0l4KEq27o/analytics/tab-overview/period-default) |
-| top | `dHYQtxnMSrw` | ÚLTIMA CHANCE de GANHAR MUITO DINHEIRO na RENDA FIXA (NTN-B  | 2026-01-28 | 421 | 31.427 | 13,4 | [abrir](https://studio.youtube.com/video/dHYQtxnMSrw/analytics/tab-overview/period-default) |
-| top | `IcN3m7whpl8` | Esse Gráfico Acertou as CRISES 1929, 2008 e 2020… Agora Ele  | 2026-01-29 | 357 | 28.821 | 12,4 | [abrir](https://studio.youtube.com/video/IcN3m7whpl8/analytics/tab-overview/period-default) |
-| top | `tpobf1e1OtM` | A Crise Já Está Acontecendo (e Só os Espertos Estão Vendo) | 2025-11-07 | 345 | 33.147 | 10,4 | [abrir](https://studio.youtube.com/video/tpobf1e1OtM/analytics/tab-overview/period-default) |
-| top | `TY8oLvUt2Qg` | RECEBA DIVIDENDOS TODOS os MESES de AÇÕES SEGURAS (mesmo com | 2025-10-29 | 324 | 17.994 | 18,0 | [abrir](https://studio.youtube.com/video/TY8oLvUt2Qg/analytics/tab-overview/period-default) |
-| top | `lt2LWbwu3mc` | O COBRE É O NOVO PETRÓLEO? Descubra Antes que Dispare (MAIS) | 2025-10-10 | 255 | 15.288 | 16,7 | [abrir](https://studio.youtube.com/video/lt2LWbwu3mc/analytics/tab-overview/period-default) |
-| top | `KMIsVEOcaLM` | CUIDADO com Tesouro Direto IPCA+ 8,32% (veja antes do Copom) | 2026-06-16 | 246 | 19.302 | 12,7 | [abrir](https://studio.youtube.com/video/KMIsVEOcaLM/analytics/tab-overview/period-default) |
-| top | `JDtxzQthFlk` | MORTE DO BITCOIN? O ALERTA QUE O MERCADO NÃO QUER OUVIR | 2026-02-05 | 224 | 32.339 | 6,9 | [abrir](https://studio.youtube.com/video/JDtxzQthFlk/analytics/tab-overview/period-default) |
-| top | `tb0nwpl9mFw` | NÃO INVISTA no TESOURO DIRETO AGORA SEM SABER DISSO (CUIDADO | 2026-03-17 | 142 | 17.840 | 8,0 | [abrir](https://studio.youtube.com/video/tb0nwpl9mFw/analytics/tab-overview/period-default) |
-| top | `IB1mBcF00jc` | ETF JEPI39 PAGA DIVIDENDOS MENSAIS, mas vale a pena? | 2026-02-26 | 131 | 20.232 | 6,5 | [abrir](https://studio.youtube.com/video/IB1mBcF00jc/analytics/tab-overview/period-default) |
-| fraco | `J_UAjVSbg-c` | PRUDENTIAL VENDIDA : se você tem SEGURO de VIDA ou VGBL, vej | 2026-08-07 | 9 | 2.218 | 4,1 | [abrir](https://studio.youtube.com/video/J_UAjVSbg-c/analytics/tab-overview/period-default) |
-| fraco | `R9DfUgYxLl8` | Concentrar ou Diversificar? A estratégia para bater o S&P500 | 2026-04-23 | 8 | 2.036 | 3,9 | [abrir](https://studio.youtube.com/video/R9DfUgYxLl8/analytics/tab-overview/period-default) |
-| fraco | `yBoRbHQlzCE` | Quem INVESTIR pode PERDER DINHEIRO (e nem sabe) [AXIA7,CYRE4 | 2026-03-23 | 7 | 2.205 | 3,2 | [abrir](https://studio.youtube.com/video/yBoRbHQlzCE/analytics/tab-overview/period-default) |
-| fraco | `Z27KBNJcPDA` | RANI3 PAGA 11% ao ano — mas o LUCRO caiu 70% (Armadilha?) | 2026-08-04 | 7 | 869 | 8,1 | [abrir](https://studio.youtube.com/video/Z27KBNJcPDA/analytics/tab-overview/period-default) |
-| fraco | `lFPZmp8kLuo` | SINAL FORTE da BOLHA da INTELIGÊNCIA ARTIFICIAL (você precis | 2026-04-01 | 5 | 2.297 | 2,2 | [abrir](https://studio.youtube.com/video/lFPZmp8kLuo/analytics/tab-overview/period-default) |
-| fraco | `5i9cNa6uEc0` | NOVA LEI DA HERANÇA: SUA FAMÍLIA VAI PAGAR MAIS? | 2026-08-12 | 5 | 892 | 5,6 | [abrir](https://studio.youtube.com/video/5i9cNa6uEc0/analytics/tab-overview/period-default) |
-| fraco | `2TCAvZrl5nA` | ETF de GUERRA. É Horrível, Mas Isso Pode Multiplicar Seu Pat | 2026-04-09 | 4 | 3.249 | 1,2 | [abrir](https://studio.youtube.com/video/2TCAvZrl5nA/analytics/tab-overview/period-default) |
-| fraco | `GFHFMCaPn60` | Michael Burry fez de novo — e dessa vez é a Nvidia (Risco de | 2026-07-31 | 4 | 990 | 4,0 | [abrir](https://studio.youtube.com/video/GFHFMCaPn60/analytics/tab-overview/period-default) |
-| fraco | `nRHvGe4-bTU` | GREVE DOS CAMINHONEIROS PREPARE sua CARTEIRA (a de Investime | 2026-03-19 | 2 | 2.385 | 0,8 | [abrir](https://studio.youtube.com/video/nRHvGe4-bTU/analytics/tab-overview/period-default) |
-| fraco | `uLVNra6EWc4` | Alerta nos bancões: Quem sobrevive e quem perde dinheiro em  | 2026-05-26 | 2 | 994 | 2,0 | [abrir](https://studio.youtube.com/video/uLVNra6EWc4/analytics/tab-overview/period-default) |
+| grupo | vídeo | título | publicado | inscritos | views intenc. | insc./mil intenc. | 30 s (%) | Studio |
+|---|---|---|---|---|---|---|---|---|
+| top | `Fb0l4KEq27o` | 6 ETFs que MAIS PAGARAM DIVIDENDOS MENSAIS em 2025 e devem c | 2026-01-13 | 637 | 32.294 | 19,7 | 64,1 | [abrir](https://studio.youtube.com/video/Fb0l4KEq27o/analytics/tab-overview/period-default) |
+| top | `dHYQtxnMSrw` | ÚLTIMA CHANCE de GANHAR MUITO DINHEIRO na RENDA FIXA (NTN-B  | 2026-01-28 | 421 | 31.427 | 13,4 | 72,3 | [abrir](https://studio.youtube.com/video/dHYQtxnMSrw/analytics/tab-overview/period-default) |
+| top | `IcN3m7whpl8` | Esse Gráfico Acertou as CRISES 1929, 2008 e 2020… Agora Ele  | 2026-01-29 | 357 | 28.821 | 12,4 | 69,8 | [abrir](https://studio.youtube.com/video/IcN3m7whpl8/analytics/tab-overview/period-default) |
+| top | `tpobf1e1OtM` | A Crise Já Está Acontecendo (e Só os Espertos Estão Vendo) | 2025-11-07 | 345 | 33.147 | 10,4 | 71,5 | [abrir](https://studio.youtube.com/video/tpobf1e1OtM/analytics/tab-overview/period-default) |
+| top | `TY8oLvUt2Qg` | RECEBA DIVIDENDOS TODOS os MESES de AÇÕES SEGURAS (mesmo com | 2025-10-29 | 324 | 17.994 | 18,0 | 63,4 | [abrir](https://studio.youtube.com/video/TY8oLvUt2Qg/analytics/tab-overview/period-default) |
+| top | `lt2LWbwu3mc` | O COBRE É O NOVO PETRÓLEO? Descubra Antes que Dispare (MAIS) | 2025-10-10 | 255 | 15.288 | 16,7 | 67,5 | [abrir](https://studio.youtube.com/video/lt2LWbwu3mc/analytics/tab-overview/period-default) |
+| top | `KMIsVEOcaLM` | CUIDADO com Tesouro Direto IPCA+ 8,32% (veja antes do Copom) | 2026-06-16 | 246 | 19.302 | 12,7 | 71,1 | [abrir](https://studio.youtube.com/video/KMIsVEOcaLM/analytics/tab-overview/period-default) |
+| top | `JDtxzQthFlk` | MORTE DO BITCOIN? O ALERTA QUE O MERCADO NÃO QUER OUVIR | 2026-02-05 | 224 | 32.339 | 6,9 | 74,1 | [abrir](https://studio.youtube.com/video/JDtxzQthFlk/analytics/tab-overview/period-default) |
+| top | `tb0nwpl9mFw` | NÃO INVISTA no TESOURO DIRETO AGORA SEM SABER DISSO (CUIDADO | 2026-03-17 | 142 | 17.840 | 8,0 | 76,0 | [abrir](https://studio.youtube.com/video/tb0nwpl9mFw/analytics/tab-overview/period-default) |
+| top | `IB1mBcF00jc` | ETF JEPI39 PAGA DIVIDENDOS MENSAIS, mas vale a pena? | 2026-02-26 | 131 | 20.232 | 6,5 | 75,5 | [abrir](https://studio.youtube.com/video/IB1mBcF00jc/analytics/tab-overview/period-default) |
+| fraco | `J_UAjVSbg-c` | PRUDENTIAL VENDIDA : se você tem SEGURO de VIDA ou VGBL, vej | 2026-08-07 | 9 | 2.218 | 4,1 | 75,4 | [abrir](https://studio.youtube.com/video/J_UAjVSbg-c/analytics/tab-overview/period-default) |
+| fraco | `R9DfUgYxLl8` | Concentrar ou Diversificar? A estratégia para bater o S&P500 | 2026-04-23 | 8 | 2.036 | 3,9 | 78,2 | [abrir](https://studio.youtube.com/video/R9DfUgYxLl8/analytics/tab-overview/period-default) |
+| fraco | `yBoRbHQlzCE` | Quem INVESTIR pode PERDER DINHEIRO (e nem sabe) [AXIA7,CYRE4 | 2026-03-23 | 7 | 2.205 | 3,2 | 73,9 | [abrir](https://studio.youtube.com/video/yBoRbHQlzCE/analytics/tab-overview/period-default) |
+| fraco | `Z27KBNJcPDA` | RANI3 PAGA 11% ao ano — mas o LUCRO caiu 70% (Armadilha?) | 2026-08-04 | 7 | 869 | 8,1 | 73,1 | [abrir](https://studio.youtube.com/video/Z27KBNJcPDA/analytics/tab-overview/period-default) |
+| fraco | `lFPZmp8kLuo` | SINAL FORTE da BOLHA da INTELIGÊNCIA ARTIFICIAL (você precis | 2026-04-01 | 5 | 2.297 | 2,2 | 74,4 | [abrir](https://studio.youtube.com/video/lFPZmp8kLuo/analytics/tab-overview/period-default) |
+| fraco | `5i9cNa6uEc0` | NOVA LEI DA HERANÇA: SUA FAMÍLIA VAI PAGAR MAIS? | 2026-08-12 | 5 | 892 | 5,6 | 72,0 | [abrir](https://studio.youtube.com/video/5i9cNa6uEc0/analytics/tab-overview/period-default) |
+| fraco | `2TCAvZrl5nA` | ETF de GUERRA. É Horrível, Mas Isso Pode Multiplicar Seu Pat | 2026-04-09 | 4 | 3.249 | 1,2 | 72,8 | [abrir](https://studio.youtube.com/video/2TCAvZrl5nA/analytics/tab-overview/period-default) |
+| fraco | `GFHFMCaPn60` | Michael Burry fez de novo — e dessa vez é a Nvidia (Risco de | 2026-07-31 | 4 | 990 | 4,0 | 73,5 | [abrir](https://studio.youtube.com/video/GFHFMCaPn60/analytics/tab-overview/period-default) |
+| fraco | `nRHvGe4-bTU` | GREVE DOS CAMINHONEIROS PREPARE sua CARTEIRA (a de Investime | 2026-03-19 | 2 | 2.385 | 0,8 | 76,0 | [abrir](https://studio.youtube.com/video/nRHvGe4-bTU/analytics/tab-overview/period-default) |
+| fraco | `uLVNra6EWc4` | Alerta nos bancões: Quem sobrevive e quem perde dinheiro em  | 2026-05-26 | 2 | 994 | 2,0 | 65,7 | [abrir](https://studio.youtube.com/video/uLVNra6EWc4/analytics/tab-overview/period-default) |
 
 ## 5. Mês a mês
 
@@ -352,13 +352,13 @@ RELATED_VIDEO = vídeos sugeridos ("Recomendados"); BROWSE = Início/Inscriçõe
 - A leitura que mais se aproxima de 29% → 2%: Studio, longos · Sugeridos (22,6% → 7,9%)
 - Regra: Testa Sugeridos (RELATED_VIDEO) e Navegação (BROWSE) em cada formato, nos últimos 18 meses fechados. CONFIRMA se alguma série começa (ou tem pico) ≥ 20% e termina ≤ 5%; PARCIAL se caiu pela metade ou mais; DERRUBA se não caiu.
 
-### H4. O tema explica 20 a 50x da diferença de views; a abertura quase não separa top de fracos → **DERRUBA**
+### H4. O tema explica 20 a 50x da diferença de views; a abertura quase não separa top de fracos → **tema: DERRUBA · abertura: CONFIRMA**
 
 - mediana de views do melhor tema ÷ pior tema (longos, temas com ≥ 3 vídeos): 2,1x
 - parte da variação de log(views) explicada pelo tema (eta²): 10,1%
-- retenção aos 30 s, top × fracos: —% × —% (diferença — p.p.; vem de retencao_30s.csv)
-- proxy sem os 30 s: % média assistida, top × fracos: 36,9% × 41,0%
-- Regra: CONFIRMA se a razão de temas ∈ [20; 50]x e a abertura difere ≤ 5 p.p. (ou não foi medida); PARCIAL se a razão ≥ 5x; DERRUBA abaixo. Sem retencao_30s.csv a parte da abertura fica em aberto.
+- retenção aos 30 s (retencao_30s.csv), top (n = 10) × fracos (n = 10): mediana 71,3% (63,4 a 76,0) × 73,7% (65,7 a 78,2); diferença -2,4 p.p.
+- % média assistida, top × fracos (quartis): 36,9% × 41,0%
+- Regra: Tema: CONFIRMA se a razão ∈ [20; 50]x; PARCIAL se ≥ 5x; DERRUBA abaixo. Abertura: CONFIRMA (não separa) se a diferença das medianas aos 30 s for ≤ 5 p.p.; DERRUBA se maior; EM ABERTO sem medição.
 
 ### H5. Os Shorts davam 40% dos inscritos e foram encerrados em 28/07/2026 → **PARCIAL**
 

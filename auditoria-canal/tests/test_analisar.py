@@ -185,7 +185,7 @@ def test_hipoteses(dados):
     assert H["H2"]["veredito"].startswith("CONFIRMA")  # 7 por mil × 2 por mil (amostra pequena: 4 vídeos)
     assert H["H3"]["veredito"] == "CONFIRMA"      # 29% → 2%
     assert H["H5"]["veredito"] == "CONFIRMA"      # 40% dos inscritos, nenhum Short depois de 28/07
-    assert H["H4"]["veredito"] in ("CONFIRMA", "PARCIAL")
+    assert H["H4"]["veredito"].startswith(("tema: CONFIRMA", "tema: PARCIAL"))
     assert "Shorts" in " ".join(H["H1"]["numeros"])
 
 
@@ -193,7 +193,7 @@ def test_hipoteses_sem_dados_nao_quebram(tmp_path):
     escrever(tmp_path / "videos.csv", ["id", "titulo", "publicado_em_brt", "formato", "views"],
              [["a", "Vídeo", "2026-01-01 10:00:00", "longo", "10"]])
     d = an.Dados(tmp_path)
-    assert {h["veredito"] for h in an.hipoteses(d)} == {"SEM DADOS"}
+    assert all("SEM DADOS" in h["veredito"] for h in an.hipoteses(d))
     assert "Resultados" in an.relatorio(d)
 
 
@@ -372,3 +372,29 @@ def test_comentarios_por_tema_sem_arroba():
     assert linhas["Bancos digitais, contas e cartões"]["n"] == 1
     assert all("fulano" not in e for l in r["linhas"] for e in l["exemplos"])
     assert an.sem_arroba("oi @fulano.silva tudo\nbem") == "oi @… tudo bem"
+
+
+def test_h4_abertura_com_retencao_medida(dados):
+    """Top e fracos com 30 s parecidos: a abertura não separa; com 20 p.p. de diferença, separa."""
+    d = an.Dados(dados)
+    top, fr = an.top_fracos(d, 10)
+    for v in top:
+        v["pct_30s"] = 70.0
+    for v in fr:
+        v["pct_30s"] = 68.0
+    H4 = next(h for h in an.hipoteses(d) if h["id"] == "H4")
+    assert H4["veredito"].endswith("abertura: CONFIRMA")
+    for v in fr:
+        v["pct_30s"] = 50.0
+    assert next(h for h in an.hipoteses(d) if h["id"] == "H4")["veredito"].endswith("abertura: DERRUBA")
+    assert "n = " in " ".join(H4["numeros"])
+
+
+def test_h4_abertura_real():
+    pasta = Path(__file__).resolve().parents[1] / "dados"
+    if not (pasta / "studio" / "retencao_30s.csv").exists() or not (pasta / "videos.csv").exists():
+        pytest.skip("dados reais ausentes")
+    H4 = next(h for h in an.hipoteses(an.Dados(pasta)) if h["id"] == "H4")
+    txt = " ".join(H4["numeros"])
+    assert "n = 10" in txt and "71,3% (63,4 a 76,0)" in txt and "73,7% (65,7 a 78,2)" in txt
+    assert H4["veredito"] == "tema: DERRUBA · abertura: CONFIRMA"

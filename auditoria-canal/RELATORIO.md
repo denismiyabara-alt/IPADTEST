@@ -8,7 +8,7 @@ Dados até 01/10/2026. Os números vêm de `dados/` (Data API + Analytics API, e
 2. **Desde 27/08, o contador público não mede audiência.** Nos longos publicados depois de 27/08, há 3,4 views para cada view intencional; antes, era 1,1. Em setembro, as views de longos foram 4,6 vezes as de agosto, e os inscritos caíram para 503 (H1).
 3. **O inflado vem da página inicial (Navegação),** não da perda de "Recomendados". Nos longos, as views de Navegação foram de 25,8 mil em agosto para 163,7 mil em setembro (R§6c).
 4. **Os inscritos caíram pela metade depois de julho:** a média de fevereiro a julho de 2026 foi de 1.170 ganhos por mês; a de agosto e setembro, 540. Cerca de um terço da queda se explica pela redução dos Shorts (H5).
-5. **O tema não explica 20 a 50x da diferença** (é 2,1x), e "caso com nome" não converte mais que os outros temas (H2, H4). Pelo que os dados mostram, as linhas que mais convertem nos últimos 12 meses são renda mensal (ETFs e dividendos mensais) e Tesouro/IPCA+.
+5. **O tema não explica 20 a 50x da diferença** (é 2,1x), e "caso com nome" não converte mais que os outros temas (H2, H4). **A abertura também não separa:** aos 30 s, o top retém 71,3% e os fracos 73,7% (n = 10 de cada lado). Pelo que os dados mostram, as linhas que mais convertem nos últimos 12 meses são renda mensal (ETFs e dividendos mensais) e Tesouro/IPCA+.
 6. **285 longos que estão fora do ar (privados ou excluídos) fizeram 32,7% dos inscritos históricos vindos de longos** (R§0b).
 
 ---
@@ -20,7 +20,7 @@ Dados até 01/10/2026. Os números vêm de `dados/` (Data API + Analytics API, e
 | H1 | Desde 27/08, contador público inflado 2,5 a 2,8x | **CONFIRMA, nos longos novos** (3,1x) / **PARCIAL no canal** (1,6x) | views ÷ views intencionais: 3,39 nos longos publicados a partir de 27/08 × 1,09 nos dos 120 dias anteriores | **8 longos** depois × 33 antes (pequena) |
 | H2 | "Caso com nome" converte 6 a 8 por mil; alerta macro e plano de renda ~2 | **DERRUBA** | últimos 12 meses: caso com nome 4,0/mil × alerta macro 7,1 × plano de renda 11,7 | 12 / 23 / 10 longos; tema por regra |
 | H3 | "Recomendados" caiu de 29% para 2% | **PARCIAL** | Sugeridos nos longos: 22,6% (jun/26) → 4,1% (set/26). No canal, sempre de 1% a 5% desde abr/25 | 18 meses, Studio |
-| H4 | O tema explica 20 a 50x; a abertura quase não separa | **DERRUBA** (tema) / **EM ABERTO** (abertura) | melhor ÷ pior tema: 2,1x; o tema explica 10% da variação de log(views) | 681 longos; os 30 s ainda não foram medidos |
+| H4 | O tema explica 20 a 50x; a abertura quase não separa | **DERRUBA** (tema) / **CONFIRMA** (abertura não separa) | melhor ÷ pior tema: 2,1x; o tema explica 10% da variação. Retenção aos 30 s: mediana de 71,3% no top × 73,7% nos fracos | tema: 681 longos; abertura: **10 + 10 vídeos** |
 | H5 | Shorts davam 40% dos inscritos e foram encerrados em 28/07 | **PARCIAL** | Shorts: 40,8% dos inscritos em abr/25 a ago/26 (estimativa) e 27,5% em fev a jul/26. Depois de 28/07 saíram 11 Shorts | modelo com 17 meses, R² = 0,91 |
 
 ### H1. Views infladas desde 27/08: confirmada nos longos novos, com amostra pequena
@@ -65,11 +65,25 @@ Nas duas janelas, "caso com nome" fica abaixo de plano de renda e, nos últimos 
 - **O pico histórico de Sugeridos nos longos** foi 24,7% (mar/2019). Os 29% não aparecem em nenhum mês com mais de mil views.
 - **Veredito:** a origem caiu nos longos (de 22,6% para 4,1%), mas não de 29% para 2%. O movimento grande de 2026 foi a explosão da Navegação em setembro.
 
-### H4. O tema explica 20 a 50x: derrubada; a abertura ainda não foi medida
+### H4. O tema explica 20 a 50x: derrubada; a abertura não separa top de fracos: confirmada
 
 - **Mediana de views:** do melhor tema ÷ a do pior, nos longos = **2,1x**. O tema explica **10%** da variação do log das views (eta²).
 - **Top × fracos dos últimos 12 meses:** o top tem 37% de alerta macro, e os fracos, 32% de produto/comparativo. Os mesmos temas aparecem nos dois lados (R§4).
-- **Abertura:** a retenção aos 30 s não existe por API; a lista da seção 6 serve para medi-la. Pelo proxy (% média assistida), o top fica em 36,9% e os fracos em 41,0%: a retenção média não explica quem vai bem.
+- **Abertura (retenção aos 30 s):**
+
+  | grupo | n | mediana | faixa |
+  |---|---|---|---|
+  | top | 10 | **71,3%** | 63,4% a 76,0% |
+  | fracos | 10 | **73,7%** | 65,7% a 78,2% |
+
+  - A diferença é de −2,4 p.p.: os fracos retêm um pouco mais, e as faixas se sobrepõem quase inteiras.
+  - **Método:** Analytics API, `dimensions=elapsedVideoTimeRatio` e `metrics=audienceWatchRatio` por vídeo (vitalício), interpolando no ponto 30 ÷ duração. Não veio do Studio; está em `dados/studio/retencao_30s.csv`.
+  - Os 20 vídeos são os da lista da seção 6.
+  - **Ressalva:** são 10 vídeos de cada lado. Uma diferença de 2 a 3 p.p. não é detectável com essa amostra, mas uma vantagem grande da abertura no top também não aparece.
+- **O proxy aponta para o mesmo lado:** a % média assistida é 36,9% no top e 41,0% nos fracos (quartis de 19 vídeos).
+- **Conclusão:**
+  - **O que separa top de fracos é a distribuição** (impressões, Navegação e busca), não a abertura nem a retenção. O fraco segura quem chega; chega pouca gente.
+  - O próximo esforço vai para pauta, título e thumb, e não para refazer ganchos.
 
 ### H5. Shorts davam 40% dos inscritos e foram encerrados: parcial
 
@@ -108,7 +122,7 @@ População: longos publicados nos últimos 12 meses, com 30 dias ou mais de vid
 
 **O que separa, com os dados que há:**
 
-1. **Alcance, não conversão.** O top converte 3x mais por view intencional (11,5 contra 3,6 por mil) e tem 7x mais views intencionais. O fraco não "segura menos": tem % média assistida maior (41,0%). Ele simplesmente não é distribuído.
+1. **Alcance, não conversão nem abertura.** O top converte 3x mais por view intencional (11,5 contra 3,6 por mil) e tem 7x mais views intencionais. O fraco não "segura menos": tem % média assistida maior (41,0% contra 36,9%) e retenção aos 30 s parecida (73,7% contra 71,3%; n = 10 de cada lado). Ele simplesmente não é distribuído.
 2. **Linhas de renda mensal e de Tesouro/IPCA+.** Nos últimos 12 meses:
 
    | linha | inscritos por mil views intencionais | resto | n |
@@ -169,32 +183,32 @@ População: longos publicados nos últimos 12 meses, com 30 dias ou mais de vid
 - **Volume e custo:** os Shorts dão volume barato. Eles também são achados por busca (em 2026, de 74% a 92% das views de Shorts vieram da Pesquisa).
 - **Temas de Shorts que convertem melhor:** produto/comparativo e plano de renda, com cerca de 3 inscritos por mil views, contra 1,2 dos "outros" (R§2b).
 
-## 6. Lista para medir a retenção aos 30 s
+## 6. Retenção aos 30 s: os 10 top e os 10 fracos (medida)
 
-**Critério:** longos publicados nos últimos 365 dias, com 30 dias ou mais de vida e pelo menos 500 views intencionais; ordem por inscritos ganhos (empate: views intencionais). A mesma lista está em `analise/lista_retencao_30s.csv`. Anote a % aos 30 s e salve `video_id,pct_30s` em `dados/studio/retencao_30s.csv`. Depois, rode `python3 analisar.py` de novo para fechar a H4.
+**Critério:** longos publicados nos últimos 365 dias, com 30 dias ou mais de vida e pelo menos 500 views intencionais; ordem por inscritos ganhos (empate: views intencionais). A mesma lista está em `analise/lista_retencao_30s.csv`. A retenção aos 30 s (última coluna) foi medida pela Analytics API (`audienceWatchRatio` interpolado em 30 s) e está em `dados/studio/retencao_30s.csv`. Medianas: 71,3% no top e 73,7% nos fracos (H4).
 
-| grupo | vídeo | título | inscritos | views intenc. | insc./mil |
-|---|---|---|---|---|---|
-| top | [`Fb0l4KEq27o`](https://studio.youtube.com/video/Fb0l4KEq27o/analytics/tab-overview/period-default) | 6 ETFs que MAIS PAGARAM DIVIDENDOS MENSAIS em 2025… | 637 | 32.294 | 19,7 |
-| top | [`dHYQtxnMSrw`](https://studio.youtube.com/video/dHYQtxnMSrw/analytics/tab-overview/period-default) | ÚLTIMA CHANCE de GANHAR MUITO DINHEIRO na RENDA FIXA (NTN-B IPCA+7%) | 421 | 31.427 | 13,4 |
-| top | [`IcN3m7whpl8`](https://studio.youtube.com/video/IcN3m7whpl8/analytics/tab-overview/period-default) | Esse Gráfico Acertou as CRISES 1929, 2008 e 2020… | 357 | 28.821 | 12,4 |
-| top | [`tpobf1e1OtM`](https://studio.youtube.com/video/tpobf1e1OtM/analytics/tab-overview/period-default) | A Crise Já Está Acontecendo (e Só os Espertos Estão Vendo) | 345 | 33.147 | 10,4 |
-| top | [`TY8oLvUt2Qg`](https://studio.youtube.com/video/TY8oLvUt2Qg/analytics/tab-overview/period-default) | RECEBA DIVIDENDOS TODOS os MESES de AÇÕES SEGURAS… | 324 | 17.994 | 18,0 |
-| top | [`lt2LWbwu3mc`](https://studio.youtube.com/video/lt2LWbwu3mc/analytics/tab-overview/period-default) | O COBRE É O NOVO PETRÓLEO? Descubra Antes que Dispare… | 255 | 15.288 | 16,7 |
-| top | [`KMIsVEOcaLM`](https://studio.youtube.com/video/KMIsVEOcaLM/analytics/tab-overview/period-default) | CUIDADO com Tesouro Direto IPCA+ 8,32% (veja antes do Copom) | 246 | 19.302 | 12,7 |
-| top | [`JDtxzQthFlk`](https://studio.youtube.com/video/JDtxzQthFlk/analytics/tab-overview/period-default) | MORTE DO BITCOIN? O ALERTA QUE O MERCADO NÃO QUER OUVIR | 224 | 32.339 | 6,9 |
-| top | [`tb0nwpl9mFw`](https://studio.youtube.com/video/tb0nwpl9mFw/analytics/tab-overview/period-default) | NÃO INVISTA no TESOURO DIRETO AGORA SEM SABER DISSO (CUIDADO) | 142 | 17.840 | 8,0 |
-| top | [`IB1mBcF00jc`](https://studio.youtube.com/video/IB1mBcF00jc/analytics/tab-overview/period-default) | ETF JEPI39 PAGA DIVIDENDOS MENSAIS, mas vale a pena? | 131 | 20.232 | 6,5 |
-| fraco | [`J_UAjVSbg-c`](https://studio.youtube.com/video/J_UAjVSbg-c/analytics/tab-overview/period-default) | PRUDENTIAL VENDIDA: se você tem SEGURO de VIDA ou VGBL… | 9 | 2.218 | 4,1 |
-| fraco | [`R9DfUgYxLl8`](https://studio.youtube.com/video/R9DfUgYxLl8/analytics/tab-overview/period-default) | Concentrar ou Diversificar? A estratégia para bater o S&P500 | 8 | 2.036 | 3,9 |
-| fraco | [`yBoRbHQlzCE`](https://studio.youtube.com/video/yBoRbHQlzCE/analytics/tab-overview/period-default) | Quem INVESTIR pode PERDER DINHEIRO (e nem sabe) [AXIA7, CYRE4…] | 7 | 2.205 | 3,2 |
-| fraco | [`Z27KBNJcPDA`](https://studio.youtube.com/video/Z27KBNJcPDA/analytics/tab-overview/period-default) | RANI3 PAGA 11% ao ano — mas o LUCRO caiu 70% (Armadilha?) | 7 | 869 | 8,1 |
-| fraco | [`lFPZmp8kLuo`](https://studio.youtube.com/video/lFPZmp8kLuo/analytics/tab-overview/period-default) | SINAL FORTE da BOLHA da INTELIGÊNCIA ARTIFICIAL | 5 | 2.297 | 2,2 |
-| fraco | [`5i9cNa6uEc0`](https://studio.youtube.com/video/5i9cNa6uEc0/analytics/tab-overview/period-default) | NOVA LEI DA HERANÇA: SUA FAMÍLIA VAI PAGAR MAIS? | 5 | 892 | 5,6 |
-| fraco | [`2TCAvZrl5nA`](https://studio.youtube.com/video/2TCAvZrl5nA/analytics/tab-overview/period-default) | ETF de GUERRA. É Horrível, Mas Isso Pode Multiplicar Seu Patrimônio… | 4 | 3.249 | 1,2 |
-| fraco | [`GFHFMCaPn60`](https://studio.youtube.com/video/GFHFMCaPn60/analytics/tab-overview/period-default) | Michael Burry fez de novo — e dessa vez é a Nvidia | 4 | 990 | 4,0 |
-| fraco | [`nRHvGe4-bTU`](https://studio.youtube.com/video/nRHvGe4-bTU/analytics/tab-overview/period-default) | GREVE DOS CAMINHONEIROS PREPARE sua CARTEIRA | 2 | 2.385 | 0,8 |
-| fraco | [`uLVNra6EWc4`](https://studio.youtube.com/video/uLVNra6EWc4/analytics/tab-overview/period-default) | Alerta nos bancões: Quem sobrevive e quem perde dinheiro em 2026? | 2 | 994 | 2,0 |
+| grupo | vídeo | título | inscritos | views intenc. | insc./mil | 30 s |
+|---|---|---|---|---|---|---|
+| top | [`Fb0l4KEq27o`](https://studio.youtube.com/video/Fb0l4KEq27o/analytics/tab-overview/period-default) | 6 ETFs que MAIS PAGARAM DIVIDENDOS MENSAIS em 2025… | 637 | 32.294 | 19,7 | 64,1% |
+| top | [`dHYQtxnMSrw`](https://studio.youtube.com/video/dHYQtxnMSrw/analytics/tab-overview/period-default) | ÚLTIMA CHANCE de GANHAR MUITO DINHEIRO na RENDA FIXA (NTN-B IPCA+7%) | 421 | 31.427 | 13,4 | 72,3% |
+| top | [`IcN3m7whpl8`](https://studio.youtube.com/video/IcN3m7whpl8/analytics/tab-overview/period-default) | Esse Gráfico Acertou as CRISES 1929, 2008 e 2020… | 357 | 28.821 | 12,4 | 69,8% |
+| top | [`tpobf1e1OtM`](https://studio.youtube.com/video/tpobf1e1OtM/analytics/tab-overview/period-default) | A Crise Já Está Acontecendo (e Só os Espertos Estão Vendo) | 345 | 33.147 | 10,4 | 71,5% |
+| top | [`TY8oLvUt2Qg`](https://studio.youtube.com/video/TY8oLvUt2Qg/analytics/tab-overview/period-default) | RECEBA DIVIDENDOS TODOS os MESES de AÇÕES SEGURAS… | 324 | 17.994 | 18,0 | 63,4% |
+| top | [`lt2LWbwu3mc`](https://studio.youtube.com/video/lt2LWbwu3mc/analytics/tab-overview/period-default) | O COBRE É O NOVO PETRÓLEO? Descubra Antes que Dispare… | 255 | 15.288 | 16,7 | 67,5% |
+| top | [`KMIsVEOcaLM`](https://studio.youtube.com/video/KMIsVEOcaLM/analytics/tab-overview/period-default) | CUIDADO com Tesouro Direto IPCA+ 8,32% (veja antes do Copom) | 246 | 19.302 | 12,7 | 71,1% |
+| top | [`JDtxzQthFlk`](https://studio.youtube.com/video/JDtxzQthFlk/analytics/tab-overview/period-default) | MORTE DO BITCOIN? O ALERTA QUE O MERCADO NÃO QUER OUVIR | 224 | 32.339 | 6,9 | 74,1% |
+| top | [`tb0nwpl9mFw`](https://studio.youtube.com/video/tb0nwpl9mFw/analytics/tab-overview/period-default) | NÃO INVISTA no TESOURO DIRETO AGORA SEM SABER DISSO (CUIDADO) | 142 | 17.840 | 8,0 | 76,0% |
+| top | [`IB1mBcF00jc`](https://studio.youtube.com/video/IB1mBcF00jc/analytics/tab-overview/period-default) | ETF JEPI39 PAGA DIVIDENDOS MENSAIS, mas vale a pena? | 131 | 20.232 | 6,5 | 75,5% |
+| fraco | [`J_UAjVSbg-c`](https://studio.youtube.com/video/J_UAjVSbg-c/analytics/tab-overview/period-default) | PRUDENTIAL VENDIDA: se você tem SEGURO de VIDA ou VGBL… | 9 | 2.218 | 4,1 | 75,4% |
+| fraco | [`R9DfUgYxLl8`](https://studio.youtube.com/video/R9DfUgYxLl8/analytics/tab-overview/period-default) | Concentrar ou Diversificar? A estratégia para bater o S&P500 | 8 | 2.036 | 3,9 | 78,2% |
+| fraco | [`yBoRbHQlzCE`](https://studio.youtube.com/video/yBoRbHQlzCE/analytics/tab-overview/period-default) | Quem INVESTIR pode PERDER DINHEIRO (e nem sabe) [AXIA7, CYRE4…] | 7 | 2.205 | 3,2 | 73,9% |
+| fraco | [`Z27KBNJcPDA`](https://studio.youtube.com/video/Z27KBNJcPDA/analytics/tab-overview/period-default) | RANI3 PAGA 11% ao ano — mas o LUCRO caiu 70% (Armadilha?) | 7 | 869 | 8,1 | 73,1% |
+| fraco | [`lFPZmp8kLuo`](https://studio.youtube.com/video/lFPZmp8kLuo/analytics/tab-overview/period-default) | SINAL FORTE da BOLHA da INTELIGÊNCIA ARTIFICIAL | 5 | 2.297 | 2,2 | 74,4% |
+| fraco | [`5i9cNa6uEc0`](https://studio.youtube.com/video/5i9cNa6uEc0/analytics/tab-overview/period-default) | NOVA LEI DA HERANÇA: SUA FAMÍLIA VAI PAGAR MAIS? | 5 | 892 | 5,6 | 72,0% |
+| fraco | [`2TCAvZrl5nA`](https://studio.youtube.com/video/2TCAvZrl5nA/analytics/tab-overview/period-default) | ETF de GUERRA. É Horrível, Mas Isso Pode Multiplicar Seu Patrimônio… | 4 | 3.249 | 1,2 | 72,8% |
+| fraco | [`GFHFMCaPn60`](https://studio.youtube.com/video/GFHFMCaPn60/analytics/tab-overview/period-default) | Michael Burry fez de novo — e dessa vez é a Nvidia | 4 | 990 | 4,0 | 73,5% |
+| fraco | [`nRHvGe4-bTU`](https://studio.youtube.com/video/nRHvGe4-bTU/analytics/tab-overview/period-default) | GREVE DOS CAMINHONEIROS PREPARE sua CARTEIRA | 2 | 2.385 | 0,8 | 76,0% |
+| fraco | [`uLVNra6EWc4`](https://studio.youtube.com/video/uLVNra6EWc4/analytics/tab-overview/period-default) | Alerta nos bancões: Quem sobrevive e quem perde dinheiro em 2026? | 2 | 994 | 2,0 | 65,7% |
 
 ## 7. O que o público pergunta (R§8)
 
@@ -254,7 +268,7 @@ No ritmo atual, o canal fecha 2026 com cerca de **166 mil** e chegaria a 200 mil
 | 7 | **Auditar os 285 longos fora do ar:** listar os 30 maiores, ver por que saíram e republicar (ou regravar atualizados) os temas perenes de busca. | 4,15 mi de views e 52.351 inscritos (32,7% dos inscritos vitalícios de longos). Os maiores tratam de Next/Nubank/Santander, que ainda são 25,7% dos comentários do catálogo. | Tráfego de busca perene. Precisa da decisão do Denis (podem ter saído por motivo legal ou por estarem desatualizados). |
 | 8 | **Título pensado para a busca em todo longo** (produto, ticker, "vale a pena", ano). Testar título e thumb no "Testar e comparar" do Studio, com menos "?" e menos caixa alta. | Pesquisa: CTR de 12,3% nos longos, contra 7,2% da Navegação (vitalício). Fracos têm mais "?" (53% contra 37%) e caixa alta (47% contra 32%), com n = 19 de cada lado. | Mais CTR e um tráfego que não depende do feed. |
 | 9 | **Responder as perguntas e tirar pauta delas:** responder os 43% sem resposta nos vídeos novos e gravar as pautas pedidas. | 1.777 perguntas, das quais 766 sem resposta. Pedidos diretos: IR do zero, investimento para menor de idade, BDR do mês. | Engajamento dos inscritos (que já são 30% das views dos longos novos, contra 17% dos antigos; só 23 longos novos têm esse dado) e pauta com demanda comprovada. |
-| 10 | **Fechar a H4 e a parte de thumb:** medir a retenção aos 30 s dos 20 vídeos da seção 6; exportar do Studio os longos dos últimos 12 meses com Impressões e CTR. | Abertura ainda não medida. O proxy não separa (36,9% contra 41,0%). Os fracos não têm CTR na exportação atual. | Decide se o próximo esforço vai para gancho e thumb ou para pauta. |
+| 10 | **Investir em distribuição (thumb, título e CTR), não em refazer ganchos.** Exportar do Studio os longos dos últimos 12 meses com Impressões e CTR, para comparar a thumb de top e fracos, e usar o "Testar e comparar" em todo longo novo. | Abertura medida: retenção aos 30 s de 71,3% no top e 73,7% nos fracos (n = 10 de cada lado, Analytics API). % média assistida: 36,9% contra 41,0%. Os fracos têm 7x menos views intencionais com retenção igual ou maior. Eles não têm CTR na exportação atual. | Ataca a diferença real (alcance). Sem os dados de CTR dos fracos, a parte da thumb ainda é hipótese. |
 
 **Duração:** manter os longos entre 15 e 20 min. A mediana é de 31,5 inscritos por vídeo (n = 32), contra 20 nos de 10 a 15 min (n = 34). É um ajuste de baixo custo, mas a diferença é pequena e pode ter outras causas.
 
@@ -265,5 +279,6 @@ No ritmo atual, o canal fecha 2026 com cerca de **166 mil** e chegaria a 200 mil
 - **Tráfego e inscritos/não inscritos por vídeo:** cobrem só os 300 vídeos com mais views (`--max-videos-detalhe 300`).
 - **Contador de inscritos:** é arredondado pelo YouTube (165.000).
 - **Inscritos ganhos por vídeo:** o Analytics atribui ao vídeo onde a inscrição aconteceu. Perdas por vídeo quase não são atribuídas: 3.959 de todos os vídeos, contra 280 a 530 por mês no canal.
+- **Retenção aos 30 s:** medida em 20 vídeos (10 + 10) pela Analytics API, interpolando a curva vitalícia. É suficiente para descartar uma vantagem grande da abertura, não diferenças pequenas.
 - **Tema:** classificado por regras sobre o título. Os grupos dos últimos 12 meses têm de 10 a 25 vídeos. Confira e corrija em `dados/temas_manual.csv`.
 - **Comentários:** vêm dos 30 vídeos com mais views do catálogo, majoritariamente antigos.

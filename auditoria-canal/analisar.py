@@ -921,20 +921,28 @@ def hipoteses(d):
     razao_tema = (max(r["mediana_views"] for r in gt) / min(r["mediana_views"] for r in gt)) if len(gt) >= 2 else None
     eta = eta2([math.log10((v["views"] or 0) + 1) for v in pop], [v["tema"] for v in pop])
     top, fr = top_fracos(d)
-    a30t, a30f = mediana([v["pct_30s"] for v in top]), mediana([v["pct_30s"] for v in fr])
     pmt, pmf = mediana([v["pct_media"] for v in top]), mediana([v["pct_media"] for v in fr])
+    # Abertura: os 10 top e os 10 fracos da lista de retenção (mesmo critério), com pct_30s medido.
+    t10, f10 = top_fracos(d, 10)
+    r_t = [v["pct_30s"] for v in t10 if v["pct_30s"] is not None]
+    r_f = [v["pct_30s"] for v in f10 if v["pct_30s"] is not None]
+    a30t, a30f = mediana(r_t), mediana(r_f)
     dif_abertura = (a30t - a30f) if a30t is not None and a30f is not None else None
+    v_tema = veredito(razao_tema is not None and 20 <= razao_tema <= 50, razao_tema is not None and razao_tema >= 5,
+                      razao_tema is not None)
+    v_abert = ("EM ABERTO" if dif_abertura is None else
+               "CONFIRMA" if abs(dif_abertura) <= 5 else "DERRUBA")
+    faixa = (lambda l: f"{f(min(l))} a {f(max(l))}" if l else "—")
     H.append({
         "id": "H4", "texto": "O tema explica 20 a 50x da diferença de views; a abertura quase não separa top de fracos",
         "numeros": [f"mediana de views do melhor tema ÷ pior tema (longos, temas com ≥ 3 vídeos): {f(razao_tema)}x",
                     f"parte da variação de log(views) explicada pelo tema (eta²): {f(100 * eta if eta is not None else None)}%",
-                    f"retenção aos 30 s, top × fracos: {f(a30t)}% × {f(a30f)}% (diferença {f(dif_abertura)} p.p.; "
-                    "vem de retencao_30s.csv)",
-                    f"proxy sem os 30 s: % média assistida, top × fracos: {f(pmt)}% × {f(pmf)}%"],
-        "veredito": veredito(razao_tema is not None and 20 <= razao_tema <= 50 and (dif_abertura is None or dif_abertura <= 5),
-                             razao_tema is not None and razao_tema >= 5, razao_tema is not None),
-        "regra": "CONFIRMA se a razão de temas ∈ [20; 50]x e a abertura difere ≤ 5 p.p. (ou não foi medida); "
-                 "PARCIAL se a razão ≥ 5x; DERRUBA abaixo. Sem retencao_30s.csv a parte da abertura fica em aberto.",
+                    f"retenção aos 30 s (retencao_30s.csv), top (n = {len(r_t)}) × fracos (n = {len(r_f)}): mediana "
+                    f"{f(a30t)}% ({faixa(r_t)}) × {f(a30f)}% ({faixa(r_f)}); diferença {f(dif_abertura)} p.p.",
+                    f"% média assistida, top × fracos (quartis): {f(pmt)}% × {f(pmf)}%"],
+        "veredito": f"tema: {v_tema} · abertura: {v_abert}",
+        "regra": "Tema: CONFIRMA se a razão ∈ [20; 50]x; PARCIAL se ≥ 5x; DERRUBA abaixo. Abertura: CONFIRMA (não "
+                 "separa) se a diferença das medianas aos 30 s for ≤ 5 p.p.; DERRUBA se maior; EM ABERTO sem medição.",
     })
     # H5: Shorts davam ~40% dos inscritos e foram encerrados em 28/07.
     mod = modelo_inscritos(d)
@@ -1171,9 +1179,11 @@ def relatorio(d):
     lr = lista_retencao(d)
     if lr:
         L += ["### 4b. Lista para anotar a retenção aos 30 s (10 top e 10 fracos)", "", f"Critério: {CRITERIO_LISTA}.", "",
-              tabela_md(["grupo", "vídeo", "título", "publicado", "inscritos", "views intenc.", "insc./mil intenc.", "Studio"],
+              tabela_md(["grupo", "vídeo", "título", "publicado", "inscritos", "views intenc.", "insc./mil intenc.", "30 s (%)",
+                         "Studio"],
                         [[r["grupo"], f"`{r['video_id']}`", r["titulo"][:60].replace("|", "/"), r["publicado"], r["inscritos"],
-                          f(r["views_intencionais"], 0), f(r["insc_mil_intenc"], 1), f"[abrir]({r['studio']})"] for r in lr]), ""]
+                          f(r["views_intencionais"], 0), f(r["insc_mil_intenc"], 1),
+                          f(r["pct_30s"]) if r["pct_30s"] != "" else "—", f"[abrir]({r['studio']})"] for r in lr]), ""]
     curva = curva_mensal(d)
     if curva:
         L += ["## 5. Mês a mês", "", "Views e minutos: Analytics (canal). Views de longos e de Shorts: Studio (Total.csv). "
@@ -1281,7 +1291,7 @@ def lista_retencao(d, n=10):
     return [{"grupo": g, "video_id": v["id"], "titulo": v["titulo"], "publicado": v["publicado"],
              "inscritos": int(ganhos(v)), "views_intencionais": int(v["engajadas"] or 0),
              "insc_mil_intenc": round(por_mil(ganhos(v), v["engajadas"] or 0) or 0, 2),
-             "views": int(v["views"] or 0), "pct_30s": "",
+             "views": int(v["views"] or 0), "pct_30s": "" if v["pct_30s"] is None else v["pct_30s"],
              "studio": f"https://studio.youtube.com/video/{v['id']}/analytics/tab-overview/period-default"}
             for g, l in (("top", top), ("fraco", fr)) for v in l]
 
