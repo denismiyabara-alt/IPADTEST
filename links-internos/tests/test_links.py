@@ -176,3 +176,9 @@ def test_rascunhos_fora_dos_patches():
     urls = {u for _, u in _destinos_dos_patches()}
     assert G.SITE + "/carteira-recomendada-fundos-imobiliarios-agosto-2025/" not in urls
     assert G.SITE + "/calculadora-juros-anual-para-mensal/" in urls  # agora é a página 19504 (ferramenta)
+
+
+def test_slug_vale_investir_bloqueia():
+    import gerar_links as g
+    assert g.slug_bloqueado("https://investireco.com.br/abev3-copa-2026-vale-investir-pausa-hidratacao/")
+    assert not g.slug_bloqueado("https://investireco.com.br/vale3-preco-do-minerio/")

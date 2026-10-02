@@ -67,7 +67,7 @@ FII = r"\bFIIs?\b|\bcotas?\b|fundos? imobiliários?"
 # pipeline/gate_qualidade.py, RE_RECOM_TITULO), copiada sem mudança: post com título assim não recebe link,
 # para não dar força ao que ainda vai ser corrigido. O teste compara com o gate quando ele está na máquina.
 RE_RECOM_TITULO = re.compile(
-    r"vale(m)? a pena|melhor(es)? (a[cç][aã]o|a[cç][oõ]es|fii|fiis|etf|etfs|fundo|fundos|investimento|investimentos|bdr|bdrs|dividendos|op[cç][aã]o|op[cç][oõ]es|seguradora|seguradoras|banco|bancos|empresa|empresas|el[eé]trica|el[eé]tricas)|"
+    r"vale(m)? (a pena|investir\b|comprar\b)|melhor(es)? (a[cç][aã]o|a[cç][oõ]es|fii|fiis|etf|etfs|fundo|fundos|investimento|investimentos|bdr|bdrs|dividendos|op[cç][aã]o|op[cç][oõ]es|seguradora|seguradoras|banco|bancos|empresa|empresas|el[eé]trica|el[eé]tricas)|"
     r"qual (é |e |seria )?(a |o |as |os )?melhor|quais (s[aã]o )?(as |os )?melhores|(qual|quais) (a[cç][oõ]es |fii |fiis |etfs? )?(devo )?comprar|hora de (comprar|vender)|devo (comprar|vender|investir)|"
     r"carteira recomendada|a[cç][oõ]es para comprar|comprar agora|vender agora|compre\b|venda j[aá]|onde investir", re.I)
 # posts que o site-ativos marcou para refresh de título/conteúdo: também não recebem link até o refresh

@@ -8,12 +8,12 @@ Feito em 02/10/2026, só leitura no site. Aqui ficam os **patches**. Quem aplica
 |---|---|---|---|
 | **L1** | as 11 ferramentas do plugin `iec-ferramentas` 1.3.0 | 60 | 80 |
 | **L2** | os 6 guias corrigidos ou reescritos (4873, 4874, 5091, 1053, 993, 4537) | 33 | 40 |
-| **L3** | órfãos restantes do `seo/sugestoes-links.csv` e substitutos neutros, pelo ticker do título | 9 | 9 |
+| **L3** | órfãos restantes do `seo/sugestoes-links.csv` e substitutos neutros, pelo ticker do título | 7 | 7 |
 | **Total** | | **102** | **129** |
 
-Cada post entra em um lote só, e cada lote tem um patch por post. Dos 102 posts, 79 ganham 1 link, 19 ganham 2 e 4 ganham 3. Nenhum post passa de 3.
+Cada post entra em um lote só, e cada lote tem um patch por post. Dos 100 posts, 79 ganham 1 link, 19 ganham 2 e 4 ganham 3. Nenhum post passa de 3.
 
-A primeira versão tinha 116 posts e 146 links (L1 61/80, L2 33/40, L3 22/26). Depois da revisão, saíram os destinos com título ou endereço de recomendação e os posts do `posts-para-refresh.csv`; veja [Destinos excluídos por título](#destinos-excluídos-por-título). Também saíram os posts 1198 e 2649, que viraram rascunho. Na última rodada, o gate passou a bloquear "qual é a melhor" (commit cf0ac38 no investir-e-cocar), e o `/bbse3-cxse3-pssa3-melhor-seguradora-dividendos/` saiu dos destinos (1 link a menos no L3). Quem mais perdeu foi o L3. L1 e L2 continuam com os mesmos destinos e as mesmas contagens.
+A primeira versão tinha 116 posts e 146 links (L1 61/80, L2 33/40, L3 22/26). Depois da revisão, saíram os destinos com título ou endereço de recomendação e os posts do `posts-para-refresh.csv`; veja [Destinos excluídos por título](#destinos-excluídos-por-título). Também saíram os posts 1198 e 2649, que viraram rascunho. Na última rodada, o gate passou a bloquear "qual é a melhor" (commit cf0ac38 no investir-e-cocar), e o `/bbse3-cxse3-pssa3-melhor-seguradora-dividendos/` saiu dos destinos (1 link a menos no L3). Depois, na aplicação, o Mac tirou os 2 links do L3 para `/abev3-copa-2026-vale-investir-pausa-hidratacao/` (posts 4391 e 11719), porque o endereço tem "vale investir". A regra agora pega também "vale investir" e "vale comprar", no gate e aqui, e o L3 ficou com 7 posts e 7 links, como foi aplicado. Quem mais perdeu foi o L3. L1 e L2 continuam com os mesmos destinos e as mesmas contagens.
 
 O detalhe de cada link está em [`resumo.csv`](resumo.csv): lote, origem, destino, âncora, `de`, `para` e se o destino era órfão. Os destinos barrados estão em [`destinos-bloqueados.csv`](destinos-bloqueados.csv).
 
@@ -77,6 +77,7 @@ A coluna "links" mostra quantos links o post receberia se o bloqueio caísse: a 
 
 | Destino | Links | Motivo | Substituto |
 |---|---|---|---|
+| /abev3-copa-2026-vale-investir-pausa-hidratacao/ | 2 | endereço com "vale investir" | — |
 | /ambev-abev3-resultado-1t26-vale-a-pena-investir/ | 2 | endereço com "vale a pena" | — |
 | /banco-do-brasil-bbas3-corte-dividendo-payout-2026/ | 2 | título com "vale a pena" (RECOMENDACAO_TITULO); está no site-ativos/posts-para-refresh.csv | /bbas3-resultado-2t-cartao-de-credito-inadimplencia/ |
 | /banco-do-brasil-ou-itau-melhor-acao-dividendos-2026/ | 2 | título com "qual a melhor" (RECOMENDACAO_TITULO); endereço com "melhor acao" | — |
@@ -106,15 +107,14 @@ A coluna "links" mostra quantos links o post receberia se o bloqueio caísse: a 
 | /ugpa3-ultrapar-dividendos-2026-vale-a-pena/ | 0 | endereço com "vale a pena" | — |
 | /weg-wege3-cai-mais-de-7-apos-resultados-do-4t24-e-hora-de-comprar/ | 0 | título com "Hora de Comprar" (RECOMENDACAO_TITULO); endereço com "hora de comprar" | — |
 
-São 28 destinos, que receberiam 19 links no total. Os que aparecem com 0 não ganhariam link de qualquer jeito, porque não houve frase boa nas origens sugeridas.
+São 30 destinos, que receberiam 22 links no total. Os que aparecem com 0 não ganhariam link de qualquer jeito, porque não houve frase boa nas origens sugeridas.
 
-## Órfãos que deixam de ser órfãos (16)
+## Órfãos que deixam de ser órfãos (15)
 
 - **Ferramentas (9):** `/simulador-renda-fii/`, `/calculadora-lci-lca-cdb/`, `/calculadora-cdb-lci-prefixado-ipca/`, `/quiz-perfil-de-investidor/`, `/calculadora-preco-justo/`, `/calculadora-1-milhao/`, `/calculadora-jcp-liquido/`, `/calculadora-aposentadoria-renda-passiva/` e `/calculadora-ir-venda-fii/`.
 - **Guias (3):** `/fundos-imobiliarios-o-que-sao-fiis/` (4874), `/quem-a-itausa-controla-conheca-suas-empresas/` (993) e `/o-que-e-bova11/` (5091).
-- **L3 (4):** `/abev3-copa-2026-vale-investir-pausa-hidratacao/`, `/acoes-do-nubank-roxo34-despencam-10-o-que-aconteceu-e-o-que-esperar/`, `/compass-pass3-bancos-ipo-recomendam-compra-conflito-interesse/` e `/saud3-bradesco-vai-fechar-capital-bradsaude/`.
+- **L3 (3):** `/acoes-do-nubank-roxo34-despencam-10-o-que-aconteceu-e-o-que-esperar/`, `/compass-pass3-bancos-ipo-recomendam-compra-conflito-interesse/` e `/saud3-bradesco-vai-fechar-capital-bradsaude/`.
 - O L3 também manda links para 2 substitutos que já recebiam link, então não contam como órfãos resolvidos: `/bbas3-resultado-2t-cartao-de-credito-inadimplencia/` (2 links) e `/trxf11-buraco-22-reais-cota-compensacao-de-creditos/` (1 link).
-- ⚠️ `/bbse3-cxse3-pssa3-melhor-seguradora-dividendos/` tem o título "BBSE3 vs CXSE3 vs PSSA3: qual **é** a melhor seguradora para dividendos?". Ele passa no gate, porque a regra pega "qual a melhor" e não "qual é a melhor". Se quiserem barrar esse também, a mudança tem de ser no gate.
 
 Os outros órfãos do `sugestoes-links.csv` continuam sem link. Ou o título não tem um ticker que apareça numa frase boa das origens sugeridas, ou o post tem achado CRÍTICO sem correção, ou ele vai ser redirecionado. Para eles, a âncora precisa ser escolhida à mão.
 
