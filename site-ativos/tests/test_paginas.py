@@ -1,7 +1,10 @@
 """Páginas: testes de HTML (13, 14, 15), ferramentas no modo compacto e o fluxo bloqueante de ponta a ponta."""
 import json
 import re
+import os
 import sqlite3
+import subprocess
+import sys
 
 from iec_ativos import calcular, config, ferramentas, gerar, seo, validar
 
@@ -64,6 +67,40 @@ def test_renda_fii_preenchida():
     assert re.search(r'id="f-dy"[^>]*value="0.75"', f["html"]) and '<section class="explain">' not in f["html"]
 
 
+def _flag_dy_caixa(valor):
+    env = {k: v for k, v in os.environ.items() if k != "IEC_ACEITAR_DY_CAIXA"}
+    if valor is not None:
+        env["IEC_ACEITAR_DY_CAIXA"] = valor
+    r = subprocess.run([sys.executable, "-c", "from iec_ativos import gerar; print(gerar.ACEITAR_DY_CAIXA)"],
+                       cwd=config.RAIZ, env=env, capture_output=True, text=True, check=True)
+    return r.stdout.strip() == "True"
+
+
+ACAO_COMPLETA = {"ticker": "PETR4", "tipo_pagina": "acao", "n_trimestres_dre": 8, "ind": {"dy_caixa": {"status": "ok"}}}
+FII_COMPLETO = {"ticker": "HGLG11", "tipo_pagina": "fii", "n_informes": 12, "ind": {"dy_estimado": {"status": "ok"}}}
+VAL_OK = {"ativos": {}}
+
+
+def test_dy_de_caixa_indexa_por_padrao(monkeypatch):
+    assert _flag_dy_caixa(None) and _flag_dy_caixa("1")          # sem variável: exceção do DY de caixa ligada
+    monkeypatch.setattr(gerar, "ACEITAR_DY_CAIXA", True)
+    assert gerar.indexavel(ACAO_COMPLETA, VAL_OK) == (True, "ok")
+    assert gerar.indexavel(FII_COMPLETO, VAL_OK) == (True, "ok")
+    # dados incompletos continuam fora
+    assert not gerar.indexavel({**ACAO_COMPLETA, "n_trimestres_dre": 7}, VAL_OK)[0]
+    assert not gerar.indexavel({**ACAO_COMPLETA, "ind": {"dy_caixa": {"status": "sem"}}}, VAL_OK)[0]
+    assert not gerar.indexavel(ACAO_COMPLETA, {"ativos": {"PETR4": {"bloqueado": True}}})[0]
+
+
+def test_dy_de_caixa_desligado_volta_a_regra_estrita(monkeypatch):
+    assert not _flag_dy_caixa("0")
+    monkeypatch.setattr(gerar, "ACEITAR_DY_CAIXA", False)
+    ok, motivo = gerar.indexavel(ACAO_COMPLETA, VAL_OK)
+    assert not ok and "proventos" in motivo
+    ok, motivo = gerar.indexavel(FII_COMPLETO, VAL_OK)
+    assert not ok and "rendimentos" in motivo
+
+
 def test_ponta_a_ponta_e_bloqueante_mantem_versao_anterior(ambiente, tmp_path):
     con0 = ambiente["con"]
     con = sqlite3.connect(tmp_path / "copia.sqlite")
@@ -84,7 +121,8 @@ def test_ponta_a_ponta_e_bloqueante_mantem_versao_anterior(ambiente, tmp_path):
         assert not r1["nao_geradas"]
         petr = config.SAIDA / "acoes" / "petr4" / "index.html"
         html1 = petr.read_text()
-        assert "noindex, follow" in html1                      # proventos não revisados: fora do índice
+        assert "noindex, follow" in html1                      # fixtures têm menos de 8 trimestres de DRE
+        assert "trimestres de DRE" in (config.SAIDA / "paginas.csv").read_text()
         assert html1.count("<h1>") == 1 and "Não é recomendação de compra ou venda" in html1
         sitemap = (config.SAIDA / "sitemap-ativos.xml").read_text()
         assert "/acoes/petr4/" not in sitemap and "/acoes/metodologia/" in sitemap

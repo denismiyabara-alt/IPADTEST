@@ -60,7 +60,7 @@ O top 10 já trouxe 4 bancos e 1 unit (BPAC11), então nenhuma troca foi necess�
 
 Alertas desta execução: PRIO3 (−1,15% de ações em circulação no 2T26: recompra), SBSP3 (+400% de ações e queda de 167,00 para 32,99 em 29/04/2026: **desdobramento de 1 para 5 não cadastrado**; a variação de 12 meses é escondida e a página avisa), AXIA3 (27 pregões sem negócio: troca de ticker), CPOF11 (114 pregões sem negócio; DY informado negativo em 4 meses), XPML11 (DY negativo e informes repetidos). Testes 7, 8 e 11 são manuais ou dependem da tabela de proventos aprovada, que ainda não existe.
 
-### 3.2 Sem rede (`python3 -m pytest -q tests`): 26 testes, todos passando
+### 3.2 Sem rede (`python3 -m pytest -q tests`): 28 testes, todos passando
 
 Fixtures de ~250 KB extraídas dos arquivos reais (`scripts/extrair_fixtures.py`): Petrobras, Itaú, BTG, Vale e Axia (DFP 2024–2025, ITR 2025–2026, recorte de contas), HGLG11 e XPML11 (informes), 75 linhas do COTAHIST e o FCA das units.
 
@@ -74,6 +74,7 @@ Fixtures de ~250 KB extraídas dos arquivos reais (`scripts/extrair_fixtures.py`
 - **Receita ≤ 0**: empresa sintética; margens "não se aplica" e P/L "não se aplica (prejuízo)".
 - **P/VP de FII ≈ valor patrimonial da cota do informe** (HGLG11, 0,5%); XPML11 com informe inconsistente fica sem DY.
 - Controladora preenchida com zero (Axia 3T25), reapresentação explicada (BTG 1T26), layout do COTAHIST, composição de units do FCA, testes de HTML (número sem fonte, palavras proibidas, corretora × emissor, H1, title, JSON-LD, canonical), ferramentas compactas e preco-justo só no clique, publicação só do que mudou.
+- **Indexação com DY de caixa**: sem variável (padrão), ação com 8 trimestres e FII com 12 informes são indexáveis; com `IEC_ACEITAR_DY_CAIXA=0`, voltam a `noindex` pelo motivo "proventos/rendimentos não revisados". Dados incompletos ou bloqueio continuam fora nos dois modos.
 - **Fluxo bloqueante de ponta a ponta**: gera as páginas, estraga o balanço da Petrobras, roda de novo: o teste 1 bloqueia, a página nova não é gravada e **a versão anterior fica igual**; o 301 da PETR4 sai do mapa de redirecionamento.
 
 ### 3.3 Navegador
@@ -106,7 +107,7 @@ Conferências extras: LPA da Ambev: 15.503.400 mil ÷ (15.761.639 − 145.113) m
 - **Teste 6 contra o FRE:** FRE não baixado; o teste virou "último documento × anterior". Teste 7 (EBITDA × release), 8 e 11 (proventos) são manuais e dependem de proventos aprovados.
 - **uPlot com zoom:** trocado por SVG estático com o valor no `title` de cada ponto (sem JS, sem CDN).
 - **Hubs por setor, IPE, Aviso aos Acionistas, planilha de referência, workflow do GitHub Actions:** fora do MVP.
-- **Indexação:** pela regra do desenho (6.7), **nenhuma página de ativo é indexável** ainda (proventos não revisados). Rankings e comparador ficam `noindex` até a cobertura ter 30 ativos (lista de 10 é rasa). Indexáveis hoje: `/acoes/`, `/fiis/` e as duas metodologias (4 URLs no sitemap). `IEC_ACEITAR_DY_CAIXA=1` aceita o DY de caixa como substituto; é decisão do Denis.
+- **Indexação:** decisão do Denis (achado 11): o "DY de caixa" (ações) e o DY estimado (FIIs) substituem os proventos revisados até a tabela fechar 12 meses; é o padrão (`IEC_ACEITAR_DY_CAIXA=0` volta à regra estrita da 6.7). Na geração de 02/10/2026, **18 páginas de ativo indexáveis** (as 10 ações e 8 FIIs); ficam fora XPML11 e CPOF11 (DY estimado indisponível: informe inconsistente). Rankings e comparador seguem `noindex` até a cobertura ter 30 ativos (lista de 10 é rasa); calendário é esqueleto. Sitemap: 22 URLs (18 ativos + `/acoes/`, `/fiis/` e as duas metodologias).
 
 ## 6. Achados novos que mudam o desenho
 
@@ -119,8 +120,8 @@ Conferências extras: LPA da Ambev: 15.503.400 mil ÷ (15.761.639 − 145.113) m
 7. **O FCA traz a composição das units** (`Composicao_BDR_Unit`, texto livre: "1 ON E 2 PNA", "1 KLBN3 + 4 KLBN4"), o que reduz a digitação manual prevista em 4.4. Mas a linha da BPAC11 vem com ticker "000000"; ficou uma tabela manual de exceções.
 8. **Informe mensal de FII:** ISIN repetido em CNPJs diferentes (20 casos; ex.: o ISIN do TRXF11 também aparece num fundo novo de outro nome), meses copiados, DY negativo e de 11,6% num mês. O DY informado não serve como DY da página sem filtro; isso reforça o Fundos.NET (ou a fila manual) como fonte.
 9. **Desdobramento detectado só pelo preço:** SBSP3 (1:5 em 04/2026). O cadastro de `evento_societario` precisa de uma fonte (IPE/fato relevante) antes de qualquer gráfico ajustado.
-10. **Títulos dos posts do canal** sobre os ativos do MVP usam "vale a pena", "melhor", "comprar" e citam corretora (BTG). Com a regra 7.1 e o teste 14, a página mostra rótulo neutro ("Análise do canal sobre PETR4 (1)"). Decisão do Denis: rótulo neutro, título editado, ou exceção para os próprios posts (`IEC_POSTS_COM_TITULO=1`).
-11. **Com a regra 6.7 literal, nenhuma página de ativo entra no índice** até a fila de proventos existir. O MVP sai com 4 URLs no sitemap. Vale decidir se o DY de caixa basta para indexar as 10 ações.
+10. **Títulos dos posts do canal** sobre os ativos do MVP usam "vale a pena", "melhor", "comprar" e citam corretora (BTG). Com a regra 7.1 e o teste 14, a página mostra rótulo neutro ("Análise do canal sobre PETR4 (1)"). **Decidido:** rótulo neutro continua o padrão (`IEC_POSTS_COM_TITULO=0`). Os títulos serão revistos no site: `posts-para-refresh.csv` (gerado por `scripts/posts_para_refresh.py`) lista os 11 posts linkados com "vale a pena", "melhor", corretora ou outro termo da regra 7.1, com título sugerido, palavra-chave e se o conteúdo está datado. Achados na leitura: ITUB3/ITUB4 tem dois posts do mesmo tema (juntar e 301) e o post ITSA4 ou ITUB4 chama a Itaúsa de Santander.
+11. **Com a regra 6.7 literal, nenhuma página de ativo entra no índice** até a fila de proventos existir. **Decidido:** o DY de caixa basta (padrão `IEC_ACEITAR_DY_CAIXA=1`; `=0` desliga). Com isso entram 18 páginas de ativo (10 ações, 8 FIIs) e o sitemap vai a 22 URLs; XPML11 e CPOF11 ficam fora por DY estimado indisponível.
 12. **Ticker mudou** (Eletrobras → Axia, AXIA3): o histórico de preço e o volume ficam partidos entre tickers; o critério de volume subestima esses casos.
 13. A URL do COTAHIST anual do ano corrente é atualizada todo dia útil (Last-Modified 01/10/2026 23:26, com o pregão de 01/10); os arquivos diários só são necessários depois do último anual.
 

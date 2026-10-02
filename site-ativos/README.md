@@ -18,7 +18,7 @@ pip install -r requirements.txt   # jinja2 e pytest
 
 ```sh
 python3 -m iec_ativos tudo          # baixar → normalizar → selecionar → calcular → validar → gerar (não publica)
-python3 -m pytest -q tests          # 26 testes, sem rede (fixtures em tests/fixtures)
+python3 -m pytest -q tests          # 28 testes, sem rede (fixtures em tests/fixtures)
 ```
 
 Etapas soltas: `baixar`, `normalizar`, `selecionar`, `calcular`, `validar`, `gerar`.
@@ -44,6 +44,9 @@ CHROMIUM=/opt/pw-browsers/chromium-1194/chrome-linux/chrome PLAYWRIGHT=$(npm roo
 
 Regerar as fixtures dos testes a partir do cache real: `python3 scripts/extrair_fixtures.py`.
 
+Posts antigos linkados pelas páginas com título a revisar ("vale a pena", "melhor", corretora):
+`python3 scripts/posts_para_refresh.py` → `posts-para-refresh.csv` (título sugerido, palavra-chave, se está datado).
+
 ## Publicar (nada é publicado sozinho)
 
 ```sh
@@ -61,8 +64,8 @@ Credenciais só por variável de ambiente. Os stubs explicam (em `iec_ativos/pub
 |---|---|---|
 | `IEC_BASE_ATIVOS` | raiz das páginas (subpasta ou subdomínio) | `https://investirecocaresocomecar.com.br` |
 | `IEC_HOJE` | data de corte (reproduzir uma execução) | hoje |
-| `IEC_ACEITAR_DY_CAIXA=1` | aceita o DY de caixa / DY estimado no lugar dos proventos revisados para indexar | desligado (regra do desenho) |
-| `IEC_POSTS_COM_TITULO=1` | mostra o título dos posts do canal (vários têm "vale a pena") | rótulo neutro |
+| `IEC_ACEITAR_DY_CAIXA` | `1` (padrão): páginas de ativo com dados completos indexam com o "DY de caixa" (ações) / DY estimado (FIIs) no lugar dos proventos revisados (exceção à 6.7 aprovada pelo Denis). `0`: regra estrita, nenhuma página de ativo indexa até os proventos serem revisados | `1` |
+| `IEC_POSTS_COM_TITULO=1` | mostra o título dos posts do canal (vários têm "vale a pena") | `0`: rótulo neutro |
 | `IEC_ADSENSE_CLIENT` | `ca-pub-...` para preencher os 3 blocos reservados | vazio (só o espaço reservado) |
 | `IEC_PLUGIN`, `IEC_CACHE`, `IEC_SAIDA`, `IEC_DB`, `IEC_COTACOES` | caminhos | ver `iec_ativos/config.py` |
 
@@ -75,7 +78,7 @@ templates/         Jinja2 (ação, FII, lista, ranking, comparador, calendário,
 tests/             pytest + fixtures (recortes reais, gzip, ~250 KB)
 dados/referencia/  lista das cotacao-* linkadas (cópia versionada do seo/varredura.json)
 dados/dicionarios/ dicionários de dados da CVM (cadastro, DFP, ITR, FII mensal e trimestral)
-scripts/           extrair_fixtures.py, conferir_navegador.mjs
+scripts/           extrair_fixtures.py, conferir_navegador.mjs, posts_para_refresh.py
 prints/            capturas do Chromium headless
 cache/, saida/     gerados (fora do Git)
 ```

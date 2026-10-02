@@ -17,9 +17,10 @@ from . import config, ferramentas, formato as fm, graficos, seo, texto
 from .selecionar import tickers_cotacao
 
 # Indexação (DESENHO 6.7): só com 8 trimestres de DRE (12 informes no FII), proventos de 12 meses revisados
-# e todos os testes bloqueantes aprovados. IEC_ACEITAR_DY_CAIXA=1 aceita o DY de caixa (ações) e o DY
-# estimado pelo informe (FIIs) no lugar dos proventos revisados. Padrão: regra do desenho, sem exceção.
-ACEITAR_DY_CAIXA = os.environ.get("IEC_ACEITAR_DY_CAIXA") == "1"
+# e todos os testes bloqueantes aprovados. Exceção aprovada pelo Denis (padrão): enquanto a tabela de proventos
+# revisada não fecha 12 meses, o DY de caixa (ações, fluxo de caixa) e o DY estimado pelo informe (FIIs)
+# substituem os proventos revisados. IEC_ACEITAR_DY_CAIXA=0 desliga a exceção e volta à regra estrita.
+ACEITAR_DY_CAIXA = os.environ.get("IEC_ACEITAR_DY_CAIXA", "1") != "0"
 # Títulos dos posts do canal: muitos têm "vale a pena" ou "melhor" (palavras proibidas pela seção 7).
 # Padrão: rótulo neutro. IEC_POSTS_COM_TITULO=1 mostra o título do post.
 POSTS_COM_TITULO = os.environ.get("IEC_POSTS_COM_TITULO") == "1"
