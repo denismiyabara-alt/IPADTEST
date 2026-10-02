@@ -130,6 +130,7 @@ def test_classificacao_dos_termos():
     T = tm.Termos.__new__(tm.Termos)
     T.origem = {"como ganhar dinheiro": {tm.SHORT_1_CENTAVO: 10}}
     T.origem = {k: __import__("collections").Counter(v) for k, v in T.origem.items()}
+    T.origem_rec, T.videos = {}, {}
     assert T.categoria("como ganhar dinheiro") == "amplo (1 centavo)"
     assert T.categoria("renda extra") == "amplo (1 centavo)"
     assert T.categoria("banco next vale a pena") == "bancos, apps e outros (catálogo)"
@@ -150,5 +151,10 @@ def test_termos_reais():
     assert T.vitalicio(["lci e lca"]) == 3544
     linhas = cal.montar(mo.carregar())
     assert all(k in linhas[0] for k in ("termo_busca", "views_pesquisa_6m", "views_pesquisa_vitalicio"))
-    sem_termo = {r["data"] for r in linhas if r["formato"] == cal.L and not r["views_pesquisa_vitalicio"]}
-    assert "2026-11-05" in sem_termo and "2026-10-22" not in sem_termo
+    por_data = {r["data"]: r for r in linhas}
+    if T.recentes:
+        assert int(por_data["2026-10-31"]["views_pesquisa_6m"].replace(".", "")) >= 1516  # trxf11, o nº 1 do período
+        assert por_data["2026-11-05"]["termo_busca"] == "tesouro direto"
+        top = sorted((r for r in T.linhas() if r["categoria"] == "investimento"), key=lambda r: -r["recente"])
+        assert top[0]["termo"] == "trxf11" and top[0]["assunto"] == "FII"
+    assert por_data["2026-10-22"]["views_pesquisa_vitalicio"] > 0

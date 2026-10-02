@@ -58,12 +58,17 @@ class Termos:
             t = an.norm(r["termo"])
             self.vit[t] += int(r["views"])
             self.origem[t][r["video_id"]] += int(r["views"])
-        self.rec = Counter(an.norm(r["termo"]) for r in self.recentes for _ in range(int(r["views"])))
+        self.rec = Counter()
+        self.origem_rec = defaultdict(Counter)
+        for r in self.recentes:
+            t = an.norm(r["termo"])
+            self.rec[t] += int(r["views"])
+            self.origem_rec[t][r["video_id"]] += int(r["views"])
 
     # -- números de um termo (ou de uma família de termos, por regex)
     def casar(self, padrao):
         rx = re.compile(padrao)
-        todos = set(self.vit) | {t for d in self.mes.values() for t in d}
+        todos = set(self.vit) | set(self.rec) | {t for d in self.mes.values() for t in d}
         return sorted(t for t in todos if rx.search(t))
 
     def seis_meses(self, termos):
@@ -85,8 +90,21 @@ class Termos:
         return sum(self.rec.get(t, 0) for t in termos) if self.recentes else None
 
     def dono(self, t):
-        o = self.origem.get(t)
+        o = self.origem.get(t) or self.origem_rec.get(t)
         return o.most_common(1)[0][0] if o else None
+
+    def dono_recente(self, t):
+        o = self.origem_rec.get(t)
+        return o.most_common(1)[0][0] if o else None
+
+    def assunto_termo(self, t):
+        """Ticker sozinho ('trxf11', 'rara11', 'suzb3') herda o assunto do título do vídeo que recebe a busca."""
+        if re.fullmatch(r"[a-z]{4}\d{1,2}", t):
+            vid = self.dono_recente(t) or self.dono(t)
+            tit = self.videos.get(vid, {}).get("titulo", "") if vid else ""
+            if tit:
+                return an.assunto(tit)
+        return self.assunto(t)
 
     @staticmethod
     def assunto(t):
@@ -103,10 +121,15 @@ class Termos:
             return "amplo (1 centavo)"
         if BANCOS.search(t):
             return "bancos, apps e outros (catálogo)"
-        a = self.assunto(t)
+        dono_rec = self.dono_recente(t)
+        if dono_rec == SHORT_1_CENTAVO:
+            return "amplo (1 centavo)"
+        a = self.assunto_termo(t)
         return "investimento" if a in FOCO else "outros"
 
     def texto_6m(self, termos):
+        if self.recentes:
+            return br(self.recentes_views(termos))
         soma, pres, teto = self.seis_meses(termos)
         if pres == 6:
             return br(soma)
@@ -115,13 +138,17 @@ class Termos:
         return f"{br(soma)} em {pres} {'mês' if pres == 1 else 'meses'} (+ ≤ {br(teto)} nos outros)"
 
     def linhas(self):
-        todos = set(self.vit) | {t for d in self.mes.values() for t in d}
+        todos = set(self.vit) | set(self.rec) | {t for d in self.mes.values() for t in d}
         out = []
         for t in todos:
             dono = self.dono(t)
             v = self.videos.get(dono, {}) if dono else {}
             soma, pres, teto = self.seis_meses([t])
-            out.append({"termo": t, "categoria": self.categoria(t), "assunto": self.assunto(t),
+            vr = self.dono_recente(t)
+            out.append({"termo": t, "categoria": self.categoria(t), "assunto": self.assunto_termo(t),
+                        "recente": self.rec.get(t, 0), "video_rec": vr or "—",
+                        "titulo_rec": self.videos.get(vr, {}).get("titulo", "")[:55] if vr else "",
+                        "pub_rec": self.videos.get(vr, {}).get("publicado_em_brt", "")[:10] if vr else "",
                         "video": dono or "—", "ano": v.get("publicado_em_brt", "")[:4] or "—",
                         "seis_meses": soma, "meses_presente": pres, "teto": teto, "texto_6m": self.texto_6m([t]),
                         "vitalicio": self.vit.get(t, 0), "canal_total": self.mes.get("total", {}).get(t, 0)})
@@ -132,53 +159,90 @@ def br(x):
     return f"{x:,.0f}".replace(",", ".")
 
 
+def familias(T):
+    """Views recentes (desde 04/04) e vitalícias por família de assunto de investimento."""
+    fams = [("Tesouro Direto e IPCA+", r"tesouro|ipca|\bntn"), ("LCI, LCA e CDB", r"\blci|\blca|\bcdb"),
+            ("ETFs e dividendos mensais", r"etfs?.*dividend|dividendos? mensa"), ("FII (incl. tickers de FII)", None),
+            ("ações por ticker", None), ("Barsi", r"barsi"), ("juntar 1 milhão", r"1 milh|um milh|primeiro milh"),
+            ("bitcoin e cripto", r"bitcoin|cripto|\bbtc"), ("bolha da IA", r"bolha (da |de )?ia"),
+            ("Copom e Selic", r"copom|selic"), ("crise e recessão", r"crise|recess")]
+    out = []
+    for nome, rx in fams:
+        if nome.startswith("FII"):
+            ts = [t for t in set(T.rec) | set(T.vit) if T.categoria(t) == "investimento" and T.assunto_termo(t) == "FII"]
+        elif nome == "ações por ticker":
+            ts = [t for t in set(T.rec) | set(T.vit) if re.fullmatch(r"[a-z]{4}[3-6]", t)]
+        else:
+            ts = [t for t in T.casar(rx) if not T.categoria(t).startswith("amplo")]
+        out.append((nome, T.recentes_views(ts) or 0, T.vitalicio(ts), len(ts)))
+    return sorted(out, key=lambda x: -x[1])
+
+
 def markdown(T):
     L = T.linhas()
     amplos = [r for r in L if r["categoria"] == "amplo (1 centavo)"]
     bancos = [r for r in L if r["categoria"].startswith("bancos")]
     inv = sorted([r for r in L if r["categoria"] == "investimento"], key=lambda r: (-r["seis_meses"], -r["vitalicio"]))
-    tot6 = sum(sum(d.values()) for m, d in T.mes.items() if m in MESES_6)
-    amplo6 = sum(r["seis_meses"] for r in amplos)
-    inv6 = sum(r["seis_meses"] for r in inv)
-    cortes = " · ".join(f"{m[5:]}/{m[2:4]}: {T.corte[m]}" for m in MESES_6)
+    rec_tot = sum(T.rec.values())
+    cat_rec = Counter()
+    for t, v in T.rec.items():
+        cat_rec[T.categoria(t)] += v
+    top = sorted([r for r in L if r["categoria"] == "investimento" and r["recente"]], key=lambda r: -r["recente"])[:20]
+    desde = T.recentes[0]["desde"] if T.recentes else "—"
+    nvid = len({r["video_id"] for r in T.recentes})
     out = [f"""# Termos de busca: o que o público procura e acha no canal
 
-Gerado por `termos.py` a partir de `auditoria-canal/dados/termos_busca_canal.csv` (25 termos por mês, de out/25 a
-set/26) e de `termos_busca_por_video.csv` (25 termos de cada um dos 50 vídeos com mais views da Pesquisa, no
-vitalício).
+Gerado por `termos.py` a partir de três exportações de `auditoria-canal/dados/`:
+- **`termos_busca_recentes.csv`:** 25 termos por vídeo, de {desde} a 01/10/2026, em {nvid} vídeos (os publicados no
+  período e os 50 com mais busca). **É a fonte dos "últimos 6 meses".**
+- **`termos_busca_por_video.csv`:** 25 termos de cada um dos 50 vídeos com mais busca, no vitalício.
+- **`termos_busca_canal.csv`:** 25 termos do canal por mês, de out/25 a set/26.
 
-**Limite dos dados:**
-- **Corte mensal:** um termo fora do top 25 de um mês teve menos views que o 25º. Nos últimos 6 meses, o corte foi
-  {cortes}.
-- **Teto:** para um termo que nunca entrou no top 25, as views dos 6 meses são no máximo a soma desses cortes.
+**Filtros**, iguais aos de antes:
+- fora os termos que chegam pelo Short do "1 centavo";
+- fora os genéricos de dinheiro ("como ganhar dinheiro"...);
+- fora os de bancos e apps do catálogo (Next, Nubank, Pix...).
+- Um ticker sozinho ("trxf11", "suzb3") herda o assunto do vídeo que recebe a busca.
 
 ## Leitura (5 linhas)
 
-1. **A busca do canal hoje é o Short do "1 centavo".** Nos últimos 6 meses, os termos amplos de dinheiro ("como ganhar
-   dinheiro na internet", "como ficar rico" etc.) somam {br(amplo6)} das {br(tot6)} views dos top 25 mensais
-   ({br(100 * amplo6 / tot6)}%). Eles quase não convertem: o Short traz cerca de 1 inscrito por mil views.
-2. **Investimento quase não aparece nos top 25 recentes.** Os únicos termos de investimento nos últimos 6 meses são
-   {', '.join(f'"{r["termo"]}" ({br(r["seis_meses"])})' for r in inv if r['seis_meses'])}: {br(inv6)} views ao todo.
-3. **A demanda de investimento que o canal já captou é de cauda longa e está em vídeos antigos:**
-   - LCI, LCA e CDB, com o Short de abr/25;
-   - ETFs que pagam dividendos mensais (2024);
-   - ETF de bitcoin (2024);
-   - CDB prefixado (2018);
-   - dividendos sintéticos (2022);
-   - fundos imobiliários (2023);
-   - "como juntar 1 milhão" (Shorts de 2022 e 2024).
-4. **Tesouro, IPCA+, Copom e Selic não aparecem em nenhum termo**, nem no top 25 mensal nem nos 50 vídeos de busca. Os
-   vídeos de Tesouro, que são os que mais trazem inscritos (TEMAS.md), vivem da página inicial, não da busca.
-5. **Bancos e apps** (Next, Nubank, Banco Original, C6, Pix) ainda são o maior bloco do catálogo de busca, mas estão
-   fora do foco. Para medir o que os vídeos de 2026 recebem de busca, falta rodar `exportar.py --termos-recentes 180`
-   no Mac (comando no fim).
+1. **O "1 centavo" ainda domina:** desde {desde}, {br(cat_rec['amplo (1 centavo)'])} das {br(rec_tot)} views da Pesquisa
+   ({br(100 * cat_rec['amplo (1 centavo)'] / rec_tot)}%) vêm dele e dos termos amplos. Investimento soma {br(cat_rec['investimento'])}
+   ({br(100 * cat_rec['investimento'] / rec_tot)}%); bancos e apps, {br(cat_rec['bancos, apps e outros (catálogo)'])}.
+2. **Tesouro agora aparece.** "tesouro direto", "ipca + 8", "tesouro ipca" e "tesouro ipca+ 2032" somam ~1 mil views
+   no período, quase todas no vídeo de jun/26 (KMIsVEOcaLM). Ficam atrás de tickers de ações, FII, LCI/LCA/CDB e
+   Barsi (tabela de famílias). **Copom e Selic quase não são buscados** (15 views).
+3. **Tickers são a busca recente mais forte de investimento:**
+   - o FII trxf11 (1.516, o termo nº 1, do vídeo de ago/26);
+   - ações (pass3, suzb3, saud3, rani3, bbas3), todas em vídeos de 2026.
+   - Quem busca o ticker acha o vídeo do canal sobre aquele ativo, e isso é demanda de cauda longa. Mas ações rendem
+     poucos inscritos por vídeo (TEMAS.md).
+4. **ETFs que pagam dividendos mensais seguem com demanda** (~420 views no período, pelo vídeo de 2024). Barsi e
+   "juntar 1 milhão" também, em vídeos antigos.
+5. **Crise, recessão, bitcoin, ETF de bitcoin, dividendos sintéticos e CDB prefixado quase não têm busca recente**
+   (de 3 a 56 views). Esses assuntos vivem de Navegação (crise) ou de vídeos antigos (CDB prefixado, 2018).
 
-## Termos de investimento (fora o amplo e o catálogo de bancos)
+## Top 20 termos de investimento nos últimos 6 meses ({desde} a 01/10/2026)
 
-| termo | assunto | vídeo que recebe a busca (ano) | Pesquisa, últimos 6 meses (top 25 do canal) | Pesquisa, vitalício (no vídeo) |
+| # | termo | assunto | views da Pesquisa no período | vídeo que recebe a busca |
 |---|---|---|---|---|"""]
+    for k, r in enumerate(top, 1):
+        out.append(f"| {k} | {r['termo']} | {r['assunto']} | {br(r['recente'])} | `{r['video_rec']}` ({r['pub_rec']}) {r['titulo_rec']} |")
+    out.append("""
+## Famílias de investimento: período × vitalício
+
+| família | views no período | views no vitalício (50 vídeos de busca) | termos |
+|---|---|---|---|""")
+    for nome, rec, vit, n in familias(T):
+        out.append(f"| {nome} | {br(rec)} | {br(vit)} | {n} |")
+    out.append("""
+## Termos de investimento: tabela completa (os 60 maiores no período)
+
+| termo | assunto | vídeo que recebe a busca (ano) | Pesquisa, últimos 6 meses (por vídeo) | Pesquisa, vitalício (no vídeo) |
+|---|---|---|---|---|""")
+    inv = sorted(inv, key=lambda r: (-r["recente"], -r["vitalicio"]))
     for r in inv[:60]:
-        out.append(f"| {r['termo']} | {r['assunto']} | `{r['video']}` ({r['ano']}) | {r['texto_6m']} | {br(r['vitalicio'])} |")
+        out.append(f"| {r['termo']} | {r['assunto']} | `{r['video']}` ({r['ano']}) | {br(r['recente'])} | {br(r['vitalicio'])} |")
     out.append("""
 ## Termos que são pergunta curta → o Short (ou longo) do calendário v2 que responde
 
@@ -210,19 +274,8 @@ vitalício).
     for r in sorted(bancos, key=lambda r: -(r["seis_meses"] * 100 + r["vitalicio"]))[:15]:
         out.append(f"| {r['termo']} | `{r['video']}` ({r['ano']}) | {r['texto_6m']} | {br(r['vitalicio'])} |")
     out.append("""
-## Para fechar a lacuna dos últimos 6 meses (no Mac)
-
-```sh
-cd ~/IPADTEST && git pull && cd auditoria-canal \\
-  && set -a && source ~/.config/investirecocar/credentials.env && set +a \\
-  && python3 exportar.py --termos-recentes 180 \\
-  && cd .. && git add auditoria-canal/dados/termos_busca_recentes.csv auditoria-canal/dados/LEIAME_DADOS.md \\
-  && git commit -m "auditoria-canal: termos de busca recentes" && git push
-```
-
-O comando pega os 25 termos de cada vídeo publicado nos últimos 180 dias e dos 50 com mais busca, só no período,
-em cerca de 120 consultas ao Analytics. Com ele, a coluna dos 6 meses passa a vir por vídeo, e não do top 25 do canal,
-que o "1 centavo" domina.
+**Para atualizar**, rode `exportar.py --termos-recentes 180` no Mac, como na última vez, suba o
+`termos_busca_recentes.csv` e regere com `python3 termos.py && python3 calendario_v2.py`.
 """)
     return "\n".join(out)
 
