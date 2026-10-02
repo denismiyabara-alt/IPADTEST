@@ -168,25 +168,72 @@ def checar_ir(txt, d_post):
     return achados
 
 
+RE_SELIC = re.compile(r"(?<!Tesouro )(?<!tesouro )\bSelic(?: meta)?\s*(?:\([^)]{0,20}\)\s*)?(?:atual(?:mente)?\s*|hoje\s*|ainda\s*)?(?:est[áa]\s*|segue\s*|fica\s*)?(?:em\s*|a\s*|de\s*|:\s*|=\s*|nos\s*|no patamar de\s*)?(\d{1,2}(?:,\d{1,2})?)\s?%", re.I)
+
+
 def checar_selic(txt, d_post, datas, valores):
+    """Selic citada como taxa vigente x meta Selic (SGS 432) na data do post e hoje."""
     achados = []
+    atual = valores[-1]
+    vistos = set()
     for f in frases_de(txt):
-        for m in re.finditer(r"selic[^.%\n]{0,30}?(\d{1,2}(?:,\d{1,2})?)\s?%", f, re.I):
-            ctx = norm(f)
-            if re.search(r"proje|expect|deve|devera|focus|pode|cair|chegar|previs|estimat|20(1|2)\d|historic|passado|em 20\d\d|quando|se a|caso", ctx):
+        for m in RE_SELIC.finditer(f):
+            ctx = norm(f[max(0, m.start() - 60):m.end() + 60])
+            if re.search(r"proje|expect|deve|devera|focus|pode |cair|chegar|previs|estim|historic|passado|em 20\d\d|de 20\d\d|quando|se a |caso|pico|maxim|minim|ciclo|corte|subi|reduz|elev|ja foi|era de|terminar|fim de", ctx):
                 continue
             v = float(m.group(1).replace(",", "."))
+            if v < 1.5 or v > 20:
+                continue
             na_data = selic_em(datas, valores, d_post)
-            atual = valores[-1]
+            if (m.group(1), "x") in vistos:
+                continue
+            vistos.add((m.group(1), "x"))
+            fmt = lambda x: f"{x:.2f}".rstrip("0").rstrip(".").replace(".", ",")
             if abs(v - na_data) < 0.01:
                 if abs(v - atual) > 0.01:
-                    achados.append(("selic_datada", f, f"Selic de {m.group(1)}% era a meta na data do post; hoje é {str(atual).replace('.', ',')}% (SGS 432)", "DATADO"))
+                    achados.append(("selic_datada", f, f"Selic de {m.group(1)}% era a meta na data do post; hoje é {fmt(atual)}% (SGS 432)", "DATADO"))
             else:
-                # aceita valor vigente até 60 dias antes (texto escrito antes de publicar)
-                d0 = (date.fromisoformat(d_post) - timedelta(days=60)).isoformat()
-                if any(abs(v - x) < 0.01 for d, x in zip(datas, valores) if d0 <= d <= d_post):
-                    continue
-                achados.append(("selic_errada", f, f"Selic de {m.group(1)}% não bate com a meta na data do post ({str(na_data).replace('.', ',')}%, SGS 432)", "DÚVIDA"))
+                d0 = (date.fromisoformat(d_post) - timedelta(days=75)).isoformat()
+                recente = any(abs(v - x) < 0.01 for d, x in zip(datas, valores) if d0 <= d <= d_post)
+                if recente:
+                    achados.append(("selic_datada", f, f"Selic de {m.group(1)}% já estava desatualizada na publicação (meta {fmt(na_data)}%); hoje é {fmt(atual)}% (SGS 432)", "DATADO"))
+                else:
+                    achados.append(("selic_errada", f, f"Selic de {m.group(1)}% não bate com a meta na data do post ({fmt(na_data)}%) nem nos 75 dias anteriores (SGS 432)", "DÚVIDA"))
+    return achados
+
+
+RE_IPCA = re.compile(r"\b(?:IPCA|infla[çc][ãa]o)(?: acumulad[oa])?(?: em 12 meses)?\s*(?:atual\s*)?(?:est[áa]\s*)?(?:em torno de\s*|em\s*|de\s*|a\s*|é de\s*|~\s*|perto de\s*)?(\d{1,2},\d{1,2})\s?%", re.I)
+
+
+def carregar_ipca():
+    con = sqlite3.connect(DB)
+    rows = con.execute("select data, valor from macro where serie=13522 order by data").fetchall()
+    return [r[0] for r in rows], [r[1] for r in rows]
+
+
+def checar_ipca(txt, d_post, datas, valores):
+    """IPCA citado como taxa atual x IPCA 12 meses (SGS 13522) do último mês divulgado antes do post."""
+    achados = []
+    vistos = set()
+    for f in frases_de(txt):
+        for m in RE_IPCA.finditer(f):
+            ctx = norm(f[max(0, m.start() - 60):m.end() + 60])
+            if re.search(r"proje|expect|deve|focus|meta|teto|previs|estim|historic|media|medio|em 20\d\d|de 20\d\d|se o |caso|cenario|\+|ipca \+|ipca\+", ctx):
+                continue
+            v = float(m.group(1).replace(",", "."))
+            if v > 15 or m.group(1) in vistos:
+                continue
+            vistos.add(m.group(1))
+            # IPCA 12m divulgado até a data do post (série mensal; divulgação ~10 dias depois do mês)
+            lim = (date.fromisoformat(d_post) - timedelta(days=40)).isoformat()
+            ant = [x for d, x in zip(datas, valores) if d <= lim]
+            if not ant:
+                continue
+            perto = [x for d, x in zip(datas, valores) if (date.fromisoformat(d_post) - timedelta(days=130)).isoformat() <= d <= d_post]
+            if any(abs(v - x) <= 0.3 for x in perto):
+                continue
+            fmt = lambda x: f"{x:.2f}".replace(".", ",")
+            achados.append(("ipca_errado", f, f"IPCA de {m.group(1)}% não bate com o IPCA 12 meses oficial perto da data do post (último divulgado: {fmt(ant[-1])}%, SGS 13522)", "DATADO"))
     return achados
 
 
@@ -241,6 +288,7 @@ def checar_tickers(txt, titulo, d_post, U):
 def varrer(posts):
     U = carregar_universo()
     datas, valores = carregar_selic()
+    idatas, ivalores = carregar_ipca()
     sitemap, links, ativos = trafego()
     saida = []
     for p in posts:
@@ -252,7 +300,7 @@ def varrer(posts):
         d_post = p["date"][:10]
         tickers, a_t = checar_tickers(txt, titulo, d_post, U)
         a_ir = checar_ir(txt, d_post)
-        a_s = checar_selic(txt, d_post, datas, valores)
+        a_s = checar_selic(txt, d_post, datas, valores) + checar_ipca(txt, d_post, idatas, ivalores)
         ia = padroes_ia(html, txt, titulo)
         recom_titulo = bool(RE_RECOM.search(titulo))
         recom_texto = len(RE_RECOM.findall(txt))
