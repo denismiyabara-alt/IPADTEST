@@ -330,7 +330,7 @@ function desenharBarras(svg, itens){
   itens.forEach(function(it,k){
     var y=T+k*linha, w=Math.abs(it.v)/vmax*(W-L-R);
     var t1=el("text",{x:L-8,y:y+linha/2+4,"text-anchor":"end"},it.label); svg.appendChild(t1);
-    svg.appendChild(el("rect",{x:L,y:y+4,width:Math.max(w,1),height:linha-8,rx:3,fill:css(it.destaque?"--neg":"--axis"),opacity:it.destaque?1:.55}));
+    svg.appendChild(el("rect",{x:L,y:y+4,width:Math.max(w,1),height:linha-8,rx:3,fill:css(it.destaque?(it.v<0?"--neg":"--pos"):"--axis"),opacity:it.destaque?1:.55}));
     var t2=el("text",{x:L+w+6,y:y+linha/2+4,"font-weight":it.destaque?"700":"400"},pct(it.v,true));
     if (it.destaque) t2.style.fill=css("--text");
     svg.appendChild(t2);

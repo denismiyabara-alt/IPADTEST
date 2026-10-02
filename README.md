@@ -9,7 +9,16 @@ Arquivo único, sem dependências externas: `simulador-ntnb/index.html`.
 
 Metodologia: fluxos descontados por (1 + taxa)^(DU/252), cupom de 2,956301% ao semestre, dias úteis pelo calendário de feriados nacionais. O VNA é projetado pelo IPCA informado pelo usuário. Os valores são brutos, sem IR e sem custódia.
 
-## Como colocar no site (WordPress)
+## Plugin WordPress (recomendado)
+
+O jeito mais robusto de publicar é o plugin em `wordpress-plugin/`. Ele carrega o CSS e o JS como arquivos, sem colar script na página, e já vem com o visual do site.
+
+- Pacote instalável: `wordpress-plugin/dist/iec-ferramentas.zip`
+- Shortcode: `[iec_ferramenta id="simulador-ntnb"]`
+- Instruções: `wordpress-plugin/iec-ferramentas/README.md`
+- Para regerar o .zip: `wordpress-plugin/empacotar.sh`
+
+## Colar direto no WordPress (alternativa)
 
 O site [investirecocaresocomecar.com.br](https://investirecocaresocomecar.com.br/) usa endereços no padrão do WordPress. Para ele, use o arquivo **`simulador-ntnb/embed-wordpress.html`**. É um trecho pronto para colar, com o CSS isolado dentro do simulador para não brigar com o tema.
 

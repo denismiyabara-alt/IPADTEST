@@ -1,0 +1,126 @@
+<div id="sim-ntnb" class="iec-ferramenta">
+  <header>
+    <p class="eyebrow">Renda fixa · Ferramenta</p>
+    <h2 class="titulo">Simulador de marcação a mercado do Tesouro IPCA+ (NTN-B)</h2>
+    <p>Um título "seguro" pode dar prejuízo? Pode, se você vender antes do vencimento. Simule abaixo quanto o preço muda quando a taxa do mercado sobe ou cai.</p>
+  </header>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-tab="choque">Choque de taxa</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="operacao">Comprei e vou vender</button>
+  </div>
+  <!-- ABA 1: CHOQUE DE TAXA -->
+  <section class="panel active" id="panel-choque" role="tabpanel">
+    <div class="grid">
+      <div class="card">
+        <h2>Parâmetros</h2>
+        <label for="c-titulo">Título</label>
+        <select id="c-titulo"></select>
+        <div id="c-custom" hidden>
+          <div class="row2">
+            <div><label for="c-venc">Vencimento</label><input id="c-venc" type="date"></div>
+            <div><label for="c-tipo">Tipo</label><select id="c-tipo"><option value="1">Com cupom</option><option value="0">Sem cupom</option></select></div>
+          </div>
+        </div>
+        <label for="c-taxa">Taxa atual (IPCA + % a.a.)</label>
+        <input id="c-taxa" type="number" inputmode="decimal" step="0.01" value="7.00">
+        <div class="hint">Valor de exemplo. Use a taxa do dia no site do Tesouro Direto.</div>
+        <label for="c-choque">E se a taxa variar… <span class="slider-val" id="c-choque-val"></span></label>
+        <input id="c-choque" type="range" min="-3" max="3" step="0.05" value="1">
+      </div>
+      <div class="stack">
+        <div class="card">
+          <div class="fine" id="c-label"></div>
+          <div class="big" id="c-var"></div>
+          <div class="stats">
+            <div class="stat"><div class="k">Preço hoje (cotação)</div><div class="v" id="c-cot0"></div></div>
+            <div class="stat"><div class="k">Preço após o choque</div><div class="v" id="c-cot1"></div></div>
+            <div class="stat"><div class="k">Duration</div><div class="v" id="c-dur"></div></div>
+            <div class="stat"><div class="k">Cada +1 p.p. na taxa</div><div class="v" id="c-dv"></div></div>
+          </div>
+          <div class="story" id="c-story"></div>
+        </div>
+        <div class="card">
+          <h3>Variação do preço conforme a taxa muda</h3>
+          <svg id="c-curve" viewBox="0 0 600 300" role="img" aria-label="Curva de variação do preço"></svg>
+        </div>
+        <div class="card">
+          <h3 id="c-bars-title">Se a taxa subir 1 p.p., quanto cada título cai?</h3>
+          <div class="fine nota-topo">Simplificação: mesma taxa de partida para todos os títulos. Quanto mais longo, mais ele balança.</div>
+          <svg id="c-bars" viewBox="0 0 600 400" role="img" aria-label="Queda de preço por título"></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ABA 2: OPERAÇÃO -->
+  <section class="panel" id="panel-operacao" role="tabpanel">
+    <div class="grid">
+      <div class="card">
+        <h2>Sua operação</h2>
+        <label for="o-titulo">Título</label>
+        <select id="o-titulo"></select>
+        <div id="o-custom" hidden>
+          <div class="row2">
+            <div><label for="o-venc">Vencimento</label><input id="o-venc" type="date"></div>
+            <div><label for="o-tipo">Tipo</label><select id="o-tipo"><option value="1">Com cupom</option><option value="0">Sem cupom</option></select></div>
+          </div>
+        </div>
+        <label for="o-valor">Valor investido (R$)</label>
+        <input id="o-valor" type="number" inputmode="decimal" step="100" value="10000">
+        <div class="row2">
+          <div><label for="o-dc">Data da compra</label><input id="o-dc" type="date"></div>
+          <div><label for="o-tc">Taxa na compra (%)</label><input id="o-tc" type="number" inputmode="decimal" step="0.01" value="6.40"></div>
+        </div>
+        <div class="row2">
+          <div><label for="o-dv">Data da venda</label><input id="o-dv" type="date"></div>
+          <div><label for="o-tv">Taxa na venda (%)</label><input id="o-tv" type="number" inputmode="decimal" step="0.01" value="7.20"></div>
+        </div>
+        <label for="o-ipca">IPCA médio no período (% a.a.)</label>
+        <input id="o-ipca" type="number" inputmode="decimal" step="0.1" value="4.5">
+        <div class="hint">Todos os valores são de exemplo. Troque pelos da sua operação.</div>
+      </div>
+      <div class="stack">
+        <div class="card">
+          <div class="fine">Resultado total (venda + cupons recebidos)</div>
+          <div class="big" id="o-res"></div>
+          <div class="fine" id="o-res-pct"></div>
+          <div class="stats">
+            <div class="stat"><div class="k">Valor na venda</div><div class="v" id="o-venda"></div></div>
+            <div class="stat"><div class="k">Cupons recebidos</div><div class="v" id="o-cupons"></div></div>
+            <div class="stat"><div class="k">Rentabilidade a.a. (TIR nominal)</div><div class="v" id="o-aa"></div></div>
+            <div class="stat"><div class="k">Rentabilidade a.a. (TIR real)</div><div class="v" id="o-real"></div></div>
+          </div>
+          <div class="story" id="o-story"></div>
+          <div class="err" id="o-err" hidden></div>
+        </div>
+        <div class="card">
+          <h3>O que a marcação a mercado fez com você</h3>
+          <table>
+            <thead><tr><th>Cenário</th><th>Resultado</th><th>a.a. real</th></tr></thead>
+            <tbody id="o-table"></tbody>
+          </table>
+          <div class="fine nota-base">"Taxa não mudou" = mesma operação, vendendo na mesma taxa em que você comprou. A diferença entre as linhas é o efeito puro da marcação a mercado.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="explain">
+    <h2>Por que o preço cai quando a taxa sobe?</h2>
+    <p>Quando você compra um Tesouro IPCA+ a IPCA + 6%, você trava esse contrato até o vencimento. Agora imagina que, no mês seguinte, o governo passa a vender o mesmo título pagando IPCA + 7%.</p>
+    <p>Quem vai querer comprar o seu título pagando 6% se no balcão do lado tem um pagando 7%? Ninguém, a não ser que você dê um desconto. Esse desconto é a marcação a mercado.</p>
+    <p>O contrário também vale: se a taxa cai, o seu título pagando mais vira o mais disputado da festa, e o preço sobe.</p>
+    <ul>
+      <li><strong>Levou até o vencimento?</strong> Recebe exatamente IPCA + a taxa contratada, independente do sobe e desce no caminho.</li>
+      <li><strong>Vendeu antes?</strong> Aí sim, o preço do dia manda. Pode ser lucro acima do contratado ou prejuízo.</li>
+      <li><strong>Quanto mais longo o título</strong>, maior a duration e mais violento o balanço.</li>
+    </ul>
+    <h2 class="secao">Premissas do simulador</h2>
+    <ul class="fine">
+      <li>Preço calculado pela metodologia do Tesouro/ANBIMA: fluxos descontados por (1 + taxa)^(dias úteis/252), cupom de 6% a.a. pago semestralmente (2,956301% por semestre) e cotação truncada em 4 casas.</li>
+      <li>Dias úteis contados pelo calendário de feriados nacionais.</li>
+      <li>O VNA (valor nominal atualizado pelo IPCA) é projetado pelo IPCA médio informado. Não usamos o VNA oficial do dia, então os valores em reais são uma estimativa.</li>
+      <li>Valores brutos: não descontamos Imposto de Renda, taxa de custódia da B3 nem taxas da corretora. O resultado em reais soma os cupons sem reinvestimento; a rentabilidade anual é a TIR, que considera a data em que cada cupom foi pago.</li>
+      <li>Lista de títulos para referência. Confira os vencimentos disponíveis no site do Tesouro Direto.</li>
+      <li>Ferramenta educativa. Não é recomendação de investimento.</li>
+    </ul>
+  </section>
+</div>

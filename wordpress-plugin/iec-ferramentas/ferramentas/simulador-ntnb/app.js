@@ -1,215 +1,9 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Simulador NTN-B</title>
-<meta name="description" content="Simulador de marcação a mercado do Tesouro IPCA+ (NTN-B): veja quanto o preço do título muda quando a taxa sobe ou cai, e quanto você ganha ou perde vendendo antes do vencimento.">
-<style>
-:root{
-  --bg:#f6f7f9; --surface:#ffffff; --surface-2:#f0f2f5; --border:#dfe3e8;
-  --text:#14181f; --muted:#5b6573; --accent:#0f7b5f; --accent-soft:#e3f3ee;
-  --neg:#c2410c; --neg-soft:#fdeee5; --pos:#0f7b5f; --pos-soft:#e3f3ee;
-  --grid:#e6e9ee; --axis:#9aa3af; --radius:14px;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#0e1116; --surface:#161a21; --surface-2:#1d222b; --border:#2a313c;
-    --text:#e8ebf0; --muted:#9aa4b2; --accent:#34c79c; --accent-soft:#143229;
-    --neg:#fb8a4c; --neg-soft:#3a2115; --pos:#34c79c; --pos-soft:#143229;
-    --grid:#232a34; --axis:#5d6775;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#0e1116; --surface:#161a21; --surface-2:#1d222b; --border:#2a313c;
-  --text:#e8ebf0; --muted:#9aa4b2; --accent:#34c79c; --accent-soft:#143229;
-  --neg:#fb8a4c; --neg-soft:#3a2115; --pos:#34c79c; --pos-soft:#143229;
-  --grid:#232a34; --axis:#5d6775;
-}
-*{box-sizing:border-box}
-html,body{margin:0}
-body{background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%}
-.wrap{max-width:980px;margin:0 auto;padding:24px 16px 48px}
-header h1{font-size:clamp(1.4rem,3.6vw,2rem);line-height:1.2;margin:0 0 8px;letter-spacing:-.01em}
-header p{margin:0;color:var(--muted);max-width:680px}
-.tabs{display:flex;gap:6px;margin:24px 0 16px;background:var(--surface-2);padding:4px;border-radius:12px;width:fit-content;max-width:100%}
-.tab{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;font-weight:600;padding:8px 14px;border-radius:9px;cursor:pointer}
-.tab[aria-selected="true"]{background:var(--surface);color:var(--text);box-shadow:0 1px 2px rgba(0,0,0,.08)}
-.panel{display:none}
-.panel.active{display:block}
-.grid{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:16px;align-items:start}
-@media (max-width:760px){.grid{grid-template-columns:minmax(0,1fr)}}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
-.card h2{font-size:1.05rem;margin:0 0 12px}
-.card h3{font-size:.95rem;margin:0 0 8px}
-label{display:block;font-size:.85rem;font-weight:600;color:var(--muted);margin:12px 0 4px}
-label:first-of-type{margin-top:0}
-input,select{width:100%;font:inherit;color:var(--text);background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:9px 11px}
-input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
-input[type=range]{padding:0;background:transparent;border:0;accent-color:var(--accent)}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:end}
-.hint{font-size:.8rem;color:var(--muted);margin-top:4px}
-.big{font-size:clamp(2rem,6vw,2.8rem);font-weight:750;letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
-.neg{color:var(--neg)} .pos{color:var(--pos)}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}
-.stat{background:var(--surface-2);border-radius:10px;padding:10px 12px}
-.stat .k{font-size:.78rem;color:var(--muted)}
-.stat .v{font-size:1.1rem;font-weight:700;font-variant-numeric:tabular-nums}
-.story{margin-top:14px;padding:12px 14px;border-radius:10px;background:var(--accent-soft);font-size:.95rem}
-.story.bad{background:var(--neg-soft)}
-.stack{display:grid;gap:16px}
-svg{display:block;width:100%;height:auto}
-svg text{fill:var(--muted);font-size:12px;font-family:inherit}
-.err{color:var(--neg);font-weight:600;margin-top:10px}
-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:.92rem}
-th,td{padding:7px 6px;border-bottom:1px solid var(--border);text-align:right}
-th:first-child,td:first-child{text-align:left}
-th{color:var(--muted);font-weight:600;font-size:.8rem}
-.explain{margin-top:28px}
-.explain h2{font-size:1.2rem;margin:0 0 8px}
-.explain p,.explain li{color:var(--text);max-width:720px}
-.explain ul{padding-left:20px}
-.fine{font-size:.82rem;color:var(--muted)}
-.slider-val{font-weight:700;color:var(--text)}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <header>
-    <h1>Simulador de marcação a mercado do Tesouro IPCA+ (NTN-B)</h1>
-    <p>Um título "seguro" pode dar prejuízo? Pode, se você vender antes do vencimento. Simule abaixo quanto o preço muda quando a taxa do mercado sobe ou cai.</p>
-  </header>
-
-  <div class="tabs" role="tablist">
-    <button class="tab" role="tab" aria-selected="true" data-tab="choque">Choque de taxa</button>
-    <button class="tab" role="tab" aria-selected="false" data-tab="operacao">Comprei e vou vender</button>
-  </div>
-
-  <!-- ABA 1: CHOQUE DE TAXA -->
-  <section class="panel active" id="panel-choque" role="tabpanel">
-    <div class="grid">
-      <div class="card">
-        <h2>Parâmetros</h2>
-        <label for="c-titulo">Título</label>
-        <select id="c-titulo"></select>
-        <div id="c-custom" hidden>
-          <div class="row2">
-            <div><label for="c-venc">Vencimento</label><input id="c-venc" type="date"></div>
-            <div><label for="c-tipo">Tipo</label><select id="c-tipo"><option value="1">Com cupom</option><option value="0">Sem cupom</option></select></div>
-          </div>
-        </div>
-        <label for="c-taxa">Taxa atual (IPCA + % a.a.)</label>
-        <input id="c-taxa" type="number" inputmode="decimal" step="0.01" value="7.00">
-        <div class="hint">Valor de exemplo. Use a taxa do dia no site do Tesouro Direto.</div>
-        <label for="c-choque">E se a taxa variar… <span class="slider-val" id="c-choque-val"></span></label>
-        <input id="c-choque" type="range" min="-3" max="3" step="0.05" value="1">
-      </div>
-
-      <div class="stack">
-        <div class="card">
-          <div class="fine" id="c-label"></div>
-          <div class="big" id="c-var"></div>
-          <div class="stats">
-            <div class="stat"><div class="k">Preço hoje (cotação)</div><div class="v" id="c-cot0"></div></div>
-            <div class="stat"><div class="k">Preço após o choque</div><div class="v" id="c-cot1"></div></div>
-            <div class="stat"><div class="k">Duration</div><div class="v" id="c-dur"></div></div>
-            <div class="stat"><div class="k">Cada +1 p.p. na taxa</div><div class="v" id="c-dv"></div></div>
-          </div>
-          <div class="story" id="c-story"></div>
-        </div>
-        <div class="card">
-          <h3>Variação do preço conforme a taxa muda</h3>
-          <svg id="c-curve" viewBox="0 0 600 300" role="img" aria-label="Curva de variação do preço"></svg>
-        </div>
-        <div class="card">
-          <h3 id="c-bars-title">Se a taxa subir 1 p.p., quanto cada título cai?</h3>
-          <div class="fine" style="margin-bottom:8px">Simplificação: mesma taxa de partida para todos os títulos. Quanto mais longo, mais ele balança.</div>
-          <svg id="c-bars" viewBox="0 0 600 400" role="img" aria-label="Queda de preço por título"></svg>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABA 2: OPERAÇÃO -->
-  <section class="panel" id="panel-operacao" role="tabpanel">
-    <div class="grid">
-      <div class="card">
-        <h2>Sua operação</h2>
-        <label for="o-titulo">Título</label>
-        <select id="o-titulo"></select>
-        <div id="o-custom" hidden>
-          <div class="row2">
-            <div><label for="o-venc">Vencimento</label><input id="o-venc" type="date"></div>
-            <div><label for="o-tipo">Tipo</label><select id="o-tipo"><option value="1">Com cupom</option><option value="0">Sem cupom</option></select></div>
-          </div>
-        </div>
-        <label for="o-valor">Valor investido (R$)</label>
-        <input id="o-valor" type="number" inputmode="decimal" step="100" value="10000">
-        <div class="row2">
-          <div><label for="o-dc">Data da compra</label><input id="o-dc" type="date"></div>
-          <div><label for="o-tc">Taxa na compra (%)</label><input id="o-tc" type="number" inputmode="decimal" step="0.01" value="6.40"></div>
-        </div>
-        <div class="row2">
-          <div><label for="o-dv">Data da venda</label><input id="o-dv" type="date"></div>
-          <div><label for="o-tv">Taxa na venda (%)</label><input id="o-tv" type="number" inputmode="decimal" step="0.01" value="7.20"></div>
-        </div>
-        <label for="o-ipca">IPCA médio no período (% a.a.)</label>
-        <input id="o-ipca" type="number" inputmode="decimal" step="0.1" value="4.5">
-        <div class="hint">Todos os valores são de exemplo. Troque pelos da sua operação.</div>
-      </div>
-
-      <div class="stack">
-        <div class="card">
-          <div class="fine">Resultado total (venda + cupons recebidos)</div>
-          <div class="big" id="o-res"></div>
-          <div class="fine" id="o-res-pct"></div>
-          <div class="stats">
-            <div class="stat"><div class="k">Valor na venda</div><div class="v" id="o-venda"></div></div>
-            <div class="stat"><div class="k">Cupons recebidos</div><div class="v" id="o-cupons"></div></div>
-            <div class="stat"><div class="k">Rentabilidade a.a. (TIR nominal)</div><div class="v" id="o-aa"></div></div>
-            <div class="stat"><div class="k">Rentabilidade a.a. (TIR real)</div><div class="v" id="o-real"></div></div>
-          </div>
-          <div class="story" id="o-story"></div>
-          <div class="err" id="o-err" hidden></div>
-        </div>
-        <div class="card">
-          <h3>O que a marcação a mercado fez com você</h3>
-          <table>
-            <thead><tr><th>Cenário</th><th>Resultado</th><th>a.a. real</th></tr></thead>
-            <tbody id="o-table"></tbody>
-          </table>
-          <div class="fine" style="margin-top:8px">"Taxa não mudou" = mesma operação, vendendo na mesma taxa em que você comprou. A diferença entre as linhas é o efeito puro da marcação a mercado.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="explain">
-    <h2>Por que o preço cai quando a taxa sobe?</h2>
-    <p>Quando você compra um Tesouro IPCA+ a IPCA + 6%, você trava esse contrato até o vencimento. Agora imagina que, no mês seguinte, o governo passa a vender o mesmo título pagando IPCA + 7%.</p>
-    <p>Quem vai querer comprar o seu título pagando 6% se no balcão do lado tem um pagando 7%? Ninguém, a não ser que você dê um desconto. Esse desconto é a marcação a mercado.</p>
-    <p>O contrário também vale: se a taxa cai, o seu título pagando mais vira o mais disputado da festa, e o preço sobe.</p>
-    <ul>
-      <li><strong>Levou até o vencimento?</strong> Recebe exatamente IPCA + a taxa contratada, independente do sobe e desce no caminho.</li>
-      <li><strong>Vendeu antes?</strong> Aí sim, o preço do dia manda. Pode ser lucro acima do contratado ou prejuízo.</li>
-      <li><strong>Quanto mais longo o título</strong>, maior a duration e mais violento o balanço.</li>
-    </ul>
-
-    <h2 style="margin-top:22px">Premissas do simulador</h2>
-    <ul class="fine">
-      <li>Preço calculado pela metodologia do Tesouro/ANBIMA: fluxos descontados por (1 + taxa)^(dias úteis/252), cupom de 6% a.a. pago semestralmente (2,956301% por semestre) e cotação truncada em 4 casas.</li>
-      <li>Dias úteis contados pelo calendário de feriados nacionais.</li>
-      <li>O VNA (valor nominal atualizado pelo IPCA) é projetado pelo IPCA médio informado. Não usamos o VNA oficial do dia, então os valores em reais são uma estimativa.</li>
-      <li>Valores brutos: não descontamos Imposto de Renda, taxa de custódia da B3 nem taxas da corretora. O resultado em reais soma os cupons sem reinvestimento; a rentabilidade anual é a TIR, que considera a data em que cada cupom foi pago.</li>
-      <li>Lista de títulos para referência. Confira os vencimentos disponíveis no site do Tesouro Direto.</li>
-      <li>Ferramenta educativa. Não é recomendação de investimento.</li>
-    </ul>
-  </section>
-</div>
-
-<script>
+/* Simulador de marcação a mercado NTN-B · Investir e Coçar */
 (function(){
 "use strict";
+
+var RAIZ = document.getElementById("sim-ntnb");
+if (!RAIZ) return;
 
 /* ---------- Datas e dias úteis ---------- */
 var DAY = 86400000;
@@ -232,11 +26,14 @@ var Y0=1999, Y1=2080, START=dnum(Y0,1,1), END=dnum(Y1,1,1);
 var holidays = new Set();
 for (var y=Y0; y<Y1; y++){
   [[1,1],[4,21],[5,1],[9,7],[10,12],[11,2],[11,15],[12,25]].forEach(function(md){ holidays.add(dnum(y,md[0],md[1])); });
-  if (y>=2024) holidays.add(dnum(y,11,20)); // Consciência Negra (feriado nacional desde 2024)
+  /* Consciência Negra: feriado nacional desde 2024 */
+  if (y>=2024) holidays.add(dnum(y,11,20));
   var e=easter(y);
-  holidays.add(e-48); holidays.add(e-47); // Carnaval
-  holidays.add(e-2);                     // Sexta-feira Santa
-  holidays.add(e+60);                    // Corpus Christi
+  /* Carnaval (segunda e terça), Sexta-feira Santa e Corpus Christi */
+  holidays.add(e-48);
+  holidays.add(e-47);
+  holidays.add(e-2);
+  holidays.add(e+60);
 }
 function isBD(n){ var w=((n+4)%7+7)%7; return w!==0 && w!==6 && !holidays.has(n); }
 var cum = new Int32Array(END-START+1);
@@ -265,10 +62,11 @@ var TITULOS = [
 ];
 TITULOS.forEach(function(t){ t.vencN=parseISO(t.venc); t.curto=(t.cupom?"NTN-B ":"Principal ")+t.venc.slice(0,4); });
 
-var CUPOM = 2.956301; // (1,06^0,5 − 1) × 100
+/* Cupom semestral: (1,06^0,5 − 1) × 100 */
+var CUPOM = 2.956301;
 
 /* ---------- Precificação ---------- */
-// Fluxos (em % do VNA) com data de pagamento posterior à liquidação
+/* Fluxos (em % do VNA) com data de pagamento posterior à liquidação */
 function fluxos(settle, venc, cupom){
   var out=[];
   if (!cupom){ out.push({data:nextBD(venc), valor:100}); return out; }
@@ -324,7 +122,7 @@ var hj=new Date(); var HOJE=dnum(hj.getFullYear(),hj.getMonth()+1,hj.getDate());
 /* ---------- Gráficos SVG ---------- */
 var NS="http://www.w3.org/2000/svg";
 function el(tag, attrs, txt){ var e=document.createElementNS(NS,tag); for (var k in attrs) e.setAttribute(k,attrs[k]); if (txt!=null) e.textContent=txt; return e; }
-function css(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+function css(v){ return getComputedStyle(RAIZ).getPropertyValue(v).trim(); }
 
 function larg(svg){ return Math.max(320, Math.round(svg.parentNode.clientWidth-36)); }
 function desenharCurva(svg, pontos, marcador){
@@ -421,7 +219,7 @@ function resultado(t, s0, s1, tc, tv, ipca, valor){
   });
   var venda=qtd*pu1, total=venda+cupons, ret=total/valor-1, anos=du(s0,s1)/252;
   caixa.push([anos, venda]);
-  // TIR (base 252): considera quando cada cupom entrou no bolso
+  /* TIR (base 252): considera quando cada cupom entrou no bolso */
   function vpl(i){ return caixa.reduce(function(s,f){ return s+f[1]/Math.pow(1+i,f[0]); },0)-valor; }
   var lo=-0.99, hi=10;
   for (var k=0;k<200;k++){ var mid=(lo+hi)/2; if (vpl(mid)>0) lo=mid; else hi=mid; }
@@ -474,24 +272,17 @@ preencher("c-titulo","b35"); preencher("o-titulo","b35");
 $("c-venc").value="2040-08-15"; $("o-venc").value="2040-08-15";
 $("o-dc").value=toISO(addMonths(HOJE,-24)); $("o-dv").value=toISO(HOJE);
 
-document.querySelectorAll(".tab").forEach(function(b){
+RAIZ.querySelectorAll(".tab").forEach(function(b){
   b.addEventListener("click",function(){
-    document.querySelectorAll(".tab").forEach(function(x){ x.setAttribute("aria-selected", x===b?"true":"false"); });
-    document.querySelectorAll(".panel").forEach(function(p){ p.classList.toggle("active", p.id==="panel-"+b.dataset.tab); });
+    RAIZ.querySelectorAll(".tab").forEach(function(x){ x.setAttribute("aria-selected", x===b?"true":"false"); });
+    RAIZ.querySelectorAll(".panel").forEach(function(p){ p.classList.toggle("active", p.id==="panel-"+b.dataset.tab); });
     if (b.dataset.tab==="choque") calcChoque(); else calcOperacao();
   });
 });
 ["c-titulo","c-venc","c-tipo","c-taxa","c-choque"].forEach(function(id){ $(id).addEventListener("input",calcChoque); });
 ["o-titulo","o-venc","o-tipo","o-valor","o-dc","o-tc","o-dv","o-tv","o-ipca"].forEach(function(id){ $(id).addEventListener("input",calcOperacao); });
 var rt; window.addEventListener("resize",function(){ clearTimeout(rt); rt=setTimeout(calcChoque,120); });
-if (window.matchMedia) window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",function(){ calcChoque(); calcOperacao(); });
 
 calcChoque(); calcOperacao();
 
-// Ajusta altura automaticamente quando embutido via iframe
-function avisarAltura(){ try{ parent.postMessage({tipo:"simulador-ntnb-altura", altura:document.documentElement.scrollHeight},"*"); }catch(e){} }
-if (window.ResizeObserver) new ResizeObserver(avisarAltura).observe(document.body);
 })();
-</script>
-</body>
-</html>
