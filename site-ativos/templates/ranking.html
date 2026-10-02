@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% from "_macros.html" import n, anuncio with context %}
+{% block conteudo %}
+<h1>{{ h1 }}</h1>
+{% for p in explicacao %}<p>{{ p | safe }}</p>{% endfor %}
+<div class="caixa"><strong>Filtros fixos:</strong> {{ filtros }}. Data de corte: {{ data_br(corte) }}. {{ aviso_escolha }}</div>
+{{ anuncio(1) }}
+<h2>Tabela</h2>
+<div class="rolagem"><table>
+<thead><tr><th>#</th><th>Ativo</th><th>Nome</th><th class="num">{{ rotulo }}</th><th>Por que o número pode enganar</th></tr></thead>
+<tbody>{% for f in linhas %}<tr><td>{{ loop.index }}</td><td><a href="{{ f.url }}">{{ f.ticker }}</a></td><td>{{ f.nome_curto|truncate(30, true, '…') }}</td><td class="num-w">{{ n(f.ind[k], fmt) }}</td><td>{{ f.engano }}</td></tr>{% endfor %}</tbody>
+</table></div>
+{% if fora %}<p class="nota-fonte">Fora da tabela pelos filtros: {% for t, m in fora %}{{ t }} ({{ m }}){% if not loop.last %}; {% endif %}{% endfor %}.</p>{% endif %}
+<p class="nota-fonte">A ordem é só a do número. Não é lista de recomendação.</p>
+{{ ferramenta | safe }}
+{% endblock %}

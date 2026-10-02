@@ -1,0 +1,24 @@
+{# Todo número publicado passa por aqui: valor + data-fonte + data-ref (teste 13). #}
+{% macro n(i, fmt, sufixo="") -%}
+{%- if i and i.valor is not none and i.status == "ok" -%}
+<span class="n" data-fonte="{{ i.fonte }}" data-ref="{{ i.ref }}" title="Fonte: {{ i.fonte }}">{{ fmt(i.valor) }}{{ sufixo }}</span>
+{%- else -%}
+<span class="nd" data-fonte="{{ (i.fonte if i and i.fonte) or 'não se aplica' }}" data-ref="{{ (i.ref if i and i.ref) or ref_pagina }}" title="{{ i.nota if i else '' }}">{{ 'não se aplica' if i and i.status == 'nao_se_aplica' else 'não disponível' }}</span>
+{%- endif -%}
+{%- endmacro %}
+
+{% macro celula(valor, fmt, fonte, ref) -%}
+<td class="num"{% if valor is not none %} data-fonte="{{ fonte }}" data-ref="{{ ref }}"{% else %} data-fonte="{{ fonte }}" data-ref="{{ ref }}"{% endif %}>{{ fmt(valor) if valor is not none else '—' }}</td>
+{%- endmacro %}
+
+{% macro cartao(rotulo, i, fmt, sufixo="") -%}
+<div class="kpi">
+  <div class="k">{{ rotulo }}</div>
+  <div class="v">{{ n(i, fmt, sufixo) }}</div>
+  <div class="fonte">{% if i and i.status == "ok" %}{{ i.fonte }}{% elif i %}{{ i.nota }}{% endif %}</div>
+</div>
+{%- endmacro %}
+
+{% macro anuncio(slot) -%}
+<div class="anuncio" data-slot="{{ slot }}" aria-hidden="true">{% if adsense %}<ins class="adsbygoogle" style="display:block" data-ad-client="{{ adsense }}" data-ad-slot="{{ slot }}" data-ad-format="auto"></ins>{% endif %}</div>
+{%- endmacro %}

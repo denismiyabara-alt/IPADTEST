@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% from "_macros.html" import n, anuncio with context %}
+{% block conteudo %}
+<h1>{{ h1 }}</h1>
+<p class="sub">{{ intro }}</p>
+<div class="caixa">{{ aviso_escolha }}</div>
+<div class="rolagem"><table>
+<thead><tr><th>Ativo</th><th>Nome</th><th>{{ col_grupo }}</th>{% for c in colunas %}<th class="num">{{ c.rotulo }}</th>{% endfor %}</tr></thead>
+<tbody>{% for f in fichas %}<tr><td><a href="{{ f.url }}">{{ f.ticker }}</a></td><td>{{ f.nome_curto|truncate(34, true, '…') }}</td><td>{{ f.grupo }}</td>{% for c in colunas %}<td class="num-w">{{ n(f.ind[c.k], c.fmt) }}</td>{% endfor %}</tr>{% endfor %}</tbody>
+</table></div>
+<p class="nota-fonte">Fontes e datas de cada número: passe o mouse sobre o valor ou abra a página do ativo. Volume médio diário em 12 meses até {{ data_br(janela.fim) }} (B3, COTAHIST).</p>
+<h2>Rankings e comparador</h2>
+<ul class="lista-links">{% for r in rankings %}<li><a href="{{ r.url }}">{{ r.titulo }}</a></li>{% endfor %}
+<li><a href="{{ base }}/comparar/acoes/">Comparar ações lado a lado</a></li>
+<li><a href="{{ metodologia }}">Metodologia, fórmulas e testes</a></li>
+<li><a href="{{ base }}/dividendos/calendario/">Calendário de proventos</a></li></ul>
+{% endblock %}

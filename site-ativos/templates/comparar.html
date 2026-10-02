@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% from "_macros.html" import anuncio with context %}
+{% block conteudo %}
+<h1>{{ h1 }}</h1>
+<p>Escolha de 2 a 4 ações da cobertura para ver os indicadores lado a lado. Os números são os mesmos das páginas de cada ação, com fonte e data.</p>
+<form id="cmp-form" class="cmp-form">
+{% for i in range(4) %}<label>Ação {{ i + 1 }} <select id="cmp-{{ i }}"><option value="">—</option>{% for t in tickers %}<option value="{{ t }}">{{ t }}</option>{% endfor %}</select></label>
+{% endfor %}
+</form>
+<div class="rolagem"><table id="cmp-tabela"><thead></thead><tbody></tbody></table></div>
+<p class="nota-fonte" id="cmp-diferencas"></p>
+<p class="nota-fonte">Passe o mouse sobre um número para ver a fonte e a data. "não se aplica" aparece em bancos (margens, EBITDA e dívida) e em prejuízo (P/L).</p>
+{{ anuncio(1) }}
+<p>Para fazer contas com os números de uma ação, use a calculadora de preço justo na página da própria ação (ela só calcula depois do clique).</p>
+<script type="application/json" id="cmp-dados">{{ dados | safe }}</script>
+{% endblock %}

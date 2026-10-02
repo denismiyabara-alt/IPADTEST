@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% from "_macros.html" import n, cartao, anuncio, celula with context %}
+{% block conteudo %}
+{% set I = f.ind %}
+<h1>{{ h1 }}</h1>
+<p class="sub">{{ f.nome }} · CNPJ {{ cnpj_fmt }} · {{ f.setor }}{% if f.classe %} · {{ classe_txt }}{% endif %}</p>
+
+<div class="kpis">
+  {{ cartao("Fechamento", I.preco, brl) }}
+  {{ cartao("Variação em 12 meses", I.variacao_12m, pct) }}
+  {{ cartao("P/L", I.pl, numero1) }}
+  {{ cartao("P/VP", I.pvp, numero2) }}
+  {{ cartao("DY de caixa (12 meses)", I.dy_caixa, pct) }}
+  {{ cartao("ROE", I.roe, pct) }}
+  {{ cartao("Valor de mercado", I.valor_mercado, brl_curto) }}
+</div>
+{% if I.valor_mercado.nota %}<p class="nota-fonte">Valor de mercado: {{ I.valor_mercado.nota }}.</p>{% endif %}
+{% for a in f.avisos %}<div class="caixa">{{ a }}</div>{% endfor %}
+
+<section class="resumo">
+{% for frase in resumo %}<p>{{ frase }}</p>{% endfor %}
+</section>
+
+{{ anuncio(1) }}
+
+<h2>Cotação nos últimos anos</h2>
+{{ graf_preco | safe }}
+<p class="nota-fonte">Fechamento diário, sem ajuste por proventos{% if not eventos %} nem por desdobramentos (nenhum evento societário conferido no período){% endif %}. Fonte: B3, COTAHIST, até o pregão de {{ data_br(I.preco.ref) }}.</p>
+{% if alerta_preco %}<div class="caixa">{{ alerta_preco }}</div>{% endif %}
+
+<h2>Resultados</h2>
+<h3>{{ 'Lucro por trimestre' if financeira else 'Receita e lucro por trimestre' }}</h3>
+{% if not financeira %}{{ graf_receita | safe }}{% endif %}
+{{ graf_lucro | safe }}
+<div class="rolagem"><table>
+<thead><tr><th>Trimestre</th>{% if not financeira %}<th class="num">Receita líquida</th>{% endif %}<th class="num">Lucro da controladora</th></tr></thead>
+<tbody>{% for t in f.trimestres|reverse %}<tr><td>{{ t.rotulo }}</td>{% if not financeira %}{{ celula(t.receita, brl_curto, fonte_trimestres, t.ref) }}{% endif %}{{ celula(t.lucro, brl_curto, fonte_trimestres, t.ref) }}</tr>{% endfor %}</tbody>
+</table></div>
+<p class="nota-fonte">Fonte: {{ fonte_trimestres }}. O 4º trimestre é a DFP do ano menos o acumulado de 9 meses do ITR do 3º trimestre.</p>
+
+<h3>Últimos exercícios</h3>
+<div class="rolagem"><table>
+<thead><tr><th>Ano</th>{% if not financeira %}<th class="num">Receita</th><th class="num">EBITDA calculado</th>{% endif %}<th class="num">Lucro da controladora</th>{% if not financeira %}<th class="num">Margem líquida</th><th class="num">Margem EBITDA</th>{% endif %}</tr></thead>
+<tbody>{% for a in f.anual|reverse %}<tr><td>{{ a.ano }}</td>{% if not financeira %}{{ celula(a.receita, brl_curto, 'CVM, ' ~ a.fonte, a.ano ~ '-12-31') }}{{ celula(a.ebitda, brl_curto, 'CVM, ' ~ a.fonte, a.ano ~ '-12-31') }}{% endif %}{{ celula(a.lucro, brl_curto, 'CVM, ' ~ a.fonte, a.ano ~ '-12-31') }}{% if not financeira %}{{ celula(a.margem_liquida, pct, 'CVM, ' ~ a.fonte, a.ano ~ '-12-31') }}{{ celula(a.margem_ebitda, pct, 'CVM, ' ~ a.fonte, a.ano ~ '-12-31') }}{% endif %}</tr>{% endfor %}</tbody>
+</table></div>
+<p class="nota-fonte">Fonte: CVM, DFPs {{ escopo_txt }}. Cada ano vem da DFP seguinte (coluna do ano anterior, já com eventual reapresentação) quando ela existe.{% if not financeira %} EBITDA calculado = resultado antes do resultado financeiro e dos tributos + depreciação e amortização (DVA), conceito da Resolução CVM 156/2022; não é o EBITDA ajustado do release.{% endif %}</p>
+
+<h3>Indicadores de 12 meses</h3>
+<div class="rolagem"><table>
+<thead><tr><th>Indicador</th><th class="num">Valor</th><th>Fonte e data</th></tr></thead>
+<tbody>
+<tr><td>Lucro por ação (LPA)</td><td class="num-w">{{ n(I.lpa, brl) }}</td><td>{{ I.lpa.fonte or I.lpa.nota }}</td></tr>
+<tr><td>Valor patrimonial por ação (VPA)</td><td class="num-w">{{ n(I.vpa, brl) }}</td><td>{{ I.vpa.fonte or I.vpa.nota }}</td></tr>
+<tr><td>Margem líquida</td><td class="num-w">{{ n(I.margem_liquida, pct) }}</td><td>{{ I.margem_liquida.fonte or I.margem_liquida.nota }}</td></tr>
+<tr><td>EBITDA calculado</td><td class="num-w">{{ n(I.ebitda, brl_curto) }}</td><td>{{ I.ebitda.fonte or I.ebitda.nota }}</td></tr>
+<tr><td>Margem EBITDA</td><td class="num-w">{{ n(I.margem_ebitda, pct) }}</td><td>{{ I.margem_ebitda.fonte or I.margem_ebitda.nota }}</td></tr>
+<tr><td>Dívida líquida / EBITDA</td><td class="num-w">{{ n(I.div_liq_ebitda, vezes) }}</td><td>{{ I.div_liq_ebitda.fonte or I.div_liq_ebitda.nota }}</td></tr>
+<tr><td>Dívida líquida com arrendamentos / EBITDA</td><td class="num-w">{{ n(I.div_liq_ebitda_arrend, vezes) }}</td><td>{{ I.div_liq_ebitda_arrend.fonte or I.div_liq_ebitda_arrend.nota }}</td></tr>
+</tbody></table></div>
+{% if f.ttm.pecas %}<p class="nota-fonte">12 meses = {{ f.ttm.pecas | join(' ') }}. Valores do ano anterior conforme reapresentados no {{ f.doc.curto }}, entregue em {{ data_br(f.doc.dt_receb) }}. <a href="{{ f.doc.link }}" rel="nofollow">Documento na CVM</a>.</p>{% endif %}
+
+<h2>Endividamento</h2>
+{% if financeira %}
+<p>{{ texto_financeira }}</p>
+{% else %}
+<div class="rolagem"><table>
+<thead><tr><th>Trimestre</th><th class="num">Empréstimos e financiamentos</th><th class="num">Caixa e aplicações</th><th class="num">Dívida líquida</th><th class="num">Arrendamentos</th><th class="num">Dív. líq./EBITDA</th></tr></thead>
+<tbody>{% for d in f.divida_serie|reverse %}<tr><td>{{ d.rotulo }}</td>{{ celula(d.bruta, brl_curto, fonte_trimestres, d.ref) }}{{ celula((d.caixa or 0) + (d.aplicacoes or 0) if d.bruta is not none else none, brl_curto, fonte_trimestres, d.ref) }}{{ celula(d.liquida, brl_curto, fonte_trimestres, d.ref) }}{{ celula(d.arrendamento, brl_curto, fonte_trimestres, d.ref) }}{{ celula(d.div_liq_ebitda, vezes, fonte_trimestres, d.ref) }}</tr>{% endfor %}</tbody>
+</table></div>
+<p class="nota-fonte">Fonte: {{ fonte_trimestres }}. Empréstimos e financiamentos = contas 2.01.04 + 2.02.01, sem os arrendamentos que algumas empresas lançam dentro delas; os arrendamentos (IFRS 16) aparecem à parte.</p>
+{% endif %}
+
+<h2>Proventos</h2>
+<p>A tabela de proventos por ação (tipo, valor, data com, data ex e pagamento, com link para o Aviso aos Acionistas na CVM) ainda não foi publicada: cada linha precisa ser conferida antes. Enquanto isso, a página mostra o <strong>DY de caixa da empresa</strong>: dividendos e juros sobre capital próprio pagos em 12 meses, segundo a demonstração do fluxo de caixa, divididos pelo valor de mercado.</p>
+<div class="rolagem"><table>
+<thead><tr><th>Indicador</th><th class="num">Valor</th><th>Fonte e data</th></tr></thead>
+<tbody>
+<tr><td>Proventos pagos em 12 meses (DFC)</td><td class="num-w">{% if f.ttm.proventos_pagos is not none %}<span class="n" data-fonte="{{ I.dy_caixa.fonte }}" data-ref="{{ I.dy_caixa.ref }}">{{ brl_curto(f.ttm.proventos_pagos) }}</span>{% else %}{{ n(none, brl) }}{% endif %}</td><td>{{ I.dy_caixa.fonte or I.dy_caixa.nota }}</td></tr>
+<tr><td>DY de caixa da empresa</td><td class="num-w">{{ n(I.dy_caixa, pct) }}</td><td>{{ I.dy_caixa.nota }}</td></tr>
+<tr><td>DY 12 meses (por ação, data ex)</td><td class="num-w">{{ n(I.dy_12m, pct) }}</td><td>{{ I.dy_12m.nota }}</td></tr>
+</tbody></table></div>
+<p class="nota-fonte">JCP entra bruto (tem 15% de imposto de renda na fonte). Proventos pagos a acionistas não controladores ficam de fora.</p>
+
+{{ anuncio(2) }}
+
+<h2>Simule com os números da página</h2>
+<p>A calculadora abaixo já vem com a cotação, o lucro por ação, o valor patrimonial por ação e os proventos pagos por ação (pelo fluxo de caixa) de {{ f.ticker }}. O resultado só aparece depois de clicar em "Calcular". É uma conta matemática com os dados acima; a taxa mínima é escolha de quem usa.</p>
+<div class="ferramenta-bloco">{{ ferramenta | safe }}</div>
+<p class="nota-fonte">Os cartões do topo usam o valor de mercado da empresa inteira (todas as classes de ação, cada uma com o seu preço){% if f.classe == 'UNIT' %}, e a calculadora usa o preço da unit com LPA, VPA e proventos multiplicados por {{ f.acoes_por_titulo }} ações por unit{% else %}; a calculadora usa só o preço de {{ f.ticker }}{% endif %}. Por isso P/L, P/VP e dividend yield da calculadora podem diferir um pouco dos cartões.</p>
+
+{% if parecidas %}
+<h2>Outras ações nesta cobertura</h2>
+<ul class="lista-links">{% for p in parecidas %}<li><a href="{{ p.url }}">{{ p.ticker }}</a> · {{ p.nome }}</li>{% endfor %}</ul>
+<p class="nota-fonte">Navegação, não ranking. {{ parecidas_criterio }}</p>
+{% endif %}
+
+<h2>Análises do canal</h2>
+{% if posts %}<ul class="lista-links">{% for p in posts %}<li><a href="{{ p.url }}">{{ p.rotulo }}</a></li>{% endfor %}</ul>
+{% else %}<p>Ainda não há post do canal sobre {{ f.ticker }}.</p>{% endif %}
+
+<h2>Metodologia e fontes</h2>
+<p>P/L = valor de mercado ÷ lucro da controladora em 12 meses. P/VP = valor de mercado ÷ patrimônio da controladora. ROE = lucro da controladora em 12 meses ÷ patrimônio médio. 12 meses = DFP do ano anterior + acumulado do ano − mesmo período do ano anterior. Valor de mercado = soma, por classe de ação, de preço × ações em circulação (sem tesouraria). Veja todas as fórmulas e os testes na <a href="{{ base }}/acoes/metodologia/">metodologia</a>. Glossário: <a href="{{ site_url }}/o-que-e-pl-acoes/">P/L</a>, <a href="{{ site_url }}/o-que-e-pvp-acoes/">P/VP</a>, <a href="{{ site_url }}/o-que-e-roe/">ROE</a>, <a href="{{ site_url }}/dividendos-o-que-sao-dividend-yield/">dividend yield</a>.</p>
+{% if testes_alerta %}<p class="nota-fonte">Alertas dos testes automáticos desta página: {% for t in testes_alerta %}{{ t }}{% if not loop.last %}; {% endif %}{% endfor %}.</p>{% endif %}
+{% endblock %}

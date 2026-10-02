@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% from "_macros.html" import n, cartao, anuncio, celula with context %}
+{% block conteudo %}
+{% set I = f.ind %}
+<h1>{{ h1 }}</h1>
+<p class="sub">{{ f.nome }} · CNPJ {{ cnpj_fmt }} · segmento informado à CVM: {{ f.segmento }}{% if f.mandato and f.mandato != 'não informado' %} · mandato: {{ f.mandato }}{% endif %}</p>
+
+<div class="kpis">
+  {{ cartao("Fechamento", I.preco, brl) }}
+  {{ cartao("P/VP", I.pvp, numero2) }}
+  {{ cartao("DY estimado (12 meses)", I.dy_estimado, pct) }}
+  {{ cartao("Último rendimento", I.ultimo_rendimento, brl) }}
+  {{ cartao("Cotistas", I.cotistas, inteiro) }}
+  {{ cartao("Patrimônio líquido", I.pl, brl_curto) }}
+  {{ cartao("Vacância física", I.vacancia, pct) }}
+  {{ cartao("Variação em 12 meses", I.variacao_12m, pct) }}
+</div>
+{% for a in f.avisos %}<div class="caixa">{{ a }}</div>{% endfor %}
+
+<section class="resumo">
+{% for frase in resumo %}<p>{{ frase }}</p>{% endfor %}
+</section>
+
+{{ anuncio(1) }}
+
+<h2>Rendimentos</h2>
+<p>A tabela de rendimentos por cota (valor, data com e pagamento, com o documento de origem) ainda não foi publicada: a fonte proposta são os documentos estruturados do Fundos.NET, cujos termos de uso estão em análise. Enquanto isso, a página mostra uma <strong>estimativa</strong> feita com o DY mensal que o administrador informa à CVM.</p>
+{% if graf_dy %}{{ graf_dy | safe }}{% endif %}
+<div class="rolagem"><table>
+<thead><tr><th>Informe</th><th class="num">DY do mês informado</th><th class="num">Valor patrimonial da cota</th><th class="num">Rendimento estimado por cota</th></tr></thead>
+<tbody>{% for m in meses24|reverse %}<tr><td>{{ mes_br(m.data_ref) }}</td>{{ celula(m.dy_mes_informado, pct2, 'CVM, informe mensal de FII, versão ' ~ m.versao, m.data_ref) }}{{ celula(m.vp_cota, brl, 'CVM, informe mensal de FII, versão ' ~ m.versao, m.data_ref) }}{{ celula(m.dy_mes_informado * m.vp_cota if m.dy_mes_informado is not none and m.vp_cota else none, brl, 'CVM, informe mensal de FII (DY × valor patrimonial)', m.data_ref) }}</tr>{% endfor %}</tbody>
+</table></div>
+<p class="nota-fonte">{{ I.dy_estimado.nota }} Fonte: CVM, informes mensais de FII.</p>
+
+<h2>Cotação e valor patrimonial da cota</h2>
+{{ graf_pvp | safe }}
+<p class="nota-fonte">Linha cheia: fechamento diário (B3, COTAHIST, até {{ data_br(I.preco.ref) }}), sem ajuste por rendimentos ou desdobramentos. Linha tracejada: valor patrimonial da cota de cada informe mensal (CVM). O valor patrimonial sai 1 a 2 meses depois do mês de referência.</p>
+{% if alerta_preco %}<div class="caixa">{{ alerta_preco }}</div>{% endif %}
+
+<h2>Imóveis e vacância</h2>
+{% if f.vacancia_serie %}
+<div class="rolagem"><table>
+<thead><tr><th>Trimestre</th><th class="num">Vacância ponderada</th><th class="num">Área (m²)</th><th class="num">Imóveis</th></tr></thead>
+<tbody>{% for v in f.vacancia_serie|reverse %}<tr><td>{{ data_br(v.ref) }}</td>{{ celula(v.vacancia, pct, 'CVM, informe trimestral de FII', v.ref) }}{{ celula(v.area, inteiro, 'CVM, informe trimestral de FII', v.ref) }}{{ celula(v.n, inteiro, 'CVM, informe trimestral de FII', v.ref) }}</tr>{% endfor %}</tbody>
+</table></div>
+{% if f.imoveis %}<h3>Imóveis no último informe trimestral ({{ data_br(f.vacancia_serie[-1].ref) }})</h3>
+<div class="rolagem"><table>
+<thead><tr><th>Imóvel</th><th class="num">Área (m²)</th><th class="num">Vacância</th><th class="num">% das receitas</th></tr></thead>
+<tbody>{% for im in f.imoveis[:25] %}<tr><td>{{ im.imovel|truncate(48, true, '…') }}</td>{{ celula(im.area_m2, inteiro, 'CVM, informe trimestral de FII', f.vacancia_serie[-1].ref) }}{{ celula(im.vacancia_pct, pct, 'CVM, informe trimestral de FII', f.vacancia_serie[-1].ref) }}{{ celula(im.pct_receita, pct, 'CVM, informe trimestral de FII', f.vacancia_serie[-1].ref) }}</tr>{% endfor %}</tbody>
+</table></div>{% if f.imoveis|length > 25 %}<p class="nota-fonte">Mostrando os 25 maiores por área, de {{ f.imoveis|length }}.</p>{% endif %}{% endif %}
+<p class="nota-fonte">{{ I.vacancia.nota }} Média ponderada pela área dos imóveis para renda acabados. O informe trimestral sai até cerca de 2 meses depois do fim do trimestre.</p>
+{% else %}
+<p>{{ I.vacancia.nota }}</p>
+{% endif %}
+
+<h2>Cotistas</h2>
+{{ graf_cotistas | safe }}
+<p class="nota-fonte">Número total de cotistas em cada informe mensal. Fonte: CVM, informes mensais de FII, até {{ f.informe.mes }}.</p>
+
+{{ anuncio(2) }}
+
+<h2>Simule a renda mensal</h2>
+<p>O simulador abaixo já vem com o dividend yield mensal médio estimado de {{ f.ticker }}{% if not I.dy_mensal_medio or I.dy_mensal_medio.valor is none %} (não disponível para este fundo: o campo ficou com o valor de exemplo){% endif %}. Para comparar com a renda fixa, o CDI acumulado em 12 meses era de <span class="n" data-fonte="{{ cdi.fonte }}" data-ref="{{ cdi.ref }}">{{ pct(cdi.valor) }}</span> ({{ cdi.fonte }}); veja o <a href="{{ site_url }}/calculadora-renda-fixa/">comparador de renda fixa</a>.</p>
+<div class="ferramenta-bloco">{{ ferramenta | safe }}</div>
+
+{% if parecidas %}
+<h2>Outros FIIs nesta cobertura</h2>
+<ul class="lista-links">{% for p in parecidas %}<li><a href="{{ p.url }}">{{ p.ticker }}</a> · {{ p.nome }}</li>{% endfor %}</ul>
+<p class="nota-fonte">Navegação, não ranking. {{ parecidas_criterio }}</p>
+{% endif %}
+
+<h2>Análises do canal</h2>
+{% if posts %}<ul class="lista-links">{% for p in posts %}<li><a href="{{ p.url }}">{{ p.rotulo }}</a></li>{% endfor %}</ul>
+{% else %}<p>Ainda não há post do canal sobre {{ f.ticker }}.</p>{% endif %}
+
+<h2>Metodologia e fontes</h2>
+<p>P/VP = fechamento ÷ valor patrimonial da cota do último informe mensal. Vacância = média da vacância de cada imóvel pronto para renda, ponderada pela área (informe trimestral). DY estimado = soma, nos 12 últimos informes, do DY do mês informado × valor patrimonial da cota, dividida pela cotação. Veja tudo na <a href="{{ base }}/fiis/metodologia/">metodologia de FIIs</a>.</p>
+{% if testes_alerta %}<p class="nota-fonte">Alertas dos testes automáticos desta página: {% for t in testes_alerta %}{{ t }}{% if not loop.last %}; {% endif %}{% endfor %}.</p>{% endif %}
+{% endblock %}

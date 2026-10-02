@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h1>{{ h1 }}</h1>
+<p>Como cada número das páginas de {{ 'ações' if tipo == 'acao' else 'FIIs' }} é calculado, de onde vem e quais testes rodam antes de publicar. Tudo é gerado por um programa a partir de dados públicos; nada vem de outros sites de dados.</p>
+<h2>Fontes</h2>
+<ul class="lista-links">
+<li>CVM, dados abertos (dados.cvm.gov.br), licença ODbL: {% if tipo == 'acao' %}cadastro de companhias, FCA (tickers e units), DFP e ITR (balanço, resultado, fluxo de caixa, DVA e composição do capital){% else %}informe mensal de FII (cotistas, patrimônio, valor patrimonial da cota, DY do mês) e informe trimestral (imóveis, área e vacância){% endif %}. Fonte: CVM.</li>
+<li>B3, COTAHIST (dados de fim de dia, sem ajuste): fechamento, volume e negócios.</li>
+<li>Banco Central, SGS: CDI, Selic e IPCA.</li>
+</ul>
+<h2>Fórmulas</h2>
+<div class="rolagem"><table><thead><tr><th>Indicador</th><th>Como é calculado</th></tr></thead><tbody>
+{% for nome, formula in formulas %}<tr><td>{{ nome }}</td><td style="white-space:normal">{{ formula }}</td></tr>{% endfor %}
+</tbody></table></div>
+{% for p in regras %}<p>{{ p }}</p>{% endfor %}
+{% if explicacao_ferramenta %}<h2 id="{{ id_ferramenta }}">Sobre a ferramenta das páginas</h2>
+<div class="ferramenta-explica">{{ explicacao_ferramenta | safe }}</div>{% endif %}
+<h2>Testes antes de publicar</h2>
+<p>"Bloqueante" impede a página do ativo de ser atualizada (fica a versão anterior). "Alerta" fica registrado aqui e na página do ativo.</p>
+<div class="rolagem"><table><thead><tr><th>#</th><th>Teste</th><th>Tolerância</th><th>Tipo</th><th class="num">Resultado</th></tr></thead><tbody>
+{% for t in testes %}<tr><td>{{ t.teste }}</td><td style="white-space:normal">{{ t.nome }}</td><td>{{ t.tolerancia }}</td><td>{{ t.tipo }}</td><td class="num-w">{{ t.resumo }}</td></tr>{% endfor %}
+</tbody></table></div>
+{% if alertas %}<h3>Alertas desta execução</h3><ul class="lista-links">{% for a in alertas %}<li>{{ a }}</li>{% endfor %}</ul>{% endif %}
+<h2 id="correcoes">Registro de correções</h2>
+<p>Nenhuma correção registrada até {{ data_br(hoje) }}.</p>
+{% endblock %}

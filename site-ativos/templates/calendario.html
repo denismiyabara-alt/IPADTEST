@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h1>{{ h1 }}</h1>
+<p>Esta página vai reunir, mês a mês, a data com, a data ex, o pagamento, o tipo e o valor dos proventos das ações e FIIs da cobertura, sempre com link para o documento oficial (Aviso aos Acionistas na CVM ou documento do Fundos.NET).</p>
+<div class="caixa">Ainda não há proventos aprovados para publicar. Cada linha passa por conferência humana antes de entrar aqui (fila semanal a partir dos avisos da CVM). Por isso a página está fora do índice do Google até ter dados.</div>
+<h2>Mês</h2>
+<div class="rolagem"><table>
+<thead><tr><th>Data com</th><th>Data ex</th><th>Pagamento</th><th>Ativo</th><th>Tipo</th><th class="num">Valor bruto</th><th>Documento</th></tr></thead>
+<tbody><tr><td colspan="7">Nenhum provento aprovado ainda.</td></tr></tbody>
+</table></div>
+<p>Enquanto isso, as páginas de ações mostram o DY de caixa (fluxo de caixa da empresa) e as de FIIs, uma estimativa pelo informe mensal da CVM.</p>
+<ul class="lista-links"><li><a href="{{ base }}/acoes/">Ações da cobertura</a></li><li><a href="{{ base }}/fiis/">FIIs da cobertura</a></li></ul>
+{% endblock %}
