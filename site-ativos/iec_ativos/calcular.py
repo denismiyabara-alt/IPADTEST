@@ -158,11 +158,14 @@ def ficha_acao(con, ticker: str, tipo: str, cnpj: str) -> dict:
     # ações em circulação (capital do último documento)
     cap = con.execute("""SELECT qt_on, qt_pn, qt_on_tesouraria, qt_pn_tesouraria, doc, dt_refer FROM capital
                          WHERE cnpj=? ORDER BY dt_refer DESC LIMIT 1""", (cnpj,)).fetchone()
+    f["lpa_divulgado"] = lpa_divulgado(d)
     if cap:
-        qt_on = (cap[0] or 0) - (cap[2] or 0)
-        qt_pn = (cap[1] or 0) - (cap[3] or 0)
-        f["acoes"] = {"on": qt_on, "pn": qt_pn, "total": qt_on + qt_pn,
-                      "fonte": f"CVM, composição do capital, {cap[4]} de {_br(cap[5])} (sem ações em tesouraria)",
+        k, como = escala_capital(con, cnpj, f["lpa_divulgado"], d, ref)
+        qt_on = ((cap[0] or 0) - (cap[2] or 0)) * k
+        qt_pn = ((cap[1] or 0) - (cap[3] or 0)) * k
+        f["acoes"] = {"on": qt_on, "pn": qt_pn, "total": qt_on + qt_pn, "escala": k, "escala_como": como,
+                      "fonte": f"CVM, composição do capital, {cap[4]} de {_br(cap[5])} (sem ações em tesouraria"
+                               + (", informado em milhares" if k == 1000 else "") + ")",
                       "ref": cap[5]}
     else:
         qt_on = qt_pn = 0
@@ -231,7 +234,7 @@ def ficha_acao(con, ticker: str, tipo: str, cnpj: str) -> dict:
     elif pv is None:
         I["dy_caixa"] = sem("linhas de dividendos/JCP pagos não encontradas na DFC")
     else:
-        I["dy_caixa"] = ind(-pv / vm, fonte=f"{fonte_ttm} (fluxo de caixa); {fonte_preco}", ref=ref,
+        I["dy_caixa"] = ind(-pv / vm + 0.0, fonte=f"{fonte_ttm} (fluxo de caixa); {fonte_preco}", ref=ref,
                             insumos=prov.get("insumos"),
                             nota="Dividendos e JCP pagos pela empresa em 12 meses (fluxo de caixa) ÷ valor de mercado. "
                                  "Não é a soma dos proventos por ação com data ex nos últimos 12 meses: essa tabela "
@@ -247,7 +250,7 @@ def ficha_acao(con, ticker: str, tipo: str, cnpj: str) -> dict:
         I["vpa"] = (ind(pl_contr / total_acoes * equiv, fonte=f"{fonte_bal}; {f['acoes']['fonte']}", ref=ref,
                         formula="patrimônio da controladora ÷ ações em circulação" + (f" × {equiv}" if equiv > 1 else ""))
                     if pl_contr is not None else sem("sem patrimônio"))
-        I["dpa_caixa"] = (ind(-pv / total_acoes * equiv, fonte=f"{fonte_ttm} (fluxo de caixa); {f['acoes']['fonte']}", ref=ref,
+        I["dpa_caixa"] = (ind(-pv / total_acoes * equiv + 0.0, fonte=f"{fonte_ttm} (fluxo de caixa); {f['acoes']['fonte']}", ref=ref,
                               formula="proventos pagos em 12 meses (DFC) ÷ ações em circulação" + (f" × {equiv}" if equiv > 1 else ""))
                           if pv is not None else sem("sem proventos pagos na DFC"))
     financeira = tipo in ("banco", "seguradora")
@@ -309,8 +312,36 @@ def ficha_acao(con, ticker: str, tipo: str, cnpj: str) -> dict:
         f["divida_serie"] = serie_divida(d, ref)
     f["precos"] = serie_precos(con, ticker)
     f["n_trimestres_dre"] = sum(1 for t in f["trimestres"] if t.get("lucro") is not None)
-    f["lpa_divulgado"] = lpa_divulgado(d)
     return f
+
+
+def escala_capital(con, cnpj, lpa, d, ref) -> tuple[int, str]:
+    """A composição do capital não tem coluna de escala, e várias empresas (Ambev, Vale, Itaú, Axia)
+    informam a quantidade de ações em milhares. Achado do primeiro download real.
+
+    Regra: ações implícitas = lucro da controladora da DFP ÷ LPA básico divulgado (média ponderada das
+    classes). Se a quantidade informada × 1000 fica mais perto disso do que a informada, a escala é mil.
+    Sem LPA (prejuízo ou campo vazio), usa o VPA: se patrimônio ÷ ações passar de 1.000× o preço, é mil.
+    """
+    cap = con.execute("""SELECT qt_on, qt_pn, qt_on_tesouraria, qt_pn_tesouraria FROM capital
+                         WHERE cnpj=? AND doc='DFP' AND dt_refer=?""", (cnpj, (lpa or {}).get("dt_refer"))).fetchone()
+    if lpa and cap and lpa.get("lucro_controladora"):
+        on, pn = (cap[0] or 0) - (cap[2] or 0), (cap[1] or 0) - (cap[3] or 0)
+        l_on, l_pn = lpa.get("lpa_on") or 0, lpa.get("lpa_pn") or 0
+        lpa_med = ((l_on * on + l_pn * pn) / (on + pn)) if (on + pn) else 0
+        if lpa_med and on + pn:
+            implicitas = lpa["lucro_controladora"] / lpa_med
+            import math
+            erro1 = abs(math.log(implicitas / (on + pn))) if implicitas > 0 else 99
+            erro1000 = abs(math.log(implicitas / ((on + pn) * 1000))) if implicitas > 0 else 99
+            return (1000, "pelo LPA divulgado") if erro1000 < erro1 else (1, "pelo LPA divulgado")
+    capu = con.execute("SELECT qt_on+qt_pn FROM capital WHERE cnpj=? ORDER BY dt_refer DESC LIMIT 1", (cnpj,)).fetchone()
+    pl = d.saldo(ref, "BPP", "pl_total")[0]
+    precos = [r[0] for r in con.execute("""SELECT p.fechamento FROM preco_diario p JOIN ativo a ON a.ticker=p.ticker
+                                          WHERE a.cnpj_emissor=? ORDER BY p.data DESC LIMIT 1""", (cnpj,))]
+    if capu and capu[0] and pl and precos and pl / capu[0] > 1000 * precos[0]:
+        return 1000, "pelo valor patrimonial por ação"
+    return 1, "sem conferência possível"
 
 
 def nome_curto(nome: str) -> str:
@@ -350,11 +381,11 @@ def divida(d: Demonstracoes, ref: str) -> dict:
 
 
 def refs_trimestrais(ref: str, n: int) -> list[str]:
-    out, d = [], date.fromisoformat(ref)
+    from .contas import fim_trimestre_anterior
+    out, d = [], ref
     for _ in range(n):
-        out.append(d.isoformat())
-        d = d.replace(day=1) - timedelta(days=62)
-        d = (d.replace(day=28) + timedelta(days=4)).replace(day=1) - timedelta(days=1)
+        out.append(d)
+        d = fim_trimestre_anterior(d)
     return list(reversed(out))
 
 
@@ -416,6 +447,26 @@ def lpa_divulgado(d: Demonstracoes) -> dict | None:
 
 # ---------------------------------------------------------------------------- FIIs
 
+def problemas_informe(meses: list[dict]) -> list[str]:
+    """Teste 12 (alerta), adaptado: o DY mensal informado à CVM só é usado se for coerente.
+    Achados no primeiro download: DY negativo, DY de 11% num mês e informes repetidos (mesmo valor
+    patrimonial, cotistas e DY em meses seguidos, como se o formulário tivesse sido copiado)."""
+    out = []
+    for m in meses:
+        dy = m.get("dy_mes_informado")
+        mes = f"{m['data_ref'][5:7]}/{m['data_ref'][:4]}"
+        if dy is None:
+            out.append(f"DY vazio em {mes}")
+        elif dy < 0:
+            out.append(f"DY negativo em {mes}")
+        elif dy > 0.03:
+            out.append(f"DY de {dy * 100:.1f}% em {mes}")
+    for a, b in zip(meses, meses[1:]):
+        if (a["vp_cota"], a["cotistas"], a["dy_mes_informado"]) == (b["vp_cota"], b["cotistas"], b["dy_mes_informado"]):
+            out.append(f"informe de {b['data_ref'][5:7]}/{b['data_ref'][:4]} igual ao do mês anterior")
+    return out
+
+
 def ficha_fii(con, ticker: str, cnpj: str) -> dict:
     fii = con.execute("SELECT nome, segmento, mandato, tipo_gestao, administrador, isin FROM fii WHERE cnpj=?", (cnpj,)).fetchone()
     data, preco, pid = ultimo_preco(con, ticker)
@@ -448,7 +499,12 @@ def ficha_fii(con, ticker: str, cnpj: str) -> dict:
     I["pl"] = ind(u["pl"], fonte=fonte_inf, ref=u["data_ref"])
     # DY estimado pelo informe mensal: Σ (DY do mês informado × VP da cota do mês) nos 12 últimos informes ÷ preço
     ult12 = meses[-12:]
-    if len(ult12) == 12 and preco and all(m["dy_mes_informado"] is not None and m["vp_cota"] for m in ult12):
+    problemas = problemas_informe(ult12)
+    f["informe_problemas"] = problemas
+    if problemas:
+        I["dy_estimado"] = sem("não disponível: o DY mensal informado à CVM tem inconsistências nos últimos 12 informes ("
+                               + "; ".join(problemas[:2]) + "). A estimativa ficaria errada.")
+    elif len(ult12) == 12 and preco and all(m["dy_mes_informado"] is not None and m["vp_cota"] for m in ult12):
         rend = sum(m["dy_mes_informado"] * m["vp_cota"] for m in ult12)
         f["rendimento_12m_estimado"] = rend
         I["dy_estimado"] = ind(rend / preco, fonte=f"CVM, informes mensais de {ult12[0]['data_ref'][5:7]}/{ult12[0]['data_ref'][:4]} "

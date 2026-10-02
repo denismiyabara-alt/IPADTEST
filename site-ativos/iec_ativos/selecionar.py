@@ -35,7 +35,7 @@ def fii_por_isin_unico(con) -> tuple[dict, list]:
     declarando o ISIN de outro). Fica o CNPJ com mais informes; empate, o de nome parecido com o ticker."""
     por_isin: dict[str, list] = {}
     for r in con.execute("""SELECT f.isin, f.cnpj, f.nome, (SELECT COUNT(*) FROM fii_mensal m WHERE m.cnpj=f.cnpj)
-                            FROM fii f WHERE f.isin IS NOT NULL AND f.isin<>''"""):
+                            FROM fii f WHERE f.isin LIKE 'BR__________'"""):
         por_isin.setdefault(r[0], []).append((r[3], r[1], r[2]))
     mapa, colisoes = {}, []
     for isin, cands in por_isin.items():

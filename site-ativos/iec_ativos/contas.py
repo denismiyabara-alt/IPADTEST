@@ -142,10 +142,23 @@ class Demonstracoes:
             ini = menos_um_ano(ini)
         if regra.startswith("soma:"):
             return self.soma_regra(doc, dt_refer, dem, regra[5:], ordem, ini)
+        return self.valor_regra(doc, dt_refer, dem, regra, ordem, ini)
+
+    def valor_regra(self, doc, dt_refer, dem, regra, ordem, dt_ini):
         cd = self.achar(doc, dt_refer, dem, regra)
         if cd is None:
             return None, []
-        return self.valor(doc, dt_refer, dem, cd, ordem, ini)
+        v, ids = self.valor(doc, dt_refer, dem, cd, ordem, dt_ini)
+        if regra == "lucro_controladora" and v == 0:
+            # Achado: há empresa que preenche "Atribuído a Sócios da Empresa Controladora" com zero quando não
+            # tem minoritários (Sabesp até 2025, Axia no 3T25). Se não controladores também é zero, vale o total.
+            tot = self.achar(doc, dt_refer, dem, "lucro_total")
+            nc = self.achar(doc, dt_refer, dem, "lucro_nao_controladores")
+            vt, it = self.valor(doc, dt_refer, dem, tot, ordem, dt_ini) if tot else (None, [])
+            vn = self.valor(doc, dt_refer, dem, nc, ordem, dt_ini)[0] if nc else 0
+            if vt and not vn:
+                return vt, it
+        return v, ids
 
     def ttm(self, dt_refer: str, dem: str, regra: str) -> dict:
         """12 meses móveis até dt_refer (DESENHO 4.3). Devolve valor, ids dos insumos e a explicação."""
@@ -186,8 +199,7 @@ class Demonstracoes:
             if ini_exe == ini_tri:
                 return self.acumulado(doc, ref, dem, regra)[0]
             if dem == "DRE":
-                cd = self.achar(doc, ref, dem, regra)
-                return self.valor(doc, ref, dem, cd, "ULTIMO", ini_tri)[0] if cd else None
+                return self.valor_regra(doc, ref, dem, regra, "ULTIMO", ini_tri)[0]
             ant = self._ref_trimestre_anterior(ref)
             a = self.acumulado(doc, ref, dem, regra)[0]
             b = self.acumulado(*self.doc_em(ant), dem, regra)[0] if self.doc_em(ant) else None
@@ -203,10 +215,7 @@ class Demonstracoes:
 
     @staticmethod
     def _ref_trimestre_anterior(ref: str) -> str:
-        d = date.fromisoformat(ref).replace(day=1) - timedelta(days=62)
-        # último dia do mês
-        prox = (d.replace(day=28) + timedelta(days=4)).replace(day=1)
-        return (prox - timedelta(days=1)).isoformat()
+        return fim_trimestre_anterior(ref)
 
     # ------------------------------------------------------------------ balanço
     def saldo(self, dt_refer: str, dem: str, regra: str):
@@ -217,6 +226,17 @@ class Demonstracoes:
             return self.soma_regra(d[0], d[1], dem, regra[5:])
         cd = self.achar(d[0], d[1], dem, regra)
         return self.valor(d[0], d[1], dem, cd) if cd else (None, [])
+
+
+def fim_trimestre_anterior(ref: str) -> str:
+    """Último dia do trimestre anterior a `ref` (30/06 -> 31/03; 31/03 -> 31/12 do ano anterior)."""
+    d = date.fromisoformat(ref)
+    y, m = d.year, d.month - 3
+    if m <= 0:
+        m += 12
+        y -= 1
+    prox = date(y + (m == 12), m % 12 + 1, 1)
+    return (prox - timedelta(days=1)).isoformat()
 
 
 def _br(iso: str) -> str:
@@ -240,7 +260,9 @@ def resolver(regra: str, cods: dict[str, str]) -> str | None:
         return None
     if regra == "lucro_total":
         for c, d in sorted(cods.items()):
-            if nivel(c) == 2 and re.match(r"(lucro|prejuizo)[/ ]*(prejuizo|lucro)? ?(consolidado )?do periodo", d):
+            # "Lucro/Prejuízo Consolidado do Período" (comum), "Lucro ou Prejuízo Líquido Consolidado do Período" (BB)
+            if nivel(c) == 2 and re.match(r"(lucro|prejuizo)", d) and d.endswith("do periodo") \
+                    and "antes" not in d and "continuadas" not in d:
                 return c
         return None
     if regra == "lucro_controladora":
@@ -281,14 +303,17 @@ def resolver(regra: str, cods: dict[str, str]) -> str | None:
             if c.startswith("7.") and nivel(c) == 3 and "deprecia" in d:
                 return c
         return None
-    if regra == "lpa_on":
-        return "3.99.01.01" if "3.99.01.01" in cods else None
-    if regra == "lpa_pn":
-        return "3.99.01.02" if "3.99.01.02" in cods else None
+    if regra in ("lpa_on", "lpa_pn"):
+        # LPA básico (3.99.01.xx). A classe vem da descrição, não do código: na Vale 3.99.01.01 é "PNA"
+        # e 3.99.01.02 é "ON" (achado do primeiro download). Com mais de uma PN, fica a primeira não zerada.
+        alvo = "on" if regra == "lpa_on" else "pn"
+        cands = [c for c in sorted(cods) if c.startswith("3.99.01.") and nivel(c) == 4
+                 and re.match(alvo + r"\b|" + alvo + r"[a-z]?$", cods[c])]
+        return cands[0] if cands else None
     raise KeyError(regra)
 
 
-PROVENTO = re.compile(r"dividend|juros sobre (o )?capital|jcp|juros s/ ?(o )?capital")
+PROVENTO = re.compile(r"dividend|juros sobre (o )?capital|jcp|juros s/ ?(o )?capital|remuneracao (aos|dos) acionistas")
 
 
 def resolver_lista(regra: str, cods: dict[str, str]) -> list[str]:
