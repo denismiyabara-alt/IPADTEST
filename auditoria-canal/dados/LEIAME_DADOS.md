@@ -131,3 +131,26 @@ Gerado por `exportar.py`. Não edite à mão: rode o exportador de novo.
 
 - Impressões e CTR das impressões: em geral só no YouTube Studio. Se as colunas vierem vazias, exporte em Studio > Análises > Modo avançado > Conteúdo (todo o período), com Impressões e Taxa de cliques, e salve o ZIP como `dados/studio/studio_conteudo_longos.zip` (e `..._shorts.zip`): o analisar.py lê esses arquivos.
 - Retenção nos primeiros 30 s (abertura): não existe por API para lista de vídeos; o proxy é averageViewPercentage.
+
+<!-- termos-busca -->
+## Termos de busca (exportados em 2026-10-02 20:47 UTC; quota da Data API: 0; consultas ao Analytics: 63)
+
+### termos_busca_canal.csv (325 linhas)
+
+- `periodo`: AAAA-MM, ou 'total' para o período inteiro
+- `posicao`: posição do termo no período (1 = mais views)
+- `termo`: termo buscado no YouTube (insightTrafficSourceDetail com origem YT_SEARCH)
+- `views`: views que vieram desse termo
+- `minutos`: minutos assistidos vindos desse termo
+- Nota: a API devolve no máximo 25 termos por consulta (maxResults ≤ 25 para insightTrafficSourceDetail)
+
+### termos_busca_por_video.csv (1250 linhas)
+
+- `video_id`: id do vídeo
+- `titulo`: título
+- `posicao`: posição do termo no vídeo
+- `termo`: termo buscado
+- `views`: views desse termo no vídeo (período inteiro)
+- `minutos`: minutos
+
+<!-- /termos-busca -->
