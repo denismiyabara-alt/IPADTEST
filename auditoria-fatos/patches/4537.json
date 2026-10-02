@@ -1,0 +1,39 @@
+{
+ "post_id": 4537,
+ "url": "https://investirecocaresocomecar.com.br/etfs-dividendos-mensais-b3-2026/",
+ "lote": "B",
+ "motivo": "Destino do 301 do 1083. Tratava o JEPQ39 como BDR negociado na B3: não existe (nenhum negócio no COTAHIST até 01/10/2026; o JEPQ só é negociado nos EUA). Tira a comparação JEPI39 x JEPQ39 e a faixa de yield sem fonte.",
+ "trocas": [
+  {
+   "de": "JEPI39 vs JEPQ39: Comparativo",
+   "para": "JEPI39 x JEPQ: o que existe na B3",
+   "de_rendered": "JEPI39 vs JEPQ39: Comparativo"
+  },
+  {
+   "de": "JEPQ (JPMorgan)",
+   "para": "JEPQ (JPMorgan), só nos EUA",
+   "de_rendered": "JEPQ (JPMorgan)"
+  },
+  {
+   "de": "Covered call Nasdaq 100",
+   "para": "Covered call Nasdaq 100 (sem BDR na B3)",
+   "de_rendered": "Covered call Nasdaq 100"
+  },
+  {
+   "de": "Os dois ETFs vendem opções de compra sobre suas carteiras",
+   "para": "Esses ETFs vendem opções de compra sobre suas carteiras",
+   "de_rendered": "Os dois ETFs vendem opções de compra sobre suas carteiras"
+  },
+  {
+   "de": "JEPQ39 paga historicamente mais (10-15%/ano) que JEPI39 (7-12%/ano), mas com maior volatilidade pela exposição ao Nasdaq. A escolha depende do seu perfil de risco.",
+   "para": "Na B3, o BDR de ETF de covered call com renda mensal é o JEPI39 (do JEPI, da JPMorgan, negociado desde fevereiro de 2026). O JEPQ, versão do Nasdaq que costuma pagar mais e oscilar mais, não tem BDR na B3: o JEPQ39 não existe, e o JEPQ só é comprado nos EUA.",
+   "de_rendered": "JEPQ39 paga historicamente mais (10-15%/ano) que JEPI39 (7-12%/ano), mas com maior volatilidade pela exposição ao Nasdaq. A escolha depende do seu perfil de risco."
+  }
+ ],
+ "fonte": "https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/historico/mercado-a-vista/series-historicas/ (JEPQ39 sem negócios 2021-2026; JEPI39 = 'JPM JEPI', negocia desde 23/02/2026)",
+ "manual": [
+  "Tabela: na linha do JEPQ, trocar a célula do ticker 'JEPQ39' por 'Não tem BDR' e a faixa '10–15%' por '-' (células curtas, com travessão).",
+  "O título cita JEPQ39; pela regra, título e slug não foram mudados. Avaliar trocar o título no Yoast/editor.",
+  "Bloco de tributação: 'imposto americano compensado no Brasil (Lei 14.754/2023)' e 'IOF de 0,38% na conversão' não foram conferidos na fonte primária (a Lei 14.754 trata de aplicações no exterior, e BDR é negociado no Brasil); revisar antes de manter."
+ ]
+}

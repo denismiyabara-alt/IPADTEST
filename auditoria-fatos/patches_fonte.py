@@ -342,3 +342,19 @@ post(7530, "A", "Dividendos isentos sem a regra de 2026, limite de isenção do 
           "Descontado o imposto de renda (em 2026, isento até R$ 5 mil por mês e com redução parcial até R$ 7.350, pela Lei 15.270/2025; antes, o limite era R$"),
      ],
      manual=["Conferir o valor líquido do teto do INSS ('entre R$ 7.600 e R$ 7.900') com a tabela do IRPF de 2026."])
+
+# =====================================================================================================  LOTE B
+post(4537, "B", "Destino do 301 do 1083. Tratava o JEPQ39 como BDR negociado na B3: não existe (nenhum negócio no COTAHIST "
+     "até 01/10/2026; o JEPQ só é negociado nos EUA). Tira a comparação JEPI39 x JEPQ39 e a faixa de yield sem fonte.",
+     f"{B3} (JEPQ39 sem negócios 2021-2026; JEPI39 = 'JPM JEPI', negocia desde 23/02/2026)",
+     [
+         ("JEPI39 vs JEPQ39: Comparativo", "JEPI39 x JEPQ: o que existe na B3"),
+         ("JEPQ (JPMorgan)", "JEPQ (JPMorgan), só nos EUA"),
+         ("Covered call Nasdaq 100", "Covered call Nasdaq 100 (sem BDR na B3)"),
+         ("Os dois ETFs vendem opções de compra sobre suas carteiras", "Esses ETFs vendem opções de compra sobre suas carteiras"),
+         ("JEPQ39 paga historicamente mais (10-15%/ano) que JEPI39 (7-12%/ano), mas com maior volatilidade pela exposição ao Nasdaq. A escolha depende do seu perfil de risco.",
+          "Na B3, o BDR de ETF de covered call com renda mensal é o JEPI39 (do JEPI, da JPMorgan, negociado desde fevereiro de 2026). O JEPQ, versão do Nasdaq que costuma pagar mais e oscilar mais, não tem BDR na B3: o JEPQ39 não existe, e o JEPQ só é comprado nos EUA."),
+     ],
+     manual=["Tabela: na linha do JEPQ, trocar a célula do ticker 'JEPQ39' por 'Não tem BDR' e a faixa '10–15%' por '-' (células curtas, com travessão).",
+             "O título cita JEPQ39; pela regra, título e slug não foram mudados. Avaliar trocar o título no Yoast/editor.",
+             "Bloco de tributação: 'imposto americano compensado no Brasil (Lei 14.754/2023)' e 'IOF de 0,38% na conversão' não foram conferidos na fonte primária (a Lei 14.754 trata de aplicações no exterior, e BDR é negociado no Brasil); revisar antes de manter."])
