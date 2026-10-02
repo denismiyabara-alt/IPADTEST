@@ -8,12 +8,12 @@ Feito em 02/10/2026, só leitura no site. Aqui ficam os **patches**. Quem aplica
 |---|---|---|---|
 | **L1** | as 11 ferramentas do plugin `iec-ferramentas` 1.3.0 | 60 | 80 |
 | **L2** | os 6 guias corrigidos ou reescritos (4873, 4874, 5091, 1053, 993, 4537) | 33 | 40 |
-| **L3** | órfãos restantes do `seo/sugestoes-links.csv` e substitutos neutros, pelo ticker do título | 10 | 10 |
-| **Total** | | **103** | **130** |
+| **L3** | órfãos restantes do `seo/sugestoes-links.csv` e substitutos neutros, pelo ticker do título | 9 | 9 |
+| **Total** | | **102** | **129** |
 
-Cada post entra em um lote só, e cada lote tem um patch por post. Dos 103 posts, 80 ganham 1 link, 19 ganham 2 e 4 ganham 3. Nenhum post passa de 3.
+Cada post entra em um lote só, e cada lote tem um patch por post. Dos 102 posts, 79 ganham 1 link, 19 ganham 2 e 4 ganham 3. Nenhum post passa de 3.
 
-A primeira versão tinha 116 posts e 146 links (L1 61/80, L2 33/40, L3 22/26). Depois da revisão, saíram os destinos com título ou endereço de recomendação e os posts do `posts-para-refresh.csv`; veja [Destinos excluídos por título](#destinos-excluídos-por-título). Também saíram os posts 1198 e 2649, que viraram rascunho. Quem mais perdeu foi o L3. L1 e L2 continuam com os mesmos destinos e as mesmas contagens.
+A primeira versão tinha 116 posts e 146 links (L1 61/80, L2 33/40, L3 22/26). Depois da revisão, saíram os destinos com título ou endereço de recomendação e os posts do `posts-para-refresh.csv`; veja [Destinos excluídos por título](#destinos-excluídos-por-título). Também saíram os posts 1198 e 2649, que viraram rascunho. Na última rodada, o gate passou a bloquear "qual é a melhor" (commit cf0ac38 no investir-e-cocar), e o `/bbse3-cxse3-pssa3-melhor-seguradora-dividendos/` saiu dos destinos (1 link a menos no L3). Quem mais perdeu foi o L3. L1 e L2 continuam com os mesmos destinos e as mesmas contagens.
 
 O detalhe de cada link está em [`resumo.csv`](resumo.csv): lote, origem, destino, âncora, `de`, `para` e se o destino era órfão. Os destinos barrados estão em [`destinos-bloqueados.csv`](destinos-bloqueados.csv).
 
@@ -108,11 +108,11 @@ A coluna "links" mostra quantos links o post receberia se o bloqueio caísse: a 
 
 São 28 destinos, que receberiam 19 links no total. Os que aparecem com 0 não ganhariam link de qualquer jeito, porque não houve frase boa nas origens sugeridas.
 
-## Órfãos que deixam de ser órfãos (17)
+## Órfãos que deixam de ser órfãos (16)
 
 - **Ferramentas (9):** `/simulador-renda-fii/`, `/calculadora-lci-lca-cdb/`, `/calculadora-cdb-lci-prefixado-ipca/`, `/quiz-perfil-de-investidor/`, `/calculadora-preco-justo/`, `/calculadora-1-milhao/`, `/calculadora-jcp-liquido/`, `/calculadora-aposentadoria-renda-passiva/` e `/calculadora-ir-venda-fii/`.
 - **Guias (3):** `/fundos-imobiliarios-o-que-sao-fiis/` (4874), `/quem-a-itausa-controla-conheca-suas-empresas/` (993) e `/o-que-e-bova11/` (5091).
-- **L3 (5):** `/abev3-copa-2026-vale-investir-pausa-hidratacao/`, `/acoes-do-nubank-roxo34-despencam-10-o-que-aconteceu-e-o-que-esperar/`, `/bbse3-cxse3-pssa3-melhor-seguradora-dividendos/`, `/compass-pass3-bancos-ipo-recomendam-compra-conflito-interesse/` e `/saud3-bradesco-vai-fechar-capital-bradsaude/`.
+- **L3 (4):** `/abev3-copa-2026-vale-investir-pausa-hidratacao/`, `/acoes-do-nubank-roxo34-despencam-10-o-que-aconteceu-e-o-que-esperar/`, `/compass-pass3-bancos-ipo-recomendam-compra-conflito-interesse/` e `/saud3-bradesco-vai-fechar-capital-bradsaude/`.
 - O L3 também manda links para 2 substitutos que já recebiam link, então não contam como órfãos resolvidos: `/bbas3-resultado-2t-cartao-de-credito-inadimplencia/` (2 links) e `/trxf11-buraco-22-reais-cota-compensacao-de-creditos/` (1 link).
 - ⚠️ `/bbse3-cxse3-pssa3-melhor-seguradora-dividendos/` tem o título "BBSE3 vs CXSE3 vs PSSA3: qual **é** a melhor seguradora para dividendos?". Ele passa no gate, porque a regra pega "qual a melhor" e não "qual é a melhor". Se quiserem barrar esse também, a mudança tem de ser no gate.
 
@@ -150,7 +150,7 @@ python3 -m pytest -q links-internos/tests auditoria-fatos/tests
 O resultado foi 124 testes passando.
 
 - `links-internos/tests/test_links.py` confere estes pontos:
-  - Cada um dos 103 patches segue as regras: `de` seguro, único e com `de_rendered`; um único `<a href>` por troca; texto visível igual; nenhum destino proibido, repetido ou que o post já linka; no máximo 3 links.
+  - Cada um dos 102 patches segue as regras: `de` seguro, único e com `de_rendered`; um único `<a href>` por troca; texto visível igual; nenhum destino proibido, repetido ou que o post já linka; no máximo 3 links.
   - Cada post está num lote só.
   - Com um WordPress falso, o `aplicar_patches.py` faz `--checar` e `--aplicar` em **2 patches reais** (o primeiro do L1 e o primeiro do L2). Ele grava o backup, insere os links e não muda mais nada, e uma segunda aplicação é pulada.
   - Pela opção `--pasta`, o `main()` confere os lotes L1, L2 e L3 inteiros: todos os posts saem "PRONTO".
