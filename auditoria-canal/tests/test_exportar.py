@@ -34,6 +34,8 @@ class FakeAPI:
         self.chamadas = []
         self.falhas = []
         self.headers = []
+        self.max_lote = 200          # maior lote de IDs que a API "aceita"
+        self.aceita_duas = True      # aceita dimensions=video,<outra> com vários vídeos
 
     def __call__(self, url, data=None, headers=None):
         self.chamadas.append(url)
@@ -93,12 +95,27 @@ class FakeAPI:
                 raise ex.ErroHTTP(400, "badRequest", f"Unknown identifier ({m}) given in field parameters.metrics.")
         dims = q.get("dimensions", "").split(",")
         cab = [{"name": d} for d in dims] + [{"name": m} for m in mets]
-        if dims == ["video"]:
-            assert q["sort"] == "-views" and int(q["maxResults"]) <= 200
-            ini = int(q["startIndex"])
-            todos = [f"v{i}" for i in range(self.n)]
-            fatia = todos[ini - 1: ini - 1 + int(q["maxResults"])]
-            rows = [[v] + [100 + k for k in range(len(mets))] for v in fatia]
+        filtro = q.get("filters", "")
+        ids = filtro[len("video=="):].split(",") if filtro.startswith("video==") else []
+        if dims[0] == "video":
+            # Como a API real: o "top vídeos" com sort=-views não passa de startIndex=200.
+            if int(q.get("startIndex", 1)) > 200:
+                raise ex.ErroHTTP(400, "badRequest", "The query is not supported.")
+            if not ids and "sort" in q:
+                fatia = [f"v{i}" for i in range(self.n)][:min(200, int(q.get("maxResults", 200)))]
+            else:
+                assert ids and "sort" not in q, "consulta por vídeo deve ir em lote de IDs, sem sort"
+                if len(ids) > self.max_lote:
+                    raise ex.ErroHTTP(400, "badRequest", "The query is not supported.")
+                fatia = ids
+            if dims == ["video"]:
+                rows = [[v] + [100 + k for k in range(len(mets))] for v in fatia]
+            else:
+                if not self.aceita_duas:
+                    raise ex.ErroHTTP(400, "badRequest", "The query is not supported.")
+                seg = {"insightTrafficSourceType": [("RELATED_VIDEO", 3, 5), ("YT_SEARCH", 7, 9)],
+                       "subscribedStatus": [("SUBSCRIBED", 4, 8), ("UNSUBSCRIBED", 6, 9)]}[dims[1]]
+                rows = [[v, a, b, c] for v in fatia for a, b, c in seg]
         elif dims == ["month"]:
             rows = [["2025-05", 10, 20, 3, 1], ["2025-06", 11, 21, 4, 1]] if len(mets) == 4 else \
                    [["2025-05", 10, 7], ["2025-06", 11, 8]]
@@ -192,24 +209,126 @@ def test_paginacao_playlist_e_videos(tmp_path):
     assert v1["tags"] == "a|b" and v1["thumbnail_url"] == "https://i/1.jpg"
 
 
-def test_paginacao_analytics_por_video_e_metricas_indisponiveis(tmp_path):
+def _q(u):
+    return dict(urllib.parse.parse_qsl(u.split("?")[1]))
+
+
+def test_api_real_recusa_startindex_201_e_codigo_novo_nao_pagina(tmp_path):
     api = FakeAPI(n_videos=450)
     cli, exp, _ = novo(tmp_path, api)
+    # O mock reproduz o bug visto no Mac: top vídeos com sort=-views dá 400 a partir de startIndex=201.
+    cli.analytics_tabela(dimensions="video", metrics="views", sort="-views", maxResults=200, startIndex=1)
+    with pytest.raises(ex.ErroHTTP) as e:
+        cli.analytics_tabela(dimensions="video", metrics="views", sort="-views", maxResults=200, startIndex=201)
+    assert e.value.status == 400 and "not supported" in e.value.mensagem
+    api.chamadas.clear()
     exp.canal()
     exp.exportar_videos()
     ids = exp.exportar_analytics_por_video()
     assert len(ids) == 450
-    principais = [u for u in api.chamadas if "subscribersGained" in u and "dimensions=video" in u]
-    starts = [dict(urllib.parse.parse_qsl(u.split("?")[1]))["startIndex"] for u in principais]
-    assert starts == ["1", "201", "401"]
+    an = [_q(u) for u in api.chamadas if u.startswith(ex.API_ANALYTICS)]
+    assert an and not any("startIndex" in q or "sort" in q for q in an)
+
+
+def test_analytics_por_video_em_lotes_de_200_e_metricas_indisponiveis(tmp_path):
+    api = FakeAPI(n_videos=450)
+    cli, exp, _ = novo(tmp_path, api)
+    exp.canal()
+    exp.exportar_videos()
+    exp.exportar_analytics_por_video()
+    principais = [_q(u) for u in api.chamadas if "subscribersGained" in u and u.startswith(ex.API_ANALYTICS)]
+    tamanhos = [len(q["filters"][len("video=="):].split(",")) for q in principais]
+    assert tamanhos == [200, 200, 50] and all(q["dimensions"] == "video" for q in principais)
+    assert principais[0]["filters"].startswith("video==v0,v1,")          # do mais visto ao menos visto
     rs = ler(tmp_path / "analytics_por_video.csv")
     assert len(rs) == 450
     assert rs[0]["engagedViews"] == "101"                 # métrica opcional que a API aceitou
     assert rs[0]["impressions"] == "" and rs[0]["impressionsClickThroughRate"] == ""
-    assert any("impressions vazia" in n for n in exp.notas["analytics_por_video.csv"])
+    notas = exp.notas["analytics_por_video.csv"]
+    assert any("impressions vazia" in n for n in notas)
+    assert any("lotes de até 200 IDs" in n for n in notas)
+    # métrica recusada não divide o lote: só a sonda de 1 vídeo por nome tentado
+    recusadas = [u for u in api.chamadas if "Impressions" in u or "impressions" in u]
+    assert len(recusadas) == 4
     exp.leiame("completo")
     leia = (tmp_path / "LEIAME_DADOS.md").read_text(encoding="utf-8")
-    assert "impressionsClickThroughRate" in leia and "Colunas vazias" in leia and "Studio" in leia
+    assert "impressionsClickThroughRate" in leia and "Colunas vazias" in leia and "lotes de até 200" in leia
+
+
+def test_lote_recusado_e_dividido_ao_meio(tmp_path):
+    api = FakeAPI(n_videos=120)
+    api.max_lote = 60
+    cli, exp, logs = novo(tmp_path, api)
+    exp.canal()
+    exp.exportar_videos()
+    exp.exportar_analytics_por_video()
+    principais = [_q(u) for u in api.chamadas if "subscribersGained" in u and u.startswith(ex.API_ANALYTICS)]
+    tamanhos = [len(q["filters"].split(",")) for q in principais]
+    assert tamanhos == [120, 60, 60]              # 120 recusado → divide ao meio → 60 passa e segue com 60
+    assert len(ler(tmp_path / "analytics_por_video.csv")) == 120
+    assert any("lotes de até 60 IDs" in n for n in exp.notas["analytics_por_video.csv"])
+    assert any("tentando 60" in l for l in logs)
+    # Retomada: nova execução não repete nenhum lote (nem o recusado, cujo 400 ficou no cache).
+    exp.salvar_estado()
+    api.chamadas.clear()
+    cli2, exp2, _ = novo(tmp_path, api)
+    exp2.exportar_analytics_por_video()
+    assert not any(u.startswith(ex.API_ANALYTICS) for u in api.chamadas)
+
+
+def test_trafego_e_inscritos_em_lote(tmp_path):
+    api = FakeAPI(n_videos=250)
+    cli, exp, _ = novo(tmp_path, api)
+    exp.canal()
+    exp.exportar_videos()
+    ids = exp.exportar_analytics_por_video()
+    api.chamadas.clear()
+    exp.exportar_por_video(ids)
+    qs = [_q(u) for u in api.chamadas if u.startswith(ex.API_ANALYTICS)]
+    assert [q["dimensions"] for q in qs] == ["video,insightTrafficSourceType"] * 2 + ["video,subscribedStatus"] * 2
+    assert all(q["filters"].startswith("video==") and "sort" not in q for q in qs)
+    assert len(ler(tmp_path / "trafego_por_video.csv")) == 500
+    ins = ler(tmp_path / "inscritos_por_video.csv")
+    assert len(ins) == 250 and ins[0] == {"video_id": "v0", "views_inscritos": "4", "views_nao_inscritos": "6",
+                                          "minutos_inscritos": "8", "minutos_nao_inscritos": "9"}
+
+
+def test_fallback_por_video_quando_api_recusa_duas_dimensoes(tmp_path):
+    api = FakeAPI(n_videos=5)
+    api.aceita_duas = False
+    cli, exp, _ = novo(tmp_path, api)
+    exp.canal()
+    exp.exportar_videos()
+    ids = exp.exportar_analytics_por_video()
+    api.chamadas.clear()
+    exp.exportar_por_video(ids)
+    qs = [_q(u) for u in api.chamadas if u.startswith(ex.API_ANALYTICS)]
+    duas = [q for q in qs if q["dimensions"].startswith("video,")]
+    # 5 → 2 → 1 recusados para cada dimensão; depois 1 consulta por vídeo, filters=video==ID e só a dimensão secundária
+    assert [len(q["filters"].split(",")) for q in duas] == [5, 2, 1] * 2
+    uma = [q for q in qs if not q["dimensions"].startswith("video")]
+    assert len(uma) == 10 and all("," not in q["filters"] for q in uma)
+    assert {q["dimensions"] for q in uma} == {"insightTrafficSourceType", "subscribedStatus"}
+    assert len(ler(tmp_path / "trafego_por_video.csv")) == 10
+    assert len(ler(tmp_path / "inscritos_por_video.csv")) == 5
+    assert any("vídeo a vídeo" in n for n in exp.notas["trafego_por_video.csv"])
+    assert any("vídeo a vídeo" in n for n in exp.notas["inscritos_por_video.csv"])
+
+
+def test_so_analytics_pula_o_passo_1(tmp_path, monkeypatch):
+    api = FakeAPI(n_videos=8)
+    _, exp, _ = novo(tmp_path, api)
+    exp.canal()
+    exp.exportar_videos()          # simula o passo 1 já feito (videos.csv + cache)
+    exp.salvar_estado()
+    api.chamadas.clear()
+    monkeypatch.setattr(ex.Cliente.__init__, "__defaults__", (None, api, lambda s: None, 0.3, 6, 2.0, None))
+    for k, v in ENV.items():
+        monkeypatch.setenv(k, v)
+    assert ex.main(["--saida", str(tmp_path), "--pausa", "0", "--so-analytics"]) == 0
+    assert not any("/playlistItems" in u or "/videos?" in u or "/commentThreads" in u or "/channels" in u
+                   for u in api.chamadas)
+    assert len(ler(tmp_path / "analytics_por_video.csv")) == 8
 
 
 def test_impressoes_com_nome_alternativo(tmp_path):
@@ -398,7 +517,7 @@ def test_fluxo_completo_e_nenhum_segredo_em_arquivo_ou_log(tmp_path):
     assert ins[0] == {"video_id": "v0", "views_inscritos": "4", "views_nao_inscritos": "6",
                       "minutos_inscritos": "8", "minutos_nao_inscritos": "9"}
     tr = ler(tmp_path / "trafego_por_video.csv")
-    assert len(tr) == 120 and tr[0]["origem_pt"].startswith("Vídeos sugeridos")
+    assert len(tr) == 120 and any(r["origem_pt"].startswith("Vídeos sugeridos") for r in tr)
     # Nenhuma credencial (nem o access token) em nenhum arquivo gerado, inclusive o cache, nem no log.
     segredos = list(ENV.values()) + [ACCESS]
     for arq in tmp_path.rglob("*"):

@@ -240,18 +240,10 @@ class Cliente:
         url = f"{API_ANALYTICS}?{urllib.parse.urlencode(q)}"
         return self._chamar("analytics", "reports", q, url, True, 0)
 
-    def analytics_tabela(self, paginar=False, **params):
-        """Devolve a resposta do Analytics como lista de dicts. Com paginar, usa maxResults=200 e startIndex."""
-        if not paginar:
-            return linhas(self.analytics(**params))
-        out, inicio = [], 1
-        while True:
-            d = self.analytics(**params, maxResults=200, startIndex=inicio)
-            ls = linhas(d)
-            out += ls
-            if len(ls) < 200:
-                return out
-            inicio += 200
+    def analytics_tabela(self, **params):
+        """Resposta do Analytics como lista de dicts. Sem paginação: o relatório por vídeo não passa de 200
+        linhas (startIndex=201 dá 400), então o exportador consulta por lotes de IDs."""
+        return linhas(self.analytics(**params))
 
 
 def linhas(d):
@@ -406,6 +398,7 @@ class Exportador:
         self.data_fim = date.fromisoformat(self.estado["data_fim"])
         self.notas = {}
         self.contagens = {}
+        self.lote_ok = {}
         self.videos = {r["id"]: r for r in ler_csv(self.saida / "videos.csv")}
 
     def nota(self, arquivo, texto):
@@ -492,19 +485,56 @@ class Exportador:
         self.gravar("videos.csv", regs)
         self.videos = {r["id"]: {k: str(v) for k, v in r.items()} for r in regs}
 
+    # -- consultas em lote de IDs
+    # O relatório de "top vídeos" (dimensions=video, sort=-views) NÃO pagina além de 200: com startIndex=201 a
+    # API devolve 400 "The query is not supported". Por isso consultamos por lotes de IDs (filters=video==a,b,...),
+    # sem sort. Se a API recusar o lote, ele é dividido ao meio até funcionar (ou até 1 vídeo).
+    LOTE_INICIAL = 200
+
+    def ids_videos(self):
+        """IDs de videos.csv, do mais visto ao menos visto (contador público)."""
+        return [v["id"] for v in sorted(self.videos.values(), key=lambda v: -int(v.get("views") or 0))]
+
+    def _lote(self, ids, dims, metrics):
+        q = {"startDate": str(self.desde), "endDate": str(self.data_fim), "dimensions": dims, "metrics": metrics,
+             "filters": "video==" + ",".join(ids)}
+        return self.c.analytics_tabela(**q)
+
+    def consulta_em_lotes(self, ids, dims, metrics, arquivo):
+        """Roda a consulta em lotes; devolve (linhas, tamanho_que_funcionou). Erro de métrica não divide o lote.
+        Se nem 1 vídeo funcionar, levanta o ErroHTTP (quem chamou decide o fallback)."""
+        tam = self.lote_ok.get(dims, self.LOTE_INICIAL)
+        out, i = [], 0
+        while i < len(ids):
+            lote = ids[i:i + tam]
+            try:
+                out += self._lote(lote, dims, metrics)
+                i += len(lote)
+            except ErroHTTP as e:
+                if e.status != 400 or len(lote) == 1 or "identifier" in e.mensagem.lower():
+                    raise
+                tam = max(1, len(lote) // 2)
+                self.c.log(f"  lote de {len(lote)} vídeos recusado ({dims}): tentando {tam}")
+        self.lote_ok[dims] = tam
+        self.nota(arquivo, f"consulta por lotes de até {tam} IDs (filters=video==...; dimensions={dims})")
+        return out
+
     # -- 2. analytics por vídeo
     def exportar_analytics_por_video(self):
         arq = "analytics_por_video.csv"
-        self.c.log(f"2/7 Analytics por vídeo ({self.desde} a {self.data_fim})")
-        base = {"startDate": str(self.desde), "endDate": str(self.data_fim), "dimensions": "video", "sort": "-views"}
+        ids = self.ids_videos()
+        if not ids:
+            raise SystemExit("videos.csv ausente ou vazio: rode antes `python3 exportar.py --so-videos`")
+        self.c.log(f"2/7 Analytics por vídeo ({self.desde} a {self.data_fim}; {len(ids)} vídeos em lotes)")
         por_id = {}
-        for r in self.c.analytics_tabela(paginar=True, metrics=",".join(METRICAS_VIDEO), **base):
+        for r in self.consulta_em_lotes(ids, "video", ",".join(METRICAS_VIDEO), arq):
             por_id[r["video"]] = {"video_id": r["video"], **{m: r.get(m) for m in METRICAS_VIDEO}}
         for coluna, nomes in OPCIONAIS_VIDEO:
             erros = []
             for nome in nomes:
                 try:
-                    rs = self.c.analytics_tabela(paginar=True, metrics=f"views,{nome}", **base)
+                    self._lote(ids[:1], "video", f"views,{nome}")  # sonda barata: 1 vídeo
+                    rs = self.consulta_em_lotes(ids, "video", f"views,{nome}", arq)
                 except ErroHTTP as e:
                     if e.status not in (400, 403):
                         raise
@@ -519,12 +549,10 @@ class Exportador:
             else:
                 self.nota(arq, f"coluna {coluna} vazia: a API recusou ({'; '.join(erros)}). "
                                "Exporte pelo YouTube Studio (Análises > Modo avançado > Conteúdo) para dados/studio/.")
-        regs = list(por_id.values())
+        regs = sorted(por_id.values(), key=lambda r: -float(r.get("views") or 0))
         for r in regs:
             v = self.videos.get(r["video_id"], {})
             r.update(titulo=v.get("titulo", ""), formato=v.get("formato", ""), publicado_em_brt=v.get("publicado_em_brt", ""))
-        if not self.videos:
-            self.nota(arq, "videos.csv ausente: título, formato e data ficaram vazios (rode sem --so-analytics)")
         sem = len(set(self.videos) - set(por_id))
         if sem:
             self.nota(arq, f"{sem} vídeo(s) de videos.csv sem linha no Analytics (sem views no período ou recentes demais)")
@@ -537,43 +565,55 @@ class Exportador:
         d = date.fromisoformat(pub[:10]) if pub else self.desde
         return max(d, self.desde)
 
+    def _por_video_ou_lote(self, ids, dim, arquivo):
+        """Linhas {video, dim, views, estimatedMinutesWatched}: em lote com dimensions=video,<dim>; se a API não
+        aceitar duas dimensões com vários vídeos, uma consulta por vídeo (filters=video==ID, só <dim>)."""
+        met = "views,estimatedMinutesWatched"
+        try:
+            return self.consulta_em_lotes(ids, f"video,{dim}", met, arquivo)
+        except ErroHTTP as e:
+            if e.status != 400:
+                raise
+            self.nota(arquivo, f"a API recusou video,{dim} em lote ({e.mensagem[:100]}); consultei vídeo a vídeo")
+        out = []
+        for n, vid in enumerate(ids, 1):
+            if n % 50 == 0:
+                self.c.log(f"  {dim}: {n}/{len(ids)}")
+            ini = str(self.inicio_video(vid))
+            if ini > str(self.data_fim):
+                continue
+            try:
+                rs = self.c.analytics_tabela(startDate=ini, endDate=str(self.data_fim), filters=f"video=={vid}",
+                                             metrics=met, dimensions=dim)
+            except ErroHTTP as e:
+                if e.status != 400:
+                    raise
+                self.nota(arquivo, f"a API recusou {dim} por vídeo ({e.mensagem[:100]})")
+                return out
+            out += [dict(r, video=vid) for r in rs]
+        return out
+
     def exportar_por_video(self, ids):
         if self.max_videos_detalhe:
             ids = ids[:self.max_videos_detalhe]
             self.nota("trafego_por_video.csv", f"só os {len(ids)} vídeos com mais views (--max-videos-detalhe)")
             self.nota("inscritos_por_video.csv", f"só os {len(ids)} vídeos com mais views (--max-videos-detalhe)")
-        self.c.log(f"3-4/7 tráfego e inscritos por vídeo ({len(ids)} vídeos, 2 consultas cada; retoma do cache)")
-        traf, insc = [], []
-        for n, vid in enumerate(ids, 1):
-            if n % 25 == 0:
-                self.c.log(f"  {n}/{len(ids)}")
-            ini = str(self.inicio_video(vid))
-            if ini > str(self.data_fim):
-                continue
-            q = {"startDate": ini, "endDate": str(self.data_fim), "filters": f"video=={vid}",
-                 "metrics": "views,estimatedMinutesWatched"}
-            try:
-                for r in self.c.analytics_tabela(dimensions="insightTrafficSourceType", sort="-views", **q):
-                    o = r["insightTrafficSourceType"]
-                    traf.append({"video_id": vid, "origem": o, "origem_pt": ORIGENS_PT.get(o, o),
-                                 "views": r["views"], "minutos": r["estimatedMinutesWatched"]})
-            except ErroHTTP as e:
-                if e.status != 400:
-                    raise
-                self.nota("trafego_por_video.csv", f"a API recusou a consulta por origem ({e.mensagem[:120]})")
-            try:
-                reg = {"video_id": vid}
-                for r in self.c.analytics_tabela(dimensions="subscribedStatus", **q):
-                    suf = "inscritos" if r["subscribedStatus"] == "SUBSCRIBED" else "nao_inscritos"
-                    reg[f"views_{suf}"] = r["views"]
-                    reg[f"minutos_{suf}"] = r["estimatedMinutesWatched"]
-                insc.append(reg)
-            except ErroHTTP as e:
-                if e.status != 400:
-                    raise
-                self.nota("inscritos_por_video.csv", f"a API recusou subscribedStatus ({e.mensagem[:120]})")
+        self.c.log(f"3-4/7 tráfego e inscritos por vídeo ({len(ids)} vídeos; retoma do cache)")
+        traf = []
+        for r in self._por_video_ou_lote(ids, "insightTrafficSourceType", "trafego_por_video.csv"):
+            o = r["insightTrafficSourceType"]
+            traf.append({"video_id": r["video"], "origem": o, "origem_pt": ORIGENS_PT.get(o, o),
+                         "views": r["views"], "minutos": r["estimatedMinutesWatched"]})
+        insc = {}
+        for r in self._por_video_ou_lote(ids, "subscribedStatus", "inscritos_por_video.csv"):
+            reg = insc.setdefault(r["video"], {"video_id": r["video"]})
+            suf = "inscritos" if r["subscribedStatus"] == "SUBSCRIBED" else "nao_inscritos"
+            reg[f"views_{suf}"] = r["views"]
+            reg[f"minutos_{suf}"] = r["estimatedMinutesWatched"]
+        ordem = {v: k for k, v in enumerate(ids)}
+        traf.sort(key=lambda r: (ordem.get(r["video_id"], 1e9), -float(r["views"] or 0)))
         self.gravar("trafego_por_video.csv", traf)
-        self.gravar("inscritos_por_video.csv", insc)
+        self.gravar("inscritos_por_video.csv", sorted(insc.values(), key=lambda r: ordem.get(r["video_id"], 1e9)))
 
     # -- 5. canal por mês (e por dia, para datas exatas como 27/08)
     def periodo_meses(self):
@@ -796,8 +836,9 @@ def plano(args, exp_dir=DADOS):
         print(f"            comentários de {args.top_comentarios} vídeos: ~{coment} unidades (1 por página de 100; "
               f"até {args.max_paginas_comentarios} páginas por vídeo, + respostas longas)")
     if not args.so_videos:
-        print(f"  Analytics: por vídeo ~{6 * math.ceil(n / 200)} consultas; tráfego e inscritos por vídeo "
-              f"{2 * det}; mês/dia/origem ~10  (não gasta a quota da Data API)")
+        print(f"  Analytics: por vídeo ~{4 * math.ceil(n / 200) + 6} consultas (lotes de 200 IDs); tráfego e inscritos "
+              f"~{2 * math.ceil(det / 200)} em lote (ou {2 * det} vídeo a vídeo, se a API recusar o lote); "
+              f"mês/dia/origem ~10  (não gasta a quota da Data API)")
         print(f"  período por vídeo: desde {args.desde or 'a criação do canal'}")
     total = (0 if args.so_analytics else data + coment)
     print(f"  TOTAL Data API estimado: ~{total} de 10.000 unidades/dia")

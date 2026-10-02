@@ -30,6 +30,10 @@ Opções:
 | `--recomecar` | apaga o cache e começa do zero |
 | `--pausa 0.3` | segundos entre chamadas |
 
+**Analytics por vídeo:** o relatório de "top vídeos" (`dimensions=video`, `sort=-views`) não passa de 200 linhas: com `startIndex=201`, a API devolve 400 "The query is not supported". Por isso o script não pagina. Ele consulta por lotes de IDs do `videos.csv` (`filters=video==ID1,ID2,…`, sem `sort`), começando com 200 por lote. Se a API recusar o lote, ele é dividido ao meio até funcionar, e o tamanho que funcionou fica registrado no `LEIAME_DADOS.md`. Tráfego e inscritos por vídeo usam `dimensions=video,insightTrafficSourceType` e `video,subscribedStatus` no mesmo esquema de lotes. Se a API não aceitar essas duas dimensões com vários vídeos, o script consulta vídeo a vídeo.
+
+**Só do passo 2 em diante:** `python3 exportar.py --so-analytics` pula vídeos e comentários e reaproveita o `dados/videos.csv` e o cache.
+
 **Retomada:** cada resposta fica em `dados/.cache/`, que o git ignora. Se a execução cair (quota, rede ou Ctrl-C), basta rodar o mesmo comando de novo. O fim do período fica fixo na primeira execução, então a retomada no dia seguinte reaproveita tudo. Se a quota da Data API acabar, o script sai com código 3: rode de novo depois da meia-noite do Pacífico.
 
 **Segurança:** nenhuma credencial vai para a tela, para o log (`dados/.cache/exportar.log`) ou para os arquivos. O cache usa a chave da chamada sem a API key, e o access token fica só na memória. Os testes verificam isso.
