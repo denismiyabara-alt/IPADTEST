@@ -132,6 +132,13 @@ class FakeAPI:
                    [["2026-08-26", 10, 9], ["2026-08-27", 30, 9]]
         elif dims == ["month", "insightTrafficSourceType"]:
             rows = [["2025-05", "RELATED_VIDEO", 29, 50], ["2025-05", "BROWSE", 71, 90]]
+        elif dims == ["insightTrafficSourceDetail"]:
+            assert int(q["maxResults"]) <= 25 and q["sort"] == "-views"
+            assert "insightTrafficSourceType==YT_SEARCH" in q["filters"]
+            if getattr(self, "recusar_termos", False):
+                raise ex.ErroHTTP(400, "badRequest", "The query is not supported.")
+            alvo = q["filters"].split(";")[0] if q["filters"].startswith("video==") else q["startDate"][:7]
+            rows = [[f"termo {k} {alvo}", 100 - k, 200 - k] for k in range(int(q["maxResults"]))]
         elif dims == ["insightTrafficSourceType"]:
             rows = [["RELATED_VIDEO", 3, 5], ["YT_SEARCH", 7, 9]]
         elif dims == ["subscribedStatus"]:
@@ -582,3 +589,61 @@ def test_cache_nao_guarda_key(tmp_path):
     assert a.exists()                                       # a key não entra na chave do cache
     conteudo = json.loads(a.read_text(encoding="utf-8"))
     assert "items" in conteudo
+
+
+def test_termos_de_busca_canal_e_videos(tmp_path):
+    api = FakeAPI(n_videos=8)
+    cli, exp, _ = novo(tmp_path, api)
+    exp.canal()
+    exp.exportar_videos()
+    ids = exp.exportar_analytics_por_video()
+    exp.exportar_por_video(ids)          # gera trafego_por_video.csv (YT_SEARCH vem no mock)
+    exp.leiame("completo")
+    api.chamadas.clear()
+    exp.exportar_termos_busca(meses=3, n_videos=5)
+    qs = [_q(u) for u in api.chamadas if u.startswith(ex.API_ANALYTICS)]
+    assert len(qs) == 3 + 1 + 5
+    assert all(q["dimensions"] == "insightTrafficSourceDetail" and q["maxResults"] == "25" for q in qs)
+    canal = ler(tmp_path / "termos_busca_canal.csv")
+    assert {r["periodo"] for r in canal} == {"2026-07", "2026-08", "2026-09", "total"}
+    assert len(canal) == 4 * 25 and canal[0]["posicao"] == "1"
+    vids = ler(tmp_path / "termos_busca_por_video.csv")
+    assert len({r["video_id"] for r in vids}) == 5 and vids[0]["termo"].startswith("termo 0 video==")
+    exp.leiame_termos()
+    exp.leiame_termos()                  # idempotente: uma seção só
+    leia = (tmp_path / "LEIAME_DADOS.md").read_text(encoding="utf-8")
+    assert leia.count("<!-- termos-busca -->") == 1 and "videos.csv" in leia
+    # retomada: tudo do cache
+    exp.salvar_estado()
+    api.chamadas.clear()
+    _, exp2, _ = novo(tmp_path, api)
+    exp2.exportar_termos_busca(meses=3, n_videos=5)
+    assert not any(u.startswith(ex.API_ANALYTICS) for u in api.chamadas)
+
+
+def test_termos_de_busca_400_vira_nota(tmp_path):
+    api = FakeAPI(n_videos=3)
+    api.recusar_termos = True
+    _, exp, _ = novo(tmp_path, api)
+    exp.canal()
+    exp.exportar_videos()
+    exp.exportar_termos_busca(meses=2, n_videos=3)
+    assert ler(tmp_path / "termos_busca_canal.csv") == []
+    assert any("recusou" in n for n in exp.notas["termos_busca_canal.csv"])
+    assert any("recusou" in n for n in exp.notas["termos_busca_por_video.csv"])
+
+
+def test_main_termos_busca_so_analytics_e_sem_segredo(tmp_path, monkeypatch, capsys):
+    api = FakeAPI(n_videos=4)
+    monkeypatch.setattr(ex.Cliente.__init__, "__defaults__", (None, api, lambda s: None, 0.3, 6, 2.0, None))
+    for k, v in ENV.items():
+        monkeypatch.setenv(k, v)
+    assert ex.main(["--saida", str(tmp_path), "--pausa", "0", "--so-videos", "--top-comentarios", "1"]) == 0
+    api.chamadas.clear()
+    assert ex.main(["--saida", str(tmp_path), "--pausa", "0", "--termos-busca", "--termos-meses", "2",
+                    "--termos-videos", "2"]) == 0
+    assert not any(u.startswith(ex.API_DATA) for u in api.chamadas)
+    assert (tmp_path / "termos_busca_canal.csv").exists()
+    out = capsys.readouterr()
+    for s_ in list(ENV.values()) + [ACCESS]:
+        assert s_ not in out.out + out.err + (tmp_path / "LEIAME_DADOS.md").read_text(encoding="utf-8")

@@ -28,6 +28,7 @@ Opções:
 | `--desde 2023-01-01` | início do período por vídeo (padrão: criação do canal; use esta opção se ficar pesado) |
 | `--max-videos-detalhe 200` | limita tráfego e inscritos por vídeo aos N vídeos com mais views |
 | `--recomecar` | apaga o cache e começa do zero |
+| `--termos-busca` | etapa opcional: só baixa os termos buscados no YouTube (top 25 por mês nos últimos 12 meses e no período todo, e top 25 de cada um dos 50 vídeos com mais views da Pesquisa). Precisa de `videos.csv` e `trafego_por_video.csv` já exportados. Grava `termos_busca_canal.csv` e `termos_busca_por_video.csv` |
 | `--pausa 0.3` | segundos entre chamadas |
 
 **Analytics por vídeo:** o relatório de "top vídeos" (`dimensions=video`, `sort=-views`) não passa de 200 linhas: com `startIndex=201`, a API devolve 400 "The query is not supported". Por isso o script não pagina. Ele consulta por lotes de IDs do `videos.csv` (`filters=video==ID1,ID2,…`, sem `sort`), começando com 200 por lote. Se a API recusar o lote, ele é dividido ao meio até funcionar, e o tamanho que funcionou fica registrado no `LEIAME_DADOS.md`. Tráfego e inscritos por vídeo usam `dimensions=video,insightTrafficSourceType` e `video,subscribedStatus` no mesmo esquema de lotes. Se a API não aceitar essas duas dimensões com vários vídeos, o script consulta vídeo a vídeo.
@@ -66,6 +67,21 @@ Opções:
 ### Quota
 
 A Data API gasta 1 unidade por chamada. São cerca de 2 unidades para o canal e 2 a cada 50 vídeos. Os comentários custam 1 unidade por página de 100, nos 30 vídeos. Para 500 vídeos, a estimativa fica entre **100 e 600 unidades**, do limite de 10.000 por dia. A Analytics API tem limite próprio: são cerca de 2 consultas por vídeo, mais umas 30. O `--dry-run` mostra a estimativa, e o `LEIAME_DADOS.md` registra o que foi gasto.
+
+### Termos de busca (opcional)
+
+```sh
+cd ~/IPADTEST && git pull && cd auditoria-canal \
+  && set -a && source ~/.config/investirecocar/credentials.env && set +a \
+  && python3 exportar.py --termos-busca \
+  && cd .. && git add auditoria-canal/dados/termos_busca_*.csv auditoria-canal/dados/LEIAME_DADOS.md \
+  && git commit -m "auditoria-canal: termos de busca" && git push
+```
+
+A etapa usa `dimensions=insightTrafficSourceDetail` com `insightTrafficSourceType==YT_SEARCH`, com `maxResults=25`, que é
+o limite dessa dimensão. São cerca de 63 consultas ao Analytics e nenhuma unidade da Data API. Se a API recusar alguma
+consulta (400), a etapa continua e registra uma nota na seção dos termos do `LEIAME_DADOS.md`; o resto do arquivo não
+muda.
 
 ## 2. Exportações do Studio (opcionais, recomendadas)
 

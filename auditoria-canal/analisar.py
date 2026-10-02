@@ -79,6 +79,44 @@ TEMAS = [
 ]
 TEMA_CASO, TEMA_OUTROS = "caso com nome", "outros"
 
+# ASSUNTO: classificação por conteúdo (o que o vídeo trata), mais fina que TEMA (que mistura forma e conteúdo, por
+# exemplo "alerta macro" pega qualquer "cuidado"). Usada no ranking de pautas (pautas-canal/temas.py). A ordem
+# importa: o primeiro que casar leva ("ETF que paga todo mês" é renda mensal; "FII será tributado?" é imposto).
+ASSUNTOS = [
+    ("renda mensal", r"mensa|todos? (os )?mes|renda passiva|viver de renda|(renda|receber|ganhar|paga\w*) .{0,25}por mes\b|"
+                     r"dividendos? (todo|mensal)"),
+    ("tesouro e renda fixa", r"tesouro|ipca|\bntn|prefixad|renda fixa|\bcdb|\blci|\blcas?\b|poupanca|selic|"
+                             r"copom|\bcdi\b|caixinha|\bfgc\b|reserva de emergencia|\bcri\b|\bcra\b|debenture"),
+    ("imposto e regras", r"imposto|tribut|\bir\b|\birpf|declar|isent|\bjcp\b|heranca|nova lei|taxad|receita federal"),
+    ("cripto", r"bitcoin|\bbtc\b|cripto|ethereum|\beth\b|blockchain"),
+    ("ETF e exterior", r"\betfs?\b|\bbdrs?\b|s&p|sp500|nasdaq|exterior|dolar|reits?\b|\bjepi|stocks|\beua\b|americ"),
+    ("FII", r"\bfiis?\b|fundos? imobiliari|\bifix\b|\b[a-z]{4}11\b"),
+    ("commodities", r"\bcobre\b|\bouro\b|petroleo|commodit|\bprata\b|minerio|niobio|uranio|litio"),
+    ("bancos e contas", r"nubank|\bnext\b|banco inter|\bc6\b|banco digital|conta digital|abrir conta|conta (para|de) "
+                        r"menor|conta corrente|cartao|\bpix\b|mercado pago|picpay|nuconta|nuinvest|banco pan|cashback"),
+    ("crise e macro", r"crise|bolha|colapso|recess|guerra|calote|cisnes? negros?"),
+    ("juntar dinheiro e aposentadoria", r"milhao|juros compost|centavo|\brico|\bpobre|guardar|juntar|"
+                                        r"aposentad|previdenc|\bvgbl|\bpgbl|seguro de vida|primeiro investimento|"
+                                        r"comecar a investir|independencia financeira"),
+    ("comportamento e família", r"esposa|marido|\bcasa(l|is)\b|pais x|filhos|perfil de investidor|longo prazo|"
+                                r"educacao financeira|dinheiro nao muda|riqueza|liberdade|quanto sobra|aportes|"
+                                r"so te falta|vilao do trabalhador|o que ninguem ve|maior investimento"),
+    ("ações e empresas", r"\b[a-z]{4}[3-6]\b|\bacao\b|\bacoes\b|bolsa|ibovespa|small ?caps?|"
+                         r"barsi|buffett|burry|\bopa\b|\bipo\b|empresa|lucro|dividendo"),
+    ("crise e macro", r"alerta|juros|inflac|economia|\bpib\b|\bfed\b|gringo|mercado|eleic|geopolit|tarifa|trump|china"),
+]
+ASSUNTO_OUTROS = "outros"
+
+
+def assunto(titulo, manual=None):
+    if manual:
+        return manual
+    t = norm(titulo)
+    for nome, rx in ASSUNTOS:
+        if re.search(rx, t):
+            return nome
+    return ASSUNTO_OUTROS
+
 PERGUNTA = re.compile(r"\?|^(como|qual|quais|quando|onde|quanto|quantos|por que|porque|o que|vale a pena|devo|"
                       r"compensa|alguem sabe|sera que|tem como|da pra|da para|voce acha|faz um video|faca um video)\b")
 STOP = set("""a o e de da do das dos que em um uma para pra por com no na nos nas se eu voce vc meu minha isso esse essa

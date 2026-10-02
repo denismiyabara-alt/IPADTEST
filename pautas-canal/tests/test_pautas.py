@@ -1,0 +1,111 @@
+"""Testes de pautas-canal (sem rede). Os que dependem dos dados reais pulam se eles não estiverem no repositório."""
+import csv
+import re
+import sys
+from datetime import date
+from pathlib import Path
+
+import pytest
+
+AQUI = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(AQUI))
+import modelo as mo  # noqa: E402
+import meta as me  # noqa: E402
+import calendario_v2 as cal  # noqa: E402
+import perguntas as pg  # noqa: E402
+from modelo import an  # noqa: E402
+
+DADOS_REAIS = (mo.DADOS / "videos.csv").exists() and (mo.DADOS / "canal_por_mes.csv").exists()
+
+
+def test_quantil_e_meses():
+    assert mo.quantil([1, 2, 3, 4, 5], .5) == 3
+    assert mo.quantil([0, 10], .25) == 2.5
+    assert mo.quantil([], .5) is None
+    assert mo.meses_ate(date(2026, 12, 31)) == pytest.approx(2 + 31 / 30.4)
+
+
+def base_falsa():
+    longo = {"insc_med": 25, "insc_p75": 60, "insc_p90": 150, "insc_mil": 9.0, "esperado": 40, "esperado_p25": 20,
+             "esperado_p75": 70}
+    return {"atual": 165_000, "faltam": 35_000, "perdas_6m": 350, "catalogo": 450, "liq_6m": 400,
+            "longos_mes_max": 12, "longo": longo, "short": {"esperado": 1.5}}
+
+
+def test_cenario_fecha_a_conta():
+    b = base_falsa()
+    c = mo.cenario(b, date(2027, 12, 31))
+    assert c["liquidos"] * c["meses"] == pytest.approx(35_000)
+    assert c["ganhos"] == pytest.approx(c["liquidos"] + 350)
+    assert c["novos"] == pytest.approx(c["ganhos"] - 450)
+    assert c["longos_insc_med"] == pytest.approx(c["novos"] / 25)
+    assert c["insc_por_longo_no_max"] == pytest.approx(c["novos"] / 12)
+    assert c["views_intenc_novos"] == pytest.approx(c["novos"] / 0.009)
+    assert c["x_ritmo"] == pytest.approx(c["liquidos"] / 400)
+
+
+def test_projecao():
+    quando, meses = mo.projecao(base_falsa(), 1000)
+    assert meses == 35 and quando == date(2029, 9, 1)
+    assert mo.projecao(base_falsa(), 0) is None
+
+
+def test_metas_mensais_rampa_e_defasagem():
+    b = base_falsa()
+    p = {"novos": 1000.0, "novos_shorts": 0.0}
+    m = me.metas_mensais(b, p, meses=4, rampa={"2026-10": 0.5}, defasagem=(0.6, 0.25, 0.15))
+    # out: 0,5 × 1000 × 0,6; nov: 1000 × 0,6 + 500 × 0,25; dez: 600 + 250 + 75; jan: regime 1000
+    assert [round(x["ganhos"] - 450) for x in m] == [300, 725, 925, 1000]
+    assert m[-1]["liquidos"] == pytest.approx(450 + 1000 - 350)
+    assert m[0]["inscritos_fim_mes"] == pytest.approx(165_000 + 450 + 300 - 350)
+    assert me.data_meta(b, m, 1100) is not None
+
+
+def test_calendario_v2_assunto_sai_do_titulo_e_regras():
+    longos = [p for p in cal.PAUTAS if p[1] == cal.L]
+    shorts = [p for p in cal.PAUTAS if p[1] == cal.S]
+    assert len(longos) == 21 and len(shorts) == 16
+    for data_, fmt, assunto, titulo, *_ in cal.PAUTAS:
+        assert an.assunto(titulo) == assunto, titulo
+        assert date(2026, 10, 5) <= date.fromisoformat(data_) <= date(2026, 11, 29)
+        t = an.norm(titulo)
+        assert not re.search(r"cartao|divida pessoal|lula|bolsonaro|eleic|corretora|compre\b", t), titulo
+    assert any(p[0] == "2026-11-05" and "Copom" in p[3] for p in longos)
+    # 2 longos por semana até 25/10 e 3 depois (9 em outubro, 12 em novembro)
+    out = sum(1 for p in longos if p[0] < "2026-11-01")
+    assert out == 9 and len(longos) - out == 12
+
+
+def test_perguntas_criterio(tmp_path):
+    arq = tmp_path / "c.csv"
+    cab = ["video_id", "comentario_id", "resposta_a", "autor_canal_id", "eh_do_canal", "texto", "likes", "publicado_em",
+           "eh_resposta"]
+    linhas = [["v", "a", "", "h", "0", "Como declarar FII?", "3", "", "0"],
+              ["v", "b", "", "h", "0", "Ótimo vídeo", "1", "", "0"],
+              ["v", "c", "", "h", "0", "Qual a taxa?", "0", "", "0"],
+              ["v", "r1", "a", "hc", "1", "Assim", "0", "", "1"],           # canal respondeu a "a"
+              ["v", "r2", "c", "h2", "0", "Não sei", "0", "", "1"]]          # resposta de usuário não conta
+    with open(arq, "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(cab)
+        w.writerows(linhas)
+    perg, sem = pg.perguntas_sem_resposta(arq)
+    assert [c["comentario_id"] for c in perg] == ["a", "c"]
+    assert [c["comentario_id"] for c in sem] == ["c"]
+    assert pg.tema("O cartão tem anuidade?").endswith("(fora do escopo)")
+    assert pg.tema("Como declarar no imposto de renda?").startswith("Imposto")
+    assert pg.tema("dobra como?", pg.SHORT_1_CENTAVO) == pg.GRUPO_1_CENTAVO
+
+
+@pytest.mark.skipif(not DADOS_REAIS, reason="dados reais ausentes")
+def test_modelo_com_dados_reais_calibra_com_o_ritmo_de_hoje():
+    d = mo.carregar()
+    b = mo.base(d)
+    # a árvore com a produção de hoje (8 longos e 5,5 Shorts) tem de dar perto do ritmo real (±25%)
+    hoje = b["catalogo"] + 8 * b["longo"]["esperado"] + 5.5 * b["short"]["esperado"] - b["perdas_6m"]
+    assert hoje == pytest.approx(b["liq_6m"], rel=0.25)
+    r = me.gerar(d)
+    assert r["quando"] > "2027-12"                     # 200 mil em 2027 não sai do plano recomendado
+    assert [a["central"] for a in r["alavancas"]] == sorted((a["central"] for a in r["alavancas"]), reverse=True)
+    rk, tot, _ = mo.ranking(d, "longo", "12 meses")
+    assert sum(r_["n"] for r_ in rk) == tot["n"]

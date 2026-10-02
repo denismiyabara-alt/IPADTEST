@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gera CALENDARIO-8-SEMANAS.csv e a tabela do CALENDARIO-8-SEMANAS.md a partir das pautas abaixo (fonte única).
+"""Gera CALENDARIO-8-SEMANAS_v1.csv e a tabela do CALENDARIO-8-SEMANAS_v1.md a partir das pautas abaixo (fonte única).
 
 Volume provável (sem inventar número): a regra usa só os dados do próprio canal, em
 auditoria-canal/dados/trafego_por_video.csv (origem YT_SEARCH, vitalício, 300 vídeos com mais views):
@@ -219,10 +219,10 @@ PAUTAS = [
 ]
 
 
-CABECALHO = """# Calendário de 8 semanas (05/10 a 29/11/2026)
+CABECALHO = """# Calendário de 8 semanas: v1 (substituída pela v2 em CALENDARIO-8-SEMANAS.md)
 
-Gerado por `calendario.py` (a fonte das pautas). A mesma tabela, com todas as colunas, está em
-`CALENDARIO-8-SEMANAS.csv`. Os números vêm de `auditoria-canal/RELATORIO.md`.
+Gerado por `calendario_v1.py` (a fonte das pautas). A mesma tabela, com todas as colunas, está em
+`CALENDARIO-8-SEMANAS_v1.csv`. Os números vêm de `auditoria-canal/RELATORIO.md`.
 
 **Ritmo:** 2 longos por semana, sempre às 19 h, que é o horário de quase todo o canal. Dia e hora não
 separaram top de fracos.
@@ -291,12 +291,12 @@ def markdown():
 
 
 def main():
-    with open(AQUI / "CALENDARIO-8-SEMANAS.csv", "w", newline="", encoding="utf-8") as f:
+    with open(AQUI / "CALENDARIO-8-SEMANAS_v1.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=COLS)
         w.writeheader()
         w.writerows(PAUTAS)
-    (AQUI / "CALENDARIO-8-SEMANAS.md").write_text(markdown(), encoding="utf-8")
-    print(f"ok: {len(PAUTAS)} pautas em CALENDARIO-8-SEMANAS.csv e .md")
+    (AQUI / "CALENDARIO-8-SEMANAS_v1.md").write_text(markdown(), encoding="utf-8")
+    print(f"ok: {len(PAUTAS)} pautas em CALENDARIO-8-SEMANAS_v1.csv e .md")
 
 
 if __name__ == "__main__":
