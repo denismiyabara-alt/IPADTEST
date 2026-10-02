@@ -9,15 +9,33 @@ Arquivo único, sem dependências externas: `simulador-ntnb/index.html`.
 
 Metodologia: fluxos descontados por (1 + taxa)^(DU/252), cupom de 2,956301% ao semestre, dias úteis pelo calendário de feriados nacionais. O VNA é projetado pelo IPCA informado pelo usuário. Os valores são brutos, sem IR e sem custódia.
 
-## Como colocar no site
+## Como colocar no site (WordPress)
 
-**Opção 1: subir o arquivo e usar iframe (funciona em qualquer site)**
+O site [investirecocaresocomecar.com.br](https://investirecocaresocomecar.com.br/) usa endereços no padrão do WordPress. Para ele, use o arquivo **`simulador-ntnb/embed-wordpress.html`**. É um trecho pronto para colar, com o CSS isolado dentro do simulador para não brigar com o tema.
 
-1. Hospede `simulador-ntnb/index.html` no seu servidor ou na biblioteca de mídia, por exemplo em `https://seusite.com.br/simulador-ntnb/`.
-2. Cole na página:
+### Editor de blocos (Gutenberg)
+
+1. No painel, vá em **Páginas → Adicionar nova**. Título sugerido: *Simulador de Marcação a Mercado do Tesouro IPCA+*.
+2. Clique no **+**, procure **HTML personalizado** e adicione o bloco.
+3. Abra `embed-wordpress.html` [aqui no GitHub](https://github.com/denismiyabara-alt/IPADTEST/blob/claude/friendly-shannon-jjlw8c/simulador-ntnb/embed-wordpress.html), clique em **Raw**, selecione tudo e copie.
+4. Cole no bloco, clique em **Visualizar** para conferir e depois em **Publicar**.
+5. Endereço sugerido (campo *slug*): `simulador-ntnb`.
+
+### Elementor
+
+Arraste o widget **HTML** para a página e cole o mesmo conteúdo.
+
+### Se o simulador aparecer como texto ou sem funcionar
+
+- Seu usuário precisa ser **Administrador**: o WordPress remove `<script>` colado por outros perfis.
+- Alguns plugins de segurança ou de cache (minificação de JS) podem bloquear scripts embutidos. Exclua essa página da minificação.
+
+## Outras formas de publicar
+
+**Página própria + iframe:** hospede `simulador-ntnb/index.html` em qualquer servidor e incorpore com:
 
 ```html
-<iframe id="simulador-ntnb" src="https://seusite.com.br/simulador-ntnb/"
+<iframe id="simulador-ntnb" src="https://SEU-ENDERECO/simulador-ntnb/"
         style="width:100%;border:0;min-height:1400px" loading="lazy"
         title="Simulador de marcação a mercado NTN-B"></iframe>
 <script>
@@ -29,12 +47,8 @@ Metodologia: fluxos descontados por (1 + taxa)^(DU/252), cupom de 2,956301% ao s
 </script>
 ```
 
-O script ajusta a altura do iframe automaticamente, então não fica barra de rolagem dupla.
+O script ajusta a altura do iframe automaticamente.
 
-**Opção 2: WordPress**
+## Manutenção
 
-Use um bloco "HTML personalizado" com o iframe acima. Se o tema permitir, também dá pra colar o conteúdo do arquivo direto no bloco.
-
-**Opção 3: GitHub Pages**
-
-Em *Settings → Pages* deste repositório, publique a branch. O simulador fica em `https://<usuario>.github.io/<repo>/simulador-ntnb/`.
+Edite só o `index.html` e depois rode `python3 simulador-ntnb/build-embed.py` para regerar a versão do WordPress.
