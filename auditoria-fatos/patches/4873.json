@@ -15,9 +15,12 @@
    "de_rendered": "O valor líquido que cai na sua conta já vem com o desconto de 15%."
   },
   {
-   "de": "50 cotistas)",
-   "para": "99 cotistas, isto é, 100 ou mais)",
-   "de_rendered": "50 cotistas)"
+   "de": "> 50 cotistas)",
+   "para": "100 ou mais cotistas)",
+   "de_rendered": "&gt; 50 cotistas)",
+   "alternativas": [
+    "&gt; 50 cotistas)"
+   ]
   },
   {
    "de": "Isento (dividendos), 15% (JCP)",

@@ -33,7 +33,7 @@ from pathlib import Path
 
 AQUI = Path(__file__).resolve().parent
 sys.path.insert(0, str(AQUI))
-from patchlib import casar_exato, casar_tolerante  # noqa: E402
+from patchlib import casar_tolerante, escolher_de  # noqa: E402
 
 PATCHES = AQUI / "patches"
 BACKUP = AQUI / "backup"
@@ -90,7 +90,7 @@ def checar_post(wp, patch):
     if "elementor" in raw.lower():
         linhas.append("  ATENÇÃO: o raw menciona elementor; a página pode não usar content.raw")
     for i, t in enumerate(patch["trocas"], 1):
-        n = casar_exato(raw, t["de"])
+        _, n = escolher_de(raw, t)
         esperado = t.get("n", 1)
         if n == esperado:
             linhas.append(f"  [{i}] OK ({n}x): {t['de'][:70]}")
@@ -114,9 +114,10 @@ def aplicar_trocas(raw, trocas):
     novo = raw
     for t in trocas:
         esperado = t.get("n", 1)
-        if novo.count(t["de"]) != esperado:
+        de, n = escolher_de(novo, t)
+        if n != esperado:
             raise ValueError(f"'de' mudou de contagem durante a aplicação: {t['de'][:60]}")
-        novo = novo.replace(t["de"], t["para"])
+        novo = novo.replace(de, t["para"])
     return novo
 
 

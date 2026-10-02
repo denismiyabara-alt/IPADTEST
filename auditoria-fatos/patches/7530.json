@@ -13,15 +13,10 @@
    "de": "utilities (SAPR, TRPL)",
    "para": "utilities (SAPR, ISAE)",
    "de_rendered": "utilities (SAPR, TRPL)"
-  },
-  {
-   "de": "Descontado o imposto de renda (para quem recebe acima de R$",
-   "para": "Descontado o imposto de renda (em 2026, isento até R$ 5 mil por mês e com redução parcial até R$ 7.350, pela Lei 15.270/2025; antes, o limite era R$",
-   "de_rendered": "Descontado o imposto de renda (para quem recebe acima de R$"
   }
  ],
  "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15270.htm ; https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/historico/mercado-a-vista/series-historicas/ (TRPL4 último pregão 14/11/2024; ISAE4 desde 18/11/2024)",
  "manual": [
-  "Conferir o valor líquido do teto do INSS ('entre R$ 7.600 e R$ 7.900') com a tabela do IRPF de 2026."
+  "Frase do teto do INSS: '(para quem recebe acima de R$ 2.824,29)' usa o limite de isenção antigo; desde 2026 a isenção vai até R$ 5 mil por mês, com redução parcial até R$ 7.350 (Lei 15.270/2025). Reescrever a frase e conferir o líquido ('entre R$ 7.600 e R$ 7.900') com a tabela de 2026 (o trecho tem espaço não separável, não é seguro casar)."
  ]
 }

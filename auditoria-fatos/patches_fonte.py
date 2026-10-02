@@ -49,7 +49,7 @@ post(4873, "A", "JCP a 15% (é 17,5% desde 2026), FII com 50 cotistas (são 100)
          ("15% de IR na fonte", "17,5% de IR na fonte (desde 2026)"),
          ("O valor líquido que cai na sua conta já vem com o desconto de 15%.",
           "O valor líquido que cai na sua conta já vem com o desconto de 17,5% (alíquota do JCP desde 2026)."),
-         ("50 cotistas)", "99 cotistas, isto é, 100 ou mais)"),
+         ("> 50 cotistas)", "100 ou mais cotistas)"),
          ("Isento (dividendos), 15% (JCP)", "Isento (dividendos até R$ 50 mil/mês por empresa), 17,5% (JCP)"),
          ("onde a empresa desconta 15% na fonte antes de creditar na sua conta",
           "onde a empresa desconta 17,5% na fonte antes de creditar na sua conta"),
@@ -338,10 +338,8 @@ post(7530, "A", "Dividendos isentos sem a regra de 2026, limite de isenção do 
      [
          ("Dividendos no Brasil são isentos de IR para pessoa física.", "Dividendos no Brasil são isentos de IR para pessoa física até R$ 50 mil por mês por empresa."),
          ("utilities (SAPR, TRPL)", "utilities (SAPR, ISAE)"),
-         ("Descontado o imposto de renda (para quem recebe acima de R$",
-          "Descontado o imposto de renda (em 2026, isento até R$ 5 mil por mês e com redução parcial até R$ 7.350, pela Lei 15.270/2025; antes, o limite era R$"),
      ],
-     manual=["Conferir o valor líquido do teto do INSS ('entre R$ 7.600 e R$ 7.900') com a tabela do IRPF de 2026."])
+     manual=["Frase do teto do INSS: '(para quem recebe acima de R$ 2.824,29)' usa o limite de isenção antigo; desde 2026 a isenção vai até R$ 5 mil por mês, com redução parcial até R$ 7.350 (Lei 15.270/2025). Reescrever a frase e conferir o líquido ('entre R$ 7.600 e R$ 7.900') com a tabela de 2026 (o trecho tem espaço não separável, não é seguro casar)."])
 
 # =====================================================================================================  LOTE B
 post(4537, "B", "Destino do 301 do 1083. Tratava o JEPQ39 como BDR negociado na B3: não existe (nenhum negócio no COTAHIST "

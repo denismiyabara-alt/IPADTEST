@@ -86,6 +86,14 @@ def test_n_esperado_troca_as_duas(ambiente):
     assert AP.cmd_aplicar(wp2, [8], p, b, saida=lambda *_: None)["pulados"] == [8]
 
 
+def test_alternativa_com_entidade(ambiente):
+    p, b = ambiente
+    wp = FakeWP({9: "<td>Isento (cotas em bolsa, &gt; 50 cotistas)</td>"})
+    escrever_patch(p, 9, [{"de": "> 50 cotistas)", "para": "100 ou mais cotistas)", "alternativas": ["&gt; 50 cotistas)"]}])
+    assert AP.cmd_aplicar(wp, [9], p, b, saida=lambda *_: None)["aplicados"] == [9]
+    assert wp.posts[9] == "<td>Isento (cotas em bolsa, 100 ou mais cotistas)</td>"
+
+
 def test_um_patch_ruim_trava_o_post_inteiro(ambiente):
     p, b = ambiente
     wp = FakeWP({4: "<p>A primeira frase certa aqui.</p><p>Segunda.</p>"})

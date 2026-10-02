@@ -20,7 +20,7 @@ from pathlib import Path
 AQUI = Path(__file__).resolve().parent
 sys.path.insert(0, str(AQUI))
 from auditar import carregar_posts  # noqa: E402
-from patchlib import localizar_no_rendered, problemas_do_de  # noqa: E402
+from patchlib import alternativas, localizar_no_rendered, problemas_do_de  # noqa: E402
 import patches_fonte as F  # noqa: E402
 
 SAIDA = AQUI / "patches"
@@ -58,6 +58,8 @@ def validar(pid, item, rendered):
         t = {"de": de, "para": para, "de_rendered": de_r}
         if tot != 1:
             t["n"] = tot
+        if alternativas(de):
+            t["alternativas"] = alternativas(de)
         trocas.append(t)
     return erros, trocas
 

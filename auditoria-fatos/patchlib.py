@@ -51,10 +51,14 @@ def normalizar_com_mapa(s):
     return "".join(out), mapa
 
 
+# '>' é aceito: o raw pode ter '>' ou '&gt;'; o gerador grava as duas formas (campo "alternativas")
+PERMITIDOS_COM_ALTERNATIVA = set(">")
+
+
 def problemas_do_de(de):
     """Lista de motivos que tornam o 'de' inseguro para casar com o raw."""
     p = []
-    ruins = sorted({c for c in de if c in PROIBIDOS})
+    ruins = sorted({c for c in de if c in PROIBIDOS and c not in PERMITIDOS_COM_ALTERNATIVA})
     if ruins:
         p.append("caracteres que o WordPress transforma: " + " ".join(repr(c) for c in ruins))
     if "--" in de or "..." in de:
@@ -129,3 +133,20 @@ def casar_tolerante(raw, de):
         achados.append(raw[mapa[k]:mapa[k + len(alvo)]])
         k = norm.find(alvo, k + 1)
     return achados
+
+
+def alternativas(de):
+    """Formas do 'de' com entidade, para o raw que guardou '&gt;' em vez de '>'."""
+    alt = de.replace(">", "&gt;")
+    return [alt] if alt != de else []
+
+
+def escolher_de(raw, troca):
+    """Devolve (de_que_casa, contagem). Tenta o 'de' e as alternativas; prefere a que casa o número esperado."""
+    esperado = troca.get("n", 1)
+    opcoes = [troca["de"]] + troca.get("alternativas", [])
+    contagens = [(o, raw.count(o)) for o in opcoes]
+    for o, n in contagens:
+        if n == esperado:
+            return o, n
+    return max(contagens, key=lambda x: x[1])
