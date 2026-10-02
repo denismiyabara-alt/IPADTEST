@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name:       IEC Ferramentas
- * Description:       Calculadoras e simuladores do Investir e Coçar. Use o shortcode [iec_ferramenta id="simulador-ntnb"].
- * Version:           1.0.0
+ * Description:       Calculadoras e simuladores do Investir e Coçar. Use o shortcode [iec_ferramenta id="simulador-ntnb"] ou [iec_ferramenta id="renda-fii"].
+ * Version:           1.1.0
  * Requires at least: 5.6
  * Requires PHP:      7.4
  * Author:            Investir e Coçar

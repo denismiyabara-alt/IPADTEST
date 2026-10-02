@@ -1,0 +1,81 @@
+<div id="renda-fii" class="iec-ferramenta">
+  <header>
+    <p class="eyebrow">FIIs · Ferramenta</p>
+    <h2 class="titulo">Simulador de renda mensal com fundos imobiliários</h2>
+    <p>Quanto tempo até o aluguel dos seus FIIs pagar uma conta da casa? Simule a renda mês a mês, reinvestindo os rendimentos ou gastando tudo, e veja a diferença que a bola de neve faz.</p>
+  </header>
+  <div class="grid">
+    <div class="card">
+      <h3>Seus números</h3>
+      <label for="f-inicial">Valor investido hoje (R$)</label>
+      <input id="f-inicial" type="number" inputmode="decimal" min="0" step="1000" value="10000">
+      <label for="f-dy">Dividend yield mensal (% ao mês)</label>
+      <input id="f-dy" type="number" inputmode="decimal" min="0" max="5" step="0.05" value="0.80">
+      <label for="f-aporte">Aporte mensal (R$)</label>
+      <input id="f-aporte" type="number" inputmode="decimal" min="0" step="100" value="500">
+      <div class="row2">
+        <div><label for="f-anos">Prazo (anos)</label><input id="f-anos" type="number" inputmode="numeric" min="1" max="30" step="1" value="10"></div>
+        <div><label for="f-inflacao">Inflação (% ao ano)</label><input id="f-inflacao" type="number" inputmode="decimal" min="0" max="30" step="0.5" value="4.5"></div>
+      </div>
+      <div class="hint">Todos os valores são exemplos. Troque pelos seus. O dividend yield muda de fundo para fundo e de mês para mês.</div>
+      <label class="check" for="f-real"><input id="f-real" type="checkbox"> Mostrar detalhes em dinheiro de hoje</label>
+      <div class="err" id="f-err" hidden></div>
+    </div>
+
+    <div class="stack">
+      <div class="card">
+        <div class="fine" id="f-label"></div>
+        <div class="duplo">
+          <div><div class="k">Renda nominal</div><div class="big pos" id="f-renda"></div></div>
+          <div><div class="k">Renda em dinheiro de hoje</div><div class="big pos" id="f-renda-hoje"></div></div>
+        </div>
+        <div class="fine" id="f-inf-nota"></div>
+        <div class="modo" id="f-modo"></div>
+        <div class="stats">
+          <div class="stat"><div class="k">Renda/mês sem reinvestir</div><div class="v" id="f-renda-sem"></div></div>
+          <div class="stat"><div class="k">Patrimônio reinvestindo</div><div class="v" id="f-pat"></div></div>
+          <div class="stat"><div class="k">Total que saiu do seu bolso</div><div class="v" id="f-investido"></div></div>
+          <div class="stat"><div class="k">Renda passa o aporte em</div><div class="v" id="f-cruza"></div></div>
+        </div>
+        <div class="story" id="f-story"></div>
+      </div>
+      <div class="card">
+        <h3 id="f-graf-titulo">Renda mensal ao longo do tempo</h3>
+        <div class="legenda">
+          <span><i class="sw sw-reinv"></i>Reinvestindo</span>
+          <span><i class="sw sw-sem"></i>Sem reinvestir</span>
+          <span><i class="sw sw-aporte"></i>Aporte mensal</span>
+        </div>
+        <svg id="f-graf" viewBox="0 0 600 300" role="img" aria-label="Renda mensal nos dois cenários ao longo dos anos"></svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="card tabela-card">
+    <h3 id="f-tab-titulo">Ano a ano</h3>
+    <div class="rolagem">
+      <table>
+        <thead><tr><th>Ano</th><th>Renda/mês reinvestindo</th><th>Renda/mês sem reinvestir</th><th>Patrimônio reinvestindo</th><th>Rendimentos sacados (sem reinvestir)</th></tr></thead>
+        <tbody id="f-tabela"></tbody>
+      </table>
+    </div>
+    <div class="fine nota-base">Renda/mês é o rendimento pago no último mês de cada ano. "Rendimentos sacados" soma tudo o que foi pago e gasto até ali no cenário sem reinvestir.</div>
+  </div>
+
+  <section class="explain">
+    <h2>Por que reinvestir faz tanta diferença?</h2>
+    <p>Quem gasta o rendimento todo mês tem uma renda que só cresce quando entra dinheiro novo. É uma escada: cada aporte sobe um degrau, e só.</p>
+    <p>Quem reinveste compra mais cotas com o próprio rendimento. Essas cotas novas também pagam rendimento, que compra mais cotas, e assim por diante. No começo a diferença parece mixaria. Com o tempo, é ela que carrega o resultado.</p>
+    <p>Repare no momento em que a renda passa o aporte. A partir dali, o fundo coloca na sua carteira mais dinheiro por mês do que você.</p>
+    <h2 class="secao">Premissas do simulador</h2>
+    <ul class="fine">
+      <li>Dividend yield constante durante todo o prazo. Na vida real ele sobe e desce com juros, vacância, inadimplência e a gestão de cada fundo.</li>
+      <li>Preço da cota fixo: o simulador não considera valorização nem desvalorização das cotas.</li>
+      <li>O rendimento do mês é calculado sobre o patrimônio do mês anterior. O aporte entra no fim do mês.</li>
+      <li>No cenário reinvestindo, todo o rendimento compra cotas, inclusive frações. Na prática só dá para comprar cotas inteiras.</li>
+      <li>Sem impostos, taxas, corretagem ou custos de qualquer tipo.</li>
+      <li>"Dinheiro de hoje" desconta a inflação informada, acumulada até cada mês e constante ao longo do prazo. Valores nominais não descontam nada.</li>
+      <li>Ferramenta educativa. Não é recomendação de investimento nem indicação de qualquer fundo.</li>
+    </ul>
+  </section>
+</div>

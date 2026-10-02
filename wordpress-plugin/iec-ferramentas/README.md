@@ -54,4 +54,10 @@ Handles registrados, caso o WP-Optimize ou outro plugin peça por nome:
 
 ## Ferramentas incluídas
 
-- `simulador-ntnb`: simulador de marcação a mercado do Tesouro IPCA+ (NTN-B).
+- `simulador-ntnb`: simulador de marcação a mercado do Tesouro IPCA+ (NTN-B). Contêiner `#sim-ntnb`.
+- `renda-fii`: simulador de renda mensal com fundos imobiliários, reinvestindo ou não, em valores nominais e em dinheiro de hoje. Contêiner `#renda-fii`.
+
+## Versões
+
+- 1.1.0: adiciona `renda-fii`.
+- 1.0.0: primeira versão, com `simulador-ntnb`.
