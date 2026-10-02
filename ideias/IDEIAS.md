@@ -8,7 +8,7 @@ Tarefa 26 do pacote. Todos os números vêm de arquivos deste repo ou dos repos 
 
 | # | ideia | impacto | esforço do Denis | número que sustenta |
 |---|---|---|---|---|
-| 1 | Auditar e trazer de volta os longos que estão fora do ar | **alto** | médio (decidir 30 vídeos) | 285 longos fora do ar fizeram 32,7% dos inscritos vitalícios vindos de longos |
+| 1 | Regravar os 6 temas perenes dos longos fora do ar (não republicar) | médio-alto | baixo (confirmar 7 linhas) | 285 longos fora do ar fizeram 32,7% dos inscritos de longos; dos 30 maiores, 23 são recomendação datada e 7 são tema perene (8.137 inscritos) |
 | 2 | Série fixa de renda mensal, 1 por semana | alto | baixo (já está no calendário) | 14,5 inscritos por mil views intencionais, contra 8,2 do resto (n = 6) |
 | 3 | Continuações dos 10 longos top do ano | alto | baixo | os 10 melhores fizeram 58% dos inscritos dos 80 longos novos |
 | 4 | Título de busca e "Testar e comparar" em todo longo | médio | baixo (5 min por vídeo) | CTR de busca 12,3% contra 7,2% da página inicial |
@@ -23,12 +23,19 @@ Tarefa 26 do pacote. Todos os números vêm de arquivos deste repo ou dos repos 
 
 ## Para fazer
 
-### 1. Trazer de volta os longos que estão fora do ar
+### 1. Regravar os temas perenes dos longos fora do ar (não republicar)
 
-- **O dado:** 285 longos estão no Studio, mas fora da playlist pública (privados, não listados ou excluídos). Eles somam 4,15 milhões de views e 52.351 inscritos, que são **32,7% de todos os inscritos que vieram de longos**. Os maiores são de 2020 a 2022, sobre bancos digitais (Next, Nubank, Santander) e ações (IRBR3, OIBR3). Bancos digitais ainda são 25,7% dos comentários do catálogo. Fonte: `auditoria-canal/RELATORIO.md`, seção 4.
-- **O que fazer:** eu gero a lista dos 30 maiores com o motivo provável. O Denis marca cada um como "volta", "regravar atualizado" ou "fica fora". Pode ter saído por motivo legal ou por estar desatualizado, e é por isso que a decisão é dele.
-- **Por que é a primeira:** é a única alavanca que não depende de produzir vídeo novo. Um vídeo de busca perene volta a trabalhar no dia em que fica público.
-- **Risco:** um vídeo velho com número velho é pior do que nenhum. Tudo o que voltar ganha um card "dados de 20XX" e passa pelo gate antes.
+- **O dado:** 285 longos estão no Studio, mas fora da playlist pública (privados, não listados ou excluídos). Eles somam 4,15 milhões de views e 52.351 inscritos, que são **32,7% de todos os inscritos que vieram de longos**. Fonte: `auditoria-canal/RELATORIO.md`, seção 4.
+- **O que a lista dos 30 maiores mostrou** (`fora-do-ar-top30.csv`, gerado por `fora_do_ar.py`): 23 dos 30 são chamadas de compra ou venda, ou notícias de 2019 a 2022 ("COMPRE SÓ HOJE", "preço-alvo", "melhores ações para 2020", IRBR3, OIBR3, VVAR3). **Esses não devem voltar:** é provável que tenham saído justamente por isso, e o gate barraria todos. Republicar seria risco sem retorno.
+- **O que vale:** 7 dos 30 tratam de temas que continuam sendo buscados e que dá para fazer sem recomendar ativo. Juntos, fizeram 8.137 inscritos e 383.912 views:
+  - comparar bancos digitais (o Next × Nubank, com 3.474 inscritos, é o maior dos 285);
+  - cheque especial e os dias sem juros;
+  - quanto rendem R$ 100, R$ 1.000 e R$ 10.000;
+  - como investir em empresa americana pela B3 (BDR);
+  - desdobramento de ações;
+  - follow-on (2 vídeos).
+- **O que fazer:** regravar esses 6 temas, atualizados para 2026, com título de busca e sem nome de banco no título. O Denis confirma na coluna `decisao_denis` do CSV.
+- **Impacto:** a demanda está provada pelo próprio canal, mas um vídeo novo não herda os inscritos do antigo. O efeito esperado é o de um longo de busca bom, não o de "recuperar 8 mil inscritos".
 
 ### 2. Série fixa de renda mensal
 
@@ -92,5 +99,5 @@ Tarefa 26 do pacote. Todos os números vêm de arquivos deste repo ou dos repos 
 ## O que eu faria primeiro
 
 1. **Esta semana:** a 7 (já feita no painel), a 2 e a 3 (só escolher a pauta) e a 10 (desligar).
-2. **Próximas 2 semanas:** a 1. Eu gero a lista dos 30 e o Denis decide em uma sessão de 1 hora.
+2. **Próximas 2 semanas:** a 1. A lista dos 30 já está pronta; o Denis confirma os 7 perenes e eles entram no calendário.
 3. **Contínuo:** a 4 e a 5 viram rotina; a 6 entra num lote só, como os patches de fatos.
