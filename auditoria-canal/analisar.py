@@ -71,7 +71,7 @@ TEMAS = [
                        r"\brenda\b"),
     ("produto / comparativo", r"tesouro|\bcdb|\blci|\blca|\bfiis?\b|fundos? imobiliari|poupanca|\bacoes\b|\betf|"
                               r"previdencia|\bcdi\b|ipca|\bvs\.?\b|\bx\b|melhor investimento|onde investir|"
-                              r"renda fixa|dividendo"),
+                              r"renda fixa|dividendo|\b[a-z]{4}\d{1,2}\b"),  # ticker (BBAS3, CASA11) = produto, não "caso"
     ("educativo / iniciante", r"\bcomo\b|comecar|iniciante|passo a passo|\berros?\b|aprenda|entenda|o que e\b|guia|"
                               r"\bdicas?\b|nunca|segredo"),
 ]
@@ -168,7 +168,7 @@ def caso_com_nome(titulo):
     # Duas palavras seguidas com inicial maiúscula (não tudo em caixa alta), fora do começo do título e fora
     # de NAO_NOMES: "... com Luiz Barsi", "... da Banco Master".
     palavras = re.findall(r"[\wÀ-ÿ'’]+", titulo or "")
-    iniciais = [p[0].isupper() for p in palavras if len(p) > 3]
+    iniciais = [p[0].isupper() for p in palavras if len(p) > 3 and not p.isupper()]
     if iniciais and sum(iniciais) / len(iniciais) > 0.6:  # Título Em Caixa De Título: a regra não serve
         return False
     cap = [len(p) > 1 and p[0].isupper() and not p.isupper() and norm(p) not in NAO_NOMES for p in palavras]
@@ -195,7 +195,11 @@ CABECALHOS = {
     "titulo do video": "titulo", "video title": "titulo", "titulo": "titulo", "title": "titulo",
     "horario de publicacao do video": "publicado", "video publish time": "publicado",
     "duracao": "duracao_s", "duration": "duracao_s",
-    "impressoes": "impressoes", "impressions": "impressoes",
+    "impressoes": "impressoes", "impressions": "impressoes", "impressoes de miniaturas": "impressoes",
+    "thumbnail impressions": "impressoes",
+    "taxa de cliques na miniatura": "ctr", "thumbnail click-through rate": "ctr",
+    "visualizacoes intencionais": "views_engajadas", "intentional views": "views_engajadas",
+    "inscricoes obtidas": "inscritos_ganhos", "inscricoes": "inscritos",
     "taxa de cliques de impressoes": "ctr", "impressions click-through rate": "ctr",
     "taxa de cliques das impressoes": "ctr", "ctr das impressoes": "ctr", "ctr": "ctr",
     "visualizacoes": "views", "views": "views",
@@ -218,12 +222,19 @@ ORIGEM_PARA_API = {  # nomes do Studio → códigos da API, para comparar com tr
     "videos sugeridos": "RELATED_VIDEO", "suggested videos": "RELATED_VIDEO",
     "recursos de navegacao": "BROWSE", "browse features": "BROWSE",
     "pesquisa do youtube": "YT_SEARCH", "youtube search": "YT_SEARCH", "feed do shorts": "SHORTS",
+    "feed dos shorts": "SHORTS", "notificacoes": "NOTIFICATION",
     "shorts feed": "SHORTS", "externo": "EXT_URL", "external": "EXT_URL",
     "direto ou desconhecido": "NO_LINK_OTHER", "direct or unknown": "NO_LINK_OTHER",
     "paginas do canal": "YT_CHANNEL", "channel pages": "YT_CHANNEL", "playlists": "PLAYLIST",
     "notificacoes": "NOTIFICATION", "notifications": "NOTIFICATION", "telas finais": "END_SCREEN",
     "end screens": "END_SCREEN", "outros recursos do youtube": "YT_OTHER_PAGE", "other youtube features": "YT_OTHER_PAGE",
+    "externa": "EXT_URL", "origem direta ou desconhecida": "NO_LINK_OTHER", "publicidade no youtube": "ADVERTISING",
+    "youtube advertising": "ADVERTISING", "anotacoes e cards de video": "ANNOTATION", "paginas de hashtag": "HASHTAGS",
+    "shorts relacionados": "RELATED_SHORTS", "related shorts": "RELATED_SHORTS",
 }
+NOME_ORIGEM = {"RELATED_VIDEO": "Sugeridos", "BROWSE": "Navegação", "YT_SEARCH": "Pesquisa", "SHORTS": "Feed Shorts",
+               "NOTIFICATION": "Notificações", "EXT_URL": "Externa", "YT_CHANNEL": "Pág. do canal"}
+HOJE = None  # para testes; None = date.today(). O mês corrente (incompleto) sai das séries mensais do Studio.
 
 
 def chave_cab(c):
@@ -245,6 +256,24 @@ def parse_mes(v):
     return None
 
 
+def parse_data(v):
+    """'2018-08-28', 'Aug 28, 2018', '28 de ago. de 2018', '28/08/2018' → date (ou None)."""
+    s = norm(v)
+    m = re.match(r"(\d{4})-(\d{2})-(\d{2})", s)
+    if m:
+        return date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+    m = re.match(r"([a-z]{3})[a-z]*\.? (\d{1,2}),? (\d{4})", s)
+    if m and m.group(1) in MESES:
+        return date(int(m.group(3)), MESES[m.group(1)], int(m.group(2)))
+    m = re.match(r"(\d{1,2}) (?:de )?([a-z]{3})[a-z]*\.? (?:de )?(\d{4})", s)
+    if m and m.group(2) in MESES:
+        return date(int(m.group(3)), MESES[m.group(2)], int(m.group(1)))
+    m = re.match(r"(\d{1,2})/(\d{1,2})/(\d{4})", s)
+    if m:
+        return date(int(m.group(3)), int(m.group(2)), int(m.group(1)))
+    return None
+
+
 def _ler_texto_csv(texto):
     rs = list(csv.reader(io.StringIO(texto.lstrip("﻿"))))
     if not rs:
@@ -252,20 +281,28 @@ def _ler_texto_csv(texto):
     cab = [chave_cab(c) or norm(c) for c in rs[0]]
     out = []
     for r in rs[1:]:
-        d = dict(zip(cab, r))
+        d = {k: v.strip() for k, v in zip(cab, r)}  # o Studio põe espaço antes de IDs que começam com "-"
         if norm(d.get("video_id", "")) == "total" or norm(next(iter(d.values()), "")) == "total":
+            TOTAIS[id(out)] = d
             continue
         out.append(d)
     return out
 
 
+TOTAIS = {}  # id(lista de linhas) -> linha "Total" da Tabela do Studio
+
+
+def linha_total(rs):
+    return TOTAIS.get(id(rs))
+
+
 def _papel(nome_arquivo):
     n = norm(Path(nome_arquivo).stem)
-    if n.startswith(("tabela", "table")):
+    if n.startswith(("tabela", "table", "dados da tabela")):
         return "tabela"
-    if n.startswith(("totais", "totals")):
+    if n.startswith(("totais", "totals", "total")):
         return "totais"
-    if n.startswith(("grafico", "chart")):
+    if n.startswith(("grafico", "chart", "dados do grafico")):
         return "grafico"
     return None
 
@@ -376,9 +413,19 @@ class Dados:
                 "tema": tema(r["titulo"], manual.get(r["id"])), "fonte_ctr": "API" if num(a.get("impressions")) else "",
             }
         por_titulo = {norm(v["titulo"]): k for k, v in out.items()}
+        self.so_studio = not out
         for base in ("studio_conteudo_longos", "studio_conteudo_shorts"):
             for r in (self.studio.get(base) or {}).get("tabela", []):
                 vid = r.get("video_id", "").strip()
+                if self.so_studio and vid:
+                    # Sem videos.csv: a base vem do próprio Studio (formato = de qual exportação veio).
+                    out[vid] = {"id": vid, "titulo": r.get("titulo", ""), "publicado": parse_data(r.get("publicado")),
+                                "formato": "short" if base.endswith("shorts") else "longo", "dia_semana": None,
+                                "hora": None, "duracao_s": num(r.get("duracao_s")), "views_publico": num(r.get("views")),
+                                "views": num(r.get("views")), "minutos": (num(r.get("horas")) or 0) * 60,
+                                "pct_media": None, "ganhos": None, "perdidos": None, "engajadas": None,
+                                "impressoes": None, "ctr": None, "pct_30s": None, "inscritos_studio": None,
+                                "tema": tema(r.get("titulo", ""), manual.get(vid)), "fonte_ctr": ""}
                 if vid not in out:
                     vid = por_titulo.get(norm(r.get("titulo", "")))
                     self.casamento["por_titulo" if vid else "sem_par"] += 1
@@ -394,7 +441,8 @@ class Dados:
                             v["fonte_ctr"] = "Studio"
                 if v["pct_media"] is None:
                     v["pct_media"] = num(r.get("pct_media"))
-                v["inscritos_studio"] = num(r.get("inscritos"))
+                v["inscritos_studio"] = num(r.get("inscritos_ganhos")) if num(r.get("inscritos_ganhos")) is not None \
+                    else num(r.get("inscritos"))
         for r in self.studio.get("retencao_30s", []):
             if r.get("video_id", "").strip() in out:
                 out[r["video_id"].strip()]["pct_30s"] = num(r.get("pct_30s"))
@@ -407,6 +455,11 @@ class Dados:
 
 
 # ------------------------------------------------------------------------------------------------ análises
+def ganhos(v):
+    """Inscritos ganhos do Analytics; sem ele, os do Studio ("Inscrições obtidas")."""
+    return (v["ganhos"] if v["ganhos"] is not None else v["inscritos_studio"]) or 0
+
+
 def conversao(vs):
     """inscritos por mil views (ganhos do Analytics; senão os líquidos do Studio)."""
     g = sum(v["ganhos"] or 0 for v in vs)
@@ -425,7 +478,8 @@ def por_grupo(vs, chave):
         out.append({"grupo": k, "n": len(l), "views": sum(v["views"] or 0 for v in l),
                     "pct_views": pct(sum(v["views"] or 0 for v in l), total),
                     "mediana_views": mediana([v["views"] for v in l]), "insc_mil": conversao(l),
-                    "engajadas_mil": por_mil(sum(v["ganhos"] or 0 for v in l), sum(v["engajadas"] or 0 for v in l))
+                    "engajadas_mil": por_mil(sum((v["ganhos"] if v["ganhos"] is not None else v["inscritos_studio"]) or 0
+                                                 for v in l), sum(v["engajadas"] or 0 for v in l))
                     if any(v["engajadas"] for v in l) else None,
                     "pct_media": mediana([v["pct_media"] for v in l]), "ctr": mediana([v["ctr"] for v in l])})
     return out
@@ -506,6 +560,58 @@ def curva_mensal(d):
     return out
 
 
+def _mes_fechado(m):
+    hoje = HOJE or date.today()
+    return m < f"{hoje:%Y-%m}"
+
+
+def origem_mensal_studio(exp):
+    """{mes: {origem (código da API se conhecido): views}} de uma exportação de origem × mês do Studio."""
+    out = defaultdict(lambda: defaultdict(float))
+    for r in linhas_origem_mes(exp):
+        if _mes_fechado(r["mes"]):
+            out[r["mes"]][r["origem_api"] or r["origem"]] += r["views"]
+    return dict(sorted(out.items()))
+
+
+def origens_studio(d):
+    """Séries do Studio por formato: todos, longos e shorts (exportação própria ou todos − longos)."""
+    series = {}
+    for nome, base in (("todos", "studio_origem_trafego_mensal"), ("longos", "studio_origem_trafego_mensal_longos"),
+                       ("shorts", "studio_origem_trafego_mensal_shorts")):
+        if d.studio.get(base):
+            series[nome] = origem_mensal_studio(d.studio[base])
+    if "shorts" not in series and "todos" in series and "longos" in series:
+        sh = {}
+        for m, o in series["todos"].items():
+            lo = series["longos"].get(m, {})
+            sh[m] = {k: max(0.0, v - lo.get(k, 0)) for k, v in o.items()}
+        series["shorts (todos − longos)"] = sh
+    return series
+
+
+def pct_mes(serie):
+    out = {}
+    for m, o in serie.items():
+        t = sum(o.values())
+        out[m] = {k: 100 * v / t for k, v in o.items()} if t else {}
+        out[m]["_total"] = t
+    return out
+
+
+def queda(pcts, origem, n_meses=18):
+    """Mediana dos 3 primeiros meses da janela, pico na janela e mediana dos 2 últimos (meses fechados)."""
+    ms = list(pcts)[-n_meses:]
+    if len(ms) < 5:
+        return None
+    s = [pcts[m].get(origem, 0) for m in ms]
+    pico = max(zip(s, ms))
+    todos = [(pcts[m].get(origem, 0), m) for m in pcts if pcts[m].get("_total", 0) >= 1000]
+    hist = max(todos) if todos else (None, None)
+    return {"inicio": mediana(s[:3]), "pico": pico[0], "mes_pico": pico[1], "fim": mediana(s[-2:]),
+            "ultimo": s[-1], "de": ms[0], "ate": ms[-1], "pico_hist": hist[0], "mes_pico_hist": hist[1]}
+
+
 def origem_por_mes(d):
     tab = defaultdict(dict)
     for r in d.trafego_mes:
@@ -527,6 +633,78 @@ def comparar_periodos(serie, data_corte, dias, campo_a, campo_b):
 
 def razao_mediana(vs, a, b):
     return mediana([v[a] / v[b] for v in vs if v.get(a) and v.get(b)])
+
+
+def outliers(vs, limite=0.4):
+    """Vídeos que sozinhos têm ≥ 40% das views do grupo (ex.: o Short "1 centavo"): tratados à parte."""
+    total = sum(v["views"] or 0 for v in vs)
+    if len(vs) < 5 or not total:
+        return []
+    return [v for v in vs if (v["views"] or 0) >= limite * total]
+
+
+CAMPOS_TOTAL = [("impressoes", "impressões", 0), ("ctr", "CTR (%)", 2), ("views", "views", 0),
+                ("views_engajadas", "views intencionais", 0), ("horas", "horas", 1), ("inscritos_ganhos", "inscritos", 0)]
+
+
+def conferencia_studio(d):
+    """Soma as linhas da Tabela do Studio e compara com a linha Total (o CTR é ponderado pelas impressões)."""
+    out = []
+    for base in ("studio_conteudo_longos", "studio_conteudo_shorts"):
+        rs = (d.studio.get(base) or {}).get("tabela") or []
+        if not rs:
+            continue
+        tot = linha_total(rs) or {}
+        for campo, rotulo, casas in CAMPOS_TOTAL:
+            if campo not in rs[0] and not (campo == "inscritos_ganhos" and "inscritos" in rs[0]):
+                continue
+            c = campo if campo in rs[0] else "inscritos"
+            if c == "ctr":
+                imp = soma(rs, "impressoes")
+                calc = sum((num(r.get("ctr")) or 0) * (num(r.get("impressoes")) or 0) for r in rs) / imp if imp else None
+            else:
+                calc = soma(rs, c)
+            t = num(tot.get(c))
+            dif = pct(calc - t, t) if t and calc is not None else None
+            out.append({"exportacao": base.replace("studio_conteudo_", ""), "metrica": rotulo, "total_studio": t,
+                        "soma_linhas": calc, "dif_pct": dif, "casas": casas, "n": len(rs)})
+    return out
+
+
+def studio_por_formato(d):
+    """Views ÷ views intencionais por formato e período de publicação, com e sem outliers."""
+    out = []
+    for fmt in ("longo", "short"):
+        vs = [v for v in d.v.values() if v["formato"] == fmt and v["engajadas"]]
+        if not vs:
+            continue
+        fora = outliers(vs)
+        grupos = [("todos", vs)]
+        if fora:
+            grupos.append(("sem outlier", [v for v in vs if v not in fora]))
+        if fmt == "short":
+            grupos += [(f"publicados antes de {DATA_SHORTS_NOVA_CONTAGEM:%d/%m/%Y}",
+                        [v for v in vs if v not in fora and v["publicado"] and v["publicado"] < DATA_SHORTS_NOVA_CONTAGEM]),
+                       (f"publicados a partir de {DATA_SHORTS_NOVA_CONTAGEM:%d/%m/%Y}",
+                        [v for v in vs if v not in fora and v["publicado"] and v["publicado"] >= DATA_SHORTS_NOVA_CONTAGEM])]
+        else:
+            grupos += [(f"publicados antes de {DATA_INFLACAO:%d/%m/%Y}",
+                        [v for v in vs if v["publicado"] and v["publicado"] < DATA_INFLACAO]),
+                       (f"publicados a partir de {DATA_INFLACAO:%d/%m/%Y}",
+                        [v for v in vs if v["publicado"] and v["publicado"] >= DATA_INFLACAO])]
+        for nome, g in grupos:
+            if not g:
+                continue
+            vw, en = sum(v["views"] or 0 for v in g), sum(v["engajadas"] or 0 for v in g)
+            imp = sum(v["impressoes"] or 0 for v in g)
+            ctr = sum((v["ctr"] or 0) * (v["impressoes"] or 0) for v in g) / imp if imp else None
+            out.append({"formato": fmt, "grupo": nome, "n": len(g), "views": vw, "intencionais": en,
+                        "razao": vw / en if en else None, "razao_mediana": razao_mediana(g, "views", "engajadas"),
+                        "insc_mil": conversao(g), "insc_mil_intenc": por_mil(sum(v["inscritos_studio"] or v["ganhos"] or 0
+                                                                                for v in g), en),
+                        "ctr": ctr, "impressoes": imp,
+                        "outliers": ", ".join(f"{v['id']} ({v['titulo'][:40]})" for v in fora) if nome == "sem outlier" else ""})
+    return out
 
 
 # ------------------------------------------------------------------------------------------------ hipóteses
@@ -551,6 +729,8 @@ def hipoteses(d):
     sa = razao_mediana([v for v in shorts if v["publicado"] < DATA_SHORTS_NOVA_CONTAGEM], "views_publico", "engajadas")
     sd = razao_mediana([v for v in shorts if v["publicado"] >= DATA_SHORTS_NOVA_CONTAGEM], "views_publico", "engajadas")
     fator = fator_eng or fator_vid or fator_min
+    if not depois:
+        fator_vid = None
     H.append({
         "id": "H1", "texto": f"Desde {DATA_INFLACAO:%d/%m/%Y} o contador público de views está inflado 2,5 a 2,8x",
         "numeros": [
@@ -561,10 +741,10 @@ def hipoteses(d):
             f"Shorts: contador público ÷ engajadas antes de {DATA_SHORTS_NOVA_CONTAGEM:%d/%m/%Y}: {f(sa, 2)}; "
             f"depois: {f(sd, 2)} (a contagem de Shorts mudou nessa data; não confundir com o efeito de 27/08)",
         ],
-        "veredito": veredito(fator is not None and 2.2 <= fator <= 3.2, fator is not None and fator >= 1.3,
-                             fator is not None),
-        "regra": "CONFIRMA se o fator (engajadas; senão vídeos; senão minutos) ficar entre 2,2x e 3,2x; "
-                 "PARCIAL se ≥ 1,3x; DERRUBA abaixo disso.",
+        "veredito": veredito(fator is not None and fator >= 2.2, fator is not None and fator >= 1.3,
+                             fator is not None) + (" (inflação maior que a hipótese)" if fator and fator > 3.2 else ""),
+        "regra": "CONFIRMA se o fator (engajadas; senão vídeos; senão minutos) for ≥ 2,2x (acima de 3,2x, a inflação "
+                 "é maior que a hipótese); PARCIAL se ≥ 1,3x; DERRUBA abaixo disso.",
     })
     # H2: conversão por tema.
     g = {r["grupo"]: r for r in por_grupo([v for v in d.v.values() if v["formato"] == "longo"], "tema")}
@@ -580,21 +760,37 @@ def hipoteses(d):
         "regra": "CONFIRMA se caso ∈ [5; 9] e a média de alerta macro/plano de renda ∈ [1; 3]; PARCIAL se caso ≥ 2× "
                  "a média dos outros dois; DERRUBA abaixo disso. Confira a classificação em temas_por_video.csv.",
     })
-    # H3: Recomendados (RELATED_VIDEO) de 29% para 2%.
-    om = origem_por_mes(d)
-    meses = list(om)
-    ini = mediana([om[m].get("RELATED_VIDEO", 0) for m in meses[:3]]) if meses else None
-    fim = mediana([om[m].get("RELATED_VIDEO", 0) for m in meses[-2:]]) if meses else None
-    pico = max(((om[m].get("RELATED_VIDEO", 0), m) for m in meses), default=(None, None))
+    # H3: "Recomendados" de 29% para 2%. Em pt-BR pode ser Sugeridos (RELATED_VIDEO) ou Navegação (BROWSE,
+    # a página inicial): testamos os dois, em cada formato, na API (se houver) e no Studio.
+    series = {}
+    if d.trafego_mes:
+        series["API, todos"] = origem_por_mes(d)
+    for nome, sr in origens_studio(d).items():
+        series[f"Studio, {nome}"] = pct_mes(sr)
+    resultados, numeros = [], []
+    for nome, pc in series.items():
+        for origem in ("RELATED_VIDEO", "BROWSE"):
+            q = queda(pc, origem)
+            if not q:
+                continue
+            ok = q["inicio"] >= 20 and q["fim"] <= 5 or (q["pico"] >= 20 and q["fim"] <= 5)
+            meio = q["fim"] <= max(q["inicio"], q["pico"]) / 2
+            dist = abs(max(q["inicio"], q["pico"]) - 29) + abs(q["fim"] - 2)
+            resultados.append((dist, ok, meio, nome, origem, q))
+            numeros.append(f"{nome} · {NOME_ORIGEM[origem]} ({origem}), {q['de']} a {q['ate']}: início {f(q['inicio'])}% · "
+                           f"pico {f(q['pico'])}% em {q['mes_pico']} · fim (2 últimos) {f(q['fim'])}% · último mês {f(q['ultimo'])}% "
+                           f"· pico histórico (meses com ≥ 1.000 views) {f(q['pico_hist'])}% em {q['mes_pico_hist']}")
+    if resultados:
+        melhor = min(resultados, key=lambda r: r[0])
+        numeros.append(f"A leitura que mais se aproxima de 29% → 2%: {melhor[3]} · {NOME_ORIGEM[melhor[4]]} "
+                       f"({f(max(melhor[5]['inicio'], melhor[5]['pico']))}% → {f(melhor[5]['fim'])}%)")
     H.append({
-        "id": "H3", "texto": "A origem Recomendados (vídeos sugeridos) caiu de 29% para 2% das views",
-        "numeros": [f"RELATED_VIDEO, mediana dos 3 primeiros meses: {f(ini)}%; dos 2 últimos: {f(fim)}%",
-                    f"pico: {f(pico[0])}% em {pico[1]}",
-                    f"BROWSE nos mesmos recortes: {f(mediana([om[m].get('BROWSE', 0) for m in meses[:3]]) if meses else None)}% → "
-                    f"{f(mediana([om[m].get('BROWSE', 0) for m in meses[-2:]]) if meses else None)}%"],
-        "veredito": veredito(ini is not None and ini >= 20 and fim is not None and fim <= 5,
-                             ini and fim is not None and fim <= ini / 2, bool(meses)),
-        "regra": "CONFIRMA se começa ≥ 20% e termina ≤ 5%; PARCIAL se caiu pela metade ou mais; DERRUBA se não caiu.",
+        "id": "H3", "texto": "A origem \"Recomendados\" caiu de 29% para 2% das views",
+        "numeros": numeros or ["sem série mensal de origem (trafego_por_mes.csv ou studio_origem_trafego_mensal)"],
+        "veredito": veredito(any(r[1] for r in resultados), any(r[2] for r in resultados), bool(resultados)),
+        "regra": "Testa Sugeridos (RELATED_VIDEO) e Navegação (BROWSE) em cada formato, nos últimos 18 meses fechados. "
+                 "CONFIRMA se alguma série começa (ou tem pico) ≥ 20% e termina ≤ 5%; PARCIAL se caiu pela metade ou "
+                 "mais; DERRUBA se não caiu.",
     })
     # H4: tema explica 20-50x; abertura quase não separa.
     pop = populacao_longos(d)
@@ -623,8 +819,9 @@ def hipoteses(d):
     gt_ = sum(num(r.get("inscritos_ganhos")) or 0 for r in meses_antes)
     share_mes = pct(gs, gt_) if any(r.get("inscritos_ganhos_shorts") for r in meses_antes) else None
     sv = [v for v in d.v.values() if v["formato"] == "short"]
-    share_vid = pct(sum(v["ganhos"] or 0 for v in sv), sum(v["ganhos"] or 0 for v in d.v.values())) \
-        if any(v["ganhos"] is not None for v in d.v.values()) else None
+    share_vid = pct(sum(ganhos(v) for v in sv), sum(ganhos(v) for v in d.v.values())) \
+        if any(v["ganhos"] is not None or v["inscritos_studio"] is not None for v in d.v.values()) else None
+    recentes = sorted((v for v in sv if v["publicado"] and v["publicado"] > DATA_SHORTS_FIM), key=lambda v: v["publicado"])
     ultimo = max((v["publicado"] for v in sv if v["publicado"]), default=None)
     depois_fim = sum(1 for v in sv if v["publicado"] and v["publicado"] > DATA_SHORTS_FIM)
     share = share_mes if share_mes is not None else share_vid
@@ -633,7 +830,8 @@ def hipoteses(d):
         "numeros": [f"% dos inscritos ganhos vindos de Shorts nos 6 meses antes de {DATA_SHORTS_FIM:%m/%Y} "
                     f"(canal_por_mes): {f(share_mes)}%",
                     f"% dos inscritos ganhos em Shorts no período todo (por vídeo): {f(share_vid)}%",
-                    f"último Short publicado: {ultimo or '—'}; Shorts publicados depois de {DATA_SHORTS_FIM:%d/%m}: {depois_fim}"],
+                    f"último Short publicado: {ultimo or '—'}; Shorts publicados depois de {DATA_SHORTS_FIM:%d/%m}: {depois_fim}"
+                    + (" (" + "; ".join(f"{v['publicado']:%d/%m} {v['id']}" for v in recentes[:12]) + ")" if recentes else "")],
         "veredito": veredito(share is not None and 30 <= share <= 50 and depois_fim == 0,
                              share is not None and share >= 20, share is not None),
         "regra": "CONFIRMA se a fatia ∈ [30; 50]% e não houve Short depois de 28/07; PARCIAL se a fatia ≥ 20%; "
@@ -685,13 +883,44 @@ def relatorio(d):
     if any(d.casamento.values()):
         L += [f"Studio casado com videos.csv: {d.casamento['por_id']} por ID, {d.casamento['por_titulo']} por título, "
               f"{d.casamento['sem_par']} sem par.", ""]
+    if d.so_studio:
+        L += ["**Atenção:** sem videos.csv e sem Analytics: a base é só o Studio (formato = de qual exportação veio; "
+              "dia e hora vazios). Rode o exportar.py no Mac para completar.", ""]
+    conf = conferencia_studio(d)
+    if conf:
+        L += ["## 0. Conferência do Studio (soma das linhas × linha Total)", "", tabela_md(
+            ["exportação", "vídeos", "métrica", "Total do Studio", "soma das linhas", "diferença %"],
+            [[c["exportacao"], c["n"], c["metrica"], f(c["total_studio"], c["casas"]), f(c["soma_linhas"], c["casas"]),
+              f(c["dif_pct"], 2)] for c in conf]), ""]
+        cortadas = sorted({c["exportacao"] for c in conf if c["n"] >= 499 and c["dif_pct"] is not None
+                           and abs(c["dif_pct"]) > 1 and c["metrica"] == "views"})
+        if cortadas:
+            L += [f"**A tabela do Studio de {', '.join(cortadas)} parou em ~500 linhas** (limite da exportação): a soma "
+                  "das linhas não fecha com o Total, e as tabelas abaixo cobrem só esses vídeos. Para ter todos, exporte "
+                  "em partes (filtrando por data de publicação) ou use o exportar.py (Analytics, sem esse limite).", ""]
+    spf = studio_por_formato(d)
+    if spf:
+        L += ["## 0b. Views ÷ views intencionais (engajadas), por formato", "",
+              "Se o contador de views estiver inflado em relação às views intencionais, a razão sobe. Em Shorts, a "
+              f"contagem mudou em {DATA_SHORTS_NOVA_CONTAGEM:%d/%m/%Y}. Os outliers (um vídeo com ≥ 40% das views do "
+              "grupo) ficam de fora das linhas por período.", "", tabela_md(
+                  ["formato", "grupo", "vídeos", "views", "intencionais", "views ÷ intenc. (soma)", "mediana por vídeo",
+                   "insc./mil views", "insc./mil intenc.", "CTR (%)", "impressões"],
+                  [[r["formato"], r["grupo"] + (f" — fora: {r['outliers']}" if r["outliers"] else ""), r["n"],
+                    f(r["views"], 0), f(r["intencionais"], 0), f(r["razao"], 2), f(r["razao_mediana"], 2),
+                    f(r["insc_mil"], 2), f(r["insc_mil_intenc"], 2), f(r["ctr"], 2), f(r["impressoes"], 0)] for r in spf]), ""]
     todos = list(d.v.values())
     L += ["## 1. Conversão por formato (inscritos ganhos por mil views)", "",
           tabela_md(["formato", "vídeos", "views", "% views", "mediana views", "insc./mil views",
                      "insc./mil engajadas", "% média assistida", "CTR mediano"],
                     [[r["grupo"], r["n"], f(r["views"], 0), f(r["pct_views"]), f(r["mediana_views"], 0),
                       f(r["insc_mil"], 2), f(r["engajadas_mil"], 2), f(r["pct_media"]), f(r["ctr"], 2)]
-                     for r in por_grupo(todos, "formato")]), ""]
+                     for r in por_grupo(todos, "formato")]
+                    + [[f"{r['grupo']} sem outlier", r["n"], f(r["views"], 0), f(r["pct_views"]), f(r["mediana_views"], 0),
+                        f(r["insc_mil"], 2), f(r["engajadas_mil"], 2), f(r["pct_media"]), f(r["ctr"], 2)]
+                       for fmt in ("longo", "short")
+                       for fora in [outliers([v for v in todos if v["formato"] == fmt])] if fora
+                       for r in por_grupo([v for v in todos if v["formato"] == fmt and v not in fora], "formato")]), ""]
     for fmt in ("longo", "short"):
         vs = [v for v in todos if v["formato"] == fmt]
         if vs:
@@ -740,13 +969,22 @@ def relatorio(d):
         L += ["## 6. Origem do tráfego (% das views do mês, API)", "",
               "RELATED_VIDEO = vídeos sugeridos (\"Recomendados\"); BROWSE = Início/Inscrições.", "",
               tabela_md(["mês"] + foco, [[m] + [f(om[m].get(o)) for o in foco] for m in om]), ""]
-    for base in ("studio_origem_trafego_mensal", "studio_origem_trafego_mensal_longos", "studio_origem_trafego_mensal_shorts"):
-        ls = linhas_origem_mes(d.studio.get(base) or {})
-        if ls:
-            L += [f"### 6b. {base} (Studio: views, impressões e CTR por origem)", "", tabela_md(
-                ["mês", "origem", "views", "impressões", "CTR (%)", "horas"],
-                [[r["mes"], r["origem"], f(r["views"], 0), f(r["impressoes"], 0), f(r["ctr"], 2), f(r["horas"], 0)]
-                 for r in ls]), ""]
+    for base, nome in (("studio_origem_trafego_mensal", "todos"), ("studio_origem_trafego_mensal_longos", "longos"),
+                       ("studio_origem_trafego_mensal_shorts", "shorts")):
+        tab = (d.studio.get(base) or {}).get("tabela") or []
+        if tab and "origem" in tab[0] and "mes" not in tab[0]:
+            tot = sum(num(r.get("views")) or 0 for r in tab)
+            L += [f"### 6b. Origem do tráfego, vitalício ({nome}, Studio)", "", tabela_md(
+                ["origem", "views", "% views", "impressões", "CTR (%)", "horas"],
+                [[r["origem"], f(num(r.get("views")), 0), f(pct(num(r.get("views")) or 0, tot)),
+                  f(num(r.get("impressoes")), 0), f(num(r.get("ctr")), 2), f(num(r.get("horas")), 0)] for r in tab]), ""]
+    for nome, sr in origens_studio(d).items():
+        pc = pct_mes(sr)
+        ms = list(pc)[-24:]
+        cols = ["RELATED_VIDEO", "BROWSE", "YT_SEARCH", "SHORTS", "NOTIFICATION", "EXT_URL"]
+        L += [f"### 6c. % das views por origem, mês a mês ({nome}, Studio, últimos 24 meses fechados)", "", tabela_md(
+            ["mês", "views"] + [NOME_ORIGEM[c] for c in cols],
+            [[m, f(pc[m]["_total"], 0)] + [f(pc[m].get(c, 0)) for c in cols] for m in ms]), ""]
     L += ["## 7. Hipóteses (a confirmar ou derrubar)", ""]
     for h in hipoteses(d):
         L += [f"### {h['id']}. {h['texto']} → **{h['veredito']}**", ""] + [f"- {n}" for n in h["numeros"]] + \

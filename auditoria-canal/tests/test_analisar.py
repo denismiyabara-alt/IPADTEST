@@ -129,6 +129,8 @@ def test_num_formatos():
 def test_temas():
     assert an.tema("O que aconteceu com a Americanas") == an.TEMA_CASO
     assert an.tema("Entrevista com Luiz Barsi") == an.TEMA_CASO
+    assert an.tema("Se você é JOVEM DEVERIA INVESTIR em AÇÕES | Como investe Nicolas Agnez") == an.TEMA_CASO
+    assert an.tema("BBAS3: VALE A PENA?") == "produto / comparativo"
     assert an.tema("Crise fiscal: alerta para 2027") == "alerta macro"
     assert an.tema("Renda passiva de R$ 5 mil por mês") == "plano de renda"
     assert an.tema("CDB ou Tesouro Direto?") == "produto / comparativo"
@@ -217,3 +219,111 @@ def test_comentarios(dados):
     c = an.analise_comentarios(an.Dados(dados))
     assert c["perguntas"] == 2 and c["pct_perguntas_respondidas"] == 50
     assert c["mais_curtidas"][0]["comentario_id"] == "k1"
+
+
+def test_formato_real_do_studio_so_studio_totais_e_outlier(tmp_path):
+    """Cabeçalhos como os do Studio em pt-BR de 2026, ID com espaço antes, Total.csv, e nenhum videos.csv."""
+    st = tmp_path / "studio"
+    st.mkdir(parents=True)
+    cab = ("Conteúdo,Título do vídeo,Horário de publicação do vídeo,Duração,Impressões de miniaturas,"
+           "Taxa de cliques na miniatura (%),Visualizações,Visualizações intencionais,Tempo de exibição (horas),"
+           "Duração média da visualização,Porcentagem visualizada média (%),Inscrições obtidas")
+    linhas = ["Total,,,,4000,5.5,10100,4600,10.0,0:00:28,100,40",
+              ' -abc,Pra ficar rico você só precisa de 1 centavo #investimentos,"Oct 30, 2023",20,3000,6,8000,3000,7.0,0:00:28,140,20',
+              'b1,Dica #shorts,"Jan 10, 2025",30,500,4,1000,900,1.5,0:00:20,90,10',
+              'b2,Outra #shorts,"Jun 10, 2025",30,300,5,600,400,1.0,0:00:20,90,6',
+              'b3,Mais uma #shorts,"Jul 10, 2025",30,100,5,300,200,0.3,0:00:20,90,3',
+              'b4,Última #shorts,"Aug 10, 2025",30,100,5,200,100,0.2,0:00:20,90,1']
+    with zipfile.ZipFile(st / "studio_conteudo_shorts.zip", "w") as z:
+        z.writestr("Dados da tabela.csv", "﻿" + cab + "\n" + "\n".join(linhas))
+        z.writestr("Dados do gráfico.csv", "Data,Conteúdo,Visualizações\n2025-01-01,b1,1\n")
+        z.writestr("Total.csv", "Data,Visualizações\n2025-01-01,1\n")
+    d = an.Dados(tmp_path)
+    assert d.so_studio and set(d.v) == {"-abc", "b1", "b2", "b3", "b4"}
+    v = d.v["-abc"]
+    assert v["formato"] == "short" and v["engajadas"] == 3000 and v["inscritos_studio"] == 20
+    assert v["ctr"] == 6 and v["impressoes"] == 3000 and v["publicado"] == date(2023, 10, 30)
+    conf = {c["metrica"]: c for c in an.conferencia_studio(d)}
+    assert conf["views"]["total_studio"] == 10100 and conf["views"]["soma_linhas"] == 10100
+    assert conf["views intencionais"]["dif_pct"] == 0 and conf["inscritos"]["soma_linhas"] == 40
+    assert conf["CTR (%)"]["soma_linhas"] == pytest.approx((3000 * 6 + 500 * 4 + 500 * 5) / 4000)
+    assert [x["id"] for x in an.outliers(list(d.v.values()))] == ["-abc"]
+    grupos = {r["grupo"]: r for r in an.studio_por_formato(d)}
+    assert grupos["sem outlier"]["views"] == 2100
+    assert grupos["publicados a partir de 31/03/2025"]["razao"] == pytest.approx(1100 / 700)
+    md = an.relatorio(d)
+    assert "Conferência do Studio" in md and "sem outlier" in md and "só o Studio" in md
+
+
+def test_studio_conferencia_com_totais_vitalicios_do_canal():
+    """Confere, quando o ZIP real está no repositório, os totais vitalícios informados pelo Denis."""
+    pasta = Path(__file__).resolve().parents[1] / "dados"
+    if not (pasta / "studio" / "studio_conteudo_longos.zip").exists():
+        pytest.skip("exportações reais do Studio ausentes")
+    conf = {(c["exportacao"], c["metrica"]): c["total_studio"] for c in an.conferencia_studio(an.Dados(pasta))}
+    assert conf[("longos", "impressões")] == pytest.approx(46.7e6, rel=0.01)
+    assert conf[("longos", "CTR (%)")] == pytest.approx(7.1, abs=0.05)
+    assert conf[("longos", "views")] == pytest.approx(13.07e6, rel=0.01)
+    assert conf[("longos", "views intencionais")] == pytest.approx(12.92e6, rel=0.01)
+    assert conf[("longos", "horas")] == pytest.approx(918.7e3, rel=0.01)
+    assert conf[("shorts", "impressões")] == pytest.approx(23.7e6, rel=0.01)
+    assert conf[("shorts", "views")] == pytest.approx(11.22e6, rel=0.01)
+    assert conf[("shorts", "views intencionais")] == pytest.approx(5.75e6, rel=0.01)
+
+
+def _zip_origem(p, tabela, grafico):
+    with zipfile.ZipFile(p, "w") as z:
+        z.writestr("Dados da tabela.csv", "﻿Origem do tráfego,Impressões de miniaturas,Taxa de cliques na miniatura (%),"
+                   "Visualizações,Tempo de exibição (horas)\n" + tabela)
+        z.writestr("Dados do gráfico.csv", "﻿Data,Origem do tráfego,Visualizações\n" + grafico)
+        z.writestr("Total.csv", "Data,Visualizações\n2026-01,1\n")
+
+
+def test_origem_mensal_do_studio_e_h3_com_os_dois_significados(tmp_path, monkeypatch):
+    monkeypatch.setattr(an, "HOJE", date(2026, 10, 2))
+    st = tmp_path / "studio"
+    st.mkdir()
+    meses = [f"{a}-{m:02d}" for a in (2025, 2026) for m in range(1, 13)][:21] + ["2026-10"]  # até 2026-09 + mês aberto
+    g_todos, g_longos = [], []
+    for k, m in enumerate(meses):
+        sug = 29 if k < 6 else 2                     # Sugeridos: 29% → 2% nos longos
+        g_longos += [f"{m},Vídeos sugeridos,{sug}", f"{m},Recursos de navegação,{100 - sug}"]
+        g_todos += [f"{m},Vídeos sugeridos,{sug}", f"{m},Recursos de navegação,{100 - sug}", f"{m},Feed dos Shorts,100"]
+    _zip_origem(st / "studio_origem_trafego_mensal.zip",
+                "Total,300,6.5,1000,10\nPesquisa do YouTube,100,8.53,600,5\nFeed dos Shorts,,,400,1\n", "\n".join(g_todos))
+    _zip_origem(st / "studio_origem_trafego_mensal_longos.zip", "Total,100,7,500,9\nRecursos de navegação,100,7.18,500,9\n",
+                "\n".join(g_longos))
+    escrever(tmp_path / "videos.csv", ["id", "titulo", "publicado_em_brt", "formato", "views"],
+             [["a", "Vídeo", "2026-01-01 10:00:00", "longo", "10"]])
+    d = an.Dados(tmp_path)
+    s = an.origens_studio(d)
+    assert set(s) == {"todos", "longos", "shorts (todos − longos)"}
+    assert "2026-10" not in s["longos"]                                  # mês aberto fica fora
+    assert s["shorts (todos − longos)"]["2026-09"] == {"RELATED_VIDEO": 0, "BROWSE": 0, "SHORTS": 100}
+    H3 = next(h for h in an.hipoteses(d) if h["id"] == "H3")
+    assert H3["veredito"] == "CONFIRMA"
+    txt = " ".join(H3["numeros"])
+    assert "Studio, longos · Sugeridos" in txt and "Navegação" in txt
+    assert "mais se aproxima de 29% → 2%: Studio, longos · Sugeridos" in txt
+    md = an.relatorio(d)
+    assert "6b. Origem do tráfego, vitalício (todos" in md and "6c." in md
+
+
+def test_conferencia_e3_real():
+    pasta = Path(__file__).resolve().parents[1] / "dados" / "studio"
+    if not (pasta / "studio_origem_trafego_mensal_longos.zip").exists():
+        pytest.skip("E3 real ausente")
+    def tab(nome):
+        return {r["origem"]: r for r in an.ler_exportacao_studio(pasta / nome)["tabela"]}
+    t, lo = tab("studio_origem_trafego_mensal.zip"), tab("studio_origem_trafego_mensal_longos.zip")
+    assert an.num(t["Pesquisa do YouTube"]["views"]) == pytest.approx(7.64e6, rel=0.01)
+    assert an.num(t["Pesquisa do YouTube"]["ctr"]) == 8.53
+    assert an.num(t["Feed dos Shorts"]["views"]) == pytest.approx(6.42e6, rel=0.01)
+    assert an.num(t["Recursos de navegação"]["views"]) == pytest.approx(5.45e6, rel=0.01)
+    assert an.num(t["Recursos de navegação"]["ctr"]) == 6.92
+    assert an.num(t["Vídeos sugeridos"]["views"]) == pytest.approx(1.33e6, rel=0.01)
+    assert an.num(t["Vídeos sugeridos"]["ctr"]) == 3.51
+    assert an.num(lo["Recursos de navegação"]["views"]) == pytest.approx(5.14e6, rel=0.01)
+    assert an.num(lo["Recursos de navegação"]["ctr"]) == 7.18
+    assert an.num(lo["Pesquisa do YouTube"]["views"]) == pytest.approx(3.26e6, rel=0.01)
+    assert an.num(lo["Pesquisa do YouTube"]["ctr"]) == 12.32

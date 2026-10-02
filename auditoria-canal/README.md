@@ -71,6 +71,8 @@ Em Studio > Análises > **Modo avançado**, use "Exportar visualização atual" 
 - `studio_origem_trafego_mensal` (e, se quiser, `_longos` e `_shorts`): origem × mês;
 - opcionais: `studio_ctr_por_origem_top30`, `studio_publico_mensal`, `retencao_30s.csv` (`video_id,pct_30s`) e `ask_studio.txt`.
 
+A tabela de conteúdo do Studio para em 500 linhas. Com mais de 500 longos, a soma das linhas não fecha com o Total, e o `analisar.py` avisa. Para ter todos os vídeos, exporte em partes (filtrando por data de publicação) ou rode o `exportar.py`. Os meses incompletos ficam fora das séries mensais.
+
 Os cabeçalhos podem estar em português ou em inglês. O `analisar.py` casa as linhas com `videos.csv` pelo ID ou, se faltar o ID, pelo título.
 
 ## 3. Lista para anotar a retenção aos 30 s
