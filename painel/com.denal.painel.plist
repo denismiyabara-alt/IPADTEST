@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  EXEMPLO (não instalado). Painel único diário: dias úteis às 8h50, depois do trader.
+  Confira os caminhos marcados com CONFIRMAR antes de instalar (ver PAINEL.md):
+    cp com.denal.painel.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.denal.painel.plist
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.denal.painel</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <!-- o mesmo Python do rodar_trader_novo.sh; CONFIRMAR se existe no Mac -->
+        <string>/Library/Developer/CommandLineTools/usr/bin/python3</string>
+        <!-- CONFIRMAR: onde o IPADTEST está clonado no Mac -->
+        <string>/Users/denal/IPADTEST/painel/gerar_painel.py</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/denal/IPADTEST/painel</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PAINEL_IPADTEST</key>
+        <string>/Users/denal/IPADTEST</string>
+        <key>PAINEL_IEC</key>
+        <string>/Users/denal/investir-e-cocar</string>
+        <key>PAINEL_TRADER</key>
+        <string>/Users/denal/stock-signal-bot</string>
+        <key>PAINEL_GATE_DIR</key>
+        <string>/tmp</string>
+        <key>PAINEL_RADAR_JSON</key>
+        <string>/tmp/radar.json</string>
+        <!-- "1" liga a leitura dos posts recentes na API pública do WordPress (rede, opcional) -->
+        <key>PAINEL_WP_REST</key>
+        <string>0</string>
+    </dict>
+
+    <!-- segunda a sexta, 8h50 -->
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict><key>Weekday</key><integer>1</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>50</integer></dict>
+        <dict><key>Weekday</key><integer>2</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>50</integer></dict>
+        <dict><key>Weekday</key><integer>3</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>50</integer></dict>
+        <dict><key>Weekday</key><integer>4</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>50</integer></dict>
+        <dict><key>Weekday</key><integer>5</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>50</integer></dict>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/tmp/painel.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/painel_err.log</string>
+
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>
