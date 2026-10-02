@@ -1,0 +1,3 @@
+# Python 3.11+ (biblioteca padrão para download, CSV, ZIP e SQLite)
+jinja2>=3.1      # templates (já vem instalado nesta máquina: 3.1.6)
+pytest>=8        # só para os testes
