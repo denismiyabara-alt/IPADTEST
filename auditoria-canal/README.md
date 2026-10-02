@@ -28,6 +28,7 @@ Opções:
 | `--desde 2023-01-01` | início do período por vídeo (padrão: criação do canal; use esta opção se ficar pesado) |
 | `--max-videos-detalhe 200` | limita tráfego e inscritos por vídeo aos N vídeos com mais views |
 | `--recomecar` | apaga o cache e começa do zero |
+| `--termos-recentes 180` | etapa opcional: os 25 termos de busca de cada vídeo publicado nos últimos 180 dias e dos 50 com mais busca, só nesse período. Grava `termos_busca_recentes.csv` |
 | `--termos-busca` | etapa opcional: só baixa os termos buscados no YouTube (top 25 por mês nos últimos 12 meses e no período todo, e top 25 de cada um dos 50 vídeos com mais views da Pesquisa). Precisa de `videos.csv` e `trafego_por_video.csv` já exportados. Grava `termos_busca_canal.csv` e `termos_busca_por_video.csv` |
 | `--pausa 0.3` | segundos entre chamadas |
 

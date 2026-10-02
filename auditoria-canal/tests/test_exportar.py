@@ -647,3 +647,32 @@ def test_main_termos_busca_so_analytics_e_sem_segredo(tmp_path, monkeypatch, cap
     out = capsys.readouterr()
     for s_ in list(ENV.values()) + [ACCESS]:
         assert s_ not in out.out + out.err + (tmp_path / "LEIAME_DADOS.md").read_text(encoding="utf-8")
+
+
+def test_termos_recentes(tmp_path):
+    api = FakeAPI(n_videos=6)
+    orig = api.__call__
+
+    def chamada(url, data=None, headers=None):
+        if "/videos?" in url:
+            d = orig(url, data, headers)
+            for it in d["items"]:
+                if it["id"] in ("v0", "v1"):
+                    it["snippet"]["publishedAt"] = "2026-08-10T21:00:00Z"
+            return d
+        return orig(url, data, headers)
+    cli, exp, _ = novo(tmp_path, chamada)
+    exp.canal()
+    exp.exportar_videos()
+    ids = exp.exportar_analytics_por_video()
+    exp.exportar_por_video(ids)
+    api.chamadas.clear()
+    exp.exportar_termos_recentes(dias=180, n_busca=2)
+    qs = [_q(u) for u in api.chamadas if u.startswith(ex.API_ANALYTICS)]
+    alvos = [q["filters"].split(";")[0] for q in qs]
+    assert alvos[:2] == ["video==v0", "video==v1"] and len(set(alvos)) == len(alvos)
+    assert all(q["startDate"] == "2026-04-04" and q["maxResults"] == "25" for q in qs)
+    rs = ler(tmp_path / "termos_busca_recentes.csv")
+    assert rs[0]["desde"] == "2026-04-04" and rs[0]["publicado"] == "2026-08-10"
+    exp.leiame_termos()
+    assert "termos_busca_recentes.csv" in (tmp_path / "LEIAME_DADOS.md").read_text(encoding="utf-8")

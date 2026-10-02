@@ -377,6 +377,11 @@ COLUNAS = {
         ("video_id", "id do vídeo"), ("titulo", "título"), ("posicao", "posição do termo no vídeo"),
         ("termo", "termo buscado"), ("views", "views desse termo no vídeo (período inteiro)"), ("minutos", "minutos"),
     ],
+    "termos_busca_recentes.csv": [
+        ("video_id", "id do vídeo"), ("titulo", "título"), ("publicado", "data de publicação (Brasília)"),
+        ("desde", "início do período (fim = data de corte da exportação)"), ("posicao", "posição do termo no vídeo"),
+        ("termo", "termo buscado"), ("views", "views desse termo no vídeo, no período"), ("minutos", "minutos"),
+    ],
     "comentarios_top30.csv": [
         ("video_id", "id do vídeo"), ("comentario_id", "id do comentário"),
         ("resposta_a", "id do comentário-pai (vazio se não for resposta)"),
@@ -837,6 +842,34 @@ class Exportador:
         self.gravar(arq_v, out)
         self.nota(arq_c, "a API devolve no máximo 25 termos por consulta (maxResults ≤ 25 para insightTrafficSourceDetail)")
 
+    def exportar_termos_recentes(self, dias=180, n_busca=50):
+        """Termos dos últimos `dias` dias: todos os vídeos publicados no período e os `n_busca` com mais views da
+        Pesquisa no vitalício (para ver quais termos antigos ainda trazem gente). Um arquivo só, sem o vitalício."""
+        arq = "termos_busca_recentes.csv"
+        ini = self.data_fim - timedelta(days=dias)
+        novos = [v["id"] for v in sorted(self.videos.values(), key=lambda v: -int(v.get("views") or 0))
+                 if v.get("publicado_em_brt", "")[:10] >= str(ini)]
+        trafego = ler_csv(self.saida / "trafego_por_video.csv")
+        busca = [vid for _, vid in sorted(((float(r["views"] or 0), r["video_id"]) for r in trafego
+                                           if r["origem"] == "YT_SEARCH"), reverse=True)][:n_busca]
+        ids = list(dict.fromkeys(novos + busca))
+        self.c.log(f"termos recentes: {len(novos)} vídeos publicados desde {ini} + {len(busca)} com mais busca "
+                   f"({len(ids)} consultas)")
+        out = []
+        for vid in ids:
+            try:
+                rs = self._termos(f"video=={vid};insightTrafficSourceType==YT_SEARCH", ini, self.data_fim)
+            except ErroHTTP as e:
+                if e.status != 400:
+                    raise
+                self.nota(arq, f"a API recusou termos por vídeo ({e.mensagem[:120]})")
+                break
+            v = self.videos.get(vid, {})
+            out += [{"video_id": vid, "titulo": v.get("titulo", ""), "publicado": v.get("publicado_em_brt", "")[:10],
+                     "desde": str(ini), "posicao": k, "termo": r["insightTrafficSourceDetail"], "views": r["views"],
+                     "minutos": r["estimatedMinutesWatched"]} for k, r in enumerate(rs, 1)]
+        self.gravar(arq, out)
+
     def leiame_termos(self):
         """No modo --termos-busca, só troca a seção dos termos no LEIAME_DADOS.md (o resto fica como estava)."""
         p = self.saida / "LEIAME_DADOS.md"
@@ -846,8 +879,11 @@ class Exportador:
             txt = txt[:txt.index(ini)] + txt[txt.index(fim) + len(fim):]
         L = [ini, f"## Termos de busca (exportados em {datetime.now(timezone.utc):%Y-%m-%d %H:%M UTC}; "
                   f"quota da Data API: {self.c.unidades_data}; consultas ao Analytics: {self.c.consultas_analytics})", ""]
-        for arq in ("termos_busca_canal.csv", "termos_busca_por_video.csv"):
-            L += [f"### {arq} ({self.contagens.get(arq, 0)} linhas)", ""] + [f"- `{c}`: {d}" for c, d in COLUNAS[arq]]
+        arqs = [a for a in ("termos_busca_canal.csv", "termos_busca_por_video.csv", "termos_busca_recentes.csv")
+                if a in self.contagens or (self.saida / a).exists()]
+        for arq in arqs:
+            n = self.contagens.get(arq, len(ler_csv(self.saida / arq)))
+            L += [f"### {arq} ({n} linhas)", ""] + [f"- `{c}`: {d}" for c, d in COLUNAS[arq]]
             L += [f"- Nota: {n}" for n in self.notas.get(arq, [])] + [""]
         L.append(fim)
         p.write_text(txt.rstrip("\n") + "\n\n" + "\n".join(L) + "\n", encoding="utf-8")
@@ -947,6 +983,8 @@ def main(argv=None):
     ap.add_argument("--termos-busca", action="store_true",
                     help="só a etapa opcional dos termos de busca (precisa de videos.csv e trafego_por_video.csv)")
     ap.add_argument("--termos-meses", type=int, default=12)
+    ap.add_argument("--termos-recentes", type=int, default=0, metavar="DIAS",
+                    help="só os termos dos últimos DIAS dias, por vídeo (publicados no período + 50 com mais busca)")
     ap.add_argument("--termos-videos", type=int, default=50)
     args = ap.parse_args(argv)
 
@@ -978,9 +1016,12 @@ def main(argv=None):
                      max_videos_detalhe=args.max_videos_detalhe)
     modo = "só vídeos" if args.so_videos else "só analytics" if args.so_analytics else "completo"
     interrompido, codigo = "", 0
-    if args.termos_busca:
+    if args.termos_busca or args.termos_recentes:
         try:
-            exp.exportar_termos_busca(args.termos_meses, args.termos_videos)
+            if args.termos_recentes:
+                exp.exportar_termos_recentes(args.termos_recentes, args.termos_videos)
+            else:
+                exp.exportar_termos_busca(args.termos_meses, args.termos_videos)
         except QuotaEsgotada as e:
             interrompido, codigo = f"quota esgotada ({e}).", 3
         except ErroHTTP as e:

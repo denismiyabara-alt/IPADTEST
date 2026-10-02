@@ -109,3 +109,46 @@ def test_modelo_com_dados_reais_calibra_com_o_ritmo_de_hoje():
     assert [a["central"] for a in r["alavancas"]] == sorted((a["central"] for a in r["alavancas"]), reverse=True)
     rk, tot, _ = mo.ranking(d, "longo", "12 meses")
     assert sum(r_["n"] for r_ in rk) == tot["n"]
+
+
+import termos as tm  # noqa: E402
+
+
+def test_titulos_longos_ate_62_caracteres_e_termo_no_titulo():
+    for data_, fmt, assunto, titulo, *_ in cal.PAUTAS:
+        if fmt == cal.L:
+            assert len(titulo) <= 62, titulo
+        termo = cal.TERMOS.get(data_, (None, ""))[0]
+        if termo and fmt == cal.L:
+            # o termo (ou a sua palavra principal) aparece no título
+            vazias = {"o", "e", "que", "como", "qual", "melhor", "para", "de", "do", "da", "por"}
+            palavras = [w for w in an.norm(termo).split() if len(w) >= 3 and w not in vazias]
+            assert any(w[:4] in an.norm(titulo) for w in palavras), (termo, titulo)
+
+
+def test_classificacao_dos_termos():
+    T = tm.Termos.__new__(tm.Termos)
+    T.origem = {"como ganhar dinheiro": {tm.SHORT_1_CENTAVO: 10}}
+    T.origem = {k: __import__("collections").Counter(v) for k, v in T.origem.items()}
+    assert T.categoria("como ganhar dinheiro") == "amplo (1 centavo)"
+    assert T.categoria("renda extra") == "amplo (1 centavo)"
+    assert T.categoria("banco next vale a pena") == "bancos, apps e outros (catálogo)"
+    assert T.categoria("caixinha turbo nubank") == "bancos, apps e outros (catálogo)"
+    assert T.categoria("lci e lca") == "investimento"
+    assert T.categoria("etfs que pagam dividendos mensais") == "investimento"
+    assert tm.Termos.assunto("hash11") == "cripto" and tm.Termos.assunto("spyi11") == "ETF e exterior"
+
+
+@pytest.mark.skipif(not (tm.DADOS / "termos_busca_canal.csv").exists(), reason="termos reais ausentes")
+def test_termos_reais():
+    T = tm.Termos()
+    assert set(T.corte) >= set(tm.MESES_6)
+    soma, pres, teto = T.seis_meses(["como ganhar dinheiro na internet"])
+    assert pres == 6 and soma > 50_000
+    soma, pres, teto = T.seis_meses(["lci e lca"])
+    assert pres == 0 and teto == sum(T.corte[m] for m in tm.MESES_6)
+    assert T.vitalicio(["lci e lca"]) == 3544
+    linhas = cal.montar(mo.carregar())
+    assert all(k in linhas[0] for k in ("termo_busca", "views_pesquisa_6m", "views_pesquisa_vitalicio"))
+    sem_termo = {r["data"] for r in linhas if r["formato"] == cal.L and not r["views_pesquisa_vitalicio"]}
+    assert "2026-11-05" in sem_termo and "2026-10-22" not in sem_termo

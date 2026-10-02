@@ -13,6 +13,8 @@ from datetime import date, timedelta
 from pathlib import Path
 
 import meta as me
+import termos
+from collections import Counter
 import modelo as mo
 import temas
 
@@ -24,32 +26,32 @@ L = "longo"
 S = "short"
 PAUTAS = [
     # ------------------------------------------------------------------ semana 1
-    ("2026-10-05", S, "tesouro e renda fixa", "CDB ou LCI: qual rende mais depois do imposto?", "CDB ou LCI",
+    ("2026-10-05", S, "tesouro e renda fixa", "LCI e LCA ou CDB: qual rende mais depois do imposto?", "CDB ou LCI",
      "ALTO: Q1WMbZZn2Ik, 57.527 views da Pesquisa (77%)", "", "Taxa equivalente com a alíquota de IR do prazo.",
      "Lei 11.033/2004; prazo mínimo de LCI vigente"),
-    ("2026-10-06", L, "renda mensal", "ETFs que pagam dividendos mensais na B3: o que mudou em 2026",
+    ("2026-10-06", L, "renda mensal", "ETFs que pagam dividendos mensais: o que mudou em 2026",
      "ETF dividendos mensais", "ALTO: Y4WHQiKcv1g, 26.783 views da Pesquisa (44%)", "Fb0l4KEq27o (637 inscritos)",
      "O que aconteceu com cada ETF da lista de 2025 (pagamento real, taxa, patrimônio) e as dúvidas dos comentários.",
      "B3 (proventos); lâminas dos ETFs"),
-    ("2026-10-07", S, "juntar dinheiro e aposentadoria", "1 milhão guardando R$ 1.000 por mês: quanto tempo de verdade",
+    ("2026-10-07", S, "juntar dinheiro e aposentadoria", "Como juntar 1 milhão de reais com R$ 1.000 por mês",
      "juntar 1 milhão", "ALTO: tbKsF2qyakU, 46.026 views da Pesquisa (70%)", "",
      "Com 6% ao ano acima da inflação, ~R$ 535 mil em 22 anos e 1 milhão em ~30. Saiu do longo da v1: como longo, "
      "o assunto rende 14 por vídeo; como Short, é o 2º melhor no vitalício e vive de busca.", "Selic e IPCA do dia"),
-    ("2026-10-08", L, "tesouro e renda fixa", "Tesouro IPCA+ a 7% em janeiro: quanto ganhou ou perdeu quem comprou",
+    ("2026-10-08", L, "tesouro e renda fixa", "Tesouro IPCA+ a 7% em janeiro: quanto ganhou quem comprou",
      "Tesouro IPCA+ marcação a mercado", "BAIXO: dHYQtxnMSrw, 2.072 views da Pesquisa (7%)", "dHYQtxnMSrw (421)",
      "Prestação de contas do vídeo de janeiro: preço na compra e hoje, cupons, marcação.", "Tesouro Direto (histórico)"),
     # ------------------------------------------------------------------ semana 2
     ("2026-10-12", S, "tesouro e renda fixa", "Resgatou o CDB antes de 30 dias? O IOF come o rendimento",
      "IOF CDB 30 dias", "MÉDIO: pergunta repetida nos comentários do Short _WHHib_xvJ4 (59% das views pela Pesquisa)", "",
      "Tabela regressiva do IOF em 40 s.", "Decreto 6.306/2007"),
-    ("2026-10-13", L, "renda mensal", "Ações que pagam dividendos todo mês? Como montar um calendário de proventos",
+    ("2026-10-13", L, "renda mensal", "Dividendos mensais com ações: como montar um calendário",
      "ações que pagam dividendos todo mês", "ALTO: TY8oLvUt2Qg, 49% das views pela Pesquisa", "TY8oLvUt2Qg (324)",
      "'Todo mês' é calendário, não promessa: data com, pagamento e por que o valor varia. Sem lista de compra.",
      "B3 (eventos corporativos); JCP 17,5% (LC 224/2025)"),
     ("2026-10-14", S, "tesouro e renda fixa", "Tesouro IPCA+ negativo? Calma, isso tem nome",
      "Tesouro IPCA+ caiu", "BAIXO: vídeos de IPCA+ do canal têm de 1% a 9% das views pela Pesquisa", "",
      "Marcação a mercado em 40 s; corte do longo de 08/10.", "Tesouro Direto"),
-    ("2026-10-15", L, "crise e macro", "O gráfico que 'acertou' as crises de 1929, 2008 e 2020: 9 meses depois",
+    ("2026-10-15", L, "crise e macro", "Crise financeira: o gráfico de 1929, 2008 e 2020, hoje",
      "sinal de crise 2026", "BAIXO: IcN3m7whpl8, 1.161 views da Pesquisa (4%)", "IcN3m7whpl8 (357)",
      "Revisão honesta do indicador: o que marcava, o que marca, alarmes falsos.", "Série do indicador original"),
     # ------------------------------------------------------------------ semana 3
@@ -57,14 +59,14 @@ PAUTAS = [
      "FII isento de imposto", "MÉDIO: vídeos de FII do canal, 35.246 views da Pesquisa (14%)", "",
      "Lei 14.754/2023: 100 cotistas ou mais, cotas em bolsa e menos de 10% das cotas; ganho na venda paga 20%.",
      "Lei 14.754/2023; Lei 8.668/1993"),
-    ("2026-10-20", L, "renda mensal", "ETF que paga todo mês com opções: de onde vem o dinheiro e do que você abre mão",
+    ("2026-10-20", L, "renda mensal", "Dividendos sintéticos: o ETF que paga todo mês com opções",
      "ETF opções cobertas dividendos mensais", "BAIXO: IB1mBcF00jc, 1.126 views da Pesquisa (5,5%)", "IB1mBcF00jc (131)",
      "Mecânica das opções cobertas, renda alta e alta limitada, comparada com ETF de dividendos comum.",
      "Regulamento do ETF/BDR"),
     ("2026-10-21", S, "comportamento e família", "Casal que investe junto: a conversa que vem antes do dinheiro",
      "casal finanças", "BAIXO: sem vídeo de busca; é o assunto de Short com mais inscritos por vídeo em 12 meses", "",
      "Uma pergunta para fazer antes de investir a dois.", "—"),
-    ("2026-10-22", L, "tesouro e renda fixa", "CDB ou LCI em 2026: a conta que decide (com imposto e prazo)", "CDB ou LCI",
+    ("2026-10-22", L, "tesouro e renda fixa", "LCI e LCA ou CDB: a conta de 2026 com imposto e prazo", "CDB ou LCI",
      "ALTO: Q1WMbZZn2Ik, 57.527 views da Pesquisa (77%)", "",
      "Taxa equivalente, carência mínima, liquidez e FGC; responde '80 mil em LCI por 12 meses?' sem recomendar.",
      "Lei 11.033/2004; resolução do CMN sobre prazos; fgc.org.br"),
@@ -73,14 +75,14 @@ PAUTAS = [
      "MÉDIO: FC-eKTK3ozE, 3.247 views da Pesquisa (36%)", "",
      "R$ 250 mil por CPF por instituição, teto de R$ 1 milhão a cada 4 anos; não cobre Tesouro, fundos e ações.",
      "fgc.org.br"),
-    ("2026-10-27", L, "renda mensal", "Renda mensal: ETF de dividendos ou fundo imobiliário, o que sobra depois do imposto",
+    ("2026-10-27", L, "renda mensal", "ETF de dividendos mensais ou fundo imobiliário: o que sobra",
      "ETF ou FII renda mensal", "MÉDIO: vídeos de dividendos mensais com 14% a 44% das views pela Pesquisa",
      "lwV6tbkk4Cw (93)", "Comparar como cada um paga, a tributação de cada um em 2026 e a volatilidade da renda.",
      "Lei 14.754/2023; regulamentos"),
     ("2026-10-28", S, "tesouro e renda fixa", "Quanto rende R$ 1.000 no Tesouro Selic hoje", "quanto rende 1000 tesouro selic",
      "MÉDIO: Kwf4IvhOb9s ('quanto rende R$ 1.000'), 2.748 views da Pesquisa (16%)", "",
      "A conta líquida de IR em 30 s.", "Taxa do Tesouro Selic do dia"),
-    ("2026-10-29", L, "crise e macro", "Os sinais de crise de novembro de 2025: o que aconteceu com cada um",
+    ("2026-10-29", L, "crise e macro", "Recessão em 2026? Os sinais de crise de 2025, um a um",
      "crise 2026", "BAIXO: tpobf1e1OtM, 624 views da Pesquisa (2%)", "tpobf1e1OtM (345)",
      "Cada sinal do vídeo original com o dado de hoje, sem repetir o alarme.", "BCB/SGS, IBGE, FRED"),
     ("2026-10-31", L, "cripto", "ETF de bitcoin na B3: como funciona e quanto custa", "ETF de bitcoin",
@@ -92,26 +94,26 @@ PAUTAS = [
      "BAIXO: 3sfCQWv2kIQ, 962 views da Pesquisa (4%)", "",
      "Saiu do longo da v1: imposto rende 16 por longo. O JCP é retido na fonte com 17,5% (LC 224/2025).",
      "LC 224/2025"),
-    ("2026-11-03", L, "renda mensal", "Quanto investir para receber R$ 1.000 por mês: Tesouro, FII e ETF lado a lado",
+    ("2026-11-03", L, "renda mensal", "Quanto investir para receber R$ 1.000 por mês",
      "quanto investir para ter renda de 1000 por mês", "MÉDIO: sem vídeo igual; 'juntar 1 milhão' tem 70% a 81% das "
      "views pela busca", "", "Capital necessário em três classes, líquido de imposto. Sem indicar ativos.",
      "Taxas do Tesouro; IFIX; regras de IR"),
     ("2026-11-04", S, "tesouro e renda fixa", "Copom hoje: 3 números para olhar no seu Tesouro", "Copom hoje",
      "MÉDIO: vídeos de Copom/Selic do canal, 11.321 views da Pesquisa (9%)", "KMIsVEOcaLM (246)",
      "Pré-decisão: taxa do IPCA+, do prefixado e a Selic esperada.", "Taxas do Tesouro do dia"),
-    ("2026-11-05", L, "tesouro e renda fixa", "Copom de novembro: o que a decisão muda no Tesouro IPCA+ e no prefixado",
+    ("2026-11-05", L, "tesouro e renda fixa", "Copom de novembro: o que muda no Tesouro IPCA+ e prefixado",
      "Copom novembro 2026", "MÉDIO: vídeos de Copom/Selic, 11.321 views da Pesquisa (9%)",
      "KMIsVEOcaLM (246) e tb0nwpl9mFw (142)", "Dia seguinte à decisão de 04/11: comunicado, reação das taxas em 24 h.",
      "Comunicado do Copom (bcb.gov.br); data: conferir em bcb.gov.br/controleinflacao/calendarioreunioescopom"),
-    ("2026-11-07", L, "ações e empresas", "A empresa que torrou meio bilhão recomprando ações: o que aconteceu depois",
-     "recompra de ações", "BAIXO: GpdXuQipVaQ, sem dado de Pesquisa", "GpdXuQipVaQ (115, o melhor de ações do ano)",
-     "Caso real de alocação de capital: por que importa para o acionista. Educativo, sem recomendação.",
-     "Fatos relevantes e demonstrações da empresa (CVM)"),
+    ("2026-11-07", L, "FII", "Fundos imobiliários para iniciantes: de onde vem a renda",
+     "fundos imobiliários", "", "kipRQb0ksus (busca de FII, 2023)",
+     "TROCA da v2 (era 'recompra de ações', sem nenhum termo de busca e com o assunto que menos rende): como o FII "
+     "gera e distribui renda, sem indicar fundos.", "Lei 8.668/1993; Lei 14.754/2023; IFIX (B3)"),
     # ------------------------------------------------------------------ semana 6
     ("2026-11-09", S, "imposto e regras", "Imposto sobre dividendos acima de R$ 50 mil por mês: quem paga",
      "imposto dividendos 2026", "BAIXO: qnWje5V23Ps, 521 views da Pesquisa (5%)", "",
      "Retenção de 10% só acima de R$ 50 mil por mês da mesma empresa (Lei 15.270/2025).", "Lei 15.270/2025"),
-    ("2026-11-10", L, "renda mensal", "Renda mensal com Tesouro: títulos com juros semestrais e o Tesouro RendA+",
+    ("2026-11-10", L, "renda mensal", "Renda mensal com Tesouro: juros semestrais e RendA+",
      "Tesouro renda mensal", "MÉDIO: Tesouro tem de 7% a 16% das views pela Pesquisa; renda mensal, de 19% a 49%", "",
      "Como transformar o Tesouro em renda (cupons, RendA+), com a conta do imposto.", "Tesouro Direto (regras dos títulos)"),
     ("2026-11-11", S, "FII", "FII ou aluguel: quanto rende R$ 100 mil em cada um", "FII ou imóvel",
@@ -120,15 +122,15 @@ PAUTAS = [
     ("2026-11-12", L, "FII", "Fundo imobiliário ou imóvel alugado: a conta de 2026", "FII ou imóvel",
      "MÉDIO: vídeos de FII, 35.246 views da Pesquisa (14%)", "Gjw4crGh6Xg (92)",
      "Rendimento, custo, vacância, imposto e liquidez lado a lado.", "IFIX (B3); FipeZap; Lei 14.754/2023"),
-    ("2026-11-14", L, "commodities", "Cobre, um ano depois: o que aconteceu com o preço e por que importa",
-     "cobre", "MÉDIO: lt2LWbwu3mc, 2.346 views da Pesquisa (15%)", "lt2LWbwu3mc (255)",
-     "TESTE: commodities tem n = 1; o ranking não sustenta, mas o original foi o 3º melhor do ano em conversão.",
-     "LME/CME; IEA"),
+    ("2026-11-14", L, "tesouro e renda fixa", "CDB prefixado ou pós-fixado: qual rende mais em 2026",
+     "cdb prefixado", "", "7CdwOTT7U3o (CDB prefixado, 2018: 3.928 views da Pesquisa)",
+     "TROCA da v2 (era o cobre: commodities tem n = 1 e nenhum termo de busca): a conta prefixado × pós com a curva "
+     "de juros de hoje; responde 'cdb prefixado ou pós fixado'.", "Taxas DI futuro (B3); Lei 11.033/2004; FGC"),
     # ------------------------------------------------------------------ semana 7
     ("2026-11-16", S, "comportamento e família", "Perfil de investidor: 3 perguntas antes de investir",
      "perfil de investidor", "BAIXO: Short 'Perfil de investidor' (15 inscritos, 12 mil views intencionais)", "",
      "As perguntas de prazo, objetivo e tolerância a queda.", "—"),
-    ("2026-11-17", L, "renda mensal", "ETF de dividendos mensais: quanto a taxa de administração tira da sua renda",
+    ("2026-11-17", L, "renda mensal", "ETF de dividendos mensais: quanto a taxa tira da renda",
      "taxa de administração ETF", "BAIXO: sem vídeo do canal com essa palavra", "",
      "A conta de 10 anos com taxas diferentes; responde 'essa taxa de 1,50 é alta?'.", "Lâminas dos ETFs"),
     ("2026-11-18", S, "juntar dinheiro e aposentadoria", "Juros compostos: por que 1 centavo dobrando todo dia não existe",
@@ -138,7 +140,7 @@ PAUTAS = [
      "MÉDIO: vídeos de bitcoin, 55% das views pela Pesquisa (antigos); JDtxzQthFlk: 2%", "JDtxzQthFlk (224)",
      "Os argumentos de fevereiro com os dados de hoje; 'posso perder mais do que investi?'.",
      "Preço do BTC; regra de declaração (Receita)"),
-    ("2026-11-21", L, "crise e macro", "Bolha de inteligência artificial: o que os números dizem hoje", "bolha IA",
+    ("2026-11-21", L, "crise e macro", "Bolha de inteligência artificial: o que dizem os números", "bolha IA",
      "BAIXO: vídeos de crise com 2% a 6% das views pela Pesquisa", "PWotyrtMXBs (84)",
      "Lucros, investimento e preço das empresas de IA, sem prever topo.", "Resultados trimestrais; FRED"),
     # ------------------------------------------------------------------ semana 8
@@ -151,20 +153,68 @@ PAUTAS = [
     ("2026-11-25", S, "ETF e exterior", "Taxa de administração do ETF: quanto tira em 10 anos", "taxa ETF",
      "BAIXO: ETF e exterior nos Shorts: 24% das views pela Pesquisa (vitalício)", "",
      "0,5% contra 1,5% ao ano em 10 anos; corte do longo de 17/11.", "Lâminas"),
-    ("2026-11-26", L, "FII", "Fundos imobiliários caíram em 2026: o que aconteceu com a renda deles",
+    ("2026-11-26", L, "FII", "Fundos imobiliários caíram em 2026: e a renda deles?",
      "fundos imobiliários caíram", "MÉDIO: vídeos de FII, 14% das views pela Pesquisa", "8xsUtGCE-vI ('ACABOU O SONHO?')",
      "Cotas × rendimentos distribuídos: o que caiu e o que não caiu.", "IFIX; relatórios gerenciais"),
-    ("2026-11-28", L, "tesouro e renda fixa", "Reserva de emergência em 2026: Tesouro Selic, CDB ou conta remunerada",
+    ("2026-11-28", L, "tesouro e renda fixa", "Reserva de emergência em 2026: CDB, Tesouro Selic ou conta",
      "reserva de emergência", "BAIXO: mZ6ohk9JCVY, fora do top 300 de tráfego", "",
      "A conta líquida de cada opção, liquidez e FGC. Sem indicar instituição.", "Taxas do dia; fgc.org.br"),
 ]
-COLS = ["data", "dia", "formato", "assunto", "titulo", "palavra_chave", "volume", "continuacao_de", "angulo",
-        "inscritos_esperados", "faixa_p25_p75", "base_do_esperado", "fontes_a_conferir"]
+# Termo de busca real de cada pauta (TERMOS.md): (termo exibido, família de termos somada). None = nenhum termo nos
+# dados; a família ainda é procurada para provar a ausência.
+TERMOS = {
+    "2026-10-05": ("o que é lci e lca", r"o ?que e lci|lci e lca|lca e lci|lci ou cdb|cdb ou lci|lca ou cdb|^lci$|^lca$"),
+    "2026-10-06": ("etfs que pagam dividendos mensais", r"etfs?.*dividendos? mensa|dividendos mensais"),
+    "2026-10-07": ("como juntar 1 milhão de reais", r"1 milh|um milh|primeiro milh|1000 reais por mes"),
+    "2026-10-08": (None, r"tesouro|ipca|\bntn"),
+    "2026-10-13": ("dividendos mensais", r"dividendos? mensa|dividendos? todo mes"),
+    "2026-10-15": ("crise financeira", r"crise|recess|colapso"),
+    "2026-10-20": ("dividendos sinteticos", r"dividendos? sint|dividendos? turbinad|dividendos? com opc"),
+    "2026-10-22": ("lci e lca", r"\blci\b|\blca\b"),
+    "2026-10-26": ("fgc", r"\bfgc\b"),
+    "2026-10-27": ("etf dividendos", r"etfs?.*dividend"),
+    "2026-10-28": ("qual investimento rende mais", r"qual (investimento|cdb) rende mais"),
+    "2026-10-29": ("recessão", r"recess|crise"),
+    "2026-10-31": ("etf bitcoin", r"etfs? (de )?(bitcoin|cripto)|bitcoin etf|\b(hash|qbtc|bith|coin)11"),
+    "2026-11-03": ("investir 1000 reais por mes", r"1000 reais por mes|renda passiva|renda mensal"),
+    "2026-11-05": (None, r"copom|selic"),
+    "2026-11-07": ("fundos imobiliarios", r"fundos? imobiliari|\bfiis?\b"),
+    "2026-11-10": (None, r"tesouro|renda mensal"),
+    "2026-11-12": ("fundo imobiliario", r"fundos? imobiliari|\bfiis?\b"),
+    "2026-11-14": ("cdb prefixado", r"cdbs? (pre|pos)|prefixad"),
+    "2026-11-17": ("etf dividendos mensais", r"etfs?.*dividend"),
+    "2026-11-19": ("bitcoin", r"bitcoin|criptomoeda"),
+    "2026-11-21": (None, r"\bia\b|inteligencia artificial|bolha"),
+    "2026-11-23": ("melhor cdb liquidez diaria", r"liquidez diaria|reserva de emergencia|qual cdb rende"),
+    "2026-11-24": (None, r"selic|renda mensal"),
+    "2026-11-26": ("fundos imobiliarios", r"fundos? imobiliari|\bfiis?\b"),
+    "2026-11-28": ("melhor cdb liquidez diaria", r"liquidez diaria|reserva de emergencia|qual cdb rende"),
+}
+COLS = ["data", "dia", "formato", "assunto", "titulo", "termo_busca", "views_pesquisa_6m", "views_pesquisa_vitalicio",
+        "demanda", "continuacao_de", "angulo", "inscritos_esperados", "faixa_p25_p75", "base_do_esperado",
+        "fontes_a_conferir"]
+
+
+def demanda(T, data_):
+    """Termo, views 6m (texto), views vitalício (família, só termos de investimento) e o texto da demanda."""
+    if data_ not in TERMOS:
+        return "", "", "", "sem termo associado (Short de alcance)"
+    termo, fam = TERMOS[data_]
+    ts = [t for t in T.casar(fam) if not T.categoria(t).startswith("amplo")]
+    vit = T.vitalicio(ts)
+    seis = T.texto_6m(ts) if ts else "—"
+    if not ts:
+        return "", "—", 0, "nenhum termo nos dados (nem no top 25 mensal, nem nos 50 vídeos de busca)"
+    donos = Counter(T.dono(t) for t in ts if T.dono(t))
+    dono = donos.most_common(1)[0][0] if donos else "—"
+    return (termo or "", seis, vit, f"{len(ts)} termos da família, {vit:,} views da Pesquisa no vitalício "
+            f"(sobretudo em {dono}); 6 meses: {seis}".replace(",", "."))
 
 
 def montar(d):
     linhas = []
     cache = {}
+    T = termos.Termos()
     for data_, fmt, assunto, titulo, chave, volume, cont, angulo, fontes in PAUTAS:
         k = (fmt, assunto)
         if k not in cache:
@@ -172,10 +222,12 @@ def montar(d):
         e, e25, e75, n, janela = cache[k]
         dt = date.fromisoformat(data_)
         linhas.append({"data": data_, "dia": DIAS[dt.weekday()], "formato": fmt, "assunto": assunto, "titulo": titulo,
-                       "palavra_chave": chave, "volume": volume, "continuacao_de": cont, "angulo": angulo,
+                       "palavra_chave": chave, "continuacao_de": cont, "angulo": angulo,
                        "inscritos_esperados": round(e, 1), "faixa_p25_p75": f"{e25:.1f}–{e75:.1f}",
                        "_e": e, "_e25": e25, "_e75": e75,
                        "base_do_esperado": f"{assunto}, {fmt}s, {janela} (n = {n})", "fontes_a_conferir": fontes})
+        tb, v6, vv, dem = demanda(T, data_)
+        linhas[-1].update(termo_busca=tb, views_pesquisa_6m=v6, views_pesquisa_vitalicio=vv, demanda=dem)
     return linhas
 
 
@@ -207,6 +259,10 @@ def markdown(d, linhas):
     p = mo.plano(d, b, me.PLANO_LONGOS, me.PLANO_SHORTS)
     sem = por_semana(linhas)
     ini = date(2026, 10, 5)
+    mix = Counter(r["assunto"] for r in linhas if r["formato"] == L)
+    esp = {a: temas.esperado_por_assunto(d, L, a)[0] for a in mix}
+    mix_md = "\n".join(["  | assunto | longos nas 8 semanas | inscritos esperados por longo |", "  |---|---|---|"]
+                       + [f"  | {a} | {n} | {br(esp[a])} |" for a, n in mix.most_common()])
     out = [f"""# Calendário de 8 semanas: v2 (05/10 a 29/11/2026)
 
 Gerado por `calendario_v2.py`. Todas as colunas estão em `CALENDARIO-8-SEMANAS.csv`; a v1 ficou em
@@ -217,24 +273,32 @@ Gerado por `calendario_v2.py`. Todas as colunas estão em `CALENDARIO-8-SEMANAS.
 - **Volume:** 3 longos por semana a partir de 26/10, para chegar ao plano de 12 por mês de `META.md`.
 - **Mix:**
 
-  | assunto | longos nas 8 semanas | inscritos esperados por longo (12 meses) |
-  |---|---|---|
-  | renda mensal | 8 | 91 |
-  | tesouro e renda fixa | 4 | 195 |
-  | crise e macro | 3 | 52 |
-  | cripto | 2 | 58 |
-  | FII | 2 | 45 |
-  | ações e empresas | 1 | 30 |
-  | commodities (teste, n = 1) | 1 | — |
+{mix_md}
 
 - **Viraram Short:** "juntar 1 milhão" (como longo, 14 por vídeo; como Short, vive de busca) e "JCP 17,5%" (imposto
   rende 16 por longo).
-- **Os 10 top continuam cobertos,** e o ranking justifica 9 deles:
+- **Os 10 top:** 9 continuam cobertos, todos justificados pelo ranking:
   - renda mensal: Fb0l4KEq27o, TY8oLvUt2Qg e IB1mBcF00jc;
   - tesouro: dHYQtxnMSrw, e KMIsVEOcaLM com tb0nwpl9mFw no Copom;
   - crise: IcN3m7whpl8 e tpobf1e1OtM;
   - cripto: JDtxzQthFlk.
-  - O cobre (lt2LWbwu3mc) entra como **teste**: commodities tem um vídeo só, e o ranking não sustenta o assunto.
+  - O cobre (lt2LWbwu3mc) saiu na revisão por termos: commodities tem n = 1 e nenhum termo de busca.
+
+**Revisão por termos de busca reais (`TERMOS.md`):**
+- **Títulos:** os longos ganharam o termo real mais próximo, no começo do título quando coube, com até ~60 caracteres.
+  As colunas `termo_busca`, `views_pesquisa_6m` e `views_pesquisa_vitalicio` do CSV substituem o "volume provável" da v1.
+- **Duas trocas de tema:**
+  - **07/11:** "recompra de ações", sem nenhum termo e no assunto que menos rende, virou **"Fundos imobiliários para
+    iniciantes"** (fundos imobiliários: 1,4 mil views da Pesquisa no vitalício; FII rende 45 por longo, contra 30 de
+    ações).
+  - **14/11:** o cobre virou **"CDB prefixado ou pós-fixado"** (cdb prefixado: 3,9 mil views da Pesquisa, o maior termo
+    de renda fixa do canal).
+- **Pautas sem termo de busca, mantidas:**
+  - Tesouro IPCA+ (08/10), Copom (05/11), renda mensal com Tesouro (10/11), bolha de IA (21/11) e Selic caindo (24/11).
+  - Tesouro e Copom não aparecem em nenhum termo, mas são o assunto que mais traz inscritos, e vivem da página inicial.
+  - Trocar essas pautas derrubaria a soma das semanas abaixo da meta. Para elas, o título é pensado para a
+    Navegação (número concreto, sem clickbait), não para a busca.
+  - O `--termos-recentes 180` vai mostrar se os vídeos de 2026 sobre Tesouro recebem alguma busca.
 - **Copom:** a reunião é em 03 e 04/11. Sai um Short no dia 04/11 (antes da decisão) e o longo em 05/11.
 
 **Regras:**
@@ -277,8 +341,7 @@ Os inscritos esperados de cada pauta são inscritos vitalícios do vídeo (chega
     pess = tot_m - (tot_e - n_te * (te - geral))
     if pess > 0:
         out.append(f"""- **Mais volume:** nesse cenário pessimista, faltam ~{br(pess)} inscritos. A saída seria acrescentar
-  **{br(pess / rm, 1)} longos de renda mensal** nas 8 semanas (cerca de 1 a cada 2 semanas), no lugar de mais um longo de
-  ações ou crise.""")
+  **{br(pess / rm, 1)} longos de renda mensal** nas 8 semanas (cerca de 1 a cada 2 semanas), no lugar de um longo de crise.""")
     if falta > 0:
         out.append(f"""- **Para fechar a diferença**, há duas opções:
   - **+{br(falta / rm, 1)} longos de renda mensal** nas 8 semanas, a {br(rm)} cada;
@@ -289,11 +352,13 @@ Os inscritos esperados de cada pauta são inscritos vitalícios do vídeo (chega
     out.append("""
 ## Pautas
 
-| data | formato | assunto | título | palavra-chave | volume (base) | continuação de | inscritos esperados (p25–p75) |
-|---|---|---|---|---|---|---|---|""")
+| data | formato | assunto | título | termo de busca real | Pesquisa 6 meses | Pesquisa vitalício (família) | continuação de | inscritos esperados (p25–p75) |
+|---|---|---|---|---|---|---|---|---|""")
     for r in linhas:
         out.append(f"| {r['data'][8:]}/{r['data'][5:7]} {r['dia']} | {r['formato']} | {r['assunto']} | **{r['titulo']}** | "
-                   f"{r['palavra_chave']} | {r['volume']} | {r['continuacao_de'] or '—'} | "
+                   f"{r['termo_busca'] or '— (sem termo)'} | {r['views_pesquisa_6m'] or '—'} | "
+                   f"{br(r['views_pesquisa_vitalicio']) if r['views_pesquisa_vitalicio'] != '' else '—'} | "
+                   f"{r['continuacao_de'] or '—'} | "
                    f"{br(r['_e'], 1 if r['formato'] == S else 0)} ({br(r['_e25'], 1)}–{br(r['_e75'], 1)}) |")
     out.append("""
 ## Ângulo e fontes de cada pauta
@@ -301,13 +366,12 @@ Os inscritos esperados de cada pauta são inscritos vitalícios do vídeo (chega
 """)
     for r in linhas:
         out.append(f"- **{r['data'][8:]}/{r['data'][5:7]} · {r['titulo']}** — {r['angulo']} *Conferir:* {r['fontes_a_conferir']}. "
-                   f"*Esperado:* {r['base_do_esperado']}.")
+                   f"*Esperado:* {r['base_do_esperado']}. *Busca:* {r['demanda']}.")
     out.append("""
-**Volume de busca:**
-- **Regra (a mesma da v1):** ALTO = algum vídeo do canal com a mesma palavra trouxe 20 mil views ou mais da Pesquisa, ou
-  40% ou mais das views dele vieram de lá; MÉDIO = 3 mil ou mais, ou de 10% a 40%; BAIXO = abaixo disso.
-- **Termos reais:** quando `exportar.py --termos-busca` rodar no Mac, os termos substituem a palavra-chave estimada.
-- **Autocomplete:** a consulta ao autocomplete do YouTube está bloqueada nesta rede.
+**Busca:**
+- **Fonte:** termos reais de `auditoria-canal/dados/termos_busca_*.csv` (TERMOS.md).
+- **Vitalício:** soma da família de termos de investimento nos 50 vídeos com mais busca.
+- **6 meses:** top 25 mensal do canal; "fora do top 25" quer dizer menos views que o corte do mês.
 """)
     return "\n".join(out)
 
