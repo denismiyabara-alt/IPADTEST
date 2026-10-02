@@ -6,13 +6,11 @@ Gerado por `exportar.py`. Não edite à mão: rode o exportador de novo.
 - Canal: Investir e Coçar | Denis Miyabara (`UCWA0o8iZl2xbPXRopKu5A5Q`), criado em 2018-05-28; inscritos no contador público: 165000
 - Período por vídeo (Analytics): 2018-05-28 a 2026-10-01
 - Período mensal: 2025-04 a 2026-09 (18 meses fechados); diário: últimos 180 dias
-- Quota da Data API nesta execução: 0 unidades (acumulado: 48; limite do projeto: 10.000/dia)
-- Consultas ao Analytics nesta execução: 0 (acumulado: 20); respostas vindas do cache: 64
+- Quota da Data API nesta execução: 252 unidades (acumulado: 300; limite do projeto: 10.000/dia)
+- Consultas ao Analytics nesta execução: 0 (acumulado: 48); respostas vindas do cache: 97
 - Fuso: horários em UTC e em Brasília (UTC-3). Formato: short = duração ≤ 60 s; ou ≤ 180 s publicado a partir de 15/10/2024 (quando o limite dos Shorts subiu para 3 min); ou com #shorts/#short no título ou na descrição. O resto é longo.
 - Privacidade: os comentários não trazem nome do autor; `autor_canal_id` é um hash do id do canal.
 - Atenção: `views` de videos.csv é o contador público de hoje; `views` do Analytics é do período e pode diferir (o contador público conta views que o Analytics filtra, e vice-versa).
-
-**EXPORTAÇÃO INCOMPLETA:** erro da API: HTTP 400 badRequest: Date range (2026-09-30) in field parameters.end-date does not align to chosen date dimension.. Rode o mesmo comando de novo (retoma do cache).
 
 ## videos.csv (1145 linhas)
 
@@ -55,23 +53,27 @@ Gerado por `exportar.py`. Não edite à mão: rode o exportador de novo.
 - Nota: coluna impressionsClickThroughRate vazia: a API recusou (videoThumbnailImpressionsClickRate: HTTP 400 The query is not supported. Check the documentation at https://developers.google.com/youtube/analytics/v2/available_repo; impressionsClickThroughRate: HTTP 400 Unknown identifier (impressionsClickThroughRate) given in field parameters.metrics.). Exporte pelo YouTube Studio (Análises > Modo avançado > Conteúdo) para dados/studio/.
 - Nota: 3 vídeo(s) de videos.csv sem linha no Analytics (sem views no período ou recentes demais)
 
-## trafego_por_video.csv (não gerado nesta execução)
+## trafego_por_video.csv (3287 linhas)
 
 - `video_id`: id do vídeo
 - `origem`: insightTrafficSourceType
 - `origem_pt`: nome no Studio
 - `views`: views
 - `minutos`: estimatedMinutesWatched
+- Nota: só os 300 vídeos com mais views (--max-videos-detalhe)
+- Nota: consulta por lotes de até 200 IDs (filters=video==...; dimensions=video,insightTrafficSourceType)
 
-## inscritos_por_video.csv (não gerado nesta execução)
+## inscritos_por_video.csv (300 linhas)
 
 - `video_id`: id do vídeo
 - `views_inscritos`: views de quem é inscrito
 - `views_nao_inscritos`: views de quem não é inscrito
 - `minutos_inscritos`: minutos de inscritos
 - `minutos_nao_inscritos`: minutos de não inscritos
+- Nota: só os 300 vídeos com mais views (--max-videos-detalhe)
+- Nota: consulta por lotes de até 200 IDs (filters=video==...; dimensions=video,subscribedStatus)
 
-## canal_por_mes.csv (não gerado nesta execução)
+## canal_por_mes.csv (18 linhas)
 
 - `mes`: AAAA-MM
 - `views`: views
@@ -91,8 +93,9 @@ Gerado por `exportar.py`. Não edite à mão: rode o exportador de novo.
 - `inscritos_perdidos_shorts`: inscritos perdidos em Shorts
 - `inscritos_perdidos_longos`: inscritos perdidos em longos
 - `inscritos_perdidos_lives`: inscritos perdidos em lives
+- **Colunas vazias:** views_shorts, views_longos, views_lives, minutos_shorts, minutos_longos, minutos_lives, inscritos_ganhos_shorts, inscritos_ganhos_longos, inscritos_ganhos_lives, inscritos_perdidos_shorts, inscritos_perdidos_longos, inscritos_perdidos_lives
 
-## canal_por_dia.csv (não gerado nesta execução)
+## canal_por_dia.csv (178 linhas)
 
 - `dia`: AAAA-MM-DD
 - `views`: views
@@ -101,7 +104,7 @@ Gerado por `exportar.py`. Não edite à mão: rode o exportador de novo.
 - `inscritos_perdidos`: inscritos perdidos
 - `engagedViews`: views engajadas (se a API tiver)
 
-## trafego_por_mes.csv (não gerado nesta execução)
+## trafego_por_mes.csv (278 linhas)
 
 - `mes`: AAAA-MM
 - `origem`: insightTrafficSourceType
@@ -109,8 +112,9 @@ Gerado por `exportar.py`. Não edite à mão: rode o exportador de novo.
 - `views`: views
 - `minutos`: minutos
 - `pct_views_mes`: % das views do mês
+- Nota: a API não aceitou month+origem juntos; consultei mês a mês
 
-## comentarios_top30.csv (não gerado nesta execução)
+## comentarios_top30.csv (12318 linhas)
 
 - `video_id`: id do vídeo
 - `comentario_id`: id do comentário
@@ -121,6 +125,7 @@ Gerado por `exportar.py`. Não edite à mão: rode o exportador de novo.
 - `likes`: likes
 - `publicado_em`: data e hora UTC
 - `eh_resposta`: 1 se é resposta
+- Nota: aDL4MMF6AnE: parei em 20 páginas de comentários (--max-paginas-comentarios)
 
 ## Métricas que a API pode não entregar
 
