@@ -1,142 +1,112 @@
-# Esteira social: do calendário de vídeos aos posts de X e Instagram
+# Esteira social: do calendário de vídeos aos posts de Instagram e X
 
-Para cada vídeo do `pautas-canal/CALENDARIO-8-SEMANAS.csv` (v2: 21 longos e 16 Shorts), a esteira gera **dois cards**:
-um de X e um de Instagram. Isso dá **74 cards**, todos com status `rascunho`, prontos para o **juiz-post**.
-Nada aqui publica nada.
+Para cada vídeo de `pautas-canal/CALENDARIO-8-SEMANAS.csv` (v2: 21 longos e 16 Shorts), a esteira gera **um card 🎬**:
+- o carrossel do Instagram, com a capa e os slides;
+- a legenda;
+- de 3 a 5 posts do X (A, B, C…).
+
+Esse é o formato que o **juiz-post** espera (`agentes/juiz-post.md`, a cópia do Mac). São **37 cards**, todos com
+status `rascunho`. Nada aqui publica nada.
 
 ```
-calendário (CSV v2) ──► gerar_cards.py + conteudo.py ──► cards/*.md + INDICE.csv ──► gate de qualidade
-        ──► juiz-post (nota por card) ──► Denis aprova ou devolve ──► publicação manual (X e IG)
+calendário (CSV v2) ──► gerar_cards.py + conteudo.py ──► cards/*.md + INDICE.csv
+   ──► autoexame + gate de qualidade ──► renderizar PNGs ──► juiz-post (APROVADO só com 9-10 e nenhum eliminatório)
+   ──► leitor-frio (PNGs + legenda; PASSA com zero trava na capa) ──► Denis aprova ──► publicação
 ```
 
 ## Como rodar
 
 ```bash
 cd esteira-social
-python3 gerar_cards.py                 # gera os 74 cards, o INDICE.csv e roda o gate (GATE-RELATORIO.md)
-python3 gerar_cards.py --checar        # só confere números e limites, sem gravar
-python3 gerar_cards.py --sem-gate      # gera sem o gate
-python3 -m pytest -q tests/            # 422 testes; os de gate pulam se o gate não for encontrado
+python3 gerar_cards.py            # 37 cards, INDICE.csv, GATE-RELATORIO.md e AUTOEXAME.md
+python3 gerar_cards.py --checar   # só o autoexame; sai com 1 se algum card falhar
+python3 -m pytest -q tests/       # 316 testes; os de gate pulam se o gate não for encontrado
 ```
 
-- **Só biblioteca padrão** no gerador. Os testes precisam de `pytest`.
-- **O gate** é o `investir-e-cocar/pipeline/gate_qualidade.py` (branch `gate-qualidade`), importado sem alteração.
-  - O caminho padrão é `/home/user/investir-e-cocar/pipeline/`. No Mac, use `--gate ~/investir-e-cocar/pipeline/gate_qualidade.py`
-    ou a variável `IC_GATE`.
-  - Ele aceita texto solto pelo stdin (`gate_qualidade.py - --titulo ... --data ...`). A esteira usa o import, e um teste confere
-    que a linha de comando dá o mesmo veredito.
-- **O texto dos posts** está em `conteudo.py`, escrito à mão, um bloco por vídeo. O gerador só monta o card.
-  - Se o calendário ganhar um vídeo sem texto, o gerador **para com erro**, em vez de gravar um template vazio.
-  - Se um título mudar no calendário, o gerador também para, para o texto não sair desalinhado com o vídeo.
+- **Gerador:** usa só a biblioteca padrão. Os testes precisam de `pytest`.
+- **Gate:** é o `investir-e-cocar/pipeline/gate_qualidade.py`, importado sem alteração. Para apontar outro, use
+  `--gate CAMINHO` ou a variável `IC_GATE`.
+- **Texto:** fica em `conteudo.py`, escrito à mão, um bloco por vídeo. Se faltar o texto de um vídeo, ou se o título
+  mudar no calendário, o gerador para com erro.
+- **`agentes/`:** é a cópia do Mac. A esteira não mexe lá.
 
-## O que cada card tem
+## O card que o juiz-post recebe
 
-Arquivo: `cards/<data do vídeo>-<slug do título>-<x|ig>.md`. A data no nome é a **do vídeo**, para o par X/IG ficar junto.
-A data de publicação está no frontmatter.
+Arquivo: `cards/<data do vídeo>-<slug>.md`.
 
-O formato segue o do `ic-copywriter` (`.claude/scheduled-tasks/ic-copywriter/SKILL.md`): cabeçalho com status, um bloco por
-tweet, sugestão de imagem e o bloco `---JSON---` … `---FIM---` com a chave `tweets`. É esse bloco que o pipeline usa para
-reconhecer um card de thread válido (`project_gate_fila_copywriter_ago2026`).
+| seção | conteúdo |
+|---|---|
+| frontmatter | id, `tipo: 🎬 vídeo do canal`, status, juiz, depois (`leitor-frio`), vídeo, temas, mensagem da capa, estrutura, mecânica, datas de publicação, pendências, PNGs |
+| **PARA O JUIZ-POST** | o carrossel, a legenda, as hashtags e os posts do X (detalhe abaixo) |
+| **PARA O LEITOR-FRIO** | os PNGs em ordem, a legenda e a **mensagem pretendida da capa**, que quem chama compara com "a capa quer me dizer" |
+| FONTES E NÚMEROS | origem de cada número e de cada afirmação de ranking (não vai no post) |
+| PENDÊNCIAS | `[CHECAR]` e os PNGs a renderizar |
+| PUBLICAÇÃO | datas e o destino do link do vídeo. Fica fora do julgamento e não é texto do post |
+| `---JSON---` | o mesmo conteúdo em JSON, com a chave `tweets` que o pipeline usa |
 
-| campo | X | Instagram |
-|---|---|---|
-| **frontmatter** | id, rede, formato, status, juiz, data_publicacao, horario, relativa_ao_video, video_*, assunto, termo_busca, gancho, estrutura (A-E), mecanica, pendencias_checar | o mesmo, sem estrutura e mecânica |
-| **corpo** | longo: thread de 5 posts. Short: thread de 3 posts | longo: carrossel de 6 slides. Short: Reels com 4 telas |
-| **gancho** | 1ª linha do tweet 1, sempre "Tanaka, …" e com até 8 palavras | 1ª linha da legenda |
-| **CTA para o vídeo** | numa **reply** depois do último tweet, com o link | última linha da legenda ("link na bio") |
-| **hashtags** | nenhuma (o brief do X proíbe) | de 5 a 10, só do tema do vídeo (`TEMAS_VIDEO` + `HASHTAGS_TEMA`) |
-| **fontes e números** | seção própria, que **não vai no post** | idem |
-| **pendências** | `[CHECAR: …]` que o Denis preenche antes de aprovar | idem |
+Detalhe da seção PARA O JUIZ-POST:
+- **Carrossel:** 5 slides no longo; 4 ou 5 no Short. Cada slide traz o texto, a imagem e o caminho do PNG.
+- **Legenda:** de 200 a 500 caracteres, mais as hashtags do tema.
+- **Posts do X:** 4 ou 5 no longo, 3 no Short.
 
-**Agenda (relativa ao vídeo):**
-- **Longo:** X no D+0 às 19h30, 30 minutos depois do vídeo das 19h. IG no D+1 ao meio-dia.
-- **Short:** X no D+0 ao meio-dia e IG (Reels com o mesmo vídeo) no D+0 às 18h.
-- **Copom (04/11):** X às 9h e IG às 10h, **antes** da decisão.
+**Imagens (item 4, Prova):**
+- A capa do carrossel e o post A usam a **thumbnail do vídeo no YouTube**, a regra do card 🎬 (Denis, 30/09).
+- O slide 2 leva o **print legível e do dia** da fonte oficial que o calendário manda conferir, ou nenhuma imagem.
+- Nenhum card sugere foto de banco de imagens ou imagem de IA, porque isso elimina o card.
 
-## Regras que a esteira cumpre (e os testes conferem)
+**PNGs:** ficam em `esteira-social/render/<id>/slide-N.png` e `post-A.png`. **Ainda não existem.** O juiz-post abre
+cada PNG (passo 4), então é preciso renderizar antes de chamar o juiz.
 
-- **Nenhum número inventado.** Todo número de um post precisa ter uma destas origens:
-  - estar na própria linha do calendário, que é o briefing do vídeo;
-  - estar declarado em `numeros`, com o **trecho literal** de `pautas-canal/` (CALENDARIO, TEMAS, TERMOS ou
-    PERGUNTAS-SEM-RESPOSTA);
-  - estar declarado com a **conta** que o gera. Exemplo: em 10 anos, 1,5% ao ano come `(1 − 0,985¹⁰)` ≈ 14% do patrimônio.
+## O que o autoexame mede (e os testes exigem zero problemas)
 
-  O teste reabre cada arquivo, procura o trecho e refaz cada conta. Quando o número depende do dia, fica `[CHECAR: …]`,
-  como manda o X-COPYWRITER-BRIEF. São só dois casos: a taxa do Tesouro Selic do dia (28/10) e a decisão do Copom (05/11).
-- **Nenhum ranking ou superlativo sem fonte literal.** "top 10", "3º melhor", "mais buscado", "campeão", "recorde"
-  e parecidos só aparecem se estiverem escritos no calendário, nos TEMAS/TERMOS ou em `auditoria-canal/RELATORIO.md`.
-  Cada afirmação está em `conteudo.AFIRMACOES`, com o trecho, e o teste confere o trecho no arquivo. Exemplo: o vídeo
-  de janeiro (08/10) "está no top 10 do ano", que é literal no RELATORIO ("Dois dos top 10 (421 e 246)"). A versão
-  anterior dizia "o segundo que mais trouxe inscritos", e isso não está escrito em lugar nenhum.
-- **Hashtags do tema.** Um card de Tesouro não leva #CDB, #LCI nem #FGC. Os temas são: Tesouro, renda fixa
-  bancária, FII, ações e dividendos, ETF, IR, juros, crise, IA, cripto, juntar dinheiro e comportamento. Um vídeo pode
-  ter mais de um tema, por exemplo JCP: IR + ações e dividendos.
-- **Sem fonte e sem disclaimer no post** (`feedback_copywriter_sem_fonte_sem_disclaimer`). A fonte de cada número fica na
-  seção "FONTES E NÚMEROS" do card, para o juiz e o Denis. O teste reprova "segundo…", "de acordo com", "Fonte:" e
-  "não é recomendação".
-- **Sem recomendação de ativo nem corretora.** O teste reprova "vale a pena", "melhor ação", "hora de comprar" e nomes de
-  corretoras. O TRXF11 aparece só como acompanhamento neutro dos números do fundo, como o calendário pede.
-- **Voz.** As threads abrem com "Tanaka," e nunca com "Fala, Tanaka" (`feedback_persona_tanaka_voice`). A promessa cabe no
-  bolso de quem tem de R$ 50 mil a R$ 100 mil (`feedback_promessa_perto_do_tanaka`). Não há palavra da lista anti-IA. A
-  estrutura (A-E) e a mecânica de piada **não se repetem** em duas threads seguidas. Cada mecânica (atendimento ao
-  cliente, contraste, conta rápida, mito × fato, pergunta do leitor, tradutor, manual invertido...) aparece **no máximo 5
-  vezes**. As estruturas A-E ficam entre 6 e 8 cada: com só 5 estruturas para 37 threads, 8 é o mínimo possível.
-- **Limites.** X: até 280 caracteres por post (o maior tem 217). IG: legenda de 200 a 500 caracteres; total com CTA e
-  hashtags até 2.200; slide até 120.
-- **Gate.** Nenhum card é bloqueado. Os avisos estão em `cards/GATE-RELATORIO.md`.
+`cards/AUTOEXAME.md` aplica a cada card os critérios do juiz-post e do leitor-frio que dá para medir no texto.
 
-## Como o juiz-post consome os cards
+**Eliminatórios do juiz-post:**
+- **Afirmação absoluta:** "só", "somente", "apenas", "nunca", "todo", "tudo", "ninguém", "sempre", "nenhum"…
+- **CTA ou link:** "link", "bio", "siga", "comenta", "salva", "compartilha", URL, @.
+- **Palavras e listas:** palavra proibida, "Você sabia", "plot twist", ✅🚀💡.
+- **Números:** número sem fonte e conta que não fecha. Cada número vem da linha do calendário ou de `numeros`
+  (trecho literal ou conta refeita).
+- **Afirmações de ranking:** "top 10", "3º melhor" e "mais buscado" precisam de trecho literal do calendário, dos
+  TEMAS/TERMOS ou do `auditoria-canal/RELATORIO.md`.
 
-> **Atenção:** não existe definição de `juiz-post` no repo `investir-e-cocar`. O `grep -ril "juiz-post"` em `.claude/`,
-> `memory/` e `vault/Pipeline/`, em todas as branches, não acha nada. O contrato abaixo copia o do `juiz-roteiro`
-> (`.claude/agents/juiz-roteiro.md`), que é o juiz que existe. Precisa da confirmação do Denis.
+**Capa (item 3 e passo 1 do leitor-frio):** uma ideia, até 10 palavras, no máximo 1 número e nenhuma palavra técnica.
 
-**Entrada:** só o caminho do card, como no juiz-roteiro. O juiz não sabe quem escreveu, e a justificativa do autor não conta.
-- `cards/INDICE.csv` é a fila. O juiz pega os cards com `status = rascunho` e `gate_resultado != BLOQUEADO`, em ordem de
-  `data_publicacao`.
-- O juiz lê o **frontmatter** (contexto) e o **bloco JSON** (o texto exato que vai ao ar). As seções em Markdown são as
-  mesmas informações, para leitura humana.
-- A seção "FONTES E NÚMEROS" serve para o juiz checar cada número. Ela nunca vai no post.
+**Leitor-frio nos slides:**
+- até 3 números por slide;
+- frase de até 25 palavras;
+- slide de até 140 caracteres, para não estourar o PNG;
+- **todo jargão explicado no próprio slide, entre parênteses.** Exemplos: "ETF (fundo vendido na bolsa)", "FGC
+  (garantia que devolve o dinheiro se o banco quebrar)", "marcação a mercado (o preço se você vendesse hoje)".
 
-**Saída sugerida** (mesmo molde do juiz-roteiro: item com trecho literal, ou não passa):
+**X:**
+- cada post funciona sozinho: jargão explicado nele mesmo, até 280 caracteres, sem hashtag nem emoji;
+- o post A abre com "Tanaka," e tem até 8 palavras na 1ª linha;
+- o post A tem no máximo 1 número; os outros, até 4.
 
-```
-card: <id>
-nota: N/10
-eliminatorio: nenhum | <número sem origem · recomendação de ativo/corretora · fonte ou disclaimer no corpo ·
-              palavra anti-IA · link/hashtag/emoji no corpo do X · "Fala, Tanaka" ou "Taná" · [CHECAR] pendente>
-item 1 gancho para o scroll (≤ 8 palavras) ....... PASSA/FALHA — "<trecho>"
-item 2 cada post planta a pergunta do próximo ..... PASSA/FALHA — "<trecho>"
-item 3 número com contraste (não solto) ........... PASSA/FALHA — "<trecho>"
-item 4 analogia brasileira, sem explicar a piada .. PASSA/FALHA — "<trecho>"
-item 5 conta em R$ que o Tanaka aplica ............ PASSA/FALHA — "<trecho>"
-item 6 fecho que alguém printaria (sem moral) ..... PASSA/FALHA — "<trecho>"
-item 7 provoca resposta sem pedir (sem CTA no corpo) PASSA/FALHA — "<trecho>"
-item 8 mecânica registrada aparece no texto ....... PASSA/FALHA — "<trecho>"
-para_corrigir:
-- item N: <o que falta, em uma frase>
-```
+**Voz:** a legenda abre com "Tanaka,". Nenhuma mecânica de piada aparece mais de 5 vezes. As estruturas A-E ficam
+entre 6 e 8 cada. Nem a estrutura nem a mecânica se repetem em dois cards seguidos.
 
-**Depois do juiz:**
-- **Nota abaixo do corte:** o card volta para reescrita em `conteudo.py`. Roda `gerar_cards.py` e os testes de novo.
-- **Nota no corte ou acima:** o card vai para o Denis.
-  - No pipeline atual, isso é a lista "Aprovar X" do Trello. O card do Trello começa com 🧵 e leva o bloco JSON.
-  - O Denis preenche os `[CHECAR]`, troca `[LINK DO VÍDEO…]` pelo link real e aprova (lista "Aprovado X").
-  - A publicação continua manual (ou pelo `ic-publish-x`). O status `publicado` é marcado à mão no INDICE, nunca por esta esteira.
+**Regras do canal:**
+- nenhuma recomendação de ativo nem corretora;
+- sem fonte nem disclaimer no corpo do post;
+- hashtags só do tema do vídeo, de 5 a 10.
 
-## Fluxo completo
+**O que o autoexame não mede** fica como risco por card, na Parte 2 do AUTOEXAME.md:
+- **item 1, Pauta:** o juiz elimina finança pessoal básica e tema gringo sem ponte com o bolso;
+- **item 2, Voz + piada:** um carrossel que explica em vez de reagir vale no máximo 1;
+- **item 4:** a qualidade real da thumbnail.
 
-1. **Calendário:** `pautas-canal/calendario_v2.py` gera o CSV. Se a pauta mudar, ajuste o bloco do vídeo em `conteudo.py`.
-2. **Cards:** `python3 gerar_cards.py`, depois `python3 -m pytest -q tests/`. Os dois têm de passar.
-3. **Juiz-post:** dá a nota de cada card, citando trecho.
-4. **Denis aprova:** preenche `[CHECAR]` e o link, e escolhe o horário final.
-5. **Publica:** X com a thread e o link na reply. IG com o carrossel ou o Reels e a legenda com o CTA.
+## Decisões e conflitos
 
-## O que ficou de fora, de propósito
-
-- **Imagens prontas:** cada card traz só uma sugestão de imagem. A arte é outra etapa.
-- **Link dos vídeos:** ainda não existem. Fica o marcador `[LINK DO VÍDEO: preencher na publicação]`.
-- **Selic, IPCA e taxas do dia:** não estão no calendário. Os textos foram escritos sem esses números, e onde eles são o
-  assunto fica `[CHECAR]`.
-- **Hashtags no X:** o brief proíbe.
-- **Disclaimer no IG:** a memória permite, "se necessário". Nenhum card recomenda ativo, então não foi preciso.
+- **[CHECAR]:** o Denis preenche na publicação, e a marca **não elimina** o card (decisão do Mac). O contrato do
+  juiz-post não fala em `[CHECAR]`, mas o juiz julga "o que o Tanaka vê". Um `[CHECAR: …]` visível no PNG pode ser lido
+  como texto quebrado ou número sem fonte. São dois cards: 28/10 e 05/11.
+- **CTA para o vídeo:** o pedido original queria CTA. O juiz-post elimina CTA e link. Por isso o texto julgado não tem
+  CTA nem link. O destino do link (bio do Instagram e, no X, uma resposta à parte depois da aprovação) está na seção
+  PUBLICAÇÃO, fora do julgamento.
+- **Um card por vídeo, não por rede:** o contrato define o card como carrossel + legenda + posts. As duas redes
+  continuam cobertas, agora dentro do mesmo card.
+- **Shorts:** o contrato não tem Reels. Os Shorts também viram carrossel, de 4 ou 5 slides, com a thumbnail do Short.
+- **Arquivos que o juiz lê no Mac e que não estão aqui:** `pipeline/campeoes_ig.md` e `pipeline/voz_ig_denis.md`.
+  A voz foi escrita pelos briefs e pelas memórias, sem essas duas réguas.
