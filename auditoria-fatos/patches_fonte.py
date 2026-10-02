@@ -350,9 +350,11 @@ post(4537, "B", "Destino do 301 do 1083. Tratava o JEPQ39 como BDR negociado na 
          ("JEPQ (JPMorgan)", "JEPQ (JPMorgan), só nos EUA"),
          ("Covered call Nasdaq 100", "Covered call Nasdaq 100 (sem BDR na B3)"),
          ("Os dois ETFs vendem opções de compra sobre suas carteiras", "Esses ETFs vendem opções de compra sobre suas carteiras"),
+         ("imposto americano compensado no Brasil (Lei 14.754/2023)",
+          "o imposto retido nos EUA sobre os dividendos do BDR pode ser compensado no Brasil; confira com seu contador"),
+         ("IOF de 0,38% na conversão", "Sem IOF de câmbio: o BDR é comprado em reais na B3"),
          ("JEPQ39 paga historicamente mais (10-15%/ano) que JEPI39 (7-12%/ano), mas com maior volatilidade pela exposição ao Nasdaq. A escolha depende do seu perfil de risco.",
           "Na B3, o BDR de ETF de covered call com renda mensal é o JEPI39 (do JEPI, da JPMorgan, negociado desde fevereiro de 2026). O JEPQ, versão do Nasdaq que costuma pagar mais e oscilar mais, não tem BDR na B3: o JEPQ39 não existe, e o JEPQ só é comprado nos EUA."),
      ],
      manual=["Tabela: na linha do JEPQ, trocar a célula do ticker 'JEPQ39' por 'Não tem BDR' e a faixa '10–15%' por '-' (células curtas, com travessão).",
-             "O título cita JEPQ39; pela regra, título e slug não foram mudados. Avaliar trocar o título no Yoast/editor.",
-             "Bloco de tributação: 'imposto americano compensado no Brasil (Lei 14.754/2023)' e 'IOF de 0,38% na conversão' não foram conferidos na fonte primária (a Lei 14.754 trata de aplicações no exterior, e BDR é negociado no Brasil); revisar antes de manter."])
+             "O título cita JEPQ39; pela regra, título e slug não foram mudados. Avaliar trocar o título no Yoast/editor."])
