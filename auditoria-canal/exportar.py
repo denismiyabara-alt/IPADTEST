@@ -72,7 +72,7 @@ METRICAS_MES = ["views", "estimatedMinutesWatched", "subscribersGained", "subscr
 FORMATOS_API = {"SHORTS": "shorts", "VIDEO_ON_DEMAND": "longos", "LIVE_STREAM": "lives"}
 ORIGENS_PT = {
     "RELATED_VIDEO": "Vídeos sugeridos (Recomendados)", "BROWSE": "Recursos de navegação (Início/Inscrições)",
-    "YT_SEARCH": "Pesquisa do YouTube", "SUBSCRIBER": "Inscritos (feed/sino)", "EXT_URL": "Externo",
+    "YT_SEARCH": "Pesquisa do YouTube", "SUBSCRIBER": "Recursos de navegação (na API: Início, Inscrições)", "EXT_URL": "Externo",
     "NO_LINK_OTHER": "Direto ou desconhecido", "SHORTS": "Feed do Shorts", "PLAYLIST": "Playlists",
     "YT_CHANNEL": "Página do canal", "NOTIFICATION": "Notificações", "END_SCREEN": "Tela final",
     "ANNOTATION": "Cards/anotações", "YT_OTHER_PAGE": "Outras páginas do YouTube", "CAMPAIGN_CARD": "Campanha",

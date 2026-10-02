@@ -181,8 +181,8 @@ def test_conversao_por_formato_e_tema(dados):
 def test_hipoteses(dados):
     d = an.Dados(dados)
     H = {h["id"]: h for h in an.hipoteses(d)}
-    assert H["H1"]["veredito"] == "CONFIRMA"      # views/engajadas 2,6x depois de 27/08
-    assert H["H2"]["veredito"] == "CONFIRMA"      # 7 por mil × 2 por mil
+    assert H["H1"]["veredito"].startswith("CONFIRMA")  # views/engajadas 2,6x depois de 27/08
+    assert H["H2"]["veredito"].startswith("CONFIRMA")  # 7 por mil × 2 por mil (amostra pequena: 4 vídeos)
     assert H["H3"]["veredito"] == "CONFIRMA"      # 29% → 2%
     assert H["H5"]["veredito"] == "CONFIRMA"      # 40% dos inscritos, nenhum Short depois de 28/07
     assert H["H4"]["veredito"] in ("CONFIRMA", "PARCIAL")
@@ -327,3 +327,48 @@ def test_conferencia_e3_real():
     assert an.num(lo["Recursos de navegação"]["ctr"]) == 7.18
     assert an.num(lo["Pesquisa do YouTube"]["views"]) == pytest.approx(3.26e6, rel=0.01)
     assert an.num(lo["Pesquisa do YouTube"]["ctr"]) == 12.32
+
+
+def _ns(**kw):
+    from types import SimpleNamespace
+    return SimpleNamespace(**kw)
+
+
+def test_modelo_de_inscritos_por_formato_recupera_as_taxas():
+    """Inscritos = 15/mil views de longos + 1/mil de Shorts: o modelo deve achar isso e a fatia dos Shorts."""
+    meses = [f"2026-{m:02d}" for m in range(1, 10)]
+    lon = [1000 * (k + 3) for k in range(9)]
+    sho = [20000 * (9 - k) for k in range(9)]
+    st = {"studio_conteudo_longos": {"totais": [{"data": f"{m}-15", "views": str(l)} for m, l in zip(meses, lon)]},
+          "studio_conteudo_shorts": {"totais": [{"data": f"{m}-15", "views": str(s)} for m, s in zip(meses, sho)]}}
+    mes = [{"mes": m, "inscritos_ganhos": str(15 * l / 1000 + s / 1000)} for m, l, s in zip(meses, lon, sho)]
+    d = _ns(studio=st, mes=mes)
+    mod = an.modelo_inscritos(d)
+    assert mod["a"] == pytest.approx(15) and mod["b"] == pytest.approx(1) and mod["r2"] == pytest.approx(1)
+    assert mod["n"] == 8                                    # setembro (mês seguinte a 27/08) fica fora do ajuste
+    jan = mes[0]
+    assert mod["share"]("2026-01", "2026-01") == pytest.approx(100 * 180 / float(jan["inscritos_ganhos"]))
+    assert mod["check"]["mes"] == "2026-09"
+
+
+def test_meta(tmp_path):
+    (tmp_path / "LEIAME_DADOS.md").write_text("inscritos no contador público: 165000", encoding="utf-8")
+    mes = [{"mes": f"2026-{m:02d}", "inscritos_ganhos": "800", "inscritos_perdidos": "400"} for m in range(4, 10)]
+    d = _ns(pasta=tmp_path, mes=mes, data_ref=date(2026, 10, 1))
+    m = an.meta(d)
+    assert m["faltam"] == 35000 and m["dias"] == 91 and m["media6"] == 400
+    assert m["por_mes"] == pytest.approx(35000 / (91 / 30.4))
+    assert m["x_media6"] == pytest.approx(m["por_mes"] / 400)
+
+
+def test_comentarios_por_tema_sem_arroba():
+    cs = [{"video_id": "a", "eh_do_canal": "0", "texto": "Como abrir conta no Nubank?", "likes": "3"},
+          {"video_id": "a", "eh_do_canal": "0", "texto": "@fulano.silva qual FII comprar agora?", "likes": "9"},
+          {"video_id": "b", "eh_do_canal": "0", "texto": "Qual o melhor FII para começar?", "likes": "1"},
+          {"video_id": "b", "eh_do_canal": "1", "texto": "Resposta do canal sobre FII", "likes": "0"}]
+    r = an.comentarios_por_tema(_ns(comentarios=cs))
+    linhas = {l["tema"]: l for l in r["linhas"]}
+    assert r["total"] == 3 and linhas["Fundos imobiliários (FIIs)"]["n"] == 2
+    assert linhas["Bancos digitais, contas e cartões"]["n"] == 1
+    assert all("fulano" not in e for l in r["linhas"] for e in l["exemplos"])
+    assert an.sem_arroba("oi @fulano.silva tudo\nbem") == "oi @… tudo bem"
