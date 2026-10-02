@@ -1,0 +1,33 @@
+{
+ "post_id": 5060,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-juros-compostos/",
+ "lote": "L1",
+ "motivo": "Links internos: juros mensais -> /calculadora-juros-anual-para-mensal/; Juros compostos -> /calculadora-1-milhao/",
+ "trocas": [
+  {
+   "de": "crédito, os juros mensais chegam a 15%",
+   "para": "crédito, os <a href=\"https://investirecocaresocomecar.com.br/calculadora-juros-anual-para-mensal/\">juros mensais</a> chegam a 15%",
+   "de_rendered": "crédito, os juros mensais chegam a 15%"
+  },
+  {
+   "de": "Juros compostos são o",
+   "para": "<a href=\"https://investirecocaresocomecar.com.br/calculadora-1-milhao/\">Juros compostos</a> são o",
+   "de_rendered": "Juros compostos são o"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-juros-anual-para-mensal/",
+   "destino": "Calculadora de juros anual para mensal",
+   "ancora": "juros mensais",
+   "similaridade": 0.154
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-1-milhao/",
+   "destino": "Calculadora: quanto falta para juntar 1 milhão",
+   "ancora": "Juros compostos",
+   "similaridade": 0.101
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "post_id": 5097,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-ivvb11/",
+ "lote": "L2",
+ "motivo": "Links internos: BOVA11 -> /o-que-e-bova11/",
+ "trocas": [
+  {
+   "de": "mesmas regras tributárias do BOVA11:",
+   "para": "mesmas regras tributárias do <a href=\"https://investirecocaresocomecar.com.br/o-que-e-bova11/\">BOVA11</a>:",
+   "de_rendered": "mesmas regras tributárias do BOVA11:"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/o-que-e-bova11/",
+   "destino": "O que é BOVA11",
+   "ancora": "BOVA11",
+   "similaridade": 0.319
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "post_id": 1173,
+ "url": "https://investirecocaresocomecar.com.br/quanto-rende-1-000-reais-em-um-fundo-imobiliario/",
+ "lote": "L2",
+ "motivo": "Links internos: fundos imobiliários -> /fundos-imobiliarios-o-que-sao-fiis/",
+ "trocas": [
+  {
+   "de": "Os fundos imobiliários podem trazer",
+   "para": "Os <a href=\"https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/\">fundos imobiliários</a> podem trazer",
+   "de_rendered": "Os fundos imobiliários podem trazer"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/",
+   "destino": "Fundos imobiliários (guia completo)",
+   "ancora": "fundos imobiliários",
+   "similaridade": 0.211
+  }
+ ]
+}

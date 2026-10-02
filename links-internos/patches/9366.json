@@ -1,0 +1,22 @@
+{
+ "post_id": 9366,
+ "url": "https://investirecocaresocomecar.com.br/cr7-socio-caze-salario-tem-teto-equity-nao/",
+ "lote": "L1",
+ "motivo": "Links internos: juros compostos -> /calculadora-1-milhao/",
+ "trocas": [
+  {
+   "de": "o efeito dos juros compostos sobre o",
+   "para": "o efeito dos <a href=\"https://investirecocaresocomecar.com.br/calculadora-1-milhao/\">juros compostos</a> sobre o",
+   "de_rendered": "o efeito dos juros compostos sobre o"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-1-milhao/",
+   "destino": "Calculadora: quanto falta para juntar 1 milhão",
+   "ancora": "juros compostos",
+   "similaridade": 0.051
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "post_id": 4815,
+ "url": "https://investirecocaresocomecar.com.br/fii-ou-imovel-fisico-qual-e-melhor-investimento/",
+ "lote": "L1",
+ "motivo": "Links internos: renda mensal -> /simulador-renda-fii/",
+ "trocas": [
+  {
+   "de": "Se você quer renda mensal passiva",
+   "para": "Se você quer <a href=\"https://investirecocaresocomecar.com.br/simulador-renda-fii/\">renda mensal</a> passiva",
+   "de_rendered": "Se você quer renda mensal passiva"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/simulador-renda-fii/",
+   "destino": "Simulador de renda mensal com FIIs",
+   "ancora": "renda mensal",
+   "similaridade": 0.072
+  }
+ ]
+}

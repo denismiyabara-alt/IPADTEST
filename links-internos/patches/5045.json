@@ -1,0 +1,22 @@
+{
+ "post_id": 5045,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-ipca/",
+ "lote": "L1",
+ "motivo": "Links internos: aposentadoria -> /calculadora-aposentadoria-renda-passiva/",
+ "trocas": [
+  {
+   "de": "como aposentadoria ou compra de",
+   "para": "como <a href=\"https://investirecocaresocomecar.com.br/calculadora-aposentadoria-renda-passiva/\">aposentadoria</a> ou compra de",
+   "de_rendered": "como aposentadoria ou compra de"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-aposentadoria-renda-passiva/",
+   "destino": "Calculadora de aposentadoria com renda passiva e INSS",
+   "ancora": "aposentadoria",
+   "similaridade": 0.046
+  }
+ ]
+}

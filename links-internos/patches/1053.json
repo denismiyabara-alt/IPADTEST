@@ -1,0 +1,22 @@
+{
+ "post_id": 1053,
+ "url": "https://investirecocaresocomecar.com.br/qual-a-diferenca-entre-itausa-e-itau-guia-completo/",
+ "lote": "L2",
+ "motivo": "Links internos: Itaúsa -> /quem-a-itausa-controla-conheca-suas-empresas/",
+ "trocas": [
+  {
+   "de": "A Itaúsa não é o Itaú:",
+   "para": "A <a href=\"https://investirecocaresocomecar.com.br/quem-a-itausa-controla-conheca-suas-empresas/\">Itaúsa</a> não é o Itaú:",
+   "de_rendered": "A Itaúsa não é o Itaú:"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/quem-a-itausa-controla-conheca-suas-empresas/",
+   "destino": "Quem a Itaúsa controla (as 7 empresas)",
+   "ancora": "Itaúsa",
+   "similaridade": 0.51
+  }
+ ]
+}

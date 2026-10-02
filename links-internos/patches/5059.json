@@ -1,0 +1,22 @@
+{
+ "post_id": 5059,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-fii/",
+ "lote": "L1",
+ "motivo": "Links internos: rendimento mensal -> /simulador-renda-fii/",
+ "trocas": [
+  {
+   "de": "primeira é o rendimento mensal: por lei, os",
+   "para": "primeira é o <a href=\"https://investirecocaresocomecar.com.br/simulador-renda-fii/\">rendimento mensal</a>: por lei, os",
+   "de_rendered": "primeira é o rendimento mensal: por lei, os"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/simulador-renda-fii/",
+   "destino": "Simulador de renda mensal com FIIs",
+   "ancora": "rendimento mensal",
+   "similaridade": 0.104
+  }
+ ]
+}

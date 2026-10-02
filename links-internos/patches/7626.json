@@ -1,0 +1,22 @@
+{
+ "post_id": 7626,
+ "url": "https://investirecocaresocomecar.com.br/saud3-bradesco-vai-fechar-capital-bradsaude/",
+ "lote": "L3",
+ "motivo": "Links internos: SAUD3 -> /bradsaude-saud3-lucro-sobe-acao-cai-sinistralidade/",
+ "trocas": [
+  {
+   "de": "em comprar SAUD3.",
+   "para": "em comprar <a href=\"https://investirecocaresocomecar.com.br/bradsaude-saud3-lucro-sobe-acao-cai-sinistralidade/\">SAUD3</a>.",
+   "de_rendered": "em comprar SAUD3."
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/bradsaude-saud3-lucro-sobe-acao-cai-sinistralidade/",
+   "destino": "Bradsaúde (SAUD3) lucrou 25% a mais e a ação caiu 8%: vale a pena investir?",
+   "ancora": "SAUD3",
+   "similaridade": 0.258
+  }
+ ]
+}

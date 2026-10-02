@@ -1,0 +1,22 @@
+{
+ "post_id": 5043,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-lci/",
+ "lote": "L1",
+ "motivo": "Links internos: LCI -> /calculadora-lci-lca-cdb/",
+ "trocas": [
+  {
+   "de": "LCI é uma das",
+   "para": "<a href=\"https://investirecocaresocomecar.com.br/calculadora-lci-lca-cdb/\">LCI</a> é uma das",
+   "de_rendered": "LCI é uma das"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-lci-lca-cdb/",
+   "destino": "Calculadora LCI/LCA × CDB",
+   "ancora": "LCI",
+   "similaridade": 0.197
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+{
+ "post_id": 4873,
+ "url": "https://investirecocaresocomecar.com.br/dividendos-o-que-sao-dividend-yield/",
+ "lote": "L1",
+ "motivo": "Links internos: Juros sobre Capital Próprio -> /calculadora-jcp-liquido/; independência financeira -> /calculadora-aposentadoria-renda-passiva/",
+ "trocas": [
+  {
+   "de": "ou JCP (Juros sobre Capital Próprio).",
+   "para": "ou JCP (<a href=\"https://investirecocaresocomecar.com.br/calculadora-jcp-liquido/\">Juros sobre Capital Próprio</a>).",
+   "de_rendered": "ou JCP (Juros sobre Capital Próprio)."
+  },
+  {
+   "de": "ou independência financeira), você passa",
+   "para": "ou <a href=\"https://investirecocaresocomecar.com.br/calculadora-aposentadoria-renda-passiva/\">independência financeira</a>), você passa",
+   "de_rendered": "ou independência financeira), você passa"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-jcp-liquido/",
+   "destino": "Calculadora de JCP líquido",
+   "ancora": "Juros sobre Capital Próprio",
+   "similaridade": 0.133
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-aposentadoria-renda-passiva/",
+   "destino": "Calculadora de aposentadoria com renda passiva e INSS",
+   "ancora": "independência financeira",
+   "similaridade": 0.047
+  }
+ ]
+}

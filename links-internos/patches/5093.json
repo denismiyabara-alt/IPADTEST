@@ -1,0 +1,22 @@
+{
+ "post_id": 5093,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-proventos/",
+ "lote": "L2",
+ "motivo": "Links internos: Dividend Yield -> /dividendos-o-que-sao-dividend-yield/",
+ "trocas": [
+  {
+   "de": "O Dividend Yield (DY) é o",
+   "para": "O <a href=\"https://investirecocaresocomecar.com.br/dividendos-o-que-sao-dividend-yield/\">Dividend Yield</a> (DY) é o",
+   "de_rendered": "O Dividend Yield (DY) é o"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/dividendos-o-que-sao-dividend-yield/",
+   "destino": "Dividendos e dividend yield (guia)",
+   "ancora": "Dividend Yield",
+   "similaridade": 0.218
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "post_id": 19473,
+ "url": "https://investirecocaresocomecar.com.br/nubank-quer-comprar-monzo-acao-roxo34-caiu/",
+ "lote": "L3",
+ "motivo": "Links internos: ROXO34 -> /acoes-do-nubank-roxo34-despencam-10-o-que-aconteceu-e-o-que-esperar/",
+ "trocas": [
+  {
+   "de": "aqui na B3, o ROXO34, caiu 8,8%.",
+   "para": "aqui na B3, o <a href=\"https://investirecocaresocomecar.com.br/acoes-do-nubank-roxo34-despencam-10-o-que-aconteceu-e-o-que-esperar/\">ROXO34</a>, caiu 8,8%.",
+   "de_rendered": "aqui na B3, o ROXO34, caiu 8,8%."
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/acoes-do-nubank-roxo34-despencam-10-o-que-aconteceu-e-o-que-esperar/",
+   "destino": "Ações do Nubank (ROXO34) Despencam 15%: O Que Aconteceu e O Que Esperar?",
+   "ancora": "ROXO34",
+   "similaridade": 0.122
+  }
+ ]
+}

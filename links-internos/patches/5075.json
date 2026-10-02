@@ -1,0 +1,33 @@
+{
+ "post_id": 5075,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-ifix/",
+ "lote": "L2",
+ "motivo": "Links internos: fundos imobiliários -> /fundos-imobiliarios-o-que-sao-fiis/; dividend yield -> /dividendos-o-que-sao-dividend-yield/",
+ "trocas": [
+  {
+   "de": "índice de fundos imobiliários do Brasil.",
+   "para": "índice de <a href=\"https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/\">fundos imobiliários</a> do Brasil.",
+   "de_rendered": "índice de fundos imobiliários do Brasil."
+  },
+  {
+   "de": "um dividend yield médio de 9%",
+   "para": "um <a href=\"https://investirecocaresocomecar.com.br/dividendos-o-que-sao-dividend-yield/\">dividend yield</a> médio de 9%",
+   "de_rendered": "um dividend yield médio de 9%"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/",
+   "destino": "Fundos imobiliários (guia completo)",
+   "ancora": "fundos imobiliários",
+   "similaridade": 0.222
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/dividendos-o-que-sao-dividend-yield/",
+   "destino": "Dividendos e dividend yield (guia)",
+   "ancora": "dividend yield",
+   "similaridade": 0.111
+  }
+ ]
+}

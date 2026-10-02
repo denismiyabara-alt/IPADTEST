@@ -1,0 +1,22 @@
+{
+ "post_id": 1823,
+ "url": "https://investirecocaresocomecar.com.br/weg-wege3-cai-mais-de-7-apos-resultados-do-4t24-e-hora-de-comprar/",
+ "lote": "L3",
+ "motivo": "Links internos: WEGE3 -> /weg-wege3-lucro-cai-acao-sobe-vale-a-pena-investir/",
+ "trocas": [
+  {
+   "de": "punir a WEGE3 por",
+   "para": "punir a <a href=\"https://investirecocaresocomecar.com.br/weg-wege3-lucro-cai-acao-sobe-vale-a-pena-investir/\">WEGE3</a> por",
+   "de_rendered": "punir a WEGE3 por"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/weg-wege3-lucro-cai-acao-sobe-vale-a-pena-investir/",
+   "destino": "WEG (WEGE3): vale a pena investir depois do lucro cair e a ação subir 7%?",
+   "ancora": "WEGE3",
+   "similaridade": 0.187
+  }
+ ]
+}

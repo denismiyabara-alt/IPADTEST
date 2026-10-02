@@ -1,0 +1,44 @@
+{
+ "post_id": 4845,
+ "url": "https://investirecocaresocomecar.com.br/itub3-ou-itub4-qual-e-melhor/",
+ "lote": "L2",
+ "motivo": "Links internos: ITUB4 vs ITSA4 -> /qual-a-diferenca-entre-itausa-e-itau-guia-completo/; Itaúsa -> /quem-a-itausa-controla-conheca-suas-empresas/; dividend yield -> /dividendos-o-que-sao-dividend-yield/",
+ "trocas": [
+  {
+   "de": "mas sim ITUB4 vs ITSA4.",
+   "para": "mas sim <a href=\"https://investirecocaresocomecar.com.br/qual-a-diferenca-entre-itausa-e-itau-guia-completo/\">ITUB4 vs ITSA4</a>.",
+   "de_rendered": "mas sim ITUB4 vs ITSA4."
+  },
+  {
+   "de": "As ON ficam concentradas na Itaúsa (controladora) e nos fundos",
+   "para": "As ON ficam concentradas na <a href=\"https://investirecocaresocomecar.com.br/quem-a-itausa-controla-conheca-suas-empresas/\">Itaúsa</a> (controladora) e nos fundos",
+   "de_rendered": "As ON ficam concentradas na Itaúsa (controladora) e nos fundos"
+  },
+  {
+   "de": "diferença de dividend yield entre ITUB3 e",
+   "para": "diferença de <a href=\"https://investirecocaresocomecar.com.br/dividendos-o-que-sao-dividend-yield/\">dividend yield</a> entre ITUB3 e",
+   "de_rendered": "diferença de dividend yield entre ITUB3 e"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/qual-a-diferenca-entre-itausa-e-itau-guia-completo/",
+   "destino": "Itaúsa × Itaú (ITSA4 × ITUB4)",
+   "ancora": "ITUB4 vs ITSA4",
+   "similaridade": 0.261
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/quem-a-itausa-controla-conheca-suas-empresas/",
+   "destino": "Quem a Itaúsa controla (as 7 empresas)",
+   "ancora": "Itaúsa",
+   "similaridade": 0.156
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/dividendos-o-que-sao-dividend-yield/",
+   "destino": "Dividendos e dividend yield (guia)",
+   "ancora": "dividend yield",
+   "similaridade": 0.122
+  }
+ ]
+}

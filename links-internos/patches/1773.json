@@ -1,0 +1,22 @@
+{
+ "post_id": 1773,
+ "url": "https://investirecocaresocomecar.com.br/vale3-dividendos-prejuizo-e-oportunidades-de-investimento/",
+ "lote": "L1",
+ "motivo": "Links internos: JCP -> /calculadora-jcp-liquido/",
+ "trocas": [
+  {
+   "de": "em JCP, totalizando",
+   "para": "em <a href=\"https://investirecocaresocomecar.com.br/calculadora-jcp-liquido/\">JCP</a>, totalizando",
+   "de_rendered": "em JCP, totalizando"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-jcp-liquido/",
+   "destino": "Calculadora de JCP líquido",
+   "ancora": "JCP",
+   "similaridade": 0.069
+  }
+ ]
+}

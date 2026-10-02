@@ -1,0 +1,22 @@
+{
+ "post_id": 11731,
+ "url": "https://investirecocaresocomecar.com.br/trxf11-faria-lima-dos-galpoes-vale-o-hype/",
+ "lote": "L2",
+ "motivo": "Links internos: fundo imobiliário -> /fundos-imobiliarios-o-que-sao-fiis/",
+ "trocas": [
+  {
+   "de": "Um fundo imobiliário pagou R$1,43",
+   "para": "Um <a href=\"https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/\">fundo imobiliário</a> pagou R$1,43",
+   "de_rendered": "Um fundo imobiliário pagou R$1,43"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/",
+   "destino": "Fundos imobiliários (guia completo)",
+   "ancora": "fundo imobiliário",
+   "similaridade": 0.226
+  }
+ ]
+}

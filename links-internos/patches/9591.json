@@ -1,0 +1,33 @@
+{
+ "post_id": 9591,
+ "url": "https://investirecocaresocomecar.com.br/fii-de-papel-vale-a-pena-selic-14-25-bate-cdi-isento/",
+ "lote": "L1",
+ "motivo": "Links internos: renda mensal com fundos imobiliários -> /simulador-renda-fii/; ganho de capital -> /calculadora-ir-venda-fii/",
+ "trocas": [
+  {
+   "de": "cada faixa de renda mensal com fundos imobiliários:",
+   "para": "cada faixa de <a href=\"https://investirecocaresocomecar.com.br/simulador-renda-fii/\">renda mensal com fundos imobiliários</a>:",
+   "de_rendered": "cada faixa de renda mensal com fundos imobiliários:"
+  },
+  {
+   "de": "O ganho de capital na venda da",
+   "para": "O <a href=\"https://investirecocaresocomecar.com.br/calculadora-ir-venda-fii/\">ganho de capital</a> na venda da",
+   "de_rendered": "O ganho de capital na venda da"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/simulador-renda-fii/",
+   "destino": "Simulador de renda mensal com FIIs",
+   "ancora": "renda mensal com fundos imobiliários",
+   "similaridade": 0.082
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-ir-venda-fii/",
+   "destino": "Calculadora de IR na venda de FII",
+   "ancora": "ganho de capital",
+   "similaridade": 0.058
+  }
+ ]
+}

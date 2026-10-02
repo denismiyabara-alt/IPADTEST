@@ -1,0 +1,33 @@
+{
+ "post_id": 4846,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-cdi-investimentos/",
+ "lote": "L1",
+ "motivo": "Links internos: prefixados -> /calculadora-cdb-lci-prefixado-ipca/; LCIs -> /calculadora-lci-lca-cdb/",
+ "trocas": [
+  {
+   "de": "use produtos prefixados ou Tesouro",
+   "para": "use produtos <a href=\"https://investirecocaresocomecar.com.br/calculadora-cdb-lci-prefixado-ipca/\">prefixados</a> ou Tesouro",
+   "de_rendered": "use produtos prefixados ou Tesouro"
+  },
+  {
+   "de": "CDBs, LCIs, LCAs, fundos",
+   "para": "CDBs, <a href=\"https://investirecocaresocomecar.com.br/calculadora-lci-lca-cdb/\">LCIs</a>, LCAs, fundos",
+   "de_rendered": "CDBs, LCIs, LCAs, fundos"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-cdb-lci-prefixado-ipca/",
+   "destino": "Comparador de renda fixa (CDB, LCI, prefixado e IPCA+)",
+   "ancora": "prefixados",
+   "similaridade": 0.155
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-lci-lca-cdb/",
+   "destino": "Calculadora LCI/LCA × CDB",
+   "ancora": "LCIs",
+   "similaridade": 0.182
+  }
+ ]
+}

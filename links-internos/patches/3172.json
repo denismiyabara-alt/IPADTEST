@@ -1,0 +1,22 @@
+{
+ "post_id": 3172,
+ "url": "https://investirecocaresocomecar.com.br/jepi39-o-etf-que-paga-dividendos-todo-mes-vale-a-pena/",
+ "lote": "L2",
+ "motivo": "Links internos: JEPI39 -> /etfs-dividendos-mensais-b3-2026/",
+ "trocas": [
+  {
+   "de": "Sim, o JEPI39 paga",
+   "para": "Sim, o <a href=\"https://investirecocaresocomecar.com.br/etfs-dividendos-mensais-b3-2026/\">JEPI39</a> paga",
+   "de_rendered": "Sim, o JEPI39 paga"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/etfs-dividendos-mensais-b3-2026/",
+   "destino": "ETFs de dividendos mensais (JEPI39)",
+   "ancora": "JEPI39",
+   "similaridade": 0.264
+  }
+ ]
+}

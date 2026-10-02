@@ -1,0 +1,22 @@
+{
+ "post_id": 3080,
+ "url": "https://investirecocaresocomecar.com.br/bolsa-de-valores-em-alta-por-que-o-ibovespa-pode-subir-mais-e-como-nao-ficar-de-fora/",
+ "lote": "L2",
+ "motivo": "Links internos: BOVA11 -> /o-que-e-bova11/",
+ "trocas": [
+  {
+   "de": "ETFs como BOVA11 (que replica",
+   "para": "ETFs como <a href=\"https://investirecocaresocomecar.com.br/o-que-e-bova11/\">BOVA11</a> (que replica",
+   "de_rendered": "ETFs como BOVA11 (que replica"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/o-que-e-bova11/",
+   "destino": "O que é BOVA11",
+   "ancora": "BOVA11",
+   "similaridade": 0.09
+  }
+ ]
+}

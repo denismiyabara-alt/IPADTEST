@@ -1,0 +1,22 @@
+{
+ "post_id": 12139,
+ "url": "https://investirecocaresocomecar.com.br/xp-corta-ibovespa-carteira-defensiva-vale-a-pena/",
+ "lote": "L3",
+ "motivo": "Links internos: CPLE3 -> /copel-cple3-dividendo-cortado-vale-a-pena-investir/",
+ "trocas": [
+  {
+   "de": "Copel (CPLE3) e Equatorial",
+   "para": "Copel (<a href=\"https://investirecocaresocomecar.com.br/copel-cple3-dividendo-cortado-vale-a-pena-investir/\">CPLE3</a>) e Equatorial",
+   "de_rendered": "Copel (CPLE3) e Equatorial"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/copel-cple3-dividendo-cortado-vale-a-pena-investir/",
+   "destino": "Vale a pena investir em Copel (CPLE3) mesmo com o dividendo cortado?",
+   "ancora": "CPLE3",
+   "similaridade": 0.186
+  }
+ ]
+}

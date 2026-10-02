@@ -1,0 +1,22 @@
+{
+ "post_id": 10424,
+ "url": "https://investirecocaresocomecar.com.br/calendario-dividendos-julho-2026-logg3-vale-a-pena/",
+ "lote": "L1",
+ "motivo": "Links internos: juros sobre capital próprio -> /calculadora-jcp-liquido/",
+ "trocas": [
+  {
+   "de": "JCP (juros sobre capital próprio) é outra",
+   "para": "JCP (<a href=\"https://investirecocaresocomecar.com.br/calculadora-jcp-liquido/\">juros sobre capital próprio</a>) é outra",
+   "de_rendered": "JCP (juros sobre capital próprio) é outra"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-jcp-liquido/",
+   "destino": "Calculadora de JCP líquido",
+   "ancora": "juros sobre capital próprio",
+   "similaridade": 0.16
+  }
+ ]
+}

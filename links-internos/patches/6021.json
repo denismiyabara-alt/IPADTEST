@@ -1,0 +1,22 @@
+{
+ "post_id": 6021,
+ "url": "https://investirecocaresocomecar.com.br/acabou-sonho-fundos-imobiliarios-vghf11-gare11-queda-2026/",
+ "lote": "L2",
+ "motivo": "Links internos: fundos imobiliários -> /fundos-imobiliarios-o-que-sao-fiis/",
+ "trocas": [
+  {
+   "de": "os principais fundos imobiliários, está",
+   "para": "os principais <a href=\"https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/\">fundos imobiliários</a>, está",
+   "de_rendered": "os principais fundos imobiliários, está"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/",
+   "destino": "Fundos imobiliários (guia completo)",
+   "ancora": "fundos imobiliários",
+   "similaridade": 0.16
+  }
+ ]
+}

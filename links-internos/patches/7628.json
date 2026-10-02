@@ -1,0 +1,22 @@
+{
+ "post_id": 7628,
+ "url": "https://investirecocaresocomecar.com.br/bbse3-cxse3-pssa3-melhor-seguradora-dividendos/",
+ "lote": "L3",
+ "motivo": "Links internos: CXSE3 -> /cxse3-bbse3-rebaixamento-jpmorgan-vale-a-pena/",
+ "trocas": [
+  {
+   "de": "entre BBSE3, CXSE3 e PSSA3, a",
+   "para": "entre BBSE3, <a href=\"https://investirecocaresocomecar.com.br/cxse3-bbse3-rebaixamento-jpmorgan-vale-a-pena/\">CXSE3</a> e PSSA3, a",
+   "de_rendered": "entre BBSE3, CXSE3 e PSSA3, a"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/cxse3-bbse3-rebaixamento-jpmorgan-vale-a-pena/",
+   "destino": "Vale a pena investir em CXSE3 e BBSE3 depois do rebaixamento do JPMorgan?",
+   "ancora": "CXSE3",
+   "similaridade": 0.309
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "post_id": 2855,
+ "url": "https://investirecocaresocomecar.com.br/vale-a-pena-investir-em-cobre-%f0%9f%93%88-deficit-e-a-tese-do-novo-petroleo/",
+ "lote": "L3",
+ "motivo": "Links internos: VALE3 -> /vale3-cobre-ia-vale-a-pena-investir/",
+ "trocas": [
+  {
+   "de": "da VALE3 ainda vem do",
+   "para": "da <a href=\"https://investirecocaresocomecar.com.br/vale3-cobre-ia-vale-a-pena-investir/\">VALE3</a> ainda vem do",
+   "de_rendered": "da VALE3 ainda vem do"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/vale3-cobre-ia-vale-a-pena-investir/",
+   "destino": "VALE3 vale a pena em 2026? O motivo da alta não é o ferro de sempre",
+   "ancora": "VALE3",
+   "similaridade": 0.202
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "post_id": 1198,
+ "url": "https://investirecocaresocomecar.com.br/calculadora-juros-anual-para-mensal/",
+ "lote": "L1",
+ "motivo": "Links internos: juros compostos -> /calculadora-1-milhao/",
+ "trocas": [
+  {
+   "de": "Usa juros compostos",
+   "para": "Usa <a href=\"https://investirecocaresocomecar.com.br/calculadora-1-milhao/\">juros compostos</a>",
+   "de_rendered": "Usa juros compostos"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-1-milhao/",
+   "destino": "Calculadora: quanto falta para juntar 1 milhão",
+   "ancora": "juros compostos",
+   "similaridade": 0.061
+  }
+ ]
+}

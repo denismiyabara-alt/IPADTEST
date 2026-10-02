@@ -1,0 +1,22 @@
+{
+ "post_id": 19479,
+ "url": "https://investirecocaresocomecar.com.br/acoes-heineken-10-euros-por-dia-desde-1995/",
+ "lote": "L1",
+ "motivo": "Links internos: aporte mensal -> /calculadora-1-milhao/",
+ "trocas": [
+  {
+   "de": "Esse é o seu aporte mensal escondido.",
+   "para": "Esse é o seu <a href=\"https://investirecocaresocomecar.com.br/calculadora-1-milhao/\">aporte mensal</a> escondido.",
+   "de_rendered": "Esse é o seu aporte mensal escondido."
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-1-milhao/",
+   "destino": "Calculadora: quanto falta para juntar 1 milhão",
+   "ancora": "aporte mensal",
+   "similaridade": 0.058
+  }
+ ]
+}

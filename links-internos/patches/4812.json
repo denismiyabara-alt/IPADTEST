@@ -1,0 +1,33 @@
+{
+ "post_id": 4812,
+ "url": "https://investirecocaresocomecar.com.br/ivvb11-ou-bova11-qual-e-melhor/",
+ "lote": "L2",
+ "motivo": "Links internos: BOVA11 -> /o-que-e-bova11/; JEPI39 -> /etfs-dividendos-mensais-b3-2026/",
+ "trocas": [
+  {
+   "de": "que IVVB11 e BOVA11",
+   "para": "que IVVB11 e <a href=\"https://investirecocaresocomecar.com.br/o-que-e-bova11/\">BOVA11</a>",
+   "de_rendered": "que IVVB11 e BOVA11"
+  },
+  {
+   "de": "de ETFs como JEPI39, que",
+   "para": "de ETFs como <a href=\"https://investirecocaresocomecar.com.br/etfs-dividendos-mensais-b3-2026/\">JEPI39</a>, que",
+   "de_rendered": "de ETFs como JEPI39, que"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/o-que-e-bova11/",
+   "destino": "O que é BOVA11",
+   "ancora": "BOVA11",
+   "similaridade": 0.295
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/etfs-dividendos-mensais-b3-2026/",
+   "destino": "ETFs de dividendos mensais (JEPI39)",
+   "ancora": "JEPI39",
+   "similaridade": 0.085
+  }
+ ]
+}

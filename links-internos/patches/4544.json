@@ -1,0 +1,22 @@
+{
+ "post_id": 4544,
+ "url": "https://investirecocaresocomecar.com.br/dolar-abaixo-de-r5-etfs-renda-dolar-b3/",
+ "lote": "L2",
+ "motivo": "Links internos: JEPI39 -> /etfs-dividendos-mensais-b3-2026/",
+ "trocas": [
+  {
+   "de": "Quem comprou JEPI39 quando o",
+   "para": "Quem comprou <a href=\"https://investirecocaresocomecar.com.br/etfs-dividendos-mensais-b3-2026/\">JEPI39</a> quando o",
+   "de_rendered": "Quem comprou JEPI39 quando o"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/etfs-dividendos-mensais-b3-2026/",
+   "destino": "ETFs de dividendos mensais (JEPI39)",
+   "ancora": "JEPI39",
+   "similaridade": 0.289
+  }
+ ]
+}

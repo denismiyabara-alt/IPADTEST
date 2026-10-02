@@ -1,0 +1,33 @@
+{
+ "post_id": 8991,
+ "url": "https://investirecocaresocomecar.com.br/tesouro-ipca-mais-832-oportunidade-da-decada-ou-cilada/",
+ "lote": "L1",
+ "motivo": "Links internos: marcação a mercado -> /simulador-ntnb/; Aposentadoria -> /calculadora-aposentadoria-renda-passiva/",
+ "trocas": [
+  {
+   "de": "renda fixa com marcação a mercado",
+   "para": "renda fixa com <a href=\"https://investirecocaresocomecar.com.br/simulador-ntnb/\">marcação a mercado</a>",
+   "de_rendered": "renda fixa com marcação a mercado"
+  },
+  {
+   "de": "Aposentadoria em 2040",
+   "para": "<a href=\"https://investirecocaresocomecar.com.br/calculadora-aposentadoria-renda-passiva/\">Aposentadoria</a> em 2040",
+   "de_rendered": "Aposentadoria em 2040"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/simulador-ntnb/",
+   "destino": "Simulador de marcação a mercado do Tesouro IPCA+",
+   "ancora": "marcação a mercado",
+   "similaridade": 0.126
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-aposentadoria-renda-passiva/",
+   "destino": "Calculadora de aposentadoria com renda passiva e INSS",
+   "ancora": "Aposentadoria",
+   "similaridade": 0.047
+  }
+ ]
+}

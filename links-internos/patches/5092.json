@@ -1,0 +1,22 @@
+{
+ "post_id": 5092,
+ "url": "https://investirecocaresocomecar.com.br/ir-sobre-investimentos/",
+ "lote": "L1",
+ "motivo": "Links internos: Ganho de capital -> /calculadora-ir-venda-fii/",
+ "trocas": [
+  {
+   "de": "Ganho de capital na venda da",
+   "para": "<a href=\"https://investirecocaresocomecar.com.br/calculadora-ir-venda-fii/\">Ganho de capital</a> na venda da",
+   "de_rendered": "Ganho de capital na venda da"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-ir-venda-fii/",
+   "destino": "Calculadora de IR na venda de FII",
+   "ancora": "Ganho de capital",
+   "similaridade": 0.227
+  }
+ ]
+}

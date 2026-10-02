@@ -1,0 +1,22 @@
+{
+ "post_id": 10420,
+ "url": "https://investirecocaresocomecar.com.br/fiis-pior-primeiro-semestre-2022-ifix-cacr11-tgar11/",
+ "lote": "L1",
+ "motivo": "Links internos: renda mensal -> /simulador-renda-fii/",
+ "trocas": [
+  {
+   "de": "para ter uma renda mensal passiva real",
+   "para": "para ter uma <a href=\"https://investirecocaresocomecar.com.br/simulador-renda-fii/\">renda mensal</a> passiva real",
+   "de_rendered": "para ter uma renda mensal passiva real"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/simulador-renda-fii/",
+   "destino": "Simulador de renda mensal com FIIs",
+   "ancora": "renda mensal",
+   "similaridade": 0.051
+  }
+ ]
+}

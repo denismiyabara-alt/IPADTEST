@@ -1,0 +1,22 @@
+{
+ "post_id": 11638,
+ "url": "https://investirecocaresocomecar.com.br/bova11-concentracao-79-empresas-52-por-cento-em-10/",
+ "lote": "L2",
+ "motivo": "Links internos: BOVA11 -> /o-que-e-bova11/",
+ "trocas": [
+  {
+   "de": "aplicado em BOVA11.",
+   "para": "aplicado em <a href=\"https://investirecocaresocomecar.com.br/o-que-e-bova11/\">BOVA11</a>.",
+   "de_rendered": "aplicado em BOVA11."
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/o-que-e-bova11/",
+   "destino": "O que é BOVA11",
+   "ancora": "BOVA11",
+   "similaridade": 0.143
+  }
+ ]
+}

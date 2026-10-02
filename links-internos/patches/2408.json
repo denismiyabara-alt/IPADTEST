@@ -1,0 +1,22 @@
+{
+ "post_id": 2408,
+ "url": "https://investirecocaresocomecar.com.br/goat11-o-etf-hibrido-da-b3-com-80-em-renda-fixa-e-20-em-variavel-vale-a-pena-investir/",
+ "lote": "L1",
+ "motivo": "Links internos: perfil de investidor -> /quiz-perfil-de-investidor/",
+ "trocas": [
+  {
+   "de": "Para qual perfil de investidor o GOAT11 é",
+   "para": "Para qual <a href=\"https://investirecocaresocomecar.com.br/quiz-perfil-de-investidor/\">perfil de investidor</a> o GOAT11 é",
+   "de_rendered": "Para qual perfil de investidor o GOAT11 é"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/quiz-perfil-de-investidor/",
+   "destino": "Quiz de perfil de investidor",
+   "ancora": "perfil de investidor",
+   "similaridade": 0.059
+  }
+ ]
+}

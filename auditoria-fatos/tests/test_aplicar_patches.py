@@ -150,3 +150,33 @@ def test_patches_versionados_sao_validos():
         for t in d["trocas"]:
             assert problemas_do_de(t["de"]) == [], (f.name, t["de"])
             assert t["de"] != t["para"] and t.get("de_rendered")
+
+
+def test_opcao_pasta_usa_lotes_de_outra_pasta(tmp_path, monkeypatch):
+    """--pasta lê patches e LOTE_<X>.json de outra pasta (ex.: links-internos/patches), com lote de qualquer nome."""
+    p = tmp_path / "outra"
+    p.mkdir()
+    escrever_patch(p, 11, [{"de": "o dividend yield da ação", "para": 'o <a href="https://x/dy/">dividend yield</a> da ação'}])
+    (p / "LOTE_L1.json").write_text(json.dumps({"lote": "L1", "post_ids": [11]}))
+    wp = FakeWP({11: "<p>Veja o dividend yield da ação antes.</p>"})
+    monkeypatch.setattr(AP, "WP", lambda: wp)
+    monkeypatch.setattr(AP, "BACKUP", tmp_path / "backup")
+    monkeypatch.setattr(AP.cmd_aplicar, "__defaults__", (AP.PATCHES, tmp_path / "backup", print))
+    AP.main(["--pasta", str(p), "--checar", "--lote", "L1"])
+    assert not wp.gravacoes
+    AP.main(["--pasta", str(p), "--aplicar", "--lote", "L1"])
+    assert wp.posts[11] == '<p>Veja o <a href="https://x/dy/">dividend yield</a> da ação antes.</p>'
+    with pytest.raises(SystemExit, match="lote L9 não existe"):
+        AP.main(["--pasta", str(p), "--checar", "--lote", "L9"])
+    with pytest.raises(SystemExit, match="não existe"):
+        AP.main(["--pasta", str(tmp_path / "nada"), "--checar"])
+
+
+def test_sem_pasta_continua_na_pasta_padrao(monkeypatch):
+    """Sem --pasta, --lote A lê auditoria-fatos/patches/LOTE_A.json, como antes."""
+    vistos = {}
+    monkeypatch.setattr(AP, "WP", lambda: object())
+    monkeypatch.setattr(AP, "cmd_checar", lambda wp, ids, pasta=None: vistos.update(ids=ids, pasta=pasta))
+    AP.main(["--checar", "--lote", "A"])
+    assert vistos["pasta"] == AP.PATCHES.resolve()
+    assert vistos["ids"] == AP.ids_do_lote("A")

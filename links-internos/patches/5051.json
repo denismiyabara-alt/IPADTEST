@@ -1,0 +1,22 @@
+{
+ "post_id": 5051,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-dividend-yield/",
+ "lote": "L2",
+ "motivo": "Links internos: Dividend Yield -> /dividendos-o-que-sao-dividend-yield/",
+ "trocas": [
+  {
+   "de": "Dividend Yield é o indicador",
+   "para": "<a href=\"https://investirecocaresocomecar.com.br/dividendos-o-que-sao-dividend-yield/\">Dividend Yield</a> é o indicador",
+   "de_rendered": "Dividend Yield é o indicador"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/dividendos-o-que-sao-dividend-yield/",
+   "destino": "Dividendos e dividend yield (guia)",
+   "ancora": "Dividend Yield",
+   "similaridade": 0.209
+  }
+ ]
+}

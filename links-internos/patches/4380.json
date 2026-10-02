@@ -1,0 +1,22 @@
+{
+ "post_id": 4380,
+ "url": "https://investirecocaresocomecar.com.br/westwing-west3-reducao-capital-5-40-por-acao-dividendo-ou-armadilha/",
+ "lote": "L1",
+ "motivo": "Links internos: JCP -> /calculadora-jcp-liquido/",
+ "trocas": [
+  {
+   "de": "em relação a JCP.",
+   "para": "em relação a <a href=\"https://investirecocaresocomecar.com.br/calculadora-jcp-liquido/\">JCP</a>.",
+   "de_rendered": "em relação a JCP."
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-jcp-liquido/",
+   "destino": "Calculadora de JCP líquido",
+   "ancora": "JCP",
+   "similaridade": 0.077
+  }
+ ]
+}

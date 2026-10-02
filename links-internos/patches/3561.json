@@ -1,0 +1,22 @@
+{
+ "post_id": 3561,
+ "url": "https://investirecocaresocomecar.com.br/ipo-compass-pass3-vale-a-pena-investir/",
+ "lote": "L3",
+ "motivo": "Links internos: PASS3 -> /compass-pass3-bancos-ipo-recomendam-compra-conflito-interesse/",
+ "trocas": [
+  {
+   "de": "ordinárias é PASS3.",
+   "para": "ordinárias é <a href=\"https://investirecocaresocomecar.com.br/compass-pass3-bancos-ipo-recomendam-compra-conflito-interesse/\">PASS3</a>.",
+   "de_rendered": "ordinárias é PASS3."
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/compass-pass3-bancos-ipo-recomendam-compra-conflito-interesse/",
+   "destino": "Compass (PASS3): Os Bancos que Venderam o IPO Agora Recomendam Comprar",
+   "ancora": "PASS3",
+   "similaridade": 0.204
+  }
+ ]
+}

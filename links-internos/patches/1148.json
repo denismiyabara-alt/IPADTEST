@@ -1,0 +1,22 @@
+{
+ "post_id": 1148,
+ "url": "https://investirecocaresocomecar.com.br/como-funciona-o-sistema-de-dividendos-entenda-aqui/",
+ "lote": "L2",
+ "motivo": "Links internos: dividend yield -> /dividendos-o-que-sao-dividend-yield/",
+ "trocas": [
+  {
+   "de": "Veja o dividend yield e a",
+   "para": "Veja o <a href=\"https://investirecocaresocomecar.com.br/dividendos-o-que-sao-dividend-yield/\">dividend yield</a> e a",
+   "de_rendered": "Veja o dividend yield e a"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/dividendos-o-que-sao-dividend-yield/",
+   "destino": "Dividendos e dividend yield (guia)",
+   "ancora": "dividend yield",
+   "similaridade": 0.153
+  }
+ ]
+}

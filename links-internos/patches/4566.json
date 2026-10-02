@@ -1,0 +1,22 @@
+{
+ "post_id": 4566,
+ "url": "https://investirecocaresocomecar.com.br/calculadora-lca/",
+ "lote": "L1",
+ "motivo": "Links internos: LCI -> /calculadora-lci-lca-cdb/",
+ "trocas": [
+  {
+   "de": "pessoa física, assim como a LCI.",
+   "para": "pessoa física, assim como a <a href=\"https://investirecocaresocomecar.com.br/calculadora-lci-lca-cdb/\">LCI</a>.",
+   "de_rendered": "pessoa física, assim como a LCI."
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-lci-lca-cdb/",
+   "destino": "Calculadora LCI/LCA × CDB",
+   "ancora": "LCI",
+   "similaridade": 0.299
+  }
+ ]
+}

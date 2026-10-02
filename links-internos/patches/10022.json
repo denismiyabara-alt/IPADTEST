@@ -1,0 +1,22 @@
+{
+ "post_id": 10022,
+ "url": "https://investirecocaresocomecar.com.br/por-que-brasileiros-renda-alta-endividados-debito-automatico/",
+ "lote": "L1",
+ "motivo": "Links internos: taxa mensal -> /calculadora-juros-anual-para-mensal/",
+ "trocas": [
+  {
+   "de": "taxa mensal efetiva de 1,1163% ao mês",
+   "para": "<a href=\"https://investirecocaresocomecar.com.br/calculadora-juros-anual-para-mensal/\">taxa mensal</a> efetiva de 1,1163% ao mês",
+   "de_rendered": "taxa mensal efetiva de 1,1163% ao mês"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-juros-anual-para-mensal/",
+   "destino": "Calculadora de juros anual para mensal",
+   "ancora": "taxa mensal",
+   "similaridade": 0.046
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+{
+ "post_id": 5042,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-cdb/",
+ "lote": "L1",
+ "motivo": "Links internos: LCI e LCA -> /calculadora-lci-lca-cdb/; CDB prefixado -> /calculadora-cdb-lci-prefixado-ipca/",
+ "trocas": [
+  {
+   "de": "isentas como LCI e LCA antes de",
+   "para": "isentas como <a href=\"https://investirecocaresocomecar.com.br/calculadora-lci-lca-cdb/\">LCI e LCA</a> antes de",
+   "de_rendered": "isentas como LCI e LCA antes de"
+  },
+  {
+   "de": "CDB prefixado:",
+   "para": "<a href=\"https://investirecocaresocomecar.com.br/calculadora-cdb-lci-prefixado-ipca/\">CDB prefixado</a>:",
+   "de_rendered": "CDB prefixado:"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-lci-lca-cdb/",
+   "destino": "Calculadora LCI/LCA × CDB",
+   "ancora": "LCI e LCA",
+   "similaridade": 0.262
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-cdb-lci-prefixado-ipca/",
+   "destino": "Comparador de renda fixa (CDB, LCI, prefixado e IPCA+)",
+   "ancora": "CDB prefixado",
+   "similaridade": 0.257
+  }
+ ]
+}

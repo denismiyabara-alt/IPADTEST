@@ -1,0 +1,22 @@
+{
+ "post_id": 1058,
+ "url": "https://investirecocaresocomecar.com.br/qual-e-a-vantagem-de-investir-em-etf-guia-completo/",
+ "lote": "L2",
+ "motivo": "Links internos: BOVA11 -> /o-que-e-bova11/",
+ "trocas": [
+  {
+   "de": "Na B3, estão BOVA11, IVVB11",
+   "para": "Na B3, estão <a href=\"https://investirecocaresocomecar.com.br/o-que-e-bova11/\">BOVA11</a>, IVVB11",
+   "de_rendered": "Na B3, estão BOVA11, IVVB11"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/o-que-e-bova11/",
+   "destino": "O que é BOVA11",
+   "ancora": "BOVA11",
+   "similaridade": 0.188
+  }
+ ]
+}

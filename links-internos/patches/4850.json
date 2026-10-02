@@ -1,0 +1,33 @@
+{
+ "post_id": 4850,
+ "url": "https://investirecocaresocomecar.com.br/cdb-vs-lci-lca-tabela-taxas-equivalentes-calculadora/",
+ "lote": "L1",
+ "motivo": "Links internos: LCI -> /calculadora-lci-lca-cdb/; tabela regressiva -> /calculadora-cdb-lci-prefixado-ipca/",
+ "trocas": [
+  {
+   "de": "LCI (Letra de",
+   "para": "<a href=\"https://investirecocaresocomecar.com.br/calculadora-lci-lca-cdb/\">LCI</a> (Letra de",
+   "de_rendered": "LCI (Letra de"
+  },
+  {
+   "de": "paga IR pela tabela regressiva.",
+   "para": "paga IR pela <a href=\"https://investirecocaresocomecar.com.br/calculadora-cdb-lci-prefixado-ipca/\">tabela regressiva</a>.",
+   "de_rendered": "paga IR pela tabela regressiva."
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-lci-lca-cdb/",
+   "destino": "Calculadora LCI/LCA × CDB",
+   "ancora": "LCI",
+   "similaridade": 0.355
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-cdb-lci-prefixado-ipca/",
+   "destino": "Comparador de renda fixa (CDB, LCI, prefixado e IPCA+)",
+   "ancora": "tabela regressiva",
+   "similaridade": 0.214
+  }
+ ]
+}

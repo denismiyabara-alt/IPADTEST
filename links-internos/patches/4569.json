@@ -1,0 +1,33 @@
+{
+ "post_id": 4569,
+ "url": "https://investirecocaresocomecar.com.br/cdb-tesouro-direto-ou-poupanca-qual-rende-mais/",
+ "lote": "L1",
+ "motivo": "Links internos: CDB prefixado -> /calculadora-cdb-lci-prefixado-ipca/; marcação a mercado -> /simulador-ntnb/",
+ "trocas": [
+  {
+   "de": "CDB prefixado:",
+   "para": "<a href=\"https://investirecocaresocomecar.com.br/calculadora-cdb-lci-prefixado-ipca/\">CDB prefixado</a>:",
+   "de_rendered": "CDB prefixado:"
+  },
+  {
+   "de": "Direto tem marcação a mercado: se vender",
+   "para": "Direto tem <a href=\"https://investirecocaresocomecar.com.br/simulador-ntnb/\">marcação a mercado</a>: se vender",
+   "de_rendered": "Direto tem marcação a mercado: se vender"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-cdb-lci-prefixado-ipca/",
+   "destino": "Comparador de renda fixa (CDB, LCI, prefixado e IPCA+)",
+   "ancora": "CDB prefixado",
+   "similaridade": 0.228
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/simulador-ntnb/",
+   "destino": "Simulador de marcação a mercado do Tesouro IPCA+",
+   "ancora": "marcação a mercado",
+   "similaridade": 0.115
+  }
+ ]
+}

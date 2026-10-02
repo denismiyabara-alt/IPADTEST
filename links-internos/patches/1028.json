@@ -1,0 +1,33 @@
+{
+ "post_id": 1028,
+ "url": "https://investirecocaresocomecar.com.br/itsa3-ou-itsa4-qual-a-melhor-acao-da-itausa-investir/",
+ "lote": "L2",
+ "motivo": "Links internos: ITUB4 -> /qual-a-diferenca-entre-itausa-e-itau-guia-completo/; Itaúsa -> /quem-a-itausa-controla-conheca-suas-empresas/",
+ "trocas": [
+  {
+   "de": "ITUB3 e ITUB4 são ações do",
+   "para": "ITUB3 e <a href=\"https://investirecocaresocomecar.com.br/qual-a-diferenca-entre-itausa-e-itau-guia-completo/\">ITUB4</a> são ações do",
+   "de_rendered": "ITUB3 e ITUB4 são ações do"
+  },
+  {
+   "de": "são a mesma Itaúsa e pagam",
+   "para": "são a mesma <a href=\"https://investirecocaresocomecar.com.br/quem-a-itausa-controla-conheca-suas-empresas/\">Itaúsa</a> e pagam",
+   "de_rendered": "são a mesma Itaúsa e pagam"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/qual-a-diferenca-entre-itausa-e-itau-guia-completo/",
+   "destino": "Itaúsa × Itaú (ITSA4 × ITUB4)",
+   "ancora": "ITUB4",
+   "similaridade": 0.412
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/quem-a-itausa-controla-conheca-suas-empresas/",
+   "destino": "Quem a Itaúsa controla (as 7 empresas)",
+   "ancora": "Itaúsa",
+   "similaridade": 0.281
+  }
+ ]
+}

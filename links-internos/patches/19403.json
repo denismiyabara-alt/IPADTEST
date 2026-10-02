@@ -1,0 +1,22 @@
+{
+ "post_id": 19403,
+ "url": "https://investirecocaresocomecar.com.br/renda-passiva-10-mil-por-mes-dividendos/",
+ "lote": "L1",
+ "motivo": "Links internos: Décio Bazin -> /calculadora-preco-justo/",
+ "trocas": [
+  {
+   "de": "O Décio Bazin escreveu o",
+   "para": "O <a href=\"https://investirecocaresocomecar.com.br/calculadora-preco-justo/\">Décio Bazin</a> escreveu o",
+   "de_rendered": "O Décio Bazin escreveu o"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-preco-justo/",
+   "destino": "Calculadora de preço justo (Bazin e Graham)",
+   "ancora": "Décio Bazin",
+   "similaridade": 0.091
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "post_id": 4572,
+ "url": "https://investirecocaresocomecar.com.br/renda-passiva-quanto-precisa-investir/",
+ "lote": "L1",
+ "motivo": "Links internos: renda mensal -> /simulador-renda-fii/; taxa mensal -> /calculadora-juros-anual-para-mensal/; aporte mensal -> /calculadora-1-milhao/",
+ "trocas": [
+  {
+   "de": "renda mensal isenta de IR",
+   "para": "<a href=\"https://investirecocaresocomecar.com.br/simulador-renda-fii/\">renda mensal</a> isenta de IR",
+   "de_rendered": "renda mensal isenta de IR"
+  },
+  {
+   "de": "desejada ÷ taxa mensal líquida",
+   "para": "desejada ÷ <a href=\"https://investirecocaresocomecar.com.br/calculadora-juros-anual-para-mensal/\">taxa mensal</a> líquida",
+   "de_rendered": "desejada ÷ taxa mensal líquida"
+  },
+  {
+   "de": "Com aporte mensal de R$ 2.000",
+   "para": "Com <a href=\"https://investirecocaresocomecar.com.br/calculadora-1-milhao/\">aporte mensal</a> de R$ 2.000",
+   "de_rendered": "Com aporte mensal de R$ 2.000"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/simulador-renda-fii/",
+   "destino": "Simulador de renda mensal com FIIs",
+   "ancora": "renda mensal",
+   "similaridade": 0.121
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-juros-anual-para-mensal/",
+   "destino": "Calculadora de juros anual para mensal",
+   "ancora": "taxa mensal",
+   "similaridade": 0.054
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-1-milhao/",
+   "destino": "Calculadora: quanto falta para juntar 1 milhão",
+   "ancora": "aporte mensal",
+   "similaridade": 0.1
+  }
+ ]
+}

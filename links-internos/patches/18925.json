@@ -1,0 +1,22 @@
+{
+ "post_id": 18925,
+ "url": "https://investirecocaresocomecar.com.br/inss-deficit-317-bilhoes-reforma-2019-aposentadoria-geracao/",
+ "lote": "L1",
+ "motivo": "Links internos: aposentadoria -> /calculadora-aposentadoria-renda-passiva/",
+ "trocas": [
+  {
+   "de": "para a aposentadoria, apostando",
+   "para": "para a <a href=\"https://investirecocaresocomecar.com.br/calculadora-aposentadoria-renda-passiva/\">aposentadoria</a>, apostando",
+   "de_rendered": "para a aposentadoria, apostando"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-aposentadoria-renda-passiva/",
+   "destino": "Calculadora de aposentadoria com renda passiva e INSS",
+   "ancora": "aposentadoria",
+   "similaridade": 0.175
+  }
+ ]
+}

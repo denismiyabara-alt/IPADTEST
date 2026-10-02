@@ -1,0 +1,22 @@
+{
+ "post_id": 12589,
+ "url": "https://investirecocaresocomecar.com.br/fii-laje-corporativa-recorde-aluguel-sp-vale-a-pena/",
+ "lote": "L2",
+ "motivo": "Links internos: fundo imobiliário -> /fundos-imobiliarios-o-que-sao-fiis/",
+ "trocas": [
+  {
+   "de": "mesmo mês, o fundo imobiliário mais chique",
+   "para": "mesmo mês, o <a href=\"https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/\">fundo imobiliário</a> mais chique",
+   "de_rendered": "mesmo mês, o fundo imobiliário mais chique"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/",
+   "destino": "Fundos imobiliários (guia completo)",
+   "ancora": "fundo imobiliário",
+   "similaridade": 0.149
+  }
+ ]
+}

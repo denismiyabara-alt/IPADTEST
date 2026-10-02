@@ -1,0 +1,22 @@
+{
+ "post_id": 1208,
+ "url": "https://investirecocaresocomecar.com.br/etfs-de-fundos-imobiliarios-guia-completo-para-investir/",
+ "lote": "L1",
+ "motivo": "Links internos: venda de cotas -> /calculadora-ir-venda-fii/",
+ "trocas": [
+  {
+   "de": "o lucro na venda de cotas.",
+   "para": "o lucro na <a href=\"https://investirecocaresocomecar.com.br/calculadora-ir-venda-fii/\">venda de cotas</a>.",
+   "de_rendered": "o lucro na venda de cotas."
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-ir-venda-fii/",
+   "destino": "Calculadora de IR na venda de FII",
+   "ancora": "venda de cotas",
+   "similaridade": 0.064
+  }
+ ]
+}

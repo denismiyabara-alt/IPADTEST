@@ -1,0 +1,22 @@
+{
+ "post_id": 2232,
+ "url": "https://investirecocaresocomecar.com.br/7-etfs-de-renda-fixa-americanos-para-proteger-seu-dinheiro-em-2025/",
+ "lote": "L1",
+ "motivo": "Links internos: seu perfil -> /quiz-perfil-de-investidor/",
+ "trocas": [
+  {
+   "de": "se encaixa no seu perfil:",
+   "para": "se encaixa no <a href=\"https://investirecocaresocomecar.com.br/quiz-perfil-de-investidor/\">seu perfil</a>:",
+   "de_rendered": "se encaixa no seu perfil:"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/quiz-perfil-de-investidor/",
+   "destino": "Quiz de perfil de investidor",
+   "ancora": "seu perfil",
+   "similaridade": 0.045
+  }
+ ]
+}

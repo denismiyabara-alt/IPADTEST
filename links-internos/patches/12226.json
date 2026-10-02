@@ -1,0 +1,22 @@
+{
+ "post_id": 12226,
+ "url": "https://investirecocaresocomecar.com.br/fii-residencial-maior-mercado-menor-bolsa/",
+ "lote": "L2",
+ "motivo": "Links internos: fundos imobiliários -> /fundos-imobiliarios-o-que-sao-fiis/",
+ "trocas": [
+  {
+   "de": "Os fundos imobiliários (FIIs) de",
+   "para": "Os <a href=\"https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/\">fundos imobiliários</a> (FIIs) de",
+   "de_rendered": "Os fundos imobiliários (FIIs) de"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/",
+   "destino": "Fundos imobiliários (guia completo)",
+   "ancora": "fundos imobiliários",
+   "similaridade": 0.163
+  }
+ ]
+}

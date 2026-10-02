@@ -1,0 +1,22 @@
+{
+ "post_id": 9512,
+ "url": "https://investirecocaresocomecar.com.br/aposentadoria-inss-2060-08-trabalhador-por-aposentado/",
+ "lote": "L1",
+ "motivo": "Links internos: aposentadoria -> /calculadora-aposentadoria-renda-passiva/",
+ "trocas": [
+  {
+   "de": "mas a sua aposentadoria já está sendo",
+   "para": "mas a sua <a href=\"https://investirecocaresocomecar.com.br/calculadora-aposentadoria-renda-passiva/\">aposentadoria</a> já está sendo",
+   "de_rendered": "mas a sua aposentadoria já está sendo"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-aposentadoria-renda-passiva/",
+   "destino": "Calculadora de aposentadoria com renda passiva e INSS",
+   "ancora": "aposentadoria",
+   "similaridade": 0.171
+  }
+ ]
+}

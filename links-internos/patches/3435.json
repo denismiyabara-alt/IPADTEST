@@ -1,0 +1,44 @@
+{
+ "post_id": 3435,
+ "url": "https://investirecocaresocomecar.com.br/como-declarar-imposto-de-renda-2026-guia-completo-para-investidores-acoes-fiis-e-dividendos/",
+ "lote": "L1",
+ "motivo": "Links internos: venda de cotas -> /calculadora-ir-venda-fii/; JCP -> /calculadora-jcp-liquido/; rendimentos mensais -> /simulador-renda-fii/",
+ "trocas": [
+  {
+   "de": "das ações, a venda de cotas de FIIs com",
+   "para": "das ações, a <a href=\"https://investirecocaresocomecar.com.br/calculadora-ir-venda-fii/\">venda de cotas</a> de FIIs com",
+   "de_rendered": "das ações, a venda de cotas de FIIs com"
+  },
+  {
+   "de": "Não confunda JCP com dividendo",
+   "para": "Não confunda <a href=\"https://investirecocaresocomecar.com.br/calculadora-jcp-liquido/\">JCP</a> com dividendo",
+   "de_rendered": "Não confunda JCP com dividendo"
+  },
+  {
+   "de": "Os rendimentos mensais pagos pelos",
+   "para": "Os <a href=\"https://investirecocaresocomecar.com.br/simulador-renda-fii/\">rendimentos mensais</a> pagos pelos",
+   "de_rendered": "Os rendimentos mensais pagos pelos"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-ir-venda-fii/",
+   "destino": "Calculadora de IR na venda de FII",
+   "ancora": "venda de cotas",
+   "similaridade": 0.12
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-jcp-liquido/",
+   "destino": "Calculadora de JCP líquido",
+   "ancora": "JCP",
+   "similaridade": 0.116
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/simulador-renda-fii/",
+   "destino": "Simulador de renda mensal com FIIs",
+   "ancora": "rendimentos mensais",
+   "similaridade": 0.053
+  }
+ ]
+}

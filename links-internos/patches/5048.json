@@ -1,0 +1,33 @@
+{
+ "post_id": 5048,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-tesouro-selic/",
+ "lote": "L1",
+ "motivo": "Links internos: marcação a mercado -> /simulador-ntnb/; tabela regressiva -> /calculadora-cdb-lci-prefixado-ipca/",
+ "trocas": [
+  {
+   "de": "ele não sofre marcação a mercado no sentido",
+   "para": "ele não sofre <a href=\"https://investirecocaresocomecar.com.br/simulador-ntnb/\">marcação a mercado</a> no sentido",
+   "de_rendered": "ele não sofre marcação a mercado no sentido"
+  },
+  {
+   "de": "que segue a tabela regressiva: 22,5% para",
+   "para": "que segue a <a href=\"https://investirecocaresocomecar.com.br/calculadora-cdb-lci-prefixado-ipca/\">tabela regressiva</a>: 22,5% para",
+   "de_rendered": "que segue a tabela regressiva: 22,5% para"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/simulador-ntnb/",
+   "destino": "Simulador de marcação a mercado do Tesouro IPCA+",
+   "ancora": "marcação a mercado",
+   "similaridade": 0.116
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-cdb-lci-prefixado-ipca/",
+   "destino": "Comparador de renda fixa (CDB, LCI, prefixado e IPCA+)",
+   "ancora": "tabela regressiva",
+   "similaridade": 0.22
+  }
+ ]
+}

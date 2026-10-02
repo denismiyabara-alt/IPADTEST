@@ -1,0 +1,22 @@
+{
+ "post_id": 5119,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-gestao-passiva/",
+ "lote": "L2",
+ "motivo": "Links internos: BOVA11 -> /o-que-e-bova11/",
+ "trocas": [
+  {
+   "de": "no Brasil é o BOVA11 (ETF do",
+   "para": "no Brasil é o <a href=\"https://investirecocaresocomecar.com.br/o-que-e-bova11/\">BOVA11</a> (ETF do",
+   "de_rendered": "no Brasil é o BOVA11 (ETF do"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/o-que-e-bova11/",
+   "destino": "O que é BOVA11",
+   "ancora": "BOVA11",
+   "similaridade": 0.157
+  }
+ ]
+}

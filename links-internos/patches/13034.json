@@ -1,0 +1,22 @@
+{
+ "post_id": 13034,
+ "url": "https://investirecocaresocomecar.com.br/bradsaude-saud3-lucro-sobe-acao-cai-sinistralidade/",
+ "lote": "L3",
+ "motivo": "Links internos: SAUD3 -> /saud3-bradesco-vai-fechar-capital-bradsaude/",
+ "trocas": [
+  {
+   "de": "A Bradsaúde (SAUD3",
+   "para": "A Bradsaúde (<a href=\"https://investirecocaresocomecar.com.br/saud3-bradesco-vai-fechar-capital-bradsaude/\">SAUD3</a>",
+   "de_rendered": "A Bradsaúde (SAUD3"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/saud3-bradesco-vai-fechar-capital-bradsaude/",
+   "destino": "SAUD3: O Bradesco vai fechar o capital da BradSaúde?",
+   "ancora": "SAUD3",
+   "similaridade": 0.258
+  }
+ ]
+}

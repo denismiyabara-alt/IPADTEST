@@ -1,0 +1,22 @@
+{
+ "post_id": 11128,
+ "url": "https://investirecocaresocomecar.com.br/goldman-sachs-13-acoes-baratas-banco-do-brasil-fora/",
+ "lote": "L3",
+ "motivo": "Links internos: BBAS3 -> /banco-do-brasil-bbas3-corte-dividendo-payout-2026/",
+ "trocas": [
+  {
+   "de": "do Brasil (BBAS3).",
+   "para": "do Brasil (<a href=\"https://investirecocaresocomecar.com.br/banco-do-brasil-bbas3-corte-dividendo-payout-2026/\">BBAS3</a>).",
+   "de_rendered": "do Brasil (BBAS3)."
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/banco-do-brasil-bbas3-corte-dividendo-payout-2026/",
+   "destino": "Banco do Brasil (BBAS3) ainda vale a pena para dividendos em 2026?",
+   "ancora": "BBAS3",
+   "similaridade": 0.179
+  }
+ ]
+}

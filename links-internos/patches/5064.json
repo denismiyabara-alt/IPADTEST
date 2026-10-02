@@ -1,0 +1,22 @@
+{
+ "post_id": 5064,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-etf/",
+ "lote": "L2",
+ "motivo": "Links internos: BOVA11 -> /o-que-e-bova11/",
+ "trocas": [
+  {
+   "de": "por exemplo BOVA11, informa a",
+   "para": "por exemplo <a href=\"https://investirecocaresocomecar.com.br/o-que-e-bova11/\">BOVA11</a>, informa a",
+   "de_rendered": "por exemplo BOVA11, informa a"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/o-que-e-bova11/",
+   "destino": "O que é BOVA11",
+   "ancora": "BOVA11",
+   "similaridade": 0.275
+  }
+ ]
+}

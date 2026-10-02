@@ -1,0 +1,22 @@
+{
+ "post_id": 2423,
+ "url": "https://investirecocaresocomecar.com.br/o-melhor-fundo-imobiliario-para-iniciantes-como-investir-com-r10/",
+ "lote": "L2",
+ "motivo": "Links internos: Fundos imobiliários -> /fundos-imobiliarios-o-que-sao-fiis/",
+ "trocas": [
+  {
+   "de": "Fundos imobiliários são",
+   "para": "<a href=\"https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/\">Fundos imobiliários</a> são",
+   "de_rendered": "Fundos imobiliários são"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/",
+   "destino": "Fundos imobiliários (guia completo)",
+   "ancora": "Fundos imobiliários",
+   "similaridade": 0.164
+  }
+ ]
+}

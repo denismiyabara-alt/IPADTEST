@@ -1,0 +1,22 @@
+{
+ "post_id": 11563,
+ "url": "https://investirecocaresocomecar.com.br/tesouro-ipca-8-recompra-divida-nao-vale-a-pena/",
+ "lote": "L1",
+ "motivo": "Links internos: marcação a mercado -> /simulador-ntnb/",
+ "trocas": [
+  {
+   "de": "a 8% ganha na marcação a mercado se a recompra",
+   "para": "a 8% ganha na <a href=\"https://investirecocaresocomecar.com.br/simulador-ntnb/\">marcação a mercado</a> se a recompra",
+   "de_rendered": "a 8% ganha na marcação a mercado se a recompra"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/simulador-ntnb/",
+   "destino": "Simulador de marcação a mercado do Tesouro IPCA+",
+   "ancora": "marcação a mercado",
+   "similaridade": 0.122
+  }
+ ]
+}

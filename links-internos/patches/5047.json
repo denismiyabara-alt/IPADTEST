@@ -1,0 +1,22 @@
+{
+ "post_id": 5047,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-tesouro-direto/",
+ "lote": "L1",
+ "motivo": "Links internos: tabela regressiva do Imposto de Renda -> /calculadora-cdb-lci-prefixado-ipca/",
+ "trocas": [
+  {
+   "de": "segue a tabela regressiva do Imposto de Renda: 22,5% para",
+   "para": "segue a <a href=\"https://investirecocaresocomecar.com.br/calculadora-cdb-lci-prefixado-ipca/\">tabela regressiva do Imposto de Renda</a>: 22,5% para",
+   "de_rendered": "segue a tabela regressiva do Imposto de Renda: 22,5% para"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-cdb-lci-prefixado-ipca/",
+   "destino": "Comparador de renda fixa (CDB, LCI, prefixado e IPCA+)",
+   "ancora": "tabela regressiva do Imposto de Renda",
+   "similaridade": 0.211
+  }
+ ]
+}

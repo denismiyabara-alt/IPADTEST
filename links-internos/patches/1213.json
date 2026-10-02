@@ -1,0 +1,22 @@
+{
+ "post_id": 1213,
+ "url": "https://investirecocaresocomecar.com.br/como-funciona-um-fundo-imobiliario/",
+ "lote": "L2",
+ "motivo": "Links internos: fundos imobiliários -> /fundos-imobiliarios-o-que-sao-fiis/",
+ "trocas": [
+  {
+   "de": "Por isso, os fundos imobiliários são uma boa",
+   "para": "Por isso, os <a href=\"https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/\">fundos imobiliários</a> são uma boa",
+   "de_rendered": "Por isso, os fundos imobiliários são uma boa"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/",
+   "destino": "Fundos imobiliários (guia completo)",
+   "ancora": "fundos imobiliários",
+   "similaridade": 0.199
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "post_id": 5068,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-buy-and-hold/",
+ "lote": "L1",
+ "motivo": "Links internos: aportes mensais -> /calculadora-1-milhao/",
+ "trocas": [
+  {
+   "de": "e ainda fez aportes mensais de R$ 500, no",
+   "para": "e ainda fez <a href=\"https://investirecocaresocomecar.com.br/calculadora-1-milhao/\">aportes mensais</a> de R$ 500, no",
+   "de_rendered": "e ainda fez aportes mensais de R$ 500, no"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-1-milhao/",
+   "destino": "Calculadora: quanto falta para juntar 1 milhão",
+   "ancora": "aportes mensais",
+   "similaridade": 0.047
+  }
+ ]
+}

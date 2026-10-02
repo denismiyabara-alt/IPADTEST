@@ -1,0 +1,22 @@
+{
+ "post_id": 4848,
+ "url": "https://investirecocaresocomecar.com.br/diferenca-acoes-on-pn-petr3-petr4-itub3-itub4/",
+ "lote": "L2",
+ "motivo": "Links internos: dividend yield -> /dividendos-o-que-sao-dividend-yield/",
+ "trocas": [
+  {
+   "de": "diferenças no dividend yield percentual",
+   "para": "diferenças no <a href=\"https://investirecocaresocomecar.com.br/dividendos-o-que-sao-dividend-yield/\">dividend yield</a> percentual",
+   "de_rendered": "diferenças no dividend yield percentual"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/dividendos-o-que-sao-dividend-yield/",
+   "destino": "Dividendos e dividend yield (guia)",
+   "ancora": "dividend yield",
+   "similaridade": 0.217
+  }
+ ]
+}

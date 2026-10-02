@@ -1,0 +1,22 @@
+{
+ "post_id": 4391,
+ "url": "https://investirecocaresocomecar.com.br/ambev-abev3-resultado-1t26-vale-a-pena-investir/",
+ "lote": "L3",
+ "motivo": "Links internos: ABEV3 -> /abev3-copa-2026-vale-investir-pausa-hidratacao/",
+ "trocas": [
+  {
+   "de": "ABEV3 subiu mais de",
+   "para": "<a href=\"https://investirecocaresocomecar.com.br/abev3-copa-2026-vale-investir-pausa-hidratacao/\">ABEV3</a> subiu mais de",
+   "de_rendered": "ABEV3 subiu mais de"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/abev3-copa-2026-vale-investir-pausa-hidratacao/",
+   "destino": "ABEV3 na Copa 2026: a cerveja grátis do Ancelotti já foi pro preço?",
+   "ancora": "ABEV3",
+   "similaridade": 0.132
+  }
+ ]
+}

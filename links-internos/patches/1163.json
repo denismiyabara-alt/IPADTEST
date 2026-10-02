@@ -1,0 +1,22 @@
+{
+ "post_id": 1163,
+ "url": "https://investirecocaresocomecar.com.br/o-que-sao-fundos-imobiliarios-guia-completo/",
+ "lote": "L2",
+ "motivo": "Links internos: fundos imobiliários -> /fundos-imobiliarios-o-que-sao-fiis/",
+ "trocas": [
+  {
+   "de": "O que são fundos imobiliários",
+   "para": "O que são <a href=\"https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/\">fundos imobiliários</a>",
+   "de_rendered": "O que são fundos imobiliários"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/",
+   "destino": "Fundos imobiliários (guia completo)",
+   "ancora": "fundos imobiliários",
+   "similaridade": 0.203
+  }
+ ]
+}

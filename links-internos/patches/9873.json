@@ -1,0 +1,22 @@
+{
+ "post_id": 9873,
+ "url": "https://investirecocaresocomecar.com.br/r300mil-ape-alugar-ou-fii-qual-rende-mais/",
+ "lote": "L2",
+ "motivo": "Links internos: fundo imobiliário -> /fundos-imobiliarios-o-que-sao-fiis/",
+ "trocas": [
+  {
+   "de": "bota tudo em fundo imobiliário",
+   "para": "bota tudo em <a href=\"https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/\">fundo imobiliário</a>",
+   "de_rendered": "bota tudo em fundo imobiliário"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/",
+   "destino": "Fundos imobiliários (guia completo)",
+   "ancora": "fundo imobiliário",
+   "similaridade": 0.159
+  }
+ ]
+}

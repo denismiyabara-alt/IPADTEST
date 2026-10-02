@@ -1,0 +1,22 @@
+{
+ "post_id": 5062,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-liquidez/",
+ "lote": "L1",
+ "motivo": "Links internos: marcação a mercado -> /simulador-ntnb/",
+ "trocas": [
+  {
+   "de": "é a chamada marcação a mercado.",
+   "para": "é a chamada <a href=\"https://investirecocaresocomecar.com.br/simulador-ntnb/\">marcação a mercado</a>.",
+   "de_rendered": "é a chamada marcação a mercado."
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/simulador-ntnb/",
+   "destino": "Simulador de marcação a mercado do Tesouro IPCA+",
+   "ancora": "marcação a mercado",
+   "similaridade": 0.09
+  }
+ ]
+}

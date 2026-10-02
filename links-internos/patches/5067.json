@@ -1,0 +1,33 @@
+{
+ "post_id": 5067,
+ "url": "https://investirecocaresocomecar.com.br/fii-papel-vs-tijolo/",
+ "lote": "L1",
+ "motivo": "Links internos: renda mensal -> /simulador-renda-fii/; ganho de capital -> /calculadora-ir-venda-fii/",
+ "trocas": [
+  {
+   "de": "e você quer renda mensal previsível",
+   "para": "e você quer <a href=\"https://investirecocaresocomecar.com.br/simulador-renda-fii/\">renda mensal</a> previsível",
+   "de_rendered": "e você quer renda mensal previsível"
+  },
+  {
+   "de": "anos, gerando ganho de capital adicional na",
+   "para": "anos, gerando <a href=\"https://investirecocaresocomecar.com.br/calculadora-ir-venda-fii/\">ganho de capital</a> adicional na",
+   "de_rendered": "anos, gerando ganho de capital adicional na"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/simulador-renda-fii/",
+   "destino": "Simulador de renda mensal com FIIs",
+   "ancora": "renda mensal",
+   "similaridade": 0.102
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-ir-venda-fii/",
+   "destino": "Calculadora de IR na venda de FII",
+   "ancora": "ganho de capital",
+   "similaridade": 0.078
+  }
+ ]
+}

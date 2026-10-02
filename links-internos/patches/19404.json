@@ -1,0 +1,22 @@
+{
+ "post_id": 19404,
+ "url": "https://investirecocaresocomecar.com.br/prefixado-ou-ipca-inflacao-implicita-conta/",
+ "lote": "L1",
+ "motivo": "Links internos: marcação a mercado -> /simulador-ntnb/",
+ "trocas": [
+  {
+   "de": "e desce com a marcação a mercado.",
+   "para": "e desce com a <a href=\"https://investirecocaresocomecar.com.br/simulador-ntnb/\">marcação a mercado</a>.",
+   "de_rendered": "e desce com a marcação a mercado."
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/simulador-ntnb/",
+   "destino": "Simulador de marcação a mercado do Tesouro IPCA+",
+   "ancora": "marcação a mercado",
+   "similaridade": 0.101
+  }
+ ]
+}

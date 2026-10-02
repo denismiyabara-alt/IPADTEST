@@ -1,0 +1,33 @@
+{
+ "post_id": 5050,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-tesouro-prefixado/",
+ "lote": "L1",
+ "motivo": "Links internos: marcação a mercado -> /simulador-ntnb/; tabela regressiva do imposto de renda -> /calculadora-cdb-lci-prefixado-ipca/",
+ "trocas": [
+  {
+   "de": "chama de marcação a mercado.",
+   "para": "chama de <a href=\"https://investirecocaresocomecar.com.br/simulador-ntnb/\">marcação a mercado</a>.",
+   "de_rendered": "chama de marcação a mercado."
+  },
+  {
+   "de": "segue a tabela regressiva do imposto de renda.",
+   "para": "segue a <a href=\"https://investirecocaresocomecar.com.br/calculadora-cdb-lci-prefixado-ipca/\">tabela regressiva do imposto de renda</a>.",
+   "de_rendered": "segue a tabela regressiva do imposto de renda."
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/simulador-ntnb/",
+   "destino": "Simulador de marcação a mercado do Tesouro IPCA+",
+   "ancora": "marcação a mercado",
+   "similaridade": 0.15
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-cdb-lci-prefixado-ipca/",
+   "destino": "Comparador de renda fixa (CDB, LCI, prefixado e IPCA+)",
+   "ancora": "tabela regressiva do imposto de renda",
+   "similaridade": 0.269
+  }
+ ]
+}

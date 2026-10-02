@@ -14,6 +14,11 @@ Uso:
     python3 aplicar_patches.py --aplicar --lote A --so 4873
     python3 aplicar_patches.py --desfazer 4873       # restaura o backup mais recente do post
 
+Patches de outra pasta (ex.: os links internos), com os lotes LOTE_<X>.json de lá:
+    python3 aplicar_patches.py --pasta ../links-internos/patches --checar --lote L1
+    python3 aplicar_patches.py --pasta ../links-internos/patches --aplicar --lote L1
+(--pasta relativa vale a partir da pasta atual; o backup continua em auditoria-fatos/backup/.)
+
 Cada troca casa exatamente 1 vez, ou exatamente "n" vezes quando o patch diz "n" (ex.: n=2 quando a mesma frase
 do FAQ está no texto visível e no bloco JSON-LD de FAQ dentro do post; as duas são trocadas).
 --checar: lê content.raw (context=edit) e diz, por troca, quantas vezes o "de" aparece exatamente. Se não aparece,
@@ -198,24 +203,31 @@ def main(argv=None):
     modo.add_argument("--checar", action="store_true", help="padrão: só confere, não escreve")
     modo.add_argument("--aplicar", action="store_true")
     modo.add_argument("--desfazer", type=int, metavar="POST_ID")
-    ap.add_argument("--lote", choices=["A", "B", "C"])
+    ap.add_argument("--lote", metavar="X", help="A, B ou C na pasta padrão; com --pasta, qualquer LOTE_<X>.json de lá")
     ap.add_argument("--so", type=int, metavar="POST_ID")
+    ap.add_argument("--pasta", type=Path, default=PATCHES, help="pasta dos patches (padrão: auditoria-fatos/patches)")
     a = ap.parse_args(argv)
+    pasta = a.pasta.resolve()
+    if not pasta.is_dir():
+        raise SystemExit(f"pasta de patches não existe: {pasta}")
+    if a.lote and not (pasta / f"LOTE_{a.lote}.json").exists():
+        validos = sorted(f.stem[5:] for f in pasta.glob("LOTE_*.json"))
+        raise SystemExit(f"lote {a.lote} não existe em {pasta} (lotes: {', '.join(validos) or 'nenhum'})")
     wp = WP()
     if a.desfazer:
         cmd_desfazer(wp, a.desfazer)
         return
     if a.aplicar and not a.lote:
-        raise SystemExit("--aplicar exige --lote A|B|C")
-    ids = ids_do_lote(a.lote) if a.lote else todos_ids()
+        raise SystemExit("--aplicar exige --lote (A|B|C, ou o lote da --pasta)")
+    ids = ids_do_lote(a.lote, pasta) if a.lote else todos_ids(pasta)
     if a.so:
         if a.so not in ids:
             raise SystemExit(f"post {a.so} não está {'no lote ' + a.lote if a.lote else 'nos patches'}")
         ids = [a.so]
     if a.aplicar:
-        cmd_aplicar(wp, ids)
+        cmd_aplicar(wp, ids, pasta)
     else:
-        cmd_checar(wp, ids)
+        cmd_checar(wp, ids, pasta)
 
 
 if __name__ == "__main__":

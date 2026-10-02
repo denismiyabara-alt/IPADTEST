@@ -1,0 +1,33 @@
+{
+ "post_id": 4874,
+ "url": "https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/",
+ "lote": "L1",
+ "motivo": "Links internos: DARF -> /calculadora-ir-venda-fii/; renda mensal -> /simulador-renda-fii/",
+ "trocas": [
+  {
+   "de": "recolhido via DARF pelo próprio",
+   "para": "recolhido via <a href=\"https://investirecocaresocomecar.com.br/calculadora-ir-venda-fii/\">DARF</a> pelo próprio",
+   "de_rendered": "recolhido via DARF pelo próprio"
+  },
+  {
+   "de": "renda mensal recorrente",
+   "para": "<a href=\"https://investirecocaresocomecar.com.br/simulador-renda-fii/\">renda mensal</a> recorrente",
+   "de_rendered": "renda mensal recorrente"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-ir-venda-fii/",
+   "destino": "Calculadora de IR na venda de FII",
+   "ancora": "DARF",
+   "similaridade": 0.124
+  },
+  {
+   "url": "https://investirecocaresocomecar.com.br/simulador-renda-fii/",
+   "destino": "Simulador de renda mensal com FIIs",
+   "ancora": "renda mensal",
+   "similaridade": 0.104
+  }
+ ]
+}

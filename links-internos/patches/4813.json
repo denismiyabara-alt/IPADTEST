@@ -1,0 +1,22 @@
+{
+ "post_id": 4813,
+ "url": "https://investirecocaresocomecar.com.br/lci-lca-ainda-valem-a-pena-2026/",
+ "lote": "L1",
+ "motivo": "Links internos: LCI e LCA -> /calculadora-lci-lca-cdb/",
+ "trocas": [
+  {
+   "de": "LCI e LCA valem a pena quando o",
+   "para": "<a href=\"https://investirecocaresocomecar.com.br/calculadora-lci-lca-cdb/\">LCI e LCA</a> valem a pena quando o",
+   "de_rendered": "LCI e LCA valem a pena quando o"
+  }
+ ],
+ "fonte": "links-internos/gerar_links.py (seo/sugestoes-links.csv, similaridade TF-IDF e varredura)",
+ "links": [
+  {
+   "url": "https://investirecocaresocomecar.com.br/calculadora-lci-lca-cdb/",
+   "destino": "Calculadora LCI/LCA × CDB",
+   "ancora": "LCI e LCA",
+   "similaridade": 0.271
+  }
+ ]
+}
