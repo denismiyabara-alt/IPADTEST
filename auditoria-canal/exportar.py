@@ -518,7 +518,7 @@ class Exportador:
                 break
             else:
                 self.nota(arq, f"coluna {coluna} vazia: a API recusou ({'; '.join(erros)}). "
-                               "Exporte pelo YouTube Studio (Análises > Modo avançado > Conteúdo, CSV).")
+                               "Exporte pelo YouTube Studio (Análises > Modo avançado > Conteúdo) para dados/studio/.")
         regs = list(por_id.values())
         for r in regs:
             v = self.videos.get(r["video_id"], {})
@@ -763,8 +763,9 @@ class Exportador:
             L.append("")
         L += ["## Métricas que a API pode não entregar", "",
               "- Impressões e CTR das impressões: em geral só no YouTube Studio. Se as colunas vierem vazias, "
-              "exporte em Studio > Análises > Modo avançado > Conteúdo (todo o período), com as colunas Impressões e "
-              "Taxa de cliques, e salve como `dados/studio_impressoes.csv`.",
+              "exporte em Studio > Análises > Modo avançado > Conteúdo (todo o período), com Impressões e Taxa de "
+              "cliques, e salve o ZIP como `dados/studio/studio_conteudo_longos.zip` (e `..._shorts.zip`): "
+              "o analisar.py lê esses arquivos.",
               "- Retenção nos primeiros 30 s (abertura): não existe por API para lista de vídeos; o proxy é "
               "averageViewPercentage.", ""]
         (self.saida / "LEIAME_DADOS.md").write_text("\n".join(L), encoding="utf-8")
