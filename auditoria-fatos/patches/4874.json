@@ -1,0 +1,44 @@
+{
+ "post_id": 4874,
+ "url": "https://investirecocaresocomecar.com.br/fundos-imobiliarios-o-que-sao-fiis/",
+ "lote": "A",
+ "motivo": "FII com 50 cotistas (são 100), JCP a 15% (17,5%), ETF 'IFIX11' que não existe, FOFs encerrados, Selic fixa.",
+ "trocas": [
+  {
+   "de": "mais de 50 cotistas",
+   "para": "100 cotistas ou mais",
+   "de_rendered": "mais de 50 cotistas"
+  },
+  {
+   "de": "mas juros sobre capital próprio são tributados em 15%",
+   "para": "mas juros sobre capital próprio são tributados em 17,5% (desde 2026)",
+   "de_rendered": "mas juros sobre capital próprio são tributados em 15%"
+  },
+  {
+   "de": "Exemplos: BCFF11, RBRF11.",
+   "para": "Confira na B3 se o FoF ainda está listado antes de investir: BCFF11 e RBRF11, que eram exemplos comuns, deixaram de ser negociados.",
+   "de_rendered": "Exemplos: BCFF11, RBRF11."
+  },
+  {
+   "de": "Com a Selic em 13,75% ao ano, isso significa que",
+   "para": "Num exemplo com CDI de 13,75% ao ano (a meta Selic vigente está no site do Banco Central), isso significa que",
+   "de_rendered": "Com a Selic em 13,75% ao ano, isso significa que"
+  },
+  {
+   "de": "considere um ETF de FIIs como o IFIX11",
+   "para": "considere um ETF que replica o IFIX, como o XFIX11",
+   "de_rendered": "considere um ETF de FIIs como o IFIX11"
+  },
+  {
+   "de": "ETF de FIIs (IFIX11) ou selecionar FIIs individualmente?",
+   "para": "ETF de FIIs (como o XFIX11) ou selecionar FIIs individualmente?",
+   "de_rendered": "ETF de FIIs (IFIX11) ou selecionar FIIs individualmente?"
+  },
+  {
+   "de": "o IFIX11 é uma resposta honesta",
+   "para": "um ETF que replica o IFIX (como o XFIX11) é uma resposta honesta",
+   "de_rendered": "o IFIX11 é uma resposta honesta"
+  }
+ ],
+ "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm ; https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp224.htm ; https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/historico/mercado-a-vista/series-historicas/ (IFIX11 sem negócios; XFIX11 = TREND IFIX-L; BCFF11 último pregão 18/10/2024; RBRF11 02/10/2025) ; https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json"
+}

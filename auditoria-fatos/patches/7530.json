@@ -1,0 +1,27 @@
+{
+ "post_id": 7530,
+ "url": "https://investirecocaresocomecar.com.br/inss-aposentadoria-abismo-708x/",
+ "lote": "A",
+ "motivo": "Dividendos isentos sem a regra de 2026, limite de isenção do IRPF antigo (desde 2026 é R$ 5 mil) e TRPL (virou ISAE4).",
+ "trocas": [
+  {
+   "de": "Dividendos no Brasil são isentos de IR para pessoa física.",
+   "para": "Dividendos no Brasil são isentos de IR para pessoa física até R$ 50 mil por mês por empresa.",
+   "de_rendered": "Dividendos no Brasil são isentos de IR para pessoa física."
+  },
+  {
+   "de": "utilities (SAPR, TRPL)",
+   "para": "utilities (SAPR, ISAE)",
+   "de_rendered": "utilities (SAPR, TRPL)"
+  },
+  {
+   "de": "Descontado o imposto de renda (para quem recebe acima de R$",
+   "para": "Descontado o imposto de renda (em 2026, isento até R$ 5 mil por mês e com redução parcial até R$ 7.350, pela Lei 15.270/2025; antes, o limite era R$",
+   "de_rendered": "Descontado o imposto de renda (para quem recebe acima de R$"
+  }
+ ],
+ "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15270.htm ; https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/historico/mercado-a-vista/series-historicas/ (TRPL4 último pregão 14/11/2024; ISAE4 desde 18/11/2024)",
+ "manual": [
+  "Conferir o valor líquido do teto do INSS ('entre R$ 7.600 e R$ 7.900') com a tabela do IRPF de 2026."
+ ]
+}

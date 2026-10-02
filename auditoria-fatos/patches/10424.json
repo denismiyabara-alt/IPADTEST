@@ -1,0 +1,41 @@
+{
+ "post_id": 10424,
+ "url": "https://investirecocaresocomecar.com.br/calendario-dividendos-julho-2026-logg3-vale-a-pena/",
+ "lote": "A",
+ "motivo": "JCP a 15% (17,5% desde 2026) e lei citada pelo número do projeto (é a Lei 15.270/2025).",
+ "trocas": [
+  {
+   "de": "que o PL 1087/2025 (sancionado e em vigor desde 01/01/2026) manteve",
+   "para": "que a Lei 15.270/2025 (o antigo PL 1087/2025, em vigor desde 01/01/2026) manteve",
+   "de_rendered": "que o PL 1087/2025 (sancionado e em vigor desde 01/01/2026) manteve"
+  },
+  {
+   "de": "com alíquota de 15% de IR retida direto no pagamento",
+   "para": "com alíquota de 17,5% de IR retida direto no pagamento (desde 2026)",
+   "de_rendered": "com alíquota de 15% de IR retida direto no pagamento"
+  },
+  {
+   "de": "15% retido na fonte",
+   "para": "17,5% retido na fonte",
+   "de_rendered": "15% retido na fonte"
+  },
+  {
+   "de": "Valor líquido = bruto menos 15%",
+   "para": "Valor líquido = bruto menos 17,5%",
+   "de_rendered": "Valor líquido = bruto menos 15%"
+  },
+  {
+   "de": "JCP é uma despesa dedutível para a empresa, tributada em 15% na fonte para o acionista.",
+   "para": "JCP é uma despesa dedutível para a empresa, tributada em 17,5% na fonte para o acionista.",
+   "de_rendered": "JCP é uma despesa dedutível para a empresa, tributada em 15% na fonte para o acionista.",
+   "n": 2
+  },
+  {
+   "de": "desde a vigência do PL 1087/2025.",
+   "para": "desde a vigência da Lei 15.270/2025.",
+   "de_rendered": "desde a vigência do PL 1087/2025.",
+   "n": 2
+  }
+ ],
+ "fonte": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp224.htm ; https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15270.htm"
+}

@@ -1,0 +1,31 @@
+{
+ "lote": "A",
+ "descricao": "Regras de IR de 2026: JCP 17,5% (LC 224/2025), FII com 100 cotistas (Lei 14.754/2023), dividendos acima de R$ 50 mil/mês (Lei 15.270/2025), prazo mínimo de LCI/LCA (Res. CMN 5.215/2025). Os posts deste lote levam também as correções de taxa fixa (Selic/CDI/IPCA) e de ticker que tinham, para não haver dois patches no mesmo post.",
+ "post_ids": [
+  4873,
+  4874,
+  5092,
+  5058,
+  5059,
+  5093,
+  5051,
+  4815,
+  5067,
+  4875,
+  5042,
+  4565,
+  4566,
+  4816,
+  3435,
+  1163,
+  7376,
+  10424,
+  1038,
+  1148,
+  2819,
+  11719,
+  5077,
+  4814,
+  7530
+ ]
+}

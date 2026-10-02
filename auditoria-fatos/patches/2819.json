@@ -1,0 +1,19 @@
+{
+ "post_id": 2819,
+ "url": "https://investirecocaresocomecar.com.br/tributacao-de-dividendos-a-nova-regra-que-chacoalha-o-mercado-e-estrategias-de-renda-fixa/",
+ "lote": "A",
+ "motivo": "Texto ainda trata a taxação de dividendos como projeto: virou a Lei 15.270/2025, sancionada em 26/11/2025 e em vigor desde jan/2026.",
+ "trocas": [
+  {
+   "de": "A medida, que agora segue para o Senado, exige",
+   "para": "A medida foi aprovada no Senado e sancionada como Lei 15.270/2025 em 26/11/2025. Ela exige",
+   "de_rendered": "A medida, que agora segue para o Senado, exige"
+  },
+  {
+   "de": ", caso a lei seja sancionada em 2025.",
+   "para": ", já que a lei foi sancionada em novembro de 2025 (Lei 15.270/2025).",
+   "de_rendered": ", caso a lei seja sancionada em 2025."
+  }
+ ],
+ "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15270.htm"
+}

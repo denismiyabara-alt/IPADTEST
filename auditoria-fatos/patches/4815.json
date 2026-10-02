@@ -1,0 +1,19 @@
+{
+ "post_id": 4815,
+ "url": "https://investirecocaresocomecar.com.br/fii-ou-imovel-fisico-qual-e-melhor-investimento/",
+ "lote": "A",
+ "motivo": "FII com 50 cotistas (são 100 desde a Lei 14.754/2023) e BCFF11, que deixou de negociar em 2024.",
+ "trocas": [
+  {
+   "de": "em FIIs com mais de 50 cotistas negociados em bolsa.",
+   "para": "em FIIs com 100 cotistas ou mais, negociados em bolsa, para quem tem menos de 10% das cotas.",
+   "de_rendered": "em FIIs com mais de 50 cotistas negociados em bolsa."
+  },
+  {
+   "de": "FIIs de fundos de fundos (FOFs) como BCFF11 ou HFOF11",
+   "para": "FIIs de fundos de fundos (FOFs) como o HFOF11",
+   "de_rendered": "FIIs de fundos de fundos (FOFs) como BCFF11 ou HFOF11"
+  }
+ ],
+ "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm ; https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/historico/mercado-a-vista/series-historicas/ (BCFF11: último pregão 18/10/2024; HFOF11 negocia)"
+}

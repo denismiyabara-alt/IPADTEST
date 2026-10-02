@@ -1,0 +1,54 @@
+{
+ "post_id": 5093,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-proventos/",
+ "lote": "A",
+ "motivo": "JCP a 15% (17,5% desde 2026), FII com 50 cotistas (100), dividendos sem a regra da Lei 15.270/2025, Selic fixa.",
+ "trocas": [
+  {
+   "de": "Dividendos são isentos de Imposto de Renda para a pessoa física no Brasil (mas atenção: isso pode mudar com reformas tributárias em discussão).",
+   "para": "Dividendos são isentos de Imposto de Renda para a pessoa física no Brasil até R$ 50 mil por mês da mesma empresa; acima disso, há 10% retido na fonte desde janeiro de 2026 (Lei 15.270/2025).",
+   "de_rendered": "Dividendos são isentos de Imposto de Renda para a pessoa física no Brasil (mas atenção: isso pode mudar com reformas tributárias em discussão)."
+  },
+  {
+   "de": "Para o investidor, o JCP tem 15% de IR retido na fonte. Na prática: se uma empresa distribui R$1,00 de JCP, você recebe R$0,85 líquido.",
+   "para": "Para o investidor, o JCP tem 17,5% de IR retido na fonte (desde 2026). Na prática: se uma empresa distribui R$1,00 de JCP, você recebe R$0,825 líquido.",
+   "de_rendered": "Para o investidor, o JCP tem 15% de IR retido na fonte. Na prática: se uma empresa distribui R$1,00 de JCP, você recebe R$0,85 líquido."
+  },
+  {
+   "de": "é considerado razoável no ambiente atual de Selic em 14,75%.",
+   "para": "é considerado razoável num ambiente de Selic acima de 14%, como o de abril de 2026.",
+   "de_rendered": "é considerado razoável no ambiente atual de Selic em 14,75%."
+  },
+  {
+   "de": "isentos de IR para pessoa física (Brasil é um dos poucos países com essa isenção)",
+   "para": "isentos de IR para pessoa física até R$ 50 mil por mês por empresa (acima disso, 10% na fonte desde 2026)",
+   "de_rendered": "isentos de IR para pessoa física (Brasil é um dos poucos países com essa isenção)"
+  },
+  {
+   "de": "isentos de IR se o FII tem mais de 50 cotistas e a cota é negociada em bolsa",
+   "para": "isentos de IR se o FII tem 100 cotistas ou mais, a cota é negociada em bolsa e você tem menos de 10% das cotas",
+   "de_rendered": "isentos de IR se o FII tem mais de 50 cotistas e a cota é negociada em bolsa"
+  },
+  {
+   "de": "Dividendos são isentos de IR para pessoa física; JCP tem 15% retido na fonte.",
+   "para": "Dividendos são isentos de IR para pessoa física até R$ 50 mil por mês por empresa; JCP tem 17,5% retido na fonte.",
+   "de_rendered": "Dividendos são isentos de IR para pessoa física; JCP tem 15% retido na fonte."
+  },
+  {
+   "de": "JCP tem 15% retido na fonte antes de chegar à sua conta.",
+   "para": "JCP tem 17,5% retido na fonte antes de chegar à sua conta.",
+   "de_rendered": "JCP tem 15% retido na fonte antes de chegar à sua conta.",
+   "n": 2
+  },
+  {
+   "de": "mesmo que o acionista pague 15%.",
+   "para": "mesmo que o acionista pague 17,5%.",
+   "de_rendered": "mesmo que o acionista pague 15%.",
+   "n": 2
+  }
+ ],
+ "fonte": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp224.htm ; https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm ; https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15270.htm ; https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json",
+ "manual": [
+  "Lista de tributação: item 'JCP:' seguido de '15% de IR retido na fonte' (nó curto); trocar por 17,5%."
+ ]
+}

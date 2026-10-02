@@ -1,0 +1,58 @@
+{
+ "post_id": 5058,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-jcp/",
+ "lote": "A",
+ "motivo": "Post sobre JCP com a alíquota antiga (15%); desde 01/01/2026 é 17,5%. Exemplos recalculados; Selic fixa.",
+ "trocas": [
+  {
+   "de": "o JCP sofre retenção de 15% de imposto de renda na fonte",
+   "para": "o JCP sofre retenção de 17,5% de imposto de renda na fonte (desde 2026)",
+   "de_rendered": "o JCP sofre retenção de 15% de imposto de renda na fonte"
+  },
+  {
+   "de": "a corretora retém 15% de IR na fonte e o valor líquido cai na sua conta automaticamente",
+   "para": "a corretora retém 17,5% de IR na fonte e o valor líquido cai na sua conta automaticamente",
+   "de_rendered": "a corretora retém 15% de IR na fonte e o valor líquido cai na sua conta automaticamente"
+  },
+  {
+   "de": "Um ponto de atenção: como a Selic está em 14,75% ao ano e o CDI em 14,65%, a TJLP",
+   "para": "Um ponto de atenção: como a Selic e o CDI estão muito acima da TJLP (a meta Selic vigente está no site do Banco Central), a TJLP",
+   "de_rendered": "Um ponto de atenção: como a Selic está em 14,75% ao ano e o CDI em 14,65%, a TJLP"
+  },
+  {
+   "de": "Porém, como o IR de 15% é retido na fonte, você recebe R$ 425,00 líquidos.",
+   "para": "Porém, como o IR de 17,5% é retido na fonte, você recebe R$ 412,50 líquidos.",
+   "de_rendered": "Porém, como o IR de 15% é retido na fonte, você recebe R$ 425,00 líquidos."
+  },
+  {
+   "de": "A diferença de R$ 75,00 parece clara a favor dos dividendos.",
+   "para": "A diferença de R$ 87,50 parece clara a favor dos dividendos.",
+   "de_rendered": "A diferença de R$ 75,00 parece clara a favor dos dividendos."
+  },
+  {
+   "de": "Com a Selic a 14,75%, um JCP com yield bruto de 6% ao ano equivale a 5,1% líquido após IR. Um CDB que paga 100% do CDI (14,65%) rende 12,45% líquido.",
+   "para": "Num exemplo com CDI de 14,65% ao ano, um JCP com yield bruto de 6% ao ano equivale a 4,95% líquido após o IR de 17,5%. Um CDB que paga 100% desse CDI rende 12,45% líquido.",
+   "de_rendered": "Com a Selic a 14,75%, um JCP com yield bruto de 6% ao ano equivale a 5,1% líquido após IR. Um CDB que paga 100% do CDI (14,65%) rende 12,45% líquido."
+  },
+  {
+   "de": "há retenção de 15% de IR na fonte",
+   "para": "há retenção de 17,5% de IR na fonte (desde 2026)",
+   "de_rendered": "há retenção de 15% de IR na fonte"
+  },
+  {
+   "de": "15% retido na fonte",
+   "para": "17,5% retido na fonte",
+   "de_rendered": "15% retido na fonte"
+  },
+  {
+   "de": "O dividendo é isento de IR para a pessoa física e não dedutível para a empresa.",
+   "para": "O dividendo é isento de IR para a pessoa física até R$ 50 mil por mês por empresa (acima disso, 10% na fonte desde 2026) e não é dedutível para a empresa.",
+   "de_rendered": "O dividendo é isento de IR para a pessoa física e não dedutível para a empresa.",
+   "n": 2
+  }
+ ],
+ "fonte": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp224.htm ; https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15270.htm ; https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json",
+ "manual": [
+  "Frase 'Em 2025, a TJLP está em torno de 7% ao ano': conferir a TJLP vigente no BNDES/BCB e datar."
+ ]
+}

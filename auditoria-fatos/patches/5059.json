@@ -1,0 +1,44 @@
+{
+ "post_id": 5059,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-fii/",
+ "lote": "A",
+ "motivo": "FII com 50 cotistas (são 100 desde a Lei 14.754/2023); Selic, CDI e IPCA fixos no texto.",
+ "trocas": [
+  {
+   "de": "desde que o fundo tenha pelo menos 50 cotistas e suas cotas sejam negociadas exclusivamente na bolsa",
+   "para": "desde que o fundo tenha pelo menos 100 cotistas, suas cotas sejam negociadas exclusivamente na bolsa e você tenha menos de 10% das cotas",
+   "de_rendered": "desde que o fundo tenha pelo menos 50 cotistas e suas cotas sejam negociadas exclusivamente na bolsa"
+  },
+  {
+   "de": "Um CDB que paga 100% do CDI (hoje em torno de 14,65% ao ano)",
+   "para": "Um CDB que paga 100% do CDI (que anda colado na Selic; a meta Selic vigente está no site do Banco Central)",
+   "de_rendered": "Um CDB que paga 100% do CDI (hoje em torno de 14,65% ao ano)"
+  },
+  {
+   "de": "Num cenário com Selic a 14,75% e IPCA a 5,5%, os FIIs de papel",
+   "para": "Num cenário de Selic e IPCA altos, os FIIs de papel",
+   "de_rendered": "Num cenário com Selic a 14,75% e IPCA a 5,5%, os FIIs de papel"
+  },
+  {
+   "de": "se o Tesouro Selic paga 14,75% com zero risco",
+   "para": "se o Tesouro Selic paga a Selic com risco mínimo",
+   "de_rendered": "se o Tesouro Selic paga 14,75% com zero risco"
+  },
+  {
+   "de": "Um FII com dividend yield de 11% numa época de CDI a 14,65% está pagando menos do que a renda fixa",
+   "para": "Um FII com dividend yield de 11% numa época de CDI acima disso está pagando menos do que a renda fixa",
+   "de_rendered": "Um FII com dividend yield de 11% numa época de CDI a 14,65% está pagando menos do que a renda fixa"
+  },
+  {
+   "de": "num CDB a 100% do CDI (14,65% ao ano) por 12 meses",
+   "para": "num CDB a 100% do CDI (num exemplo com CDI de 14,65% ao ano) por 12 meses",
+   "de_rendered": "num CDB a 100% do CDI (14,65% ao ano) por 12 meses"
+  },
+  {
+   "de": "Em cenário de juros altos (Selic a 14,75%), FIIs de papel",
+   "para": "Em cenário de juros altos, FIIs de papel",
+   "de_rendered": "Em cenário de juros altos (Selic a 14,75%), FIIs de papel"
+  }
+ ],
+ "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm ; https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json ; https://api.bcb.gov.br/dados/serie/bcdata.sgs.13522/dados?formato=json"
+}

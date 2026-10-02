@@ -1,0 +1,34 @@
+{
+ "post_id": 5067,
+ "url": "https://investirecocaresocomecar.com.br/fii-papel-vs-tijolo/",
+ "lote": "A",
+ "motivo": "FII com 50 cotistas (100 desde a Lei 14.754/2023); Selic, CDI e IPCA fixos no texto.",
+ "trocas": [
+  {
+   "de": "que está em torno de 5,5% ao ano atualmente",
+   "para": "que estava em 4,39% (IPCA em 12 meses até abril de 2026, segundo o IBGE)",
+   "de_rendered": "que está em torno de 5,5% ao ano atualmente"
+  },
+  {
+   "de": "Um CRI indexado ao CDI, hoje em 14,65% ao ano, rende bem mais do que em períodos de juros baixos.",
+   "para": "Um CRI indexado ao CDI rende bem mais com juros altos do que em períodos de juros baixos.",
+   "de_rendered": "Um CRI indexado ao CDI, hoje em 14,65% ao ano, rende bem mais do que em períodos de juros baixos."
+  },
+  {
+   "de": "como o atual patamar de 14,75%",
+   "para": "como o de 2025 e 2026 (a meta Selic vigente está no site do Banco Central)",
+   "de_rendered": "como o atual patamar de 14,75%"
+  },
+  {
+   "de": "desde que o fundo tenha mais de 50 cotistas e seja negociado em bolsa",
+   "para": "desde que o fundo tenha 100 cotistas ou mais, seja negociado em bolsa e o cotista tenha menos de 10% das cotas",
+   "de_rendered": "desde que o fundo tenha mais de 50 cotistas e seja negociado em bolsa"
+  },
+  {
+   "de": "Em um cenário de Selic a 14,75%, os FIIs de papel",
+   "para": "Em um cenário de Selic acima de 14%, os FIIs de papel",
+   "de_rendered": "Em um cenário de Selic a 14,75%, os FIIs de papel"
+  }
+ ],
+ "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm ; https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json ; https://api.bcb.gov.br/dados/serie/bcdata.sgs.13522/dados?formato=json"
+}

@@ -1,0 +1,24 @@
+{
+ "post_id": 4814,
+ "url": "https://investirecocaresocomecar.com.br/quanto-preciso-para-viver-de-renda-no-brasil/",
+ "lote": "A",
+ "motivo": "Dividendos isentos sem a regra de 2026; Selic fixa no texto.",
+ "trocas": [
+  {
+   "de": "Com Selic a 14,75%, a renda anual bruta",
+   "para": "Com Selic a 14,75% (meta de março e abril de 2026, segundo o Copom; a meta Selic vigente está no site do Banco Central), a renda anual bruta",
+   "de_rendered": "Com Selic a 14,75%, a renda anual bruta"
+  },
+  {
+   "de": "Vantagem: dividendos de ações são isentos de IR.",
+   "para": "Vantagem: dividendos de ações são isentos de IR até R$ 50 mil por mês por empresa.",
+   "de_rendered": "Vantagem: dividendos de ações são isentos de IR."
+  },
+  {
+   "de": "gera ~R$5.000/mês bruto hoje (Selic 14,75%)",
+   "para": "gera ~R$5.000/mês bruto com a Selic de abril de 2026 (14,75%)",
+   "de_rendered": "gera ~R$5.000/mês bruto hoje (Selic 14,75%)"
+  }
+ ],
+ "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15270.htm ; https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json"
+}

@@ -1,0 +1,33 @@
+{
+ "post_id": 4816,
+ "url": "https://investirecocaresocomecar.com.br/como-declarar-bdrs-imposto-de-renda-2026/",
+ "lote": "A",
+ "motivo": "Guia de IR de BDR: dividendo de BDR tratado como isento (é tributável, carnê-leão), JEPQ39 e BOVA39 que não existem.",
+ "trocas": [
+  {
+   "de": "O Brasil não cobra IR novamente sobre essa parcela para pessoas físicas.",
+   "para": "No Brasil, o dividendo de BDR é rendimento tributável: entra no carnê-leão (tabela progressiva) e o imposto pago lá fora pode ser compensado, nos limites da lei.",
+   "de_rendered": "O Brasil não cobra IR novamente sobre essa parcela para pessoas físicas."
+  },
+  {
+   "de": "dentro de ETFs como JEPI39 e JEPQ39 é tributada",
+   "para": "dentro de ETFs como o JEPI39 (o JEPQ não tem BDR na B3) é tributada",
+   "de_rendered": "dentro de ETFs como JEPI39 e JEPQ39 é tributada"
+  },
+  {
+   "de": "você comprou 200 BDRs de BOVA39 por R$50 cada",
+   "para": "você comprou 200 BDRs de um ETF americano por R$50 cada",
+   "de_rendered": "você comprou 200 BDRs de BOVA39 por R$50 cada"
+  },
+  {
+   "de": "Você não precisa lançar o imposto pago no exterior separadamente, pois o Brasil não cobra novamente sobre essa parcela. Declare apenas o valor líquido recebido como rendimento isento.",
+   "para": "Declare o dividendo como rendimento tributável recebido do exterior (carnê-leão) e informe o imposto pago lá fora, que pode ser compensado até o limite do imposto devido no Brasil.",
+   "de_rendered": "Você não precisa lançar o imposto pago no exterior separadamente, pois o Brasil não cobra novamente sobre essa parcela. Declare apenas o valor líquido recebido como rendimento isento."
+  }
+ ],
+ "fonte": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-frequentes/declaracoes/dirpf ; https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/historico/mercado-a-vista/series-historicas/ (JEPQ39 e BOVA39 sem negócios 2021-2026; JEPI39 desde 23/02/2026)",
+ "manual": [
+  "Bloco 'Onde declarar' dos dividendos: trocar 'Rendimentos Isentos e Não Tributáveis → Código 26 (Outros). Informe o valor líquido' por 'Rendimentos Tributáveis Recebidos de Pessoa Física/do Exterior (carnê-leão), com o imposto pago no exterior'.",
+  "Código DARF '8523' (é de ganho de capital em moeda estrangeira): trocar por 6015 (renda variável em bolsa, pessoa física)."
+ ]
+}

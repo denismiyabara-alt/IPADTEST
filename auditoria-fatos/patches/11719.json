@@ -1,0 +1,20 @@
+{
+ "post_id": 11719,
+ "url": "https://investirecocaresocomecar.com.br/ambev-abev3-volta-carteira-btg-13-anos/",
+ "lote": "A",
+ "motivo": "Dividendos 'isentos pela legislação em vigor' sem a regra de 2026; Selic citada sem data.",
+ "trocas": [
+  {
+   "de": "com a Selic hoje em 14,25% ao ano",
+   "para": "com a Selic em 14,25% ao ano (meta de julho de 2026, segundo o Copom)",
+   "de_rendered": "com a Selic hoje em 14,25% ao ano"
+  },
+  {
+   "de": "Dividendos de ações pagos a pessoa física são isentos de IR pela legislação em vigor.",
+   "para": "Dividendos de ações pagos a pessoa física são isentos de IR até R$ 50 mil por mês por empresa; acima disso, há 10% retido na fonte desde 2026 (Lei 15.270/2025).",
+   "de_rendered": "Dividendos de ações pagos a pessoa física são isentos de IR pela legislação em vigor.",
+   "n": 2
+  }
+ ],
+ "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15270.htm ; https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json"
+}

@@ -1,0 +1,14 @@
+{
+ "post_id": 1163,
+ "url": "https://investirecocaresocomecar.com.br/o-que-sao-fundos-imobiliarios-guia-completo/",
+ "lote": "A",
+ "motivo": "FII com 50 cotistas: desde a Lei 14.754/2023 a isenção exige 100 cotistas ou mais.",
+ "trocas": [
+  {
+   "de": "O fundo tenha pelo menos 50 cotistas.",
+   "para": "O fundo tenha pelo menos 100 cotistas (Lei 14.754/2023).",
+   "de_rendered": "O fundo tenha pelo menos 50 cotistas."
+  }
+ ],
+ "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm"
+}

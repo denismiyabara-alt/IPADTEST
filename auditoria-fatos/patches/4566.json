@@ -1,0 +1,19 @@
+{
+ "post_id": 4566,
+ "url": "https://investirecocaresocomecar.com.br/calculadora-lca/",
+ "lote": "A",
+ "motivo": "Prazo mínimo da LCA desatualizado: desde a Res. CMN 5.215/2025 são 6 meses (12 se IPCA+).",
+ "trocas": [
+  {
+   "de": "A LCA tem prazo mínimo de",
+   "para": "A LCA tinha prazo mínimo de",
+   "de_rendered": "A LCA tem prazo mínimo de"
+  },
+  {
+   "de": ", assim como a LCI. Antes disso, o resgate não é permitido.",
+   "para": ", assim como a LCI (regra antiga). Desde a Res. CMN 5.215/2025, o prazo mínimo é de 6 meses para LCA sem correção pela inflação e 12 meses para LCA corrigida pelo IPCA. Antes disso, o resgate não é permitido.",
+   "de_rendered": ", assim como a LCI. Antes disso, o resgate não é permitido."
+  }
+ ],
+ "fonte": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20CMN&numero=5215"
+}

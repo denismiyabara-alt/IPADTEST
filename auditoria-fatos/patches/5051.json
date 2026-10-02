@@ -1,0 +1,34 @@
+{
+ "post_id": 5051,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-dividend-yield/",
+ "lote": "A",
+ "motivo": "JCP a 15% (17,5% desde 2026), dividendos sem a regra de 2026, Selic/CDI/IPCA fixos como se fossem de maio de 2026.",
+ "trocas": [
+  {
+   "de": "Em maio de 2026, a Selic está em 14,75% ao ano, o CDI em torno de 14,65% e o IPCA acumulado em 5,5%.",
+   "para": "Em abril de 2026, a Selic estava em 14,75% ao ano, o CDI em torno de 14,65% e o IPCA em 12 meses em 4,39% (Copom e IBGE; confira os valores atuais no site do Banco Central).",
+   "de_rendered": "Em maio de 2026, a Selic está em 14,75% ao ano, o CDI em torno de 14,65% e o IPCA acumulado em 5,5%."
+  },
+  {
+   "de": "ainda mais quando se considera que os dividendos são isentos de Imposto de Renda para pessoas físicas no Brasil",
+   "para": "ainda mais quando se considera que os dividendos são isentos de Imposto de Renda para pessoas físicas no Brasil até R$ 50 mil por mês por empresa",
+   "de_rendered": "ainda mais quando se considera que os dividendos são isentos de Imposto de Renda para pessoas físicas no Brasil"
+  },
+  {
+   "de": "A desvantagem para o investidor pessoa física é que o JCP sofre retenção de 15% de IR na fonte, ao contrário dos dividendos, que são isentos.",
+   "para": "A desvantagem para o investidor pessoa física é que o JCP sofre retenção de 17,5% de IR na fonte (desde 2026), ao contrário dos dividendos, que são isentos até R$ 50 mil por mês por empresa.",
+   "de_rendered": "A desvantagem para o investidor pessoa física é que o JCP sofre retenção de 15% de IR na fonte, ao contrário dos dividendos, que são isentos."
+  },
+  {
+   "de": "Dividendos recebidos por pessoas físicas no Brasil são isentos de IR; JCP tem retenção de 15% na fonte.",
+   "para": "Dividendos recebidos por pessoas físicas no Brasil são isentos de IR até R$ 50 mil por mês por empresa (acima disso, 10% na fonte desde 2026); JCP tem retenção de 17,5% na fonte.",
+   "de_rendered": "Dividendos recebidos por pessoas físicas no Brasil são isentos de IR; JCP tem retenção de 15% na fonte."
+  },
+  {
+   "de": "Com Selic em 14,75%, um DY precisa ser consistente",
+   "para": "Com a Selic acima de 14%, um DY precisa ser consistente",
+   "de_rendered": "Com Selic em 14,75%, um DY precisa ser consistente"
+  }
+ ],
+ "fonte": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp224.htm ; https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15270.htm ; https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json ; https://api.bcb.gov.br/dados/serie/bcdata.sgs.13522/dados?formato=json"
+}

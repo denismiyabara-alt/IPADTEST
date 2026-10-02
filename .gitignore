@@ -3,3 +3,4 @@ __pycache__/
 seo/_varredura.log
 seo/varredura.json
 auditoria-fatos/cache/
+auditoria-fatos/backup/

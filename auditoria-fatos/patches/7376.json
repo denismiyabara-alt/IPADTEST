@@ -1,0 +1,29 @@
+{
+ "post_id": 7376,
+ "url": "https://investirecocaresocomecar.com.br/vivt3-dividendos-conta-celular-gratis-para-sempre/",
+ "lote": "A",
+ "motivo": "JCP a 15% (17,5% desde 2026), dividendos sem a regra de 2026 e Selic fixa na tabela.",
+ "trocas": [
+  {
+   "de": "Importante: dividendos de ações têm isenção de IR para pessoa física no Brasil. O JCP tem retenção de 15%",
+   "para": "Importante: dividendos de ações têm isenção de IR para pessoa física no Brasil até R$ 50 mil por mês por empresa. O JCP tem retenção de 17,5% (desde 2026)",
+   "de_rendered": "Importante: dividendos de ações têm isenção de IR para pessoa física no Brasil. O JCP tem retenção de 15%"
+  },
+  {
+   "de": "Dividendos de ações são isentos de IR para pessoa física no Brasil. Já o JCP (Juros sobre Capital Próprio), que a Telefônica usa bastante, tem retenção de 15% na fonte.",
+   "para": "Dividendos de ações são isentos de IR para pessoa física no Brasil até R$ 50 mil por mês por empresa (acima disso, 10% na fonte desde 2026). Já o JCP (Juros sobre Capital Próprio), que a Telefônica usa bastante, tem retenção de 17,5% na fonte.",
+   "de_rendered": "Dividendos de ações são isentos de IR para pessoa física no Brasil. Já o JCP (Juros sobre Capital Próprio), que a Telefônica usa bastante, tem retenção de 15% na fonte."
+  },
+  {
+   "de": "~13,75% ao ano",
+   "para": "Selic do período",
+   "de_rendered": "~13,75% ao ano"
+  },
+  {
+   "de": "~15,1% ao ano",
+   "para": "110% do CDI do período",
+   "de_rendered": "~15,1% ao ano"
+  }
+ ],
+ "fonte": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp224.htm ; https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15270.htm ; https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json"
+}

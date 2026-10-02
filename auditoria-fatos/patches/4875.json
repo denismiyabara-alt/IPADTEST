@@ -1,0 +1,53 @@
+{
+ "post_id": 4875,
+ "url": "https://investirecocaresocomecar.com.br/lci-lca-investimento-isento-ir/",
+ "lote": "A",
+ "motivo": "Lei errada para a isenção (8.668 é a lei dos FIIs) e prazos mínimos de LCI/LCA desatualizados (6 meses desde a Res. CMN 5.215/2025); CDI fixo.",
+ "trocas": [
+  {
+   "de": "A isenção está prevista na Lei 8.668/1993 (LCI) e na Lei 11.076/2004 (LCA).",
+   "para": "A isenção para pessoa física está no art. 3º da Lei 11.033/2004; a LCI foi criada pela Lei 10.931/2004 e a LCA pela Lei 11.076/2004.",
+   "de_rendered": "A isenção está prevista na Lei 8.668/1993 (LCI) e na Lei 11.076/2004 (LCA)."
+  },
+  {
+   "de": "90 dias (prefixada) / 12 meses (pós-fixada)",
+   "para": "6 meses (sem correção pela inflação) / 36 meses (IPCA+)",
+   "de_rendered": "90 dias (prefixada) / 12 meses (pós-fixada)"
+  },
+  {
+   "de": "CDI 14,65% a.a.",
+   "para": "CDI de exemplo 14,65% a.a.",
+   "de_rendered": "CDI 14,65% a.a."
+  },
+  {
+   "de": "LCA com carência de 90 dias é mais flexível que a LCI com carência de 12 meses. Se você precisar de liquidez antes de 12 meses, olhe primeiro a LCA ou a LCI com vencimento curto.",
+   "para": "Desde a Res. CMN 5.215/2025, LCI e LCA sem correção pela inflação têm o mesmo prazo mínimo, de 6 meses (com IPCA, 12 meses na LCA e 36 meses na LCI). Se você precisar de liquidez antes disso, LCI e LCA não servem.",
+   "de_rendered": "LCA com carência de 90 dias é mais flexível que a LCI com carência de 12 meses. Se você precisar de liquidez antes de 12 meses, olhe primeiro a LCA ou a LCI com vencimento curto."
+  },
+  {
+   "de": "Com CDI a 14,65% ao ano, uma LCI de 90% do CDI",
+   "para": "Num exemplo com CDI de 14,65% ao ano, uma LCI de 90% do CDI",
+   "de_rendered": "Com CDI a 14,65% ao ano, uma LCI de 90% do CDI"
+  },
+  {
+   "de": "(indexada ao CDI): carência mínima de 12 meses",
+   "para": "(indexada ao CDI): prazo mínimo de 6 meses",
+   "de_rendered": "(indexada ao CDI): carência mínima de 12 meses"
+  },
+  {
+   "de": "Com CDI em 14,65%: LCI 80% = 11,72% ao ano.",
+   "para": "Num exemplo com CDI de 14,65%: LCI 80% = 11,72% ao ano.",
+   "de_rendered": "Com CDI em 14,65%: LCI 80% = 11,72% ao ano."
+  },
+  {
+   "de": "LCA com carência de 90 dias acima de 93% do CDI é ótima para dinheiro que você sabe que não vai precisar por pelo menos 3 meses.",
+   "para": "LCA de 6 meses (o prazo mínimo desde a Res. CMN 5.215/2025) acima de 93% do CDI é ótima para dinheiro que você sabe que não vai precisar por pelo menos 6 meses.",
+   "de_rendered": "LCA com carência de 90 dias acima de 93% do CDI é ótima para dinheiro que você sabe que não vai precisar por pelo menos 3 meses."
+  }
+ ],
+ "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm (art. 3º, II e IV) ; https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20CMN&numero=5215 ; https://api.bcb.gov.br/dados/serie/bcdata.sgs.12/dados?formato=json",
+ "manual": [
+  "Tabela LCI x LCA, célula de carência da LCA ('90 dias'): trocar por '6 meses (12 meses se IPCA+)'.",
+  "Lista de carências: 'LCI prefixada ou IPCA+: carência mínima de 90 dias' e 'LCA (qualquer indexador): carência mínima de 90 dias' viram 'LCI prefixada: 6 meses; LCI IPCA+: 36 meses' e 'LCA sem índice de preços: 6 meses; LCA IPCA+: 12 meses' (as duas frases são iguais no HTML, não dá para trocar uma só com segurança)."
+ ]
+}

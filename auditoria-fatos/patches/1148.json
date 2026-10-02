@@ -1,0 +1,19 @@
+{
+ "post_id": 1148,
+ "url": "https://investirecocaresocomecar.com.br/como-funciona-o-sistema-de-dividendos-entenda-aqui/",
+ "lote": "A",
+ "motivo": "Tabela com JCP a 15% e dividendos isentos sem ressalva: regras de 2026.",
+ "trocas": [
+  {
+   "de": "Tributados na fonte em 15%",
+   "para": "Tributados na fonte em 17,5% (desde 2026)",
+   "de_rendered": "Tributados na fonte em 15%"
+  },
+  {
+   "de": "Isentos de Imposto de Renda",
+   "para": "Isentos de IR até R$ 50 mil/mês por empresa (desde 2026)",
+   "de_rendered": "Isentos de Imposto de Renda"
+  }
+ ],
+ "fonte": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp224.htm ; https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15270.htm"
+}

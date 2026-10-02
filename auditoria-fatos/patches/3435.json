@@ -1,0 +1,34 @@
+{
+ "post_id": 3435,
+ "url": "https://investirecocaresocomecar.com.br/como-declarar-imposto-de-renda-2026-guia-completo-para-investidores-acoes-fiis-e-dividendos/",
+ "lote": "A",
+ "motivo": "Guia IRPF 2026: prazo de entrega errado (foi até 29/05), FII com 50 cotistas (100) e falta de aviso sobre JCP e dividendos a partir de 2026.",
+ "trocas": [
+  {
+   "de": "O prazo para entrega da declaração vai até o final de abril de 2026.",
+   "para": "O prazo para entrega da declaração foi de 23 de março a 29 de maio de 2026.",
+   "de_rendered": "O prazo para entrega da declaração vai até o final de abril de 2026."
+  },
+  {
+   "de": "para a pessoa física, por força da lei. No entanto, devem ser declarados obrigatoriamente na ficha",
+   "para": "para a pessoa física, por força da lei (regra do ano-base 2025; desde 2026, há 10% retido na fonte acima de R$ 50 mil por mês da mesma empresa). No entanto, devem ser declarados obrigatoriamente na ficha",
+   "de_rendered": "para a pessoa física, por força da lei. No entanto, devem ser declarados obrigatoriamente na ficha"
+  },
+  {
+   "de": "é diferente do dividendo. Ele sofre retenção de 15% na fonte, e deve ser declarado na ficha",
+   "para": "é diferente do dividendo. Ele sofreu retenção de 15% na fonte em 2025 (desde 2026 são 17,5%, pela LC 224/2025), e deve ser declarado na ficha",
+   "de_rendered": "é diferente do dividendo. Ele sofre retenção de 15% na fonte, e deve ser declarado na ficha"
+  },
+  {
+   "de": ", desde que o fundo tenha mais de 50 cotistas, as cotas sejam negociadas em bolsa",
+   "para": ", desde que o fundo tenha 100 cotistas ou mais, as cotas sejam negociadas em bolsa",
+   "de_rendered": ", desde que o fundo tenha mais de 50 cotistas, as cotas sejam negociadas em bolsa"
+  },
+  {
+   "de": "JCP tem tributação exclusiva de 15% e vai em ficha diferente.",
+   "para": "JCP tem tributação exclusiva (15% em 2025; 17,5% desde 2026) e vai em ficha diferente.",
+   "de_rendered": "JCP tem tributação exclusiva de 15% e vai em ficha diferente."
+  }
+ ],
+ "fonte": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2026/marco/receita-comeca-a-receber-declaracoes-do-irpf-no-dia-23-de-marco-prazo-de-entrega-se-encerra-em-29-de-maio ; https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm ; https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp224.htm ; https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15270.htm"
+}

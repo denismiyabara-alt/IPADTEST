@@ -1,0 +1,19 @@
+{
+ "post_id": 4565,
+ "url": "https://investirecocaresocomecar.com.br/calculadora-lci/",
+ "lote": "A",
+ "motivo": "Prazo mínimo da LCI desatualizado: 90 dias valia antes de 2024; desde a Res. CMN 5.215/2025 são 6 meses (36 se IPCA+).",
+ "trocas": [
+  {
+   "de": "A LCI tem prazo mínimo de",
+   "para": "A LCI tinha prazo mínimo de",
+   "de_rendered": "A LCI tem prazo mínimo de"
+  },
+  {
+   "de": "(resolução CMN 4.095). Antes disso, não é possível resgatar.",
+   "para": "(regra antiga). Desde a Res. CMN 5.215/2025, o prazo mínimo é de 6 meses para LCI sem correção pela inflação e 36 meses para LCI corrigida pelo IPCA. Antes disso, não é possível resgatar.",
+   "de_rendered": "(resolução CMN 4.095). Antes disso, não é possível resgatar."
+  }
+ ],
+ "fonte": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20CMN&numero=5215"
+}

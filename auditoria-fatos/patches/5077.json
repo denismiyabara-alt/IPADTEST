@@ -1,0 +1,24 @@
+{
+ "post_id": 5077,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-blue-chip/",
+ "lote": "A",
+ "motivo": "Dividendos isentos sem a regra de 2026; Selic, CDI e IPCA fixos no texto.",
+ "trocas": [
+  {
+   "de": "porque os dividendos são isentos de Imposto de Renda para pessoa física.",
+   "para": "porque os dividendos são isentos de Imposto de Renda para pessoa física até R$ 50 mil por mês por empresa (acima disso, 10% na fonte desde 2026).",
+   "de_rendered": "porque os dividendos são isentos de Imposto de Renda para pessoa física."
+  },
+  {
+   "de": "Com a Selic em 14,75% ao ano e o CDI em 14,65%, o investidor brasileiro",
+   "para": "Com a Selic em 14,75% (meta de março e abril de 2026, segundo o Copom; a meta Selic vigente está no site do Banco Central) e o CDI perto disso, o investidor brasileiro",
+   "de_rendered": "Com a Selic em 14,75% ao ano e o CDI em 14,65%, o investidor brasileiro"
+  },
+  {
+   "de": "acima do IPCA de 5,5% e próximo do CDI de 14,65%",
+   "para": "acima do IPCA e próximo do CDI de 14,65% (valores de exemplo)",
+   "de_rendered": "acima do IPCA de 5,5% e próximo do CDI de 14,65%"
+  }
+ ],
+ "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15270.htm ; https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json ; https://api.bcb.gov.br/dados/serie/bcdata.sgs.13522/dados?formato=json"
+}

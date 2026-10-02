@@ -1,0 +1,32 @@
+{
+ "post_id": 5092,
+ "url": "https://investirecocaresocomecar.com.br/ir-sobre-investimentos/",
+ "lote": "A",
+ "motivo": "Tabela de IR com JCP a 15%, FII com 50 cotistas, LCI/LCA com carência de 90 dias e dividendos como 'debate'.",
+ "trocas": [
+  {
+   "de": "15% (retido na fonte)",
+   "para": "17,5% (retido na fonte, desde 2026)",
+   "de_rendered": "15% (retido na fonte)"
+  },
+  {
+   "de": "Geralmente exigem carência mínima de 90 a 360 dias.",
+   "para": "Prazo mínimo de 6 meses (Res. CMN 5.215/2025; 12 meses na LCA e 36 meses na LCI corrigidas pelo IPCA).",
+   "de_rendered": "Geralmente exigem carência mínima de 90 a 360 dias."
+  },
+  {
+   "de": "desde que o FII tenha mais de 50 cotistas e as cotas sejam negociadas em bolsa",
+   "para": "desde que o FII tenha 100 cotistas ou mais, as cotas sejam negociadas em bolsa e você tenha menos de 10% das cotas",
+   "de_rendered": "desde que o FII tenha mais de 50 cotistas e as cotas sejam negociadas em bolsa"
+  },
+  {
+   "de": "isentos para pessoa física (debate tributário em andamento no Congresso).",
+   "para": "isentos para pessoa física até R$ 50 mil por mês por empresa; acima disso, 10% de IR na fonte desde 2026 (Lei 15.270/2025).",
+   "de_rendered": "isentos para pessoa física (debate tributário em andamento no Congresso)."
+  }
+ ],
+ "fonte": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp224.htm ; https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm ; https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20CMN&numero=5215 ; https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15270.htm",
+ "manual": [
+  "Célula 'Isentos' da linha Dividendos de ações na tabela do topo: acrescentar 'até R$ 50 mil/mês por empresa'."
+ ]
+}

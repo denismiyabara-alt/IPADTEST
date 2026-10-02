@@ -1,0 +1,48 @@
+{
+ "post_id": 4873,
+ "url": "https://investirecocaresocomecar.com.br/dividendos-o-que-sao-dividend-yield/",
+ "lote": "A",
+ "motivo": "JCP a 15% (é 17,5% desde 2026), FII com 50 cotistas (são 100), dividendos 'isentos até maio de 2026' sem a Lei 15.270/2025, Selic fixa.",
+ "trocas": [
+  {
+   "de": "15% de IR na fonte",
+   "para": "17,5% de IR na fonte (desde 2026)",
+   "de_rendered": "15% de IR na fonte"
+  },
+  {
+   "de": "O valor líquido que cai na sua conta já vem com o desconto de 15%.",
+   "para": "O valor líquido que cai na sua conta já vem com o desconto de 17,5% (alíquota do JCP desde 2026).",
+   "de_rendered": "O valor líquido que cai na sua conta já vem com o desconto de 15%."
+  },
+  {
+   "de": "50 cotistas)",
+   "para": "99 cotistas, isto é, 100 ou mais)",
+   "de_rendered": "50 cotistas)"
+  },
+  {
+   "de": "Isento (dividendos), 15% (JCP)",
+   "para": "Isento (dividendos até R$ 50 mil/mês por empresa), 17,5% (JCP)",
+   "de_rendered": "Isento (dividendos), 15% (JCP)"
+  },
+  {
+   "de": "onde a empresa desconta 15% na fonte antes de creditar na sua conta",
+   "para": "onde a empresa desconta 17,5% na fonte antes de creditar na sua conta",
+   "de_rendered": "onde a empresa desconta 15% na fonte antes de creditar na sua conta"
+  },
+  {
+   "de": "Fique atento: há debates legislativos recorrentes sobre tributação de dividendos, mas até maio de 2026 a isenção se mantém.",
+   "para": "Fique atento: desde janeiro de 2026, dividendos acima de R$ 50 mil por mês pagos pela mesma empresa à mesma pessoa têm 10% de IR retido na fonte (Lei 15.270/2025); abaixo disso, seguem isentos.",
+   "de_rendered": "Fique atento: há debates legislativos recorrentes sobre tributação de dividendos, mas até maio de 2026 a isenção se mantém."
+  },
+  {
+   "de": "Com a Selic em 14,75%, a renda fixa de curto prazo concorre diretamente com os dividendos.",
+   "para": "Com a Selic alta (a meta Selic vigente está no site do Banco Central), a renda fixa de curto prazo concorre diretamente com os dividendos.",
+   "de_rendered": "Com a Selic em 14,75%, a renda fixa de curto prazo concorre diretamente com os dividendos."
+  }
+ ],
+ "fonte": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp224.htm ; https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm ; https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15270.htm ; https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json",
+ "manual": [
+  "Linha TRPL4 do gráfico e da tabela de DY: a TRPL4 não negocia desde 14/11/2024 (virou ISAE4). Trocar por ISAE4 com DY recalculado ou tirar a linha (célula curta e repetida, não dá para casar com segurança).",
+  "Célula 'Isento de IR' da linha Dividendo na tabela Dividendo x JCP: acrescentar 'até R$ 50 mil/mês por empresa'."
+ ]
+}

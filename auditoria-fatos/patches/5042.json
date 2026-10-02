@@ -1,0 +1,54 @@
+{
+ "post_id": 5042,
+ "url": "https://investirecocaresocomecar.com.br/o-que-e-cdb/",
+ "lote": "A",
+ "motivo": "Prazo mínimo de LCI desatualizado (6 meses desde a Res. CMN 5.215/2025); Selic, CDI e IPCA fixos no texto.",
+ "trocas": [
+  {
+   "de": "e hoje está em torno de 14,65% ao ano",
+   "para": "e anda colado na Selic (a meta Selic vigente está no site do Banco Central)",
+   "de_rendered": "e hoje está em torno de 14,65% ao ano"
+  },
+  {
+   "de": "você vai receber aproximadamente 14,65% ao ano sobre o valor aplicado",
+   "para": "você vai receber aproximadamente o CDI do período sobre o valor aplicado, antes do IR",
+   "de_rendered": "você vai receber aproximadamente 14,65% ao ano sobre o valor aplicado"
+  },
+  {
+   "de": "rende a inflação medida pelo IPCA, hoje em torno de 5,5% ao ano, mais uma taxa fixa.",
+   "para": "rende a inflação medida pelo IPCA (que estava em 4,39% (IPCA em 12 meses até abril de 2026, segundo o IBGE)), mais uma taxa fixa.",
+   "de_rendered": "rende a inflação medida pelo IPCA, hoje em torno de 5,5% ao ano, mais uma taxa fixa."
+  },
+  {
+   "de": "Com o CDI em 14,65% ao ano, 110% do CDI",
+   "para": "Num exemplo com CDI de 14,65% ao ano, 110% do CDI",
+   "de_rendered": "Com o CDI em 14,65% ao ano, 110% do CDI"
+  },
+  {
+   "de": "carência mínima de 90 dias (e muitas vezes 1 ano)",
+   "para": "prazo mínimo de 6 meses (Res. CMN 5.215/2025; 36 meses se for corrigida pelo IPCA)",
+   "de_rendered": "carência mínima de 90 dias (e muitas vezes 1 ano)"
+  },
+  {
+   "de": "A maioria dos CDBs rende um percentual do CDI (hoje ~14,65% a.a.)",
+   "para": "A maioria dos CDBs rende um percentual do CDI (que acompanha a Selic)",
+   "de_rendered": "A maioria dos CDBs rende um percentual do CDI (hoje ~14,65% a.a.)"
+  },
+  {
+   "de": "Com a Selic em 14,75%, a poupança rende 0,5% ao mês",
+   "para": "Com a Selic acima de 8,5% ao ano, a poupança rende 0,5% ao mês mais TR",
+   "de_rendered": "Com a Selic em 14,75%, a poupança rende 0,5% ao mês",
+   "n": 2
+  },
+  {
+   "de": "Um CDB a 100% do CDI rende aproximadamente 14,65% ao ano bruto",
+   "para": "Num exemplo com CDI de 14,65% ao ano, um CDB a 100% do CDI rende aproximadamente 14,65% ao ano bruto",
+   "de_rendered": "Um CDB a 100% do CDI rende aproximadamente 14,65% ao ano bruto",
+   "n": 2
+  }
+ ],
+ "fonte": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20CMN&numero=5215 ; https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json ; https://api.bcb.gov.br/dados/serie/bcdata.sgs.13522/dados?formato=json",
+ "manual": [
+  "Frase 'bem próximo da Selic, que está em 14,75% ao ano' (logo depois do CDI, mesmo parágrafo com travessão): trocar por 'bem próximo da Selic'."
+ ]
+}
