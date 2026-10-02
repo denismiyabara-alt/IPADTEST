@@ -11,6 +11,7 @@ SAIDA = Path(os.environ.get("IEC_SAIDA", RAIZ / "saida"))
 TEMPLATES = RAIZ / "templates"
 # Fonte única das ferramentas: a pasta do plugin (no repo iec-ativos vira vendor/iec-ferramentas).
 PLUGIN = Path(os.environ.get("IEC_PLUGIN", RAIZ.parent / "wordpress-plugin" / "iec-ferramentas"))
+COTACOES_LINKADAS = Path(os.environ.get("IEC_COTACOES", RAIZ / "dados" / "referencia" / "cotacoes-linkadas.txt"))
 SEO_VARREDURA = Path(os.environ.get("IEC_VARREDURA", RAIZ.parent / "seo" / "varredura.json"))
 
 SITE_URL = os.environ.get("IEC_SITE_URL", "https://investirecocaresocomecar.com.br").rstrip("/")

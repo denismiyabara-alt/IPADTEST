@@ -481,7 +481,8 @@ def ficha_fii(con, ticker: str, cnpj: str) -> dict:
     I = f["ind"]
     I["preco"] = ind(preco, fonte=fonte_preco, ref=data, insumos=[pid]) if preco else sem("sem pregão")
     I["variacao_12m"] = variacao_12m(con, ticker, data, preco) if preco else sem("sem pregão")
-    I["volume_3m"] = ind(volume_3m(con, ticker, data), fonte=f"B3, COTAHIST, 3 meses até {_br(data)}", ref=data)
+    I["volume_3m"] = (ind(volume_3m(con, ticker, data), fonte=f"B3, COTAHIST, 3 meses até {_br(data)}", ref=data)
+                      if data else sem("sem pregão"))
     if not meses:
         f["avisos"].append("Sem informe mensal na CVM.")
         return f

@@ -17,9 +17,12 @@ INVALIDO = re.compile(r"^[a-z0-9]{4}\d{1,2}l$")  # ex.: b8in8l, poly8l (lixo de 
 def tickers_cotacao(caminho=None) -> tuple[list[str], list[str]]:
     """Lê seo/varredura.json (chave cotacoes_linkadas). Devolve (válidos, inválidos)."""
     caminho = caminho or config.SEO_VARREDURA
-    if not caminho.exists():
+    if caminho.exists():
+        urls = json.loads(caminho.read_text()).get("cotacoes_linkadas", [])
+    elif config.COTACOES_LINKADAS.exists():  # cópia versionada (o varredura.json fica fora do Git)
+        urls = [ln.strip() for ln in config.COTACOES_LINKADAS.read_text().splitlines() if ln.startswith("http")]
+    else:
         return [], []
-    urls = json.loads(caminho.read_text()).get("cotacoes_linkadas", [])
     validos, invalidos = [], []
     for u in urls:
         m = re.search(r"/cotacao-([a-z0-9]+)/?$", u)
