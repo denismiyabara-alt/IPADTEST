@@ -1,0 +1,65 @@
+[
+ {
+  "src": "GQbZFJwkIHc",
+  "start": "0:06",
+  "end": "0:54",
+  "dur_s": 48,
+  "overlay": "NINGUÉM TE PERGUNTAR NADA NÉ",
+  "titulo": "Ninguém te perguntar nada, né? #shorts",
+  "transcricao": "Aconteça o que acontecer, você empresta pro governo hoje já sabe o número que volta lá na frente. Duas linhas abaixo, mesma tela, mesmo governo, mesmo ano. E PCA+ 2032, 7.97% mais inflação. E PCA é a inflação oficial. Aqui o IBG acaba medindo no arroz e também na luz e que você duvida que tá certo, que provavelmente sua inflação é muito diferente da DBGE. Não são duas opções, Tana. É a mesma dívida com dois preços e a diferença é uma aposta já feita com o seu dinheiro, sem ninguém te perguntar nada, né? Guarda esse número aqui, ó.",
+  "quem_fala": "Denis",
+  "conferir_quem_fala": true,
+  "por_que": "pico 0,71× aos 0:29 (+0,09 sobre a tendência); retenção na média. Abre com: “Aconteça o que”",
+  "retencao_pico": {
+   "t": "0:29",
+   "t_s": 28.8,
+   "audienceWatchRatio": 0.708,
+   "relativeRetentionPerformance": 0.5,
+   "acima_da_tendencia": 0.088
+  },
+  "motivo_score": "replay 0,70×0,40 · ret. relativa 0,30×0,25 · queda 0,00×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,61",
+  "precisa_texto": false
+ },
+ {
+  "src": "GQbZFJwkIHc",
+  "start": "2:41",
+  "end": "3:13",
+  "dur_s": 32,
+  "overlay": "DO DIA É A MESMA",
+  "titulo": "Do dia é a mesma escolha e ela sempre #shorts",
+  "transcricao": "Preço fechado ou preço do dia é a mesma escolha e ela sempre foi essa escolha, tá bom? Só que quando você fecha o preço, tem um número dentro do seu orçamento que você nunca escreveu no papel. É a picanha que você imaginou. Você não diz paraa sua irmã, ela não pergunta e mesmo assim esse número tá lá cobrado dentro de um preço fechado.",
+  "quem_fala": "Denis",
+  "conferir_quem_fala": true,
+  "por_que": "pico 0,49× aos 2:53 (+0,02 sobre a tendência); retenção 44% acima da média. Abre com: “Preço fechado ou preço”",
+  "retencao_pico": {
+   "t": "2:53",
+   "t_s": 172.8,
+   "audienceWatchRatio": 0.493,
+   "relativeRetentionPerformance": 0.726,
+   "acima_da_tendencia": 0.024
+  },
+  "motivo_score": "replay 0,19×0,40 · ret. relativa 0,93×0,25 · queda 0,17×0,10 · frase 1,00×0,15 · gancho 0,50×0,10 = 0,53",
+  "precisa_texto": false
+ },
+ {
+  "src": "GQbZFJwkIHc",
+  "start": "11:35",
+  "end": "12:10",
+  "dur_s": 35,
+  "overlay": "R$ 10 000 NO",
+  "titulo": "R$ 10.000 no #shorts",
+  "transcricao": "R$ 10.000 no pré-fixado com a taxa de tela de hoje viram 19,700, mais ou menos em 5 anos. Só que esse número vem com uma condição colada nele. Você segurando o papel até o vencimento, sem vender no meio do caminho, como eu expliquei para vocês lá atrás, né? E até o vencimento são 5 anos e pouquinho. A conta de 5 anos redondos aqui para caber na sua cabeça, não para bater no calendário, tá bom?",
+  "quem_fala": "Denis",
+  "conferir_quem_fala": true,
+  "por_que": "pico 0,42× aos 11:50 (+0,09 sobre a tendência); retenção 45% acima da média; queda menor que a tendência. Abre com: “R$ 10.000 no”",
+  "retencao_pico": {
+   "t": "11:50",
+   "t_s": 710.4,
+   "audienceWatchRatio": 0.42,
+   "relativeRetentionPerformance": 0.74,
+   "acima_da_tendencia": 0.094
+  },
+  "motivo_score": "replay 0,84×0,40 · ret. relativa 0,98×0,25 · queda 0,74×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,90",
+  "precisa_texto": false
+ }
+]

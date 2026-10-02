@@ -1,0 +1,65 @@
+[
+ {
+  "src": "rbgGC6nE4yc",
+  "start": "6:20",
+  "end": "6:50",
+  "dur_s": 30,
+  "overlay": "MAIS DE R$ 4 BILHÕES",
+  "titulo": "Mais de R$ 4 bilhões deais em obras do #shorts",
+  "transcricao": "Primeiro, transmissão, Tanaca, perenidade pura. Ela não comprou, pronto, ela construiu, botou mais de R$ 4 bilhões deais em obras do chão, tá naaca do zero. Linha de transmissão, que são aqueles filmes gigantescos, aquela bola de basquete maluca que fica flutuando, que toda criança adora, não é verdade? E obviamente isso funciona de ponta a ponta do país, né?",
+  "quem_fala": "Denis",
+  "conferir_quem_fala": false,
+  "por_que": "pico 0,38× aos 6:33 (+0,06 sobre a tendência); retenção 19% acima da média; queda menor que a tendência. Abre com: “Primeiro, transmissão,”",
+  "retencao_pico": {
+   "t": "6:33",
+   "t_s": 393.0,
+   "audienceWatchRatio": 0.38,
+   "relativeRetentionPerformance": 0.603,
+   "acima_da_tendencia": 0.058
+  },
+  "motivo_score": "replay 0,66×0,40 · ret. relativa 0,72×0,25 · queda 0,79×0,10 · frase 1,00×0,15 · gancho 0,50×0,10 = 0,72",
+  "precisa_texto": false
+ },
+ {
+  "src": "rbgGC6nE4yc",
+  "start": "11:26",
+  "end": "11:59",
+  "dur_s": 33,
+  "overlay": "O QUE ELE DEIXOU DE",
+  "titulo": "O que ele deixou de render #shorts",
+  "transcricao": "O que ele deixou de render conta junto com o que ele perdeu de valor. Por essa régua, a Ecoenergia é aquela atacada do começo, tem nome, tem data e tem endereço. a melhor locadora de capital do Brasil perdeu isso tudo num ativo que todo mundo queria num ano em que dinheiro era barato. Só que dinheiro barato não é, desculpe isso a rapada, não, tá bom?",
+  "quem_fala": "Denis",
+  "conferir_quem_fala": false,
+  "por_que": "pico 0,32× aos 11:40 (+0,06 sobre a tendência); retenção 20% acima da média; queda menor que a tendência. Abre com: “O que ele deixou de render”",
+  "retencao_pico": {
+   "t": "11:40",
+   "t_s": 700.0,
+   "audienceWatchRatio": 0.324,
+   "relativeRetentionPerformance": 0.609,
+   "acima_da_tendencia": 0.057
+  },
+  "motivo_score": "replay 0,60×0,40 · ret. relativa 0,73×0,25 · queda 0,75×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,75",
+  "precisa_texto": false
+ },
+ {
+  "src": "rbgGC6nE4yc",
+  "start": "18:09",
+  "end": "18:41",
+  "dur_s": 32,
+  "overlay": "O MESMO QUE DIZER QUE",
+  "titulo": "O mesmo que dizer que quem leva é quem #shorts",
+  "transcricao": "O que é o mesmo que dizer que quem leva é quem errou a conta por último. Se não tem fila, aí sim, Tanacão, você tem trabalho pela frente. Descobrir se não tem fila porque ninguém viu, ou se não tem fila porque todo mundo viu e acabou passando ali batido, né? As duas respostas dão dinheiro, só que uma dá dinheiro para você e a outra dá dinheiro pro cara que te vendeu.",
+  "quem_fala": "Denis",
+  "conferir_quem_fala": false,
+  "por_que": "pico 0,25× aos 18:25 (+0,04 sobre a tendência); retenção 26% acima da média; queda menor que a tendência. Abre com: “O que é”",
+  "retencao_pico": {
+   "t": "18:25",
+   "t_s": 1105.2,
+   "audienceWatchRatio": 0.254,
+   "relativeRetentionPerformance": 0.644,
+   "acima_da_tendencia": 0.037
+  },
+  "motivo_score": "replay 0,36×0,40 · ret. relativa 0,97×0,25 · queda 0,60×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,70",
+  "precisa_texto": false
+ }
+]

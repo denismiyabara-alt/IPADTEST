@@ -1,0 +1,65 @@
+[
+ {
+  "src": "kflcJjhVg5k",
+  "start": "0:40",
+  "end": "1:10",
+  "dur_s": 30,
+  "overlay": "MÊS É O DIVIDENDO QUE",
+  "titulo": "Mês é o dividendo que a cota do TRX F11 #shorts",
+  "transcricao": "93 centavos por mês é o dividendo que a cota do TRX F11 paga hoje e ele é que tá em jogo nessa história toda. Se você pensa em comprar mais, em vender ou se já é cotista e vai ficar com a cota, esses 93 centavos pesam diferente em cada casa, tá? Na cão. E o detalhe começa no tombo de agosto, não é verdade?",
+  "quem_fala": "Denis",
+  "conferir_quem_fala": false,
+  "por_que": "pico 0,72× aos 0:42 (+0,13 sobre a tendência); retenção 6% abaixo da média. Abre com: “93 centavos por”",
+  "retencao_pico": {
+   "t": "0:42",
+   "t_s": 41.7,
+   "audienceWatchRatio": 0.716,
+   "relativeRetentionPerformance": 0.455,
+   "acima_da_tendencia": 0.128
+  },
+  "motivo_score": "replay 0,75×0,40 · ret. relativa 0,00×0,25 · queda 0,00×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,55",
+  "precisa_texto": false
+ },
+ {
+  "src": "kflcJjhVg5k",
+  "start": "5:50",
+  "end": "6:22",
+  "dur_s": 32,
+  "overlay": "CONTADA A R$ 94 NÉ",
+  "titulo": "Contada a R$ 94, né, o preço do caixa #shorts",
+  "transcricao": "paga o prédio com a cota nova, cada cota contada a R$ 94, né, o preço do caixa. No comunicado oficial que o fundo é obrigado a publicar o tal do fato relevante, esse pagamento tem nome de cartório, compensação de crédito. A tradução Patanaqui, o fundo deve o preço do prédio pro vendedor. O vendedor se comprometeu a comprar cada cota nova do fundo Tanaca.",
+  "quem_fala": "Denis",
+  "conferir_quem_fala": false,
+  "por_que": "pico 0,49× aos 6:02 (+0,06 sobre a tendência); retenção 15% acima da média; queda menor que a tendência. Abre com: “paga o prédio com a cota nova, cada cota”",
+  "retencao_pico": {
+   "t": "6:02",
+   "t_s": 361.7,
+   "audienceWatchRatio": 0.493,
+   "relativeRetentionPerformance": 0.586,
+   "acima_da_tendencia": 0.058
+  },
+  "motivo_score": "replay 0,35×0,40 · ret. relativa 0,45×0,25 · queda 0,77×0,10 · frase 1,00×0,15 · gancho 0,50×0,10 = 0,53",
+  "precisa_texto": false
+ },
+ {
+  "src": "kflcJjhVg5k",
+  "start": "20:59",
+  "end": "21:31",
+  "dur_s": 32,
+  "overlay": "QUANTO A FICHA VALIA NA",
+  "titulo": "Quanto a ficha valia na porta, Tanacão #shorts",
+  "transcricao": "Quanto a ficha valia na porta, Tanacão. Mas vocês entenderam o rolê todo. O fundo tava indo super bem, queridinho. Meu Deus, vídeo do YouTube. Depois anunciou a oferta, derreteu, aí começou, falou assim, ó, desisti. Aí voltou um pouquinho, aí comprou de novo, desistiu de novo. Então o TXF11 é um fundo que já vem ali no Slackline, né, brincando com tá careca. Então aí tá na cara tem que ficar ligeira, né? Fala: \"Meu Deus do cé da terra, será que vale a pena toda essa volatilidade num trem maluco, né?\" né?",
+  "quem_fala": "Denis",
+  "conferir_quem_fala": false,
+  "por_que": "pico 0,28× aos 21:20 (+0,04 sobre a tendência); retenção 34% acima da média; queda menor que a tendência. Abre com: “Quanto a ficha valia na porta, Tanacão.”",
+  "retencao_pico": {
+   "t": "21:20",
+   "t_s": 1279.7,
+   "audienceWatchRatio": 0.282,
+   "relativeRetentionPerformance": 0.68,
+   "acima_da_tendencia": 0.04
+  },
+  "motivo_score": "replay 0,24×0,40 · ret. relativa 0,98×0,25 · queda 0,52×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,64",
+  "precisa_texto": false
+ }
+]

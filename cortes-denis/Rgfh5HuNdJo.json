@@ -1,0 +1,65 @@
+[
+ {
+  "src": "Rgfh5HuNdJo",
+  "start": "0:40",
+  "end": "1:28",
+  "dur_s": 48,
+  "overlay": "SÓ QUE R$ 10 000",
+  "titulo": "Só que R$ 10.000 por mês #shorts",
+  "transcricao": "Só que R$ 10.000 por mês, Tanaka, é poder parar de trocar hora por dinheiro. Por isso, esse plano não sai da cabeça de todo tanquinha. Só que R$ 10.000 no Brasil é o número ideal que a maioria das pessoas almejam para conseguir poder parar de trabalhar ou pelo menos começar a ter aquele pezinho de liberdade. Só que para esses 10.000 caírem todo mês, a conta segue três regras, tá? Na cama. Primeira é a mais fácil, dá para fazer de cabeça. R$ 10.000 por mês dá R$ 120.000 R$ 1000 por ano. Em cinco ações, basicamente R$ 24.000 em cada ação. E até aqui é conta de padaria, né?",
+  "quem_fala": "Denis",
+  "conferir_quem_fala": false,
+  "por_que": "pico 0,62× aos 0:46 (+0,10 sobre a tendência); retenção 2% acima da média. Abre com: “Só que R$ 10.000 por mês,”",
+  "retencao_pico": {
+   "t": "0:46",
+   "t_s": 46.3,
+   "audienceWatchRatio": 0.622,
+   "relativeRetentionPerformance": 0.471,
+   "acima_da_tendencia": 0.098
+  },
+  "motivo_score": "replay 0,70×0,40 · ret. relativa 0,24×0,25 · queda 0,11×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,60",
+  "precisa_texto": false
+ },
+ {
+  "src": "Rgfh5HuNdJo",
+  "start": "2:53",
+  "end": "3:24",
+  "dur_s": 31,
+  "overlay": "NA CÃO TODO MÊS POR",
+  "titulo": "Na cão todo mês por 10 anos esse #shorts",
+  "transcricao": "na cão todo mês por 10 anos esse dinheiro sai do seu bolso a mais e nenhuma ação deu errado. Essa diferença vende o número que o plano deixa fora. E o que esconde essa diferença é o jeito que o plano é contado. Ele é contado em ação e não em reais, tá bom? 63.000 ações é o número que brocha todo mundo, na verdade, já deixa desanimadíssimo.",
+  "quem_fala": "Denis",
+  "conferir_quem_fala": false,
+  "por_que": "pico 0,47× aos 3:17 (+0,03 sobre a tendência); retenção 40% acima da média. Abre com: “na cão todo mês por 10 anos esse”",
+  "retencao_pico": {
+   "t": "3:17",
+   "t_s": 196.9,
+   "audienceWatchRatio": 0.468,
+   "relativeRetentionPerformance": 0.708,
+   "acima_da_tendencia": 0.032
+  },
+  "motivo_score": "replay 0,24×0,40 · ret. relativa 0,98×0,25 · queda 0,38×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,63",
+  "precisa_texto": false
+ },
+ {
+  "src": "Rgfh5HuNdJo",
+  "start": "9:24",
+  "end": "9:56",
+  "dur_s": 32,
+  "overlay": "TODO MUNDO QUER O PREÇO",
+  "titulo": "Todo mundo quer, o preço #shorts",
+  "transcricao": "Todo mundo quer, o preço sobe, o dividendo vira uma fatia menor do que você paga por essa ação, né? Nessas cinco, o dividendo do ano do meio dividido pelo que você paga por elas hoje dá 6,8% ao ano. É o ass de novo aqui, tá na a carne que nunca decepciona é a que tem o quilo mais caro. Estabilidade, infelizmente não sai de graça.",
+  "quem_fala": "Denis",
+  "conferir_quem_fala": false,
+  "por_que": "pico 0,37× aos 9:51 (+0,06 sobre a tendência); retenção 11% acima da média; queda menor que a tendência. Abre com: “Todo mundo quer, o preço”",
+  "retencao_pico": {
+   "t": "9:51",
+   "t_s": 590.6,
+   "audienceWatchRatio": 0.368,
+   "relativeRetentionPerformance": 0.568,
+   "acima_da_tendencia": 0.063
+  },
+  "motivo_score": "replay 0,40×0,40 · ret. relativa 0,30×0,25 · queda 0,74×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,56",
+  "precisa_texto": false
+ }
+]

@@ -1,0 +1,65 @@
+[
+ {
+  "src": "p9wkMT4RV40",
+  "start": "0:25",
+  "end": "0:55",
+  "dur_s": 30,
+  "overlay": "VENCEU AGORA EM JANEIRO DE",
+  "titulo": "Venceu agora em janeiro de 2026 #shorts",
+  "transcricao": "Os 100.000 compravam quando você começou. a investir nesse título do tesouro que venceu agora em janeiro de 2026. Pagou tudo no dia certo. Ninguém deixou de pagar o Brasil pagou. O Tesouro Direto foi lá e flau, pagou. Ninguém bloqueou conta nenhuma, Tanaca. Só que no final das contas ainda faltaram R$ 2.265 de poder de compra.",
+  "quem_fala": "Denis",
+  "conferir_quem_fala": false,
+  "por_que": "pico 0,65× aos 0:40 (+0,10 sobre a tendência); retenção 20% abaixo da média. Abre com: “Os 100.000”",
+  "retencao_pico": {
+   "t": "0:40",
+   "t_s": 40.4,
+   "audienceWatchRatio": 0.652,
+   "relativeRetentionPerformance": 0.403,
+   "acima_da_tendencia": 0.096
+  },
+  "motivo_score": "replay 0,88×0,40 · ret. relativa 0,00×0,25 · queda 0,00×0,10 · frase 1,00×0,15 · gancho 1,00×0,10 = 0,60",
+  "precisa_texto": false
+ },
+ {
+  "src": "p9wkMT4RV40",
+  "start": "4:36",
+  "end": "5:06",
+  "dur_s": 30,
+  "overlay": "O QUE MUITA GENTE FEZ",
+  "titulo": "O que muita gente fez, inclusive, né? #shorts",
+  "transcricao": "Travar essa taxa pagando três vezes mais qualquer um defenderia na época, que foi o que muita gente fez, inclusive, né? Muita gente tirou o print da tela, mandou no grupo, escreveu: \"Travei antes de cair\". E sabe o mais birulab de tudo isso, Tanacão, eles acertaram. 5 anos seguintes, os preços subiram 5,89% ao ano. A taxa travada pagava 6,27% ao ano.",
+  "quem_fala": "Denis",
+  "conferir_quem_fala": false,
+  "por_que": "pico 0,36× aos 4:53 (+0,02 sobre a tendência); retenção 10% acima da média; queda menor que a tendência. Abre com: “Travar essa taxa pagando três vezes mais”",
+  "retencao_pico": {
+   "t": "4:53",
+   "t_s": 292.6,
+   "audienceWatchRatio": 0.36,
+   "relativeRetentionPerformance": 0.553,
+   "acima_da_tendencia": 0.023
+  },
+  "motivo_score": "replay 0,18×0,40 · ret. relativa 0,95×0,25 · queda 0,56×0,10 · frase 1,00×0,15 · gancho 0,50×0,10 = 0,56",
+  "precisa_texto": false
+ },
+ {
+  "src": "p9wkMT4RV40",
+  "start": "10:04",
+  "end": "10:36",
+  "dur_s": 32,
+  "overlay": "PARA TODO MUNDO HÁ ANOS",
+  "titulo": "Para todo mundo há anos #shorts",
+  "transcricao": "O quarto chega numa linha de imposto, no extrato certinho com vírgula no lugar certo dela. E é tudo legal, Taná. A regra vale igual para todo mundo há anos. E o terceiro, quem cobra é o mesmo governo que te pagou os juros. pagou com uma mão e a outra, ó, passou no tacaracatico. Nosso, na verdade, meu Deus do céu da terra. No confisco, o dinheiro voltou corrigido depois de 25 milhões de anos.",
+  "quem_fala": "Denis",
+  "conferir_quem_fala": false,
+  "por_que": "pico 0,26× aos 10:26 (+0,04 sobre a tendência); retenção 5% acima da média; queda menor que a tendência. Abre com: “O quarto chega numa”",
+  "retencao_pico": {
+   "t": "10:26",
+   "t_s": 625.6,
+   "audienceWatchRatio": 0.263,
+   "relativeRetentionPerformance": 0.539,
+   "acima_da_tendencia": 0.044
+  },
+  "motivo_score": "replay 0,35×0,40 · ret. relativa 0,61×0,25 · queda 0,79×0,10 · frase 1,00×0,15 · gancho 0,50×0,10 = 0,57",
+  "precisa_texto": false
+ }
+]
