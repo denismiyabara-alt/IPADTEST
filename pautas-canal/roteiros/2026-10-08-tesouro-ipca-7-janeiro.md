@@ -246,7 +246,7 @@ Quem queria renda comprou o outro 2035, o que tem "juros semestrais" no nome, l�
 
 ## BLOCO 4 - O OUTRO 2035 (7:00–7:50)
 
-Ele deposita juros na sua conta a cada seis meses.
+Esse outro deposita juros na sua conta a cada seis meses.
 
 Em maio, caiu uns trezentos e trinta reais na conta de quem pôs dez mil em janeiro.
 
