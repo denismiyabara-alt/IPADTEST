@@ -37,32 +37,21 @@ MAX_LONGOS_SEMANA = 3
 SERIE = "renda mensal"                      # assunto planejado de todos os itens da série
 PROVISORIO = "provisório (empacotador + teste A/B)"
 
-# As 7 pautas fora do nicho que saem (data → título no v2), como na proposta aprovada.
-FORA_DO_NICHO = {
-    "2026-10-07": "Como juntar 1 milhão de reais com R$ 1.000 por mês",
-    "2026-10-21": "Casal que investe junto: a conversa que vem antes do dinheiro",
-    "2026-11-16": "Perfil de investidor: 3 perguntas antes de investir",
-    "2026-11-18": "Juros compostos: por que 1 centavo dobrando todo dia não existe",
-    "2026-11-21": "Bolha da IA: o que dizem os números",
-    "2026-11-23": "Reserva de emergência: onde deixar e onde não deixar",
-    "2026-11-28": "Tesouro Direto na reserva de emergência: Selic, CDB ou conta",
-}
+TROCAS = AQUI / "trocas.json"   # trocas aprovadas, na ordem; fonte de verdade das mudanças sobre o v2
 
-# Canibalização do Ep. 1 (briefing pautas-canal/briefings/2026-10-14-etf-dividendos-mensais-briefing.md): o longo do
-# v2 de 06/10 sai 8 dias antes do Ep. 1, com o mesmo tema e o mesmo termo de busca. Vai para depois da série (fila de
-# dezembro), e a vaga de 06/10 recebe o longo mais forte que saiu pela regra dos 3 longos e que não repete vídeo
-# recente (o TRXF11 de 31/10 repetiria o vídeo de 29/09/2026 sobre o fundo).
-CANIBALIZA_EP1 = ("2026-10-06", "ETFs que pagam dividendos mensais: o que mudou em 2026")
-VAGA_06_10 = "Fundo imobiliário ou imóvel alugado: a conta de 2026"
-# Título do 27/10: o do v2 terminava em "o que sobra", como a promessa do Ep. 1; o briefing pede outro.
-TITULO_27_10 = ("ETF de dividendos mensais ou fundo imobiliário: o que sobra",
-                "ETF de dividendos mensais ou FII: imposto e renda de cada um")
-# Guardrails do briefing para os longos vizinhos do Ep. 1 (entram no ângulo).
-GUARDRAILS = {
-    "2026-10-20": " Guardrail do Ep. 1: a mecânica das opções cobertas é deste vídeo; o Ep. 1 só a cita em uma frase.",
-    "2026-10-27": " Guardrail do Ep. 1: o imposto detalhado é deste vídeo; o Ep. 1 só tem uma tabela curta. Título "
-                  "trocado (o do v2 terminava em \"o que sobra\", como o Ep. 1); o empacotador vê os dois juntos.",
-}
+
+def carregar_trocas(caminho=TROCAS):
+    import json
+    return json.loads(Path(caminho).read_text(encoding="utf-8"))["trocas"]
+
+
+def _fora_do_nicho(trocas=None):
+    """As 7 pautas fora do nicho (data → título no v2), lidas das trocas marcadas com fora_do_nicho."""
+    trocas = trocas if trocas is not None else carregar_trocas()
+    return {p["data"]: p["titulo"] for t in trocas if t.get("fora_do_nicho") for p in t["pautas"]}
+
+
+FORA_DO_NICHO = _fora_do_nicho()
 
 # Fontes que valem para toda a série (SERIE-RENDA-MENSAL.md).
 F_SERIE = "regras de 2026 da série (LC 224/2025; Lei 14.754/2023; Lei 15.270/2025; Res. CMN 5.215; fgc.org.br; Lei 11.033/2004)"
@@ -124,7 +113,6 @@ COPOM_SHORT = ("2026-11-04", S, "tesouro e renda fixa", "Copom hoje: 3 números 
 # Termos de busca das pautas novas ou que mudaram de data (as outras usam calendario_v2.TERMOS).
 TERMOS_NOVOS = {
     ("2026-11-03", L): ("tesouro direto", r"tesouro|ipca|\bntn|copom|selic"),
-    ("2026-11-05", L): ("dividendos mensais", r"dividendos? mensa|1000 reais por mes|renda passiva"),
 }
 
 
@@ -134,47 +122,113 @@ def _pauta(t, origem, assunto_manual=None, ep=""):
             "volume": volume, "continuacao_de": cont, "angulo": angulo, "fontes_a_conferir": fontes, "origem": origem,
             "assunto_manual": assunto_manual, "serie_ep": ep,
             "status_titulo": PROVISORIO if ep else "definido no v2" if origem.startswith("v2") else "novo",
-            "termo": None}
+            "termo": None, "trocas": []}
 
 
-def pautas_base():
-    """v2 + proposta aprovada, antes da regra dos 3 longos por semana."""
-    out = []
-    termos_v2 = dict(v2.TERMOS)
-    for t in v2.PAUTAS:
-        data_, fmt, *_ = t
-        if data_ in FORA_DO_NICHO and t[3] == FORA_DO_NICHO[data_]:
-            continue                                            # sai: fora do nicho
-        if data_ == "2026-11-05" and fmt == L:
-            continue                                            # Copom pós sai: vira o pré de 03/11
-        if data_ == "2026-11-04" and fmt == S:
-            out.append(_pauta(COPOM_SHORT, "v2 (ângulo ajustado ao pré)"))
-            out[-1]["termo"] = None
-            continue
-        if data_ == "2026-11-03" and fmt == L:
-            t = ("2026-11-05",) + tuple(t[1:])                  # renda mensal da terça vai para a quinta
-            p = _pauta(t, "v2 (movida de ter 03/11)")
-            p["termo"] = TERMOS_NOVOS[("2026-11-05", L)]
-            out.append(p)
-            continue
-        if (data_, t[3]) == CANIBALIZA_EP1:
-            continue                                            # sai: canibaliza o Ep. 1 (vai para depois da série)
-        if (data_, t[3]) == ("2026-10-27", TITULO_27_10[0]):
-            t = t[:3] + (TITULO_27_10[1],) + t[4:]
-        p = _pauta(t, "v2" if data_ not in GUARDRAILS else "v2 (título ou ângulo ajustado ao Ep. 1)")
-        p["angulo"] += GUARDRAILS.get(data_, "")
-        p["termo"] = termos_v2.get(data_)
-        out.append(p)
-    p = _pauta(COPOM_PRE, "Copom (versão pré)")
-    p["termo"] = TERMOS_NOVOS[("2026-11-03", L)]
-    out.append(p)
+def catalogo():
+    """Pautas que não estão no v2 e podem entrar por troca: itens da série e o Copom pré (chave: formato, título)."""
+    cat = {}
     for data_, fmt, titulo, termo, fam, cont, angulo, fontes, ep in SERIE_ITENS:
         q = _pauta((data_, fmt, SERIE, titulo, termo or "", "", cont, angulo, fontes), "série de renda mensal",
                    assunto_manual=SERIE, ep=ep)
         q["termo"] = (termo, fam) if termo else None
-        out.append(q)
-    out.sort(key=lambda r: (r["data"], r["formato"] == S))
+        cat[("serie", fmt, titulo)] = q
+    q = _pauta(COPOM_PRE, "Copom (versão pré)")
+    q["termo"] = TERMOS_NOVOS[("2026-11-03", L)]
+    cat[("copom", L, COPOM_PRE[3])] = q
+    return cat
+
+
+def pautas_v2():
+    out = []
+    for t in v2.PAUTAS:
+        p = _pauta(t, "v2")
+        p["termo"] = v2.TERMOS.get(t[0])
+        out.append(p)
     return out
+
+
+class TrocaInvalida(ValueError):
+    pass
+
+
+def _achar(linhas, ref, tid):
+    ach = [r for r in linhas if (r["data"], r["formato"], r["titulo"]) == (ref["data"], ref["formato"], ref["titulo"])]
+    if len(ach) != 1:
+        raise TrocaInvalida(f"{tid}: pauta não encontrada (ou repetida): {ref}")
+    return ach[0]
+
+
+def aplicar_trocas(trocas, linhas, avaliar=lambda r: r):
+    """Aplica as trocas na ordem. Devolve (linhas, fila de dezembro, log). `avaliar` calcula o esperado de uma pauta
+    nova. O log guarda, para cada troca, o esperado total antes e depois e, nas da regra dos 3 longos, a semana antes."""
+    cat = catalogo()
+    fila, log = [], []
+    linhas = [avaliar(r) for r in linhas]
+    for t in trocas:
+        tid, op = t["id"], t["op"]
+        antes = sum(r.get("_e", 0) for r in linhas)
+        snap = None
+        if t.get("regra_3_longos"):
+            k = semana(t["regra_3_longos"])
+            snap = [dict(r) for r in sorted(linhas, key=lambda r: r["data"]) if r["formato"] == L and semana(r["data"]) == k]
+        if op == "sai":
+            for ref in t["pautas"]:
+                r = _achar(linhas, ref, tid)
+                linhas.remove(r)
+                r["trocas"].append(tid)
+                if t["destino"] == "fila de dezembro":
+                    fila.append(r)
+        elif op == "entra":
+            for it in t["itens"]:
+                if t["fonte"] == "fila":
+                    ach = [r for r in fila if (r["formato"], r["titulo"]) == (it["formato"], it["titulo"])]
+                    if len(ach) != 1:
+                        raise TrocaInvalida(f"{tid}: não está na fila de dezembro: {it}")
+                    r = ach[0]
+                    fila.remove(r)
+                    r["origem"] += f" (voltou da fila em {_d(it['data'])}; era {_d(r['data'])})"
+                else:
+                    r = avaliar(dict(cat[(t["fonte"], it["formato"], it["titulo"])], trocas=[]))
+                r["data"] = it["data"]
+                r["trocas"].append(tid)
+                linhas.append(r)
+        elif op == "move":
+            r = _achar(linhas, t["pauta"], tid)
+            r["origem"] += f" (movida de {_d(r['data'])})"
+            r["data"] = t["para"]
+            r["trocas"].append(tid)
+        elif op == "titulo":
+            r = _achar(linhas, t["pauta"], tid)
+            r["titulo"] = t["novo"]
+            r["origem"] += " (título trocado)"
+            r["trocas"].append(tid)
+            avaliar(r)
+        elif op == "edita":
+            r = _achar(linhas, t["pauta"], tid)
+            r.update(t.get("campos", {}))
+            if t.get("acrescenta_ao_angulo"):
+                r["angulo"] += " " + t["acrescenta_ao_angulo"]
+            r["trocas"].append(tid)
+        elif op == "absorve":
+            alvo = _achar(linhas, t["alvo"], tid)
+            nomes = []
+            for ref in t["pautas"]:
+                r = _achar(linhas, ref, tid)
+                linhas.remove(r)
+                nomes.append(f"{_d(r['data'])} \"{r['titulo']}\"")
+            alvo["angulo"] += " BLOCOS ABSORVIDOS (" + tid + "): " + "; ".join(t["blocos"]) + "."
+            alvo["continuacao_de"] += "; absorve " + " e ".join(nomes)
+            alvo["trocas"].append(tid)
+        else:
+            raise TrocaInvalida(f"{tid}: operação desconhecida {op!r}")
+        for r in linhas:
+            r["dia"] = DIAS[date.fromisoformat(r["data"]).weekday()]
+            if not INICIO <= date.fromisoformat(r["data"]) <= FIM:
+                raise TrocaInvalida(f"{tid}: data fora da janela: {r['data']}")
+        log.append({"troca": t, "antes": antes, "depois": sum(r.get("_e", 0) for r in linhas), "semana_antes": snap})
+    linhas.sort(key=lambda r: (r["data"], r["formato"] == S))
+    return linhas, fila, log
 
 
 def semana(data_):
@@ -238,41 +292,41 @@ def demanda(T, termo):
 
 
 COLS = ["data", "dia", "formato", "assunto", "assunto_pelo_titulo", "titulo", "status_titulo", "serie_ep", "origem",
+        "trocas_aplicadas",
         "termo_busca", "views_pesquisa_6m", "views_pesquisa_vitalicio", "demanda", "continuacao_de", "angulo",
         "inscritos_esperados", "faixa_p25_p75", "base_do_esperado", "fontes_a_conferir"]
 
 
-def montar(d, T=None):
+def montar(d, T=None, trocas=None):
+    """Calendário oficial: v2 + trocas.json, conferido pela regra dos 3 longos. Devolve (linhas, decisões da regra
+    automática, fila de dezembro, log das trocas)."""
     T = T or termos.Termos()
-    linhas = pautas_base()
+    trocas = trocas if trocas is not None else carregar_trocas()
     cache = {}
-    for r in linhas:
+
+    def avaliar(r):
         r["assunto_pelo_titulo"] = an.assunto(r["titulo"])
         r["assunto"] = an.assunto(r["titulo"], r["assunto_manual"])
         k = (r["formato"], r["assunto"])
         if k not in cache:
             cache[k] = temas.esperado_por_assunto(d, *k)
         e, e25, e75, n, janela = cache[k]
-        r.update(dia=DIAS[date.fromisoformat(r["data"]).weekday()], inscritos_esperados=round(e, 1),
-                 faixa_p25_p75=f"{e25:.1f}–{e75:.1f}", _e=e, _e25=e25, _e75=e75,
+        r.update(inscritos_esperados=round(e, 1), faixa_p25_p75=f"{e25:.1f}–{e75:.1f}", _e=e, _e25=e25, _e75=e75,
                  base_do_esperado=f"{r['assunto']}, {r['formato']}s, {janela} (n = {n}) · ESTIMATIVA")
         tb, v6, vv, dem = demanda(T, r["termo"])
         r.update(termo_busca=tb, views_pesquisa_6m=v6, views_pesquisa_vitalicio=vv, demanda=dem)
-    linhas, decisoes = aplicar_limite(linhas)
-    # a vaga de 06/10 (o ETF que canibalizava o Ep. 1 saiu) recebe um dos longos que iam para a fila de dezembro
+        return r
+
+    linhas, fila, log = aplicar_trocas(trocas, pautas_v2(), avaliar)
+    linhas, decisoes = aplicar_limite(linhas)          # salvaguarda: com as trocas de hoje, não sobra nada a fazer
     for dec in decisoes:
-        if dec["sai"] == VAGA_06_10:
-            r = dec.pop("_pauta")
-            dec["acao"] = (f"puxado para ter {_d(CANIBALIZA_EP1[0])}, na vaga do ETF que canibalizava o Ep. 1 "
-                           "(nenhuma semana seguinte tinha vaga)")
-            r["origem"] += f" (puxada de {_d(r['data'])} para a vaga de {_d(CANIBALIZA_EP1[0])})"
-            r["data"] = CANIBALIZA_EP1[0]
-            r["dia"] = DIAS[date.fromisoformat(r["data"]).weekday()]
-            linhas.append(r)
-    for dec in decisoes:
-        dec.pop("_pauta", None)
+        p = dec.pop("_pauta", None)
+        if p is not None and p not in linhas:
+            fila.append(p)
+    for r in linhas:
+        r["trocas_aplicadas"] = " ".join(r["trocas"])
     linhas.sort(key=lambda r: (r["data"], r["formato"] == S))
-    return linhas, decisoes
+    return linhas, decisoes, fila, log
 
 
 def por_mes(linhas):
@@ -341,7 +395,7 @@ def _d(data_):
     return f"{data_[8:]}/{data_[5:7]}"
 
 
-def markdown(d, linhas, decisoes):
+def markdown(d, linhas, decisoes, fila, log):
     b = mo.base(d)
     p = mo.plano(d, b, me.PLANO_LONGOS, me.PLANO_SHORTS)
     metas = {r["mes"]: r for r in me.metas_mensais(b, p)}
@@ -364,13 +418,17 @@ def markdown(d, linhas, decisoes):
     fv, f12 = fer["vitalício"], fer["12 meses"]
     fs = longos_em_feriado(d, formato=S)["vitalício"]
 
+    trocas = [x["troca"] for x in log]
+    n_trocas = len(trocas)
     out = [f"""# Calendário oficial: v3 (05/10 a 29/11/2026)
 
-**Aprovado pelo Denis em 03/10/2026.** Gerado por `calendario_v3.py` a partir do v2 e da proposta aprovada
-(`serie/PROPOSTA-CALENDARIO-V3.md`). Todas as colunas estão em `CALENDARIO.csv`.
+**Aprovado pelo Denis em 03/10/2026, com o ajuste do mesmo dia.** Gerado por `calendario_v3.py`: parte do v2 e aplica,
+na ordem, as {n_trocas} trocas aprovadas de `trocas.json` (com data, motivo e quem aprovou). Para trocar uma pauta,
+acrescente uma troca no fim de `trocas.json` e rode o script. Todas as colunas estão em `CALENDARIO.csv` (a coluna
+`trocas_aplicadas` diz quais trocas mexeram em cada pauta).
 
-**Histórico:** o v2 continua em `CALENDARIO-8-SEMANAS.md` e `.csv` (gerados por `calendario_v2.py`, sem mudança; a
-`esteira-social/` ainda lê esse arquivo) e o v1 em `CALENDARIO-8-SEMANAS_v1.*`.
+**Histórico:** o v2 continua em `CALENDARIO-8-SEMANAS.md` e `.csv` (gerados por `calendario_v2.py`, sem mudança) e o
+v1 em `CALENDARIO-8-SEMANAS_v1.*`. A proposta está em `serie/PROPOSTA-CALENDARIO-V3.md`.
 
 **Inscritos esperados são ESTIMATIVA, não previsão:** views intencionais medianas do assunto × inscritos por mil, nos
 últimos 12 meses (`modelo.py`, `TEMAS.md`). São inscritos vitalícios de cada vídeo, que chegam ao longo de 1 a 3 meses.
@@ -382,9 +440,10 @@ def markdown(d, linhas, decisoes):
 2. **Saem as 7 pautas fora do nicho** (tabela abaixo), trocadas pelos Shorts derivados dos episódios ou pelos episódios.
 3. **Copom de 03-04/11: Tesouro ANTES da decisão**, na **terça 03/11, 19h**, com a versão pré do molde. A pauta de renda
    mensal que estava na terça 03/11 vai para a quinta 05/11, que era do longo pós.
-4. **Nenhuma semana com mais de 3 longos:** {len(decisoes)} longos saíram da semana pela regra (tabela abaixo).
-5. **O Ep. 1 não tem concorrente na mesma semana:** o longo de ETF de dividendos mensais de 06/10 vai para depois da
-   série, e o título do 27/10 muda (tabela abaixo).
+4. **Nenhuma semana com mais de 3 longos** (tabela abaixo).
+5. **ETF de dividendos mensais só no Ep. 1** (ajuste de 03/10): o tema estava em 4 longos em 5 semanas. O de 06/10 vai
+   para depois da série; os de 20/10 (opções) e 17/11 (taxa) viram blocos do Ep. 1. O TRXF11 volta em 20/10 e o FII
+   para iniciantes passa de sáb 07/11 para ter 17/11.
 6. **Total:** {nl} longos e {ns} Shorts (v2: {nl2} e {ns2}).
 
 ### As 7 pautas fora do nicho
@@ -411,37 +470,76 @@ def markdown(d, linhas, decisoes):
 Regra aprovada: numa semana com mais de 3 longos, sai o de **menor número de inscritos esperados** pelo modelo, ou ele é
 empurrado para a próxima semana com vaga. Os episódios da série e o Copom são fixos (aprovados com data).
 """)
-    if not decisoes:
-        out.append("Nenhuma semana passou de 3 longos.")
-    for dec in decisoes:
-        out.append(f"**Semana de {dec['semana']}** ({len(dec['longos'])} longos):\n\n"
+    regra = [x for x in log if x["troca"].get("regra_3_longos")]
+    for x in regra:
+        t = x["troca"]
+        sai = {(p_["data"], p_["titulo"]) for p_ in t["pautas"]}
+        out.append(f"**Semana de {_d(t['regra_3_longos'])}** ({len(x['semana_antes'])} longos, troca {t['id']}):\n\n"
                    "| data | longo | inscritos esperados | fixo? | decisão |\n|---|---|---|---|---|")
-        for data_, tit, e, fx in dec["longos"]:
-            acao = f"**{dec['acao']}**" if (data_ == dec["data"] and tit == dec["sai"]) else "fica"
-            out.append(f"| {_d(data_)} | {tit} | {br(e)} | {'sim' if fx else 'não'} | {acao} |")
+        for r in x["semana_antes"]:
+            acao = f"**sai para a {t['destino']}**" if (r["data"], r["titulo"]) in sai else "fica"
+            out.append(f"| {_d(r['data'])} | {r['titulo']} | {br(r['_e'])} | {'sim' if fixa(r) else 'não'} | {acao} |")
         out.append("")
+    if decisoes:
+        out.append(f"A regra automática ainda mexeu em {len(decisoes)} pauta(s): "
+                   + "; ".join(f"{dec['sai']} ({dec['acao']})" for dec in decisoes) + ".")
     out.append("""Nas duas semanas, o mais fraco é um longo de FII (45 esperados contra 91 de renda mensal e 195 de Tesouro), e
-nenhuma semana seguinte até 29/11 tem vaga (todas já têm 3 longos). O de 12/11 foi para a vaga de 06/10 (seção
-seguinte); o TRXF11 de 31/10 vai para a fila de dezembro. A proposta sugeria tirar o CDB prefixado de 14/11, mas pelo
-modelo ele é o mais forte da semana (Tesouro e renda fixa, 195).
-**Atenção:** o TRXF11 de 31/10 é o termo de investimento mais buscado do canal nos últimos 6 meses (1.516 views da
-Pesquisa). O modelo de inscritos não enxerga busca; se o Denis preferir a busca ao modelo, a troca natural é com o
-longo de FII de 07/11 (o mesmo assunto e o mesmo esperado).
+nenhuma semana seguinte até 29/11 tinha vaga. Os dois foram para a fila de dezembro e depois voltaram por outras trocas:
+o FII ou imóvel de 12/11 para 06/10 (T10) e o TRXF11 de 31/10 para 20/10 (T15). A proposta sugeria tirar o CDB
+prefixado de 14/11, mas pelo modelo ele é o mais forte da semana (Tesouro e renda fixa, 195).""")
 
-### Ep. 1 sem canibalização (briefing do Ep. 1)
+    absorve = next((x["troca"] for x in log if x["troca"]["op"] == "absorve"), None)
+    out.append(f"""
+### ETF de dividendos mensais só no Ep. 1 (briefing do Ep. 1 e ajuste de 03/10)
 
-O briefing `briefings/2026-10-14-etf-dividendos-mensais-briefing.md` apontou que o longo do v2 de 06/10 sai 8 dias
-antes do Ep. 1 com o mesmo tema e o mesmo termo de busca ("etfs que pagam dividendos mensais").
+No v2, o ETF de dividendos mensais era tema de 4 longos em 5 semanas (06/10, 20/10, 27/10 e 17/11), mais o Ep. 1 em
+14/10: saturação e canibalização do termo "etfs que pagam dividendos mensais". Agora, dentro da janela, ele só é tema
+de longo no Ep. 1. O 27/10 fica porque é comparação com FII (o imposto de cada um), com título novo e guardrail.
 
-| data | antes | decisão | por quê |
+| data | antes | depois | troca e motivo |
 |---|---|---|---|
-| ter 06/10 | longo "ETFs que pagam dividendos mensais: o que mudou em 2026" (renda mensal, 91) | **vai para depois da série (fila de dezembro)** | é a atualização da lista de 2025; em dezembro vira o balanço do ano e não disputa o termo com o Ep. 1. O Ep. 1 não muda |
-| ter 06/10 | (vaga) | **entra "Fundo imobiliário ou imóvel alugado: a conta de 2026"** (FII, 45), que saía de 12/11 pela regra dos 3 longos | é o mais forte da fila sem ETF de dividendos. O outro da fila, TRXF11, repetiria o vídeo de 29/09/2026 sobre o fundo. O canal fez "Fundos Imobiliários ou Imóveis" em 26/06/2026 (14 inscritos): o ângulo de 2026 (Lei 14.754/2023, vacância, liquidez) tem de ficar claro no título final. O Short "FII ou aluguel" de 11/11 passa a ser corte deste longo |
-| ter 20/10 | "ETF de dividendos mensais com opções: de onde vem a renda" | fica, com guardrail | a mecânica das opções cobertas é deste vídeo; o Ep. 1 só a cita em uma frase |
-| ter 27/10 | "ETF de dividendos mensais ou fundo imobiliário: o que sobra" | **título novo: "{TITULO_27_10[1]}"** | o título do v2 usava "o que sobra", como a promessa do Ep. 1; o imposto detalhado é deste vídeo e o Ep. 1 só tem uma tabela curta |
+| ter 06/10 | "ETFs que pagam dividendos mensais: o que mudou em 2026" (renda mensal, 91) | **fila de dezembro** (depois da série; vira o balanço do ano) | T09: sai 8 dias antes do Ep. 1, com o mesmo termo de busca |
+| ter 06/10 | (vaga) | **"Fundo imobiliário ou imóvel alugado: a conta de 2026"** (FII, 45), que tinha saído de 12/11 pela regra | T10: o melhor da fila sem ETF de dividendos. O canal fez "Fundos Imobiliários ou Imóveis" em 26/06/2026 (14 inscritos): o ângulo de 2026 (Lei 14.754/2023, vacância, liquidez) tem de ficar claro no título final |
+| qua 14/10 | Ep. 1 | **Ep. 1 com 2 blocos a mais** | T14: {'; '.join(absorve['blocos']) if absorve else ''}. O que cada bloco traz está no briefing do Ep. 1, seção "Blocos absorvidos (decisão de 03/10)" |
+| ter 20/10 | "ETF de dividendos mensais com opções: de onde vem a renda" (91) | **"TRXF11: o que aconteceu com a renda desde agosto"** (FII, 45) | T14 + T15: as opções viram bloco do Ep. 1; o TRXF11 volta da fila ("trxf11" é o termo de investimento mais buscado do canal nos últimos 6 meses, 1.516 views da Pesquisa) |
+| ter 27/10 | "ETF de dividendos mensais ou fundo imobiliário: o que sobra" | **"ETF de dividendos mensais ou FII: imposto e renda de cada um"** | T11 + T12: o título do v2 usava "o que sobra", como a promessa do Ep. 1; o imposto detalhado é deste vídeo |
+| sáb 07/11 | "Fundos imobiliários para iniciantes: de onde vem a renda" (45) | **vaga** (a semana de 02/11 fica com 2 longos: o Copom e a renda mensal) | T16 |
+| ter 17/11 | "ETF de dividendos mensais: quanto a taxa tira da renda" (91) | **"Fundos imobiliários para iniciantes: de onde vem a renda"** (movido de 07/11) | T14 + T16: a taxa vira bloco do Ep. 1. A fila de dezembro só tinha o ETF de dividendos, que não pode voltar; mover não muda o total, mas põe o vídeo na terça (o melhor dia, 10,4 inscritos por mil, contra sábado sem histórico) e tira a semana de 16/11 de 89 abaixo da meta semanal |
+| qua 25/11 | Short "Taxa de administração do ETF" (corte do 17/11) | o mesmo Short, agora corte do bloco de taxa do Ep. 1 | T17 |
 
-Custo na estimativa: −46 inscritos (sai um longo de renda mensal, 91; entra um de FII, 45). Trocar os dois de lugar
-(o FII em dezembro) não resolveria: o ETF de 06/10 é o que canibaliza.""")
+**Atenção:** com o TRXF11 em 20/10 e o FII para iniciantes em 17/11, há 4 longos de FII na janela (06/10, 20/10, 17/11 e
+26/11), nenhum na mesma semana de outro.
+
+### Fila de dezembro
+""")
+    for r in fila:
+        out.append(f"- {r['titulo']} ({r['formato']}, {r['assunto']}, {br(r['_e'])} esperados; era {_d(r['data'])}; "
+                   f"trocas {', '.join(r['trocas'])})")
+    if not fila:
+        out.append("- vazia")
+
+    out.append("""
+### Trocas aprovadas (`trocas.json`)
+
+| troca | aprovada por | operação | o quê | efeito no esperado das 8 semanas | motivo |
+|---|---|---|---|---|---|""")
+    for x in log:
+        t = x["troca"]
+        if t["op"] in ("sai",):
+            oq = "; ".join(f"{_d(p_['data'])} {p_['titulo']}" for p_ in t["pautas"]) + f" → {t['destino']}"
+        elif t["op"] == "entra":
+            oq = "; ".join(f"{_d(i_['data'])} {i_['titulo']}" for i_ in t["itens"]) + f" (de: {t['fonte']})"
+        elif t["op"] == "move":
+            oq = f"{t['pauta']['titulo']}: {_d(t['pauta']['data'])} → {_d(t['para'])}"
+        elif t["op"] == "titulo":
+            oq = f"{_d(t['pauta']['data'])}: \"{t['pauta']['titulo']}\" → \"{t['novo']}\""
+        elif t["op"] == "absorve":
+            oq = "; ".join(f"{_d(p_['data'])} {p_['titulo']}" for p_ in t["pautas"]) + f" → blocos do {_d(t['alvo']['data'])}"
+        else:
+            oq = f"{_d(t['pauta']['data'])} {t['pauta']['titulo']}"
+        ef = x["depois"] - x["antes"]
+        out.append(f"| {t['id']} | {t['aprovada_por']} | {t['op']} | {oq} | {'+' if ef >= 0 else '−'}{br(abs(ef))} | "
+                   f"{t['motivo']} |")
 
     out.append(f"""
 ## Copom de 03-04/11: Tesouro antes da decisão
@@ -506,9 +604,8 @@ Medida: inscritos do longo pré de 03/11 nos 7 primeiros dias (Studio, de 03/11 
 | inscritos esperados (central) | {br(tot2)} | **{br(tot3)}** | **{'+' if tot3 >= tot2 else '−'}{br(abs(tot3 - tot2))}** |
 | faixa p25–p75 | {br(sum(r['_e25'] for r in v2l))} a {br(sum(r['_e75'] for r in v2l))} | {br(sum(r['_e25'] for r in linhas))} a {br(sum(r['_e75'] for r in linhas))} | |
 
-A conta: {br(tot2)} − {br(sai_e)} (as 7 pautas fora do nicho) + os 6 episódios e 5 Shorts da série − o TRXF11 (fila de
-dezembro) − o ETF de 06/10 (depois da série) ± zero do FII de 12/11, que só mudou para 06/10. O Copom muda de quinta
-para terça e não muda o esperado.
+A conta, troca por troca, está na coluna "efeito" da tabela de trocas acima ({br(tot2)} do v2 + a soma dos efeitos
+= {br(tot3)}).
 
 ### Contra a meta mensal (META.md)
 
@@ -595,15 +692,15 @@ ativo nem citar corretora. Fora: dívida, cartão de crédito e política. Confe
 
 def main():
     d = mo.carregar()
-    linhas, decisoes = montar(d)
+    linhas, decisoes, fila, log = montar(d)
     with open(AQUI / "CALENDARIO.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=COLS, extrasaction="ignore")
         w.writeheader()
         w.writerows(linhas)
-    (AQUI / "CALENDARIO.md").write_text(markdown(d, linhas, decisoes), encoding="utf-8")
+    (AQUI / "CALENDARIO.md").write_text(markdown(d, linhas, decisoes, fila, log), encoding="utf-8")
     nl = sum(1 for r in linhas if r["formato"] == L)
     print(f"ok: {len(linhas)} pautas ({nl} longos, {len(linhas) - nl} Shorts) em CALENDARIO.md e .csv; "
-          f"{len(decisoes)} decisão(ões) da regra dos 3 longos")
+          f"{len(log)} trocas de trocas.json; {len(decisoes)} decisão(ões) da regra automática; fila: {len(fila)}")
 
 
 if __name__ == "__main__":

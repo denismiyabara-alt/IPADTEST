@@ -3,8 +3,9 @@
 **APROVADA pelo Denis em 03/10/2026.** O calendário oficial é `../CALENDARIO.md` e `.csv` (gerado por
 `../calendario_v3.py`). Esta página fica como registro da proposta. O que mudou na aprovação: o Tesouro do Copom de
 03-04/11 sai ANTES da decisão (terça 03/11, versão pré) e as semanas de 26/10 e 09/11 perdem o longo mais fraco pelo
-modelo (FII: 31/10 vai para dezembro; 12/11 vai para 06/10), e não o CDB prefixado. Depois do briefing do Ep. 1, o
-longo de ETF de dividendos mensais de 06/10 vai para depois da série e o título do 27/10 muda. Montada em 03/10/2026.
+modelo (FII de 31/10 e de 12/11), e não o CDB prefixado. Depois do briefing do Ep. 1 e do ajuste do mesmo dia, o ETF
+de dividendos mensais só é tema de longo no Ep. 1 (06/10 para dezembro; 20/10 e 17/11 viram blocos do Ep. 1). Todas as
+trocas, com motivo e quem aprovou, estão em `../trocas.json`. Montada em 03/10/2026.
 
 O que muda da v2 para a v3:
 1. entram os 6 episódios da série de renda mensal (`SERIE-RENDA-MENSAL.md`), 1 por semana, às quartas, 19h;

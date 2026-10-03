@@ -207,18 +207,54 @@ def test_calendario_v3_serie_copom_e_titulos_provisorios():
     assert sum(1 for r in ls if r["formato"] == "short") == 16
 
 
-def test_calendario_v3_ep1_sem_canibalizacao():
+def _tema_etf_dividendos_mensais(titulo):
+    """O longo é SOBRE ETF de dividendos mensais (uma comparação com outra classe, como "ETF ... ou FII", não é)."""
+    t = an.norm(titulo)
+    return bool(re.search(r"\betfs?\b.*dividendos? mensa|dividendos? mensa.*\betfs?\b", t)) and " ou " not in t
+
+
+def test_calendario_v3_etf_de_dividendos_mensais_so_no_ep1():
     ls = linhas_v3()
-    ep1 = date(2026, 10, 14)
+    tema = [r for r in ls if r["formato"] == "longo" and _tema_etf_dividendos_mensais(r["titulo"])]
+    assert [(r["data"], r["serie_ep"]) for r in tema] == [("2026-10-14", "Ep. 1")], [r["titulo"] for r in tema]
     for r in ls:
-        dt = date.fromisoformat(r["data"])
-        t = an.norm(r["titulo"])
-        if r["formato"] == "longo" and not r["serie_ep"] and ep1 - timedelta(days=14) <= dt < ep1:
-            assert not ("etf" in t and "dividendos mensais" in t), r["titulo"]     # mesmo tema e termo do Ep. 1
         if not r["serie_ep"]:
-            assert "o que sobra" not in t, r["titulo"]                              # promessa do Ep. 1
-    assert cal3.CANIBALIZA_EP1[1] not in {r["titulo"] for r in ls}
-    assert any(r["data"] == "2026-10-06" and r["titulo"] == cal3.VAGA_06_10 for r in ls)
+            assert "o que sobra" not in an.norm(r["titulo"]), r["titulo"]            # promessa do Ep. 1
+    assert _tema_etf_dividendos_mensais("ETFs que pagam dividendos mensais: o que mudou em 2026")
+    assert not _tema_etf_dividendos_mensais("ETF de dividendos mensais ou FII: imposto e renda de cada um")
+    ep1 = next(r for r in ls if r["serie_ep"] == "Ep. 1")
+    assert "BLOCOS ABSORVIDOS" in ep1["angulo"] and "opções" in ep1["angulo"] and "taxa" in ep1["angulo"]
+
+
+@pytest.mark.skipif(not DADOS_REAIS, reason="dados reais ausentes")
+def test_calendario_v3_fila_de_dezembro_e_regra_nas_trocas():
+    linhas, decisoes, fila, log = cal3.montar(mo.carregar())
+    assert decisoes == []                                    # as trocas já deixam no máximo 3 longos por semana
+    assert [r["titulo"] for r in fila] == ["ETFs que pagam dividendos mensais: o que mudou em 2026"]
+    for x in log:
+        t = x["troca"]
+        if t.get("regra_3_longos"):
+            sem = x["semana_antes"]
+            assert len(sem) == 4
+            fraco = min((r for r in sem if not cal3.fixa(r)), key=lambda r: r["_e"])
+            assert [(p["data"], p["titulo"]) for p in t["pautas"]] == [(fraco["data"], fraco["titulo"])]
+
+
+def test_trocas_json_versionado():
+    trocas = cal3.carregar_trocas()
+    ids = [t["id"] for t in trocas]
+    assert len(ids) == len(set(ids)) and ids == sorted(ids)
+    for t in trocas:
+        assert t["aprovada_em"] and t["aprovada_por"] and t["motivo"], t["id"]
+        assert t["op"] in {"sai", "entra", "move", "titulo", "edita", "absorve"}, t["id"]
+    assert len(cal3.FORA_DO_NICHO) == 7
+    # uma troca inválida é recusada, não ignorada
+    with pytest.raises(cal3.TrocaInvalida):
+        cal3.aplicar_trocas([{"id": "X", "op": "move", "para": "2026-10-20",
+                              "pauta": {"data": "2026-10-06", "formato": "longo", "titulo": "não existe"}}],
+                            cal3.pautas_v2())
+    ls, fila, _ = cal3.aplicar_trocas(trocas, cal3.pautas_v2())
+    assert [(r["data"], r["titulo"]) for r in ls] == [(r["data"], r["titulo"]) for r in linhas_v3()]
 
 
 def test_calendario_v3_todo_titulo_passa_no_gate():
@@ -254,7 +290,5 @@ def test_regra_dos_3_longos_tira_o_mais_fraco_ou_empurra():
 
 @pytest.mark.skipif(not DADOS_REAIS, reason="dados reais ausentes")
 def test_calendario_v3_csv_e_o_que_o_script_gera():
-    linhas, decisoes = cal3.montar(mo.carregar())
+    linhas, *_ = cal3.montar(mo.carregar())
     assert [(r["data"], r["titulo"]) for r in linhas] == [(r["data"], r["titulo"]) for r in linhas_v3()]
-    assert [d["sai"] for d in decisoes] == ["TRXF11: o que aconteceu com a renda desde agosto",
-                                           "Fundo imobiliário ou imóvel alugado: a conta de 2026"]

@@ -1,0 +1,135 @@
+{
+  "descricao": "Trocas aprovadas no calendário oficial (v3). O calendario_v3.py parte do v2 (calendario_v2.PAUTAS) e aplica estas trocas NA ORDEM. Para trocar uma pauta, acrescente uma troca no fim (não edite as antigas) e rode python3 calendario_v3.py. Operações: sai (destino: removida | fila de dezembro | absorvida), entra (fonte: serie | copom | fila), move, titulo, edita (campos ou acrescenta ao ângulo) e absorve (o conteúdo de pautas vira blocos de outra). Uma pauta é achada por data + formato + título. Itens de série e Copom vêm do catálogo do calendario_v3.py (SERIE_ITENS, COPOM_PRE); a fila de dezembro guarda o que saiu com destino fila e pode voltar com entra/fonte fila.",
+  "trocas": [
+    {
+      "id": "T01", "aprovada_em": "2026-10-03", "aprovada_por": "Denis Miyabara",
+      "motivo": "Série de renda mensal aprovada (serie/SERIE-RENDA-MENSAL.md): 6 episódios às quartas e os Shorts derivados. Títulos provisórios até o empacotador e o teste A/B.",
+      "op": "entra", "fonte": "serie",
+      "itens": [
+        {"data": "2026-10-07", "formato": "short", "titulo": "Recebeu 1% ao mês e a cota caiu 1%: quanto ganhou?"},
+        {"data": "2026-10-14", "formato": "longo", "titulo": "ETF que paga dividendos mensais: a renda saiu da cota?"},
+        {"data": "2026-10-21", "formato": "longo", "titulo": "Dividendos altos demais: 4 contas antes de confiar na renda"},
+        {"data": "2026-10-21", "formato": "short", "titulo": "O dividend yield dobrou e a empresa não pagou nada a mais"},
+        {"data": "2026-10-28", "formato": "longo", "titulo": "Gastar ou reinvestir os dividendos: a conta de 10 anos"},
+        {"data": "2026-11-11", "formato": "longo", "titulo": "LCI e LCA para renda mensal: a escada de vencimentos"},
+        {"data": "2026-11-16", "formato": "short", "titulo": "LCI e LCA não pagam todo mês. Mas dá para fazer vencer uma por mês"},
+        {"data": "2026-11-18", "formato": "longo", "titulo": "Renda mensal e inflação: quanto reinvestir para não encolher"},
+        {"data": "2026-11-18", "formato": "short", "titulo": "R$ 100 mil, 10 anos: gastar a renda ou reinvestir?"},
+        {"data": "2026-11-23", "formato": "short", "titulo": "R$ 1.000 de renda hoje compram quanto em 10 anos?"},
+        {"data": "2026-11-25", "formato": "longo", "titulo": "Renda todo mês com Tesouro e FII: a grade de 12 meses"}
+      ]
+    },
+    {
+      "id": "T02", "aprovada_em": "2026-10-03", "aprovada_por": "Denis Miyabara",
+      "motivo": "Fora do nicho (serie/PROPOSTA-CALENDARIO-V3.md): as vagas vão para os Shorts dos episódios ou para os próprios episódios.",
+      "op": "sai", "destino": "removida", "fora_do_nicho": true,
+      "pautas": [
+        {"data": "2026-10-07", "formato": "short", "titulo": "Como juntar 1 milhão de reais com R$ 1.000 por mês"},
+        {"data": "2026-10-21", "formato": "short", "titulo": "Casal que investe junto: a conversa que vem antes do dinheiro"},
+        {"data": "2026-11-16", "formato": "short", "titulo": "Perfil de investidor: 3 perguntas antes de investir"},
+        {"data": "2026-11-18", "formato": "short", "titulo": "Juros compostos: por que 1 centavo dobrando todo dia não existe"},
+        {"data": "2026-11-21", "formato": "longo", "titulo": "Bolha da IA: o que dizem os números"},
+        {"data": "2026-11-23", "formato": "short", "titulo": "Reserva de emergência: onde deixar e onde não deixar"},
+        {"data": "2026-11-28", "formato": "longo", "titulo": "Tesouro Direto na reserva de emergência: Selic, CDB ou conta"}
+      ]
+    },
+    {
+      "id": "T03", "aprovada_em": "2026-10-03", "aprovada_por": "Denis Miyabara",
+      "motivo": "Tesouro ANTES do Copom: o longo pós de quinta 05/11 dá lugar à versão pré na terça 03/11.",
+      "op": "sai", "destino": "removida",
+      "pautas": [{"data": "2026-11-05", "formato": "longo", "titulo": "Tesouro Direto após o Copom: o que muda no IPCA+ e prefixado"}]
+    },
+    {
+      "id": "T04", "aprovada_em": "2026-10-03", "aprovada_por": "Denis Miyabara",
+      "motivo": "A terça 03/11 passa a ser do Tesouro pré-Copom; a pauta de renda mensal vai para a quinta, que ficou livre.",
+      "op": "move", "pauta": {"data": "2026-11-03", "formato": "longo", "titulo": "Dividendos mensais de R$ 1.000: quanto precisa investir"},
+      "para": "2026-11-05"
+    },
+    {
+      "id": "T05", "aprovada_em": "2026-10-03", "aprovada_por": "Denis Miyabara",
+      "motivo": "Tesouro pré-Copom na terça 03/11, 19h (02/11 é Finados; o Focus de 30/10 só sai na terça). Versão pré do serie/MOLDE-TESOURO-COPOM.md.",
+      "op": "entra", "fonte": "copom",
+      "itens": [{"data": "2026-11-03", "formato": "longo", "titulo": "Tesouro Direto antes do Copom: o que olhar no IPCA+ hoje"}]
+    },
+    {
+      "id": "T06", "aprovada_em": "2026-10-03", "aprovada_por": "Denis Miyabara",
+      "motivo": "Com o longo pré na terça, o Short de quarta vira corte dele.",
+      "op": "edita", "pauta": {"data": "2026-11-04", "formato": "short", "titulo": "Copom hoje: 3 números para olhar no seu Tesouro"},
+      "campos": {"continuacao_de": "longo pré de 03/11", "angulo": "Corte do longo pré de 03/11 com as taxas da manhã de quarta (o [*_ANTES] definitivo do molde); link para o longo. Sem prever a decisão."}
+    },
+    {
+      "id": "T07", "aprovada_em": "2026-10-03", "aprovada_por": "Denis Miyabara (regra: no máximo 3 longos por semana)",
+      "motivo": "Semana de 26/10 com 4 longos: sai o de menor esperado pelo modelo (FII, 45); nenhuma semana seguinte até 29/11 tem vaga.",
+      "op": "sai", "destino": "fila de dezembro", "regra_3_longos": "2026-10-26",
+      "pautas": [{"data": "2026-10-31", "formato": "longo", "titulo": "TRXF11: o que aconteceu com a renda desde agosto"}]
+    },
+    {
+      "id": "T08", "aprovada_em": "2026-10-03", "aprovada_por": "Denis Miyabara (regra: no máximo 3 longos por semana)",
+      "motivo": "Semana de 09/11 com 4 longos: sai o de menor esperado pelo modelo (FII, 45); nenhuma semana seguinte até 29/11 tem vaga.",
+      "op": "sai", "destino": "fila de dezembro", "regra_3_longos": "2026-11-09",
+      "pautas": [{"data": "2026-11-12", "formato": "longo", "titulo": "Fundo imobiliário ou imóvel alugado: a conta de 2026"}]
+    },
+    {
+      "id": "T09", "aprovada_em": "2026-10-03", "aprovada_por": "coordenação (briefing do Ep. 1), dentro da aprovação do v3",
+      "motivo": "Canibalização: sai 8 dias antes do Ep. 1, com o mesmo tema e o mesmo termo de busca (briefings/2026-10-14-etf-dividendos-mensais-briefing.md). Vai para depois da série.",
+      "op": "sai", "destino": "fila de dezembro",
+      "pautas": [{"data": "2026-10-06", "formato": "longo", "titulo": "ETFs que pagam dividendos mensais: o que mudou em 2026"}]
+    },
+    {
+      "id": "T10", "aprovada_em": "2026-10-03", "aprovada_por": "coordenação (briefing do Ep. 1), dentro da aprovação do v3",
+      "motivo": "A vaga de 06/10 recebe o melhor da fila sem ETF de dividendos (o TRXF11 repetiria o vídeo de 29/09 sobre o fundo).",
+      "op": "entra", "fonte": "fila",
+      "itens": [{"data": "2026-10-06", "formato": "longo", "titulo": "Fundo imobiliário ou imóvel alugado: a conta de 2026"}]
+    },
+    {
+      "id": "T11", "aprovada_em": "2026-10-03", "aprovada_por": "coordenação (briefing do Ep. 1), dentro da aprovação do v3",
+      "motivo": "O título do v2 terminava em \"o que sobra\", como a promessa do Ep. 1.",
+      "op": "titulo", "pauta": {"data": "2026-10-27", "formato": "longo", "titulo": "ETF de dividendos mensais ou fundo imobiliário: o que sobra"},
+      "novo": "ETF de dividendos mensais ou FII: imposto e renda de cada um"
+    },
+    {
+      "id": "T12", "aprovada_em": "2026-10-03", "aprovada_por": "coordenação (briefing do Ep. 1), dentro da aprovação do v3",
+      "motivo": "Guardrail do briefing do Ep. 1 para o 27/10.",
+      "op": "edita", "pauta": {"data": "2026-10-27", "formato": "longo", "titulo": "ETF de dividendos mensais ou FII: imposto e renda de cada um"},
+      "acrescenta_ao_angulo": "Guardrail do Ep. 1: o imposto detalhado é deste vídeo; o Ep. 1 só tem uma tabela curta. O empacotador vê os dois títulos juntos."
+    },
+    {
+      "id": "T13", "aprovada_em": "2026-10-03", "aprovada_por": "coordenação (briefing do Ep. 1), dentro da aprovação do v3",
+      "motivo": "O longo de FII ou imóvel foi para 06/10; o Short de 11/11 vira corte dele.",
+      "op": "edita", "pauta": {"data": "2026-11-11", "formato": "short", "titulo": "FII ou aluguel: quanto rende R$ 100 mil em cada um"},
+      "campos": {"continuacao_de": "longo de 06/10 (FII ou imóvel alugado)"}
+    },
+    {
+      "id": "T14", "aprovada_em": "2026-10-03", "aprovada_por": "Denis Miyabara (ajuste do v3)",
+      "motivo": "Saturação: o ETF de dividendos mensais estava em 4 longos em 5 semanas. Os longos de 20/10 (opções) e 17/11 (taxa) viram blocos do Ep. 1.",
+      "op": "absorve",
+      "alvo": {"data": "2026-10-14", "formato": "longo", "titulo": "ETF que paga dividendos mensais: a renda saiu da cota?"},
+      "pautas": [
+        {"data": "2026-10-20", "formato": "longo", "titulo": "ETF de dividendos mensais com opções: de onde vem a renda"},
+        {"data": "2026-11-17", "formato": "longo", "titulo": "ETF de dividendos mensais: quanto a taxa tira da renda"}
+      ],
+      "blocos": [
+        "opções cobertas: como o prêmio vira renda e por que a alta fica limitada (era o 20/10)",
+        "taxa: a conta de 10 anos com 0,5% e 1,5% ao ano e onde ler a taxa na lâmina (era o 17/11)"
+      ]
+    },
+    {
+      "id": "T15", "aprovada_em": "2026-10-03", "aprovada_por": "Denis Miyabara (ajuste do v3)",
+      "motivo": "O TRXF11 volta da fila de dezembro para a vaga de 20/10: \"trxf11\" é o termo de investimento mais buscado do canal nos últimos 6 meses.",
+      "op": "entra", "fonte": "fila",
+      "itens": [{"data": "2026-10-20", "formato": "longo", "titulo": "TRXF11: o que aconteceu com a renda desde agosto"}]
+    },
+    {
+      "id": "T16", "aprovada_em": "2026-10-03", "aprovada_por": "Denis Miyabara (ajuste do v3: FII de 07/11 ou o melhor da fila); escolha pelo modelo",
+      "motivo": "A vaga de 17/11 vai para o FII de 07/11: a fila de dezembro só tem o ETF de dividendos mensais, que não pode voltar para a janela. Mover não muda o total, mas tira o vídeo do sábado (dia sem histórico de longos) e o põe na terça (10,4 inscritos por mil, o melhor dia), e equilibra as semanas: a de 16/11 ficaria 89 abaixo da meta semanal sem ele; a de 02/11 fica acima mesmo com 2 longos.",
+      "op": "move", "pauta": {"data": "2026-11-07", "formato": "longo", "titulo": "Fundos imobiliários para iniciantes: de onde vem a renda"},
+      "para": "2026-11-17"
+    },
+    {
+      "id": "T17", "aprovada_em": "2026-10-03", "aprovada_por": "Denis Miyabara (ajuste do v3)",
+      "motivo": "O longo de 17/11 (taxa) foi absorvido pelo Ep. 1; o Short de 25/11 vira corte do bloco de taxa do Ep. 1.",
+      "op": "edita", "pauta": {"data": "2026-11-25", "formato": "short", "titulo": "Taxa de administração do ETF: quanto tira em 10 anos"},
+      "campos": {"angulo": "0,5% contra 1,5% ao ano em 10 anos; corte do bloco de taxa do Ep. 1 (14/10).", "continuacao_de": "Ep. 1 (14/10), bloco de taxa"}
+    }
+  ]
+}

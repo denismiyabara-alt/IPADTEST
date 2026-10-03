@@ -248,6 +248,43 @@ Concorrência (arquivo `…-concorrentes.md`): ranking, "vale a pena" de um ETF 
 
 ---
 
+## Blocos absorvidos (decisão de 03/10)
+
+**O que mudou** (`../CALENDARIO.md` e `../trocas.json`, troca T14): o ETF de dividendos mensais estava em 4 longos em 5
+semanas. O Denis tirou os longos de **20/10 (opções)** e de **17/11 (taxa)** e mandou o conteúdo deles para o Ep. 1, como
+blocos do mesmo vídeo. No lugar entram o TRXF11 (20/10) e "Fundos imobiliários para iniciantes" (17/11). O 06/10 já tinha
+ido para depois da série (T09).
+
+**Guardrails da seção 8 que mudam:**
+- **20/10 (opções):** não existe mais. Cai a regra "opções cobertas em uma frase": agora é o bloco A abaixo, e a 3.4 deixa
+  de dizer "o detalhe é do longo de 20/10".
+- **17/11 (taxa):** não existe mais. Cai a regra "taxa só se explicar a diferença no final (b)": agora é o bloco B.
+- **06/10:** foi para a fila de dezembro. O par DIVD11 × DIVO11 continua do Ep. 1.
+- **27/10:** continua, com título novo: "ETF de dividendos mensais ou FII: imposto e renda de cada um". O guardrail fica
+  igual: tabela 3.5 curta; o imposto detalhado é do 27/10.
+
+**Bloco A. Opções cobertas: de onde vem a renda (era o 20/10; entra no lugar do bloco 5, cerca de 1:30)**
+- A mecânica em linguagem simples: o fundo vende a alguém o direito de comprar a carteira acima de um preço e recebe um
+  prêmio por isso. O prêmio é a renda; o preço é abrir mão da alta acima daquele ponto.
+- A consequência, na mesma caixa d'água da seção 10 (sem segunda analogia): renda alta, alta limitada e queda inteira.
+- O número: cota do SPYI11 de R$ 111,15 para R$ 109,60 (−1,39%) em 12 meses (C3, conferido) + os rendimentos da mesma
+  janela (A CONFERIR 11). Com os dois, o extrato de três linhas do SPYI11.
+- A comparação: ETF de dividendos comum (DIVD11, a renda vem dos dividendos da carteira) × ETF de opções (a renda vem do
+  prêmio). Onde ler: regulamento e lâmina.
+- Não dizer qual é melhor nem prever a cota.
+
+**Bloco B. Quanto a taxa tira da renda (era o 17/11; entra depois do bloco 4, cerca de 1:00)**
+- A conta de 10 anos, sem rendimento, só a taxa: 0,5% ao ano tira 4,9% do patrimônio; 1,5% ao ano tira 14%
+  (1 − 0,995¹⁰ e 1 − 0,985¹⁰). Em R$ 100 mil: R$ 4,9 mil contra R$ 14 mil. Escrever "exemplo" na tela.
+- Responde a pergunta dos comentários "essa taxa de 1,50 é alta?" com a conta, sem dizer qual ETF escolher.
+- Liga com o final (b) da 3.3: a taxa explica uma parte da diferença do DIVD11 para o DIVO11 (A CONFERIR 9: a taxa de
+  cada um, nas lâminas).
+- Onde ler: lâmina do ETF (taxa de administração e taxa total). Taxa de ETF real só com lâmina conferida.
+- O Short de 25/11 ("Taxa de administração do ETF: quanto tira em 10 anos") vira corte deste bloco.
+
+**Duração:** com os dois blocos, o Ep. 1 vai para 11 a 13 min. Se passar, o bloco 6 (tabela 3.5) é o primeiro a encolher:
+o imposto detalhado é do 27/10.
+
 ## 9. Gancho (3 opções, voz do Denis)
 
 Regras: "Fala, Tanaka." literal, número logo depois, stake em R$ dentro do gancho, a tese não se fecha no gancho, sem
