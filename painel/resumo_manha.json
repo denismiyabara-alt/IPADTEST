@@ -1,0 +1,65 @@
+{
+  "_nota": "Config do resumo_manha.py. Sem segredo aqui: credenciais só vêm do ambiente ou dos arquivos listados em 'credenciais'. Caminhos com CONFIRMAR são palpites do Mac do Denis. '~' é expandido.",
+  "painel": {
+    "_nota": "Caminhos repassados às funções do gerar_painel.py. null = o padrão do painel (variável PAINEL_* ou o padrão dele).",
+    "ipadtest": "/Users/denal/IPADTEST",
+    "iec": "/Users/denal/investir-e-cocar",
+    "trader": "/Users/denal/stock-signal-bot",
+    "gate_dir": "/tmp",
+    "radar_json": "/tmp/radar.json",
+    "backup": null,
+    "max_horas": 36
+  },
+  "painel_html": "/Users/denal/IPADTEST/painel/saida/painel-{data}.html",
+  "milhas": {
+    "_nota": "milhas_relatorio.md do milhas_radar.py (com.denis.milhasrss, 7h40 todo dia). Mais velho que max_horas = sem dado.",
+    "relatorio": "/Users/denal/milhas-radar/milhas_relatorio.md",
+    "max_horas": 26
+  },
+  "comentarios": {
+    "_nota": "O card vem do painel (painel.radar_json). Até novas_horas: mostra as perguntas; até max_horas: 'nenhuma pergunta nova'; depois: sem dado. O radar roda 1x por semana (segunda).",
+    "novas_horas": 24,
+    "max_horas": 192
+  },
+  "termometro": {
+    "_nota": "log = StandardOutPath do launchd do termometro_2h.py --auto (CONFIRMAR); historico = o jsonl que o próprio script grava.",
+    "log": "/Users/denal/investir-e-cocar/pipeline/logs/termometro.log",
+    "historico": "/Users/denal/investir-e-cocar/pipeline/termometro_historico.jsonl",
+    "max_horas": 24
+  },
+  "trello": {
+    "_nota": "Listas de aprovação (gates manuais do Denis). Os ids são os do ic-health-monitor; sem id, o nome é procurado no board_id. Credenciais: TRELLO_KEY e TRELLO_TOKEN.",
+    "board_id": null,
+    "listas": [
+      {"nome": "Aprovar X", "id": "69de3b273c7bf18ce6f24d3e"},
+      {"nome": "Aprovar Instagram", "id": "69de3b280cbecafe973e99f6"},
+      {"nome": "Aprovar Blog", "id": "69de3b2901dd470638c1c26a"}
+    ],
+    "credenciais": ["~/.config/investirecocar/credentials.env"],
+    "timeout_s": 15
+  },
+  "telegram": {
+    "_nota": "Mesma ordem do notifier.py do stock-signal-bot. Variáveis: TELEGRAM_BOT_TOKEN e TELEGRAM_CHAT_ID (ou TELEGRAM_HOME_CHANNEL).",
+    "credenciais": ["~/.hermes/.env", "~/.config/investirecocar/credentials.env", "~/.claude/credentials.env"]
+  },
+  "jobs": {
+    "_nota": "Jobs do launchd. horario HH:MM (Brasília) + dias ('uteis', 'todos' ou lista como ['seg']) ou a_cada_min. saida = arquivo que o job atualiza a cada rodada ({data} = dia da rodada esperada). opcional = se não estiver no launchctl, não acusa. Jobs com.denal.*/com.denis.* fora daqui entram só com o código de saída.",
+    "prefixos": ["com.denal.", "com.denis."],
+    "tolerancia_min": 30,
+    "esperados": [
+      {"label": "com.denis.milhasradar", "horario": "03:00", "dias": "todos", "saida": "/Users/denal/milhas-radar/run.log", "opcional": true},
+      {"label": "com.denis.milhasrss", "horario": "07:40", "dias": "todos", "saida": "/Users/denal/milhas-radar/milhas_relatorio.md"},
+      {"label": "com.denal.radar-comentarios", "horario": "08:00", "dias": ["seg"], "saida": "/tmp/radar.json", "opcional": true, "_nota": "CONFIRMAR o label"},
+      {"label": "com.denal.termometro", "a_cada_min": 60, "opcional": true, "_nota": "CONFIRMAR o label; só grava quando há vídeo para medir, então vale só o código de saída"},
+      {"label": "com.denal.portfolioreview", "horario": "08:30", "dias": ["seg"], "saida": "/Users/denal/stock-signal-bot/logs/portfolio.log", "opcional": true},
+      {"label": "com.denal.painel", "horario": "08:50", "dias": "uteis", "saida": "/Users/denal/IPADTEST/painel/saida/painel-{data}.html"},
+      {"label": "com.denal.resumo-manha", "horario": "08:50", "dias": "uteis", "saida": "/tmp/resumo-manha.log"},
+      {"label": "com.denal.stocksignal", "horario": "09:15", "dias": "todos", "saida": "/Users/denal/stock-signal-bot/logs/scanner.log", "opcional": true},
+      {"label": "com.denal.wheel", "horario": "09:30", "dias": ["seg"], "saida": "/Users/denal/stock-signal-bot/logs/wheel.log", "opcional": true},
+      {"label": "com.denal.stocksignal.robusto", "horario": "09:45", "dias": "todos", "saida": "/Users/denal/stock-signal-bot/logs/robusto.log", "opcional": true},
+      {"label": "com.denal.stocksignal.wheel-robusto", "horario": "10:00", "dias": "todos", "saida": "/Users/denal/stock-signal-bot/logs/wheel_robusto.log", "opcional": true},
+      {"label": "com.denal.tanaka-pm", "horario": "11:00", "dias": "uteis", "saida": "/Users/denal/stock-signal-bot/logs/pm_auto.log", "opcional": true},
+      {"label": "com.denal.trader-novo", "horario": "19:10", "dias": "uteis", "saida": "/Users/denal/stock-signal-bot/swing_v2_resultado.json", "tolerancia_min": 90}
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  EXEMPLO (não instalado). Resumo único da manhã no Telegram: dias úteis às 8h50.
+  Convive com os alertas que já existem (não desliga nenhum). Ver a seção "Resumo da manhã" do PAINEL.md.
+  Sem segredo aqui: o token do bot e o do Trello vêm de ~/.hermes/.env ou de
+  ~/.config/investirecocar/credentials.env (a lista está no resumo_manha.json).
+  Antes de instalar, teste com a opção dry-run (ver PAINEL.md).
+    cp com.denal.resumo-manha.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.denal.resumo-manha.plist
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.denal.resumo-manha</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <!-- o mesmo Python do painel e do rodar_trader_novo.sh; CONFIRMAR se existe no Mac -->
+        <string>/Library/Developer/CommandLineTools/usr/bin/python3</string>
+        <!-- CONFIRMAR: onde o IPADTEST está clonado no Mac -->
+        <string>/Users/denal/IPADTEST/painel/resumo_manha.py</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/denal/IPADTEST/painel</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>RESUMO_CONFIG</key>
+        <string>/Users/denal/IPADTEST/painel/resumo_manha.json</string>
+        <key>LANG</key>
+        <string>pt_BR.UTF-8</string>
+        <!-- launchctl precisa estar no PATH para a linha de Jobs -->
+        <key>PATH</key>
+        <string>/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+
+    <!-- segunda a sexta, 8h50 -->
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict><key>Weekday</key><integer>1</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>50</integer></dict>
+        <dict><key>Weekday</key><integer>2</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>50</integer></dict>
+        <dict><key>Weekday</key><integer>3</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>50</integer></dict>
+        <dict><key>Weekday</key><integer>4</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>50</integer></dict>
+        <dict><key>Weekday</key><integer>5</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>50</integer></dict>
+    </array>
+
+    <!-- o resumo_manha.json usa este log para saber se o próprio resumo rodou -->
+    <key>StandardOutPath</key>
+    <string>/tmp/resumo-manha.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/resumo-manha_err.log</string>
+
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>

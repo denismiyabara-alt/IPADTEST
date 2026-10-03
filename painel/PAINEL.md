@@ -83,3 +83,79 @@ Antes de instalar, confira:
 - **Os caminhos do plist** marcados com CONFIRMAR, principalmente o do IPADTEST.
 
 Os arquivos `saida/painel-*.html` do dia a dia ficam fora do git (`.gitignore`). Só o `exemplo.html` é versionado.
+
+## Resumo da manhã no Telegram (`resumo_manha.py`)
+
+Uma mensagem só, às 8h50 dos dias úteis, para ler em 30 segundos no celular. Ela **não refaz nenhum radar**: só lê as saídas que já existem e reaproveita as funções de bloco e o "O que fazer hoje" do `gerar_painel.py` (importa, não copia). Seções, nesta ordem:
+
+1. **🎯 Decidir hoje**, com até 5 itens: o 1º item do "O que fazer hoje" do painel, os cards do Trello esperando aprovação, uma promoção de milhas ⭐ nova, um job com problema, o resto do painel e a ação do termômetro (quando não é "não mexer").
+2. **📋 Trello**: quantos cards há em cada lista de aprovação ("Aprovar X", "Aprovar Instagram" e "Aprovar Blog") e os 3 mais antigos, pela última atividade.
+3. **📡 Radares**:
+   - ✈️ milhas: só os ⭐ e os "novo" do `milhas_relatorio.md`;
+   - 💬 comentários: os 3 temas do card do radar quando ele tem até 24 h. Até 8 dias, mostra "nenhuma pergunta nova";
+   - 🌡️ termômetro: o último veredito do `termometro_2h.py --auto` (log) ou, sem log, os números do `termometro_historico.jsonl`;
+   - 📈 trader: só o resumo, com o rótulo **[SIMULAÇÃO]**.
+4. **⚙️ Jobs**, numa linha: ❌ para quem saiu com código diferente de 0 no `launchctl list`, não está carregado ou não atualizou a saída depois do último horário agendado (mais a tolerância). Os outros ganham ✅. Os jobs `com.denal.*` e `com.denis.*` que não estão na config entram só pelo código de saída.
+
+Fonte faltando ou velha aparece como "sem dado (motivo)" e não quebra a mensagem. Acima de 4096 caracteres (o limite do Telegram, contado em UTF-16, então um emoji vale 2), a mensagem é cortada no fim de uma linha e termina com "✂️ Cortado: ver painel (caminho do HTML do dia)". A mensagem vai em texto puro, sem Markdown: título de card com `_` ou `*` não derruba o envio.
+
+### Instalar no Mac, passo a passo
+
+1. **Atualizar o clone** do IPADTEST na branch deste trabalho e conferir os caminhos marcados com CONFIRMAR em `painel/resumo_manha.json` e em `painel/com.denal.resumo-manha.plist`:
+   - o IPADTEST está em `/Users/denal/IPADTEST`?
+   - o log do termômetro `--auto` (`termometro.log`) e o label dos jobs do radar de comentários e do termômetro. Hoje esses dois estão marcados como `opcional` e não acusam ❌ se o label não existir.
+2. **Credenciais**: só os nomes vão aqui, nunca os valores. Nada de novo para criar: o script procura primeiro no ambiente e depois nos arquivos, na mesma ordem do `notifier.py` do stock-signal-bot.
+
+   | Variável | Para quê | Onde o script procura |
+   |---|---|---|
+   | `TELEGRAM_BOT_TOKEN` | bot que envia | ambiente → `~/.hermes/.env` → `~/.config/investirecocar/credentials.env` → `~/.claude/credentials.env` |
+   | `TELEGRAM_CHAT_ID` (ou `TELEGRAM_HOME_CHANNEL`) | conversa do Denis | idem |
+   | `TRELLO_KEY` (não é `TRELLO_API_KEY`) | leitura das listas | ambiente → `~/.config/investirecocar/credentials.env` |
+   | `TRELLO_TOKEN` | idem | idem |
+   | `RESUMO_CONFIG` (opcional) | caminho da config | só ambiente (o plist já define) |
+
+   Os caminhos do painel vêm do `resumo_manha.json` (seção `painel`). As variáveis `PAINEL_*` continuam valendo para o que ficar `null` lá.
+3. **Testar sem enviar**:
+   ```bash
+   cd ~/IPADTEST/painel
+   python3 resumo_manha.py --dry-run               # imprime a mensagem; lê o Trello (GET) e o launchctl
+   python3 resumo_manha.py --dry-run --sem-trello  # sem nenhuma rede
+   launchctl list | grep -E 'com\.den(al|is)\.'    # o que a linha de Jobs está vendo
+   python3 -m pytest -q tests                      # testes do painel e do resumo, sem rede
+   ```
+   Se o Trello responder `invalid key`, a variável está com o nome errado. Não é credencial revogada.
+4. **Mandar uma vez de verdade**: `python3 resumo_manha.py`. Ele sai com 0 se enviou e com 1 se o envio falhou (a mensagem vai para o log). O ❌ aparece no resumo do dia seguinte.
+5. **Agendar** (exemplo, não instalado):
+   ```bash
+   cp com.denal.resumo-manha.plist ~/Library/LaunchAgents/
+   launchctl load ~/Library/LaunchAgents/com.denal.resumo-manha.plist
+   ```
+   O log fica em `/tmp/resumo-manha.log`, e a própria config usa esse arquivo para saber se o resumo rodou.
+
+### Horários que o resumo espera (`jobs.esperados`)
+
+| Job | Quando | Saída conferida |
+|---|---|---|
+| `com.denis.milhasradar` (Smiles no Chrome) | todo dia 3h | `run.log` |
+| `com.denis.milhasrss` | todo dia 7h40 | `milhas_relatorio.md` |
+| `com.denal.radar-comentarios` (CONFIRMAR o label) | segunda 8h | `/tmp/radar.json` |
+| `com.denal.portfolioreview` | segunda 8h30 | `logs/portfolio.log` |
+| `com.denal.painel` e `com.denal.resumo-manha` | dias úteis 8h50 | HTML do dia / `/tmp/resumo-manha.log` |
+| `com.denal.stocksignal`, `.robusto`, `.wheel-robusto`, `com.denal.wheel`, `com.denal.tanaka-pm` | 9h15, 9h45, 10h, seg 9h30, 11h | `logs/*.log` |
+| `com.denal.trader-novo` | dias úteis **19h10** (tolerância de 90 min) | `swing_v2_resultado.json` |
+
+O pedido fala em trader às 8h40, mas o `com.denal.trader-novo.plist` roda às 19h10. Às 8h50, o resumo usa a rodada da noite anterior. Um job agendado depois das 8h50 é cobrado pela rodada do dia útil anterior. A tolerância padrão é de 30 min (`tolerancia_min`). Um log só muda quando o job imprime algo: se um job ficar ❌ "não rodou" sem motivo, troque a `saida` dele por um arquivo que ele sempre grava.
+
+### Substitui ou convive?
+
+**Convive.** O resumo não desliga nenhum envio, e o `com.denal.painel` (HTML) continua igual. Estes são os alertas que hoje saem separados no Telegram e o que se repete no resumo:
+
+| Alerta de hoje | Repete no resumo? | Sugestão (quem decide é o Denis) |
+|---|---|---|
+| `milhas_radar.py` (7h40): 1 mensagem por post novo relevante | **Sim**: os ⭐ e os "novo" voltam no resumo às 8h50 | Manter o alerta imediato só para ⭐ (promoção acaba rápido) e deixar os 📰 "post novo relevante" só no resumo. Hoje não há opção para isso: precisaria de um ajuste pequeno no `milhas_radar.py`. O `--dry-run` dele **não** serve, porque não grava o `milhas_vistos.json` e o "novo" nunca sairia. |
+| `termometro_2h.py --auto` (de hora em hora), se o Denis ligou a saída dele no bot | **Sim**: o último veredito aparece de novo de manhã | Manter o alerta das 2 h, porque é ele que dá tempo de trocar a thumb. A linha do resumo é só uma lembrança. |
+| `radar_puts_telegram.txt` do trader novo, se algo no Mac envia esse texto | **Em parte**: o resumo traz a contagem de puts aprovadas | Se esse envio existir, dá para desligar e ficar com o resumo e o `placar.html`. |
+| `scanner.py` (`com.denal.stocksignal` 9h15 e `portfolioreview` seg 8h30): "SINAIS IA" pelo `notifier.py` | Não: o resumo lê o trader **novo**, não o scanner antigo | Nada a fazer por causa do resumo. |
+| `pm_run.py` (`com.denal.tanaka-pm`, 11h): "Carteira TANAKA" | Não | Nada a fazer. |
+| `radar.py` (Smiles, 3h) | Não: só o status do job | Nada a fazer. |
+| `ic-health-monitor` (a cada 3 h, só quando algo falha) | Pouco: ele olha Paperclip, sessões, cards **Aprovado** parados, Instagram e WP; o resumo olha os cards **Aprovar** e os jobs do launchd | Convive. |
