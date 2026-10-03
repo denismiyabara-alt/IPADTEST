@@ -1,6 +1,6 @@
 # Notas do roteiro de 06/10/2026: FII ou imóvel alugado
 
-Roteiro: `2026-10-06-fii-ou-imovel-alugado.md` (v1.4, congelado). Briefing e concorrentes em `pautas-canal/briefings/`.
+Roteiro: `2026-10-06-fii-ou-imovel-alugado.md` (v1.6; a v1.4 foi a congelada, ver seções 8 e 9). Briefing e concorrentes em `pautas-canal/briefings/`.
 
 **Limitações (ler antes das notas).** Todos os papéis foram feitos pela mesma sessão da nuvem, em sequência, e não por
 agentes separados. O ouvinte-frio, em especial, **não é uma escuta independente**: quem ouviu já sabia a tese. Os arquivos
@@ -232,3 +232,44 @@ Validações novas para o Denis:
 9. **Segmento residencial:** os 19 fundos residenciais listados têm mediana de 1,93% em 12 meses. Se algum comentário
    perguntar "e fundo de apartamento?", a resposta não é o 6%. Fora da fala; só para o Denis saber.
 10. Rodar um **ouvinte-frio novo** no B4 (três frases novas).
+
+---
+
+## 9. Ouvinte-frio cego (v1.5) e correções v1.6
+
+Ouvinte-frio **cego** (sessão separada, leu só a fala, `scratchpad/fala-0610.txt`): **REPROVOU a v1.5, média 7,5**.
+Bloco "fundo, isenção e mediana" com nota 5 e marcado como ponto de abandono. O mais grave não foi de clareza: ele
+sentiu que o vídeo inteiro empurra pro fundo, e o canal não recomenda. Perguntou: "e a valorização do apartamento?
+Ninguém falou disso." Correções da v1.6 (só a fala e as cartelas; nenhum número fora do briefing):
+
+1. **Empurrão pro fundo.** B0: "No fim da conta, metade de vocês vai querer apagar o comentário." → "Nenhuma das duas
+   respostas está errada. / Errada costuma ser a conta que a gente faz antes de responder." B5 ganhou a valorização,
+   qualitativa, sem número: "E vale o contrário. / Se o apartamento subir de preço nesses anos, essa subida não entrou na
+   conta dos oito mil e cinquenta. / Os oito mil e cinquenta são só a renda. / Valorização é outra conta, e ela vale pros
+   dois lados: o apartamento pode subir ou cair, e a cota também." (o briefing, seção 4, declara que a conta ignora
+   valorização e oscilação da cota). Fecho reescrito: sai "É o apartamento que chega na balança de casaco"; a moral agora
+   é "a comparação estava torta" e "os dois sem casaco". O "sem recomendação nenhuma" do B6 ficou.
+2. **B4 (mediana, patrimônio por cota).** Fala reduzida a: "metade dos fundos que passam nesse corte pagou mais de sete
+   vírgula oito por cento. A outra metade pagou menos. / Nessa conta entram fundos que emprestam dinheiro e vivem de juro,
+   e o juro puxa pra cima. / Por isso eu usei seis, mais baixo, pra não roubar a favor do fundo." Saíram da fala
+   "mediana", "patrimônio... dividido pelas cotas", "Por causa dessa mistura..." e "Ainda assim, tem gente que vendeu o
+   apartamento...". O "sobre o valor patrimonial, não sobre o preço de tela" e a mistura tijolo/crédito foram pra [TELA].
+3. **B1.** A frase longa da comparação vinha antes do casaco: agora os dois seis por cento vêm primeiro e o casaco
+   depois, em duas frases curtas ("Só que o aluguel do anúncio se pesou de casaco e bota. / O rendimento do fundo subiu
+   na balança sem roupa."). O "o fundo sobe na balança todo dia" do B1 (balança com outro sentido) virou "o preço da cota
+   aparece na tela todo dia"; no B5 a troca é dita: "Só que aqui a balança pesa outra coisa: não é a renda, é o preço."
+4. **Vacância** agora chega depois da explicação: "contam pra CVM... quanto de cada imóvel está vazio. / ... / Esse vazio
+   tem nome chique: vacância."
+5. **De onde vem o 7.350** (L3): "Entre cinco mil e sete mil, trezentos e cinquenta, o desconto vai diminuindo. / Acima
+   de sete mil, trezentos e cinquenta, vale a tabela de sempre, com a alíquota cheia."
+6. **Piadas que não pegaram:** "E essa peça tem juba." → "A segunda peça do casaco é a mais pesada: o imposto de renda,
+   o leão."; "Vrau." saiu; "Tanacão" → "Tanaka" (não aparece mais em lugar nenhum).
+7. **MP de 5%** em três frases: governo mandou a MP / "Seriam cinco por cento, a partir deste ano." / "Em outubro, a
+   Câmara derrubou, e a proposta caiu."
+8. **Fecho** em frases curtas: pega o aluguel × onze meses / tira o leão / divide pelo preço de hoje / valorização fora
+   nos dois lados / "Aí sim você põe o apartamento do lado do fundo, os dois sem casaco."
+
+Portão (v1.6): `ELIMINATORIOS: nenhum` · 5/6 (o mesmo FALHA do item 3, conflito da seção 1) · costura: nenhum · CVM
+traduzida na hora. Fala limpa em `scratchpad/fala-0610-v16.txt` (174 linhas, 1.698 palavras, ≈ 11:45).
+Nota de processo: esta passada **cortou** frases (B4 e "Vrau"), contra a regra "conserto só adiciona"; foi pedido
+explícito, porque o resíduo era densidade. **Falta:** novo ouvinte-frio cego na v1.6 antes do Drive.

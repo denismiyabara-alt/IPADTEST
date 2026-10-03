@@ -2,8 +2,8 @@
 titulo: "Apê alugado ou fundo imobiliário: o mesmo aluguel chega R$ 8 mil menor em 2026"   # recomendado pelo empacotador (alternativas nas notas)
 data_publicacao: 2026-10-06 (terça)
 formato: longo, teleprompter
-versao: "v1.5 (revisão independente: justiça da conta e gancho) ← v1.4 congelada (v1.0 → juiz 7/10 → v1.1 → juiz 10/10 → punch-up do juiz-ritmo → ouvinte-frio PASSA → ajuste ao portão score_roteiro.py: 5/6, sem eliminatório)"
-duracao_estimada: "≈11:15 (1.613 palavras faladas: 11:07 a 145 por minuto, 11:57 a 135; com pausas e telas, 11 a 12 min; teto 14:00)"
+versao: "v1.6 (ouvinte-frio cego reprovou a v1.5, média 7,5: balança justa com valorização, B4 simplificado, fecho sem veredito) ← v1.5 (revisão independente: justiça da conta e gancho) ← v1.4 congelada (v1.0 → juiz 7/10 → v1.1 → juiz 10/10 → punch-up do juiz-ritmo → ouvinte-frio PASSA → ajuste ao portão score_roteiro.py: 5/6, sem eliminatório)"
+duracao_estimada: "≈11:45 (1.698 palavras faladas: 11:43 a 145 por minuto, 12:35 a 135; com pausas e telas, 11:30 a 12:30; teto 14:00)"
 briefing: pautas-canal/briefings/2026-10-06-fii-ou-imovel-briefing.md
 concorrentes: pautas-canal/briefings/2026-10-06-fii-ou-imovel-concorrentes.md
 notas_e_juizes: pautas-canal/roteiros/2026-10-06-fii-ou-imovel-alugado-notas.md
@@ -14,9 +14,9 @@ numero_ancorado_trecho: "Oito mil e cinquenta reais de diferença por ano. Mesmo
 loop_trecho: "Oito mil e cinquenta reais por ano."
 agregado_linha_trecho: "No seu apartamento, a vacância só tem dois valores: zero ou cem por cento."
 prova_espectador_trecho: "Fácil, por quantos meses no ano? O corretor não falou. Você completou sozinho: doze."
-analogia_trecho: "é comparar quem se pesou de casaco e bota com quem subiu na balança sem roupa"
+analogia_trecho: "Só que o aluguel do anúncio se pesou de casaco e bota. O rendimento do fundo subiu na balança sem roupa."
 concessao_trecho: "dos duzentos e setenta e dois fundos com imóvel pronto em junho, noventa e sete tinham um imóvel só."
-fecho_trecho: "Antes de dizer que o apê rende mais, Tanaka, você faz a conta do casaco"
+fecho_trecho: "Antes de dizer que o apê rende mais, ou que o fundo rende mais, Tanaka, você faz a conta do casaco."
 ---
 
 # Fundo imobiliário ou imóvel alugado: a conta de 2026
@@ -62,19 +62,13 @@ ou colocava num fundo imobiliário?
 
 Escreve "apê" ou "fundo".
 
-No fim da conta, metade de vocês vai querer apagar o comentário.
+Nenhuma das duas respostas está errada.
+
+Errada costuma ser a conta que a gente faz antes de responder.
 
 [TELA: comente "apê" ou "fundo"]
 
 ## BLOCO 1 - O CASACO (0:50–2:20)
-
-Comparar o aluguel do anúncio com o rendimento de um fundo imobiliário
-
-é comparar quem se pesou de casaco e bota
-
-com quem subiu na balança sem roupa.
-
-[TELA: balança — "aluguel do anúncio: de casaco" | "rendimento do fundo: sem roupa"]
 
 Dois mil por mês, num apartamento de quatrocentos mil.
 
@@ -82,7 +76,13 @@ No ano, dá seis por cento do preço.
 
 E tem fundo imobiliário pagando seis por cento também.
 
-Os dois números parecem iguais. Só um deles já tirou a roupa.
+Os dois números parecem iguais.
+
+Só que o aluguel do anúncio se pesou de casaco e bota.
+
+O rendimento do fundo subiu na balança sem roupa.
+
+[TELA: balança — "aluguel do anúncio: de casaco" | "rendimento do fundo: sem roupa"]
 
 Faz o teste com o anúncio do apartamento.
 
@@ -120,7 +120,7 @@ Não precisa imaginar a cena, Tanaka.
 
 O fundo tem um defeito que o apartamento não tem:
 
-o fundo sobe na balança todo dia, na frente de todo mundo.
+o preço da cota aparece na tela todo dia, na frente de todo mundo.
 
 O casaco do apartamento tem duas peças.
 
@@ -140,9 +140,11 @@ O condomínio e o IPTU, não. Esses saem do seu bolso.
 
 E com que frequência um imóvel fica vazio?
 
-Os fundos imobiliários contam a vacância pra CVM, a xerife do mercado, de três em três meses, imóvel por imóvel.
+Os fundos imobiliários contam pra CVM, a xerife do mercado, quanto de cada imóvel está vazio.
 
-Vacância é o nome chique de imóvel vazio.
+Contam de três em três meses, imóvel por imóvel.
+
+Esse vazio tem nome chique: vacância.
 
 No informe de junho deste ano, os fundos negociados na bolsa listaram dois mil e dezoito imóveis prontos pra alugar.
 
@@ -184,7 +186,7 @@ E olha que eu nem tirei o condomínio do mês vazio.
 
 Vinte e dois mil de aluguel no ano.
 
-A segunda peça do casaco é a mais pesada. E essa peça tem juba.
+A segunda peça do casaco é a mais pesada: o imposto de renda, o leão.
 
 Aí você já está pensando:
 
@@ -193,6 +195,10 @@ Aí você já está pensando:
 Mudou mesmo.
 
 Desde janeiro, quem tem renda tributável de até cinco mil por mês não paga imposto de renda.
+
+Entre cinco mil e sete mil, trezentos e cinquenta, o desconto vai diminuindo.
+
+Acima de sete mil, trezentos e cinquenta, vale a tabela de sempre, com a alíquota cheia.
 
 Só que o leão não olha o aluguel sozinho.
 
@@ -215,8 +221,6 @@ Pra quem não tem salário.
 Então o leão leva vinte e sete e meio por cento dos vinte e dois mil.
 
 São seis mil e cinquenta reais.
-
-Vrau.
 
 Tira os seis mil e cinquenta dos vinte e dois mil.
 
@@ -264,25 +268,17 @@ O leão não some. O leão só não entra em fundo cheio.
 
 [TELA: Lei 14.754/2023 — isenção do rendimento de FII: cotas negociadas em bolsa, 100+ cotistas, cotista com menos de um décimo das cotas. CVM, ago/26: 48 fundos listados abertos ao público geral abaixo desse corte]
 
-E seis por cento não é chute a favor do fundo.
+E de onde saiu o seis por cento do fundo?
 
-Os fundos mandam um informe por mês pra CVM.
+Dos informes que os fundos mandam pra CVM todo mês.
 
-Nos doze meses até agosto, o rendimento mediano dos fundos que passam nesse corte foi de sete vírgula oito por cento.
+Nos doze meses até agosto, metade dos fundos que passam nesse corte pagou mais de sete vírgula oito por cento. A outra metade pagou menos.
 
-Sete vírgula oito sobre o patrimônio do fundo, que é o valor dos imóveis e do caixa dele, dividido pelas cotas. Não sobre o preço da cota na tela.
+Nessa conta entram fundos que emprestam dinheiro e vivem de juro, e o juro puxa pra cima.
 
-Só que essa mediana mistura fundo dono de prédio com fundo que empresta dinheiro pro setor imobiliário.
+Por isso eu usei seis, mais baixo, pra não roubar a favor do fundo.
 
-O fundo que empresta vive de juro, e o juro puxa a mediana pra cima.
-
-Por causa dessa mistura, a conta dá pro fundo seis por cento, e não a mediana.
-
-[TELA: CVM, informe mensal de FII — 12 meses até ago/26, fundos listados que passam no corte: mediana de 7,8% sobre o valor patrimonial (mistura fundos de imóvel e fundos de crédito imobiliário)]
-
-Ainda assim, tem gente que vendeu o apartamento, comprou cota de fundo
-
-e hoje abre a carteira e vê tudo no vermelho.
+[TELA: CVM, informe mensal de FII — 12 meses até ago/26, fundos listados que passam no corte: mediana de 7,8% ao ano sobre o valor patrimonial da cota (valor dos imóveis e do caixa ÷ cotas), não sobre o preço de tela. A mediana mistura fundos de imóvel e fundos de crédito imobiliário; a conta usa 6%]
 
 ## BLOCO 5 - A BALANÇA DE TODO DIA (7:05–8:40)
 
@@ -297,6 +293,8 @@ Você não sobe na balança do banheiro desde a pandemia
 e jura que continua com o mesmo peso.
 
 A calça discorda.
+
+Só que aqui a balança pesa outra coisa: não é a renda, é o preço.
 
 O apartamento é assim.
 
@@ -334,6 +332,14 @@ Só que o seu apartamento também tem ano ruim.
 
 A diferença é que ele não te avisa.
 
+E vale o contrário.
+
+Se o apartamento subir de preço nesses anos, essa subida não entrou na conta dos oito mil e cinquenta.
+
+Os oito mil e cinquenta são só a renda.
+
+Valorização é outra conta, e ela vale pros dois lados: o apartamento pode subir ou cair, e a cota também.
+
 ## BLOCO 6 - O QUE PESA DE CADA LADO (8:40–10:35)
 
 Nenhum dos dois é santo.
@@ -352,9 +358,11 @@ Nenhum gestor cobra taxa de você. No máximo a imobiliária.
 
 E a isenção do fundo é regra de lei, e lei muda.
 
-No ano passado, uma medida provisória propôs cobrar cinco por cento do rendimento dos fundos a partir deste ano.
+No ano passado, o governo mandou uma medida provisória pra cobrar imposto do rendimento dos fundos.
 
-A Câmara derrubou em outubro, e a proposta caiu.
+Seriam cinco por cento, a partir deste ano.
+
+Em outubro, a Câmara derrubou, e a proposta caiu.
 
 [TELA: MP 1.303/2025 — 5% de IR sobre rendimento de FII a partir deste ano; derrubada pela Câmara em 08/10/25]
 
@@ -380,7 +388,7 @@ E quem decide vender o prédio é o gestor, não você.
 
 O fundo tem gestor. O apartamento tem síndico.
 
-Escolhe o seu chefe, Tanacão.
+Escolhe o seu chefe, Tanaka.
 
 E pra quem já tem os dois, o que olhar todo mês:
 
@@ -394,16 +402,22 @@ No fundo, o número de cotistas e a vacância que ele declara à CVM. É públic
 
 Oito mil e cinquenta reais por ano.
 
-Não é o fundo que rende mais por mágica.
+Essa diferença não diz qual dos dois é melhor.
 
-É o apartamento que chega na balança de casaco, viu?
+Diz que a comparação estava torta: um lado se pesou de casaco, o outro sem roupa.
 
-Antes de dizer que o apê rende mais, Tanaka, você faz a conta do casaco:
+Antes de dizer que o apê rende mais, ou que o fundo rende mais, Tanaka, você faz a conta do casaco.
 
-pega o aluguel, multiplica por onze meses, tira o leão, divide pelo preço que alguém pagaria hoje no apartamento,
+Pega o aluguel e multiplica por onze meses, não doze.
 
-e só aí coloca do lado do rendimento do fundo, que já sobe na balança sem roupa.
+Tira o leão.
 
-[TELA: a conta do casaco — (aluguel × 11 − leão) ÷ preço de venda hoje → compare com o rendimento do fundo]
+Divide pelo preço que alguém pagaria hoje no apartamento.
+
+A valorização fica de fora, nos dois lados.
+
+Aí sim você põe o apartamento do lado do fundo, os dois sem casaco.
+
+[TELA: a conta do casaco — (aluguel × 11 − leão) ÷ preço de venda hoje → compare com o rendimento do fundo. Valorização: fora da conta, nos dois lados]
 
 [FIM]
