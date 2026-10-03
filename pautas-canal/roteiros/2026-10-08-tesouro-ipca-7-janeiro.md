@@ -2,7 +2,7 @@
 titulo_trabalho: "Tesouro IPCA+ a 7% em janeiro: quanto ganhou quem comprou"
 data: 2026-10-08
 formato: longo (teleprompter)
-versao: v1.5 (v1.0 escrita → juiz-roteiro 8/10 → v1.1 10/10 → punch-up do juiz-ritmo → conserto do ouvinte-frio → v1.3 revisão independente + score_roteiro.py → v1.4 conserto do ouvinte-frio cego, que reprovou a v1.3 → v1.5 conserto do 2º ouvinte-frio cego, que reprovou a v1.4 → v1.6 conserto do 3º ouvinte-frio cego (7,8; cupom 6))
+versao: v1.5 (v1.0 escrita → juiz-roteiro 8/10 → v1.1 10/10 → punch-up do juiz-ritmo → conserto do ouvinte-frio → v1.3 revisão independente + score_roteiro.py → v1.4 conserto do ouvinte-frio cego, que reprovou a v1.3 → v1.5 conserto do 2º ouvinte-frio cego, que reprovou a v1.4 → v1.6 conserto do 3º ouvinte-frio cego (7,8; cupom 6) → v1.7 conserto do 4º (7,5; cupom 6))
 duracao_estimada: "~10,6 min (≈1.490 palavras de fala sem [TELA], a ~140 por minuto; teto 14)"
 briefing: pautas-canal/briefings/2026-10-08-tesouro-ipca-7-briefing.md
 fonte_unica: "Tesouro Transparente, PrecoTaxaTesouroDireto.csv (data-base 01/10/2026). IR: Lei 11.033/2004."
@@ -31,7 +31,7 @@ Fala, Tanaka.
 
 Dez mil reais no Tesouro IPCA+ 2035, comprados no dia 28 de janeiro.
 
-É o 2035 sem juros no meio do caminho: você só vê o dinheiro no fim.
+Você só vê o dinheiro todo no fim, em 2035.
 
 Naquele dia, o título pagava a inflação mais sete vírgula quarenta e sete por cento ao ano.
 
@@ -176,7 +176,9 @@ A promessa ainda está um pouquinho mais barata do que no dia em que você compr
 
 E se o seu app ainda está vermelho hoje, você comprou noutro dia, com outra taxa.
 
-A conta é a mesma: se a taxa de hoje é maior que a que você travou, a FIPE do seu título está abaixo do que você pagou.
+A conta é a mesma.
+
+Se a taxa de hoje é maior que a que você travou, a FIPE do seu título está abaixo do que você pagou.
 
 E mesmo assim o extrato continua duzentos e oitenta reais atrás do Selic.
 
@@ -192,7 +194,7 @@ Se você comprasse os dez mil às dez da manhã de 28 de janeiro e vendesse um m
 
 [pausa de 1 segundo]
 
-Você já sabe, porque você já comprou carro.
+Quem já vendeu um carro usado sabe.
 
 Voltavam nove mil, oitocentos e noventa e quatro.
 
@@ -240,19 +242,19 @@ E uns noventa são do juro do Selic, que pagou mais no caminho.
 
 Só que em janeiro nem todo mundo queria esperar até 2035 pra ver dinheiro.
 
-Quem queria renda no caminho comprou o outro 2035: o que paga juros no meio do caminho.
+Quem queria renda comprou o outro 2035, o que tem "juros semestrais" no nome, lá no app.
 
 ## BLOCO 4 - O OUTRO 2035 (7:00–7:50)
 
-Esse outro 2035 deposita juros na sua conta a cada seis meses.
-
-Como saber qual é o seu? No app, esse aparece com "juros semestrais" no nome. Se o seu não tem isso no nome, você está no primeiro.
+Ele deposita juros na sua conta a cada seis meses.
 
 Em maio, caiu uns trezentos e trinta reais na conta de quem pôs dez mil em janeiro.
 
 [TELA: Tesouro IPCA+ c/ Juros Semestrais 2035 · 28/01/2026 · IPCA + 7,53% (taxa de compra, manhã) · cupom: 6% ao ano, pago em duas parcelas → (1,06)^0,5 − 1 = 2,9563% por semestre sobre o VNA · VNA 15/05/2026 ≈ R$ 4.704,56 → cupom ≈ R$ 139,08 por título · R$ 10.000 ÷ R$ 4.213,62 = 2,3733 títulos × R$ 139,08 ≈ R$ 330 bruto · regra: Tesouro Direto · VNA estimado pelo CSV do Tesouro Transparente]
 
-Somando esse depósito com o preço de hoje, ficou em dez mil, setecentos e quarenta e quatro: ainda atrás do Selic.
+Somando esse depósito com o preço de hoje, deu dez mil, setecentos e quarenta e quatro.
+
+Também atrás do Selic.
 
 [TELA: Tesouro IPCA+ c/ Juros Semestrais 2035 · PU compra 28/01: R$ 4.213,62 · PU venda 01/10: R$ 4.388,12 + cupom ≈ R$ 139,08 · R$ 10.744 · Tesouro Selic no mesmo período: R$ 10.942]
 
@@ -260,7 +262,9 @@ Somando esse depósito com o preço de hoje, ficou em dez mil, setecentos e quar
 
 Não caiu.
 
-No dia do depósito, o preço do título cai mais ou menos do mesmo tamanho.
+É como sacar do próprio cofrinho: o dinheiro sai de dentro do título e vai pra sua conta.
+
+Por isso, no dia do depósito, o preço do título cai quase o mesmo tanto.
 
 Esse dinheiro não é a mais: é o mesmo bolo, trocando de bolso.
 
@@ -286,7 +290,9 @@ Pra quem pensa em vender: nesses oito meses o Selic pagou mais.
 
 E quem vai precisar do dinheiro em um ou dois anos está com um título longo demais na mão.
 
-O outro lado: quem vende hoje troca uma taxa travada até 2035 por um juro que o Banco Central pode mudar a cada reunião.
+O outro lado: quem vende hoje abre mão de uma taxa travada até 2035.
+
+E troca por um juro que o Banco Central pode mudar a cada reunião.
 
 E paga duas vezes na saída: o imposto sobre o ganho e o pedágio da recompra.
 
@@ -306,7 +312,9 @@ Duzentos e oitenta reais.
 
 Pra quem vende hoje, essa diferença é dinheiro de verdade.
 
-Pra quem fica até 2035, a maior parte dela é a FIPE de um carro que não está à venda.
+Pra quem fica até 2035, quase cento e noventa desses duzentos e oitenta são FIPE e pedágio.
+
+Só existem se você vender o carro.
 
 Então, antes de abrir o app do Tesouro, faz a pergunta da revenda, Tanaka.
 
@@ -652,4 +660,15 @@ Correções (só fala; nenhum número novo — "uns noventa" é o ~R$ 94 da seç
 - Bloco do outro 2035: "Como saber qual é o seu? No app, esse aparece com 'juros semestrais' no nome."
 - "Tanaka" sem apresentação incomodou quem não conhece o canal: mantido (personagem fixo do canal; decisão do Denis).
 score_roteiro.py v1.6: sem eliminatório, sem costura, 5/6 (item 9 conta números de [TELA], limite já aceito).
+
+### 4º ouvinte-frio cego (v1.6, persona motorista de aplicativo) e correções v1.7
+
+Média 7,5, REPROVA (de novo o bloco do outro 2035 com 6; o "porquê" do preço cair no depósito não entrou). Conta central recontada certa; sem empurrão.
+Correções (nenhum número novo; "quase cento e noventa" = ~R$ 108 + ~R$ 77 da seção 2a do briefing):
+- Gancho: saiu "o 2035 sem juros no meio do caminho" (anunciava um título que só aparece no B4).
+- Bloco do outro 2035 enxuto: identificação no app numa frase; o porquê do preço cair vira imagem ("sacar do próprio cofrinho").
+- "Você já sabe, porque você já comprou carro" → "Quem já vendeu um carro usado sabe."
+- Frases longas (app vermelho hoje; quem vende hoje) quebradas em duas.
+- Fecho: "a maior parte é FIPE" (o juro do Selic não é FIPE) → "quase cento e noventa desses duzentos e oitenta são FIPE e pedágio. Só existem se você vender o carro."
+Nota: 4 ouvintes cegos com personas diferentes ficaram entre 7,4 e 7,8, sempre com a conta central recontada certa e sem empurrão; o bloco do outro 2035 é o ponto fraco recorrente. Se o Denis quiser, dá pra tirar esse bloco da fala e deixá-lo só no comentário fixado (decisão dele, porque o vídeo de janeiro mostrou os dois 2035).
 
