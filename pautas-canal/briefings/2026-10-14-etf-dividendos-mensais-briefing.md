@@ -2,14 +2,15 @@
 tema: "ETF que paga dividendos mensais: a renda saiu da cota?" (título PROVISÓRIO; ainda passa pelo empacotador e pelo teste A/B)
 serie: Série Renda Mensal, Ep. 1 de 6
 formato: long (11-13 min; com os blocos A, de opções, e B, de taxa, absorvidos em 03/10)
-data_briefing: 2026-10-03
+data_briefing: 2026-10-03 (revisto no mesmo dia com a conferência do Mac, 2026-10-14-CONFERENCIA.md)
 data_publicacao: 2026-10-14 (quarta, 19h)
-janela_validade: os preços são de 01/10/2026; se gravar depois de 09/10, refazer IPCA, CDI e cotas (seção 4)
+janela_validade: os preços são de 01/10/2026; se gravar depois de 09/10, refazer o retorno real com o IPCA de setembro (seção 5)
 dado_valor_em: 15 s (gancho A)
-status: GO condicional. A conta central fecha só depois de conferir os rendimentos do DIVD11 e o IR da distribuição (A CONFERIR 1, 2 e 10); o bloco A fecha só com os rendimentos do SPYI11 (A CONFERIR 11)
+status: GO, COM AJUSTES (seção 13). A conta central e o bloco A fecharam em fonte primária. O Denis valida as frases de imposto, a do BDR e a descrição do SPYI11
 frame: REVELAÇÃO / educativo (método). Nada de COMPARAÇÃO "qual é melhor", nada de "vale a pena"
-tickers: DIVD11, DIVO11 (caso de estudo central); SPYI11 (caso de estudo do bloco A, opções); ETHY11, JEPI39 (exemplos de 1 frase). Nenhum é recomendado
+tickers: DIVD11, DIVO11 (caso de estudo central); SPYI11 (caso de estudo do bloco A); ETHY11, JEPI39 (exemplos de 1 frase). Nenhum é recomendado
 concorrentes: 2026-10-14-etf-dividendos-mensais-concorrentes.md
+conferencia: 2026-10-14-CONFERENCIA.md (Mac, 03/10/2026; fonte de toda linha "R" em DADOS CONFERIDOS)
 puxa: Fb0l4KEq27o (637 inscritos); IB1mBcF00jc (JEPI39, card no bloco A); c9Obo6F5_NU
 corte: Short de 25/11 "Taxa de administração do ETF: quanto tira em 10 anos" sai do bloco B (T17)
 ---
@@ -17,23 +18,27 @@ corte: Short de 25/11 "Taxa de administração do ETF: quanto tira em 10 anos" s
 # BRIEFING: ETF que paga todo mês. A renda saiu da cota?
 
 > Para o roteirista (`roteirista-tanaka`). Frame **REVELAÇÃO + MÉTODO**. Eixo: *toda renda de ETF sai da cota; isso não é
-> golpe nem defeito. A pergunta é quanto sobra quando você soma a renda de volta, tira o imposto e compara com o CDI e o
-> IPCA do mesmo período.* O caso de estudo é um **par de gêmeos da B3**: mesmo índice, um distribui e o outro reinveste.
-> Desde 03/10 o vídeo tem **dois blocos a mais**, absorvidos de longos que saíram do calendário: **A, opções cobertas**
-> (de onde vem a renda do SPYI11) e **B, taxa** (quanto a taxa tira em 10 anos). Os dois servem à mesma conta: a
-> renda vem de algum lugar (A) e a caixa tem mais de uma saída (B).
+> golpe nem defeito. Olhar só a cota engana; a conta certa soma a renda de volta, tira o imposto e compara com o CDI e o
+> IPCA do mesmo período.* O caso de estudo é um **par de gêmeos da B3**: mesmo índice (IDIV), um distribui e o outro
+> reinveste.
+> Dois blocos a mais, absorvidos em 03/10 de longos que saíram do calendário: **A, opções cobertas** (de onde vem a renda
+> do SPYI11) e **B, taxa** (quanto a taxa tira em 10 anos).
 
-> ⚠️ **LER ANTES DE ESCREVER:**
-> 1. **Nenhum ETF é recomendado.** Ticker aparece como caso de estudo, com o critério do que olhar. Nada de "eu montaria",
->    "vale a pena", "o melhor" (`feedback_assessor_nao_pode_recomendar_alocacao`).
-> 2. **Nada de corretora**, e nada da marca da gestora: DIVD11, DIVO11 e NDIV11 são de gestoras de grupos que têm
->    corretora. Usar só o ticker (`feedback_nao_citar_corretora_concorrente`).
-> 3. **Imposto é o ponto mais arriscado do vídeo.** Nenhuma alíquota entra no roteiro sem estar na tabela DADOS CONFERIDOS.
->    Hoje **nenhuma regra de imposto de ETF ou BDR está conferida em fonte primária** (planalto, Receita e B3 estão
->    bloqueados nesta rede). Ver A CONFERIR 1 a 7. Se não for conferida até a gravação, o roteiro diz **onde ler**
->    (regulamento, lâmina, aviso de rendimentos) e não diz o número.
-> 4. **Não reaproveitar texto de imposto do blog do canal.** Os posts 4816, 4537 e 4544 se contradizem sobre o dividendo de
->    BDR (isento × carnê-leão × "15% via DARF"). O post 4816 cai no bloqueio `IR_BDR_DIVIDENDO_ISENTO` do `gate_qualidade.py`.
+> ⚠️ **O QUE A CONFERÊNCIA MUDOU (ler antes de escrever):**
+> 1. **A tese do gêmeo virou "parece, mas não é".** Só na cota, o distribuidor ficou 9,26 pontos atrás. Somando a renda, ficou
+>    **0,74 ponto** atrás. "R$ 9.260 de diferença" **sem** o "somando de volta" engana. O vídeo não pode deixar esse número
+>    sozinho em lugar nenhum: gancho, thumbnail e Short incluídos.
+> 2. **O imposto mensal existe, mas em 12 meses quase não pesou**: na mesma régua (os dois vendidos no fim), dá 20,12% contra
+>    20,75%. Não dizer "o que custa é o imposto mensal".
+> 3. **A taxa do par é igual** (0,50% ao ano nas duas lâminas). A taxa **não** explica a diferença do par; o bloco B vira
+>    lição geral.
+> 4. **No SPYI11, quem vende as opções é o ETF americano** em que ele investe 95% ou mais, e não o fundo brasileiro.
+> 5. **Dividendo de BDR: nenhuma alíquota no vídeo.** Só "não é isento; siga o informe da instituição depositária".
+
+> **Regras que continuam:** número firme só de DADOS CONFERIDOS; nenhum ETF recomendado; ETF só pelo código, sem marca da
+> gestora e sem corretora (`feedback_nao_citar_corretora_concorrente`, `feedback_assessor_nao_pode_recomendar_alocacao`);
+> não reaproveitar texto de imposto do blog (posts 3172, 4537, 4544 e 4816; a conferência, seção 6, mostra o que está errado
+> em cada um).
 
 ---
 
@@ -42,24 +47,31 @@ corte: Short de 25/11 "Taxa de administração do ETF: quanto tira em 10 anos" s
 ```
 Evento central: nenhum (tema evergreen de método); o dado novo é o par DIVD11 × DIVO11 em 12 meses
 Janela de preço: fechamento de 01/10/2025 → fechamento de 01/10/2026 (B3, COTAHIST)
+Janela de renda: eventos com data-base (último dia "com") de 02/10/2025 a 01/10/2026 (fnet)
 Régua: CDI acumulado na mesma janela (BCB SGS 12) e IPCA de 12 meses até ago/2026 (BCB SGS 13522)
 Publicação: 14/10/2026 (quarta)
-Risco de prazo: o IPCA de set/2026 sai por volta de 09/10 (conferir no calendário do IBGE)
-Status: DENTRO DA JANELA ✅ (com a ressalva do IPCA)
+Risco de prazo: o IPCA de set/2026 sai por volta de 09/10 (ainda não saiu em 03/10)
+Status: DENTRO DA JANELA ✅
 ```
 
-**Orientação de timing:** dizer sempre "nos 12 meses até 1º de outubro". Se gravar depois de 09/10, trocar o IPCA pelo de
-setembro e manter a janela de preço (não precisa mover: a janela é fechada e datada).
+**Orientação de timing:** dizer "nos 12 meses até 1º de outubro". Se gravar depois de 09/10, trocar só o IPCA (as colunas
+"real"); a janela de preço e de renda fica.
+
+**Convenção de arredondamento (para nenhum número mudar de valor entre blocos):** os valores em R$ sobre R$ 100 mil saem
+das porcentagens com 2 casas: cota do DIVD11 R$ 115.150, renda bruta R$ 8.520, total R$ 123.670, DIVO11 R$ 124.410,
+diferenças de R$ 9.260 e R$ 740. A conferência, calculando a partir das cotas, chega a R$ 115.145 e R$ 8.524; a diferença
+é de R$ 4 a R$ 5, só de arredondamento. **O roteiro usa a convenção das porcentagens, sempre.**
 
 ---
 
 ## 2. Tese (uma frase)
 
-**Todo ETF que paga renda paga com a própria cota, e o par de gêmeos da B3 prova isso. O que separa renda de devolução
-não é o yield; é a conta de três linhas: quanto pagou, quanto a cota andou e quanto ficou acima do CDI e do IPCA, depois
-do imposto.**
+**Todo ETF que paga renda paga com a própria cota. Olhando só a cota, o gêmeo que distribui parece ter perdido R$ 9 mil;
+somando a renda, perdeu R$ 740. A conta que separa renda de devolução é o extrato de três linhas: quanto pagou, quanto a
+cota andou e quanto ficou acima do CDI e do IPCA, depois do imposto.**
 
-O que o Tanaka leva: a conta, a planilha de 4 colunas para refazer com qualquer ETF e o nome da ferramenta (seção 10).
+E o mesmo extrato, aplicado a um ETF que paga quase 1% ao mês (SPYI11), mostra o outro lado: a renda alta veio com a cota
+parada, e o total ficou **abaixo do CDI**.
 
 ---
 
@@ -71,7 +83,8 @@ O que o Tanaka leva: a conta, a planilha de 4 colunas para refazer com qualquer 
 retorno total = (cota no fim − cota no começo + rendimentos recebidos) ÷ cota no começo
 ```
 
-- **Rendimento distribuído** = a soma do que caiu na conta no período (bruto e líquido de IR, as duas colunas).
+- **Rendimento distribuído** = a soma do que caiu na conta no período (bruto e líquido de IR, as duas colunas), sem
+  reinvestir.
 - **Variação da cota** = (cota no fim ÷ cota no começo) − 1.
 - **Retorno total** = as duas coisas somadas. É **esse** número que se compara com o CDI e com o IPCA. Bruto com bruto,
   líquido com líquido (`feedback_mesma_regua_nos_dois_lados`).
@@ -84,17 +97,19 @@ retorno total = (cota no fim − cota no começo + rendimentos recebidos) ÷ cot
 | rendimento: R$ 1,00 por mês × 12 | R$ 12 |
 | cota no fim | R$ 92 |
 | retorno total | (92 − 100 + 12) ÷ 100 = **4%** em 12 meses |
-| IPCA de 12 meses até ago/2026 | 4,22% (conferido, seção 4) |
+| IPCA de 12 meses até ago/2026 | 4,22% (C15) |
 | retorno real | 1,04 ÷ 1,0422 − 1 = **−0,21%** |
-| CDI na mesma janela | 14,47% (conferido) |
+| CDI na mesma janela | 14,47% (C14) |
 
-Leitura: a "renda de 12%" foi, na prática, a cota voltando para o bolso. Contra a inflação, empatou para baixo; contra o
-CDI, perdeu 10 pontos.
+Leitura: neste exemplo, a "renda de 12%" foi a cota voltando para o bolso. Serve para ensinar a fórmula; o caso real
+(3.3) dá outro resultado, e é isso que segura o vídeo.
 
-### 3.3 O caso real: o par de gêmeos (fonte primária: B3)
+### 3.3 O caso real: o par de gêmeos (fonte primária: B3, fnet, regulamentos)
 
-Segundo a busca, os dois ETFs acompanham o mesmo índice de dividendos da B3 (IDIV); **conferir no regulamento** (A
-CONFERIR 8). Um distribui todo mês, o outro reinveste.
+Os dois acompanham o **IDIV**, índice de dividendos da B3. O DIVD11 **distribui** todo mês (até o 10º dia útil do mês
+seguinte); o DIVO11 **reinveste** (R1). Taxa total máxima de **0,50% ao ano nos dois** (R3).
+
+**Passo 1, só a cota (o que o gráfico mostra):**
 
 | fechamento B3 | 01/10/2025 | 01/10/2026 | variação da cota | R$ 100 mil viraram (só cota) |
 |---|---|---|---|---|
@@ -102,59 +117,93 @@ CONFERIR 8). Um distribui todo mês, o outro reinveste.
 | DIVD11 (distribui) | R$ 55,86 | R$ 64,32 | **+15,15%** | R$ 115.150 |
 | diferença | | | **9,26 pontos** | **R$ 9.260** |
 
-**A pergunta "a renda saiu da cota?" tem resposta com dado da B3: sim.** A diferença de 9,26 pontos é, em grande parte,
-o dinheiro que o DIVD11 mandou para a conta do cotista. Até aqui não há vilão.
+**Passo 2, somando a renda de volta (o que o extrato não mostra):** o DIVD11 pagou **R$ 4,7614 por cota em 12 eventos**,
+ou 8,52% da cota de R$ 55,86 (R4).
 
-**A linha que fecha o vídeo (falta um número, A CONFERIR 10):**
+| 01/10/2025 → 01/10/2026 | cota | renda | retorno total | contra o DIVO11 (+24,41%) | contra o CDI (14,47%) | real (IPCA 4,22%) |
+|---|---|---|---|---|---|---|
+| DIVD11 bruto | +15,15% | +8,52% | **+23,67%** | **−0,74 ponto** | +9,20 pontos | +18,66% |
+| DIVD11 líquido (15% na fonte) | +15,15% | +7,25% | **+22,39%** | −2,02 pontos | +7,92 pontos | +17,43% |
+| DIVO11 (sem vender) | +24,41% | 0 | +24,41% | — | +9,94 pontos | +19,37% |
 
-```
-retorno total do DIVD11 = 15,15% + (soma dos rendimentos de 02/10/2025 a 01/10/2026 ÷ R$ 55,86)
-líquido               = 15,15% + (rendimentos × (1 − alíquota da distribuição) ÷ R$ 55,86)      ← alíquota: A CONFERIR 1 e 2
-```
+Em R$ 100 mil: cota de R$ 115.150 + renda bruta de R$ 8.520 = **R$ 123.670**, contra **R$ 124.410** do DIVO11.
+**Dos 9,26 pontos de diferença na cota, 8,52 voltaram como renda. A diferença de verdade é de 0,74 ponto: R$ 740.**
 
-Comparar com: DIVO11 (+24,41%, que ainda paga 15% de IR só quando vender, se a regra do ganho de capital for confirmada,
-A CONFERIR 6), CDI (14,47%) e IPCA (4,22%).
+**Resposta ao título:** sim, a renda saiu da cota, e voltou quase inteira para o bolso. Quem olhou só a cota achou que
+perdeu R$ 9 mil.
 
-**Os três finais possíveis (o roteiro escreve o que a conta der, nenhum outro):**
-- (a) bruto ≈ gêmeo e líquido abaixo: "a renda não sumiu; o que custa é o imposto cobrado todo mês, em vez de no fim";
-- (b) bruto abaixo do gêmeo além do que a taxa explica: investigar (diferença de taxa, de caixa parado ou de data-ex);
-- (c) bruto acima do gêmeo: dizer isso e cortar a tese de "custo". O vídeo continua de pé, porque o método é o produto.
+**Passo 3, o imposto na mesma régua (R5, R6):** o DIVD11 tem 15% retidos na fonte em cada distribuição; o DIVO11 só paga
+15% quando a cota é vendida (sem a isenção de R$ 20 mil). Comparar o líquido do DIVD11 com o DIVO11 **sem vender** mistura
+régua. Com os dois vendidos em 01/10/2026:
+- DIVO11: 24,41% × 0,85 = **20,75%**;
+- DIVD11: 15,15% × 0,85 + 7,25% = **20,12%**;
+- diferença: **0,63 ponto**, praticamente a mesma do bruto.
 
-> ⚠️ Não fechar o roteiro antes de ter o número. É o furo que o juiz pega como "número inventado" (eliminatório).
+**Frase certa sobre o imposto:** "o imposto do distribuidor vem todo mês, em vez de vir no fim; em um ano, isso quase
+empatou." O efeito existe (o imposto antecipado deixa de render dentro do fundo, e isso cresce com os anos), mas **não foi
+medido** para prazos longos. **Proibido:** "o que custa é o imposto mensal".
+
+**De onde vêm os 0,74 ponto:**
+- **Não é a taxa:** é a mesma nos dois (R3).
+- Explicações compatíveis com os documentos, **sem medir quanto cada uma pesa**: a renda do DIVD11 foi somada sem
+  reinvestir, enquanto o DIVO11 capitaliza no ano; o DIVD11 segura o dinheiro entre receber o dividendo e pagar; e a
+  aderência de cada um ao IDIV pode ser diferente.
+- No roteiro: "a diferença de verdade foi de menos de 1 ponto em 12 meses". **Não atribuir a nenhuma causa.**
+
+**A renda não é constante (R4):** de R$ 0,03 (nov/2025) a R$ 1,63 (jan/2026) por cota; janeiro sozinho foi 34% do ano.
+"Paga todo mês" não quer dizer "paga o mesmo todo mês". Serve para a objeção da seção 11.
 
 ### 3.4 Bloco A. Opções cobertas: de onde vem a renda (absorvido do antigo longo de 20/10)
 
-- **Mecânica em linguagem simples:** o fundo vende a alguém o direito de comprar a carteira acima de um preço e recebe um
-  prêmio por isso. O prêmio é a renda; o preço é abrir mão da alta acima daquele ponto. Se a carteira cai, a queda vem
-  inteira. Resumo para a tela: **renda alta, alta limitada, queda inteira.**
-- **A comparação (sem "qual é melhor"):** no DIVD11, a renda vem dos dividendos das empresas da carteira; no SPYI11
-  (segundo a busca, ações do S&P 500 com venda de opções de compra; conferir no regulamento, A CONFERIR 21), vem
-  principalmente do prêmio. Onde ler: regulamento (política de investimento) e lâmina.
-- **O número:** cota do SPYI11 na B3 de **R$ 111,15 para R$ 109,60 (−1,39%)** de 01/10/2025 a 01/10/2026 (C3,
-  conferido). Com os rendimentos da mesma janela (A CONFERIR 11), fazer na tela o **extrato de três linhas do SPYI11**.
-  Atenção: a cota em reais carrega o dólar. Separar o câmbio (A CONFERIR 22) ou dizer, na fala, que a cota em reais
-  mistura índice e dólar.
-- **Régua extrema (10 segundos, opcional; é a primeira coisa que sai se o tempo apertar):** ETHY11, vendido com "30% de
-  yield" nos títulos dos concorrentes: cota de **R$ 101,46 na estreia (16/12/2025) → R$ 64,99 (−35,95%)** em
-  01/10/2026 (C9). Não explicar o produto (é cripto): só o par "yield de 30%, cota de −36%".
-- **Proibido no bloco:** dizer qual é melhor, prever a cota, dizer que o prêmio de 1% ao mês "se mantém". O prêmio muda
-  com a volatilidade do mercado (frase conceitual, sem número).
-- Card para `IB1mBcF00jc` (JEPI39, a mesma estratégia em BDR).
+- **Mecânica, com a correção da conferência (R8):** o SPYI11 põe **95% ou mais** do patrimônio em cotas de **um ETF
+  americano (o SPYI)**. É esse ETF de lá que tem ações do S&P 500 e **vende opções de compra** fora do dinheiro, renovadas
+  todo mês: vende a alguém o direito de comprar acima de um preço e recebe um prêmio. O prêmio é a renda; o preço é abrir
+  mão da alta acima daquele ponto. Se a carteira cai, a queda vem inteira. Na tela: **renda alta, alta limitada, queda
+  inteira.** O fundo brasileiro **não** vende opção (só pode usar derivativo para hedge). **O Denis valida esta descrição.**
+- **A comparação, sem "qual é melhor":** no DIVD11, a renda vem dos dividendos das empresas; no SPYI11, vem principalmente
+  do prêmio que o ETF de lá recebe. Onde ler: regulamento (política de investimento).
+- **O extrato de três linhas do SPYI11 (R7, R9):**
+
+| linha | bruto | líquido de 15% |
+|---|---|---|
+| 1. quanto pagou | R$ 13,08 por cota em 12 eventos, crédito **em reais** = **11,76%** da cota de R$ 111,15 (cerca de 0,98% ao mês) | R$ 11,11 = **10,00%** |
+| 2. quanto a cota andou | **−1,39%** (R$ 111,15 → R$ 109,60) | idem |
+| 3. retorno total | **+10,37%** | **+8,61%** |
+| contra o CDI (14,47%) | **−4,10 pontos** (R$ 4.100 em R$ 100 mil) | −5,86 pontos |
+| real (IPCA 4,22%) | +5,90% | +4,21% |
+
+- **Câmbio (R10):** a PTAX caiu 2,12% na janela (R$ 5,3208 → R$ 5,2079). Sem o dólar, a cota ficou perto de zero
+  (+0,74% em dólar; a PTAX é das 13h e o fechamento da B3 é às 18h, então a separação é aproximada). Frase segura: "pagou
+  quase 1% ao mês, a cota ficou parada e, somando tudo, ficou abaixo do CDI do mesmo período."
+- **Imposto (R5):** a mesma regra de 15% na distribuição vale para o SPYI11 (a Lei não separa ETF por onde investe; os
+  avisos dizem "isento: Não"). Ressalva: o regulamento do SPYI11 não fala de tributação.
+- **Régua extrema (10 segundos, opcional; é a primeira coisa que sai se o tempo apertar):** ETHY11, cota de **R$ 101,46 no
+  1º pregão (16/12/2025) → R$ 64,99 (−35,95%)** em 01/10/2026 (C9). A "promessa de 30%" **não** foi conferida (item 15):
+  sem ela, dizer só "um ETF vendido como de renda alta" e a cota.
+- **Proibido no bloco:** dizer qual é melhor, prever a cota, dizer que a renda de quase 1% ao mês "se mantém". O prêmio
+  muda com o mercado (frase conceitual, sem número).
+- Card para `IB1mBcF00jc` (JEPI39, a mesma família de estratégia, em BDR).
 
 ### 3.5 Três coisas que pagam todo mês e não são a mesma coisa (tabela curta; o imposto detalhado é do longo de 27/10, "ETF de dividendos mensais ou FII: imposto e renda de cada um")
 
 | | ETF da B3 que distribui | BDR de ETF americano | FII |
 |---|---|---|---|
-| exemplo de estudo | DIVD11, SPYI11 | JEPI39 (negocia desde 23/02/2026). **O JEPQ39 não existe na B3**: nenhum negócio no COTAHIST até 01/10/2026 (o post 4537 do blog já corrige isso) | o vídeo não cita ticker |
-| de onde vem a renda | dividendos da carteira ou prêmio de opções, repassados pelo fundo | dividendo pago pelo ETF lá fora, convertido e repassado pela instituição depositária | aluguel ou juros do fundo |
-| imposto da renda | **A CONFERIR 1 a 3** | **A CONFERIR 4** (pela busca, tabela progressiva e carnê-leão; não dizer até conferir) | isento só com 100 cotistas ou mais (Lei 14.754/2023, regra que a série já conferiu; reconferir o link, A CONFERIR 7) |
+| exemplo de estudo | DIVD11, SPYI11 | JEPI39 (negocia desde 23/02/2026). **O JEPQ39 não existe na B3**: nenhum negócio no COTAHIST até 01/10/2026 (reconferir na semana da gravação, item 17) | o vídeo não cita ticker |
+| de onde vem a renda | dividendos da carteira ou prêmio de opções (no SPYI11, recebido pelo ETF americano), repassados pelo fundo | dividendo pago pelo ETF lá fora, convertido e repassado pela instituição depositária | aluguel ou juros do fundo |
+| imposto da renda | **15% retido na fonte**, definitivo para pessoa física (R5) | **não é isento; siga o informe da instituição depositária** (R12). Nenhuma alíquota, nem "carnê-leão", nem "15%" | **isento** para pessoa física se o fundo tiver 100 cotistas ou mais e o cotista tiver menos de 10% das cotas (R13) |
+| imposto na venda | 15% sobre o ganho, sem a isenção de R$ 20 mil (R6) | 15% sobre o ganho (R12) | fora do Ep. 1 (é do 27/10) |
 | onde ler | regulamento, lâmina e aviso de rendimentos | informe de rendimentos e prospecto do BDR | regulamento e relatório gerencial |
 
+Não dizer **quem** retém o IR do ETF ("a corretora", "a gestora"): a Lei não nomeia e o aviso não diz (R5). Dizer "retido
+na fonte".
+
 ETF de renda fixa com distribuição (AREA11 e afins) e ETF de FII ficam **fora** do Ep. 1. Uma frase: "ETF de renda fixa
-tem outra regra de imposto, e fica para outro dia."
+tem outra regra de imposto, e fica para outro dia." (A regra está conferida em R14, se alguém perguntar.)
 
 ### 3.6 Bloco B. Quanto a taxa tira da renda (absorvido do antigo longo de 17/11)
 
+- **O que mudou:** a taxa do par é igual (0,50% ao ano, R3). O bloco B **não** explica a diferença dos gêmeos; vira lição
+  geral: *quando dois ETFs têm taxas diferentes, isto é o que pesa em 10 anos.*
 - **A conta de 10 anos, só a taxa, sem rendimento (escrever "exemplo" na tela):**
 
 | taxa ao ano | o que sobra em 10 anos | o que a taxa tirou | em R$ 100 mil |
@@ -162,19 +211,22 @@ tem outra regra de imposto, e fica para outro dia."
 | 0,5% | 0,995¹⁰ = 95,11% | **4,89%** | **R$ 4.889** |
 | 1,5% | 0,985¹⁰ = 85,97% | **14,03%** | **R$ 14.027** |
 
-  (conta própria, C20). Na fala, arredondar para "cerca de R$ 4,9 mil contra R$ 14 mil".
+  (conta própria, C20). Na fala, "cerca de R$ 4,9 mil contra R$ 14 mil".
 - **Responde a pergunta dos comentários** "Essa taxa de 1,50 do S&P 500 é bem alta, né?" (`Y4WHQiKcv1g`;
-  `PERGUNTAS-SEM-RESPOSTA.md`, item 15) com a conta, sem dizer qual ETF escolher.
-- **Liga com a conta central:** a taxa é uma das explicações para a diferença entre o DIVD11 e o DIVO11 no final (b) da
-  3.3. Só dizer quanto ela explica depois de ter a taxa de cada um nas lâminas (A CONFERIR 9).
-- **Onde ler:** lâmina do ETF, "taxa de administração" e "taxa total" (as duas podem ser diferentes). **Taxa de ETF real
-  só com lâmina conferida** (A CONFERIR 9 e 23); até lá, as taxas do bloco são as do exemplo (0,5% e 1,5%).
-- Analogia: a taxa é o **furo no fundo da caixa**: sai todo dia, haja renda ou não. O imposto fica na torneira (camada 4).
-- O Short de 25/11 ("Taxa de administração do ETF: quanto tira em 10 anos") é o corte deste bloco (T17).
+  `PERGUNTAS-SEM-RESPOSTA.md`, item 15). O "1,50" do comentário bate com a **Taxa Máxima de 1,51% ao ano do SPYI11**, que
+  soma a taxa do fundo daqui e a do ETF americano em que ele investe (R11). Pode entrar como "taxa máxima de 1,51% no
+  regulamento, contando a do fundo lá fora", sem dizer se é cara para ele ou não.
+- **Onde ler (R3, R11):** "na lâmina, procure a **taxa total máxima**; no ETF que compra fundo lá fora, veja no regulamento
+  se ela soma a taxa do fundo de fora." A licença do índice e outras despesas ficam fora dessa taxa (são encargos à parte).
+  **O Denis valida a frase.**
+- Analogia: a taxa é o **furo no fundo da caixa**: sai todo dia, haja renda ou não. O imposto fica na torneira.
+- O Short de 25/11 é o corte deste bloco (T17).
 
 ---
 
 ## 4. DADOS CONFERIDOS (só fonte primária)
+
+### 4.1 Preços, régua e dados do canal (conferidos por mim, 03/10/2026)
 
 | # | dado | valor | fonte primária | data |
 |---|---|---|---|---|
@@ -196,66 +248,76 @@ tem outra regra de imposto, e fica para outro dia."
 | C16 | Meta Selic | 13,75% desde 17/09/2026 | BCB, SGS 432 (`investir-e-cocar/pipeline/dados/macro_bcb.json`) | 02/10/2026 |
 | C17 | `Fb0l4KEq27o` | 637 inscritos; 32.294 views intencionais; 19,7 inscritos por mil; 64,1% aos 30 s | YouTube Analytics do canal (`auditoria-canal/dados/`, `RELATORIO.md` seção 6) | exportação de 02/10/2026 |
 | C18 | Busca "etfs que pagam dividendos mensais" | 208 views da Pesquisa em 6 meses (176 em `Y4WHQiKcv1g` + 32 em `c9Obo6F5_NU`); 1.877 no vitalício em `Y4WHQiKcv1g` | `termos_busca_recentes.csv` e `termos_busca_por_video.csv` | exportação de 02/10/2026 |
-| C19 | Aritmética do exemplo | (92 − 100 + 12) ÷ 100 = 4%; 1,04 ÷ 1,0422 − 1 = −0,21%; 1% ao mês com a cota caindo 1% ao mês: R$ 100 mil → R$ 88.638 de cota + R$ 11.362 de renda = **R$ 100.000 (zero)** | conta própria | 03/10/2026 |
+| C19 | Aritmética do exemplo e do Short | (92 − 100 + 12) ÷ 100 = 4%; 1,04 ÷ 1,0422 − 1 = −0,21%; 1% ao mês com a cota caindo 1% ao mês: R$ 100 mil → R$ 88.638 de cota + R$ 11.362 de renda = **R$ 100.000 (zero)** | conta própria | 03/10/2026 |
 | C20 | Aritmética do bloco B | 1 − 0,995¹⁰ = 4,89% (R$ 4.889 em R$ 100 mil); 1 − 0,985¹⁰ = 14,03% (R$ 14.027) | conta própria | 03/10/2026 |
 
-O que **não** está nesta tabela de propósito: nenhuma alíquota, nenhum rendimento pago por ETF, nenhuma taxa de ETF real e
-nenhum dado de lâmina ou regulamento.
+### 4.2 Conferidos pelo Mac na fonte primária (`2026-10-14-CONFERENCIA.md`, 03/10/2026)
+
+| # | dado | valor | fonte primária (como está no relatório) | item antigo |
+|---|---|---|---|---|
+| R1 | Índice e política do par | **DIVD11 e DIVO11 acompanham o IDIV** (B3). DIVD11 distribui mensalmente, até o 10º dia útil do mês seguinte; DIVO11 reinveste ("os resultados da CLASSE serão automaticamente nela reinvestidos") | regulamento do DIVD11 (fnet id 939399, ref. 02/07/2025), Anexo, itens 5 e 5.1; regulamento do DIVO11 (fnet id 932100, ref. 25/06/2025, CNPJ 13.416.245/0001-46), Anexo, item 5. `https://fnet.bmfbovespa.com.br/fnet/publico/downloadDocumento?id=<id>` | 8 |
+| R2 | DIVO11 não distribui | nenhum aviso de proventos em dinheiro no fnet de jan/2025 a set/2026 | fnet | 8 |
+| R3 | Taxas do par | **iguais**: administração 0,04%, gestão 0,43%, custódia 0,03%; **Taxa Total Máxima 0,50% ao ano** nos dois; sem performance. A taxa total máxima não inclui licença do índice nem outros encargos | lâminas de 31/08/2026 (DIVD11: https://assetfront.arquivosparceiros.cloud.itau.com.br/FND/ITAUIDIV67421_It_Now_IDIV_Renda_Dividendos_RL.pdf; DIVO11: https://assetfront.arquivosparceiros.cloud.itau.com.br/FND/ITAUCARD49295_It_Now_IDIV.pdf); regulamentos, DIVD11 Anexo item 16, DIVO11 Anexo item 17 | 9, 24 |
+| R4 | Renda do DIVD11 | **R$ 4,7614 por cota bruto** em 12 eventos (data-base de 06/10/2025 a 04/09/2026; de R$ 0,0336 a R$ 1,6290); líquido de 15%: **R$ 4,0472**. Retorno total **23,67% bruto, 22,39% líquido** | fnet, "Aviso aos Cotistas - Estruturado / Proventos em dinheiro", CNPJ 54.314.981/0001-70, ids 1005111, 1029944, 1052427, 1075160, 1101847, 1126862, 1154608, 1181209, 1211268, 1238292, 1276218, 1309131 (`https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=<id>&cvm=true`); campo "Rendimento isento de IR: Não" em todos | 10, 2 |
+| R5 | IR na distribuição de ETF (que não seja de renda fixa) | **15%, retido na fonte na data da distribuição**, definitivo para pessoa física; vale também para ETF que investe no exterior. A Lei não nomeia quem retém | Lei 14.754/2023 (planalto, texto compilado): https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm, **arts. 18, II; 22; 24, caput e § 1º; 32, I; vigência pelo art. 47, II (desde 01/01/2024)**. Se o ETF não se enquadrar como entidade de investimento, cai no art. 26: mesma alíquota de 15% | 1, 2, 3 |
+| R6 | Venda de cota de ETF de ações | **15%** sobre o ganho líquido do mês, DARF pago pelo investidor até o último dia útil do mês seguinte, **sem** a isenção de R$ 20 mil | IN RFB 1.585/2015, **arts. 27, I; 56, § 5º; 57; 59, § 2º, II** (https://normasinternet2.receita.fazenda.gov.br/#/consulta/externa/67494) | 6 |
+| R7 | Renda do SPYI11 | **R$ 13,0763 por cota bruto** em 12 eventos (data-base de 21/10/2025 a 15/09/2026), **crédito em reais**; líquido de 15%: R$ 11,1149. Retorno total **10,37% bruto, 8,61% líquido** | fnet, avisos do CNPJ 51.949.867/0001-29, versão 2 de cada mês, ids 1018305, 1046500, 1069658, 1088920, 1117292, 1139866, 1167061, 1199732, 1222434, 1261695, 1296519, 1321782; regulamento (fnet id 647768), Anexo 2.4 (moeda de referência: real) | 11 |
+| R8 | Estratégia do SPYI11 | índice NEOS U.S. Equity High Income; **95% ou mais** em cotas de um ETF americano (SPYI), que tem ações do S&P 500 e **vende opções de compra** fora do dinheiro, renovadas todo mês; o fundo brasileiro só usa derivativo para hedge; distribuição mensal, no 6º dia útil do mês seguinte | regulamento do SPYI11 (fnet id 647768, ref. 29/04/2024, a versão mais nova achada), Anexo, itens 5.1, 5.1.1, 5.3, 6.1.1 e 14.1 | 21 |
+| R9 | Aritmética do extrato do SPYI11 e do par | ver as tabelas 3.3 e 3.4; mesma régua: DIVO11 24,41% × 0,85 = 20,75%; DIVD11 15,15% × 0,85 + 7,25% = 20,12% | conta da conferência, refeita por mim (bate) | 10, 11 |
+| R10 | PTAX venda | **R$ 5,3208** (01/10/2025) e **R$ 5,2079** (01/10/2026): dólar **−2,12%**; cota do SPYI11 em dólar ≈ +0,74% | BCB, Olinda/PTAX (CotacaoDolarPeriodo, 13h): https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/ | 22 |
+| R11 | Taxa do SPYI11 | administração 0,09% a 0,13% conforme o patrimônio (mínimo de R$ 8 mil por mês), gestão 0,83%, custódia até 0,02%; **Taxa Máxima 1,51% ao ano, somando a do ETF americano** | regulamento do SPYI11 (fnet id 647768), Anexo, itens 7.1, 7.1.2 e 7.3 (a lâmina não foi achada) | 23, 24 |
+| R12 | BDR | dividendo de BDR **não é isento** (não há previsão legal de isenção para dividendo de empresa estrangeira); a **venda** paga 15% sobre o ganho líquido. **Nenhuma norma primária diz a forma de pagar o dividendo de BDR** (carnê-leão ou 15% na declaração anual) | P&R IRPF 2026, perguntas 137 e 138 (https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/dirpf/p-r-irpf-2026-v1-00-2026-04-23.pdf); IN RFB 1.585/2015, arts. 56, § 1º, I, "a", e 57 (venda); Lei 14.754/2023, arts. 2º a 4º | 4 |
+| R13 | FII | isento para pessoa física se o fundo tiver **100 cotistas ou mais**, o cotista tiver menos de 10% das cotas e o grupo de pessoas ligadas, menos de 30% | Lei 11.033/2004, art. 3º, III, e § 1º, I a III, na redação da Lei 14.754, art. 41 (https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm). No planalto, o primeiro "100 cotistas" aparece riscado; o vigente vem depois do "500" da MP 1.184, que perdeu a vigência | 7 |
+| R14 | ETF de renda fixa | 25% (prazo médio até 180 dias), 20% (181 a 720), 15% (acima de 720) | Lei 13.043/2014, art. 2º, I a III, § 1º e § 4º (http://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l13043.htm) | 5 |
+
+O que **continua fora** desta tabela de propósito: a alíquota do dividendo de BDR (não existe regra explícita), quem retém
+o IR do ETF (não nomeado) e qualquer número dos itens pendentes da seção 5.
 
 ---
 
-## 5. A CONFERIR (todo número que entra no roteiro e ainda não foi conferido) — 24 itens
-
-**Quem confere:** o **Mac** baixa e lê a fonte (as páginas abaixo estão bloqueadas nesta rede); o **Denis** valida
-imposto e qualquer frase que descreva produto (é ele quem assina como assessor).
+## 5. A CONFERIR (o que ainda falta) — 8 itens + 4 validações do Denis
 
 | # | o que | por que importa | fonte primária onde conferir | quem |
 |---|---|---|---|---|
-| **1** | 🔴 **IR do rendimento distribuído por ETF de ações da B3**: alíquota, se é retido na fonte e se é definitivo (a busca diz 15% retido na fonte, sem fonte primária) | a linha "líquido" da conta central | Lei 14.754/2023 (artigo dos fundos de índice): https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm e a IN da Receita que a regulamentou (dez/2023) | Mac baixa; **Denis** valida |
-| **2** | 🔴 **O DIVD11 retém o IR na distribuição?** Valor bruto e líquido por cota | sem isso, a coluna "líquido" é chute | aviso de rendimentos do administrador no fnet (CNPJ 54.314.981/0001-70, segundo a busca): https://fnet.bmfbovespa.com.br/fnet/publico/abrirGerenciadorDocumentosCVM?cnpjFundo=54314981000170 e regulamento do DIVD11 | Mac |
-| **3** | 🔴 **IR do rendimento do ETF da B3 que investe no exterior** (SPYI11): a mesma regra do item 1? | só se o roteiro falar do imposto do SPYI11 | regulamento e lâmina do SPYI11 (administrador) + Lei 14.754/2023 | Mac; **Denis** valida |
-| **4** | 🔴 **IR do dividendo de BDR** (JEPI39): tabela progressiva e carnê-leão? crédito do imposto retido nos EUA? A Lei 14.754/2023 mudou algo para BDR? | o blog do canal tem 3 versões diferentes (posts 4816, 4537 e 4544) | IN RFB 1.585/2015 (artigo de BDR) e Lei 14.754/2023; informe da instituição depositária | **Denis** |
-| 5 | ETF de renda fixa: 25%, 20% ou 15% conforme o prazo médio da carteira (Lei 13.043/2014, art. 2º, visto só em busca) | só se o roteiro citar ETF de renda fixa (a orientação é não citar) | http://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l13043.htm | Mac |
-| 6 | Ganho de capital na venda de cota de ETF de ações: 15%, sem a isenção de R$ 20 mil por mês | a comparação com o DIVO11 (que só paga na venda) | IN RFB 1.585/2015 + Lei 13.043/2014 | Mac; **Denis** valida |
-| 7 | FII isento só com 100 cotistas ou mais | a tabela 3.5 | Lei 14.754/2023 (já está em "Fontes que valem para todos os episódios" do `SERIE-RENDA-MENSAL.md`; não reconferido hoje porque o planalto está bloqueado) | Mac |
-| 8 | DIVD11 e DIVO11 acompanham **o mesmo índice** (IDIV) | é a premissa do experimento | regulamento de cada um (administrador) e metodologia do IDIV na B3 | Mac |
-| 9 | Taxa de administração e taxa total do DIVD11 e do DIVO11 (a busca diz 0,50% no DIVD11) | bloco B: quanto da diferença do par a taxa explica (final b da 3.3) | lâminas de 31/08/2026 dos dois (administrador) | Mac |
-| **10** | 🔴 **Soma dos rendimentos do DIVD11 por cota, com data-ex de 02/10/2025 a 01/10/2026**, bruto e líquido | **fecha a conta central**; sem ele o bloco 4 não existe | B3, eventos corporativos do fundo + avisos de rendimento no fnet (item 2) | Mac |
-| **11** | 🔴 **Soma dos rendimentos do SPYI11 por cota, data-ex de 02/10/2025 a 01/10/2026**, bruto e líquido, e a moeda do crédito (a busca fala em "dólar"; na conta cai em R$?) | **fecha o bloco A** (extrato de três linhas do SPYI11); sem ele, o bloco A fica só na mecânica | B3, eventos corporativos + avisos do administrador | Mac |
-| 12 | Rendimentos do NDIV11 na mesma janela | só se entrar como segundo exemplo (a orientação é não entrar) | idem | Mac |
-| 13 | IPCA de set/2026 (sai por volta de 09/10) | refazer o retorno real | BCB SGS 13522 e calendário do IBGE | Mac |
-| 14 | CDI acumulado e cotas, se a janela for movida | evitar janela velha | BCB SGS 12; COTAHIST diário | Mac |
-| 15 | ETHY11: data de estreia (16/12/2025 é o 1º pregão no COTAHIST) e a promessa de 2,5% ao mês (só busca) | só se usar a régua extrema | regulamento e lâmina do ETHY11 (administrador) | Mac |
-| 16 | COIN11 com yield de 23,22% em 2025 (B3 Bora Investir, só busca) | só se usar no bloco A | https://borainvestir.b3.com.br/tipos-de-investimentos/renda-variavel/etfs/confira-os-etfs-que-pagaram-mais-dividendos-em-2025/ | Mac |
+| 13 | IPCA de set/2026 (sai por volta de 09/10; não tinha saído em 03/10) | refazer as colunas "real" se gravar depois | BCB SGS 13522 e calendário do IBGE | Mac |
 | 17 | JEPQ39 continua sem negociação na semana da gravação | a frase "não existe na B3" | COTAHIST diário (https://bvmf.bmfbovespa.com.br/InstDados/SerHist/) | Mac |
+| 15 | ETHY11: a promessa de 2,5% ao mês / 30% ao ano | só se a régua extrema citar a promessa; sem conferir, fica só a cota (C9) | regulamento e lâmina do ETHY11 | Mac |
+| 16 | COIN11 com yield de 23,22% em 2025 (só busca) | só se usar | https://borainvestir.b3.com.br/tipos-de-investimentos/renda-variavel/etfs/confira-os-etfs-que-pagaram-mais-dividendos-em-2025/ | Mac |
+| 12 | Rendimentos do NDIV11 | só se entrar (a orientação é não entrar) | fnet, avisos de proventos | Mac |
 | 18 | Desde quando ETF da B3 pode distribuir (a busca diz 30/01/2023) | só se o roteiro contar a história | comunicado ou ofício da B3 | Mac |
-| 19 | Rendimentos do JEPI39 desde 23/02/2026 | só se o JEPI39 entrar com número | B3, eventos corporativos do BDR; informe da instituição depositária | Mac |
-| 20 | Views, datas e canais dos vídeos concorrentes (todos "só busca") | radar e anti-repetição; não entra no roteiro | YouTube (bloqueado aqui) | Mac |
-| 21 | Estratégia do SPYI11 no regulamento: índice de referência (a busca diz NEOSSPYI), venda de opções de compra sobre o S&P 500, política de distribuição | a frase "a renda vem do prêmio" do bloco A | regulamento e lâmina do SPYI11 (administrador); fnet | Mac; **Denis** valida a descrição |
-| 22 | Dólar (PTAX) de 01/10/2025 e de 01/10/2026 | separar câmbio de índice na cota do SPYI11 (bloco A) | BCB, SGS 1 (PTAX venda): https://api.bcb.gov.br/dados/serie/bcdata.sgs.1/dados?formato=json | Mac |
-| 23 | Taxa de administração e taxa total do SPYI11 | só se o bloco B usar uma taxa real (a orientação é ficar no exemplo de 0,5% e 1,5%) | lâmina do SPYI11 | Mac |
-| 24 | O que a lâmina chama de "taxa total" (inclui custódia, índice, outras despesas?) | a frase "onde ler" do bloco B | lâmina e regulamento de qualquer um dos ETFs acima | Mac; **Denis** valida |
+| 19 | Rendimentos do JEPI39 | só se o JEPI39 entrar com número (a orientação é não) | B3, eventos do BDR; informe da instituição depositária | Mac |
+| 20 | Views, datas e canais dos concorrentes | radar; não entra no roteiro | YouTube | Mac |
 
-**Os 3 mais críticos:** **10** (sem ele a conta central não fecha), **1 + 2** (a alíquota e a retenção da distribuição do
-ETF; é a linha "líquido") e **4** (imposto de BDR, em que o próprio blog do canal se contradiz). Logo depois vem o **11**,
-que fecha o bloco A.
+**Validações do Denis (ele assina como assessor; nada bloqueia a gravação, mas o texto final passa por ele):**
+- **V1, imposto do ETF (R5):** "15% retido na fonte, definitivo para pessoa física", sem nomear quem retém. Ressalvas da
+  conferência, seção 4.1: a base de cálculo na distribuição não está escrita na Lei (leitura usada: 15% sobre o valor
+  distribuído; conferir num informe de rendimentos real).
+- **V2, BDR (R12):** a frase "não é isento; siga o informe da instituição depositária". Se ele quiser cravar um regime
+  (carnê-leão ou 15% na declaração anual), é decisão dele ou de consulta formal; o vídeo não crava.
+- **V3, SPYI11 (R8):** "quem vende as opções é o ETF americano em que ele investe". O regulamento é de abril/2024; pode
+  haver versão posterior fora do fnet.
+- **V4, taxa (R3, R11):** a frase "procure a taxa total máxima; no ETF que compra fundo lá fora, veja se ela soma a taxa
+  de lá".
+
+**Pendência de arquivo (não é número do roteiro):** a conferência sugere copiar os documentos baixados (leis, P&R,
+regulamentos, lâminas, avisos e PTAX) para `site-ativos/cache/raw/` com sha256, como foi feito com o COTAHIST.
 
 ---
 
 ## 6. Ângulo de tensão (o "vilão" honesto)
 
-**Não há fraude nem investigação.** Busquei: nada. O vilão é a **embalagem**:
+**Não há fraude nem investigação.** Busquei: nada. O vilão é **olhar uma linha só**:
 
-- **O ranking por yield premia quem mais devolveu.** O topo de yield de 2025 segundo a B3 (COIN11, 23,22%, só busca) teve
-  a cota em −45,57% em 12 meses (C10). O ETHY11, vendido em vídeo como "30% de yield", tem −35,95% desde a estreia (C9).
-- **O extrato mostra só uma linha.** O app credita "rendimento" todo mês e não credita "cota que saiu". O Tanaka vê o
-  verde e não vê o vermelho.
-- **"Paga 1% ao mês" sem régua.** Com CDI de 14,47% na janela (C14), 12% ao ano com a cota parada perdeu do CDI na
-  comparação bruto com bruto.
+- **O gráfico da cota engana para os dois lados.** No par, a cota sozinha faz o distribuidor parecer R$ 9 mil atrás; somando
+  a renda, são R$ 740. No SPYI11, a renda sozinha (quase 1% ao mês) faz parecer ótimo; somando a cota, ficou R$ 4.100 atrás
+  do CDI em R$ 100 mil.
+- **O ranking por yield premia quem mais devolveu.** ETHY11 −35,95% na cota desde a estreia (C9); COIN11 −45,57% em 12
+  meses (C10). (O yield de 23,22% do COIN11 não está conferido; não usar sem o item 16.)
+- **O extrato mostra só uma linha.** O app credita "rendimento" todo mês e não mostra o resto.
 
-**Concessão obrigatória (P3), com palavras novas:** distribuir não é defeito. Para quem vive da renda, receber todo mês
-pode valer o custo, desde que ele saiba o custo. O vídeo **não** diz "ETF de renda é ruim" e **não** repete o frame
-"GOLPE?" de abril (`c9Obo6F5_NU`: 4.354 views e 17 inscritos, o pior da linha).
+**Concessão obrigatória (P3), com palavras novas:** distribuir não é defeito, e o par mostra isso: em 12 meses, receber todo
+mês custou menos de 1 ponto. Para quem vive da renda, pode valer. O vídeo **não** diz "ETF de renda é ruim" e **não** repete
+o frame "GOLPE?" de abril (`c9Obo6F5_NU`: 4.354 views e 17 inscritos, o pior da linha).
 
 ---
 
@@ -268,7 +330,7 @@ pode valer o custo, desde que ele saiba o custo. O vídeo **não** diz "ETF de r
 - o termo "etfs que pagam dividendos mensais" é o 11º termo de investimento dos últimos 6 meses (208 views da Pesquisa) e a
   família soma 4.558 no vitalício (`TERMOS.md`);
 - **sinal contra:** o frame "GOLPE?" (`c9Obo6F5_NU`) teve 17 inscritos. O público da linha quer a renda; ataque ao produto
-  não converte. O ângulo do Ep. 1 é "conta", não "denúncia".
+  não converte. A virada "parece que perdeu, mas não perdeu" conversa melhor com esse público do que a denúncia.
 
 Concorrência (arquivo `…-concorrentes.md`): ranking, "vale a pena" de um ETF e lançamento com promessa de yield.
 **Nenhum** dos resultados de 2025 a out/2026 fez o par distribuidor × acumulador.
@@ -280,12 +342,12 @@ Concorrência (arquivo `…-concorrentes.md`): ranking, "vale a pena" de um ETF 
 | já feito ou pautado | data | risco | guardrail do Ep. 1 |
 |---|---|---|---|
 | "6 ETFs que MAIS PAGARAM DIVIDENDOS MENSAIS em 2025" (`Fb0l4KEq27o`) | 13/01/2026 | baixo | o Ep. 1 é a continuação ("quanto sobrou"), sem lista e sem contradizer. Card no bloco 4 e tela final |
-| "ETF DIVIDENDOS MENSAIS são um GOLPE?" (`c9Obo6F5_NU`) | 08/04/2026 | médio | nada de "golpe", nada de dúvida moral; só a conta |
-| "ETF JEPI39 PAGA DIVIDENDOS MENSAIS, mas vale a pena?" (`IB1mBcF00jc`) | 26/02/2026 | baixo | JEPI39 só na tabela 3.5 |
-| "ETFs que pagam dividendos mensais: o que mudou em 2026" (era 06/10) | foi para a fila de dezembro (T09) | baixo | o par DIVD11 × DIVO11 continua do Ep. 1; quando o balanço de dezembro for roteirizado, ele cita o Ep. 1 em vez de refazer o par |
-| 27/10: "ETF de dividendos mensais ou FII: imposto e renda de cada um" (título novo) | 13 dias depois | médio | **continua:** tabela 3.5 curta; o imposto detalhado de cada tipo é do 27/10. O Ep. 1 não compara o imposto de ETF com o de FII além da tabela |
-| 20/10 (opções) e 17/11 (taxa) | **saíram do calendário (T14)** e viraram os blocos A e B deste vídeo | — | os guardrails antigos ("opções em uma frase", "taxa só no final b") **caíram**. No lugar: 20/10 TRXF11 e 17/11 "Fundos imobiliários para iniciantes", sem sobreposição |
-| Short de 25/11 "Taxa de administração do ETF: quanto tira em 10 anos" | 25/11 | baixo | é o corte do bloco B (T17): usar os mesmos números (C20), sem taxa de ETF real |
+| "ETF DIVIDENDOS MENSAIS são um GOLPE?" (`c9Obo6F5_NU`) | 08/04/2026 | médio | nada de "golpe", nada de dúvida moral; só a conta. O resultado do par até desmente a suspeita |
+| "ETF JEPI39 PAGA DIVIDENDOS MENSAIS, mas vale a pena?" (`IB1mBcF00jc`) | 26/02/2026 | baixo | JEPI39 só na tabela 3.5 e no card do bloco A |
+| "ETFs que pagam dividendos mensais: o que mudou em 2026" (era 06/10) | foi para a fila de dezembro (T09) | baixo | o par DIVD11 × DIVO11 continua do Ep. 1; o balanço de dezembro cita o Ep. 1 em vez de refazer o par |
+| 27/10: "ETF de dividendos mensais ou FII: imposto e renda de cada um" | 13 dias depois | médio | **continua:** tabela 3.5 curta; o imposto detalhado de cada tipo (inclusive as duas leituras do BDR) é do 27/10 |
+| 20/10 (opções) e 17/11 (taxa) | **saíram do calendário (T14)** e viraram os blocos A e B deste vídeo | — | os guardrails antigos caíram. No lugar: 20/10 TRXF11 e 17/11 "Fundos imobiliários para iniciantes", sem sobreposição |
+| Short de 25/11 "Taxa de administração do ETF: quanto tira em 10 anos" | 25/11 | baixo | é o corte do bloco B (T17): usar C20; se citar ETF real, só a taxa máxima de 1,51% do SPYI11 (R11), sem juízo |
 
 ---
 
@@ -296,82 +358,86 @@ em 4 longos em 5 semanas. Os longos de **20/10 (opções)** e de **17/11 (taxa)*
 deste vídeo. No lugar entram o TRXF11 (20/10) e "Fundos imobiliários para iniciantes" (17/11). O 06/10 foi para a fila de
 dezembro (T09). O 27/10 fica, com título novo.
 
-Onde está cada coisa neste briefing (a versão reconciliada substitui o rascunho que estava aqui):
-
-| bloco | conteúdo | posição no vídeo | tempo | conferido | a conferir |
-|---|---|---|---|---|---|
-| **A. Opções cobertas** (era o 20/10) | seção 3.4 | depois do bloco B, no lugar do antigo "onde o padrão aperta" | ~1:30 | C3, C9 | 11, 21, 22 (e 16, se usar o COIN11) |
-| **B. Taxa** (era o 17/11) | seção 3.6 | logo depois do bloco 4 (a taxa explica parte da diferença do par) | ~1:00 | C20 | 9, 23, 24 |
+| bloco | conteúdo | posição no vídeo | tempo | conferido |
+|---|---|---|---|---|
+| **A. Opções cobertas** (era o 20/10) | seção 3.4 | depois do bloco B | ~1:30 | C3, C9, R7, R8, R10, R11 |
+| **B. Taxa** (era o 17/11) | seção 3.6 | logo depois do bloco 4 | ~1:00 | C20, R3, R11 |
 
 Duração: **11 a 13 min**. O que encolhe primeiro está na seção 10.
+
+---
 
 ## 9. Gancho (3 opções, voz do Denis)
 
 Regras: "Fala, Tanaka." literal, número logo depois, stake em R$ dentro do gancho, a tese não se fecha no gancho, sem
-meta-discurso.
+meta-discurso. **Nenhum gancho deixa o R$ 9.260 sozinho.**
 
-**Opção A (o gêmeo; recomendada):**
-> "Fala, Tanaka. Mesmo índice, mesmos doze meses na B3. A cota de um ETF subiu 24%. A do outro, 15%. O de 15% é o que
-> te pagou renda todo mês. Em R$ 100 mil, são R$ 9.260 de diferença só na cota. Esse dinheiro sumiu, ou foi parar na sua
-> conta? E, se foi, chegou inteiro?"
+**Opção A (o gêmeo: parece, mas não é; recomendada):**
+> "Fala, Tanaka. Dois ETFs, mesmo índice, mesmos doze meses na B3. A cota de um subiu 24%; a do outro, 15%. Em R$ 100 mil,
+> parece que quem ficou com o segundo perdeu R$ 9.260. Só que o segundo pagou renda todo mês. Somando o que caiu na conta,
+> ele perdeu R$ 740. E tem ETF que paga quase 1% ao mês e, na mesma conta, fica atrás do CDI."
 
-Por que: dado da B3 nos primeiros 10 segundos (C1, C2), stake em R$ e duas perguntas abertas (para onde foi e quanto
-chegou). A resposta da primeira vem no bloco 3; a da segunda, no bloco 4.
+Por que: dado da B3 nos primeiros 10 segundos (C1, C2), stake em R$, a virada (R$ 9.260 → R$ 740, R4) e o loop aberto para
+o bloco A (o SPYI11, R7: 11,76% de renda no ano, cerca de 0,98% ao mês, e retorno total de 10,37%, abaixo do CDI de
+14,47%). Não dizer "o dobro": 11,76% contra 8,52% é 1,4 vez.
 
 **Opção B (a conta do zero; hipotética, escrever "exemplo" na tela):**
 > "Fala, Tanaka. Um ETF que te paga 1% ao mês, com a cota caindo 1% ao mês, te pagou em um ano exatamente zero. R$ 100 mil
 > viram R$ 88.638 de cota e R$ 11.362 de renda. O extrato te mostra a segunda linha. A primeira, você descobre quando
 > vende."
 
-Por que: é a conta do Short de 07/10 (seção 12); quem veio do Short reconhece. Risco: é hipotético, e o item 2 do portão
-quer número **ancorado**.
+Continua correta como exemplo (C19). Atenção: o caso real do par dá o resultado **oposto** (a renda voltou quase inteira).
+Se usar a B, o bloco 3 precisa dizer isso de forma explícita ("no exemplo deu zero; na vida real, olha o que deu"), senão
+o vídeo sugere que todo distribuidor devolve tudo. Risco: é hipotética, e o item 2 do portão quer número **ancorado**.
 
-**Opção C (a régua):**
-> "Fala, Tanaka. 'Paga 1% ao mês.' Nos últimos doze meses, o CDI pagou 14,47%. Um ETF que te deu 12% de renda e deixou a
-> cota parada perdeu do CDI por R$ 2.470 a cada R$ 100 mil, e isso antes de qualquer imposto."
+**Opção C (a régua, com o SPYI11):**
+> "Fala, Tanaka. Um ETF pagou quase 1% ao mês, em reais, durante um ano inteiro. Somando a renda e a cota, rendeu 10,37%.
+> O CDI do mesmo período: 14,47%. Em R$ 100 mil, R$ 4.100 a menos, e isso antes do imposto."
 
-Conta: 14,47% − 12% = 2,47 pontos → R$ 2.470 em R$ 100 mil (bruto com bruto). Por que não é a primeira: entrega a régua
-cedo demais e esvazia o bloco 4.
+Conta (R7, C14): 14,47% − 10,37% = 4,10 pontos → R$ 4.100 (bruto com bruto). Por que não é a primeira: gasta o bloco A
+no gancho, e o par (o achado exclusivo) vira coadjuvante.
 
 ---
 
 ## 10. Estrutura por blocos (11 a 13 min)
 
-**Analogia sugerida (uma só, objeto físico, em camadas; o roteirista pode trocar, mas uma só):** a **caixa d'água com
-torneira**. Camada 1: a renda é água saindo pela torneira da própria caixa. Camada 2: o cano que enche a caixa é o que
-a carteira gera (dividendos, prêmio de opção). Camada 3: o gêmeo é a mesma caixa, com o mesmo cano e sem torneira; dá
-para medir o nível das duas. Camada 4: o imposto é o vazamento na torneira, todo mês. Camada 5 (bloco B): a taxa é o furo no fundo da caixa, que
-sai todo dia, haja renda ou não. No bloco A, a mesma caixa recebe água de outro cano (o prêmio da opção) e tem uma boia
-que não deixa o nível passar de um ponto (a alta limitada). A última camada mantém o sujeito da primeira (a caixa), como
-pede o 10b do juiz. **Nada de segunda analogia** para opções ou taxa.
+**Analogia (uma só, objeto físico, em camadas; o roteirista pode trocar, mas uma só):** a **caixa d'água com torneira**.
+Camada 1: a renda é água saindo pela torneira da própria caixa. Camada 2: o cano que enche a caixa é o que a carteira gera.
+Camada 3: o gêmeo é a mesma caixa, com o mesmo cano e sem torneira; **o nível parece mais baixo na caixa com torneira, mas
+o balde embaixo dela está quase cheio** (a renda somada de volta). Camada 4: o imposto é um pingo na torneira, todo mês; no
+gêmeo, ele sai de uma vez quando a caixa é esvaziada. Camada 5 (bloco B): a taxa é o furo no fundo da caixa, que sai todo
+dia, haja renda ou não; no par, o furo é do mesmo tamanho. Bloco A: outra caixa, que recebe água de outro cano (o prêmio da
+opção) e tem uma boia que não deixa o nível passar de um ponto (a alta limitada); a torneira jorra, e o nível não sobe. A
+última camada mantém o sujeito da primeira (a caixa), como pede o 10b do juiz. **Nada de segunda analogia.**
 
 | bloco | tempo | conteúdo | dado |
 |---|---|---|---|
-| **1. Gancho** | 0:00–0:30 | opção A | C1, C2 |
-| **2. A conta que o extrato não faz** | 0:30–2:00 | a fórmula do 3.1 e o exemplo de 100 → 92 + 12 = 4%; contra o IPCA, −0,21%. Camada 1 da analogia | C15, C19 |
-| **3. O gêmeo** | 2:00–4:00 | as duas cotas na tela, lado a lado, **sem** a conclusão: o Tanaka vê os 9,26 pontos e conclui que é a renda (prova no espectador). Depois o Denis confirma: "sim, saiu da cota, e é assim que funciona". Camadas 2 e 3 | C1, C2 |
-| **4. Somando de volta** | 4:00–6:30 | retorno total do DIVD11 (bruto e líquido) contra DIVO11, CDI e IPCA. Agregado → linha: dos 9,26 pontos, quanto voltou como renda, quanto ficou no imposto e quanto é diferença de verdade. Camada 4 (vazamento na torneira). Card para `Fb0l4KEq27o` | C1, C2, C14, C15 + **A CONFERIR 1, 2 e 10** |
-| **B. A taxa** (seção 3.6) | 6:30–7:30 | sai da "diferença de verdade" do bloco 4: o que mais tira da caixa, todo dia? A conta de 10 anos (0,5% × 1,5%) e onde ler na lâmina. Camada 5 (furo no fundo) | C20 + A CONFERIR 9 |
-| **A. Opções cobertas** (seção 3.4) | 7:30–9:00 | de onde vem a renda quando ela é alta: prêmio de opção. Renda alta, alta limitada, queda inteira. Extrato de três linhas do SPYI11. Régua extrema do ETHY11 (opcional). Camada 2 de novo: o cano de outra água. Card para `IB1mBcF00jc` | C3, C9 + **A CONFERIR 11**, 21, 22 |
-| **6. Três coisas que pagam todo mês** | 9:00–9:45 | tabela 3.5: ETF da B3, BDR de ETF americano (o JEPQ39 não existe na B3), FII. Imposto: só o que estiver conferido; o resto é "onde ler" e "o detalhe sai no dia 27" | C11, C12 + A CONFERIR 4 e 7 |
-| **7. Objeções** | 9:45–11:15 | seção 11 (escolher 4 a 6) | — |
-| **8. Fechamento** | 11:15–12:00 | a ferramenta batizada (seção 12) e a tela final para `Fb0l4KEq27o` | — |
+| **1. Gancho** | 0:00–0:30 | opção A | C1, C2, R4 |
+| **2. A conta que o extrato não faz** | 0:30–1:45 | a fórmula do 3.1 e o exemplo de 100 → 92 + 12 = 4%; contra o IPCA, −0,21%. Camada 1 | C15, C19 |
+| **3. O gêmeo, só a cota** | 1:45–3:30 | as duas cotas na tela (passo 1 da 3.3): mesmo índice (R1), mesma taxa (R3), 9,26 pontos de distância. **Sem a conclusão:** o Tanaka vê que a diferença tem o tamanho da renda antes de o Denis falar (prova no espectador). Camadas 2 e 3 | C1, C2, R1, R3 |
+| **4. Somando de volta** | 3:30–6:00 | passo 2 da 3.3: 15,15% + 8,52% = 23,67% contra 24,41%. **R$ 9.260 vira R$ 740.** Depois o passo 3: o imposto na mesma régua (20,12% contra 20,75%): "vem todo mês em vez de vir no fim; em um ano quase empatou". A renda não é constante (R$ 0,03 a R$ 1,63). Camada 4. Card para `Fb0l4KEq27o` | R4, R5, R6, R9 |
+| **B. A taxa** (seção 3.6) | 6:00–7:00 | **ponte nova** (abaixo). A conta de 10 anos (0,5% × 1,5%), a taxa máxima de 1,51% do SPYI11 e onde ler na lâmina. Camada 5 | C20, R3, R11 |
+| **A. Opções cobertas** (seção 3.4) | 7:00–8:45 | a mecânica corrigida (o ETF americano vende as opções), o extrato de três linhas do SPYI11 (10,37% contra 14,47% do CDI), o câmbio em uma frase, a régua do ETHY11 (opcional). Card para `IB1mBcF00jc` | C3, C9, R7, R8, R10 |
+| **6. Três coisas que pagam todo mês** | 8:45–9:30 | tabela 3.5: ETF da B3 (15% na fonte), BDR (não é isento; informe), FII (isento com 100 cotistas). "O detalhe do imposto sai no dia 27" | C11, C12, R5, R6, R12, R13 |
+| **7. Objeções** | 9:30–11:00 | seção 11 (escolher 4 a 6) | — |
+| **8. Fechamento** | 11:00–11:45 | a ferramenta batizada (seção 12) e a tela final para `Fb0l4KEq27o` | — |
 
-**Duração-alvo: 11 a 13 min (este desenho dá cerca de 12).** Se passar de 13, encolher **nesta ordem**:
+**Ponte do bloco 4 para o B (nova; a antiga dizia que a taxa explicava a diferença, e isso está errado):**
+> "Esses R$ 740 não vieram da taxa: nas duas lâminas, ela é a mesma, 0,50% ao ano. Entre gêmeos, a taxa empata. Entre ETFs
+> diferentes, não, e lá na caixa d'água ela é o furo que vaza todo dia, com renda ou sem renda."
+
+(Carrega o objeto do bloco 4, os R$ 740, e não anuncia o vídeo; passa no eliminatório de costura A.)
+
+**Ponte do B para o A:** a taxa máxima de 1,51% é do SPYI11, o ETF que paga quase 1% ao mês: "e esse de 1,51% é justamente
+o que mais paga renda dos que a gente viu. De onde vem tanta água?"
+
+**Duração-alvo: 11 a 13 min (este desenho dá cerca de 11:45).** Se passar de 13, encolher **nesta ordem**:
 1. **bloco 6** (tabela 3.5) vira uma frase e a tabela fica só na tela (o imposto detalhado é do 27/10);
 2. a **régua extrema do ETHY11** sai do bloco A;
 3. as **objeções** caem para 4 (ficam "a cota volta", "só quero a renda", "e o imposto?" e "1,5% de taxa é alto?");
 4. o exemplo hipotético do bloco 2 encurta para a fórmula com uma linha de números.
 
-**Nunca cortar:** os blocos 3 e 4 (a conta central), o número do SPYI11 no bloco A e o fechamento.
-
-**Por que B antes de A:** o bloco 4 termina na "diferença de verdade" entre os gêmeos, e a taxa é a primeira explicação
-dela. Depois disso, o bloco A troca de gêmeo para um ETF cuja renda vem de outro lugar. Se a conta do item 10 der o
-final (c) da 3.3 (o distribuidor ganhou do gêmeo), a ponte do bloco 4 para o B muda: a taxa entra como "mesmo assim,
-tem um furo que não aparece no extrato".
-
-Transições: carregar o objeto do bloco anterior (a caixa, o gêmeo, a linha do extrato). Proibido "agora vamos para",
-"e aí vem a parte que" (eliminatório de costura A).
+**Nunca cortar:** os blocos 3 e 4 (a virada de R$ 9.260 para R$ 740), o extrato do SPYI11 no bloco A e o fechamento.
 
 ---
 
@@ -381,16 +447,17 @@ Transições: carregar o objeto do bloco anterior (a caixa, o gêmeo, a linha do
 |---|---|
 | "Mas a cota volta." | Pode voltar. A conta é de um período; refaça em 2 ou 3 janelas diferentes (12, 24 e 36 meses, quando o ETF tiver idade para isso). |
 | "Eu só quero a renda, não ligo para a cota." | A mesma porcentagem sobre uma cota menor é uma renda menor no ano seguinte. A cota é a renda do ano que vem. |
-| "Então é melhor o que não distribui?" | O vídeo não decide isso. Quem precisa da renda todo mês paga um preço para recebê-la; a conta mostra o tamanho do preço. Sem ticker indicado. |
-| "E o imposto?" | Depende do tipo (ETF da B3, BDR, FII) e está no regulamento e no aviso de rendimentos. **Alíquota só se estiver em DADOS CONFERIDOS.** |
-| "O yield de 30% não compensa?" | Yield é rendimento ÷ cota. Se a cota cai, o yield sobe sozinho; ETHY11: −35,95% na cota desde a estreia. |
-| "O JEPQ39 não paga mais que o JEPI39?" | Na B3, o JEPQ39 não negociou nenhuma vez até 01/10/2026 (C12). |
-| "Essa taxa de 1,5% é alta?" | Em 10 anos, 1,5% ao ano tira cerca de 14% do patrimônio, contra cerca de 4,9% de uma taxa de 0,5% (C20). Compare a taxa total na lâmina. Sem dizer qual ETF escolher. |
-| "O de opções paga 1% todo mês, garantido?" | Não há garantia: o prêmio muda com o mercado, e a renda muda junto. A conta de 12 meses mostra quanto veio de fato (bloco A). |
+| "Então é melhor o que não distribui?" | Em 12 meses, a diferença foi de menos de 1 ponto (R$ 740 em R$ 100 mil). Quem precisa da renda todo mês paga um preço pequeno para recebê-la; a conta mostra o tamanho. Sem ticker indicado. |
+| "E o imposto?" | No ETF da B3, 15% retidos na fonte em cada pagamento (R5); no que reinveste, 15% só quando vende (R6). Em um ano, quase empatou. BDR: não é isento; siga o informe. FII: isento com 100 cotistas ou mais. |
+| "Paga todo mês o mesmo valor?" | Não. O DIVD11 pagou de R$ 0,03 a R$ 1,63 por cota no ano; janeiro foi um terço do total (R4). |
+| "Essa taxa de 1,5% é alta?" | Em 10 anos, 1,5% ao ano tira cerca de 14% do patrimônio, contra cerca de 4,9% de uma taxa de 0,5% (C20). Procure a taxa total máxima na lâmina. Sem dizer qual ETF escolher. |
+| "O de opções paga 1% todo mês, garantido?" | Não há garantia: o prêmio muda com o mercado. Nos 12 meses, pagou quase 1% ao mês, e o total ficou abaixo do CDI (R7). |
+| "O yield alto não compensa?" | Yield é rendimento ÷ cota. Se a cota cai, o yield sobe sozinho; ETHY11: −35,95% na cota desde a estreia (C9). |
+| "O JEPQ39 não paga mais que o JEPI39?" | Na B3, o JEPQ39 não negociou nenhuma vez até 01/10/2026 (C12; reconferir na semana, item 17). |
 
 ---
 
-## 12. Fechamento e Short derivado
+## 12. Fechamento e Shorts
 
 **Ferramenta batizada (fecho, nunca recap):** **"o extrato de três linhas"**. Antes de olhar o yield de qualquer ETF que
 paga todo mês, escreva:
@@ -398,55 +465,75 @@ paga todo mês, escreva:
 2. **quanto a cota andou** (fim ÷ começo − 1);
 3. **quanto ficou acima do CDI e do IPCA** (linha 1 + linha 2, contra a régua do mesmo período).
 
-Se a linha 3 for negativa, a renda foi devolução. Na tela, a planilha de 4 colunas (data, cota, rendimento, acumulado),
-com o caminho para baixar cotas (séries históricas da B3) e rendimentos (eventos corporativos do fundo).
+Callback do gancho, uma frase: "olhando só a linha 2, o gêmeo perdeu R$ 9 mil; com as três, perdeu R$ 740. E o que paga
+quase 1% ao mês, com as três, ficou atrás do CDI." Na tela, a planilha de 4 colunas (data, cota, rendimento, acumulado),
+com o caminho para baixar cotas (séries históricas da B3) e rendimentos (avisos de proventos no fnet).
 
 **Short derivado (pré-estreia, quarta 07/10, 40 s):**
 - Título: "Recebeu 1% ao mês e a cota caiu 1% ao mês: quanto você ganhou?"
 - 0–5 s: a pergunta, com R$ 100 mil na tela.
 - 5–25 s: 12 meses em 4 quadros: a renda somando (R$ 11.362) e a cota descendo (R$ 88.638).
 - 25–35 s: soma = R$ 100.000. "Zero. E o extrato só te mostrou o verde." (escrever "exemplo hipotético" na tela)
-- 35–40 s: link para `Fb0l4KEq27o` até 14/10; depois de 14/10, trocar para o Ep. 1 (`PROPOSTA-CALENDARIO-V3.md`).
+- 35–40 s: "Na vida real, nem sempre dá zero. O vídeo da conta com dois ETFs de verdade sai na quarta, dia 14." Link para
+  `Fb0l4KEq27o` até 14/10; depois, trocar para o Ep. 1.
 - Conta conferida (C19): 100.000 × (1 − 0,99¹²) = 11.362; 100.000 × 0,99¹² = 88.638.
 
 **Short de corte do bloco B (quarta 25/11, T17):** "Taxa de administração do ETF: quanto tira em 10 anos".
 - A tabela da 3.6: R$ 100 mil, 10 anos, 0,5% contra 1,5% ao ano: R$ 4.889 contra R$ 14.027 (C20). "Exemplo" na tela.
-- Fecho: "a taxa está na lâmina; procure a taxa total". Sem ticker e sem taxa de ETF real.
+- Fecho: "procure a taxa total máxima na lâmina". Se citar ETF real, só "1,51% de taxa máxima, contando a do fundo lá fora"
+  (R11), sem dizer se é cara.
 - Link para o Ep. 1.
 
 ---
 
-## 13. Alertas para o roteirista
+## 13. Veredito e ajustes de roteiro
 
-1. **Não gravar com a conta central aberta.** Se o item 10 não chegar, o bloco 4 vira "o método", com o exemplo
-   hipotético, e o gêmeo fica só como prova de que a renda sai da cota (bloco 3).
-2. **Título e thumbnail são afirmações factuais** (`feedback_factcheck_titulo_e_qualificadores`). "A renda saiu da cota?"
-   é pergunta; a resposta honesta é "sim, e é assim que funciona". O título não pode prometer escândalo.
-3. **Cada fato uma vez.** O 24% contra 15% aparece no gancho e volta só como callback curto no bloco 4.
-4. **Sem "vale a pena", "melhor", "eu faria".** O gêmeo é grupo de controle, não indicação.
-5. **Não puxar texto de imposto do blog** (posts 3172, 4537, 4544 e 4816).
-6. **Sem marca de gestora e sem corretora:** DIVD11, DIVO11, NDIV11, SPYI11 e JEPI39 só pelo código.
-7. **Bloco A (opções):** o SPYI11 é caso de estudo. Proibido "qual é melhor", prever a cota ou chamar a renda de
-   "garantida". A cota em reais mistura índice e dólar: dizer isso ou separar com a PTAX (A CONFERIR 22).
-8. **Bloco B (taxa):** só os números do exemplo (0,5% e 1,5%). Taxa de ETF real só depois da lâmina (A CONFERIR 9 e 23).
-9. **Os blocos A e B não pedem uma segunda analogia** nem ponte que anuncia ("agora vamos falar de taxa"): a ponte para o B
-   carrega a "diferença de verdade" do bloco 4, e a ponte para o A carrega a pergunta "e quando a renda é alta demais?".
+**GO, COM AJUSTES.** A conta central (itens 1, 2 e 10) e o bloco A (itens 11, 21, 22 e 23) fecharam em fonte primária.
+Nada pendente bloqueia a gravação. As validações V1 a V4 do Denis entram na leitura final do roteiro.
+
+**Ajustes obrigatórios no roteiro (vêm da conferência):**
+1. **Gancho, thumbnail e Short:** o "R$ 9.260" nunca aparece sem o "somando a renda, R$ 740". Thumbnail sugerida (o
+   empacotador decide): "PERDEU R$ 9 MIL?" com "R$ 740" ao lado, e não "RENDA OU DEVOLUÇÃO?".
+2. **Imposto:** "vem todo mês, em vez de vir no fim; em um ano quase empatou" (20,12% contra 20,75%). Proibido "o que custa
+   é o imposto mensal".
+3. **Os 0,74 ponto:** "menos de 1 ponto". Não atribuir à taxa (é igual) nem a outra causa.
+4. **Ponte 4 → B:** a nova, da seção 10. A taxa vira lição geral.
+5. **Bloco A:** quem vende as opções é o ETF americano (95% ou mais da carteira); o crédito é em reais; total de 10,37%
+   bruto contra CDI de 14,47%.
+6. **BDR:** "não é isento; siga o informe da instituição depositária". Nenhuma alíquota, nem "carnê-leão", nem "15%" para o
+   dividendo.
+7. **IR do ETF:** "15% retido na fonte", sem dizer quem retém.
+8. **ETHY11:** só a cota (C9), sem a "promessa de 30%", enquanto o item 15 não for conferido.
+
+**Alertas que continuam:**
+- **Título e thumbnail são afirmações factuais** (`feedback_factcheck_titulo_e_qualificadores`). "A renda saiu da cota?"
+  é pergunta; a resposta honesta é "saiu, e voltou quase inteira".
+- **Cada fato uma vez.** O par aparece no gancho, é desenvolvido nos blocos 3 e 4 e volta só como callback no fechamento.
+- **Sem "vale a pena", "melhor", "eu faria".** O gêmeo é grupo de controle; o SPYI11 é caso de estudo.
+- **Sem marca de gestora e sem corretora:** DIVD11, DIVO11, NDIV11, SPYI11 e JEPI39 só pelo código; o ETF americano, só
+  "o SPYI".
+- **Os blocos A e B não pedem segunda analogia** nem ponte que anuncia ("agora vamos falar de taxa").
+- **Não puxar texto de imposto do blog** (posts 3172, 4537, 4544 e 4816; correções sugeridas na conferência, seção 6).
 
 ---
 
 ## 14. Fontes
 
-Primárias (conferidas):
+Primárias:
 - B3, séries históricas COTAHIST A2024, A2025 e A2026: https://bvmf.bmfbovespa.com.br/InstDados/SerHist/ (cópias em
   `site-ativos/cache/raw/b3/`, baixadas em 02/10/2026; A2026 com last_modified de 01/10/2026 23:26 GMT).
 - BCB, SGS 12, 13522 e 432 (cópias em `site-ativos/cache/raw/bcb/` e `investir-e-cocar/pipeline/dados/macro_bcb.json`,
-  baixadas em 02/10/2026).
+  baixadas em 02/10/2026); BCB Olinda/PTAX (conferência).
+- fnet: avisos de proventos do DIVD11 e do SPYI11; regulamentos do DIVD11 (id 939399), do DIVO11 (id 932100) e do SPYI11
+  (id 647768) (conferência, tabelas 2.1 e 2.3).
+- Lâminas de 31/08/2026 do DIVD11 e do DIVO11 (conferência, item 9).
+- Lei 14.754/2023, Lei 13.043/2014, Lei 11.033/2004 (planalto); IN RFB 1.585/2015 (Receita); P&R IRPF 2026 (Receita)
+  (conferência, itens 1 a 7).
 - YouTube Analytics do canal (`auditoria-canal/dados/`, exportação de 02/10/2026).
 
-Secundárias (só busca, **não** sustentam número no roteiro): ver o arquivo de concorrentes. Regras de imposto vistas só em
-busca: Lei 14.754/2023 (ETF com retenção de 15% na distribuição), Lei 13.043/2014, art. 2º (ETF de renda fixa por prazo)
-e IN RFB 1.585/2015 (BDR na tabela progressiva). Todas na lista A CONFERIR.
+Relatório de conferência: `2026-10-14-CONFERENCIA.md` (Mac, 03/10/2026). Secundárias (só busca, não sustentam número): ver
+o arquivo de concorrentes.
 
-*Briefing de 03/10/2026. Pesquisa de concorrentes feita antes ✅; dados da B3 e do BCB de fonte primária ✅; demanda medida no
-canal ✅; anti-repetição ✅ (reconciliada com o calendário v3 de 03/10, troca T14: blocos A e B absorvidos); imposto ❌
-ainda não conferido (A CONFERIR 1 a 7). Veredito: GO condicional aos itens 1, 2 e 10 (conta central) e 11 (bloco A).*
+*Briefing de 03/10/2026, revisto no mesmo dia com a conferência na fonte primária. Pesquisa de concorrentes feita antes ✅;
+preços, régua, renda e imposto do ETF em fonte primária ✅; BDR sem alíquota (não existe regra explícita) ✅; demanda medida
+no canal ✅; anti-repetição reconciliada com o calendário v3 ✅. Veredito: **GO, com os 8 ajustes da seção 13.***

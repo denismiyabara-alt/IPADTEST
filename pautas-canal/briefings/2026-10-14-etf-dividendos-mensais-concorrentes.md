@@ -185,6 +185,13 @@ ser.** A pergunta útil passa a ser outra: **quanto sobrou depois de somar a ren
 distribuição e comparar com o CDI e o IPCA?** Para isso falta um número, a soma dos rendimentos do DIVD11 nos 12 meses
 (eventos corporativos da B3 ou aviso do administrador), que está na lista A CONFERIR.
 
+> **Atualização de 03/10/2026 (conferência do Mac, `2026-10-14-CONFERENCIA.md`):** o número que faltava fechou. O DIVD11
+> pagou R$ 4,7614 por cota em 12 eventos (fnet), ou 8,52% da cota: retorno total de 23,67% bruto contra 24,41% do DIVO11.
+> Dos 9,26 pontos de diferença na cota, 8,52 voltaram como renda; a diferença de verdade é de 0,74 ponto. Os dois têm o
+> mesmo índice (regulamentos) e a mesma taxa (0,50%, lâminas). O ângulo fica de pé, com a virada "parece que perdeu R$ 9
+> mil; somando a renda, perdeu R$ 740". Sobre BDR: a conferência achou que o dividendo **não é isento**, mas não há norma
+> explícita sobre a forma de pagar; a frase "tabela progressiva, segundo a busca" (achado 3) não deve ir para o roteiro.
+
 Por que ninguém fez:
 - quem faz ranking não tem motivo para mostrar o gêmeo que não paga;
 - quem faz "vale a pena" de um ETF não tem par de controle;
