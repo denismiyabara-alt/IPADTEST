@@ -339,3 +339,13 @@ foram escritas sem repetir número entre blocos) · costura: nenhum · avisos de
 Marcador de analogia do portão: 1. Fala limpa em `scratchpad/fala-0610-v17.txt` (175 linhas, 1.735 palavras, ≈ 12:00
 a 145 por minuto, 12:51 a 135). Nota de processo: de novo houve corte (balança do B5, síndico, chuveiro do B4, "pelado"),
 por pedido explícito. **Falta:** novo ouvinte-frio cego na v1.7 antes do Drive.
+
+## 11. Ouvinte-frio cego (v1.7, persona aposentada de 62 anos com R$ 400 mil) e correções v1.8
+
+Média 7,8, REPROVA (o leão com 6: "sou aposentada, em qual caso eu caio?"; o caso do meio ficou sem número). Conta central recontada certa; equilíbrio ok.
+Correções (nenhum número novo; "entre dois e oito mil" são os dois casos já calculados):
+- "quem tem salário" → "renda alta, de salário ou de aposentadoria"; a regra dos 5 mil dita como "somando salário, aposentadoria e aluguel".
+- Os 7.350 ganham o porquê: "é ali que o desconto novo acaba".
+- Segundo caso inclui o aposentado com renda total até 5 mil; caso do meio: "entre dois e oito mil por ano; a conta exata é a sua, com a sua declaração na mão".
+- "casaco e bota" → "casaco" (a bota nunca era explicada); "Em outubro" → "Em outubro do ano passado".
+Validação nova do Denis: aposentado com 65 anos ou mais tem parcela isenta extra no IR; o vídeo não entra nisso (se quiser, uma frase ou o comentário fixado).

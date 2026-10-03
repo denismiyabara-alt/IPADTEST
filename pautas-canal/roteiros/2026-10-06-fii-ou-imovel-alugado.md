@@ -2,7 +2,7 @@
 titulo: "Apê alugado ou fundo imobiliário em 2026: o leão decide se a diferença é R$ 2 mil ou R$ 8 mil"   # recomendado na v1.7 (o "R$ 8 mil menor" da v1.6 só vale pra quem tem salário; alternativas nas notas, seção 10)
 data_publicacao: 2026-10-06 (terça)
 formato: longo, teleprompter
-versao: "v1.7 (ouvinte-frio cego reprovou a v1.6, média 7,75: conta honesta com os dois donos — com salário, R$ 8.050; aluguel como única renda, R$ 2.000; bloco do preço sem balança; casaco apresentado antes da metáfora) ← v1.6 (ouvinte-frio cego reprovou a v1.5, média 7,5: balança justa com valorização, B4 simplificado, fecho sem veredito) ← v1.5 (revisão independente: justiça da conta e gancho) ← v1.4 congelada (v1.0 → juiz 7/10 → v1.1 → juiz 10/10 → punch-up do juiz-ritmo → ouvinte-frio PASSA → ajuste ao portão score_roteiro.py: 5/6, sem eliminatório)"
+versao: "v1.8 (ouvinte-frio cego reprovou a v1.7, média 7,8: aposentado e caso do meio cobertos) ← v1.7 (ouvinte-frio cego reprovou a v1.6, média 7,75: conta honesta com os dois donos — com salário, R$ 8.050; aluguel como única renda, R$ 2.000; bloco do preço sem balança; casaco apresentado antes da metáfora) ← v1.6 (ouvinte-frio cego reprovou a v1.5, média 7,5: balança justa com valorização, B4 simplificado, fecho sem veredito) ← v1.5 (revisão independente: justiça da conta e gancho) ← v1.4 congelada (v1.0 → juiz 7/10 → v1.1 → juiz 10/10 → punch-up do juiz-ritmo → ouvinte-frio PASSA → ajuste ao portão score_roteiro.py: 5/6, sem eliminatório)"
 duracao_estimada: "≈12:00 (1.735 palavras faladas: 11:58 a 145 por minuto, 12:51 a 135; com pausas e telas, 11:45 a 13:00; teto 14:00)"
 briefing: pautas-canal/briefings/2026-10-06-fii-ou-imovel-briefing.md
 concorrentes: pautas-canal/briefings/2026-10-06-fii-ou-imovel-concorrentes.md
@@ -11,10 +11,10 @@ fontes_de_dado: "1 fonte de dado, 2 datas-base — informes de FII na CVM (trime
 orcamento_numeros: "fontes 2 · números novos falados por bloco: B0 5 · B1 4 · B2 4 · B3 5 · B4 5 · B5 4 · B6 4 · B7 0 · frases com 3+ números: 0"
 gancho_trecho: "Num deles, chegam os vinte e quatro mil. No outro, chega menos de dezesseis mil."
 numero_ancorado_trecho: "Oito mil e cinquenta reais de diferença por ano. Mesmo dinheiro investido. Mesmo aluguel no papel."
-loop_trecho: "Oito mil pra quem tem salário. Dois mil pra quem vive do aluguel."
+loop_trecho: "Oito mil pra quem tem renda alta. Dois mil pra quem fica até cinco mil por mês."
 agregado_linha_trecho: "No seu apartamento, a vacância só tem dois valores: zero ou cem por cento."
 prova_espectador_trecho: "Fácil, por quantos meses no ano? O corretor não falou. Você completou sozinho: doze."
-analogia_trecho: "Essas duas coisas são o casaco. O aluguel do anúncio sobe na balança de casaco e bota."
+analogia_trecho: "Essas duas coisas são o casaco. O aluguel do anúncio sobe na balança de casaco."
 concessao_trecho: "dos duzentos e setenta e dois fundos com imóvel pronto em junho, noventa e sete tinham um imóvel só."
 fecho_trecho: "Antes de dizer que o apê rende mais, ou que o fundo rende mais, Tanaka, você faz a conta do casaco."
 ---
@@ -46,7 +46,7 @@ Oito mil e cinquenta reais de diferença por ano.
 
 Mesmo dinheiro investido. Mesmo aluguel no papel.
 
-Esse é o caso de quem já tem salário.
+Esse é o caso de quem já tem uma renda alta, de salário ou de aposentadoria.
 
 Pra quem vive só do aluguel, a diferença é bem menor.
 
@@ -108,7 +108,7 @@ Então o aluguel do anúncio ainda carrega duas coisas que ninguém tirou: o mê
 
 Essas duas coisas são o casaco.
 
-O aluguel do anúncio sobe na balança de casaco e bota.
+O aluguel do anúncio sobe na balança de casaco.
 
 Agora o fundo imobiliário.
 
@@ -192,7 +192,7 @@ Aí você já está pensando:
 
 Mudou mesmo.
 
-Desde janeiro, quem tem renda tributável de até cinco mil por mês não paga imposto de renda.
+Desde janeiro, quem ganha até cinco mil por mês, somando salário, aposentadoria e aluguel, não paga imposto de renda.
 
 Acima disso, o desconto vai sumindo, até voltar a tabela de sempre.
 
@@ -204,7 +204,9 @@ Na declaração, o leão soma o aluguel com o resto da sua renda.
 
 Então quanto o leão morde depende de quanto você já ganha.
 
-Primeiro caso: você já tem um salário acima de sete mil, trezentos e cinquenta reais por mês.
+Primeiro caso: o seu salário ou a sua aposentadoria já passa de sete mil, trezentos e cinquenta reais por mês.
+
+É ali que o desconto novo acaba.
 
 Aí a isenção nova não encosta no seu aluguel.
 
@@ -214,15 +216,17 @@ O leão leva seis mil e cinquenta dos vinte e dois mil.
 
 Sobram quinze mil, novecentos e cinquenta.
 
-Segundo caso: o aluguel é a sua única renda.
+Segundo caso: somando tudo, aposentadoria e aluguel, você fica até cinco mil por mês.
 
-Dois mil por mês ficam abaixo dos cinco mil.
+Ou o aluguel é a sua única renda: dois mil ficam abaixo dos cinco mil.
 
 Aí o leão não leva nada, e os vinte e dois mil ficam inteiros.
 
 Pra esse dono, a lei nova é uma notícia boa de verdade.
 
-E quem ganha entre um caso e o outro fica no meio do caminho.
+Ficou entre os dois casos? A sua diferença fica entre dois e oito mil por ano.
+
+A conta exata é a sua, com a sua declaração na mão.
 
 [TELA: dois donos, o mesmo aluguel de 22 mil no ano — salário acima de R$ 7.350: 27,5% de IR = 6.050, sobram R$ 15.950 | aluguel como única renda (2 mil/mês, abaixo de R$ 5.000): IR zero, fica tudo | renda no meio: entre os dois]
 
@@ -236,7 +240,7 @@ Dá quase quatro por cento ao ano.
 
 [TELA: dono com salário — 15.950 ÷ 400.000 = 3,99% ao ano]
 
-Pra quem tem salário, o apartamento que ia render seis rende quatro.
+Pra quem tem renda alta, o apartamento que ia render seis rende quatro.
 
 Agora põe os mesmos quatrocentos mil num fundo imobiliário.
 
@@ -250,7 +254,7 @@ Sem tirar imposto: pra você, pessoa física, esse rendimento é isento.
 
 Vinte e quatro mil no fundo.
 
-Pra quem tem salário, o apartamento entrega quinze mil, novecentos e cinquenta.
+Pra quem tem renda alta, o apartamento entrega quinze mil, novecentos e cinquenta.
 
 São os oito mil e cinquenta a menos por ano.
 
@@ -314,7 +318,7 @@ E eu não vou fingir que a cota não pesa.
 
 Se a cota cair dez por cento num ano, saem quarenta mil reais dos quatrocentos mil.
 
-Pra quem tem salário, a vantagem do fundo é de oito mil e cinquenta por ano.
+Pra quem tem renda alta, a vantagem do fundo é de oito mil e cinquenta por ano.
 
 Cinco anos dessa vantagem somem num ano ruim da cota.
 
@@ -358,7 +362,7 @@ No ano passado, o governo mandou uma medida provisória pra cobrar imposto do re
 
 Seriam cinco por cento, a partir deste ano.
 
-Em outubro, a Câmara derrubou, e a proposta caiu.
+Em outubro do ano passado, a Câmara derrubou, e a proposta caiu.
 
 [TELA: MP 1.303/2025 — 5% de IR sobre rendimento de FII a partir deste ano; derrubada pela Câmara em 08/10/25]
 
@@ -392,7 +396,7 @@ No fundo, o número de cotistas e a vacância que ele declara à CVM. É públic
 
 ## BLOCO 7 - A CONTA DO CASACO (10:40–11:20)
 
-Oito mil pra quem tem salário. Dois mil pra quem vive do aluguel.
+Oito mil pra quem tem renda alta. Dois mil pra quem fica até cinco mil por mês.
 
 Nenhuma das duas diferenças diz qual dos dois é melhor.
 
