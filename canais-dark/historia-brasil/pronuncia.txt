@@ -1,0 +1,7 @@
+# Dicionário de pronúncia da voz do canal de história (vale para todos os episódios).
+# Uma linha por palavra:  palavra<TAB>grafia_pra_voz[<TAB>como o Whisper escreve]
+# Muda SÓ o texto que vai para o TTS. Roteiro, tela e conferência usam a grafia original.
+# Conferir de ouvido no Mac na 1ª rodada (passo 3 do COMO-RODAR.md); se a voz já falar certo, apague a linha.
+Jenner	Djéner
+Pasteur	Pastér
+Malho	Málho

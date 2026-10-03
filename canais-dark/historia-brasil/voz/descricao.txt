@@ -1,0 +1,8 @@
+# Descrição da voz do canal para o Qwen3-TTS VoiceDesign (o campo "instruct"). Só atributos acústicos e de
+# estilo: nenhum nome de pessoa, personagem, locutor ou "voz parecida com". Mudou aqui? Gere a voz de novo
+# (voz/desenhar_voz.py) e registre no VOZ.md. Linhas com # são ignoradas; as outras viram um parágrafo só.
+Adult female voice, around 38 years old, native Brazilian Portuguese speaker with a neutral accent and no strong regional features.
+Medium pitch, warm and slightly husky timbre, clear and crisp diction.
+Brisk, lively storytelling rhythm, like a witty prep-school history teacher telling a true story to a class she likes:
+ironic, dry sense of humor, small knowing pauses before the punchline, a hint of a smile in the voice.
+Conversational and close to the microphone; never theatrical, not a radio announcer, not a news anchor, not a cartoon voice.
