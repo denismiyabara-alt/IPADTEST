@@ -435,3 +435,46 @@ def test_config_do_repositorio_e_valida_e_sem_segredo():
     assert "com.denal.resumo-manha" in labels and "com.denis.milhasrss" in labels
     for proibido in ("TOKEN=", "KEY=", "telegram.org/bot", "claude-"):
         assert proibido not in texto.replace("TELEGRAM_BOT_TOKEN", "").replace("TRELLO_TOKEN", "")
+
+
+# --------------------------------------------------------------------------------------------- outliers
+LINHA_FII = "🔥 Outlier: MXRF11 corta o rendimento: o que muda na sua cota (Canal FII, 8.4x) → proposta: trocar o de 13/10"
+LINHA_SHORT = "🔥 Outlier: Parecer da CVM muda FII (Canal Y, 5x) → Short rápido"
+
+
+def _propostas(raiz, gerado="2026-10-05T10:15:00Z", linhas=(LINHA_FII, LINHA_SHORT)):
+    return wjson(raiz / "outliers" / "propostas.json",
+                 {"gerado_em": gerado, "propostas": [{"id": f"OUT-{i}", "linha_resumo": l} for i, l in enumerate(linhas)]})
+
+
+def test_outlier_aparece_depois_do_decidir_hoje(completo):
+    p = _propostas(completo)
+    d = coletar(completo, config(completo, outliers={"propostas": str(p), "max_horas": 26, "max_linhas": 2}))
+    txt = rm.montar_mensagem(d)
+    assert LINHA_FII in txt and LINHA_SHORT in txt
+    assert txt.index("🎯 Decidir hoje") < txt.index(LINHA_FII) < txt.index("📋 Trello")
+
+
+def test_outlier_respeita_max_linhas(completo):
+    p = _propostas(completo)
+    d = coletar(completo, config(completo, outliers={"propostas": str(p), "max_linhas": 1}))
+    txt = rm.montar_mensagem(d)
+    assert LINHA_FII in txt and LINHA_SHORT not in txt
+
+
+def test_sem_outlier_a_linha_nao_aparece(completo):
+    sem = _propostas(completo, linhas=())
+    for cfg_o in ({}, {"propostas": str(completo / "nao-existe.json")}, {"propostas": str(sem)}):
+        txt = rm.montar_mensagem(coletar(completo, config(completo, outliers=cfg_o)))
+        assert "🔥" not in txt
+
+
+def test_outlier_velho_nao_aparece(completo):
+    p = _propostas(completo, gerado="2026-10-03T08:00:00Z")
+    txt = rm.montar_mensagem(coletar(completo, config(completo, outliers={"propostas": str(p), "max_horas": 26})))
+    assert "🔥" not in txt
+
+
+def test_config_tem_outliers():
+    cfg = json.loads(Path(rm.__file__).with_name("resumo_manha.json").read_text(encoding="utf-8"))
+    assert cfg["outliers"]["propostas"].endswith("outliers/saida/propostas.json")

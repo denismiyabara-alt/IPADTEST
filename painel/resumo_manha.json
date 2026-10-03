@@ -38,6 +38,12 @@
     "credenciais": ["~/.config/investirecocar/credentials.env"],
     "timeout_s": 15
   },
+  "outliers": {
+    "_nota": "outliers/saida/propostas.json do OUTLIER → ENCAIXE (outliers/OUTLIERS.md). Mais velho que max_horas ou sem proposta: a linha 🔥 não aparece. max_linhas = quantas propostas, pela pontuação.",
+    "propostas": "/Users/denal/IPADTEST/outliers/saida/propostas.json",
+    "max_horas": 26,
+    "max_linhas": 2
+  },
   "telegram": {
     "_nota": "Mesma ordem do notifier.py do stock-signal-bot. Variáveis: TELEGRAM_BOT_TOKEN e TELEGRAM_CHAT_ID (ou TELEGRAM_HOME_CHANNEL).",
     "credenciais": ["~/.hermes/.env", "~/.config/investirecocar/credentials.env", "~/.claude/credentials.env"]
@@ -52,6 +58,7 @@
       {"label": "com.investirecocar.radar-comentarios", "horario": "08:00", "dias": ["seg"], "saida": "/tmp/radar.json", "opcional": true, "_nota": "CONFIRMAR o label"},
       {"label": "com.investirecocar.termometro-2h", "a_cada_min": 60, "opcional": true, "_nota": "CONFIRMAR o label; só grava quando há vídeo para medir, então vale só o código de saída"},
       {"label": "com.denal.portfolioreview", "horario": "08:30", "dias": ["seg"], "saida": "/Users/denal/stock-signal-bot/logs/portfolio.log", "opcional": true},
+      {"label": "com.denal.outliers", "horario": "08:15", "dias": "todos", "saida": "/Users/denal/IPADTEST/outliers/saida/propostas.json", "opcional": true, "_nota": "OUTLIER → ENCAIXE (outliers/com.denal.outliers.plist); roda também 01:30, 13:30 e 19:30 só para o histórico"},
       {"label": "com.denal.painel", "horario": "08:50", "dias": "uteis", "saida": "/Users/denal/IPADTEST/painel/saida/painel-{data}.html"},
       {"label": "com.denal.resumo-manha", "horario": "08:50", "dias": "uteis", "saida": "/tmp/resumo-manha.log"},
       {"label": "com.denal.stocksignal", "horario": "09:15", "dias": "todos", "saida": "/Users/denal/stock-signal-bot/logs/scanner.log", "opcional": true},

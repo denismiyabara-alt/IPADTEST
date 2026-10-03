@@ -1,0 +1,88 @@
+{
+  "_nota": "Config do OUTLIER → ENCAIXE. Sem segredo aqui: credenciais só pelo ambiente ou pelos arquivos em 'credenciais'. '~' é expandido. Caminhos relativos são relativos à raiz do IPADTEST.",
+
+  "deteccao": {
+    "_nota": "Outlier = views do vídeo ÷ mediana das views dos vídeos do MESMO canal (mesmo formato) na MESMA idade ≥ multiplo_min. Ver OUTLIERS.md, seção Detecção.",
+    "multiplo_min": 3.0,
+    "views_min": 3000,
+    "historico_min": 10,
+    "idade_min_h": 6,
+    "idade_max_h": 72,
+    "curva_meia_vida_h": 72,
+    "short_max_s": 75,
+    "peso_ref_inscritos": 500000,
+    "peso_k": 0.3,
+    "peso_min": 0.7,
+    "peso_max": 1.6,
+    "max_propostas": 5,
+    "max_trocas": 2
+  },
+
+  "nichos": {
+    "_nota": "Regex sobre título + descrição, sem acento e em minúsculas. 'fora' vence 'dentro'. Sem nenhum 'dentro', o vídeo fica fora.",
+    "dentro": {
+      "FII": "fundos? imobiliari|\\bfiis?\\b|\\bifix\\b|\\b[a-z]{4}11\\b|cotista|tijolo|fundo de papel|\\bfiagro",
+      "renda mensal": "renda (passiva|mensal)|todo mes|por mes|dividendos? mensa|viver de (renda|dividendos)|aposentadoria|renda extra com (fii|dividendo)",
+      "Tesouro e renda fixa": "tesouro|ipca|\\bntn|selic|copom|renda fixa|\\bcdb|\\blci|\\blca|\\bcri\\b|\\bcra\\b|debenture|prefixad|poupanca|\\bcdi\\b|juros futuros|divida publica",
+      "ações": "\\bacoes\\b|\\bacao\\b|bolsa|ibovespa|dividendo|\\bjcp\\b|\\b[a-z]{4}(3|4|5|6)\\b|balanco|lucro|recompra|\\bopa\\b|\\bipo\\b|valuation|barsi|small caps?|petrobras|cemig|\\bvale\\b|itau|bradesco|banco do brasil|santander|taesa|klabin|sanepar|eletrobras|\\bweg\\b|ambev|\\bbancos?\\b",
+      "investimento geral": "invest|carteira|patrimonio|\\betfs?\\b|\\bbdrs?\\b|juros compostos|primeiro milhao|\\bdolar\\b|mercado financeiro|\\bcvm\\b"
+    },
+    "fora": {
+      "dívida": "dividas?\\b(?! publica)|endivid|nome sujo|serasa|quitar|renegoci|desenrola|emprestimo|consignado|cheque especial|financiamento|calote pessoal",
+      "cartão": "cartao|fatura|rotativo|limite do cartao|anuidade|cashback|milhas",
+      "finanças pessoais básicas": "economizar|orcamento|juntar dinheiro|dinheiro (nunca )?sobra|gastos|reserva de emergencia|salario|quanto ganha|como ganhar dinheiro|renda extra(?! com)|largar o emprego|quit your job|frugal",
+      "política": "\\blula\\b|bolsonaro|eleica|eleito|candidat|\\bstf\\b|esquerda|direita|\\bpt\\b|\\bpl\\b|congresso|trump|planalto|ministro|governo (lula|bolsonaro)",
+      "live": "ao vivo|\\blives?\\b|\\bstream\\b",
+      "cripto puro": "^(?!.*(fii|acoes|tesouro|etf)).*(bitcoin|cripto|ethereum|altcoin|memecoin|solana)"
+    }
+  },
+
+  "noticia": {
+    "_nota": "Notícia quente = título/descrição com cara de evento + vídeo com até 'prazo_h' horas. Aí a proposta é um Short rápido, não a troca.",
+    "regex": "parecer|\\bcvm\\b|copom|decis|anunci|aprova|capta|fato relevante|comunicado|\\bopa\\b|\\bipo\\b|medida provisoria|\\bmp\\b|nova regra|nova lei|\\blei\\b|receita federal|imposto novo|urgente|acabou|caiu|despenc|subiu|disparou|explod|suspend|recuperacao judicial|default|calote",
+    "prazo_h": 48
+  },
+
+  "similaridade": {
+    "limiar": 0.25,
+    "max_parecidos": 3
+  },
+
+  "calendario": {
+    "_nota": "Encaixe: a pauta de MENOR inscritos_esperados nas próximas 'semanas' semanas, no mesmo formato da proposta. Nunca serie_ep, nunca o Copom (origem/título/ângulo com 'copom').",
+    "csv": "pautas-canal/CALENDARIO.csv",
+    "trocas": "pautas-canal/trocas.json",
+    "gerador": "pautas-canal/calendario_v3.py",
+    "semanas": 3,
+    "protegidas_regex": "copom"
+  },
+
+  "caminhos": {
+    "_nota": "entrada_radar: arquivos lidos em ordem (o primeiro que existir). O snapshot do coletar.py é o preferido; o .md do vault é o adaptador de reserva (sem idade em horas, ver OUTLIERS.md).",
+    "entrada_radar": ["outliers/dados/radar_snapshot.json", "/Users/denal/Downloads/Obsidian/Concorrentes/video-radar-*.md", "/Users/denal/investir-e-cocar/vault/Concorrentes/video-radar-*.md"],
+    "historico": "outliers/dados/historico.json",
+    "canais_radar": ["/Users/denal/.config/investirecocar/video_radar_channels.json", "/Users/denal/investir-e-cocar/pipeline/video_radar_channels.json", "/home/user/investir-e-cocar/pipeline/video_radar_channels.json"],
+    "videos_denis": "auditoria-canal/dados/videos.csv",
+    "analytics_denis": "auditoria-canal/dados/analytics_por_video.csv",
+    "gate_dir": ["/Users/denal/investir-e-cocar/pipeline", "/home/user/investir-e-cocar/pipeline"],
+    "saida": "outliers/saida",
+    "estado": "outliers/estado"
+  },
+
+  "trello": {
+    "_nota": "Card na lista Ideias. Id: TRELLO_LIST_IDEIAS (ambiente) > lista_ideias_id > busca pelo nome no board da lista ENTRADA (id do ic-health-monitor). Credenciais: TRELLO_KEY e TRELLO_TOKEN.",
+    "lista_ideias_id": null,
+    "lista_ideias_nome": "Ideias",
+    "lista_referencia_id": "69c031570960846587bca67c",
+    "credenciais": ["~/.config/investirecocar/credentials.env"],
+    "timeout_s": 15
+  },
+
+  "youtube": {
+    "_nota": "Só coletar.py e descobrir_canais.py usam a API (no Mac). YOUTUBE_API_KEY no ambiente ou nos arquivos abaixo.",
+    "credenciais": ["~/.config/investirecocar/credentials.env", "/Users/denal/investir-e-cocar/pipeline/credentials.env"],
+    "uploads_por_canal": 30,
+    "atualizar_ate_dias": 14,
+    "guardar_historico_dias": 60
+  }
+}

@@ -6,9 +6,10 @@ Junta o que hoje chega de vários lugares, sem refazer nenhum radar. Só LÊ as 
 - Trello: cards pendentes nas listas de aprovação (API REST, só GET, TRELLO_KEY e TRELLO_TOKEN);
 - milhas: milhas_relatorio.md do milhas_radar.py (só os ⭐ e os novos);
 - termômetro: log do termometro_2h.py --auto ou o termometro_historico.jsonl;
-- jobs: `launchctl list` (código de saída) e a idade da saída de cada job.
+- jobs: `launchctl list` (código de saída) e a idade da saída de cada job;
+- outliers: outliers/saida/propostas.json do OUTLIER → ENCAIXE (a linha 🔥 já vem pronta em "linha_resumo").
 
-Seções, nesta ordem: Decidir hoje (até 5), Trello, Radares, Jobs. Fonte faltando ou velha vira "sem dado".
+Seções, nesta ordem: Decidir hoje (até 5), Outliers (só se houver), Trello, Radares, Jobs. Fonte faltando ou velha vira "sem dado".
 Acima de 4096 caracteres (limite do Telegram) a mensagem é cortada e termina com "ver painel".
 
 uso:
@@ -284,6 +285,23 @@ def linhas_termometro(t):
     return out
 
 
+# --------------------------------------------------------------------------------------------- outliers
+def ler_outliers(cfg_o, agora):
+    """Linhas 🔥 das propostas do outliers/propor.py. Sem arquivo, velho ou sem proposta: lista vazia (a seção some)."""
+    p = caminho(cfg_o.get("propostas"))
+    if p is None or not p.is_file():
+        return []
+    try:
+        d = json.loads(p.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return []
+    quando = gp.ler_data(d.get("gerado_em")) or gp.mtime(p)
+    if quando is None or horas(quando, agora) > float(cfg_o.get("max_horas", 26)):
+        return []
+    linhas = [x.get("linha_resumo") for x in d.get("propostas") or [] if x.get("linha_resumo")]
+    return [gp._curto(l, 200) for l in linhas[: int(cfg_o.get("max_linhas", 2))]]
+
+
 # --------------------------------------------------------------------------------------------- trader
 def linhas_trader(b):
     rot = "📈 Trader [SIMULAÇÃO]"
@@ -531,7 +549,8 @@ def coletar(cfg, agora, env=None, ler_launchctl=rodar_launchctl, trello_transpor
     coment = ler_comentarios(blocos.get("RADAR"), a.radar_json, cfg.get("comentarios") or {}, agora)
     termo = ler_termometro(cfg.get("termometro") or {}, agora)
     jobs = avaliar_jobs(cfg.get("jobs") or {}, agora, ler_launchctl())
-    return {"agora": agora, "itens_painel": itens, "trader": blocos.get("TRADER"), "trello": trello,
+    outliers = ler_outliers(cfg.get("outliers") or {}, agora)
+    return {"agora": agora, "outliers": outliers, "itens_painel": itens, "trader": blocos.get("TRADER"), "trello": trello,
             "milhas": milhas, "comentarios": coment, "termometro": termo, "jobs": jobs,
             "decidir": decidir_hoje(itens, trello, milhas, termo, jobs)}
 
@@ -540,6 +559,8 @@ def montar_mensagem(d, ref_painel=""):
     agora = d["agora"]
     l = [f"☀️ Resumo da manhã · {DIAS_CURTOS[agora.weekday()]} {agora:%d/%m} · {agora:%H:%M}", "", "🎯 Decidir hoje"]
     l += [f"{i}. {t}" for i, t in enumerate(d["decidir"], 1)] or ["Nada urgente."]
+    if d.get("outliers"):
+        l += [""] + d["outliers"]
     l += [""] + linhas_trello(d["trello"], agora)
     l += ["", "📡 Radares"] + linhas_milhas(d["milhas"], agora) + linhas_comentarios(d["comentarios"], agora) \
         + linhas_termometro(d["termometro"]) + linhas_trader(d["trader"])

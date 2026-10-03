@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.denal.outliers</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/denal/IPADTEST/outliers/rodar_mac.sh</string>
+  </array>
+  <!-- 08:15 = depois do radar das 7h30 e antes do resumo das 8h50. 01:30, 13:30 e 19:30 só alimentam o histórico
+       de views por idade (cada rodada ~90 unidades da cota de 10.000/dia). -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Hour</key><integer>1</integer><key>Minute</key><integer>30</integer></dict>
+    <dict><key>Hour</key><integer>8</integer><key>Minute</key><integer>15</integer></dict>
+    <dict><key>Hour</key><integer>13</integer><key>Minute</key><integer>30</integer></dict>
+    <dict><key>Hour</key><integer>19</integer><key>Minute</key><integer>30</integer></dict>
+  </array>
+  <key>StandardOutPath</key><string>/tmp/outliers.log</string>
+  <key>StandardErrorPath</key><string>/tmp/outliers.log</string>
+</dict>
+</plist>
