@@ -108,3 +108,25 @@ No EDGAR, use o User-Agent com nome e e-mail. Cada item traz a URL e o que olhar
 ## Contagem
 
 14 itens em MUDAR ANTES DE GRAVAR (9 por causa do fechamento de 02/10) + 3 sinalizações de acesso e recomendação · 41 fatos conferidos ok · 17 verificações pro Mac (M1–M17) · 10 grupos de afirmação só com imprensa, já atribuídos na fala.
+
+## Conferido no Mac (03/10)
+
+| item | veredito | valor da fonte | fonte |
+|---|---|---|---|
+| M1 S-1 da Anthropic | OK (não existe) | Busca full-text S-1/S-1A "Anthropic, PBC": só SpaceX, Figma e SPAC. EDGAR "anthropic" = só fundos (Form D) → B3 fica como está | efts.sec.gov · browse-edgar |
+| M2 capa do 424B4 | OK | "$135.00 per share"; "555,555,555 shares"; total "$74,999,999,925"; tudo "from us" (sem selling stockholder; greenshoe de 83.333.333 também primário). Banco brasileiro no sindicato: **BTG Pactual**. Varejo: o 424B4 só diz "a number of shares … allocated to retail investors", **sem %** (os 30% ficam atribuídos à Reuters) | sec.gov 424B4 de 12/06/26 (CIK 1181412) |
+| M3 lock-up | OK nas datas · **DIVERGE em "duas travas já abriram"** | 20/08 "319.0 million"; 24/09, 09/10 e 24/10 "328.4 million" cada; após o 3T26 "1.3 billion"; 08/12 "797.6 million"; Musk "366 days". O prospecto diz "October 24, 2026 (135th day)", sem regra de pregão seguinte (cai num sábado; na prática, negocia a partir de 26/10). **Mas antes de 24/09 abriram mais travas:** 2º pregão após o balanço do 2T ("up to 911.5 million", 20%), 09/09 ("319.0 million") e 10/09 (59,1 mi de afiliados) | 424B4, "Shares Eligible for Future Sale" |
+| M4 Musk | OK | "approximately 82.4% of the voting power" | 424B4 |
+| M5 contrato Anthropic | OK | "On May 3, 2026 … through May 2029"; "approximately 325,000 NVIDIA GPUs"; "terminated by either party upon 90 days' notice" (após os 3 meses iniciais); US$ 1,25 bi/mês | 424B4 |
+| M6 segmentos 2025 | OK | receita "$18,674 million"; Connectivity "$11,387 million" (61%); Space e AI com prejuízo operacional; prejuízo líquido "(4,937)"; 13.075.865.175 ações pós-IPO × US$ 135 = US$ 1,765 tri | 424B4 |
+| M7 concentração | **DIVERGE a [TELA]** (a fala está certa) | "Consolidated revenue from significant customers … Customer B 19.5 %"; "revenue from Customer B relates to the AI segment". Base = receita **total**; o cliente é que é do segmento de IA | 10-Q 2T26 (spcx-20260630.htm) |
+| M8 receita 2T26 | OK | "Revenues of $7.8 billion, up 92%"; total "$7,814" × "$4,071" | 8-K 04/08/26, ex. 99.1 |
+| M9 texto do Dario | **DIVERGE** | Página datada só "September 2026", assinada só por Dario Amodei; **nenhum coassinante** (Hassabis só aparece citado: "the mechanism suggested by Demis Hassabis"). Musk/Altman não aparecem | darioamodei.com/post/we-must-pace-the-frontier |
+| M10 Nasdaq-100 | OK na data · NÃO ABRIU o peso | SPCX ausente em 06/07 (102 nomes) e presente a partir de 07/07/26 (103). Peso 2,82%: a tabela de pesos exige login | indexes.nasdaqomx.com WeightingData |
+| M11 Ritter | OK | Tabela 18d: "40<PSR 46 … -44.8%" (desde o 1º fechamento); oferta: "14 … 3.1%". PDF atual é de 25/09/26 (tabela de 07/04/26) | site.warrington.ufl.edu/ritter/files/IPO-Statistics.pdf |
+| M12 BDRs | OK SPCX34 · **nuance na Anthropic** | SPCX34: DRN (não patrocinado), cotação desde 12/06/26; 8.333.333.325 BDRs ÷ 555.555.555 ações = 15. **ANTHROPIC PBC já tem cadastro de BDR DRN na B3 desde 29/07/26**, sem código e sem cotação ("hasQuotation N") | sistemaswebb3-listados.b3.com.br (GetCompaniesBDR / GetDetail) |
+| M13 IN RFB 1.585 | NÃO ABRIU | normas.receita redireciona para app em JS (normasinternet2), sem texto via curl/WebFetch | normas.receita.fazenda.gov.br |
+| M14 investidor qualificado | **DIVERGE** | Art. 12, II: "investimentos financeiros em valor superior a R$ 1.000.000,00 … e que, adicionalmente, atestem por escrito" | conteudo.cvm.gov.br resol030consolid.pdf |
+| M15 Morningstar / banco | OK (via imprensa) · NÃO ABRIU a primária | Morningstar 403. Imprensa: valor justo US$ 63 no IPO, depois US$ 62. Preço-alvo US$ 225 não conferido. BTG Pactual consta no sindicato do 424B4 | Yahoo Finance / morningstar.com (busca) |
+| M16 Hyrox | OK (via imprensa) | Comprador: consórcio liderado pela L Catterton (set/26), ~€ 600 mi, fundadores retomam controle | Kirkland, Bloomberg Law, swissinfo (busca) |
+| M17 preços de IPO | OK | FB "public offering price of $38.00"; BABA "US$68.00"; UBER "$45.00"; ARM "$51.00". Aramco não conferida | 424B4s na SEC |

@@ -116,3 +116,23 @@ Dados de bolsa: série diária do Yahoo Finance chart API, puxada em 03/10/26. O
 sec.gov, data.sec.gov, efts.sec.gov · novonordisk.com · lilly.com / investor.lilly.com · nejm.org · thelancet.com · clinicaltrials.gov · pubmed/eutils (ncbi) · doi.org · crossref · news.cornell.edu · journals.sagepub.com · pwc.com · bain.com · corporate.walmart.com / stock.walmart.com · mondelezinternational.com · corporate.mcdonalds.com · hbr.org · weightwatchers / q4cdn (RI da WW) · stockanalysis.com · companiesmarketcap · nasdaqomxnordic.com · sistemaswebb3-listados.b3.com.br · api.bcb.gov.br · in.gov.br (DOU) · consultas.anvisa.gov.br · busca.inpi.gov.br · api.mziq.com (RI Pague Menos) · ri.rdsaude / ri.hypera / ri.smartfit · mercadolivre · globenewswire · investegate · imprensa (cnbc, reuters, infomoney, seudinheiro, investnews, exame, biospace, fooddive etc.) · wikipedia · web.archive.org
 
 **Acessíveis e usados:** finance.yahoo.com (chart API), www.b3.com.br, www.gov.br (Anvisa/INPI), dados.cvm.gov.br e www.rad.cvm.gov.br.
+
+## Conferido no Mac (03/10)
+
+| item | veredito | valor da fonte | fonte |
+|---|---|---|---|
+| 1. Novo 6-K 03/02/26 — faixa e "25 anos" | OK na faixa · DIVERGE no "25 anos" | "Adjusted sales growth is expected to be -5% to -13% at CER". "25 years" **não aparece** no 6-K → aplicar a correção do item 2 do MUDAR ("primeira previsão de queda em muitos anos") | sec.gov f6k_020326.htm |
+| 2. Novo 6-K 04/08/26 | OK | "adjusted operating profit growth is now expected to be 0% to -6% at CER" (vendas idem); "Q2 2026 adjusted sales increased by 7% at CER" | sec.gov f6k_080426.htm |
+| 3. REDEFINE 4 (6-K 23/02/26) | OK | "809 randomised people"; 84 semanas; "23.0% … compared to 25.5%"; regime "20.2% compared to 23.6%"; "did not meet the primary endpoint of showing non-inferiority" | sec.gov f6k_022326.htm |
+| 4. Novo demissões (6-K 10/09/25) | OK | "approximately 9,000 of the 78,400 positions" | sec.gov f6k_091025.htm |
+| 5. WW Chapter 11 / saída / 2T26 | OK | 8-K: "On May 6, 2025 (the 'Petition Date')"; ex. 99.1: "emergence … on June 24, 2025"; "Clinical Subscribers of 197 thousand, up 55.7%" | sec.gov d934787d8k.htm · d15116dex991.htm |
+| 6. SURMOUNT-5 | OK | ClinicalTrials.gov (resultados): semana 72, −20,2 (tirzepatida) × −13,7 (semaglutida). NEJM deu 403 | clinicaltrials.gov API NCT05822830 |
+| 7. Cornell | OK | "reduce grocery spending by an average of 5.3%"; renda alta "more than 8%"; "savory snacks dropped by about 10%"; fast food/café "falls by about 8%"; "Yogurt rose the most"; Numerator "about 150,000 households" | news.cornell.edu |
+| 8. Walmart 4T AF26 | OK | "it's kind of a wash"; "baskets tend to be larger by a double digit percentage" | stock.walmart.com transcrição FY26 Q4 (PDF) |
+| 9. Mondelez [TELA] "0,5–1%" | NÃO ABRIU (primária) → DIVERGE nas pistas | RI da Mondelez não respondeu (timeout). Imprensa sobre a CAGNY/26: "1% to 1.5%" em 10 anos e, em outra versão, "0.5% to 1.5%". Nenhuma dá 0,5–1% → **tirar o número da [TELA], deixar só "mínimo"** | ir.mondelezinternational.com (timeout); just-food / supermarketperimeter (busca) |
+| 10. PwC | OK (via imprensa; pwc.com 403) | "Between May 4 and May 9, 2026 … 3,089 consumers, including 1,063 current GLP-1 users"; "26% spending more on clothing" | pwc.com 403; chainstoreage / sgbonline |
+| 11. Bain 08/09/26 | OK | "Este grupo responde por ~10% da demanda de whey" | bain.com/pt-br (WebFetch) |
+| 12. RADL3 no Ibovespa | OK | RADL3 na carteira teórica do IBOV (data 05/10/26, set–dez) | sistemaswebb3-listados.b3.com.br GetPortfolioDay |
+| 13. Anvisa × Mercado Livre 29/09 | NÃO ACHADO | Lista de notícias 2026 carrega por script; busca no gov.br não achou nota de 29/09. Só achei a de 10/08/26 (revogação da RE 3.141/2026, "não implica em autorização automática") → **falar "segundo a imprensa"** | gov.br/anvisa (sobre-revogacoes-…-plataformas-digitais) |
+| 14. McDonald's "not material" | NÃO ABRIU (RI 403) | Imprensa: em teleconferência de resultados, "no evidence … material impact" (fev/26) | corporate.mcdonalds.com 403; Yahoo/IndexBox |
+| 15. Smart Fit fato relevante 10/02/26 | OK | "nomeação de Diogo Ferraz de Andrade Corona para o cargo de Diretor Presidente … implementadas a partir de 02 de março de 2026" | rad.cvm.gov.br (PDF abriu) |
