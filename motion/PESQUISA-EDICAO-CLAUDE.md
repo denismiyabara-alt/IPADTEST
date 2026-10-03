@@ -8,6 +8,8 @@ Para o Investir e Coçar e o Faz a Conta. Data da pesquisa: 03/10/2026.
 
 Stars do GitHub são da data da pesquisa e medem atenção, não qualidade.
 
+> **Correção (03/10):** os Shorts continuam no plano: a auditoria do canal (auditoria-canal/RELATORIO.md, H5 e ação 6) estimou que eles trouxeram 40,8% dos inscritos de abr/25 a ago/26 e recomendou voltar a 8 por mês. O sunset de 28/jul/2026 foi revisto, e o RPM baixo não é o critério, porque o Short traz inscrito e quem paga é o longo. Onde este documento dizia que os Shorts tinham sido descartados, o texto foi corrigido.
+
 ## O que o canal já tem (para não reinventar)
 
 Lido em `investir-e-cocar/.claude/skills/edicao-investir-cocar`, `investir-e-cocar/memory` e `faz-a-conta/`:
@@ -46,7 +48,7 @@ Por isso, o que interessa de fora é o que **fecha buracos** dessa lista. Ferram
 - **Maturidade**: template oficial, 282 stars. O modelo padrão é o `medium.en`; para português, troque por um modelo sem `.en` em `whisper-config.mjs`.
 - **O que copiar**: a função de paginação. O canal já tem o JSON por palavra do `mlx_whisper` e só precisa converter para o formato `Caption` (`startMs`/`endMs`). Não precisa do Whisper.cpp.
 - **Esforço**: baixo.
-- **Ressalva**: legenda queimada em vídeo longo de finanças é discutível (veja a seção 3), e o canal não faz mais Shorts. O uso mais provável é a **palavra-chave isolada na tela** dentro do punch-in (recomendação 1), não a legenda corrida.
+- **Ressalva**: legenda queimada em vídeo longo de finanças é discutível (veja a seção 3), e a legenda corrida faz mais sentido nos **Shorts**, que continuam no plano (8 por mês, segundo a auditoria). No longo, o uso mais provável é a **palavra-chave isolada na tela** dentro do punch-in (recomendação 1).
 
 ### 4. video-use (Browser Use): edição pela transcrição, com autoavaliação
 - **Link**: https://github.com/browser-use/video-use [aberto]. Fork com Whisper local em MLX: https://github.com/dentaco/video-use [só busca].
@@ -76,7 +78,7 @@ Por isso, o que interessa de fora é o que **fecha buracos** dessa lista. Ferram
 - **O que faz**: pipeline de 10 etapas que tira shorts de um vídeo longo. O Claude pontua cada trecho em 5 dimensões (força do gancho, coerência, emoção, densidade de valor e payoff). O reenquadramento e o zoom se ajustam ao conteúdo, com MediaPipe para achar o rosto. Os cortes encaixam no fim de palavra ou no silêncio. Há 3 estilos de legenda (Bold, Bounce, Clean).
 - **Stack**: ffmpeg, faster-whisper, MediaPipe, Remotion e Claude.
 - **Maturidade**: uso real em pequena escala, 217 stars.
-- **O que copiar**: a **rubrica de 5 dimensões** para escolher trecho, Para escolher **trechos de vídeo longo** (gancho, cold open), não para Shorts: Shorts foi descartado como aposta em 28/jul/2026 (`project_yt_shorts_sunset_28jul`: RPM de R$ 0,12 contra R$ 38,50 do long-form). O crop por rosto fica de fora.
+- **O que copiar**: a **rubrica de 5 dimensões** para escolher trecho, para escolher trechos do longo (gancho, cold open) **e também para tirar Shorts do longo**: os Shorts continuam no plano: a auditoria do canal (auditoria-canal/RELATORIO.md, H5 e ação 6) estimou que eles trouxeram 40,8% dos inscritos de abr/25 a ago/26 e recomendou voltar a 8 por mês. O sunset de 28/jul/2026 foi revisto, e o RPM baixo não é o critério, porque o Short traz inscrito e quem paga é o longo. O crop por rosto entra no fluxo de Shorts.
 - **Esforço**: médio.
 
 ### 8. Zoom dinâmico por ênfase da fala (padrão recorrente)
@@ -161,7 +163,7 @@ O impacto é uma **estimativa qualitativa** minha. Nenhum desses repos publica d
 | 4 | video-use | Filmstrip automático em cada borda de corte e de inserção, mais revisão visual | Baixo–médio | Médio (indireto: menos erro que escapa) |
 | 13 | erduo B-roll | Revisor de estética com contexto limpo antes do render cheio | Baixo | Médio (indireto) |
 | 1 | Remotion Skills | Instalar no projeto da motion library | Muito baixo | Baixo (indireto: menos bug) |
-| 3 | template-tiktok | Paginação palavra por palavra a partir do JSON do mlx_whisper, usada só para a palavra-chave na tela | Baixo | Baixo/incerto no longo (Shorts descartado) |
+| 3 | template-tiktok | Paginação palavra por palavra a partir do JSON do mlx_whisper, usada só para a palavra-chave na tela | Baixo | Alto nos Shorts (som desligado); baixo/incerto no longo |
 | 6 | motion-video-skill | Checagens de loudness, true peak e música −4 a −6 dB no mix | Baixo | Médio (áudio ruim derruba retenção) |
 | 11 | CapCut draft | Draft pré-montado com memes e marcadores para o acabamento | Médio (frágil) | Médio: acelera a etapa manual, não muda o vídeo |
 | 7 | claude-shorts | Rubrica de 5 dimensões para escolher o gancho do vídeo longo | Baixo | Médio (gancho) |
@@ -190,7 +192,7 @@ O impacto é uma **estimativa qualitativa** minha. Nenhum desses repos publica d
 
 **Transcrição paga.** O video-use oficial depende do ElevenLabs Scribe. O `mlx_whisper large-v3-turbo` local foi medido no canal (1,9 GB de pico, 5,5 min para 49 min de áudio, 0,12 s de deriva) e é grátis. Não vale trocar.
 
-**Legenda palavra por palavra em tudo.** Funciona em short vertical, onde o som costuma estar desligado, mas o canal descartou Shorts. Em vídeo longo de finanças, com B-roll de dados e prints na tela, legenda queimada **disputa a atenção com o número** e polui os prints de fonte primária. Nenhum dos casos traz dado de retenção em vídeo longo. Se usar, teste A/B num vídeo antes.
+**Legenda palavra por palavra em tudo.** Funciona em short vertical, onde o som costuma estar desligado, e os Shorts continuam no plano do canal (8 por mês). Em vídeo longo de finanças, com B-roll de dados e prints na tela, legenda queimada **disputa a atenção com o número** e polui os prints de fonte primária. Nenhum dos casos traz dado de retenção em vídeo longo. Se usar, teste A/B num vídeo antes.
 
 ---
 
