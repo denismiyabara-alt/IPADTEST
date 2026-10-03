@@ -35,7 +35,11 @@ def som(nome):
 dur = float(subprocess.run(["ffprobe", "-v", "error", "-select_streams", "a:0", "-show_entries", "stream=duration",
                             "-of", "default=nw=1:nk=1", "FINAL-corte.mp4"], capture_output=True, text=True).stdout)
 a = np.zeros(int(dur * SR) + SR)
-ev = json.load(open("videos/broll/eventos.json"))
+import os
+ev = json.load(open("videos/broll/eventos.json")) if os.path.exists("videos/broll/eventos.json") else {}
+# graficos (4a peca): um som so, o "impacto" no pouso do numero (Denis: so o numero aterrissando)
+if os.path.exists("videos/broll/graficos.json"):
+    ev.update({gid: g["eventos"] for gid, g in json.load(open("videos/broll/graficos.json")).items()})
 n = 0
 for c in json.load(open("cartelas.json")):
     janela = c["fim"] - c["ini"]

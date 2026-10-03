@@ -80,7 +80,7 @@ A mínima, a máxima ou outra data marcada acendem quando a ponta passa por elas
 - 5,1 s: pousou. "13,75%" em vermelho, o anel se abrindo no último ponto, a "Máxima: 15,00%" acesa;
 - 7,9 s: "em 02/out/2026" e o selo "+9,25 p.p. desde jan/2020".
 
-Versão 9:16: `exemplos/frames/petr4-9x16-final.jpg` (PETR4 em 12 meses, "R$ 49,77", "+58,6% desde out/2025").
+Versão 9:16: `exemplos/frames/petr4-9x16-final.jpg` (PETR4 × Ibovespa em base 100, "R$ 49,77", "+58,6% desde out/2025"). Com comparador em 16:9: `exemplos/frames/petr4-cdi-16x9-final.png` (PETR4 × CDI). Desde 03/10, ação ou FII só vai à tela com comparador ou com aviso: a regra está no código (ver `README.md`).
 
 **Esforço.** O protótipo está feito: gerador, fonte de dados, teste e render. Para entrar no pipeline, falta ~½ dia:
 um tipo `serie` no `plano.py` e no `mapa.py` (a duração sai da fala, com teto de 10 s) e uma rodada com o Denis

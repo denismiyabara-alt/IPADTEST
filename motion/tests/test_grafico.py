@@ -21,7 +21,7 @@ def carregar(nome):
 
 
 BASE = {
-    "titulo": "Teste", "fonte": "Fonte: BCB", "formato": "16:9", "duracao": 6,
+    "titulo": "Teste", "fonte": "Fonte: BCB", "classe": "indicador", "formato": "16:9", "duracao": 6,
     "unidade": {"prefixo": "", "sufixo": "%", "casas": 2}, "variacao": "pp",
     "serie": [{"data": "2024-01-01", "valor": 10.0}, {"data": "2024-06-01", "valor": 11.5},
               {"data": "2024-12-31", "valor": 12.25}],
@@ -48,6 +48,10 @@ def test_entrada_valida_recebe_padroes():
     (lambda d: d.update(destaques=[{"data": "2030-01-01", "rotulo": "x"}]), "fora do período"),
     (lambda d: d.update(destaques=[{"data": "2024-06-01", "rotulo": "x"}] * 4), "no máximo 3"),
     (lambda d: d.update(som={"outro": 1}), "'som'"),
+    (lambda d: d.pop("classe"), "'classe' é obrigatória"),
+    (lambda d: d.update(classe="ativo"), "compliance: ativo isolado"),
+    (lambda d: d.update(classe="ativo", comparador={"rotulo": "CDI", "fonte": "BCB", "serie": [{"data": "2024-01-01", "valor": 1}]}),
+     "pelo menos 2 pontos"),
 ])
 def test_entrada_invalida_explica_o_erro(mexer, trecho):
     d = copy.deepcopy(BASE)
@@ -57,7 +61,7 @@ def test_entrada_invalida_explica_o_erro(mexer, trecho):
     assert any(trecho in m for m in e.value.args[0]), e.value.args[0]
 
 
-@pytest.mark.parametrize("arquivo", ["selic-16x9.json", "petr4-9x16.json"])
+@pytest.mark.parametrize("arquivo", ["selic-16x9.json", "petr4-9x16.json", "petr4-cdi-16x9.json"])
 def test_exemplos_do_repo_sao_validos(arquivo):
     d = gerar.validar(carregar(arquivo))
     assert d["fonte"].startswith("Fonte: ")
@@ -157,7 +161,7 @@ def quadro(projeto, t, png=None):
 
 
 @precisa_navegador
-@pytest.mark.parametrize("arquivo", ["selic-16x9.json", "petr4-9x16.json"])
+@pytest.mark.parametrize("arquivo", ["selic-16x9.json", "petr4-9x16.json", "petr4-cdi-16x9.json"])
 def test_frame_renderiza_e_numero_final_bate_com_a_serie(arquivo, tmp_path):
     d = carregar(arquivo)
     projeto = str(tmp_path / "proj")
@@ -181,3 +185,20 @@ def test_numero_no_meio_e_um_valor_real_da_serie(tmp_path):
     r = quadro(projeto, 3.0)
     validos = {gerar.texto_valor(p["valor"], d["unidade"]) for p in d["serie"]}
     assert r["numero"] in validos and r["numero"] != gerar.texto_valor(d["serie"][-1]["valor"], d["unidade"])
+
+
+def test_ativo_com_aviso_passa_na_validacao():
+    d = gerar.validar({**BASE, "classe": "ativo", "aviso": "Não é recomendação de investimento."})
+    assert "aviso" in d
+
+
+def test_base100_desenha_as_duas_series_a_partir_de_100():
+    d = gerar.validar({**BASE, "classe": "ativo", "base100": True, "variacao": "pct",
+                       "comparador": {"rotulo": "CDI", "fonte": "BCB (SGS 12)",
+                                      "serie": [{"data": "2024-01-01", "valor": 1000.0},
+                                                {"data": "2024-12-31", "valor": 1110.0}]}})
+    G = gerar.geometria(d)
+    assert gerar.plotados(d["serie"], True)[0] == 100 and G["comp"]["fim_plot"] == pytest.approx(111.0)
+    assert gerar.texto_comparador(d, G) == "CDI +11,0%"
+    html = gerar.montar_html(d)
+    assert 'id="linha-comp"' in html and "base 100 = 01/jan/2024" in html

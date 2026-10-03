@@ -15,8 +15,9 @@ grafico_cotacao/serie.py    dado real (BCB SGS ou B3 COTAHIST, do cache do site-
 grafico_cotacao/gerar.py    JSON → projeto HyperFrames autocontido (index.html + assets/)
 grafico_cotacao/quadro.mjs  abre o projeto num Chrome headless e lê o que está na tela num instante (usado no teste)
 renderizar.sh               gerar + render, medindo o tempo
-tests/test_grafico.py       28 testes
-exemplos/*.json             entradas de exemplo com dado real (Selic 16:9 e PETR4 9:16)
+tests/test_grafico.py       35 testes
+grafico_cotacao/especificacao.py  especificação simples do plano (serie, periodo, rotulo, comparador, aviso) → JSON, com a regra de compliance
+exemplos/*.json             entradas de exemplo com dado real (Selic 16:9, PETR4 × CDI 16:9, PETR4 × Ibovespa 9:16)
 ```
 
 ### Instalar (uma vez)
@@ -36,8 +37,10 @@ Nada vem de CDN na hora do render: o `gerar.py` copia as fontes, o GSAP e o efei
 # 1. dado → JSON (lê o cache do site-ativos: cache/dados.sqlite ou cache/raw/; sem cache, o BCB é baixado e guardado em motion/cache/)
 python3 grafico_cotacao/serie.py bcb 432 --desde 2020-01-01 --destacar-extremos \
     --titulo "Selic: de 2% a 15%" --kicker "Meta da taxa Selic · Copom" -o exemplos/selic-16x9.json
-python3 grafico_cotacao/serie.py b3 PETR4 --desde 2025-10-01 --formato 9:16 \
-    --titulo "PETR4 em 12 meses" -o exemplos/petr4-9x16.json
+python3 grafico_cotacao/serie.py b3 PETR4 --desde 2025-10-01 --formato 9:16 --comparador IBOV \
+    --titulo "PETR4 × Ibovespa" -o exemplos/petr4-9x16.json
+python3 grafico_cotacao/serie.py b3 PETR4 --desde 2025-10-01 --comparador CDI \
+    --titulo "PETR4 contra o CDI" -o exemplos/petr4-cdi-16x9.json
 
 # 2. JSON → MP4
 ./renderizar.sh exemplos/selic-16x9.json renders/selic.mp4
@@ -82,7 +85,7 @@ seno de 70 Hz com queda rápida e um clique) existe só como reserva sem rede: o
 ### Testes
 
 ```sh
-python3 -m pytest -q tests      # 28 testes, ~18 s
+python3 -m pytest -q tests      # 35 testes, ~15 s
 ```
 
 Eles conferem:
@@ -125,7 +128,26 @@ com ~2 GB. É um job pesado: não rode junto com transcrição ou voz. Para ir m
 - O render é determinístico (o HyperFrames posiciona a timeline do GSAP quadro a quadro), e o teste usa o mesmo
   mecanismo (`seek`) para ler o número na tela.
 
-## Próximo passo: integrar no pipeline (não feito aqui; os repos investir-e-cocar e faz-a-conta não foram alterados)
+## Comparador e compliance (03/10)
+
+- **Regra no código** (`especificacao.checar_compliance` e de novo em `gerar.validar`): ativo da B3 (`classe: "ativo"`,
+  ação ou FII) só gera com um `comparador` (IBOV, IFIX ou CDI) desenhado junto **ou** com o `aviso` na tela
+  ("Não é recomendação de investimento."). Selic, IPCA e CDI (`classe: "indicador"`) podem ir sozinhos.
+  `serie.py b3 PETR4 …` sem `--comparador` nem `--aviso` é recusado.
+- **2ª linha**: tracejada em cinza (`#6B675F`, não conta como cor de destaque), legenda no alto do gráfico e o valor na
+  ponta depois do pouso ("CDI +14,5%"). Ativo com comparador vai em **base 100** na 1ª data; taxa com taxa
+  (`comparador: "SGS:<n>"`) fica no mesmo eixo. O número grande continua o valor real da série.
+- **Origem**: CDI = BCB SGS 12 acumulado; IBOV = BOVA11 no COTAHIST (o COTAHIST não traz o índice); IFIX = XFIX11 no
+  COTAHIST, sem rendimentos. Dado faltando no período → erro claro, nunca extrapolação. A fonte de cada linha vai no
+  rodapé ("Fonte: B3 (…) · CDI: BCB (SGS 12)").
+- Quadro com comparador: `exemplos/frames/petr4-cdi-16x9-final.png` (render: `exemplos/render/petr4-cdi-16x9.mp4`).
+
+## Integração na edição (feita em 03/10)
+
+A peça `G` do molde Burry (`edicao-skill/molde-burry/broll/grafico.py`) chama este componente. A skill acha esta pasta
+pela variável **`IEC_MOTION`** (padrão: `~/IPADTEST/motion`). Ver `edicao-skill/SKILL.md`, seção 2b.
+
+## Notas da 1ª versão: integração planejada (a do molde Burry foi feita; ver acima)
 
 1. **Copiar** `motion/grafico_cotacao/`, `package.json` e `tests/` para `investir-e-cocar/pipeline/motion/` (ou
    referenciar este repo) e rodar `npm install`.

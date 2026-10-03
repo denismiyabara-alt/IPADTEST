@@ -15,8 +15,8 @@ Uma variação diária acima de 35% é tratada como provável evento societário
 Exemplos:
   python3 grafico_cotacao/serie.py bcb 432 --desde 2020-01-01 --destacar-extremos \
       --titulo "Selic: de 2% a 15%" --kicker "Meta da taxa Selic · Copom" -o exemplos/selic-16x9.json
-  python3 grafico_cotacao/serie.py b3 PETR4 --desde 2025-10-01 --formato 9:16 \
-      --titulo "PETR4 em 12 meses" -o exemplos/petr4-9x16.json
+  python3 grafico_cotacao/serie.py b3 PETR4 --desde 2025-10-01 --formato 9:16 --comparador IBOV \
+      --titulo "PETR4 × Ibovespa" -o exemplos/petr4-9x16.json
 """
 import argparse, datetime as dt, gzip, json, os, sqlite3, sys, urllib.request
 
@@ -144,52 +144,25 @@ def fmt_br(v, casas):
 
 
 def montar(args):
-    if args.fonte == "bcb":
-        serie = int(args.codigo)
-        pontos, origem = serie_bcb(serie, args.desde, args.ate)
-        degrau = serie == 432
-        if degrau:
-            pontos = so_mudancas(pontos)
-        unidade = {"prefixo": "", "sufixo": "%", "casas": 2}
-        fonte = f"Fonte: BCB (SGS {serie})"
-        kicker = args.kicker or NOMES_SGS.get(serie, f"SGS {serie}")
-        variacao = "pp"
-    else:
-        pontos, origem = serie_b3(args.codigo, args.desde, args.ate)
-        s = saltos(pontos)
-        if s and not args.aceitar_saltos:
-            raise SystemExit("salto diário acima de 35% (provável evento societário; o COTAHIST não ajusta): "
-                             + "; ".join(f"{d}: {a:.2f} → {b:.2f}" for d, a, b in s[:5])
-                             + ". Confira e use --aceitar-saltos, ou mude o --desde.")
-        degrau = False
-        unidade = {"prefixo": "R$ ", "sufixo": "", "casas": 2}
-        fonte = "Fonte: B3 (COTAHIST, fechamento sem ajuste)"
-        kicker = args.kicker or f"{args.codigo.upper()} · fechamento diário"
-        variacao = "pct"
-    if len(pontos) < 2:
-        raise SystemExit("a série precisa de pelo menos 2 pontos no período")
-    dados = {
-        "titulo": args.titulo or kicker,
-        "kicker": kicker,
-        "fonte": fonte,
-        "formato": args.formato,
-        "duracao": args.duracao,
-        "linha": "degrau" if degrau else "linha",
-        "unidade": unidade,
-        "variacao": variacao,
-        "cor_final": args.cor_final,
-        "som": {"pouso": "impact-bass-1"} if not args.sem_som else False,
-        "destaques": [],
-        "serie": [{"data": d, "valor": round(v, 6)} for d, v in pontos],
-        "_origem": {"arquivo": origem, "gerado_em": dt.datetime.now().isoformat(timespec="seconds")},
-    }
+    """CLI → especificação → JSON (a regra de compliance mora em especificacao.py)."""
+    import especificacao as E
+    espec = {"serie": f"{'SGS' if args.fonte == 'bcb' else 'COTAHIST'}:{args.codigo}",
+             "periodo": f"{args.desde}:{args.ate or ''}", "rotulo": args.titulo or (args.kicker or args.codigo),
+             "formato": args.formato, "cor_final": args.cor_final}
+    for k in ("kicker", "comparador"):
+        if getattr(args, k):
+            espec[k] = getattr(args, k)
+    if args.aviso:
+        espec["aviso"] = True
     if args.destacar_extremos:
-        c, suf, pre = unidade["casas"], unidade["sufixo"], unidade["prefixo"]
-        vmin = min(pontos, key=lambda p: p[1])
-        vmax = max(pontos, key=lambda p: p[1])
-        for nome, (d, v), pos in (("Mínima", vmin, "acima"), ("Máxima", vmax, "abaixo")):
-            if d != pontos[-1][0]:
-                dados["destaques"].append({"data": d, "rotulo": f"{nome}: {pre}{fmt_br(v, c)}{suf}", "posicao": pos})
+        espec["destaques"] = "extremos"
+    if args.aceitar_saltos:
+        espec["aceitar_saltos"] = True
+    try:
+        dados = E.montar_entrada(espec, args.duracao, som=False if args.sem_som else {"pouso": "impact-bass-1"})
+    except E.ErroEspecificacao as e:
+        raise SystemExit(f"recusado: {e}")
+    dados["_origem"]["gerado_em"] = dt.datetime.now().isoformat(timespec="seconds")
     return dados
 
 
@@ -207,6 +180,8 @@ def main(argv=None):
     ap.add_argument("--destacar-extremos", action="store_true")
     ap.add_argument("--aceitar-saltos", action="store_true")
     ap.add_argument("--sem-som", action="store_true")
+    ap.add_argument("--comparador", help="IBOV, IFIX, CDI ou SGS:<n> (ativo da B3 exige comparador ou --aviso)")
+    ap.add_argument("--aviso", action="store_true", help="escreve 'Não é recomendação de investimento.' na tela")
     ap.add_argument("-o", "--saida", required=True)
     a = ap.parse_args(argv)
     dados = montar(a)

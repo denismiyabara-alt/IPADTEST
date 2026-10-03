@@ -2,6 +2,7 @@
  "titulo": "Selic: de 2% a 15%",
  "kicker": "Meta da taxa Selic · Copom",
  "fonte": "Fonte: BCB (SGS 432)",
+ "classe": "indicador",
  "formato": "16:9",
  "duracao": 8.0,
  "linha": "degrau",
@@ -183,6 +184,15 @@
  ],
  "_origem": {
   "arquivo": "site-ativos/cache/dados.sqlite (macro 432)",
-  "gerado_em": "2026-10-03T02:12:25"
+  "espec": {
+   "serie": "SGS:432",
+   "periodo": "2020-01-01:",
+   "rotulo": "Selic: de 2% a 15%",
+   "formato": "16:9",
+   "cor_final": "vermelho",
+   "kicker": "Meta da taxa Selic · Copom",
+   "destaques": "extremos"
+  },
+  "gerado_em": "2026-10-03T02:31:10"
  }
 }

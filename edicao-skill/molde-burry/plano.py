@@ -14,6 +14,9 @@ import json, re, sys, unicodedata
 TETO   = 6.0   # Denis, 11/09: cartela dura a frase do numero, nao o assunto inteiro
 MIN    = 3.0
 JANELA = 9.0
+# peca G (grafico de serie): a linha precisa de tempo pra se desenhar e o numero pousa em 62% da duracao.
+# Menos de 5 s nao da tempo de ler; mais de 10 s a linha fica parada. (Denis aprovou o grafico em 03/10.)
+LIMITES = {"G": (5.0, 10.0)}
 
 def norm(s):
     s = unicodedata.normalize("NFD", s.lower())
@@ -44,7 +47,12 @@ for i, (pid, peca, entra) in enumerate(achados):
         prox = [e for a, e, _ in txt if seg[1] <= a <= seg[1] + 0.8]
         if prox: fim_fala = prox[0]
     alvo = min(fim_fala, lim - 0.6)
-    dur = max(MIN, min(TETO, alvo - entra))
+    mn, teto = LIMITES.get(peca, (MIN, TETO))
+    if peca == "G":
+        if lim - 0.6 - entra < mn:
+            raise SystemExit(f"✗ grafico {pid} entra em {entra:.1f}s e a proxima peca entra {lim - entra:.1f}s depois: "
+                             f"precisa de {mn:.0f} s. De atraso a proxima peca ou mude a ancora em pecas.py.")
+    dur = max(mn, min(teto, alvo - entra))
     plano[pid] = {"peca": peca, "entra": entra, "dur": round(dur, 1)}
 
 json.dump(plano, open("plano.json", "w"), indent=1, ensure_ascii=False)

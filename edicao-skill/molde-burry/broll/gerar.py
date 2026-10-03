@@ -23,6 +23,7 @@ dur_de = {}
 for pid, p in plano.items():
     b = pid.split("@")[0]
     dur_de[b] = max(dur_de.get(b, 0), p["dur"])
+# ponytail: a peca "grafico" (G) tem projeto e render proprios (grafico.py); aqui ela so e pulada
 ordem = sorted(dur_de, key=lambda b: min(p["entra"] for k, p in plano.items() if k.split("@")[0] == b))
 
 def fotos_img(nome):
@@ -222,6 +223,8 @@ GER = dict(num=c_num, barras=c_barras, formula=c_formula, frase=c_frase, quote=c
 secs, js, jan, eventos, falta, t = [], [], {}, {}, [], 0.0
 for i, b in enumerate(ordem):
     D = dur_de[b]
+    if b in CENAS and CENAS[b][0] == "grafico":
+        continue   # 4a peca: render proprio em grafico.py (graficos.json), fora desta pagina
     ev = []
     if b in PR and (b.startswith("foto-") or "foto" in str(PR[b].get("obs", "")).lower()[:12]):
         h, j = c_foto(i, t, D, PR[b], ev)

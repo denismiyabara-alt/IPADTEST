@@ -17,7 +17,12 @@ DUR_VIDEO = int(subprocess.run(["ffprobe","-v","error","-select_streams","v:0",
     capture_output=True, text=True).stdout.strip()) / 30.0
 # ponytail: peca unica (cartelas + prints no mesmo render); janelas.json sai do gerar.py
 janelas = {cid: ("A", round(ini, 2), round(ini + dur, 2), dur)
-           for cid, (ini, dur) in json.load(open("videos/broll/janelas.json")).items()}
+           for cid, (ini, dur) in json.load(open("videos/broll/janelas.json")).items()} \
+    if os.path.exists("videos/broll/janelas.json") else {}
+# 4a peca: cada grafico e um mp4 proprio (videos/broll/grafico.py → graficos.json), janela [0, dur]
+GRAF = json.load(open("videos/broll/graficos.json")) if os.path.exists("videos/broll/graficos.json") else {}
+for gid, g in GRAF.items():
+    janelas[gid] = ("G", 0.0, g["dur"], g["dur"])
 
 plano = json.load(open("plano.json"))
 base = lambda c: c.split("@")[0]
@@ -39,6 +44,9 @@ for i, c in enumerate(cart):
         # ponytail: PISO. sem ele o aparo passava de zero e o montar.py pedia -15 frames
         # (esc-4 e 23-socio ancoradas na MESMA frase, 3,3s de distancia). Estourou a montagem.
         nova_dur = round(c[5] - sobra, 2)
+        if c[0] == "G" and nova_dur < GRAF[base(c[4])]["pouso"] + 0.8:
+            raise SystemExit(f"\n✗ grafico {c[4]} seria cortado em {nova_dur:.1f}s, antes do numero pousar "
+                             f"({GRAF[base(c[4])]['pouso']:.1f}s + 0,8s). Afaste a peca seguinte em pecas.py.")
         if nova_dur < MIN_JANELA:
             raise SystemExit(
                 f"\n✗ {c[4]} sobraria {nova_dur:.2f}s (minimo {MIN_JANELA}s): a peca seguinte "

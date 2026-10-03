@@ -9,6 +9,7 @@ description: Edita um vídeo longo do canal Investir e Coçar do bruto até o ma
 > Denis aprovou: pessoa do vídeo entrando na cena (recorte), MUITOS prints de fonte real (35+; "quanto mais melhor"),
 > cartelas animadas com som, ~50% de cobertura. Scripts prontos (corte pela onda, prints, gerar, plano, mapa, montar, sfx)
 > e exemplos completos (cenas/pecas/prints.json) do Burry e do TRXF11 cota nova. As seções abaixo são o porquê de cada etapa.
+> **4ª peça (03/10/2026): gráfico de série** (`G`), ancorado em frase, com regra de compliance no código: seção 2b.
 
 Pipeline validado no vídeo do TRXF11 (ago/2026): 25min48 de bruto → 22min24 com 55 cartelas
 e 41% de cobertura de imagem. Cada etapa aqui existe porque a versão ingênua dela falhou.
@@ -79,13 +80,73 @@ quebra o silêncio e sobra respiração). Borda sem silêncio: `envelope.py` ach
 transcrição do trecho *até o vale* diz de que lado a palavra caiu. `checa_sync.py` com um
 ponto no meio de cada pickup. Ver `[[feedback_corte_com_pickups_duas_fontes]]`.
 
-## 2. Peças de B-roll (três, sempre)
+## 2. Peças de B-roll (três, sempre; a 4ª, o gráfico, quando um número mudou no tempo)
 
 | Peça | O que é | Gerador |
 |---|---|---|
 | **dados** | 1 número por cena, tipografia extrema, count-up | `scripts/gerar-cartelas.py` |
 | **prints** | fonte primária real com push-in e sublinhado desenhado no trecho citado | `scripts/gerar-prints.py` |
 | **frases** | as frases-âncora do roteiro em tipografia | `scripts/gerar-cartelas.py` |
+| **grafico** | série real (Selic, IPCA, cotação) que se desenha; o número acompanha a ponta e pousa no último valor | `molde-burry/broll/grafico.py` → `$IEC_MOTION/grafico_cotacao` |
+
+### 2b. Gráfico de série (4ª peça, peça `G`, aprovado pelo Denis em 03/10/2026)
+
+Ancorado em FRASE como as outras: uma linha em `pecas.py` com a peça `"G"`, e a especificação em
+`videos/broll/cenas.py` com o tipo `"grafico"`:
+
+```python
+# pecas.py
+("54-selic", "G", r"corrigidas pelo cdi", 0.0),
+# videos/broll/cenas.py
+"54-selic": ("grafico", dict(serie="SGS:432", periodo="2020-01-01:", rotulo="Selic: de 2% a 15%",
+                             kicker="O CDI anda colado na Selic", destaques="extremos")),
+```
+
+| campo | valores |
+|---|---|
+| `serie` | `"SGS:<n>"` (BCB: 432 Selic, 433 IPCA, 13522 IPCA 12 meses, 12 CDI) ou `"COTAHIST:<TICKER>"` (B3) |
+| `periodo` | `"2020-01-01:"`, `"2025-10-01:2026-10-01"`, `"12m"` ou `"5a"` |
+| `rotulo` | o título na tela |
+| `unidade` | opcional: `"%"`, `"R$"` ou `"pontos"` (o padrão sai da fonte) |
+| `comparador` | opcional: `"IBOV"`, `"IFIX"`, `"CDI"` ou `"SGS:<n>"` (2ª linha, tracejada em cinza, com legenda) |
+| `aviso` | opcional: `True` escreve "Não é recomendação de investimento." na tela |
+| `formato` | opcional: `"16:9"` (padrão) ou `"9:16"` (Short) |
+| `kicker`, `destaques`, `cor_final` | opcionais (`destaques="extremos"` marca a mínima e a máxima) |
+
+**Duração:** sai da fala, como nas outras peças, mas com mínimo de 5 s e teto de 10 s (`LIMITES["G"]` no
+`plano.py`). O número pousa em 62% da duração. Se a próxima peça entra antes de 5 s, o `plano.py` para com
+erro; se o `mapa.py` precisar aparar o gráfico para antes do pouso, também para.
+
+**Compliance (no código, não é só regra escrita):** ação ou FII (`COTAHIST:`) **exige** um `comparador`
+(IBOV, IFIX ou CDI) desenhado junto **ou** `aviso=True`. Sem nenhum dos dois, o `grafico.py` recusa o plano
+inteiro com erro e não gera nada. Séries do BCB (Selic, IPCA, CDI) podem ir sozinhas. A mesma regra é
+conferida de novo no `gerar.validar()` do componente, para um JSON escrito à mão não passar por fora.
+
+**De onde vem cada comparador** (faltou dado no período → erro; nada é extrapolado):
+- `CDI`: BCB SGS 12, acumulado dia a dia desde a 1ª data do gráfico.
+- `IBOV`: BOVA11 no COTAHIST (o COTAHIST não traz o índice; o ETF segue o Ibovespa menos 0,10% a.a.).
+- `IFIX`: XFIX11 no COTAHIST, preço sem os rendimentos distribuídos (subestima o retorno total).
+- `SGS:<n>`: outra taxa do BCB no mesmo eixo (por exemplo, Selic × IPCA 12 meses).
+Ativo com comparador é desenhado em **base 100** na 1ª data, porque as unidades são diferentes; taxa com taxa
+fica no mesmo eixo. O número grande continua sendo o valor real (R$ 49,77), não o da base 100.
+
+**Dado:** o cache do site-ativos (`IPADTEST/site-ativos/cache/`: SQLite e COTAHIST cru). Sem ele, o BCB é
+baixado e guardado em `$IEC_MOTION/cache/`. O COTAHIST é o fechamento **sem ajuste** por proventos; um salto
+diário acima de 35% (desdobramento) recusa a série. A fala ganha da cartela em diferença de arredondamento.
+
+**Comandos** (depois do `plano.py`; a variável aponta para a pasta `motion/` do repo IPADTEST):
+```bash
+export IEC_MOTION=~/IPADTEST/motion          # onde você clonou o IPADTEST; 1ª vez: (cd $IEC_MOTION && npm install)
+cd videos/broll && python3 gerar.py && python3 grafico.py --render && cd ../..
+python3 mapa.py && python3 montar.py && python3 sfx.py
+```
+O som do pouso não vai no mp4 do gráfico: entra como evento `impacto` (impact-bass-1) no `sfx.py`, junto com
+os outros sons, e o Denis escolheu o esparso (só o número aterrissando).
+
+**Custo de render:** cada gráfico é um render HyperFrames próprio, de 5 a 10 s. Medido no Linux (4 núcleos,
+sem GPU): 15 a 17 s por gráfico de 8 s, com ~2 GB de pico. No Mac, a estimativa é de 10 a 20 s por gráfico.
+É um job pesado: rode sem transcrição ou voz ao mesmo tempo. Teste: `IEC_MOTION=... python3 -m pytest -q
+molde-burry/tests` (plano → gráfico → mapa → montar num corte sintético, mais as regras de compliance).
 
 Estilo congelado: papel `#F4F1EA`, Anton + Inter + JetBrains Mono, ícone stroke-only que se desenha
 atrás do número. Receitas em `~/.media/recipes/investir-cocar-broll-*`.

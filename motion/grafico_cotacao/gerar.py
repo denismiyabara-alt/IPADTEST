@@ -38,6 +38,7 @@ FONTES = {  # arquivo no @fontsource -> nome no CSS
     "inter-900": ("@fontsource/inter/files/inter-latin-900-normal.woff2", "Inter", 900),
     "mono-500": ("@fontsource/jetbrains-mono/files/jetbrains-mono-latin-500-normal.woff2", "JetBrains Mono", 500),
 }
+FRACAO_POUSO = 0.62   # a linha chega no último ponto (e o número "pousa") em 62% da duração
 MAX_PONTOS = 600   # acima disso o SVG fica pesado; reduz guardando mínimo e máximo de cada faixa
 
 
@@ -114,6 +115,39 @@ def validar(d):
                 erros.append(f"destaques[{k}] fora do período da série: {h['data']}")
             if h.get("posicao", "acima") not in ("acima", "abaixo"):
                 erros.append(f"destaques[{k}].posicao deve ser 'acima' ou 'abaixo'")
+    # classe + comparador/aviso: a regra de compliance (ver especificacao.py) vale também para JSON à mão
+    if d.get("classe") not in ("ativo", "indicador"):
+        erros.append("'classe' é obrigatória: 'ativo' (ação/FII, COTAHIST) ou 'indicador' (Selic, IPCA, CDI)")
+    comp = d.get("comparador")
+    if comp is not None:
+        if not isinstance(comp, dict) or not comp.get("rotulo") or not comp.get("fonte"):
+            erros.append("'comparador' precisa de rotulo, fonte e serie")
+        else:
+            cs = comp.get("serie")
+            if not isinstance(cs, list) or len(cs) < 2:
+                erros.append("'comparador.serie' precisa de pelo menos 2 pontos")
+            else:
+                cd = []
+                for i, p in enumerate(cs):
+                    try:
+                        x = dt.date.fromisoformat(p["data"])
+                        v = p["valor"]
+                        if isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v):
+                            raise ValueError
+                    except (KeyError, TypeError, ValueError):
+                        erros.append(f"comparador.serie[{i}] inválido: {p!r}")
+                        continue
+                    if cd and x <= cd[-1]:
+                        erros.append(f"comparador.serie[{i}] fora de ordem: {p['data']}")
+                    cd.append(x)
+                if d.get("base100") and cs and isinstance(cs[0].get("valor"), (int, float)) and cs[0]["valor"] <= 0:
+                    erros.append("base 100 precisa de primeiro valor positivo no comparador")
+            comp.setdefault("linha", "linha")
+    if d.get("base100") and serie and isinstance(serie[0].get("valor"), (int, float)) and serie[0]["valor"] <= 0:
+        erros.append("base 100 precisa de primeiro valor positivo na série")
+    if d.get("classe") == "ativo" and not comp and not (isinstance(d.get("aviso"), str) and d["aviso"].strip()):
+        erros.append("compliance: ativo isolado precisa de 'comparador' (IBOV, IFIX ou CDI) desenhado junto "
+                     "OU de 'aviso' na tela ('Não é recomendação de investimento.')")
     som = d["som"]
     if som not in (False, None) and not (isinstance(som, dict) and isinstance(som.get("pouso"), str)):
         erros.append("'som' deve ser false ou {'pouso': 'impact-bass-1' | caminho | 'sintetico'}")
@@ -197,45 +231,74 @@ def layout(formato):
         return dict(W=W, H=H, pad=96, kicker_y=92, titulo_y=136, titulo_px=84, num_px=190, num_x=W - 96, num_y=92,
                     num_alinha="right", gx0=200, gx1=W - 140, gy0=480, gy1=930, fonte_y=H - 64, eixo_px=30)
     return dict(W=W, H=H, pad=72, kicker_y=200, titulo_y=246, titulo_px=88, num_px=230, num_x=72, num_y=470,
-                num_alinha="left", gx0=170, gx1=W - 90, gy0=900, gy1=1480, fonte_y=1580, eixo_px=30)
+                num_alinha="left", gx0=170, gx1=W - 90, gy0=980, gy1=1500, fonte_y=1600, eixo_px=30)
+
+
+def _caminho(xs, ys, degrau):
+    c = [f"M{xs[0]},{ys[0]}"]
+    for k in range(1, len(xs)):
+        c.append(f"H{xs[k]}V{ys[k]}" if degrau else f"L{xs[k]},{ys[k]}")
+    return "".join(c)
+
+
+def plotados(pontos, base100):
+    """Valores desenhados: os reais, ou base 100 na 1ª data (quando as unidades são diferentes)."""
+    if not base100:
+        return [p["valor"] for p in pontos]
+    b = pontos[0]["valor"]
+    return [100 * p["valor"] / b for p in pontos]
 
 
 def geometria(d):
     L = layout(d["formato"])
+    b100 = bool(d.get("base100"))
     pts = reduzir(d["serie"])
-    t0 = dt.date.fromisoformat(pts[0]["data"]).toordinal()
-    t1 = dt.date.fromisoformat(pts[-1]["data"]).toordinal()
-    valores = [p["valor"] for p in pts]
-    lo, hi, marcas = escala_y(min(valores), max(valores))
+    comp = d.get("comparador")
+    ini, fim = pts[0]["data"], pts[-1]["data"]
+    cpts = reduzir([p for p in comp["serie"] if ini <= p["data"] <= fim]) if comp else []
+    if comp and len(cpts) < 2:
+        raise DadosInvalidos([f"comparador {comp['rotulo']}: menos de 2 pontos dentro de {ini} a {fim}"])
+    t0 = dt.date.fromisoformat(ini).toordinal()
+    t1 = dt.date.fromisoformat(fim).toordinal()
+    vp, vc = plotados(pts, b100), plotados(cpts, b100) if comp else []
+    lo, hi, marcas = escala_y(min(vp + vc), max(vp + vc))
     X = lambda iso: L["gx0"] + (dt.date.fromisoformat(iso).toordinal() - t0) / max(1, t1 - t0) * (L["gx1"] - L["gx0"])
     Y = lambda v: L["gy1"] - (v - lo) / (hi - lo) * (L["gy1"] - L["gy0"])
     xs = [round(X(p["data"]), 2) for p in pts]
-    ys = [round(Y(p["valor"]), 2) for p in pts]
-    if d["linha"] == "degrau":
-        caminho = [f"M{xs[0]},{ys[0]}"]
-        for k in range(1, len(xs)):
-            caminho.append(f"H{xs[k]}V{ys[k]}")
-    else:
-        caminho = [f"M{xs[0]},{ys[0]}"] + [f"L{x},{y}" for x, y in zip(xs[1:], ys[1:])]
-    linha = "".join(caminho)
-    area = linha + f"V{L['gy1']}H{xs[0]}Z"
-    anos = []
+    ys = [round(Y(v), 2) for v in vp]
+    linha = _caminho(xs, ys, d["linha"] == "degrau")
+    G = dict(L=L, pts=pts, xs=xs, ys=ys, linha=linha, area=linha + f"V{L['gy1']}H{xs[0]}Z",
+             marcas=[(round(Y(m), 1), m) for m in marcas], anos=[], b100=b100, comp=None)
+    if comp:
+        cx = [round(X(p["data"]), 2) for p in cpts]
+        cy = [round(Y(v), 2) for v in vc]
+        G["comp"] = dict(linha=_caminho(cx, cy, comp.get("linha") == "degrau"), x_fim=cx[-1], y_fim=cy[-1],
+                         rotulo=comp["rotulo"], fim_plot=vc[-1], fim_real=cpts[-1]["valor"], ini_real=cpts[0]["valor"])
     a0, a1 = dt.date.fromordinal(t0).year, dt.date.fromordinal(t1).year
     if a1 - a0 >= 2:
-        for ano in range(a0 + 1, a1 + 1):
-            anos.append((round(X(f"{ano}-01-01"), 1), str(ano)))
-    return L, pts, xs, ys, linha, area, [(round(Y(m), 1), m) for m in marcas], anos
+        G["anos"] = [(round(X(f"{ano}-01-01"), 1), str(ano)) for ano in range(a0 + 1, a1 + 1)]
+    return G
+
+
+def texto_comparador(d, G):
+    """Rótulo da ponta do comparador: variação % em base 100; valor na unidade no mesmo eixo."""
+    c = G["comp"]
+    if G["b100"]:
+        x = (c["fim_real"] / c["ini_real"] - 1) * 100
+        return f"{c['rotulo']} {'+' if x >= 0 else '−'}{fmt_br(abs(x), 1)}%"
+    return f"{c['rotulo']} {texto_valor(c['fim_real'], d['unidade'])}"
 
 
 # ---------------------------------------------------------------- página
 def montar_html(d, sfx_arquivo=None, sfx_duracao=1.0):
     d = validar(d)
-    L, pts, xs, ys, linha, area, marcas, anos = geometria(d)
+    G = geometria(d)
+    L, pts, xs, ys, linha, area, marcas, anos = (G[k] for k in ("L", "pts", "xs", "ys", "linha", "area", "marcas", "anos"))
     W, H, dur = L["W"], L["H"], float(d["duracao"])
     un = d["unidade"]
     cor_final = CORES[d["cor_final"]]
     t_desenho0 = 0.9
-    t_pouso = round(dur * 0.62, 3)                # a linha chega no último ponto aqui
+    t_pouso = round(dur * FRACAO_POUSO, 3)                # a linha chega no último ponto aqui
     t_variacao = round(t_pouso + 0.35, 3)
     destaques = []
     for k, h in enumerate(d["destaques"]):
@@ -246,10 +309,35 @@ def montar_html(d, sfx_arquivo=None, sfx_duracao=1.0):
         t = t_desenho0 + tempo_da_ease(frac) * (t_pouso - t_desenho0)
         destaques.append(dict(k=k, x=hx, y=hy, t=round(t, 3), rotulo=h["rotulo"], acima=h.get("posicao", "acima") == "acima"))
     casas_eixo = 0 if all(abs(m - round(m)) < 1e-9 for _, m in marcas) else min(2, un["casas"])
+    pre_eixo, suf_eixo = ("", "") if G["b100"] else (un["prefixo"].strip(), un["sufixo"])
     grade = "".join(
         f'<line x1="{L["gx0"]}" x2="{L["gx1"]}" y1="{y}" y2="{y}" class="grade"/>'
-        f'<text x="{L["gx0"] - 22}" y="{y + 10}" class="eixo" text-anchor="end">{un["prefixo"].strip()}{fmt_br(m, casas_eixo)}{un["sufixo"]}</text>'
+        f'<text x="{L["gx0"] - 22}" y="{y + 10}" class="eixo" text-anchor="end">{pre_eixo}{fmt_br(m, casas_eixo)}{suf_eixo}</text>'
         for y, m in marcas)
+    # comparador: 2ª linha tracejada em cinza (cor discreta: não conta como cor de destaque) + legenda
+    comp_svg = legenda = ""
+    if G["comp"]:
+        c = G["comp"]
+        acima = c["y_fim"] < ys[-1]
+        comp_svg = (f'<path id="linha-comp" d="{c["linha"]}"/>')
+        comp_fim = (f'<g id="comp-fim"><circle cx="{c["x_fim"]}" cy="{c["y_fim"]}" r="9" class="comp-ponto"/>'
+                    f'<text x="{c["x_fim"] - 20}" y="{c["y_fim"] + (-24 if acima else 46)}" text-anchor="end" '
+                    f'class="comp-texto">{esc(texto_comparador(d, G))}</text></g>')
+        comp_svg_fim = comp_fim
+        ly = L["gy0"] - 70
+        nome = d.get("nome_serie") or (d["kicker"].split("·")[0].strip() or "Série")
+        legenda = (f'<g id="legenda"><line x1="{L["gx0"]}" x2="{L["gx0"] + 48}" y1="{ly}" y2="{ly}" class="leg-princ"/>'
+                   f'<text x="{L["gx0"] + 62}" y="{ly + 11}" class="leg-texto">{esc(nome)}</text>'
+                   f'<line x1="{L["gx0"] + 90 + 22 * len(nome)}" x2="{L["gx0"] + 138 + 22 * len(nome)}" y1="{ly}" y2="{ly}" class="leg-comp"/>'
+                   f'<text x="{L["gx0"] + 152 + 22 * len(nome)}" y="{ly + 11}" class="leg-texto">{esc(c["rotulo"])}</text></g>')
+        if G["b100"]:
+            xb, yb = L["gx0"] + 200 + 22 * (len(nome) + len(c["rotulo"])), ly + 10
+            if d["formato"] == "9:16":   # não cabe na mesma linha: vai para a linha de cima
+                xb, yb = L["gx0"], ly - 40
+            legenda = legenda[:-4] + (f'<text x="{xb}" y="{yb}" class="eixo">'
+                                      f'base 100 = {data_br(pts[0]["data"])}</text></g>')
+    else:
+        comp_svg_fim = ""
     eixo_x = "".join(f'<line x1="{x}" x2="{x}" y1="{L["gy1"]}" y2="{L["gy1"] + 14}" class="marca"/>'
                      f'<text x="{x}" y="{L["gy1"] + 52}" class="eixo" text-anchor="middle">{a}</text>'
                      for x, a in anos if L["gx0"] + 60 < x < L["gx1"] - 20)
@@ -288,6 +376,9 @@ def montar_html(d, sfx_arquivo=None, sfx_duracao=1.0):
         titulo_largura=W - 2 * L["pad"] - (760 if d["formato"] == "16:9" else 0),
         gx0=L["gx0"], gx1=L["gx1"], gy0=L["gy0"] - 40, gy1=L["gy1"] + 10, gh=L["gy1"] - L["gy0"] + 60,
         linhas_grade=grade, eixo_x=eixo_x, linha=linha, area=area, marcadores=marcadores,
+        comp_svg=comp_svg, comp_fim=comp_svg_fim, legenda=legenda,
+        aviso=f'<div id="aviso">{esc(d["aviso"])}</div>' if d.get("aviso") else "",
+        rodape_dir="column" if d["formato"] == "9:16" else "row",
         x_fim=xs[-1], y_fim=ys[-1], final_txt=esc(final_txt), inicial_txt=esc(texto_valor(pts[0]["valor"], un)),
         rotulo_final=esc(rotulo_final), variacao=esc(variacao), audio=audio, dados=js_dados,
         formato=d["formato"])
@@ -413,8 +504,16 @@ TEMPLATE = r"""<!doctype html>
   #anel {{ fill:none; stroke:{cor_final}; stroke-width:5; }}
   .dq-ponto {{ fill:{ouro}; stroke:{papel}; stroke-width:4; }}
   .dq-texto {{ font:800 36px Inter, sans-serif; fill:{ouro}; paint-order:stroke; stroke:{papel}; stroke-width:14px; }}
-  #fonte {{ position:absolute; left:{pad}px; top:{fonte_y}px; font:500 28px 'JetBrains Mono', monospace; color:{cinza};
-            background:{papel}; padding:4px 10px; margin-left:-10px; }}
+  #rodape {{ position:absolute; left:{pad}px; right:{pad}px; top:{fonte_y}px; display:flex; flex-direction:{rodape_dir};
+             justify-content:space-between; gap:8px 32px; font:500 26px/1.3 'JetBrains Mono', monospace; }}
+  #fonte {{ color:{cinza}; }}
+  #aviso {{ color:{tinta}; white-space:nowrap; }}
+  #linha-comp {{ fill:none; stroke:{cinza}; stroke-width:5; stroke-dasharray:16 10; stroke-linejoin:round; }}
+  .comp-ponto {{ fill:{cinza}; }}
+  .comp-texto {{ font:800 34px Inter, sans-serif; fill:{cinza}; paint-order:stroke; stroke:{papel}; stroke-width:12px; }}
+  .leg-princ {{ stroke:{tinta}; stroke-width:7; }}
+  .leg-comp {{ stroke:{cinza}; stroke-width:5; stroke-dasharray:16 10; }}
+  .leg-texto {{ font:800 32px Inter, sans-serif; fill:{tinta}; }}
 </style>
 </head>
 <body>
@@ -432,14 +531,17 @@ TEMPLATE = r"""<!doctype html>
       <g id="eixos">{linhas_grade}{eixo_x}</g>
       <g clip-path="url(#revela)">
         <path id="area" d="{area}"/>
+        {comp_svg}
         <path id="linha" d="{linha}"/>
       </g>
+      {legenda}
       <circle id="ponta" cx="{gx0}" cy="0" r="12"/>
       <circle id="anel" cx="{x_fim}" cy="{y_fim}" r="16" opacity="0"/>
       <circle id="ponto-final" cx="{x_fim}" cy="{y_fim}" r="15" opacity="0"/>
+      {comp_fim}
       {marcadores}
     </svg>
-    <div id="fonte">{fonte}</div>
+    <div id="rodape"><div id="fonte">{fonte}</div>{aviso}</div>
   </section>
   {audio}
 </div>
@@ -482,7 +584,9 @@ TEMPLATE = r"""<!doctype html>
   tl.from('#eixos', {{ opacity: 0, duration: .5, ease: 'power1.out' }}, .45);
   tl.set('#ponta', {{ opacity: 0 }}, 0);
   tl.set('#ponta', {{ opacity: 1 }}, D.t0 - .2);
-  tl.from('#fonte', {{ opacity: 0, duration: .4 }}, .6);
+  tl.from('#rodape', {{ opacity: 0, duration: .4 }}, .6);
+  if (document.getElementById('legenda')) tl.from('#legenda', {{ opacity: 0, duration: .4 }}, .55);
+  if (document.getElementById('comp-fim')) tl.fromTo('#comp-fim', {{ opacity: 0 }}, {{ opacity: 1, duration: .35 }}, D.t1 + .2);
   tl.set(['#variacao', '#rotulo-final'], {{ opacity: 0 }}, 0);
   // 2. a linha se desenha e o número acompanha a ponta (é o valor real da série naquele ponto)
   tl.to(prog, {{ p: 1, duration: D.t1 - D.t0, ease: 'power1.inOut', onUpdate: desenhar }}, D.t0);

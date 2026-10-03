@@ -17,7 +17,12 @@ import subprocess, os, glob, json
 BASE = "FINAL-corte.mp4"
 FPS = 30
 def ultimo(d): return sorted(glob.glob(f"videos/{d}/renders/*.mp4"))[-1]
-PECA = {"A": ultimo("broll")}   # peca C (abertura "Fala, Tanaka") nao existe neste video
+GRAF = json.load(open("videos/broll/graficos.json")) if os.path.exists("videos/broll/graficos.json") else {}
+def fonte_da_peca(peca, cid):
+    """A = render unico do broll; G = mp4 proprio de cada grafico (graficos.json)."""
+    if peca == "G":
+        return GRAF[cid.split("@")[0]]["mp4"]
+    return ultimo("broll")   # peca C (abertura "Fala, Tanaka") nao existe neste video
 TMP = "montagem"
 APARA = 0.0    # cartela sem fade: corte seco, nada a aparar
 # ponytail: contado do arquivo. a versao com DUR_BASE fixo quebrou quando o corte
@@ -29,12 +34,13 @@ N_BASE = round(_dur_a * FPS)
 DUR_BASE = N_BASE / FPS
 print(f"base: {N_BASE} frames = {DUR_BASE:.3f}s")
 
-ordem = [(c["peca"], c["ini"], c["fim"], c["entra"]) for c in json.load(open("cartelas.json"))]
+ordem = [(c["peca"], c["ini"], c["fim"], c["entra"], c["id"]) for c in json.load(open("cartelas.json"))]
 for x, y in zip(ordem, ordem[1:]):
     assert x[3] + (x[2] - x[1]) <= y[3] + 0.01, f"colisao entre {x} e {y}"
 
 os.makedirs(TMP, exist_ok=True)
-V = ["-c:v", "h264_videotoolbox", "-b:v", "20M", "-an", "-r", str(FPS),
+# MONTAR_VCODEC=libx264 fora do Mac (o teste roda no Linux); no Mac fica o encoder de hardware
+V = ["-c:v", os.environ.get("MONTAR_VCODEC", "h264_videotoolbox"), "-b:v", "20M", "-an", "-r", str(FPS),
      "-pix_fmt", "yuv420p", "-video_track_timescale", str(FPS * 1000)]
 
 def corta(src, ini_f, n_f, saida):
@@ -56,7 +62,7 @@ def corta(src, ini_f, n_f, saida):
     return got
 
 pedacos, out_f, base_f = [], 0, 0
-for i, (peca, ini, fim, entra) in enumerate(ordem):
+for i, (peca, ini, fim, entra, cid) in enumerate(ordem):
     entra_f = round((entra + APARA) * FPS)          # onde a cartela entra, em frame
     cart_f  = round((fim - ini - 2 * APARA) * FPS)  # quantos frames de cartela
     ini_c_f = round((ini + APARA) * FPS)
@@ -64,7 +70,7 @@ for i, (peca, ini, fim, entra) in enumerate(ordem):
         n = entra_f - out_f
         p = f"{TMP}/base-{i:02d}.mp4"; corta(BASE, base_f, n, p); pedacos.append(p)
         out_f += n; base_f += n
-    p = f"{TMP}/cart-{i:02d}.mp4"; corta(PECA[peca], ini_c_f, cart_f, p); pedacos.append(p)
+    p = f"{TMP}/cart-{i:02d}.mp4"; corta(fonte_da_peca(peca, cid), ini_c_f, cart_f, p); pedacos.append(p)
     out_f += cart_f; base_f += cart_f
     print(f"  {i+1:2d}/{len(ordem)}  {peca} frame {entra_f:6d} → {out_f:6d} "
           f"({entra_f/FPS:7.2f}s → {out_f/FPS:7.2f}s)", flush=True)
