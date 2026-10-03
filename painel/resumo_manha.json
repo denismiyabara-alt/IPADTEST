@@ -49,8 +49,8 @@
     "esperados": [
       {"label": "com.denis.milhasradar", "horario": "03:00", "dias": "todos", "saida": "/Users/denal/milhas-radar/run.log", "opcional": true},
       {"label": "com.denis.milhasrss", "horario": "07:40", "dias": "todos", "saida": "/Users/denal/milhas-radar/milhas_relatorio.md"},
-      {"label": "com.denal.radar-comentarios", "horario": "08:00", "dias": ["seg"], "saida": "/tmp/radar.json", "opcional": true, "_nota": "CONFIRMAR o label"},
-      {"label": "com.denal.termometro", "a_cada_min": 60, "opcional": true, "_nota": "CONFIRMAR o label; só grava quando há vídeo para medir, então vale só o código de saída"},
+      {"label": "com.investirecocar.radar-comentarios", "horario": "08:00", "dias": ["seg"], "saida": "/tmp/radar.json", "opcional": true, "_nota": "CONFIRMAR o label"},
+      {"label": "com.investirecocar.termometro-2h", "a_cada_min": 60, "opcional": true, "_nota": "CONFIRMAR o label; só grava quando há vídeo para medir, então vale só o código de saída"},
       {"label": "com.denal.portfolioreview", "horario": "08:30", "dias": ["seg"], "saida": "/Users/denal/stock-signal-bot/logs/portfolio.log", "opcional": true},
       {"label": "com.denal.painel", "horario": "08:50", "dias": "uteis", "saida": "/Users/denal/IPADTEST/painel/saida/painel-{data}.html"},
       {"label": "com.denal.resumo-manha", "horario": "08:50", "dias": "uteis", "saida": "/tmp/resumo-manha.log"},
