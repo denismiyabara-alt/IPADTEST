@@ -395,7 +395,7 @@ Então, Tanaka, da próxima vez que o aplicativo te mostrar o balde em verde, an
     não fabrica água", "o ranking de yield é a única competição em que cair ajuda".
 
 **Antes de gravar (Mac, não é do Denis):** IPCA de set/2026 se gravar depois de 09/10 (item 13; troca o 4,22% e o −0,21%);
-JEPQ39 não entra (item 17 não precisa); receita do `motion/biblioteca/dados.py` para as barras do par (a biblioteca pede que o
+o item 17 do briefing não precisa (o roteiro não cita o código que não negocia na B3); receita do `motion/biblioteca/dados.py` para as barras do par (a biblioteca pede que o
 número saia da origem, não digitado); nova rodada independente de juiz-roteiro, juiz-ritmo e ouvinte-frio na v3.
 
 ---
