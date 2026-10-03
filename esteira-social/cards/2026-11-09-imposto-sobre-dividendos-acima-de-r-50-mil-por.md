@@ -7,6 +7,9 @@ depois: "leitor-frio"
 video_data: "2026-11-09"
 video_formato: "short"
 video_titulo: "Imposto sobre dividendos acima de R$ 50 mil por mês: quem paga"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2"
 assunto: "imposto e regras"
 temas: ["IR", "ações e dividendos"]
 termo_busca: "—"
@@ -160,6 +163,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Regra de imposto: o juiz pede a regra inteira; a Lei 15.270/2025 também tem o imposto mínimo de alta renda, que o calendário não traz."
   },
   "topico": "Imposto sobre dividendos acima de R$ 50 mil por mês: quem paga",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-11-09",
     "formato": "short",

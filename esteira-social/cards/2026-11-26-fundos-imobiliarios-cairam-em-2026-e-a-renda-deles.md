@@ -7,11 +7,14 @@ depois: "leitor-frio"
 video_data: "2026-11-26"
 video_formato: "longo"
 video_titulo: "Fundos imobiliários caíram em 2026: e a renda deles?"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2"
 assunto: "FII"
 temas: ["FII"]
 termo_busca: "fundos imobiliarios"
 mensagem_capa: "Em 2026, o preço das cotas dos fundos imobiliários caiu; o vídeo mostra se o aluguel distribuído caiu junto."
-estrutura: "D (A Pergunta Que Ninguém Faz)"
+estrutura: "E (A Linha do Tempo Invertida)"
 mecanica: "contraste"
 instagram_data: "2026-11-27"
 instagram_horario: "12:00"
@@ -124,7 +127,7 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
   "temas": [
     "FII"
   ],
-  "estrutura": "D",
+  "estrutura": "E",
   "mecanica": "contraste",
   "mensagem_capa": "Em 2026, o preço das cotas dos fundos imobiliários caiu; o vídeo mostra se o aluguel distribuído caiu junto.",
   "slides": [
@@ -180,6 +183,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Dor no bolso de quem tem fundo imobiliário, com uma ideia por peça."
   },
   "topico": "Fundos imobiliários caíram em 2026: e a renda deles?",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-11-26",
     "formato": "longo",

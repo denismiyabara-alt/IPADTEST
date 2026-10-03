@@ -7,6 +7,9 @@ depois: "leitor-frio"
 video_data: "2026-11-02"
 video_formato: "short"
 video_titulo: "JCP em 2026: já vem com 17,5% de imposto"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2"
 assunto: "imposto e regras"
 temas: ["IR", "ações e dividendos"]
 termo_busca: "—"
@@ -169,6 +172,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Dor no bolso direta e regra do calendário. Risco: JCP é jargão, explicado em cada peça."
   },
   "topico": "JCP em 2026: já vem com 17,5% de imposto",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-11-02",
     "formato": "short",

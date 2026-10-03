@@ -7,11 +7,14 @@ depois: "leitor-frio"
 video_data: "2026-11-19"
 video_formato: "longo"
 video_titulo: "Bitcoin depois do 'alerta': o que mudou desde fevereiro"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2"
 assunto: "cripto"
 temas: ["cripto"]
 termo_busca: "bitcoin"
 mensagem_capa: "O vídeo confere, com os dados de hoje, os argumentos do alerta de fevereiro sobre o bitcoin."
-estrutura: "E (A Linha do Tempo Invertida)"
+estrutura: "B (O Personagem → O Twist)"
 mecanica: "necrologio"
 instagram_data: "2026-11-20"
 instagram_horario: "12:00"
@@ -123,7 +126,7 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
   "temas": [
     "cripto"
   ],
-  "estrutura": "E",
+  "estrutura": "B",
   "mecanica": "necrologio",
   "mensagem_capa": "O vídeo confere, com os dados de hoje, os argumentos do alerta de fevereiro sobre o bitcoin.",
   "slides": [
@@ -185,6 +188,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Nome que o brasileiro reconhece (bitcoin) e continuação de top 10."
   },
   "topico": "Bitcoin depois do 'alerta': o que mudou desde fevereiro",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-11-19",
     "formato": "longo",

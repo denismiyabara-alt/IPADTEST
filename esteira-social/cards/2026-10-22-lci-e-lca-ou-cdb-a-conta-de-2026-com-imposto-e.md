@@ -7,6 +7,9 @@ depois: "leitor-frio"
 video_data: "2026-10-22"
 video_formato: "longo"
 video_titulo: "LCI e LCA ou CDB: a conta de 2026 com imposto e prazo"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2"
 assunto: "tesouro e renda fixa"
 temas: ["renda fixa bancária"]
 termo_busca: "lci e lca"
@@ -181,6 +184,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Pauta de produto bancário; pergunta real com R$ dá bolso. Carrossel explicativo."
   },
   "topico": "LCI e LCA ou CDB: a conta de 2026 com imposto e prazo",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-10-22",
     "formato": "longo",

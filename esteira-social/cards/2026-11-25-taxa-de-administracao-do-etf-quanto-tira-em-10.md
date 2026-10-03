@@ -7,6 +7,9 @@ depois: "leitor-frio"
 video_data: "2026-11-25"
 video_formato: "short"
 video_titulo: "Taxa de administração do ETF: quanto tira em 10 anos"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2"
 assunto: "ETF e exterior"
 temas: ["ETF"]
 termo_busca: "—"
@@ -188,6 +191,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Conta em R$ mandável ('quase o triplo de mordida')."
   },
   "topico": "Taxa de administração do ETF: quanto tira em 10 anos",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-11-25",
     "formato": "short",

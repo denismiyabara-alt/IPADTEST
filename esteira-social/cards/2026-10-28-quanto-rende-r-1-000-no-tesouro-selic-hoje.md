@@ -7,6 +7,9 @@ depois: "leitor-frio"
 video_data: "2026-10-28"
 video_formato: "short"
 video_titulo: "Quanto rende R$ 1.000 no Tesouro Selic hoje"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2"
 assunto: "tesouro e renda fixa"
 temas: ["Tesouro"]
 termo_busca: "qual investimento rende mais"
@@ -163,6 +166,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Conta em R$ e bolso claro. Pendência: o [CHECAR] da taxa do dia (decisão do Mac: não elimina)."
   },
   "topico": "Quanto rende R$ 1.000 no Tesouro Selic hoje",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-10-28",
     "formato": "short",

@@ -7,6 +7,9 @@ depois: "leitor-frio"
 video_data: "2026-10-12"
 video_formato: "short"
 video_titulo: "Resgatou o CDB antes de 30 dias? O IOF come o rendimento"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2"
 assunto: "tesouro e renda fixa"
 temas: ["renda fixa bancária"]
 termo_busca: "—"
@@ -163,6 +166,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Pauta de produto bancário básico; capa clara e com bolso."
   },
   "topico": "Resgatou o CDB antes de 30 dias? O IOF come o rendimento",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-10-12",
     "formato": "short",

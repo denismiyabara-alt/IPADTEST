@@ -7,11 +7,14 @@ depois: "leitor-frio"
 video_data: "2026-10-19"
 video_formato: "short"
 video_titulo: "FII é isento de imposto? Só se cumprir estas 3 regras"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2"
 assunto: "imposto e regras"
 temas: ["IR", "FII"]
 termo_busca: "—"
 mensagem_capa: "O rendimento do fundo imobiliário fica sem imposto de renda se três regras forem cumpridas."
-estrutura: "D (A Pergunta Que Ninguém Faz)"
+estrutura: "E (A Linha do Tempo Invertida)"
 mecanica: "pergunta-do-leitor"
 instagram_data: "2026-10-19"
 instagram_horario: "18:00"
@@ -114,7 +117,7 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "IR",
     "FII"
   ],
-  "estrutura": "D",
+  "estrutura": "E",
   "mecanica": "pergunta-do-leitor",
   "mensagem_capa": "O rendimento do fundo imobiliário fica sem imposto de renda se três regras forem cumpridas.",
   "slides": [
@@ -164,6 +167,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Regra de imposto: o juiz pede a regra INTEIRA; o texto fala em 'regras principais' (Lei 14.754/2023 tem outros detalhes que o calendário não traz)."
   },
   "topico": "FII é isento de imposto? Só se cumprir estas 3 regras",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-10-19",
     "formato": "short",

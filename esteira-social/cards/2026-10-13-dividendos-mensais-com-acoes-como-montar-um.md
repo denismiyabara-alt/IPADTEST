@@ -7,11 +7,14 @@ depois: "leitor-frio"
 video_data: "2026-10-13"
 video_formato: "longo"
 video_titulo: "Dividendos mensais com ações: como montar um calendário"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2"
 assunto: "renda mensal"
 temas: ["ações e dividendos"]
 termo_busca: "dividendos mensais"
 mensagem_capa: "Receber dividendo mensal depende de montar um calendário de pagamentos, não de achar uma ação mágica."
-estrutura: "D (A Pergunta Que Ninguém Faz)"
+estrutura: "B (O Personagem → O Twist)"
 mecanica: "eco-do-gatilho (cair)"
 instagram_data: "2026-10-14"
 instagram_horario: "12:00"
@@ -125,7 +128,7 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
   "temas": [
     "ações e dividendos"
   ],
-  "estrutura": "D",
+  "estrutura": "B",
   "mecanica": "eco-do-gatilho (cair)",
   "mensagem_capa": "Receber dividendo mensal depende de montar um calendário de pagamentos, não de achar uma ação mágica.",
   "slides": [
@@ -181,6 +184,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Pauta boa (renda mensal); o carrossel explica mais que reage, o que limita a voz a 1."
   },
   "topico": "Dividendos mensais com ações: como montar um calendário",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-10-13",
     "formato": "longo",

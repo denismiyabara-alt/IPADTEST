@@ -7,6 +7,9 @@ depois: "leitor-frio"
 video_data: "2026-11-14"
 video_formato: "longo"
 video_titulo: "CDB prefixado ou pós-fixado: qual rende mais em 2026"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2"
 assunto: "tesouro e renda fixa"
 temas: ["renda fixa bancária"]
 termo_busca: "cdb prefixado"
@@ -104,7 +107,7 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
 ## FONTES E NÚMEROS (para conferir; não vão no post)
 - Calendário (14/11): fontes a conferir: Taxas DI futuro (B3); Lei 11.033/2004; FGC. Ângulo: TROCA da v2 (era o cobre: commodities tem n = 1 e nenhum termo de busca): a conta prefixado × pós com a curva de juros de hoje; responde 'cdb prefixado ou pós fixado'.
 - Números da própria linha do calendário: liberados (a linha é o briefing).
-- "rendeu um vídeo aqui em 2018": pautas-canal/CALENDARIO-8-SEMANAS.csv: "7CdwOTT7U3o (CDB prefixado, 2018"
+- "rendeu um vídeo aqui em 2018": pautas-canal/CALENDARIO.csv: "7CdwOTT7U3o (CDB prefixado, 2018"
 
 ## PENDÊNCIAS
 - nenhuma de texto
@@ -165,7 +168,7 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
   "afirmacoes": [
     {
       "texto": "rendeu um vídeo aqui em 2018",
-      "arquivo": "pautas-canal/CALENDARIO-8-SEMANAS.csv",
+      "arquivo": "pautas-canal/CALENDARIO.csv",
       "trecho": "7CdwOTT7U3o (CDB prefixado, 2018"
     }
   ],
@@ -186,6 +189,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Pauta de produto bancário; título com 'qual rende mais' pode soar comparativo de compra."
   },
   "topico": "CDB prefixado ou pós-fixado: qual rende mais em 2026",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-11-14",
     "formato": "longo",

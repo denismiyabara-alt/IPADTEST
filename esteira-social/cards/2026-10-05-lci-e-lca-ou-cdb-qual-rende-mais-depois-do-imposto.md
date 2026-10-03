@@ -7,11 +7,14 @@ depois: "leitor-frio"
 video_data: "2026-10-05"
 video_formato: "short"
 video_titulo: "LCI e LCA ou CDB: qual rende mais depois do imposto?"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2"
 assunto: "tesouro e renda fixa"
 temas: ["renda fixa bancária"]
 termo_busca: "o que é lci e lca"
 mensagem_capa: "Uma aplicação que paga taxa menor pode deixar mais dinheiro no bolso, por causa do imposto."
-estrutura: "D (A Pergunta Que Ninguém Faz)"
+estrutura: "B (O Personagem → O Twist)"
 mecanica: "tradutor-juramentado"
 instagram_data: "2026-10-05"
 instagram_horario: "18:00"
@@ -109,7 +112,7 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
   "temas": [
     "renda fixa bancária"
   ],
-  "estrutura": "D",
+  "estrutura": "B",
   "mecanica": "tradutor-juramentado",
   "mensagem_capa": "Uma aplicação que paga taxa menor pode deixar mais dinheiro no bolso, por causa do imposto.",
   "slides": [
@@ -159,6 +162,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Pauta de produto bancário: pode ler como finança pessoal básica. Carrossel mais explica que reage."
   },
   "topico": "LCI e LCA ou CDB: qual rende mais depois do imposto?",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-10-05",
     "formato": "short",

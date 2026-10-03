@@ -7,6 +7,9 @@ depois: "leitor-frio"
 video_data: "2026-10-26"
 video_formato: "short"
 video_titulo: "FGC: o que cobre e o que não cobre"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2"
 assunto: "tesouro e renda fixa"
 temas: ["renda fixa bancária"]
 termo_busca: "fgc"
@@ -160,6 +163,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Pauta de produto bancário básico; regra completa no calendário (limite e teto)."
   },
   "topico": "FGC: o que cobre e o que não cobre",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-10-26",
     "formato": "short",

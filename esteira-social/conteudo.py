@@ -16,7 +16,7 @@ Regras que continuam: números só da linha do calendário ou declarados em `num
 ranking/superlativo só com trecho literal (AFIRMACOES), nada de ativo recomendado nem corretora, sem fonte e sem
 disclaimer no corpo do post, [CHECAR: ...] para o número do dia (o Denis preenche na publicação).
 
-Chave: data do vídeo (AAAA-MM-DD). `titulo` tem de bater com o calendário (o gerador confere).
+Chave: "AAAA-MM-DD|formato" (o calendário v3 tem longo e Short no mesmo dia). `titulo` tem de bater com o calendário (o gerador confere).
 """
 
 CAL = "CALENDARIO-8-SEMANAS.csv"
@@ -50,10 +50,10 @@ N_TAXA_ETF = [
 
 C = {}
 
-# ------------------------------------------------------------------ semana 05/10
-C["2026-10-05"] = dict(
+# ------------------------------------------------------------------ vídeos que vêm do v2 (mesmo título)
+C["2026-10-05|short"] = dict(
     titulo="LCI e LCA ou CDB: qual rende mais depois do imposto?",
-    estrutura="D", mecanica="tradutor-juramentado",
+    estrutura="B", mecanica="tradutor-juramentado",
     mensagem_capa="Uma aplicação que paga taxa menor pode deixar mais dinheiro no bolso, por causa do imposto.",
     capa="A taxa menor pode render mais.",
     slides=[
@@ -78,66 +78,35 @@ C["2026-10-05"] = dict(
     risco=("médio", "Pauta de produto bancário: pode ler como finança pessoal básica. Carrossel mais explica que reage."),
 )
 
-C["2026-10-06"] = dict(
-    titulo="ETFs que pagam dividendos mensais: o que mudou em 2026",
-    estrutura="E", mecanica="mito-x-fato",
-    mensagem_capa="O vídeo confere se os fundos que pagam renda mensal entregaram o que prometiam.",
-    capa="A renda de cada mês veio igual?",
+C["2026-10-06|longo"] = dict(
+    titulo="Fundo imobiliário ou imóvel alugado: a conta de 2026",
+    estrutura="E", mecanica="eco-do-gatilho (escondido)",
+    mensagem_capa="Imóvel e fundo imobiliário escondem custos diferentes; a comparação justa olha cinco coisas.",
+    capa="Imóvel ou fundo imobiliário: a conta tem cinco partes.",
     slides=[
-        "Em 2025, o canal fez uma lista de ETFs (fundos vendidos na bolsa) que pagam renda mensal.",
-        "Agora, a prestação de contas: quanto cada um pagou de verdade, mês a mês.",
-        "E quanto cada um cobra de taxa por ano, antes de o dinheiro chegar em você.",
-        "A data do pagamento é previsível. O valor, não: ele sobe e desce com o mercado.",
+        "Rendimento, custo, imóvel vazio, imposto e facilidade de vender.",
+        "No apartamento, o mês sem inquilino sai do seu bolso: condomínio e IPTU.",
+        "No fundo, o imóvel vazio também existe, diluído entre vários imóveis.",
+        "A cota oscila na tela a cada dia. O preço do apartamento oscila escondido.",
     ],
-    legenda="Tanaka, a lista de 2025 fez aniversário.\n\n"
-            "O vídeo dos ETFs (fundos vendidos na bolsa) que pagam renda mensal entrou no top 10 do ano do canal. "
-            "Agora vem a parte que pouca gente grava: conferir quanto cada um pagou de verdade, quanto cobra de taxa "
-            "e se cresceu ou encolheu.\n\n"
-            "Renda mensal tem data. O valor, quem escolhe é o mercado.",
+    legenda="Tanaka, imóvel ou fundo imobiliário? A pergunta comum é qual rende mais. Falta metade.\n\n"
+            "A conta inteira tem cinco partes: rendimento, custo, imóvel vazio, imposto e facilidade de vender. O "
+            "imóvel esconde o custo do mês vazio. O fundo mostra a oscilação a cada dia. O vídeo lê as duas letras "
+            "miúdas, sem indicar fundo.",
     posts=[
-        "Tanaka, a lista de renda mensal fez aniversário.\n\nEram ETFs (fundos vendidos na bolsa) que pagam a cada "
-        "mês.\n\nAgora vem a parte que pouca gente grava: conferir se pagaram o que prometiam.",
-        "Mito: um ETF (fundo vendido na bolsa) de renda mensal paga um salário.\n\n"
-        "Fato: paga a cada mês, mas o valor muda de um mês pro outro.\n\nA data é previsível. O valor, não.",
-        "O que o vídeo confere, ETF por ETF (fundo vendido na bolsa):\n\n→ quanto pagou de verdade, mês a mês\n"
-        "→ quanto cobra de taxa\n→ se o fundo cresceu ou encolheu",
-        "Esse vídeo entrou no top 10 do ano do canal.\n\nPrometer renda dá audiência. Conferir dá trabalho.\n\n"
-        "Por isso a gente conferiu.",
+        "Tanaka, imóvel ou fundo imobiliário?\n\nA pergunta comum é \"qual rende mais\".\n\nFalta metade da pergunta.",
+        "A pergunta inteira tem cinco partes:\n\n→ rendimento\n→ custo\n→ imóvel vazio\n→ imposto\n"
+        "→ facilidade de vender\n\nQuem compara a primeira escolhe pela foto do anúncio.",
+        "Custo e imóvel vazio são o lado escondido do apartamento.\n\n"
+        "Mês sem inquilino, você paga condomínio e IPTU do próprio bolso.\n\n"
+        "No fundo, o imóvel vazio também existe, diluído entre vários imóveis.",
+        "O apartamento não cai na tela.\n\nIsso não quer dizer que ele não caiu.\n\nQuer dizer que a tela não te mostrou.",
     ],
     numeros=[],
-    risco=("baixo", "Continuação de top 10, com bolso (renda mensal). Risco: carrossel mais explica que reage."),
+    risco=("médio", "Repete o dilema do Short de 11/11; o carrossel explica mais que reage."),
 )
 
-C["2026-10-07"] = dict(
-    titulo="Como juntar 1 milhão de reais com R$ 1.000 por mês",
-    estrutura="A", mecanica="extrato-falso",
-    mensagem_capa="Guardar R$ 1.000 por mês leva bem mais tempo do que prometem pra virar um milhão.",
-    capa="Quanto tempo leva pra juntar um milhão?",
-    slides=[
-        "Guardando R$ 1.000 por mês, sem render nada: R$ 264 mil em 22 anos.",
-        "Rendendo 6% ao ano acima da inflação: cerca de R$ 535 mil no mesmo prazo, em dinheiro de hoje.",
-        "O milhão, com o poder de compra de hoje, chega perto dos 30 anos.",
-    ],
-    legenda="Tanaka, R$ 1.000 por mês vira um milhão. Mas não no prazo que a internet promete.\n\n"
-            "Guardando sem render, são R$ 264 mil em 22 anos. Rendendo 6% ao ano acima da inflação, cerca de "
-            "R$ 535 mil, já em dinheiro de hoje. O milhão com poder de compra chega perto dos 30 anos.\n\n"
-            "Não é mágica. É tempo.",
-    posts=[
-        "Tanaka, R$ 1.000 por mês vira um milhão.\n\nMas não no prazo que a internet promete.\n\n"
-        "A conta honesta tem um detalhe que o vídeo viral pula.",
-        "Extrato de quem guarda R$ 1.000 por mês, sem render nada, por 22 anos:\n\nR$ 264 mil.\n\n"
-        "Esforço enorme. Milhão longe.",
-        "Rendendo 6% ao ano acima da inflação, a mesma pessoa chega a cerca de R$ 535 mil, em dinheiro de hoje.\n\n"
-        "O milhão de verdade: perto dos 30 anos.\n\nQuem promete milhão rápido está contando em real de mentira.",
-    ],
-    numeros=[
-        arq("264", PERG, "Guardando R$ 1.000 por mês sem render nada, são R$ 264 mil em 22 anos."),
-        conta("264", "1000 * 12 * 22 / 1000", "R$ 1.000 por mês, 12 meses, 22 anos (CALENDARIO 07/10)"),
-    ],
-    risco=("alto", "Pauta de finança pessoal básica (juntar dinheiro), que o juiz-post lista como eliminatório."),
-)
-
-C["2026-10-08"] = dict(
+C["2026-10-08|longo"] = dict(
     titulo="Tesouro IPCA+ a 7% em janeiro: quanto ganhou quem comprou",
     estrutura="E", mecanica="atendimento-ao-cliente",
     mensagem_capa="O vídeo mostra quanto ganhou até agora quem comprou o título do Tesouro em janeiro.",
@@ -165,8 +134,7 @@ C["2026-10-08"] = dict(
     risco=("baixo", "Continuação de top 10, bolso claro. Risco: o print oficial do Tesouro precisa ser do dia."),
 )
 
-# ------------------------------------------------------------------ semana 12/10
-C["2026-10-12"] = dict(
+C["2026-10-12|short"] = dict(
     titulo="Resgatou o CDB antes de 30 dias? O IOF come o rendimento",
     estrutura="A", mecanica="manual-invertido",
     mensagem_capa="Sacar o CDB antes de 30 dias faz um imposto comer parte do rendimento.",
@@ -191,9 +159,9 @@ C["2026-10-12"] = dict(
     risco=("médio", "Pauta de produto bancário básico; capa clara e com bolso."),
 )
 
-C["2026-10-13"] = dict(
+C["2026-10-13|longo"] = dict(
     titulo="Dividendos mensais com ações: como montar um calendário",
-    estrutura="D", mecanica="eco-do-gatilho (cair)",
+    estrutura="B", mecanica="eco-do-gatilho (cair)",
     mensagem_capa="Receber dividendo mensal depende de montar um calendário de pagamentos, não de achar uma ação mágica.",
     capa="Dividendo mensal é calendário, não mágica.",
     slides=[
@@ -219,7 +187,7 @@ C["2026-10-13"] = dict(
     risco=("médio", "Pauta boa (renda mensal); o carrossel explica mais que reage, o que limita a voz a 1."),
 )
 
-C["2026-10-14"] = dict(
+C["2026-10-14|short"] = dict(
     titulo="Tesouro IPCA+ negativo? Calma, isso tem nome",
     estrutura="A", mecanica="tradutor-juramentado",
     mensagem_capa="Ver o título do Tesouro no vermelho no app não quer dizer prejuízo.",
@@ -245,7 +213,7 @@ C["2026-10-14"] = dict(
     risco=("baixo", "Dor no bolso clara (vermelho no app). Risco: jargão do título na thumbnail não conta como trava."),
 )
 
-C["2026-10-15"] = dict(
+C["2026-10-15|longo"] = dict(
     titulo="Crise financeira: o gráfico de 1929, 2008 e 2020, hoje",
     estrutura="B", mecanica="boletim-escolar",
     mensagem_capa="Um gráfico que acertou três crises passa por revisão: o que mostra hoje e quantas vezes errou.",
@@ -273,10 +241,9 @@ C["2026-10-15"] = dict(
     risco=("médio", "Pauta de crise sem ponte clara com o bolso; 'e daí?' é o risco do item 1."),
 )
 
-# ------------------------------------------------------------------ semana 19/10
-C["2026-10-19"] = dict(
+C["2026-10-19|short"] = dict(
     titulo="FII é isento de imposto? Só se cumprir estas 3 regras",
-    estrutura="D", mecanica="pergunta-do-leitor",
+    estrutura="E", mecanica="pergunta-do-leitor",
     mensagem_capa="O rendimento do fundo imobiliário fica sem imposto de renda se três regras forem cumpridas.",
     capa="Fundo imobiliário sem imposto? Depende de 3 regras.",
     slides=[
@@ -301,7 +268,7 @@ C["2026-10-19"] = dict(
                     "(Lei 14.754/2023 tem outros detalhes que o calendário não traz)."),
 )
 
-C["2026-10-20"] = dict(
+C["2026-10-20|longo"] = dict(
     titulo="ETF de dividendos mensais com opções: de onde vem a renda",
     estrutura="C", mecanica="tradutor-juramentado",
     mensagem_capa="Esses fundos pagam renda alta porque vendem uma parte da alta futura das ações.",
@@ -332,34 +299,7 @@ C["2026-10-20"] = dict(
     risco=("médio", "Mecanismo de opções é difícil pro leitor leigo; a analogia da garagem carrega a clareza."),
 )
 
-C["2026-10-21"] = dict(
-    titulo="Casal que investe junto: a conversa que vem antes do dinheiro",
-    estrutura="B", mecanica="manual-invertido",
-    mensagem_capa="Antes de investir a dois, o casal combina pra que serve o dinheiro e pra quando.",
-    capa="Casal: a conversa que vem antes do dinheiro.",
-    slides=[
-        "Antes da taxa do CDB, o casal combina pra que serve o dinheiro.",
-        "A pergunta: esse dinheiro é pra quê, e pra quando?",
-        "Viagem daqui a dois anos e aposentadoria daqui a trinta não cabem na mesma aplicação.",
-    ],
-    legenda="Tanaka, antes da taxa do CDB, o casal precisa combinar uma coisa: pra que serve o dinheiro.\n\n"
-            "A pergunta vem antes do produto: esse dinheiro é pra quê, e pra quando? Viagem, casa, reserva e "
-            "aposentadoria têm prazos diferentes.\n\n"
-            "Igual pizza: primeiro o sabor, depois a fatia.",
-    posts=[
-        "Tanaka, casal que investe junto combina antes.\n\nAntes da taxa do CDB, vem uma pergunta: pra que serve "
-        "esse dinheiro?",
-        "Manual pra brigar por dinheiro a dois:\n\n→ abram conta conjunta sem conversar\n"
-        "→ cada um investe pensando num sonho diferente\n→ descubram na hora do saque",
-        "A conversa: \"esse dinheiro é pra quê, e pra quando?\"\n\n"
-        "Viagem daqui a dois anos e aposentadoria daqui a trinta não cabem na mesma aplicação.\n\n"
-        "Igual pizza: primeiro o sabor, depois a fatia.",
-    ],
-    numeros=[],
-    risco=("alto", "Pauta de finança pessoal básica (comportamento): eliminatório do juiz-post. Texto não salva."),
-)
-
-C["2026-10-22"] = dict(
+C["2026-10-22|longo"] = dict(
     titulo="LCI e LCA ou CDB: a conta de 2026 com imposto e prazo",
     estrutura="C", mecanica="eco-do-gatilho (preso)",
     mensagem_capa="Antes de deixar R$ 80 mil presos por um ano, a conta tem imposto, prazo e garantia.",
@@ -391,8 +331,7 @@ C["2026-10-22"] = dict(
     risco=("médio", "Pauta de produto bancário; pergunta real com R$ dá bolso. Carrossel explicativo."),
 )
 
-# ------------------------------------------------------------------ semana 26/10
-C["2026-10-26"] = dict(
+C["2026-10-26|short"] = dict(
     titulo="FGC: o que cobre e o que não cobre",
     estrutura="A", mecanica="atendimento-ao-cliente",
     mensagem_capa="A garantia contra quebra de banco tem limite e deixa Tesouro, fundos e ações de fora.",
@@ -418,39 +357,7 @@ C["2026-10-26"] = dict(
     risco=("médio", "Pauta de produto bancário básico; regra completa no calendário (limite e teto)."),
 )
 
-C["2026-10-27"] = dict(
-    titulo="ETF de dividendos mensais ou fundo imobiliário: o que sobra",
-    estrutura="C", mecanica="contraste",
-    mensagem_capa="Pra comparar dois tipos de fundo de renda mensal, o que importa é o que sobra depois de taxa e imposto.",
-    capa="Renda mensal: compare o que sobra, não o que paga.",
-    slides=[
-        "Fundo imobiliário: a renda vem de aluguel e de juros de dívida de imóveis.",
-        "ETF de dividendos (fundo vendido na bolsa): a renda vem do lucro de várias empresas.",
-        "Imposto em 2026: o rendimento do fundo imobiliário pode sair sem imposto, com regras. O ETF (fundo vendido "
-        "na bolsa) segue regra própria.",
-        "Picanha do cartaz não é a do prato. O que importa é quanto sobra depois da taxa e do imposto.",
-    ],
-    legenda="Tanaka, ETF (fundo vendido na bolsa) ou fundo imobiliário pra renda mensal? Pouca gente compara o "
-            "que sobra.\n\n"
-            "O vídeo compara como cada um paga, o imposto de cada um em 2026 e quanto a renda balança de um mês pro "
-            "outro. Sem indicar fundo nem ETF.\n\n"
-            "Picanha do cartaz não é a do prato.",
-    posts=[
-        "Tanaka, renda mensal: qual fundo deixa mais?\n\nETF (fundo vendido na bolsa) ou fundo imobiliário?\n\n"
-        "A comparação comum olha quanto paga. A que importa olha quanto sobra.",
-        "Fundo imobiliário: renda de aluguel e de juros de dívida de imóveis. Pode sair sem imposto de renda, se o "
-        "fundo cumprir as regras.\n\nETF de dividendos (fundo vendido na bolsa): renda do lucro de empresas. "
-        "Regra de imposto própria.",
-        "E tem a balança.\n\nAluguel oscila por um motivo. Lucro de empresa, por outro.\n\n"
-        "Mesma renda bruta, sobras diferentes.",
-        "Comparar os dois pelo valor pago é escolher churrasco pela picanha do cartaz.\n\n"
-        "O que importa é o que sobra no prato.",
-    ],
-    numeros=[],
-    risco=("médio", "Comparação boa pra quem já tem renda; o carrossel explica mais que reage."),
-)
-
-C["2026-10-28"] = dict(
+C["2026-10-28|short"] = dict(
     titulo="Quanto rende R$ 1.000 no Tesouro Selic hoje",
     estrutura="D", mecanica="conta-rapida",
     mensagem_capa="O vídeo mostra quanto sobra de R$ 1.000 no Tesouro em um ano, depois do imposto.",
@@ -476,7 +383,7 @@ C["2026-10-28"] = dict(
     risco=("baixo", "Conta em R$ e bolso claro. Pendência: o [CHECAR] da taxa do dia (decisão do Mac: não elimina)."),
 )
 
-C["2026-10-29"] = dict(
+C["2026-10-29|longo"] = dict(
     titulo="Tesouro IPCA+ acima de 7%: o que é travar a taxa",
     estrutura="E", mecanica="eco-do-gatilho (travar)",
     mensagem_capa="Travar a taxa do Tesouro garante o combinado no fim, mas o preço no caminho continua mudando.",
@@ -506,40 +413,7 @@ C["2026-10-29"] = dict(
     risco=("médio", "Pauta forte (busca de 'tesouro ipca'), mas o conceito é técnico pro leitor leigo."),
 )
 
-C["2026-10-31"] = dict(
-    titulo="TRXF11: o que aconteceu com a renda desde agosto",
-    estrutura="B", mecanica="mito-x-fato",
-    mensagem_capa="O vídeo mostra os números do fundo mais buscado no canal desde agosto, sem dizer se compra ou vende.",
-    capa="Esse fundo lidera as buscas do canal. E a renda?",
-    slides=[
-        "TRXF11 (um fundo imobiliário) é o termo de investimento mais buscado do canal nos últimos 6 meses.",
-        "Rendimento: quanto o fundo distribuiu, mês a mês, desde agosto.",
-        "Imóvel vazio: quanto dos imóveis está sem inquilino. Cota: quanto o mercado paga hoje.",
-        "O número é do fundo. A decisão é sua. O vídeo não diz compra nem venda.",
-    ],
-    legenda="Tanaka, o TRXF11 (um fundo imobiliário) foi o termo de investimento mais buscado no canal nos últimos "
-            "6 meses.\n\n"
-            "Então o vídeo abre os números do fundo desde agosto: rendimento distribuído, imóveis sem inquilino e "
-            "preço da cota, mês a mês, a partir dos relatórios do fundo.\n\n"
-            "Acompanhamento neutro. Aqui não tem dica de compra nem de venda.",
-    posts=[
-        "Tanaka, esse fundo lidera as buscas do canal.\n\nÉ o TRXF11 (um fundo imobiliário).\n\n"
-        "Então vamos aos números dele, sem torcida.",
-        "É o termo de investimento mais buscado do canal nos últimos 6 meses.\n\n"
-        "Quem tem cota quer saber se a renda vai se manter.\n\n"
-        "Pergunta justa. A resposta vem dos relatórios do fundo, não do grupo de WhatsApp.",
-        "Desde agosto, três linhas contam a história:\n\n→ quanto o fundo distribuiu de rendimento\n"
-        "→ quanto dos imóveis está vazio\n→ quanto vale a cota",
-        "Mito: o vídeo vai dizer se compra ou vende.\n\n"
-        "Fato: o vídeo mostra rendimento, imóvel vazio e cota, mês a mês, e para aí.\n\n"
-        "O número é do fundo. A decisão é sua.",
-    ],
-    numeros=[],
-    risco=("baixo", "Nome que o público busca + bolso de quem tem cota. Neutro, sem recomendação."),
-)
-
-# ------------------------------------------------------------------ semana 02/11
-C["2026-11-02"] = dict(
+C["2026-11-02|short"] = dict(
     titulo="JCP em 2026: já vem com 17,5% de imposto",
     estrutura="C", mecanica="contraste",
     mensagem_capa="Esse provento pago pela empresa chega na conta com 17,5% de imposto descontado.",
@@ -565,7 +439,35 @@ C["2026-11-02"] = dict(
     risco=("baixo", "Dor no bolso direta e regra do calendário. Risco: JCP é jargão, explicado em cada peça."),
 )
 
-C["2026-11-03"] = dict(
+C["2026-11-04|short"] = dict(
+    titulo="Copom hoje: 3 números para olhar no seu Tesouro",
+    estrutura="C", mecanica="previsao-do-tempo",
+    mensagem_capa="Antes da decisão dos juros de hoje, anote três números do seu Tesouro pra comparar amanhã.",
+    capa="Hoje decidem os juros. Anote 3 números.",
+    slides=[
+        "Taxa do Tesouro IPCA+ (título que paga a inflação mais uma taxa) antes da decisão.",
+        "Taxa do Tesouro prefixado (taxa travada na compra) antes da decisão.",
+        "A Selic (os juros básicos do país) que o mercado espera.",
+    ],
+    legenda="Tanaka, hoje tem Copom (a reunião do Banco Central que decide os juros). A decisão sai no fim do dia.\n\n"
+            "Antes dela, anote a taxa do Tesouro IPCA+, a do prefixado e a Selic (juros básicos) que o mercado "
+            "espera. Se a decisão surpreender, as taxas e os preços dos títulos se mexem.\n\n"
+            "Amanhã sai o vídeo com o que mudou.",
+    posts=[
+        "Tanaka, hoje decidem os juros do país.\n\nÉ o Copom (a reunião do Banco Central). A decisão sai no fim do "
+        "dia.\n\nAntes dela, 3 números do seu Tesouro merecem uma olhada.",
+        "Previsão do tempo pro seu Tesouro:\n\n→ taxa do IPCA+ (inflação mais uma taxa) hoje\n"
+        "→ taxa do prefixado (taxa travada) hoje\n→ a Selic (juros básicos) que o mercado espera\n\n"
+        "Anota antes. Amanhã você compara.",
+        "Se a decisão vier diferente do esperado, as taxas mexem e o preço dos títulos mexe junto.\n\n"
+        "Quem anotou entende o que aconteceu.\n\nQuem não anotou descobre pelo app, no susto.",
+    ],
+    numeros=[],
+    evento_ao_vivo="Postar ANTES do anúncio do Copom (04/11, fim do dia). Depois do anúncio, o texto envelhece.",
+    risco=("baixo", "Evento com data e bolso. Risco: três ideias técnicas pro leitor leigo nos slides."),
+)
+
+C["2026-11-05|longo"] = dict(
     titulo="Dividendos mensais de R$ 1.000: quanto precisa investir",
     estrutura="D", mecanica="conta-rapida",
     mensagem_capa="Pra receber R$ 1.000 por mês, o dinheiro investido depende de quanto cada investimento rende depois do imposto.",
@@ -594,67 +496,7 @@ C["2026-11-03"] = dict(
     risco=("baixo", "Promessa em R$ que cabe no bolso do Tanaka; conta simples."),
 )
 
-C["2026-11-04"] = dict(
-    titulo="Copom hoje: 3 números para olhar no seu Tesouro",
-    estrutura="C", mecanica="previsao-do-tempo",
-    mensagem_capa="Antes da decisão dos juros de hoje, anote três números do seu Tesouro pra comparar amanhã.",
-    capa="Hoje decidem os juros. Anote 3 números.",
-    slides=[
-        "Taxa do Tesouro IPCA+ (título que paga a inflação mais uma taxa) antes da decisão.",
-        "Taxa do Tesouro prefixado (taxa travada na compra) antes da decisão.",
-        "A Selic (os juros básicos do país) que o mercado espera.",
-    ],
-    legenda="Tanaka, hoje tem Copom (a reunião do Banco Central que decide os juros). A decisão sai no fim do dia.\n\n"
-            "Antes dela, anote a taxa do Tesouro IPCA+, a do prefixado e a Selic (juros básicos) que o mercado "
-            "espera. Se a decisão surpreender, as taxas e os preços dos títulos se mexem.\n\n"
-            "Amanhã sai o vídeo com o que mudou.",
-    posts=[
-        "Tanaka, hoje decidem os juros do país.\n\nÉ o Copom (a reunião do Banco Central). A decisão sai no fim do "
-        "dia.\n\nAntes dela, 3 números do seu Tesouro merecem uma olhada.",
-        "Previsão do tempo pro seu Tesouro:\n\n→ taxa do IPCA+ (inflação mais uma taxa) hoje\n"
-        "→ taxa do prefixado (taxa travada) hoje\n→ a Selic (juros básicos) que o mercado espera\n\n"
-        "Anota antes. Amanhã você compara.",
-        "Se a decisão vier diferente do esperado, as taxas mexem e o preço dos títulos mexe junto.\n\n"
-        "Quem anotou entende o que aconteceu.\n\nQuem não anotou descobre pelo app, no susto.",
-    ],
-    numeros=[],
-    evento_ao_vivo="Postar ANTES do anúncio do Copom (04/11, fim do dia). Depois do anúncio, o texto envelhece.",
-    risco=("baixo", "Evento com data e bolso. Risco: três ideias técnicas pro leitor leigo nos slides."),
-)
-
-C["2026-11-05"] = dict(
-    titulo="Tesouro Direto após o Copom: o que muda no IPCA+ e prefixado",
-    estrutura="E", mecanica="atendimento-ao-cliente",
-    mensagem_capa="Depois da decisão dos juros, o preço dos títulos do Tesouro mexeu; o contrato de quem leva até o fim, não.",
-    capa="Os juros foram decididos ontem. E o seu Tesouro?",
-    slides=[
-        "Decisão do Copom (a reunião que decide os juros) de 04/11: [CHECAR: Selic decidida].",
-        "Antes: as taxas do Tesouro na véspera. Depois: as mesmas taxas 24 h após o anúncio.",
-        "O que mexe o preço é a surpresa: a diferença entre o esperado e o decidido.",
-        "O contrato do seu título não muda. Muda o preço pra quem quer sair antes.",
-    ],
-    legenda="Tanaka, o Copom (a reunião que decide os juros) decidiu ontem, e o Tesouro sentiu antes de você abrir "
-            "o app.\n\n"
-            "O vídeo compara as taxas do Tesouro na véspera com as de 24 h depois do anúncio. O que mexe o preço é a "
-            "diferença entre o esperado e o decidido.\n\n"
-            "Pra quem leva o título até o fim, o contrato não muda.",
-    posts=[
-        "Tanaka, os juros foram decididos ontem.\n\nOs juros básicos foram pra [CHECAR: decisão do Copom de 04/11].\n\n"
-        "O seu Tesouro sentiu antes de você abrir o app.",
-        "Antes: as taxas do Tesouro na véspera.\n\nDepois: as mesmas taxas 24 h após o anúncio.\n\n"
-        "O vídeo põe uma do lado da outra.",
-        "— Meu título de taxa travada subiu. Ganhei?\n— Se vender hoje, ganhou no preço.\n— E se não vender?\n"
-        "— Recebe a taxa que contratou. O resto é paisagem.",
-        "A decisão dos juros não muda o contrato do seu título.\n\nMuda o preço pra quem quer sair antes.\n\n"
-        "A pergunta que importa é quando você vai precisar desse dinheiro.",
-    ],
-    numeros=[],
-    evento_ao_vivo="Texto escrito para depois da decisão de 04/11: conferir o verbo e preencher o [CHECAR] com o "
-                   "comunicado (bcb.gov.br) antes de aprovar.",
-    risco=("médio", "Evento ao vivo com [CHECAR] no texto; o print do comunicado precisa ser do dia."),
-)
-
-C["2026-11-07"] = dict(
+C["2026-11-07|longo"] = dict(
     titulo="Fundos imobiliários para iniciantes: de onde vem a renda",
     estrutura="A", mecanica="tradutor-juramentado",
     mensagem_capa="Fundo imobiliário é aluguel e juros de imóveis divididos entre muita gente.",
@@ -682,8 +524,7 @@ C["2026-11-07"] = dict(
     risco=("médio", "Pauta de iniciante: 'abstrato' é o risco do item 1; a analogia do shopping segura a voz."),
 )
 
-# ------------------------------------------------------------------ semana 09/11
-C["2026-11-09"] = dict(
+C["2026-11-09|short"] = dict(
     titulo="Imposto sobre dividendos acima de R$ 50 mil por mês: quem paga",
     estrutura="D", mecanica="mito-x-fato",
     mensagem_capa="O imposto novo sobre dividendos vale pra quem recebe mais de R$ 50 mil por mês de uma mesma empresa.",
@@ -710,7 +551,7 @@ C["2026-11-09"] = dict(
                     "de alta renda, que o calendário não traz."),
 )
 
-C["2026-11-10"] = dict(
+C["2026-11-10|longo"] = dict(
     titulo="Renda mensal com Tesouro Direto: juros semestrais e RendA+",
     estrutura="B", mecanica="extrato-falso",
     mensagem_capa="O Tesouro paga renda de dois jeitos: juros a cada seis meses, ou pagamento mensal a partir de uma data.",
@@ -738,7 +579,7 @@ C["2026-11-10"] = dict(
     risco=("médio", "Pauta boa (renda), mas o carrossel explica mais que reage."),
 )
 
-C["2026-11-11"] = dict(
+C["2026-11-11|short"] = dict(
     titulo="FII ou aluguel: quanto rende R$ 100 mil em cada um",
     estrutura="A", mecanica="contraste",
     mensagem_capa="Comparar apartamento alugado e fundo imobiliário com R$ 100 mil exige descontar custos, imposto e tempo pra vender.",
@@ -762,38 +603,11 @@ C["2026-11-11"] = dict(
         "Poder vender rápido não aparece na planilha. Aparece no dia em que você precisa.",
     ],
     numeros=[],
+    corte_de="2026-10-06",
     risco=("baixo", "Dilema que o Tanaka vive (imóvel x fundo) com R$ na capa."),
 )
 
-C["2026-11-12"] = dict(
-    titulo="Fundo imobiliário ou imóvel alugado: a conta de 2026",
-    estrutura="C", mecanica="eco-do-gatilho (escondido)",
-    mensagem_capa="Imóvel e fundo imobiliário escondem custos diferentes; a comparação justa olha cinco coisas.",
-    capa="Imóvel ou fundo imobiliário: a conta tem cinco partes.",
-    slides=[
-        "Rendimento, custo, imóvel vazio, imposto e facilidade de vender.",
-        "No apartamento, o mês sem inquilino sai do seu bolso: condomínio e IPTU.",
-        "No fundo, o imóvel vazio também existe, diluído entre vários imóveis.",
-        "A cota oscila na tela a cada dia. O preço do apartamento oscila escondido.",
-    ],
-    legenda="Tanaka, imóvel ou fundo imobiliário? A pergunta comum é qual rende mais. Falta metade.\n\n"
-            "A conta inteira tem cinco partes: rendimento, custo, imóvel vazio, imposto e facilidade de vender. O "
-            "imóvel esconde o custo do mês vazio. O fundo mostra a oscilação a cada dia. O vídeo lê as duas letras "
-            "miúdas, sem indicar fundo.",
-    posts=[
-        "Tanaka, imóvel ou fundo imobiliário?\n\nA pergunta comum é \"qual rende mais\".\n\nFalta metade da pergunta.",
-        "A pergunta inteira tem cinco partes:\n\n→ rendimento\n→ custo\n→ imóvel vazio\n→ imposto\n"
-        "→ facilidade de vender\n\nQuem compara a primeira escolhe pela foto do anúncio.",
-        "Custo e imóvel vazio são o lado escondido do apartamento.\n\n"
-        "Mês sem inquilino, você paga condomínio e IPTU do próprio bolso.\n\n"
-        "No fundo, o imóvel vazio também existe, diluído entre vários imóveis.",
-        "O apartamento não cai na tela.\n\nIsso não quer dizer que ele não caiu.\n\nQuer dizer que a tela não te mostrou.",
-    ],
-    numeros=[],
-    risco=("médio", "Repete o dilema do Short de 11/11; o carrossel explica mais que reage."),
-)
-
-C["2026-11-14"] = dict(
+C["2026-11-14|longo"] = dict(
     titulo="CDB prefixado ou pós-fixado: qual rende mais em 2026",
     estrutura="E", mecanica="atendimento-ao-cliente",
     mensagem_capa="Escolher entre CDB de taxa travada e CDB que acompanha os juros é uma aposta sobre os juros do futuro.",
@@ -824,36 +638,9 @@ C["2026-11-14"] = dict(
     risco=("médio", "Pauta de produto bancário; título com 'qual rende mais' pode soar comparativo de compra."),
 )
 
-# ------------------------------------------------------------------ semana 16/11
-C["2026-11-16"] = dict(
-    titulo="Perfil de investidor: 3 perguntas antes de investir",
-    estrutura="B", mecanica="manual-invertido",
-    mensagem_capa="Antes de investir, três perguntas: prazo, objetivo e o que você faz se cair.",
-    capa="3 perguntas antes de investir.",
-    slides=[
-        "Prazo: quando vou precisar desse dinheiro?",
-        "Objetivo: pra que ele serve?",
-        "Queda: se cair bastante, eu vendo ou espero?",
-    ],
-    legenda="Tanaka, o questionário do banco é longo. As perguntas que importam são 3.\n\n"
-            "Prazo: quando você vai precisar do dinheiro. Objetivo: pra que ele serve. Queda: se cair, você vende ou "
-            "espera.\n\n"
-            "É fácil marcar \"arrojado\" no formulário. Difícil é manter na primeira queda.",
-    posts=[
-        "Tanaka, o questionário do banco é longo.\n\nAs perguntas que importam são 3.\n\n"
-        "E você responde com mais calma sozinho do que clicando \"concordo\".",
-        "Manual de como errar o próprio perfil:\n\n→ responda rápido pra liberar o app\n"
-        "→ marque \"arrojado\" porque soa bonito\n→ conheça o perfil de verdade na primeira queda",
-        "As 3 perguntas:\n\n→ prazo: quando vou precisar desse dinheiro?\n→ objetivo: pra que ele serve?\n"
-        "→ queda: se cair bastante, eu vendo ou espero?\n\nA terceira tem resposta honesta depois que acontece.",
-    ],
-    numeros=[],
-    risco=("alto", "Pauta de finança pessoal básica (perfil de investidor): eliminatório do juiz-post."),
-)
-
-C["2026-11-17"] = dict(
+C["2026-11-17|longo"] = dict(
     titulo="ETF de dividendos mensais: quanto a taxa tira da renda",
-    estrutura="C", mecanica="elogio-envenenado",
+    estrutura="A", mecanica="elogio-envenenado",
     mensagem_capa="Uma taxa de 1,5% ao ano tira cerca de 14% do patrimônio em 10 anos.",
     capa="Taxa de 1,5% ao ano é alta?",
     slides=[
@@ -881,41 +668,9 @@ C["2026-11-17"] = dict(
     risco=("baixo", "Conta em % com frase que fica ('quase o triplo de mordida')."),
 )
 
-C["2026-11-18"] = dict(
-    titulo="Juros compostos: por que 1 centavo dobrando todo dia não existe",
-    estrutura="B", mecanica="pergunta-do-leitor",
-    mensagem_capa="A conta do centavo que dobra é real, mas investimento que dobra a cada dia não existe.",
-    capa="1 centavo dobrando vira milionário?",
-    slides=[
-        "Em 30 dobras, 1 centavo vira R$ 10,7 milhões.",
-        "A conta está certa. O investimento que dobra a cada dia é que não existe.",
-        "Vida real: R$ 1.000 por mês, rendendo 6% ao ano acima da inflação.",
-        "Em 22 anos, isso dá cerca de R$ 535 mil. Menos espetacular. Mais possível.",
-    ],
-    legenda="Tanaka, 1 centavo dobrando 30 vezes vira R$ 10,7 milhões. A conta é real. O investimento que dobra a "
-            "cada dia é que não existe.\n\n"
-            "Na vida real, a curva é a mesma, mas em anos: R$ 1.000 por mês a 6% ao ano acima da inflação somam "
-            "cerca de R$ 535 mil em 22 anos.\n\n"
-            "Menos espetacular. Mais possível.",
-    posts=[
-        "Tanaka, 1 centavo dobrando vira milionário?\n\nA conta está certa.\n\nO investimento é que não existe.",
-        "\"Onde eu acho algo que dobra a cada dia?\"\n\nNão acha.\n\n"
-        "Em 30 dobras, o centavo vira R$ 10,7 milhões. A conta mostra a curva. A vida real anda na mesma curva, mas em anos.",
-        "Na vida real: R$ 1.000 por mês, a 6% ao ano acima da inflação, dá cerca de R$ 535 mil em 22 anos.\n\n"
-        "Não é milhão em um mês.\n\nMas existe. O do centavo, não.",
-    ],
-    numeros=[
-        arq("1", PERG, "1 centavo dobrando 30 vezes"),
-        arq("30", PERG, "1 centavo dobrando 30 vezes"),
-        arq("10,7", PERG, "R$ 10,7 milhões"),
-        conta("10,7", "0.01 * 2 ** 30 / 1e6", "1 centavo e 30 dobras (PERGUNTAS-SEM-RESPOSTA.md)"),
-    ] + list(N_JUNTAR),
-    risco=("alto", "Pauta de finança pessoal básica (juros compostos); a conta é mandável, mas o tema pode cair no item 1."),
-)
-
-C["2026-11-19"] = dict(
+C["2026-11-19|longo"] = dict(
     titulo="Bitcoin depois do 'alerta': o que mudou desde fevereiro",
-    estrutura="E", mecanica="necrologio",
+    estrutura="B", mecanica="necrologio",
     mensagem_capa="O vídeo confere, com os dados de hoje, os argumentos do alerta de fevereiro sobre o bitcoin.",
     capa="O alerta do bitcoin de fevereiro acertou?",
     slides=[
@@ -943,63 +698,7 @@ C["2026-11-19"] = dict(
     risco=("baixo", "Nome que o brasileiro reconhece (bitcoin) e continuação de top 10."),
 )
 
-C["2026-11-21"] = dict(
-    titulo="Bolha da IA: o que dizem os números",
-    estrutura="B", mecanica="boletim-escolar",
-    mensagem_capa="O vídeo mostra se o preço das empresas de inteligência artificial anda junto com o lucro delas.",
-    capa="Bolha da inteligência artificial? Olha o lucro.",
-    slides=[
-        "Bolha não é opinião. Deixa rastro nos números.",
-        "Lucro: as empresas de inteligência artificial estão ganhando mais?",
-        "Gasto: quanto estão investindo pra construir a tecnologia?",
-        "Preço: o mercado paga quanto por cada real de lucro? Data do estouro, o vídeo não chuta.",
-    ],
-    legenda="Tanaka, a turma grita \"bolha da inteligência artificial\". Pouca gente mostra a conta.\n\n"
-            "O vídeo olha três números dessas empresas: lucro, quanto estão gastando pra construir a tecnologia e "
-            "quanto o mercado paga por cada real de lucro. Quando o preço corre na frente do lucro por muito tempo, o "
-            "mercado está pagando por esperança.",
-    posts=[
-        "Tanaka, a turma grita \"bolha da inteligência artificial\".\n\nPouca gente mostra a conta.\n\n"
-        "Bolha não é opinião. Deixa rastro nos números.",
-        "A pergunta errada: \"quando estoura?\"\n\nQuem diz que sabe está vendendo curso.\n\n"
-        "A pergunta certa: o preço dessas empresas anda junto com o lucro delas, ou na frente?",
-        "Três números pra olhar:\n\n→ lucro: as empresas estão ganhando mais?\n"
-        "→ gasto: quanto investem pra construir a tecnologia?\n→ preço: quanto o mercado paga por cada real de lucro?",
-        "Boletim da inteligência artificial:\n\nLucro: o vídeo mostra.\nGasto: o vídeo mostra.\nPreço: o vídeo mostra.\n"
-        "Data do estouro: a turma inteira ficou de recuperação.",
-    ],
-    numeros=[],
-    risco=("alto", "Tema gringo sem ponte com o bolso brasileiro (item 1 e eliminatório de 'nome ou dor no bolso')."),
-)
-
-# ------------------------------------------------------------------ semana 23/11
-C["2026-11-23"] = dict(
-    titulo="Reserva de emergência: onde deixar e onde não deixar",
-    estrutura="A", mecanica="manual-invertido",
-    mensagem_capa="Reserva de emergência fica onde dá pra sacar rápido, sem perder e rendendo.",
-    capa="Reserva de emergência: onde deixar.",
-    slides=[
-        "Deixar: aplicação com liquidez diária (dá pra sacar no mesmo dia), perto de 100% do CDI (a taxa de "
-        "referência dos CDBs).",
-        "E com a garantia do FGC (devolve o dinheiro se o banco quebrar), dentro do limite.",
-        "Não deixar: aplicação com dinheiro preso, ação, ou conta parada sem render.",
-    ],
-    legenda="Tanaka, reserva de emergência não é investimento. É extintor.\n\n"
-            "Precisa estar perto: aplicação com liquidez diária (dá pra sacar no mesmo dia), rendendo perto de 100% "
-            "do CDI (a taxa de referência dos CDBs) e com a garantia do FGC (contra quebra do banco). Longe dela: "
-            "dinheiro preso, ação e conta parada.",
-    posts=[
-        "Tanaka, reserva de emergência não é investimento.\n\nÉ extintor.\n\nE extintor trancado no cofre não apaga incêndio.",
-        "Onde deixar: aplicação com liquidez diária (dá pra sacar no mesmo dia).\n\n"
-        "Rendendo perto de 100% do CDI (a taxa de referência dos CDBs), com a garantia do FGC (contra quebra de banco).",
-        "Manual pra reserva que não serve na hora:\n\n→ coloque em aplicação com dinheiro preso\n→ ou em ação, que oscila\n"
-        "→ ou deixe parada na conta, sem render\n\nExtintor tem que estar perto, cheio e funcionando.",
-    ],
-    numeros=[],
-    risco=("alto", "Pauta de finança pessoal básica (reserva de emergência): eliminatório do juiz-post."),
-)
-
-C["2026-11-24"] = dict(
+C["2026-11-24|longo"] = dict(
     titulo="Dividendos mensais com a Selic caindo: o que acontece",
     estrutura="D", mecanica="eco-do-gatilho (vizinho)",
     mensagem_capa="Quando os juros do país caem, a renda fixa nova paga menos e cada tipo de renda reage de um jeito.",
@@ -1029,7 +728,7 @@ C["2026-11-24"] = dict(
     risco=("médio", "Pauta macro com ponte pra renda; clareza depende de o leitor ligar juros e dividendos."),
 )
 
-C["2026-11-25"] = dict(
+C["2026-11-25|short"] = dict(
     titulo="Taxa de administração do ETF: quanto tira em 10 anos",
     estrutura="A", mecanica="conta-rapida",
     mensagem_capa="Em 10 anos, a diferença entre uma taxa de 0,5% e uma de 1,5% ao ano vira milhares de reais.",
@@ -1059,9 +758,9 @@ C["2026-11-25"] = dict(
     risco=("baixo", "Conta em R$ mandável ('quase o triplo de mordida')."),
 )
 
-C["2026-11-26"] = dict(
+C["2026-11-26|longo"] = dict(
     titulo="Fundos imobiliários caíram em 2026: e a renda deles?",
-    estrutura="D", mecanica="contraste",
+    estrutura="E", mecanica="contraste",
     mensagem_capa="Em 2026, o preço das cotas dos fundos imobiliários caiu; o vídeo mostra se o aluguel distribuído caiu junto.",
     capa="As cotas caíram. O aluguel caiu junto?",
     slides=[
@@ -1088,112 +787,504 @@ C["2026-11-26"] = dict(
     risco=("baixo", "Dor no bolso de quem tem fundo imobiliário, com uma ideia por peça."),
 )
 
-C["2026-11-28"] = dict(
-    titulo="Tesouro Direto na reserva de emergência: Selic, CDB ou conta",
-    estrutura="C", mecanica="atendimento-ao-cliente",
-    mensagem_capa="Pra reserva de emergência, o vídeo compara Tesouro Selic, CDB de saque diário e conta remunerada.",
-    capa="Sua reserva está parada na conta?",
+
+# ------------------------------------------------------------------ v3: série de renda mensal e Tesouro antes do Copom
+# Fontes: serie/SERIE-RENDA-MENSAL.md, serie/MOLDE-TESOURO-COPOM.md e, no Ep. 1, só a seção "4. DADOS CONFERIDOS" de
+# briefings/2026-10-14-etf-dividendos-mensais-briefing.md (o que está "A CONFERIR" vira [CHECAR: ...]).
+SERIE = "serie/SERIE-RENDA-MENSAL.md"
+MOLDE = "serie/MOLDE-TESOURO-COPOM.md"
+BRIEF_EP1 = "briefings/2026-10-14-etf-dividendos-mensais-briefing.md"
+
+N_EP1_SHORT = [
+    arq("100", BRIEF_EP1, "R$ 100 mil → R$ 88.638 de cota + R$ 11.362 de renda"),
+    arq("88.638", BRIEF_EP1, "R$ 100 mil → R$ 88.638 de cota + R$ 11.362 de renda"),
+    arq("11.362", BRIEF_EP1, "R$ 100 mil → R$ 88.638 de cota + R$ 11.362 de renda"),
+    arq("100.000", BRIEF_EP1, "R$ 100.000 (zero)"),
+]
+N_EP2 = [
+    arq("1", SERIE, "dividendo de R$ 1 por ação; preço de R$ 20 → yield de 5%. Preço cai para R$ 10 → yield de 10%."),
+    arq("20", SERIE, "dividendo de R$ 1 por ação; preço de R$ 20 → yield de 5%. Preço cai para R$ 10 → yield de 10%."),
+    arq("5", SERIE, "dividendo de R$ 1 por ação; preço de R$ 20 → yield de 5%. Preço cai para R$ 10 → yield de 10%."),
+    arq("10", SERIE, "dividendo de R$ 1 por ação; preço de R$ 20 → yield de 5%. Preço cai para R$ 10 → yield de 10%."),
+]
+N_EP3 = [
+    arq("600", SERIE, "uma pessoa recebe R$ 600 por mês e a outra R$ 1.230"),
+    arq("1.230", SERIE, "uma pessoa recebe R$ 600 por mês e a outra R$ 1.230"),
+    arq("100", SERIE, "R$ 100 mil rendendo 0,6% ao mês"),
+    arq("0,6", SERIE, "R$ 100 mil rendendo 0,6% ao mês"),
+    arq("205", SERIE, "100.000 × 1,006¹²⁰ ≈ R$ 205 mil em 10 anos"),
+    arq("10", SERIE, "100.000 × 1,006¹²⁰ ≈ R$ 205 mil em 10 anos"),
+    conta("205", "100000 * 1.006 ** 120 / 1000", "R$ 100 mil a 0,6% ao mês por 120 meses (SERIE-RENDA-MENSAL.md, Ep. 3)"),
+    conta("1.230", "100000 * 1.006 ** 120 * 0.006", "renda de 0,6% sobre ~R$ 205 mil (SERIE-RENDA-MENSAL.md, Ep. 3)"),
+]
+N_EP4 = [
+    arq("120", SERIE, "R$ 120 mil divididos em 12 aplicações de R$ 10 mil, de 12 meses cada, uma por mês"),
+    arq("12", SERIE, "R$ 120 mil divididos em 12 aplicações de R$ 10 mil, de 12 meses cada, uma por mês"),
+    arq("10", SERIE, "R$ 120 mil divididos em 12 aplicações de R$ 10 mil, de 12 meses cada, uma por mês"),
+    arq("13", SERIE, "Do 13º mês em"),
+    arq("6", SERIE, "prazo mínimo de 6 meses (Res. CMN 5.215)"),
+]
+N_EP5 = [
+    arq("1.000", SERIE, "R$ 1.000 por mês hoje, com a inflação de agora, compram R$ 661 daqui a 10 anos."),
+    arq("661", SERIE, "R$ 1.000 por mês hoje, com a inflação de agora, compram R$ 661 daqui a 10 anos."),
+    arq("10", SERIE, "R$ 1.000 por mês hoje, com a inflação de agora, compram R$ 661 daqui a 10 anos."),
+    arq("4,22", SERIE, "IPCA de 12 meses até ago/2026 de 4,22% (SGS 13522)"),
+    arq("42", SERIE, "ao ano e a inflação é 4,22%, reinvista 42% da renda (4,22 ÷ 10) e gaste 58%."),
+    arq("10", SERIE, "Se o investimento rende 10%"),
+    conta("661", "1000 / 1.0422 ** 10", "R$ 1.000 descontados de 4,22% ao ano por 10 anos (SERIE-RENDA-MENSAL.md, Ep. 5)"),
+]
+
+C["2026-10-07|short"] = dict(
+    titulo="Recebeu 1% ao mês e a cota caiu 1%: quanto ganhou?",
+    estrutura="B", mecanica="conta-rapida",
+    mensagem_capa="Receber 1% ao mês enquanto a cota cai 1% ao mês dá, em um ano, ganho zero.",
+    capa="Recebeu 1% ao mês. Ganhou quanto?",
     slides=[
-        "Conta corrente parada: dinheiro seguro e perdendo pra inflação.",
-        "Tesouro Selic (título que segue os juros básicos): garantia do Tesouro Nacional.",
-        "CDB de liquidez diária (saque no mesmo dia): garantia do FGC (contra quebra do banco), dentro do limite.",
-        "Conta remunerada: rende o que o banco decidir pagar. Reserva boa é chata.",
+        "Exemplo: R$ 100 mil num ETF (fundo vendido na bolsa) que paga 1% ao mês.",
+        "Em um ano, a renda que caiu na conta soma R$ 11.362.",
+        "No mesmo ano, a cota cai 1% ao mês e termina em R$ 88.638.",
+        "Somando os dois: R$ 100.000. Ganho de zero. O extrato mostrou a renda; a cota, não.",
     ],
-    legenda="Tanaka, sua reserva está na conta corrente? Está segura. E perdendo pra inflação.\n\n"
-            "O vídeo faz a conta de três lugares: Tesouro Selic (título que segue os juros básicos), CDB de liquidez "
-            "diária (saque no mesmo dia) e conta remunerada. Com imposto, prazo de saque e garantia. Sem indicar "
-            "banco nem corretora.\n\n"
-            "Reserva boa é chata. Não dá assunto no churrasco.",
+    legenda="Tanaka, um ETF (fundo vendido na bolsa) te paga 1% ao mês, e a cota cai 1% ao mês. Quanto você ganhou "
+            "em um ano?\n\n"
+            "No exemplo, R$ 100 mil viram R$ 11.362 de renda e R$ 88.638 de cota. Somando: R$ 100.000. Zero.\n\n"
+            "O extrato mostra a renda caindo na conta. A cota descendo, você descobre quando vende.",
     posts=[
-        "Tanaka, sua reserva está na conta corrente?\n\nEla está segura.\n\nE perdendo pra inflação a cada dia.",
-        "Três candidatos pra guardar a reserva:\n\n→ Tesouro Selic (título que segue os juros básicos)\n"
-        "→ CDB com saque no mesmo dia\n→ conta remunerada\n\n"
-        "O vídeo faz a conta do que sobra em cada um, com imposto e prazo de saque.",
-        "— Qual dos três rende mais?\n— Depende da taxa de cada um, no dia.\n— E qual é o mais seguro?\n"
-        "— Os três servem pra reserva. Arriscado é deixar parada na conta sem render.",
-        "Reserva boa é chata.\n\nNão sobe, não cai, não dá assunto no churrasco.\n\nSe a sua dá assunto, ela não é reserva.",
+        "Tanaka, recebeu 1% ao mês e ficou feliz?\n\nA cota caiu 1% ao mês no mesmo período.\n\nAgora soma.",
+        "Exemplo com R$ 100 mil num ETF (fundo vendido na bolsa):\n\n→ renda do ano: R$ 11.362\n"
+        "→ cota no fim: R$ 88.638\n\nSoma: R$ 100.000.",
+        "Ganho do ano: zero.\n\nO extrato mostra a renda caindo na conta. A cota descendo, ele não mostra.\n\n"
+        "Na semana que vem, o episódio da série faz essa conta com dados da bolsa.",
+    ],
+    numeros=list(N_EP1_SHORT),
+    risco=("baixo", "Conta em R$ simples e mandável; exemplo hipotético dito como exemplo."),
+)
+
+C["2026-10-14|longo"] = dict(
+    titulo="ETF que paga dividendos mensais: a renda saiu da cota?",
+    estrutura="E", mecanica="extrato-falso",
+    mensagem_capa="A renda que um ETF paga sai da própria cota; o vídeo mostra a conta pra saber quanto sobrou.",
+    capa="Essa renda mensal saiu do seu bolso?",
+    slides=[
+        "Dois ETFs (fundos vendidos na bolsa) de dividendos: um paga renda mensal; o outro reinveste. [CHECAR: regulamentos]",
+        "Em 12 meses, a cota do que reinveste subiu 24,41%. A do que paga renda, 15,15%.",
+        "A diferença, 9,26 pontos, é em boa parte a renda que saiu da cota e caiu na conta.",
+        "O extrato de três linhas: quanto pagou, quanto a cota andou, quanto ficou acima da inflação.",
+    ],
+    legenda="Tanaka, ETF (fundo vendido na bolsa) que paga renda mensal paga com a própria cota. Isso não é defeito. "
+            "É como funciona.\n\n"
+            "Nos 12 meses até o começo de outubro, a cota do DIVO11, que reinveste, subiu 24,41%. A do DIVD11, que distribui, "
+            "subiu 15,15%. A diferença é em boa parte a renda que caiu na conta.\n\n"
+            "O vídeo soma a renda de volta e compara com os juros do país e a inflação. Os dois entram como prova da conta.",
+    posts=[
+        "Tanaka, sua renda mensal saiu de onde?\n\nUm ETF (fundo vendido na bolsa) que paga renda mensal paga com a "
+        "própria cota.\n\nNão é defeito. É a conta que o extrato não mostra.",
+        "DIVO11 (ETF que reinveste) e DIVD11 (ETF que paga renda mensal), em 12 meses:\n\n→ cota do DIVO11: +24,41%\n"
+        "→ cota do DIVD11: +15,15%\n\nOs dois entram como prova da conta, não como escolha.",
+        "A diferença, 9,26 pontos, é em boa parte a renda que saiu da cota e caiu na conta.\n\nEm R$ 100 mil, R$ 9.260.\n\n"
+        "Somando a renda de volta, quanto sobra? [CHECAR: soma dos rendimentos do DIVD11 em 12 meses, A CONFERIR 10]",
+        "A régua do mesmo período:\n\n→ 14,47% no CDI (a taxa de referência dos CDBs)\n"
+        "→ 4,22% de inflação em 12 meses, até agosto\n\nRenda que não passa da régua foi a cota voltando pro bolso.",
+        "O extrato de três linhas:\n\n→ quanto pagou\n→ quanto a cota andou\n"
+        "→ quanto ficou acima da régua (juros do país e inflação)\n\nSe a terceira der negativa, a renda foi devolução.",
+    ],
+    numeros=[
+        arq("24,41", BRIEF_EP1, "R$ 132,90 (01/10/2026): **+24,41%**"),
+        arq("15,15", BRIEF_EP1, "R$ 55,86 → R$ 64,32: **+15,15%**"),
+        arq("14,47", BRIEF_EP1, "**14,47%** (251 dias úteis, 02/10/2025 a 01/10/2026)"),
+        arq("4,22", BRIEF_EP1, "**4,22%** até ago/2026"),
+        conta("9,26", "24.41 - 15.15", "cotas do DIVO11 e do DIVD11 em 12 meses (briefing, DADOS CONFERIDOS C1 e C2)"),
+        conta("9.260", "100000 * (0.2441 - 0.1515)", "R$ 100 mil x 9,26 pontos (C1 e C2)"),
+        conta("100", "100000 / 1000", "base de R$ 100 mil da conta acima"),
+    ],
+    risco=("médio", "Pauta forte (top 10 da linha), mas tem tickers: o texto diz que os dois são prova da conta, não "
+                    "escolha. Duas pendências [CHECAR] (regulamentos e soma dos rendimentos) que fecham a conta central."),
+)
+
+C["2026-10-21|longo"] = dict(
+    titulo="Dividendos altos demais: 4 contas antes de confiar na renda",
+    estrutura="D", mecanica="mito-x-fato",
+    mensagem_capa="Um dividendo alto pode ser só o preço da ação caindo; quatro contas mostram se a renda se sustenta.",
+    capa="Dividendo alto: renda ou susto?",
+    slides=[
+        "Primeira conta, o preço. Exemplo: dividendo de R$ 1 por ação, com a ação a R$ 20, rende 5%.",
+        "A ação cai pra R$ 10. O mesmo R$ 1 agora rende 10%. A empresa não pagou nada a mais.",
+        "Segunda conta: payout (dividendo dividido pelo lucro). Acima de 100%, a empresa paga mais do que ganhou.",
+        "Terceira e quarta: lucro que não se repete e o histórico de 5 anos do dividendo por ação.",
+    ],
+    legenda="Tanaka, o dividend yield (quanto o dividendo rende sobre o preço) pode dobrar sem a empresa pagar um real a "
+            "mais. Basta o preço cair pela metade.\n\n"
+            "O vídeo traz 4 contas antes de confiar na renda: o efeito do preço, o payout (dividendo dividido pelo "
+            "lucro), o lucro que não se repete e o histórico de 5 anos. Sem lista de ações.",
+    posts=[
+        "Tanaka, o rendimento dobrou.\n\nA empresa pagou o mesmo. O preço da ação é que caiu pela metade.\n\n"
+        "Renda alta pode ser susto disfarçado.",
+        "Mito: dividendo alto é renda garantida.\n\nFato: no exemplo, R$ 1 por ação com a ação a R$ 20 rende 5%. A ação "
+        "cai pra R$ 10 e o mesmo R$ 1 rende 10%.\n\nA renda não mudou. O risco, talvez.",
+        "Segunda conta: payout (dividendo dividido pelo lucro).\n\nExemplo: lucro de R$ 100 milhões e dividendos de "
+        "R$ 150 milhões. Payout de 150%.\n\nA diferença saiu do caixa ou de dívida.",
+        "Terceira: lucro que não se repete, como a venda de um ativo da empresa.\n\nQuarta: o dividendo por ação dos "
+        "últimos 5 anos.\n\nUma linha que pula de 1 pra 4 e volta pra 1 não é renda mensal.",
+    ],
+    numeros=list(N_EP2) + [
+        arq("100", SERIE, "Lucro de R$ 100 milhões e dividendos de R$ 150 milhões = 150%."),
+        arq("150", SERIE, "Lucro de R$ 100 milhões e dividendos de R$ 150 milhões = 150%."),
+        arq("5", SERIE, "**Histórico de 5 anos:**"),
+        arq("4", SERIE, "Uma linha que pula de 1 para 4 e volta para 1"),
+    ],
+    risco=("baixo", "Bolso claro (dividendo) e critério aplicável; exemplos hipotéticos ditos como exemplo."),
+)
+
+C["2026-10-21|short"] = dict(
+    titulo="O dividend yield dobrou e a empresa não pagou nada a mais",
+    estrutura="A", mecanica="conta-rapida",
+    mensagem_capa="O rendimento do dividendo pode dobrar só porque o preço da ação caiu pela metade.",
+    capa="O rendimento dobrou. A empresa pagou igual.",
+    slides=[
+        "Exemplo: dividendo de R$ 1 por ação. Com a ação a R$ 20, rende 5% ao ano.",
+        "A ação cai pra R$ 10. O mesmo R$ 1 agora rende 10%.",
+        "O dividendo não subiu. O preço é que caiu. Antes de comemorar, olhe por que caiu.",
+    ],
+    legenda="Tanaka, o dividend yield (quanto o dividendo rende sobre o preço da ação) dobrou e a empresa não pagou nada "
+            "a mais.\n\n"
+            "No exemplo, R$ 1 de dividendo com a ação a R$ 20 rende 5%. A ação cai pra R$ 10, e o mesmo R$ 1 rende 10%. "
+            "A renda não mudou. O que mudou foi o preço.\n\n"
+            "Rendimento alto pede a pergunta: por que o preço caiu?",
+    posts=[
+        "Tanaka, o rendimento dobrou. A empresa pagou igual.\n\nO truque não é da empresa. É da conta.",
+        "Conta rápida, com exemplo:\n\n→ R$ 1 de dividendo, ação a R$ 20: rende 5%\n"
+        "→ ação cai pra R$ 10: o mesmo R$ 1 rende 10%",
+        "O dividendo não subiu. O preço caiu.\n\nAntes de comemorar o rendimento alto, pergunte por que a ação caiu "
+        "pela metade.",
+    ],
+    numeros=list(N_EP2),
+    risco=("baixo", "Conta curta e mandável."),
+)
+
+C["2026-10-28|longo"] = dict(
+    titulo="Gastar ou reinvestir os dividendos: a conta de 10 anos",
+    estrutura="C", mecanica="contraste",
+    mensagem_capa="Com o mesmo dinheiro, gastar ou reinvestir a renda muda quanto você recebe daqui a 10 anos.",
+    capa="Gastar a renda hoje custa quanto?",
+    slides=[
+        "Exemplo: R$ 100 mil rendendo 0,6% ao mês, sem imposto e sem inflação, pra simplificar.",
+        "Gastando a renda: R$ 600 por mês. O capital segue em R$ 100 mil.",
+        "Reinvestindo: em 10 anos, cerca de R$ 205 mil. A renda do mês seguinte vira cerca de R$ 1.230.",
+        "Meio-termo: reinvestir a parte da inflação e gastar o resto. A planilha mostra o custo de cada escolha.",
+    ],
+    legenda="Tanaka, com o mesmo dinheiro, uma pessoa recebe R$ 600 por mês e outra R$ 1.230. A diferença é uma decisão "
+            "tomada 10 anos antes.\n\n"
+            "No exemplo, R$ 100 mil rendendo 0,6% ao mês: quem gasta a renda fica com R$ 600 por mês; quem reinveste "
+            "chega a cerca de R$ 205 mil e passa a receber cerca de R$ 1.230. O vídeo mostra o meio-termo.",
+    posts=[
+        "Tanaka, mesmo dinheiro, rendas diferentes.\n\nUma pessoa recebe R$ 600 por mês. A outra, quase o dobro.\n\n"
+        "A diferença foi uma decisão tomada uma década antes.",
+        "Exemplo: R$ 100 mil rendendo 0,6% ao mês, sem imposto e sem inflação.\n\n"
+        "Gastando a renda: R$ 600 por mês, e o capital fica em R$ 100 mil.",
+        "Reinvestindo a renda por 10 anos: cerca de R$ 205 mil.\n\nA renda do mês seguinte vira cerca de R$ 1.230.\n\n"
+        "Mesmo dinheiro inicial. Escolha diferente.",
+        "Precisa da renda agora? Existe o meio-termo: reinvestir a parte da inflação e gastar o resto.\n\n"
+        "A taxa do exemplo é exemplo. A diferença entre as colunas aparece com qualquer taxa positiva.",
+    ],
+    numeros=list(N_EP3),
+    risco=("baixo", "Conta em R$ com contraste forte (R$ 600 x R$ 1.230)."),
+)
+
+C["2026-11-03|longo"] = dict(
+    titulo="Tesouro Direto antes do Copom: o que olhar no IPCA+ hoje",
+    estrutura="B", mecanica="atendimento-ao-cliente",
+    mensagem_capa="Antes da decisão dos juros de quarta, o vídeo mostra quais números do Tesouro anotar hoje.",
+    capa="Amanhã decidem os juros. O que olhar hoje?",
+    slides=[
+        "Amanhã à noite, o Copom (reunião do Banco Central que decide os juros) anuncia a Selic (juros básicos do país).",
+        "O que o mercado espera pra reunião: [CHECAR: Selic esperada no Focus da semana].",
+        "Anote as taxas de hoje do Tesouro IPCA+ (inflação mais uma taxa) e do prefixado (taxa travada).",
+        "Em setembro, com o corte esperado, o Tesouro IPCA+ 2035 (título atrelado à inflação) mexeu 0,05 ponto.",
+    ],
+    legenda="Tanaka, amanhã o Copom (a reunião do Banco Central que decide os juros) anuncia a Selic. Hoje é o dia de "
+            "anotar os números do seu Tesouro.\n\n"
+            "O vídeo mostra o que o mercado espera pra reunião, as taxas do Tesouro IPCA+ e do prefixado na manhã de "
+            "hoje e o que observar no comunicado. Sem previsão da decisão.\n\n"
+            "Em setembro, o corte veio igual ao esperado, e o IPCA+ quase não se mexeu.",
+    posts=[
+        "Tanaka, amanhã decidem os juros do país.\n\nÉ o Copom (a reunião do Banco Central). O anúncio sai à noite.\n\n"
+        "Hoje é o dia de anotar os números do seu Tesouro.",
+        "Três números pra anotar hoje:\n\n→ a Selic (juros básicos) que o mercado espera\n"
+        "→ a taxa do Tesouro IPCA+ (inflação mais uma taxa)\n→ a taxa do prefixado (taxa travada)",
+        "— O que vai acontecer com o meu título?\n— Depende da surpresa, não da decisão.\n— Como assim?\n"
+        "— Se vier o esperado, o preço mexe pouco. Se vier diferente, mexe mais.",
+        "Em setembro, o corte veio igual ao esperado.\n\nO Tesouro IPCA+ 2035 (título atrelado à inflação) mexeu "
+        "0,05 ponto.\n\nO vídeo não chuta a decisão. Mostra o que olhar.",
+    ],
+    numeros=[
+        arq("2035", MOLDE, "| Tesouro IPCA+ 2035 | 7,60% | 7,55% | −0,05 p.p. |"),
+        arq("0,05", MOLDE, "| Tesouro IPCA+ 2035 | 7,60% | 7,55% | −0,05 p.p. |"),
+    ],
+    evento_ao_vivo="Postar ANTES do anúncio do Copom (04/11, a partir das 18h30). Preencher o [CHECAR] com o Focus "
+                   "da semana; as taxas da manhã vêm do site do Tesouro Direto, com a hora.",
+    risco=("baixo", "Tesouro é o assunto com mais inscritos por longo; evento com data. Pendência: o Focus [CHECAR]."),
+)
+
+C["2026-11-11|longo"] = dict(
+    titulo="LCI e LCA para renda mensal: a escada de vencimentos",
+    estrutura="D", mecanica="tradutor-juramentado",
+    mensagem_capa="LCI e LCA não pagam juros a cada mês, mas dá pra fazer uma vencer a cada mês.",
+    capa="Faça uma aplicação vencer a cada mês.",
+    slides=[
+        "LCI e LCA (aplicações de banco sem imposto de renda pra pessoa física) pagam no vencimento, não a cada mês.",
+        "A escada: R$ 120 mil em 12 aplicações de R$ 10 mil, de 12 meses cada, uma por mês.",
+        "Do 13º mês em diante, vence uma por mês. Gasta o rendimento e o principal volta pra um novo degrau.",
+        "Ela demora a começar: prazo mínimo de 6 meses pra LCI e LCA (aplicações de banco). Não serve como reserva.",
+    ],
+    legenda="Tanaka, LCI e LCA (aplicações de banco sem imposto de renda pra pessoa física) não pagam juros a cada mês. "
+            "Mas dá pra fazer vencer uma por mês.\n\n"
+            "No exemplo, R$ 120 mil viram 12 aplicações de R$ 10 mil, de 12 meses cada. Do 13º mês em diante, vence uma "
+            "por mês. O prazo mínimo de 6 meses faz a escada demorar a começar, e ela não serve como reserva.",
+    posts=[
+        "Tanaka, essa aplicação não paga a cada mês.\n\nÉ a LCI ou a LCA (aplicação de banco sem imposto de renda).\n\n"
+        "Mas dá pra fazer uma vencer a cada mês.",
+        "Tradução de \"escada de vencimentos\": R$ 120 mil divididos em 12 aplicações de R$ 10 mil, de 12 meses cada, "
+        "uma por mês.\n\nDo 13º mês em diante, vence uma por mês.",
+        "Venceu o degrau: gasta o rendimento, e o principal volta pra um novo degrau de 12 meses.\n\n"
+        "A escada se repete. A renda chega no ritmo dos vencimentos.",
+        "Ela demora a começar: LCI e LCA (aplicações de banco) têm prazo mínimo de 6 meses.\n\n"
+        "E o dinheiro fica preso até vencer. Por isso a escada não serve como reserva.",
+    ],
+    numeros=list(N_EP4),
+    risco=("médio", "Produto bancário; construção útil, mas o carrossel explica mais que reage."),
+)
+
+C["2026-11-16|short"] = dict(
+    titulo="LCI e LCA não pagam todo mês. Mas dá para fazer vencer uma por mês",
+    estrutura="C", mecanica="pergunta-do-leitor",
+    mensagem_capa="Com 12 aplicações escalonadas, uma LCI ou LCA vence a cada mês a partir do 13º mês.",
+    capa="Uma aplicação vencendo por mês. Dá?",
+    slides=[
+        "\"Mas LCI e LCA (aplicações de banco) não pagam mensal?\" Não. Pagam no vencimento.",
+        "A escada: 12 aplicações de R$ 10 mil, de 12 meses cada, uma por mês.",
+        "Do 13º mês em diante, vence uma por mês. No começo, a escada ainda está subindo.",
+    ],
+    legenda="Tanaka, LCI e LCA (aplicações de banco sem imposto de renda pra pessoa física) não pagam mensal. Mas dá pra "
+            "fazer vencer uma por mês.\n\n"
+            "A escada: 12 aplicações de R$ 10 mil, de 12 meses cada, uma por mês. Do 13º mês em diante, vence uma por "
+            "mês, e o dinheiro de cada degrau volta pra um novo.\n\n"
+            "A escada demora a começar. Depois, anda sozinha.",
+    posts=[
+        "Tanaka, quer uma aplicação vencendo por mês?\n\nCom LCI e LCA (aplicações de banco), dá. É uma escada.",
+        "\"Mas LCI e LCA (aplicações de banco) não pagam mensal?\"\n\nNão. Pagam no vencimento.\n\n"
+        "Por isso a escada: 12 aplicações de R$ 10 mil, de 12 meses cada, uma por mês.",
+        "Do 13º mês em diante, vence uma por mês.\n\nO dinheiro de cada degrau volta pra um novo.\n\n"
+        "A escada demora a começar. Depois, anda sozinha.",
+    ],
+    numeros=list(N_EP4),
+    risco=("médio", "Produto bancário; capa clara."),
+)
+
+C["2026-11-18|longo"] = dict(
+    titulo="Renda mensal e inflação: quanto reinvestir para não encolher",
+    estrutura="E", mecanica="manual-invertido",
+    mensagem_capa="Com a inflação de agora, R$ 1.000 de renda hoje compram cerca de R$ 661 daqui a 10 anos.",
+    capa="Sua renda de hoje encolhe em 10 anos.",
+    slides=[
+        "Com 4,22% de inflação ao ano, mantida igual, R$ 1.000 de hoje compram cerca de R$ 661 depois de uma década.",
+        "Regra de bolso: reinvista a parte da renda igual à inflação. O resto você pode gastar.",
+        "Exemplo: rendendo 10% ao ano, com 4,22% de inflação, reinvista 42% da renda.",
+        "O Tesouro IPCA+ (título que paga a inflação mais uma taxa) já corrige o valor. A taxa é a parte acima dela.",
+    ],
+    legenda="Tanaka, R$ 1.000 de renda hoje compram cerca de R$ 661 daqui a 10 anos, com 4,22% de inflação ao ano "
+            "mantida igual.\n\n"
+            "O vídeo mostra quanto da renda precisa voltar pro investimento pra ela valer o mesmo: a parte igual à "
+            "inflação. No exemplo, rendendo 10% ao ano, isso é 42% da renda.\n\n"
+            "A conta não escolhe produto. Mede o encolhimento.",
+    posts=[
+        "Tanaka, sua renda mensal está encolhendo.\n\nDevagar, sem aparecer no extrato.\n\nA culpa é da inflação, e a "
+        "conta assusta.",
+        "Com 4,22% de inflação ao ano, mantida igual:\n\nR$ 1.000 de renda hoje compram cerca de R$ 661 depois de "
+        "uma década.",
+        "Manual pra renda encolher:\n\n→ gaste a renda inteira\n→ ignore a inflação\n→ repita por dez anos\n\n"
+        "Funciona sem esforço.",
+        "A regra de bolso: reinvista a parte da renda igual à inflação.\n\nRendendo 10% ao ano, com 4,22% de inflação: "
+        "reinvista 42% e gaste o resto.\n\nA conta não escolhe produto. Mede o encolhimento.",
+    ],
+    numeros=list(N_EP5),
+    risco=("baixo", "Dor no bolso (renda encolhendo) com conta em R$."),
+)
+
+C["2026-11-18|short"] = dict(
+    titulo="R$ 100 mil, 10 anos: gastar a renda ou reinvestir?",
+    estrutura="B", mecanica="extrato-falso",
+    mensagem_capa="Em 10 anos, reinvestir a renda de R$ 100 mil quase dobra a renda mensal, no exemplo.",
+    capa="R$ 100 mil: gastar a renda ou reinvestir?",
+    slides=[
+        "Exemplo: R$ 100 mil rendendo 0,6% ao mês, sem imposto e sem inflação.",
+        "Extrato de quem gasta: R$ 600 por mês, por 10 anos. O capital segue em R$ 100 mil.",
+        "Extrato de quem reinveste: cerca de R$ 205 mil em 10 anos. Renda de cerca de R$ 1.230 por mês.",
+    ],
+    legenda="Tanaka, R$ 100 mil, 10 anos: gastar a renda ou reinvestir?\n\n"
+            "No exemplo, rendendo 0,6% ao mês, quem gasta recebe R$ 600 por mês e continua com R$ 100 mil. Quem "
+            "reinveste chega a cerca de R$ 205 mil e passa a receber cerca de R$ 1.230.\n\n"
+            "O episódio da série faz a conta ano a ano, com o meio-termo.",
+    posts=[
+        "Tanaka, R$ 100 mil: gastar ou reinvestir?\n\nA resposta muda a sua renda daqui a uma década.",
+        "Extrato de quem gasta, no exemplo de 0,6% ao mês:\n\nR$ 600 por mês, por 10 anos.\n"
+        "Capital no fim: os mesmos R$ 100 mil.",
+        "Extrato de quem reinveste:\n\nCerca de R$ 205 mil em 10 anos.\nRenda nova: cerca de R$ 1.230 por mês.\n\n"
+        "Quase o dobro, com o mesmo dinheiro inicial.",
+    ],
+    numeros=list(N_EP3),
+    corte_de="2026-10-28",
+    risco=("baixo", "Conta em R$ e contraste claro."),
+)
+
+C["2026-11-23|short"] = dict(
+    titulo="R$ 1.000 de renda hoje compram quanto em 10 anos?",
+    estrutura="C", mecanica="extrato-falso",
+    mensagem_capa="Com a inflação de agora, R$ 1.000 de renda viram poder de compra de cerca de R$ 661 em 10 anos.",
+    capa="Seus R$ 1.000 de renda vão encolher.",
+    slides=[
+        "Conta com 4,22% de inflação ao ano, mantida igual.",
+        "Depois de uma década, R$ 1.000 compram o que hoje custa cerca de R$ 661.",
+        "A saída: reinvestir a parte da renda igual à inflação. O episódio da série faz a conta.",
+    ],
+    legenda="Tanaka, R$ 1.000 de renda hoje compram quanto em 10 anos?\n\n"
+            "Com 4,22% de inflação ao ano, mantida igual, cerca de R$ 661. A renda no extrato fica igual, e o poder de "
+            "compra encolhe por fora dele.\n\n"
+            "A saída é reinvestir a parte da renda igual à inflação. O episódio da série de renda mensal faz a conta inteira.",
+    posts=[
+        "Tanaka, seus R$ 1.000 de renda vão encolher.\n\nNo extrato, o número fica igual. No mercado, não.",
+        "Extrato do poder de compra, com 4,22% de inflação ao ano:\n\nHoje: R$ 1.000.\n"
+        "Daqui a uma década: o mesmo que R$ 661 hoje.",
+        "A saída: reinvestir a parte da renda igual à inflação.\n\nO resto, você gasta sem culpa.",
+    ],
+    numeros=list(N_EP5),
+    corte_de="2026-11-18",
+    risco=("baixo", "Dor no bolso e uma conta só."),
+)
+
+C["2026-11-25|longo"] = dict(
+    titulo="Renda todo mês com Tesouro e FII: a grade de 12 meses",
+    estrutura="D", mecanica="boletim-escolar",
+    mensagem_capa="Juntando Tesouro e fundos imobiliários numa grade de 12 meses, você vê quais meses ficam sem renda.",
+    capa="Quais meses do ano ficam sem renda?",
+    slides=[
+        "A grade: 12 meses lado a lado e, em cada um, de onde vem a renda.",
+        "Títulos do Tesouro com juros semestrais (pagos duas vezes por ano) enchem alguns meses. [CHECAR: meses de cada título]",
+        "Fundos imobiliários (fundos que dividem aluguel): a frequência está no regulamento de cada um.",
+        "Boletim da grade: mês cheio, mês vazio. A soma do ano é o que importa; a grade mostra quanto guardar.",
+    ],
+    legenda="Tanaka, renda mensal de verdade pede uma grade de 12 meses.\n\n"
+            "Os títulos do Tesouro com juros semestrais (pagos duas vezes por ano) enchem alguns meses. Os fundos "
+            "imobiliários preenchem outros, conforme o regulamento de cada um. A grade mostra, antes de investir, quais "
+            "meses ficam vazios e quanto guardar dos meses cheios.\n\n"
+            "É o fechamento da série de renda mensal.",
+    posts=[
+        "Tanaka, sua renda cai a cada mês mesmo?\n\nMonte a grade de 12 meses e confira.\n\n"
+        "Os meses vazios aparecem na hora.",
+        "Títulos do Tesouro com juros semestrais (pagos duas vezes por ano) pagam em meses fixos.\n\n"
+        "[CHECAR: meses de pagamento de cada título no site do Tesouro Direto]\n\nSozinhos, eles deixam buracos no ano.",
+        "Fundos imobiliários (fundos que dividem aluguel) entram nos buracos.\n\n"
+        "A lei manda distribuir o lucro em base semestral. A frequência real está no regulamento de cada fundo.",
+        "Exemplo de boletim da grade:\n\nJaneiro: presente.\nMarço: faltou.\nMaio: presente.\n\n"
+        "O boletim é seu, e sai antes de investir.",
     ],
     numeros=[],
-    risco=("alto", "Pauta de reserva de emergência (finança pessoal básica): eliminatório do juiz-post."),
+    risco=("médio", "Fechamento da série; as datas de pagamento do Tesouro ficam em [CHECAR] até o Mac conferir."),
+)
+
+C["2026-10-27|longo"] = dict(
+    titulo="ETF de dividendos mensais ou FII: imposto e renda de cada um",
+    estrutura="C", mecanica="contraste",
+    mensagem_capa="ETF e fundo imobiliário pagam renda mensal com regras de imposto diferentes; o vídeo compara as duas.",
+    capa="Renda mensal: qual imposto morde cada uma?",
+    slides=[
+        "Fundo imobiliário: o rendimento pode sair sem imposto de renda pra pessoa física, com as regras da lei.",
+        "Uma das regras: o fundo ter 100 cotistas (donos de cotas) ou mais.",
+        "ETF (fundo vendido na bolsa) de dividendos: regra de imposto própria. [CHECAR: alíquota e retenção na distribuição]",
+        "Renda de fundo imobiliário vem de aluguel e juros de imóveis. A do ETF (fundo vendido na bolsa), do lucro de empresas.",
+    ],
+    legenda="Tanaka, ETF (fundo vendido na bolsa) de dividendos mensais ou fundo imobiliário? Os dois pagam renda mensal, "
+            "com regras de imposto diferentes.\n\n"
+            "No fundo imobiliário, o rendimento pode sair sem imposto de renda pra pessoa física, com as regras da lei. "
+            "No ETF, a regra é outra, e o vídeo mostra onde ler. Sem indicar fundo nem ETF.\n\n"
+            "Compare líquido com líquido.",
+    posts=[
+        "Tanaka, renda mensal: qual imposto morde cada uma?\n\nETF (fundo vendido na bolsa) e fundo imobiliário pagam "
+        "com regras diferentes.",
+        "Fundo imobiliário: o rendimento pode sair sem imposto de renda pra pessoa física.\n\n"
+        "Uma das regras: o fundo ter 100 cotistas (donos de cotas) ou mais.",
+        "ETF de dividendos (fundo vendido na bolsa): regra de imposto própria.\n\n"
+        "[CHECAR: alíquota e retenção na distribuição do ETF de ações]\n\n"
+        "Onde ler: regulamento, lâmina e aviso de rendimentos.",
+        "Mesma renda bruta, impostos diferentes.\n\nComparar os dois pelo valor pago é escolher churrasco pela picanha "
+        "do cartaz.",
+    ],
+    numeros=[arq("100", SERIE, "FII isento só com 100 cotistas ou mais")],
+    risco=("médio", "Imposto do ETF ainda não conferido em fonte primária ([CHECAR]); o juiz pede a regra inteira."),
 )
 
 
 # ------------------------------------------------------------------ temas do vídeo (hashtags do Instagram)
-# Cada vídeo leva só as hashtags dos seus temas (mapa em gerar_cards.HASHTAGS_TEMA) e as gerais da marca.
+# Chave: "AAAA-MM-DD|formato" (o v3 tem longo e Short no mesmo dia). Mapa de hashtags em gerar_cards.HASHTAGS_TEMA.
 TEMAS_VIDEO = {
-    "2026-10-05": ["renda fixa bancária"],
-    "2026-10-06": ["ETF"],
-    "2026-10-07": ["juntar dinheiro"],
-    "2026-10-08": ["Tesouro"],
-    "2026-10-12": ["renda fixa bancária"],
-    "2026-10-13": ["ações e dividendos"],
-    "2026-10-14": ["Tesouro"],
-    "2026-10-15": ["crise"],
-    "2026-10-19": ["IR", "FII"],
-    "2026-10-20": ["ETF"],
-    "2026-10-21": ["comportamento"],
-    "2026-10-22": ["renda fixa bancária"],
-    "2026-10-26": ["renda fixa bancária"],
-    "2026-10-27": ["ETF", "FII"],
-    "2026-10-28": ["Tesouro"],
-    "2026-10-29": ["Tesouro"],
-    "2026-10-31": ["FII"],
-    "2026-11-02": ["IR", "ações e dividendos"],
-    "2026-11-03": ["ações e dividendos", "FII", "Tesouro"],
-    "2026-11-04": ["Tesouro", "juros"],
-    "2026-11-05": ["Tesouro", "juros"],
-    "2026-11-07": ["FII"],
-    "2026-11-09": ["IR", "ações e dividendos"],
-    "2026-11-10": ["Tesouro"],
-    "2026-11-11": ["FII"],
-    "2026-11-12": ["FII"],
-    "2026-11-14": ["renda fixa bancária"],
-    "2026-11-16": ["comportamento"],
-    "2026-11-17": ["ETF"],
-    "2026-11-18": ["juntar dinheiro"],
-    "2026-11-19": ["cripto"],
-    "2026-11-21": ["IA"],
-    "2026-11-23": ["renda fixa bancária"],
-    "2026-11-24": ["juros", "ações e dividendos", "FII"],
-    "2026-11-25": ["ETF"],
-    "2026-11-26": ["FII"],
-    "2026-11-28": ["Tesouro", "renda fixa bancária"],
+    "2026-10-05|short": ["renda fixa bancária"],
+    "2026-10-06|longo": ["FII"],
+    "2026-10-07|short": ["ETF"],
+    "2026-10-08|longo": ["Tesouro"],
+    "2026-10-12|short": ["renda fixa bancária"],
+    "2026-10-13|longo": ["ações e dividendos"],
+    "2026-10-14|longo": ["ETF"],
+    "2026-10-14|short": ["Tesouro"],
+    "2026-10-15|longo": ["crise"],
+    "2026-10-19|short": ["IR", "FII"],
+    "2026-10-20|longo": ["ETF"],
+    "2026-10-21|longo": ["ações e dividendos"],
+    "2026-10-21|short": ["ações e dividendos"],
+    "2026-10-22|longo": ["renda fixa bancária"],
+    "2026-10-26|short": ["renda fixa bancária"],
+    "2026-10-27|longo": ["ETF", "FII", "IR"],
+    "2026-10-28|longo": ["ações e dividendos"],
+    "2026-10-28|short": ["Tesouro"],
+    "2026-10-29|longo": ["Tesouro"],
+    "2026-11-02|short": ["IR", "ações e dividendos"],
+    "2026-11-03|longo": ["Tesouro", "juros"],
+    "2026-11-04|short": ["Tesouro", "juros"],
+    "2026-11-05|longo": ["ações e dividendos", "FII", "Tesouro"],
+    "2026-11-07|longo": ["FII"],
+    "2026-11-09|short": ["IR", "ações e dividendos"],
+    "2026-11-10|longo": ["Tesouro"],
+    "2026-11-11|longo": ["renda fixa bancária"],
+    "2026-11-11|short": ["FII"],
+    "2026-11-14|longo": ["renda fixa bancária"],
+    "2026-11-16|short": ["renda fixa bancária"],
+    "2026-11-17|longo": ["ETF"],
+    "2026-11-18|longo": ["inflação"],
+    "2026-11-18|short": ["ações e dividendos"],
+    "2026-11-19|longo": ["cripto"],
+    "2026-11-23|short": ["inflação"],
+    "2026-11-24|longo": ["juros", "ações e dividendos", "FII"],
+    "2026-11-25|longo": ["Tesouro", "FII"],
+    "2026-11-25|short": ["ETF"],
+    "2026-11-26|longo": ["FII"],
 }
 
 # ------------------------------------------------------------------ afirmações factuais que não são número
-# Ranking, "mais buscado", "top 10", "3º melhor", origem de uma pergunta... Cada uma tem de estar escrita
-# literalmente num arquivo do repo (caminho a partir da raiz do IPADTEST). O teste confere o trecho e que o
-# `texto` aparece no post.
+# Ranking, "top 10", "3º melhor", origem de uma pergunta... Cada uma tem de estar escrita literalmente num arquivo do
+# repo (caminho a partir da raiz do IPADTEST). O teste confere o trecho e que o `texto` aparece no post.
 CAL_MD = "pautas-canal/CALENDARIO-8-SEMANAS.md"
-CAL_CSV = "pautas-canal/CALENDARIO-8-SEMANAS.csv"
 RELATORIO = "auditoria-canal/RELATORIO.md"
 AFIRMACOES = {
-    "2026-10-06": [
-        {"texto": "entrou no top 10 do ano do canal", "arquivo": CAL_MD,
-         "trecho": "renda mensal: Fb0l4KEq27o, TY8oLvUt2Qg e IB1mBcF00jc"},
-        {"texto": "entrou no top 10 do ano do canal", "arquivo": RELATORIO,
-         "trecho": "Dos 5 maiores do ano, 2 são dessa linha (637 e 324 inscritos)"},
-    ],
-    "2026-10-08": [
+    "2026-10-08|longo": [
         {"texto": "está no top 10 do ano do canal", "arquivo": RELATORIO, "trecho": "Dois dos top 10 (421 e 246)"},
         {"texto": "está no top 10 do ano do canal", "arquivo": CAL_MD, "trecho": "tesouro: dHYQtxnMSrw"},
     ],
-    "2026-10-15": [
-        {"texto": "foi o 3º melhor do canal no ano", "arquivo": CAL_MD,
-         "trecho": "continuação do 3º melhor vídeo do ano"},
+    "2026-10-15|longo": [
+        {"texto": "foi o 3º melhor do canal no ano", "arquivo": CAL_MD, "trecho": "continuação do 3º melhor vídeo do ano"},
     ],
-    "2026-10-31": [
-        {"texto": "lidera as buscas", "arquivo": CAL_CSV,
-         "trecho": "'trxf11' é o termo de investimento mais buscado do canal nos últimos 6 meses"},
-        {"texto": "mais buscado do canal nos últimos 6 meses", "arquivo": CAL_CSV,
-         "trecho": "'trxf11' é o termo de investimento mais buscado do canal nos últimos 6 meses"},
-        {"texto": "mais buscado no canal nos últimos 6 meses", "arquivo": CAL_CSV,
-         "trecho": "'trxf11' é o termo de investimento mais buscado do canal nos últimos 6 meses"},
+    "2026-11-14|longo": [
+        {"texto": "rendeu um vídeo aqui em 2018", "arquivo": "pautas-canal/CALENDARIO.csv",
+         "trecho": "7CdwOTT7U3o (CDB prefixado, 2018"},
     ],
-    "2026-11-14": [
-        {"texto": "rendeu um vídeo aqui em 2018", "arquivo": CAL_CSV, "trecho": "7CdwOTT7U3o (CDB prefixado, 2018"},
-    ],
-    "2026-11-19": [
+    "2026-11-19|longo": [
         {"texto": "apareceu nos comentários", "arquivo": "pautas-canal/PERGUNTAS-SEM-RESPOSTA.md",
          "trecho": "Eu ficaria devendo se perdesse o valor investido?"},
     ],

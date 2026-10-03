@@ -38,8 +38,61 @@ def textos_do_post(js):
 
 
 # ---------------------------------------------------------------- cobertura
-def test_calendario_v2_tem_21_longos_e_16_shorts():
-    assert Counter(r["formato"] for r in ROWS) == {"longo": 21, "short": 16}
+def test_le_o_calendario_oficial_v3():
+    """O v3 (pautas-canal/CALENDARIO.csv) é o oficial; o CALENDARIO-8-SEMANAS.csv (v2) virou histórico."""
+    assert g.CALENDARIO.name == "CALENDARIO.csv"
+    assert Counter(r["formato"] for r in ROWS) == {"longo": 23, "short": 16}
+    assert {"status_titulo", "serie_ep", "origem"} <= set(ROWS[0])
+
+
+def test_cards_de_video_que_saiu_ficam_no_arquivo():
+    """As 7 pautas fora do nicho, as 2 movidas para dezembro e o pós-Copom saíram; as versões antigas das pautas que
+    mudaram de data ou de título também. Nada disso fica na fila do juiz."""
+    arquivados = sorted(p.name for p in (CARDS / "_arquivo").glob("2026-*.md"))
+    assert len(arquivados) == 13
+    assert not set(arquivados) & set(ARQUIVOS)
+    leia = (CARDS / "_arquivo" / "README.md").read_text(encoding="utf-8")
+    for t in ("Como juntar 1 milhão", "Casal que investe", "Perfil de investidor", "Juros compostos", "Bolha da IA",
+              "Reserva de emergência", "Tesouro Direto na reserva", "o que mudou em 2026", "TRXF11"):
+        assert t in leia, t
+
+
+def test_titulo_provisorio_leva_a_marca():
+    prov = [r for r in ROWS if r["status_titulo"].startswith("provisório")]
+    assert len(prov) == 11
+    for r in prov:
+        txt, fm, js = ler_card(f"{r['data']}-{g.slugify(r['titulo'])}.md")
+        assert fm["status_titulo"] == js["status_titulo"] == g.MARCA_PROVISORIO
+        assert g.MARCA_PROVISORIO in txt.split("## PARA O JUIZ-POST")[0]
+    for r in ROWS:
+        if not r["status_titulo"].startswith("provisório"):
+            _, fm, _ = ler_card(f"{r['data']}-{g.slugify(r['titulo'])}.md")
+            assert fm["status_titulo"] != g.MARCA_PROVISORIO
+
+
+BRIEF_EP1 = AQUI.parent / "pautas-canal" / "briefings" / "2026-10-14-etf-dividendos-mensais-briefing.md"
+
+
+def test_ep1_so_usa_numero_de_dados_conferidos():
+    """No Ep. 1 (e no Short dele), número do briefing só da seção "4. DADOS CONFERIDOS"; o resto é [CHECAR]."""
+    txt = BRIEF_EP1.read_text(encoding="utf-8")
+    conferidos = txt.split("## 4. DADOS CONFERIDOS")[1].split("## 5. A CONFERIR")[0]
+    eps = [c for c in MONTADOS if c["serie_ep"].startswith("Ep. 1")]
+    assert len(eps) == 2
+    for c in eps:
+        for n in c["numeros"]:
+            if n["fonte"].startswith("briefings/"):
+                assert n["trecho"] in conferidos, n
+        assert g.checar_numeros(c, c["_row"]) == []
+
+
+def test_ep1_nao_soa_como_recomendacao():
+    """DIVD11 x DIVO11 são estudo de caso: sem verbo de compra, sem "melhor", e o card diz que é prova da conta."""
+    c = next(c for c in MONTADOS if c["serie_ep"] == "Ep. 1")
+    texto = g.RE_CHECAR.sub(" ", c["texto_gate"]).lower()
+    for w in ("compr", "melhor", "vale a pena", "recomend", "indic", "aproveit", "oportunidade", "invista", "escolha o"):
+        assert w not in texto, w
+    assert "prova da conta" in texto
 
 
 def test_todo_video_tem_um_card_com_as_duas_redes():
@@ -117,7 +170,8 @@ def test_autoexame_pega_o_que_o_juiz_reprova(texto, criterio):
 def test_checar_nao_elimina_o_card():
     """Decisão do Mac: o [CHECAR] fica para o Denis preencher na publicação e não elimina o card."""
     com = [c for c in MONTADOS if g.pendencias(c)]
-    assert {c["video_data"] for c in com} == {"2026-10-28", "2026-11-05"}
+    assert {g.chave(c["_row"]) for c in com} == {"2026-10-14|longo", "2026-10-27|longo", "2026-10-28|short",
+                                                 "2026-11-03|longo", "2026-11-25|longo"}
     assert all(g.autoexame(c) == [] for c in com)
 
 
@@ -146,7 +200,7 @@ def test_x_nenhuma_mecanica_mais_de_5_vezes():
 
 
 def test_x_estruturas_equilibradas():
-    """Só há 5 estruturas (A-E) para 37 cards: o mínimo possível na mais usada é 8."""
+    """Só há 5 estruturas (A-E) para 39 cards: o mínimo possível na mais usada é 8."""
     cont = Counter(c["estrutura"] for c in MONTADOS)
     assert set(cont) == set("ABCDE") and max(cont.values()) <= 8, cont
 
@@ -192,7 +246,7 @@ def test_temas_batem_com_o_titulo():
     for r in ROWS:
         for k, tema in chaves.items():
             if k in r["titulo"].lower():
-                assert tema in g.conteudo.TEMAS_VIDEO[r["data"]], (r["data"], k)
+                assert tema in g.conteudo.TEMAS_VIDEO[g.chave(r)], (r["data"], k)
 
 
 # ---------------------------------------------------------------- fontes, números e regras do canal
@@ -240,15 +294,11 @@ def test_gate_sem_bloqueio():
 
 @pytest.mark.skipif(GATE is None, reason="gate_qualidade.py não encontrado (defina IC_GATE)")
 def test_gate_sem_aviso_de_conteudo():
-    """Aceitos: DADOS_VELHOS (tabelas do gate mais velhas que a data do card) e 'perfil de investidor', que vem do
-    título do Short de 16/11 no calendário."""
+    """Aceito: DADOS_VELHOS (tabelas do gate mais velhas que a data do card)."""
     inesperados = []
     for c in MONTADOS:
         for p in g.rodar_gate(GATE, c)["problemas"]:
             if p["codigo"] == "DADOS_VELHOS":
-                continue
-            if p["codigo"] == "PADRAO_IA" and c["video_data"] == "2026-11-16" and \
-                    p["trecho"] == "expressões: perfil de investidor":
                 continue
             inesperados.append(f'{c["arquivo"]}: {p["codigo"]} {p.get("trecho", "")}')
     assert not inesperados, inesperados
@@ -256,7 +306,7 @@ def test_gate_sem_aviso_de_conteudo():
 
 @pytest.mark.skipif(GATE is None, reason="gate_qualidade.py não encontrado (defina IC_GATE)")
 def test_gate_pela_linha_de_comando_da_o_mesmo_resultado():
-    c = next(c for c in MONTADOS if c["video_data"] == "2026-10-19")
+    c = next(c for c in MONTADOS if c["video_data"] == "2026-10-19")  # Short de FII (regra de imposto)
     p = subprocess.run([sys.executable, GATE.__file__, "-", "--titulo", c["video_titulo"], "--data",
                         c["publicacao"]["instagram"]["data"], "--json"], input=c["texto_gate"], capture_output=True, text=True)
     assert json.loads(p.stdout)["resultado"] == g.rodar_gate(GATE, c)["resultado"]

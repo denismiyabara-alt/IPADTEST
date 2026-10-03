@@ -7,6 +7,9 @@ depois: "leitor-frio"
 video_data: "2026-10-15"
 video_formato: "longo"
 video_titulo: "Crise financeira: o gráfico de 1929, 2008 e 2020, hoje"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2"
 assunto: "crise e macro"
 temas: ["crise"]
 termo_busca: "crise financeira"
@@ -189,6 +192,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Pauta de crise sem ponte clara com o bolso; 'e daí?' é o risco do item 1."
   },
   "topico": "Crise financeira: o gráfico de 1929, 2008 e 2020, hoje",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-10-15",
     "formato": "longo",

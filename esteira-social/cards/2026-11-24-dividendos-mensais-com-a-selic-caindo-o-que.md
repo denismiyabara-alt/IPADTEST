@@ -7,6 +7,9 @@ depois: "leitor-frio"
 video_data: "2026-11-24"
 video_formato: "longo"
 video_titulo: "Dividendos mensais com a Selic caindo: o que acontece"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2"
 assunto: "renda mensal"
 temas: ["juros", "ações e dividendos", "FII"]
 termo_busca: "dividendos mensais"
@@ -182,6 +185,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Pauta macro com ponte pra renda; clareza depende de o leitor ligar juros e dividendos."
   },
   "topico": "Dividendos mensais com a Selic caindo: o que acontece",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-11-24",
     "formato": "longo",

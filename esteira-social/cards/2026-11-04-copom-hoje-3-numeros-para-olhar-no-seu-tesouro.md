@@ -7,6 +7,9 @@ depois: "leitor-frio"
 video_data: "2026-11-04"
 video_formato: "short"
 video_titulo: "Copom hoje: 3 números para olhar no seu Tesouro"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2 (ângulo ajustado ao pré)"
 assunto: "tesouro e renda fixa"
 temas: ["Tesouro", "juros"]
 termo_busca: "—"
@@ -92,7 +95,7 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
 - PNGs: `esteira-social/render/2026-11-04-copom-hoje-3-numeros-para-olhar-no-seu-tesouro/slide-1.png`, `esteira-social/render/2026-11-04-copom-hoje-3-numeros-para-olhar-no-seu-tesouro/slide-2.png`, `esteira-social/render/2026-11-04-copom-hoje-3-numeros-para-olhar-no-seu-tesouro/slide-3.png`, `esteira-social/render/2026-11-04-copom-hoje-3-numeros-para-olhar-no-seu-tesouro/slide-4.png`
 
 ## FONTES E NÚMEROS (para conferir; não vão no post)
-- Calendário (04/11): fontes a conferir: Taxas do Tesouro do dia. Ângulo: Pré-decisão: taxa do IPCA+, do prefixado e a Selic esperada.
+- Calendário (04/11): fontes a conferir: Taxas do Tesouro do dia. Ângulo: Corte do longo pré de 03/11 com as taxas da manhã de quarta (o [*_ANTES] definitivo do molde); link para o longo. Sem prever a decisão.
 - Números da própria linha do calendário: liberados (a linha é o briefing).
 
 ## PENDÊNCIAS
@@ -165,6 +168,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Evento com data e bolso. Risco: três ideias técnicas pro leitor leigo nos slides."
   },
   "topico": "Copom hoje: 3 números para olhar no seu Tesouro",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-11-04",
     "formato": "short",

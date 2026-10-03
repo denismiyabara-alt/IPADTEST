@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Esteira social: gera um card 🎬 por vídeo do calendário, no contrato do juiz-post (agentes/juiz-post.md).
 
-Lê pautas-canal/CALENDARIO-8-SEMANAS.csv, junta com o texto de conteudo.py e grava:
+Lê o calendário oficial (pautas-canal/CALENDARIO.csv, v3), junta com o texto de conteudo.py e grava:
 
     cards/<data do vídeo>-<slug>.md   card 🎬: carrossel do Instagram (capa = thumbnail do YouTube + slides),
                                       legenda, posts do X (A, B, C...), PNGs esperados, fontes e publicação
@@ -36,7 +36,7 @@ sys.path.insert(0, str(AQUI))
 import conteudo  # noqa: E402
 
 PAUTAS = AQUI.parent / "pautas-canal"
-CALENDARIO = PAUTAS / "CALENDARIO-8-SEMANAS.csv"
+CALENDARIO = PAUTAS / "CALENDARIO.csv"   # v3, oficial desde 03/10/2026 (o v2 virou histórico)
 GATE_PADRAO = [
     Path(os.environ["IC_GATE"]) if os.environ.get("IC_GATE") else None,
     Path("/home/user/investir-e-cocar/pipeline/gate_qualidade.py"),
@@ -64,6 +64,7 @@ HASHTAGS_TEMA = {
     "cripto": ["#Bitcoin", "#Cripto", "#Criptomoedas", "#BTC"],
     "juntar dinheiro": ["#JurosCompostos", "#PrimeiroMilhao", "#Aposentadoria", "#LongoPrazo"],
     "comportamento": ["#FinancasDoCasal", "#Planejamento", "#Objetivos", "#FinancasPessoais"],
+    "inflação": ["#Inflacao", "#IPCA", "#PoderDeCompra", "#RendaMensal"],
 }
 MAX_HASHTAGS = 10
 
@@ -111,7 +112,7 @@ CORRETORAS = re.compile(r"\b(XP|Rico|Clear|BTG|Nu ?Invest|Easynvest|Inter|Toro|M
 JARGAO = {
     "LCI": r"\bLCI\b", "LCA": r"\bLCA\b", "IOF": r"\bIOF\b", "FII": r"\bFIIs?\b", "ETF": r"\bETFs?\b",
     "JCP": r"\bJCP\b", "IPCA": r"\bIPCA\+?", "CDI": r"\bCDI\b", "Selic": r"\bSelic\b", "Copom": r"\bCopom\b",
-    "FGC": r"\bFGC\b", "RendA+": r"RendA\+", "TRXF11": r"\bTRXF11\b", "IR": r"\bIR\b", "IA": r"\bIA\b",
+    "FGC": r"\bFGC\b", "RendA+": r"RendA\+", "ticker": r"\b[A-Z]{4}\d{1,2}\b", "IR": r"\bIR\b", "IA": r"\bIA\b",
     "marcação a mercado": r"marcação a mercado", "isenção": r"\bisen[çt]", "alíquota": r"al[íi]quota",
     "liquidez": r"\bliquidez\b", "carência": r"\bcar[êe]ncia\b", "prefixado": r"\bprefixado\b",
     "pós-fixado": r"\bpós-fixado\b", "taxa de administração": r"taxa de administração", "cotista": r"\bcotistas?\b",
@@ -120,7 +121,7 @@ JARGAO = {
     "tabela progressiva/regressiva": r"\b(progressiva|regressiva)\b",
 }
 RE_RANKING = re.compile(
-    r"top ?\d+|campe[ãa]|recorde|l[ií]der\w*|\d+º|mais buscad\w*|mais trouxe\w*|mais vist\w*|"
+    r"top ?\d+|campe[ãa]|recorde|l[ií]der\w*|\d+º (?:melhor|pior|maior|menor|lugar|colocad\w*)|mais buscad\w*|mais trouxe\w*|mais vist\w*|"
     r"\b(?:o|a|os|as) (?:melhor|pior)(?:es)?\b|\bmelhor(?:es)? d[oa]\b|\bpior(?:es)? d[oa]\b|"
     r"\b(?:o|a|os|as) maior(?:es)? (?:\w+ )?d[oa]s? (?:canal|ano|brasil|mercado|bolsa|hist[oó]ria)\b|"
     r"\b(?:primeiro|segundo|terceiro) (?:que|mais|melhor|lugar)\b|\bnº", re.I)
@@ -198,12 +199,13 @@ def prova_slide2(row):
 # ---------------------------------------------------------------- cards
 def montar_cards(rows=None):
     rows = rows if rows is not None else ler_calendario()
-    faltando = [r["data"] for r in rows if r["data"] not in conteudo.C]
+    faltando = [chave(r) for r in rows if chave(r) not in conteudo.C]
     if faltando:
         raise SystemExit(f"Sem texto em conteudo.py para: {', '.join(faltando)} (não gero template vazio)")
     cards = []
     for row in rows:
-        c = conteudo.C[row["data"]]
+        k = chave(row)
+        c = conteudo.C[k]
         if c["titulo"] != row["titulo"]:
             raise SystemExit(f'{row["data"]}: título do calendário mudou ("{row["titulo"]}" x "{c["titulo"]}")')
         slug = slugify(row["titulo"])
@@ -215,17 +217,20 @@ def montar_cards(rows=None):
             "id": cid, "arquivo": f"{cid}.md", "tipo": "🎬 vídeo do canal", "status": "rascunho",
             "video_data": row["data"], "video_formato": row["formato"], "video_titulo": row["titulo"],
             "assunto": row["assunto"], "termo_busca": row["termo_busca"] or "—", "angulo": row["angulo"],
-            "fontes_a_conferir": row["fontes_a_conferir"], "temas": conteudo.TEMAS_VIDEO[row["data"]],
+            "fontes_a_conferir": row["fontes_a_conferir"], "temas": conteudo.TEMAS_VIDEO[k],
+            "status_titulo": row.get("status_titulo", ""), "serie_ep": row.get("serie_ep", ""),
+            "origem": row.get("origem", ""),
+            "titulo_provisorio": row.get("status_titulo", "").startswith("provisório"),
             "estrutura": c["estrutura"], "mecanica": c["mecanica"], "mensagem_capa": c["mensagem_capa"],
             "slides": [{"numero": i + 1, "texto": s,
                         "imagem": ("thumbnail do vídeo no YouTube (regra do card 🎬)" if i == 0
                                    else prova_slide2(row) if i == 1 else "sem imagem (slide só de texto)"),
                         "png": f"{RENDER}/{cid}/slide-{i + 1}.png"} for i, s in enumerate(slides)],
-            "legenda": c["legenda"], "hashtags": " ".join(hashtags_do_video(conteudo.TEMAS_VIDEO[row["data"]])),
+            "legenda": c["legenda"], "hashtags": " ".join(hashtags_do_video(conteudo.TEMAS_VIDEO[k])),
             "posts": [{"letra": LETRAS[i], "texto": t,
                        "imagem": "thumbnail do vídeo no YouTube" if i == 0 else "só texto",
                        "png": f"{RENDER}/{cid}/post-A.png" if i == 0 else ""} for i, t in enumerate(posts)],
-            "numeros": c.get("numeros", []), "afirmacoes": conteudo.AFIRMACOES.get(row["data"], []),
+            "numeros": c.get("numeros", []), "afirmacoes": conteudo.AFIRMACOES.get(k, []),
             "evento_ao_vivo": c.get("evento_ao_vivo", ""), "corte_de": c.get("corte_de", ""),
             "risco": {"nivel": c["risco"][0], "nota": c["risco"][1]},
             "publicacao": {rede: {"data": d, "horario": h, "relativa_ao_video": r} for rede, (d, h, r) in ag.items()},
@@ -234,6 +239,14 @@ def montar_cards(rows=None):
         card["texto_gate"] = "\n\n".join(slides + [c["legenda"]] + posts)
         cards.append(card)
     return cards
+
+
+MARCA_PROVISORIO = "título provisório: atualizar depois do empacotador/A-B"
+
+
+def chave(row):
+    """O v3 tem longo e Short no mesmo dia: a chave é data + formato."""
+    return f'{row["data"]}|{row["formato"]}'
 
 
 def pendencias(card):
@@ -370,6 +383,8 @@ def _json(card):
     d = {k: card[k] for k in ("id", "tipo", "status", "temas", "estrutura", "mecanica", "mensagem_capa", "slides",
                               "legenda", "hashtags", "numeros", "afirmacoes", "publicacao", "risco")}
     d["topico"] = card["video_titulo"]
+    d["status_titulo"] = MARCA_PROVISORIO if card["titulo_provisorio"] else card["status_titulo"]
+    d["serie_ep"] = card["serie_ep"]
     d["video"] = {"data": card["video_data"], "formato": card["video_formato"], "titulo": card["video_titulo"],
                   "assunto": card["assunto"], "termo_busca": card["termo_busca"]}
     d["instagram_caption"] = card["legenda"]
@@ -386,14 +401,23 @@ def render(card):
     pub = card["publicacao"]
     fm = [("id", card["id"]), ("tipo", card["tipo"]), ("status", card["status"]), ("juiz", "juiz-post"),
           ("depois", "leitor-frio"), ("video_data", card["video_data"]), ("video_formato", card["video_formato"]),
-          ("video_titulo", card["video_titulo"]), ("assunto", card["assunto"]), ("temas", card["temas"]),
+          ("video_titulo", card["video_titulo"]),
+          ("status_titulo", MARCA_PROVISORIO if card["titulo_provisorio"] else card["status_titulo"]),
+          ("serie_ep", card["serie_ep"] or "—"), ("origem", card["origem"] or "—"),
+          ("assunto", card["assunto"]), ("temas", card["temas"]),
           ("termo_busca", card["termo_busca"]), ("mensagem_capa", card["mensagem_capa"]),
           ("estrutura", f'{card["estrutura"]} ({ESTRUTURAS[card["estrutura"]]})'), ("mecanica", card["mecanica"]),
           ("instagram_data", pub["instagram"]["data"]), ("instagram_horario", pub["instagram"]["horario"]),
           ("x_data", pub["x"]["data"]), ("x_horario", pub["x"]["horario"]),
           ("pendencias_checar", len(pendencias(card))), ("pngs", "pendente (renderizar antes do juiz-post)")]
     L = ["---"] + [f"{k}: {json.dumps(v, ensure_ascii=False)}" for k, v in fm] + ["---", ""]
-    L += [f'# 🎬 {card["video_titulo"]} ({ddmm(card["video_data"])})',
+    L += [f'# 🎬 {card["video_titulo"]} ({ddmm(card["video_data"])})']
+    if card["titulo_provisorio"]:
+        L += [f"**⚠️ {MARCA_PROVISORIO}.** O texto do card não depende das palavras do título; a capa e o post A "
+              "contam a mesma promessa da thumbnail. Revisar os dois quando o título final sair."]
+    if card["serie_ep"]:
+        L += [f'**Série:** {card["serie_ep"]} ({card["origem"]})']
+    L += [
           "**Status:** rascunho para o juiz-post. Depois do APROVADO, vai pro leitor-frio. Não publicar sem o Denis.",
           "", "## PARA O JUIZ-POST", "",
           f'### CARROSSEL DO INSTAGRAM ({len(card["slides"])} slides)', ""]
@@ -469,7 +493,8 @@ def gravar(cards, saida, gate=None):
         (saida / c["arquivo"]).write_text(render(c), encoding="utf-8")
         if gate:
             res[c["id"]] = rodar_gate(gate, c)
-    cols = ["arquivo", "id", "tipo", "status", "video_data", "video_formato", "video_titulo", "temas",
+    cols = ["arquivo", "id", "tipo", "status", "video_data", "video_formato", "video_titulo", "status_titulo",
+            "serie_ep", "temas",
             "instagram_data", "instagram_horario", "x_data", "x_horario", "mensagem_capa", "n_slides", "n_posts",
             "max_chars_post", "estrutura", "mecanica", "pendencias_checar", "autoexame", "risco_juiz",
             "gate_resultado", "gate_bloqueantes", "gate_avisos", "gate_codigos", "juiz_post", "leitor_frio"]
@@ -481,6 +506,8 @@ def gravar(cards, saida, gate=None):
             w.writerow({
                 "arquivo": c["arquivo"], "id": c["id"], "tipo": c["tipo"], "status": c["status"],
                 "video_data": c["video_data"], "video_formato": c["video_formato"], "video_titulo": c["video_titulo"],
+                "status_titulo": MARCA_PROVISORIO if c["titulo_provisorio"] else c["status_titulo"],
+                "serie_ep": c["serie_ep"],
                 "temas": "; ".join(c["temas"]),
                 "instagram_data": c["publicacao"]["instagram"]["data"], "instagram_horario": c["publicacao"]["instagram"]["horario"],
                 "x_data": c["publicacao"]["x"]["data"], "x_horario": c["publicacao"]["x"]["horario"],

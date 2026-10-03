@@ -7,6 +7,9 @@ depois: "leitor-frio"
 video_data: "2026-11-10"
 video_formato: "longo"
 video_titulo: "Renda mensal com Tesouro Direto: juros semestrais e RendA+"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2"
 assunto: "renda mensal"
 temas: ["Tesouro"]
 termo_busca: "tesouro direto"
@@ -180,6 +183,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Pauta boa (renda), mas o carrossel explica mais que reage."
   },
   "topico": "Renda mensal com Tesouro Direto: juros semestrais e RendA+",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-11-10",
     "formato": "longo",

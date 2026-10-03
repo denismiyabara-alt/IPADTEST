@@ -7,6 +7,9 @@ depois: "leitor-frio"
 video_data: "2026-10-20"
 video_formato: "longo"
 video_titulo: "ETF de dividendos mensais com opções: de onde vem a renda"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2 (título ou ângulo ajustado ao Ep. 1)"
 assunto: "renda mensal"
 temas: ["ETF"]
 termo_busca: "etf dividendos mensais"
@@ -101,7 +104,7 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
 - PNGs: `esteira-social/render/2026-10-20-etf-de-dividendos-mensais-com-opcoes-de-onde-vem/slide-1.png`, `esteira-social/render/2026-10-20-etf-de-dividendos-mensais-com-opcoes-de-onde-vem/slide-2.png`, `esteira-social/render/2026-10-20-etf-de-dividendos-mensais-com-opcoes-de-onde-vem/slide-3.png`, `esteira-social/render/2026-10-20-etf-de-dividendos-mensais-com-opcoes-de-onde-vem/slide-4.png`, `esteira-social/render/2026-10-20-etf-de-dividendos-mensais-com-opcoes-de-onde-vem/slide-5.png`
 
 ## FONTES E NÚMEROS (para conferir; não vão no post)
-- Calendário (20/10): fontes a conferir: Regulamento do ETF/BDR. Ângulo: Mecânica das opções cobertas, renda alta e alta limitada, comparada com ETF de dividendos comum.
+- Calendário (20/10): fontes a conferir: Regulamento do ETF/BDR. Ângulo: Mecânica das opções cobertas, renda alta e alta limitada, comparada com ETF de dividendos comum. Guardrail do Ep. 1: a mecânica das opções cobertas é deste vídeo; o Ep. 1 só a cita em uma frase.
 - Números da própria linha do calendário: liberados (a linha é o briefing).
 
 ## PENDÊNCIAS
@@ -178,6 +181,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Mecanismo de opções é difícil pro leitor leigo; a analogia da garagem carrega a clareza."
   },
   "topico": "ETF de dividendos mensais com opções: de onde vem a renda",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-10-20",
     "formato": "longo",

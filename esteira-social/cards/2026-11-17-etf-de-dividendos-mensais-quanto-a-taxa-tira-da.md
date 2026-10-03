@@ -7,11 +7,14 @@ depois: "leitor-frio"
 video_data: "2026-11-17"
 video_formato: "longo"
 video_titulo: "ETF de dividendos mensais: quanto a taxa tira da renda"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2"
 assunto: "renda mensal"
 temas: ["ETF"]
 termo_busca: "etf dividendos mensais"
 mensagem_capa: "Uma taxa de 1,5% ao ano tira cerca de 14% do patrimônio em 10 anos."
-estrutura: "C (O Antes / Depois)"
+estrutura: "A (O Choque → A Causa Escondida)"
 mecanica: "elogio-envenenado"
 instagram_data: "2026-11-18"
 instagram_horario: "12:00"
@@ -130,7 +133,7 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
   "temas": [
     "ETF"
   ],
-  "estrutura": "C",
+  "estrutura": "A",
   "mecanica": "elogio-envenenado",
   "mensagem_capa": "Uma taxa de 1,5% ao ano tira cerca de 14% do patrimônio em 10 anos.",
   "slides": [
@@ -209,6 +212,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Conta em % com frase que fica ('quase o triplo de mordida')."
   },
   "topico": "ETF de dividendos mensais: quanto a taxa tira da renda",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-11-17",
     "formato": "longo",

@@ -7,6 +7,9 @@ depois: "leitor-frio"
 video_data: "2026-11-07"
 video_formato: "longo"
 video_titulo: "Fundos imobiliários para iniciantes: de onde vem a renda"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2"
 assunto: "FII"
 temas: ["FII"]
 termo_busca: "fundos imobiliarios"
@@ -179,6 +182,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Pauta de iniciante: 'abstrato' é o risco do item 1; a analogia do shopping segura a voz."
   },
   "topico": "Fundos imobiliários para iniciantes: de onde vem a renda",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-11-07",
     "formato": "longo",

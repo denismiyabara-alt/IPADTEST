@@ -1,15 +1,27 @@
 # Esteira social: do calendário de vídeos aos posts de Instagram e X
 
-Para cada vídeo de `pautas-canal/CALENDARIO-8-SEMANAS.csv` (v2: 21 longos e 16 Shorts), a esteira gera **um card 🎬**:
+Para cada vídeo do calendário oficial, `pautas-canal/CALENDARIO.csv` (v3, aprovado em 03/10/2026: 23 longos e 16
+Shorts), a esteira gera **um card 🎬**. O `CALENDARIO-8-SEMANAS.csv` (v2) virou histórico. Cada card tem:
 - o carrossel do Instagram, com a capa e os slides;
 - a legenda;
 - de 3 a 5 posts do X (A, B, C…).
 
-Esse é o formato que o **juiz-post** espera (`agentes/juiz-post.md`, a cópia do Mac). São **37 cards**, todos com
+Esse é o formato que o **juiz-post** espera (`agentes/juiz-post.md`, a cópia do Mac). São **39 cards**, todos com
 status `rascunho`. Nada aqui publica nada.
 
+**v3:** entram os 6 episódios da Série Renda Mensal e 4 Shorts derivados (o 6º Short fica para 30/11, fora da janela),
+mais o Tesouro antes do Copom (03/11). Os textos saem de `pautas-canal/serie/SERIE-RENDA-MENSAL.md`,
+`serie/MOLDE-TESOURO-COPOM.md` e, no Ep. 1, do briefing `pautas-canal/briefings/2026-10-14-etf-dividendos-mensais-briefing.md`.
+No Ep. 1 e no Short dele, o número do briefing vem **só** da seção "4. DADOS CONFERIDOS" (há um teste para isso), e o
+que está em "A CONFERIR" vira `[CHECAR: …]`. DIVD11 e DIVO11 aparecem como prova da conta, nunca como escolha.
+- **Títulos provisórios:** os 11 títulos `provisório` da série levam a marca **"título provisório: atualizar depois do
+  empacotador/A-B"** no frontmatter, no cabeçalho e no INDICE. O texto do card não depende das palavras do título.
+- **Cards que saíram:** ficam em `cards/_arquivo/` (README com o motivo). São as 7 pautas fora do nicho, as 2 que foram
+  para dezembro (ETFs de 06/10 e TRXF11), o pós-Copom (trocado pelo pré) e as versões antigas das 3 pautas que mudaram
+  de data ou de título (27/10, 03/11 → 05/11, 12/11 → 06/10).
+
 ```
-calendário (CSV v2) ──► gerar_cards.py + conteudo.py ──► cards/*.md + INDICE.csv
+calendário oficial (CALENDARIO.csv, v3) ──► gerar_cards.py + conteudo.py ──► cards/*.md + INDICE.csv
    ──► autoexame + gate de qualidade ──► renderizar PNGs ──► juiz-post (APROVADO só com 9-10 e nenhum eliminatório)
    ──► leitor-frio (PNGs + legenda; PASSA com zero trava na capa) ──► Denis aprova ──► publicação
 ```
@@ -18,15 +30,15 @@ calendário (CSV v2) ──► gerar_cards.py + conteudo.py ──► cards/*.md
 
 ```bash
 cd esteira-social
-python3 gerar_cards.py            # 37 cards, INDICE.csv, GATE-RELATORIO.md e AUTOEXAME.md
+python3 gerar_cards.py            # 39 cards, INDICE.csv, GATE-RELATORIO.md e AUTOEXAME.md
 python3 gerar_cards.py --checar   # só o autoexame; sai com 1 se algum card falhar
-python3 -m pytest -q tests/       # 316 testes; os de gate pulam se o gate não for encontrado
+python3 -m pytest -q tests/       # 336 testes; os de gate pulam se o gate não for encontrado
 ```
 
 - **Gerador:** usa só a biblioteca padrão. Os testes precisam de `pytest`.
 - **Gate:** é o `investir-e-cocar/pipeline/gate_qualidade.py`, importado sem alteração. Para apontar outro, use
   `--gate CAMINHO` ou a variável `IC_GATE`.
-- **Texto:** fica em `conteudo.py`, escrito à mão, um bloco por vídeo. Se faltar o texto de um vídeo, ou se o título
+- **Texto:** fica em `conteudo.py`, escrito à mão, um bloco por vídeo, com a chave `data|formato`, porque o v3 tem longo e Short no mesmo dia. Se faltar o texto de um vídeo, ou se o título
   mudar no calendário, o gerador para com erro.
 - **`agentes/`:** é a cópia do Mac. A esteira não mexe lá.
 
@@ -85,7 +97,7 @@ cada PNG (passo 4), então é preciso renderizar antes de chamar o juiz.
 - o post A tem no máximo 1 número; os outros, até 4.
 
 **Voz:** a legenda abre com "Tanaka,". Nenhuma mecânica de piada aparece mais de 5 vezes. As estruturas A-E ficam
-entre 6 e 8 cada. Nem a estrutura nem a mecânica se repetem em dois cards seguidos.
+entre 7 e 8 cada. Nem a estrutura nem a mecânica se repetem em dois cards seguidos.
 
 **Regras do canal:**
 - nenhuma recomendação de ativo nem corretora;
@@ -101,7 +113,8 @@ entre 6 e 8 cada. Nem a estrutura nem a mecânica se repetem em dois cards segui
 
 - **[CHECAR]:** o Denis preenche na publicação, e a marca **não elimina** o card (decisão do Mac). O contrato do
   juiz-post não fala em `[CHECAR]`, mas o juiz julga "o que o Tanaka vê". Um `[CHECAR: …]` visível no PNG pode ser lido
-  como texto quebrado ou número sem fonte. São dois cards: 28/10 e 05/11.
+  como texto quebrado ou número sem fonte. No v3 são cinco cards: o Ep. 1 (14/10), 27/10, 28/10 (Short), 03/11 e o
+  Ep. 6 (25/11).
 - **CTA para o vídeo:** o pedido original queria CTA. O juiz-post elimina CTA e link. Por isso o texto julgado não tem
   CTA nem link. O destino do link (bio do Instagram e, no X, uma resposta à parte depois da aprovação) está na seção
   PUBLICAÇÃO, fora do julgamento.

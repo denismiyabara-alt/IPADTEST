@@ -7,6 +7,9 @@ depois: "leitor-frio"
 video_data: "2026-10-29"
 video_formato: "longo"
 video_titulo: "Tesouro IPCA+ acima de 7%: o que é travar a taxa"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2"
 assunto: "tesouro e renda fixa"
 temas: ["Tesouro"]
 termo_busca: "tesouro ipca"
@@ -178,6 +181,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Pauta forte (busca de 'tesouro ipca'), mas o conceito é técnico pro leitor leigo."
   },
   "topico": "Tesouro IPCA+ acima de 7%: o que é travar a taxa",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-10-29",
     "formato": "longo",

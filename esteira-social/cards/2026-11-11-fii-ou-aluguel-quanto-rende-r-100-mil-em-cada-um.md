@@ -7,6 +7,9 @@ depois: "leitor-frio"
 video_data: "2026-11-11"
 video_formato: "short"
 video_titulo: "FII ou aluguel: quanto rende R$ 100 mil em cada um"
+status_titulo: "definido no v2"
+serie_ep: "—"
+origem: "v2"
 assunto: "FII"
 temas: ["FII"]
 termo_busca: "—"
@@ -102,6 +105,7 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
 - Instagram: 11/11 às 18:00 (D+0, no dia do Short)
 - X: 11/11 às 12:00 (D+0, no dia do Short)
 - Link do vídeo: nenhum no texto (o juiz-post elimina CTA e link). O link fica na bio do Instagram e no canal Investir e Coçar; no X, se o Denis quiser, numa resposta publicada à parte, depois da aprovação.
+- Este Short é um corte do longo de 06/10.
 - Risco no juiz-post (autoexame): baixo. Dilema que o Tanaka vive (imóvel x fundo) com R$ na capa.
 
 ---JSON---
@@ -162,6 +166,8 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "nota": "Dilema que o Tanaka vive (imóvel x fundo) com R$ na capa."
   },
   "topico": "FII ou aluguel: quanto rende R$ 100 mil em cada um",
+  "status_titulo": "definido no v2",
+  "serie_ep": "",
   "video": {
     "data": "2026-11-11",
     "formato": "short",
