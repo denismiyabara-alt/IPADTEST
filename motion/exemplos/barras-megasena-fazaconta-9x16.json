@@ -1,0 +1,62 @@
+{
+ "peca": "barras",
+ "estilo": "fazaconta",
+ "formato": "9:16",
+ "duracao": 8.0,
+ "titulo": "Pra onde vão os seus R$ 6",
+ "kicker": "Mega-Sena · cada aposta simples",
+ "fonte": "Fonte: Lei 13.756/2018, art. 16",
+ "som": {
+  "pouso": "impact-bass-1"
+ },
+ "_origem": {
+  "arquivo": "faz-a-conta/megasena/roteiro.md (Números conferidos: aposta, premio-bruto); faz-a-conta/pautas/megasena-factcheck.md (26/09/2026): Destinacoes",
+  "gerado_em": "2026-10-03T02:39:30"
+ },
+ "unidade": {
+  "prefixo": "",
+  "sufixo": "%",
+  "casas": 2
+ },
+ "ordem": "desc",
+ "destaque": "Prêmio (com IR)",
+ "rotulo_placar": "da aposta viram prêmio",
+ "itens": [
+  {
+   "rotulo": "Prêmio (com IR)",
+   "valor": 43.79
+  },
+  {
+   "rotulo": "Caixa e lotéricas",
+   "valor": 19.13
+  },
+  {
+   "rotulo": "Seguridade social",
+   "valor": 17.32
+  },
+  {
+   "rotulo": "Segurança pública",
+   "valor": 6.8
+  },
+  {
+   "rotulo": "Esporte",
+   "valor": 4.36
+  },
+  {
+   "rotulo": "Presídios (Funpen)",
+   "valor": 3.0
+  },
+  {
+   "rotulo": "Cultura (FNC)",
+   "valor": 2.91
+  },
+  {
+   "rotulo": "Comitê Olímpico",
+   "valor": 1.73
+  },
+  {
+   "rotulo": "Comitê Paralímpico",
+   "valor": 0.96
+  }
+ ]
+}

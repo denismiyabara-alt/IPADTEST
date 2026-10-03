@@ -1,0 +1,73 @@
+{
+ "peca": "barras",
+ "estilo": "iec",
+ "formato": "9:16",
+ "duracao": 8.0,
+ "titulo": "FIIs com mais cotistas",
+ "kicker": "Fundos imobiliários · número de cotistas",
+ "fonte": "Fonte: CVM (informe mensal de FII, ago/2025 e ago/2026)",
+ "unidade": {
+  "prefixo": "",
+  "sufixo": "",
+  "casas": 0
+ },
+ "ordem": "desc",
+ "destaque": "GGRC11",
+ "rotulo_placar": "GGRC11 · cotistas",
+ "momentos": [
+  "ago/2025",
+  "ago/2026"
+ ],
+ "variacao": "pct",
+ "ativos": true,
+ "criterio": "Critério: os 8 maiores, em cotistas, dos 10 FIIs de maior volume na B3 cobertos pelo site. Ordem só pelo número de cotistas.",
+ "som": {
+  "pouso": "impact-bass-1"
+ },
+ "itens": [
+  {
+   "rotulo": "MXRF11",
+   "antes": 1325308,
+   "valor": 1529305
+  },
+  {
+   "rotulo": "XPML11",
+   "antes": 608916,
+   "valor": 733101
+  },
+  {
+   "rotulo": "HGLG11",
+   "antes": 511893,
+   "valor": 608345
+  },
+  {
+   "rotulo": "KNCR11",
+   "antes": 431998,
+   "valor": 586131
+  },
+  {
+   "rotulo": "GARE11",
+   "antes": 396183,
+   "valor": 553693
+  },
+  {
+   "rotulo": "BTLG11",
+   "antes": 401755,
+   "valor": 525374
+  },
+  {
+   "rotulo": "GGRC11",
+   "antes": 190185,
+   "valor": 411230
+  },
+  {
+   "rotulo": "TRXF11",
+   "antes": 194366,
+   "valor": 351702
+  }
+ ],
+ "_origem": {
+  "arquivo": "site-ativos/cache/dados.sqlite (fii_mensal, cotistas, 2025-08-01 e 2026-08-01)",
+  "gerado_em": "2026-10-03T02:37:00"
+ }
+}

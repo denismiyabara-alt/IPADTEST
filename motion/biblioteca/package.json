@@ -1,0 +1,10 @@
+{
+  "name": "iec-motion-biblioteca",
+  "private": true,
+  "description": "Fontes extras da biblioteca de animações (estilo Faz a Conta). O resto (hyperframes, gsap, fontes do IeC) vem de motion/node_modules.",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@fontsource/archivo-black": "5.3.0",
+    "@fontsource/montserrat": "5.3.0"
+  }
+}

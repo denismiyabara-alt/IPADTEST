@@ -1,0 +1,68 @@
+{
+ "peca": "barras",
+ "estilo": "iec",
+ "formato": "16:9",
+ "duracao": 8.0,
+ "titulo": "DY de caixa em 12 meses",
+ "kicker": "Ações · dividendos e JCP pagos ÷ valor de mercado",
+ "fonte": "Fonte: CVM (DFC, 12 meses até 30/06/2026) e B3 (COTAHIST, 01/10/2026)",
+ "unidade": {
+  "prefixo": "",
+  "sufixo": "%",
+  "casas": 1
+ },
+ "ordem": "desc",
+ "destaque": "PETR4",
+ "rotulo_placar": "PETR4 · DY de caixa",
+ "ativos": true,
+ "criterio": "Critério: as 10 ações de maior volume na B3 cobertas pelo site; volume ≥ R$ 1 mi/dia, lucro em 12 meses, dado com menos de 6 meses. Ordem só pelo número.",
+ "som": {
+  "pouso": "impact-bass-1"
+ },
+ "itens": [
+  {
+   "rotulo": "VALE3",
+   "valor": 8.058687
+  },
+  {
+   "rotulo": "BBDC4",
+   "valor": 6.492428
+  },
+  {
+   "rotulo": "ITUB4",
+   "valor": 6.253059
+  },
+  {
+   "rotulo": "PETR4",
+   "valor": 5.642926
+  },
+  {
+   "rotulo": "ABEV3",
+   "valor": 5.437227
+  },
+  {
+   "rotulo": "AXIA3",
+   "valor": 5.219906
+  },
+  {
+   "rotulo": "BBAS3",
+   "valor": 2.014965
+  },
+  {
+   "rotulo": "BPAC11",
+   "valor": 1.930544
+  },
+  {
+   "rotulo": "SBSP3",
+   "valor": 1.749624
+  },
+  {
+   "rotulo": "PRIO3",
+   "valor": 0.0
+  }
+ ],
+ "_origem": {
+  "arquivo": "site-ativos/cache/dados.sqlite (indicador dy_caixa) = saida/acoes/ranking/maiores-dy-de-caixa/",
+  "gerado_em": "2026-10-03T02:44:28"
+ }
+}
