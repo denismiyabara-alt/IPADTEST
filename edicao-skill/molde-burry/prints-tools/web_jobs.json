@@ -1,0 +1,237 @@
+[
+ {
+  "id": "d2h-fnet-rotulo-anuncio-encerramento",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/abrirGerenciadorDocumentosCVM?cnpjFundo=28548288000152",
+  "js": "(()=>{const s=document.querySelector('select[name$=_length]'); s.value='50'; s.dispatchEvent(new Event('change',{bubbles:true}));})()",
+  "anchor": "11/09/2026 19:00",
+  "grifo": "Anúncio de Encerramento",
+  "end": "09/09/2026 19:13",
+  "wait": 9000,
+  "pad": 12,
+  "x": [
+   0,
+   1280
+  ]
+ },
+ {
+  "id": "d2i-fnet-entrega-10set-2034",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/abrirGerenciadorDocumentosCVM?cnpjFundo=28548288000152",
+  "js": "(()=>{const s=document.querySelector('select[name$=_length]'); s.value='50'; s.dispatchEvent(new Event('change',{bubbles:true}));})()",
+  "anchor": "11/09/2026 19:00",
+  "grifo": "10/09/2026 20:34",
+  "end": "09/09/2026 19:13",
+  "wait": 9000,
+  "pad": 12,
+  "x": [
+   0,
+   1280
+  ]
+ },
+ {
+  "id": "p1-i10-cotacao-grafico-6m",
+  "url": "https://investidor10.com.br/fiis/trxf11/",
+  "js": "(async()=>{const w=ms=>new Promise(r=>setTimeout(r,ms));let out=[];for(const s of document.querySelectorAll('select')){const o=[...s.options].find(o=>/padr/i.test(o.text));if(o){s.value=o.value;s.dispatchEvent(new Event('change',{bubbles:true}));out.push('sel')}}await w(2500);const b=[...document.querySelectorAll('li,a,button,span')].filter(e=>e.textContent.trim()==='6 M'&&e.getClientRects().length);if(b[0]){b[0].click();out.push('6m')}await w(2500);return out.join(',')})()",
+  "anchor": "BVMF",
+  "grifo": "R$ 72,25",
+  "end": "Se você tivesse investido",
+  "wait": 10000,
+  "x": [
+   0,
+   1280
+  ],
+  "pad": 20
+ },
+ {
+  "id": "p1b-i10-pvp-075",
+  "url": "https://investidor10.com.br/fiis/trxf11/",
+  "anchor": "P/VP",
+  "grifo": "0,75",
+  "end": "VARIAÇÃO (12M)",
+  "wait": 10000,
+  "pad": 40
+ },
+ {
+  "id": "p1c-i10-vp-9662-vacancia",
+  "url": "https://investidor10.com.br/fiis/trxf11/",
+  "js": "(async()=>{for(let y=0;y<document.body.scrollHeight;y+=600){scrollTo(0,y);await new Promise(r=>setTimeout(r,150));}scrollTo(0,0)})()",
+  "anchor": "VACÂNCIA",
+  "grifo": "R$ 96,62",
+  "end": "ÚLTIMO RENDIMENTO",
+  "wait": 10000,
+  "pad": 40
+ },
+ {
+  "id": "p2-i10-dividendos-093",
+  "url": "https://investidor10.com.br/fiis/trxf11/",
+  "js": "(async()=>{for(let y=0;y<document.body.scrollHeight;y+=600){scrollTo(0,y);await new Promise(r=>setTimeout(r,150));}scrollTo(0,0)})()",
+  "anchor": "TRXF11 pagou o total de R$ 11,80",
+  "grifo": "0,93000000",
+  "end": "28/11/2025",
+  "wait": 10000
+ },
+ {
+  "id": "p2b-i10-dividendo-extra-150",
+  "url": "https://investidor10.com.br/fiis/trxf11/",
+  "js": "(async()=>{for(let y=0;y<document.body.scrollHeight;y+=600){scrollTo(0,y);await new Promise(r=>setTimeout(r,150));}scrollTo(0,0)})()",
+  "anchor": "TRXF11 pagou o total de R$ 11,80",
+  "grifo": "1,50000000",
+  "end": "28/11/2025",
+  "wait": 10000
+ },
+ {
+  "id": "p3-i10-haaa11",
+  "url": "https://investidor10.com.br/fiis/haaa11/",
+  "anchor": "P/VP",
+  "grifo": "R$ 56,00",
+  "end": "VARIAÇÃO (12M)",
+  "wait": 10000,
+  "pad": 40
+ },
+ {
+  "id": "m01-sd-emissao-10bi",
+  "url": "https://www.seudinheiro.com/2026/bolsa-dolar/trxf11-entra-em-novo-ciclo-de-expansao-fii-anuncia-emissao-de-ate-r-10-bilhoes-a-maior-oferta-de-cotas-ja-vista-no-setor-davs/",
+  "anchor": "TRXF11 entra em novo ciclo de expansão",
+  "grifo": "emissão de até R$ 10 bilhões",
+  "end": "06 de agosto de 2026"
+ },
+ {
+  "id": "m02-radar-despenca",
+  "url": "https://www.radarfii.com.br/noticia/trxf11-queda-13a-emissao-desconto-valor-patrimonial.html",
+  "anchor": "TRXF11 despenca com 13ª emissão bilionária",
+  "grifo": "TRXF11 despenca",
+  "end": "Cota cai mais de 13%"
+ },
+ {
+  "id": "m03-infomoney-queda-20",
+  "url": "https://www.infomoney.com.br/onde-investir/fii-trxf11-recua-442-e-acumula-queda-de-20-em-12-meses-em-meio-a-expansao/",
+  "anchor": "FII TRXF11 recua 4,42%",
+  "grifo": "acumula queda de 20% em 12 meses",
+  "end": "21/08/2026 15h44"
+ },
+ {
+  "id": "m04-sd-desiste-malzoni",
+  "url": "https://www.seudinheiro.com/2026/bolsa-dolar/trxf11-desiste-de-compra-de-imoveis-de-quase-r-1-bilhao-incluindo-predio-do-gramado-na-faria-lima-cotistas-comemoram-giov/",
+  "anchor": "TRXF11 desiste de compra de imóveis de quase R$ 1 bilhão",
+  "grifo": "desiste de compra de imóveis de quase R$ 1 bilhão",
+  "end": "27 de agosto de 2026"
+ },
+ {
+  "id": "m05-infomoney-cyrela-2bi",
+  "url": "https://www.infomoney.com.br/mercados/cyrela-cyre3-afirma-que-trx-trxf11-desistiu-de-aquisicao-potencial-de-r-2-bi/",
+  "anchor": "Cyrela (CYRE3) afirma que TRX (TRXF11)",
+  "grifo": "desistiu de aquisição potencial de R$ 2 bi",
+  "end": "sem ônus, penalidade ou obrigação adicional entre as partes"
+ },
+ {
+  "id": "m06-empiricus-948-sobras",
+  "url": "https://www.empiricus.com.br/artigos/investimentos/fundos-imobiliarios-trxf11-hgbs11-pmll11-e-mais-trazem-atualizacoes-aos-cotistas-confira-jdnm/",
+  "anchor": "O TRXF11 encerrou o período de subscrição de sobras",
+  "grifo": "948 cotas nas sobras",
+  "end": "destinado a investidores profissionais."
+ },
+ {
+  "id": "m06b-empiricus-investidores-profissionais",
+  "url": "https://www.empiricus.com.br/artigos/investimentos/fundos-imobiliarios-trxf11-hgbs11-pmll11-e-mais-trazem-atualizacoes-aos-cotistas-confira-jdnm/",
+  "anchor": "O TRXF11 encerrou o período de subscrição de sobras",
+  "grifo": "seguiram para o período de subscrição destinado a investidores profissionais",
+  "end": "destinado a investidores profissionais."
+ },
+ {
+  "id": "m07-infomoney-340mi",
+  "url": "https://www.infomoney.com.br/onde-investir/fii-trxf11-anuncia-compra-de-dois-ativos-corporativos-em-sp-por-r-3403-milhoes/",
+  "anchor": "FII TRXF11 anuncia compra",
+  "grifo": "R$ 340,3 milhões",
+  "end": "14/09/2026"
+ },
+ {
+  "id": "m08-sd-340mi-cotas-caem",
+  "url": "https://www.seudinheiro.com/2026/bolsa-dolar/trxf11-vai-as-compras-de-novo-apos-venda-de-imovel-a-vista-fii-desembolsa-r-340-milhoes-por-ativos-corporativos-davs/",
+  "anchor": "TRXF11 vai às compras de novo",
+  "grifo": "cotas caem após FII desembolsar R$ 340 milhões",
+  "end": "14 de setembro de 2026"
+ },
+ {
+  "id": "m09-mt-138bi",
+  "url": "https://www.moneytimes.com.br/fundo-imobiliario-movimenta-mais-de-r-138-bilhao-em-compras-de-imoveis-veja-os-detalhes-igdl/",
+  "anchor": "Fundo imobiliário movimenta mais de R$ 1,38 bilhão",
+  "grifo": "mais de R$ 1,38 bilhão",
+  "end": "24 set 2026, 8:27"
+ },
+ {
+  "id": "m10-mt-iguatemi",
+  "url": "https://www.moneytimes.com.br/fundo-imobiliario-avanca-em-compra-de-participacoes-em-shoppings-da-iguatemi-igti11-veja-os-detalhes-igdl/",
+  "anchor": "Fundo imobiliário avança na compra de participações",
+  "grifo": "shoppings da Iguatemi (IGTI11)",
+  "end": "24 set 2026, 10:26"
+ },
+ {
+  "id": "m11-sd-283bi",
+  "url": "https://www.seudinheiro.com/2026/bolsa-dolar/trxf11-enche-o-carrinho-de-novo-mas-fii-cai-na-bolsa-apos-compras-de-r-283-bilhoes-veja-o-que-entra-no-portfolio-giov/",
+  "anchor": "TRXF11 enche o carrinho de novo",
+  "grifo": "paga R$ 2,83 bilhões, mas FII cai na bolsa",
+  "end": "24 de setembro de 2026"
+ },
+ {
+  "id": "m11b-sd-queda-27-no-ano",
+  "url": "https://www.seudinheiro.com/2026/bolsa-dolar/trxf11-enche-o-carrinho-de-novo-mas-fii-cai-na-bolsa-apos-compras-de-r-283-bilhoes-veja-o-que-entra-no-portfolio-giov/",
+  "anchor": "Porém, o mercado segue com um pé atrás",
+  "grifo": "o ativo acumula queda de 27% desde o início de 2026",
+  "end": "desde o início de 2026."
+ },
+ {
+  "id": "m12-infomoney-brc-207",
+  "url": "https://www.infomoney.com.br/onde-investir/fii-trxf11-conclui-venda-de-15-imoveis-por-r-20725-milhoes-veja-lucro-por-cota/",
+  "anchor": "FII TRXF11 conclui venda de 15 imóveis",
+  "grifo": "15 imóveis por R$ 207,25 milhões",
+  "end": "O conjunto negociado reúne"
+ },
+ {
+  "id": "m13-arevista-brc-detalhe",
+  "url": "https://arevista.com.br/fiis/trxf11-vende-15-imoveis-por-r-207-milhoes-mas-ha-um-detalhe/",
+  "anchor": "Fundo conclui negociação com lucro estimado",
+  "grifo": "a operação não representa entrada imediata de dinheiro no caixa",
+  "end": "entrada imediata de dinheiro no caixa"
+ },
+ {
+  "id": "m14-suno-brc-junho",
+  "url": "https://www.suno.com.br/noticias/trxf11-vende-15-imoveis-por-207-mi-ao-brc/",
+  "anchor": "por Redação Suno Notícias",
+  "grifo": "O TRXF11 fechou acordo para alienar 15 propriedades ao BRC Renda Urbana FII",
+  "end": "O TRXF11 fechou acordo"
+ },
+ {
+  "id": "m15-clubefii-condicoes",
+  "url": "https://www.clubefiinews.com.br/hibrido/trxf11-amplia-portfolio-com-imoveis-e-shoppings",
+  "anchor": "Com as operações anunciadas",
+  "grifo": "outras dependem do cumprimento de condições contratuais para serem efetivadas",
+  "end": "para serem efetivadas."
+ },
+ {
+  "id": "r1-receita-fii-20",
+  "url": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/fundos-de-investimento-no-brasil",
+  "anchor": "Já os ganhos líquidos obtidos na venda",
+  "grifo": "estão sujeitos à incidência do imposto à alíquota de 20%",
+  "end": "compra e venda de ações em bolsa"
+ },
+ {
+  "id": "r2-receita-isencao-so-acoes-ouro",
+  "url": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1/isencoes",
+  "anchor": "Isentos do Imposto",
+  "grifo": "com ações e com ouro (ativo financeiro), se o total das vendas de cada ativo",
+  "end": "menor ou igual a R$ 20.000,00."
+ },
+ {
+  "id": "r3-receita-darf-ultimo-dia-util",
+  "url": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1/calculo-e-pagamento-do-imposto",
+  "anchor": "O imposto deve ser pago",
+  "grifo": "até o último dia útil do mês seguinte ao mês em que o ganho tiver sido obtido",
+  "end": "é 6015"
+ },
+ {
+  "id": "r4-receita-compensacao-perdas",
+  "url": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1/compensacoes",
+  "anchor": "Compensação de Perdas nas Operações Comuns",
+  "grifo": "poderão ser compensadas com os ganhos líquidos obtidos em outras operações, no próprio mês ou nos meses posteriores",
+  "end": "no próprio mês ou nos meses posteriores."
+ }
+]

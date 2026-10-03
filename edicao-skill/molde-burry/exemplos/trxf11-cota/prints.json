@@ -1,0 +1,2229 @@
+[
+ {
+  "id": "d1a-13a-5bi",
+  "arquivo": "d1a-13a-5bi.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1277980",
+  "fonte": "FNET B3 · FATO RELEVANTE (13ª emissão) · entregue 05/08/2026 19:19 · pág. 2",
+  "trecho_citado": "R$ 5.000.000.11,50 (cinco bilhões, onze reais e cinquenta centavos)",
+  "bbox_trecho": [
+   0.0446,
+   0.3419,
+   0.9558,
+   0.6581
+  ],
+  "bbox_linhas": [
+   [
+    0.418,
+    0.3419,
+    0.9558,
+    0.4891
+   ],
+   [
+    0.0446,
+    0.5109,
+    0.1331,
+    0.6581
+   ]
+  ],
+  "largura_px": 967,
+  "altura_px": 179,
+  "obs": "O FR escreve 'R$ 5.000.000.11,50' (erro de digitação do próprio documento; a pág. 1 traz R$ 5.000.000.011,50). fnet 1277980, entregue 05/08 19:19.",
+  "legenda": "o fundo pediu até R$ 5 bilhões na 13ª emissão"
+ },
+ {
+  "id": "d1b-13a-preco-94",
+  "arquivo": "d1b-13a-preco-94.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1277980",
+  "fonte": "FNET B3 · FATO RELEVANTE (13ª emissão) · entregue 05/08/2026 19:19 · pág. 2",
+  "trecho_citado": "R$ 94,39 (noventa e quatro reais e trinta e nove centavos) (“Preço de Subscrição”),",
+  "bbox_trecho": [
+   0.0446,
+   0.2922,
+   0.9555,
+   0.5624
+  ],
+  "bbox_linhas": [
+   [
+    0.932,
+    0.2922,
+    0.9555,
+    0.418
+   ],
+   [
+    0.0446,
+    0.4366,
+    0.7565,
+    0.5624
+   ]
+  ],
+  "largura_px": 967,
+  "altura_px": 210,
+  "obs": "",
+  "legenda": "cota nova: R$ 94,39 com o custo de entrada"
+ },
+ {
+  "id": "d1c-27ago-preferencia-40mi",
+  "arquivo": "d1c-27ago-preferencia-40mi.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1302616",
+  "fonte": "FNET B3 · COMUNICADO AO MERCADO · entregue 27/08/2026 18:45 · pág. 1",
+  "trecho_citado": "425.272 (quatrocentas e vinte e cinco mil e duzentas e setenta e duas) Novas Cotas, equivalente a R$ 40.141.424,08",
+  "bbox_trecho": [
+   0.0112,
+   0.4149,
+   0.9889,
+   0.5851
+  ],
+  "bbox_linhas": [
+   [
+    0.6539,
+    0.4149,
+    0.9889,
+    0.5001
+   ],
+   [
+    0.0112,
+    0.4999,
+    0.3781,
+    0.5851
+   ]
+  ],
+  "largura_px": 967,
+  "altura_px": 214,
+  "obs": "R$ 40.141.424,08 = 425.272 cotas. O total de ~R$ 40,2 mi do roteiro soma as sobras (R$ 89.481,72, print d2b). O 0,8% é conta do canal (40,23 mi / 5,0 bi), não aparece no documento.",
+  "legenda": "cotistas compraram R$ 40,1 milhões na fase de preferência"
+ },
+ {
+  "id": "d1d-27ago-titulo",
+  "arquivo": "d1d-27ago-titulo.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1302616",
+  "fonte": "FNET B3 · COMUNICADO AO MERCADO · entregue 27/08/2026 18:45 · pág. 1",
+  "trecho_citado": "ENCERRAMENTO DO PERÍODO DE EXERCÍCIO DO DIREITO DE PREFERÊNCIA",
+  "bbox_trecho": [
+   0.2347,
+   0.7678,
+   0.7102,
+   0.8074
+  ],
+  "bbox_linhas": [
+   [
+    0.2347,
+    0.7678,
+    0.7102,
+    0.8074
+   ]
+  ],
+  "largura_px": 967,
+  "altura_px": 461,
+  "obs": "",
+  "legenda": "27/08: acaba a vez dos cotistas (direito de preferência)"
+ },
+ {
+  "id": "d2a-10set-titulo",
+  "arquivo": "d2a-10set-titulo.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1315144",
+  "fonte": "FNET B3 · COMUNICADO (rotulado 'Anúncio de Encerramento' no fnet) · entregue 10/09/2026 20:34 · pág. 1",
+  "trecho_citado": "E INÍCIO DO PERÍODO DE SUBSCRIÇÃO",
+  "bbox_trecho": [
+   0.3893,
+   0.7099,
+   0.709,
+   0.7466
+  ],
+  "bbox_linhas": [
+   [
+    0.3893,
+    0.7099,
+    0.709,
+    0.7466
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 543,
+  "obs": "Título real do PDF: 'Encerramento do período de exercício do direito de subscrição de sobras e montante adicional e início do período de subscrição'. O rótulo 'Anúncio de Encerramento' é do cadastro no fnet (prints d2h/d2i).",
+  "legenda": "10/09: 'encerramento' das sobras... e início de outro período de subscrição"
+ },
+ {
+  "id": "d2b-10set-sobras-948",
+  "arquivo": "d2b-10set-sobras-948.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1315144",
+  "fonte": "FNET B3 · COMUNICADO (rotulado 'Anúncio de Encerramento' no fnet) · entregue 10/09/2026 20:34 · pág. 1",
+  "trecho_citado": "(b) 948 (novecentas e quarenta e oito) Novas Cotas",
+  "bbox_trecho": [
+   0.3171,
+   0.4657,
+   0.7044,
+   0.5338
+  ],
+  "bbox_linhas": [
+   [
+    0.3171,
+    0.4657,
+    0.7044,
+    0.5338
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 326,
+  "obs": "948 cotas = R$ 89.481,72.",
+  "legenda": "nas sobras, só 948 cotas"
+ },
+ {
+  "id": "d2c-10set-investidores-profissionais",
+  "arquivo": "d2c-10set-investidores-profissionais.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1315144",
+  "fonte": "FNET B3 · COMUNICADO (rotulado 'Anúncio de Encerramento' no fnet) · entregue 10/09/2026 20:34 · pág. 2",
+  "trecho_citado": "colocação junto aos Investidores Profissionais,",
+  "bbox_trecho": [
+   0.0341,
+   0.3909,
+   0.3842,
+   0.5323
+  ],
+  "bbox_linhas": [
+   [
+    0.0341,
+    0.3909,
+    0.3842,
+    0.5323
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 157,
+  "obs": "Frase começa no fim da pág. 1 ('que poderão ser destinadas à') e continua na pág. 2; o print é da pág. 2.",
+  "legenda": "o que sobrou vai para Investidores Profissionais"
+ },
+ {
+  "id": "d2d-10set-restam-52mi",
+  "arquivo": "d2d-10set-restam-52mi.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1315144",
+  "fonte": "FNET B3 · COMUNICADO (rotulado 'Anúncio de Encerramento' no fnet) · entregue 10/09/2026 20:34 · pág. 1",
+  "trecho_citado": "Restam, portanto, 52.624.178",
+  "bbox_trecho": [
+   0.0341,
+   0.4402,
+   0.2529,
+   0.5571
+  ],
+  "bbox_linhas": [
+   [
+    0.0341,
+    0.4402,
+    0.2529,
+    0.5571
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 190,
+  "obs": "",
+  "legenda": "sobraram 52.624.178 cotas novas"
+ },
+ {
+  "id": "d2e-10set-180-dias",
+  "arquivo": "d2e-10set-180-dias.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1315144",
+  "fonte": "FNET B3 · COMUNICADO (rotulado 'Anúncio de Encerramento' no fnet) · entregue 10/09/2026 20:34 · pág. 2",
+  "trecho_citado": "180 (cento e oitenta) dias, contados da divulgação do Anúncio de Início,",
+  "bbox_trecho": [
+   0.0341,
+   0.2997,
+   0.966,
+   0.459
+  ],
+  "bbox_linhas": [
+   [
+    0.5838,
+    0.2997,
+    0.966,
+    0.3787
+   ],
+   [
+    0.0341,
+    0.38,
+    0.1901,
+    0.459
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 281,
+  "obs": "A data 01/02/2027 é conta do canal; o documento só diz 180 dias do Anúncio de Início.",
+  "legenda": "prazo: até 180 dias do Anúncio de Início (05/08) → ~01/02/2027"
+ },
+ {
+  "id": "d2f-10set-encerramento-da-distribuicao",
+  "arquivo": "d2f-10set-encerramento-da-distribuicao.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1315144",
+  "fonte": "FNET B3 · COMUNICADO (rotulado 'Anúncio de Encerramento' no fnet) · entregue 10/09/2026 20:34 · pág. 2",
+  "trecho_citado": "anúncio de encerramento da distribuição.",
+  "bbox_trecho": [
+   0.3128,
+   0.4767,
+   0.6296,
+   0.5865
+  ],
+  "bbox_linhas": [
+   [
+    0.3128,
+    0.4767,
+    0.6296,
+    0.5865
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 202,
+  "obs": "Até 29/09 não há anúncio de encerramento da distribuição na lista do fnet (conferido no JSON do fnet).",
+  "legenda": "o encerramento de verdade ainda vai ter anúncio próprio"
+ },
+ {
+  "id": "d2g-anuncio-inicio-05ago",
+  "arquivo": "d2g-anuncio-inicio-05ago.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1277920",
+  "fonte": "FNET B3 · ANÚNCIO DE INÍCIO · entregue 05/08/2026 18:59 · pág. 1",
+  "trecho_citado": "em 05 de agosto de 2026",
+  "bbox_trecho": [
+   0.6214,
+   0.852,
+   0.7688,
+   0.8777
+  ],
+  "bbox_linhas": [
+   [
+    0.6214,
+    0.852,
+    0.7688,
+    0.8777
+   ]
+  ],
+  "largura_px": 967,
+  "altura_px": 668,
+  "obs": "Crop grande (cabeçalho do anúncio); grifo na data do registro.",
+  "legenda": "Anúncio de Início: 05/08/2026"
+ },
+ {
+  "id": "d2h-fnet-rotulo-anuncio-encerramento",
+  "arquivo": "d2h-fnet-rotulo-anuncio-encerramento.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/abrirGerenciadorDocumentosCVM?cnpjFundo=28548288000152",
+  "fonte": "FNET B3 · grade de documentos do TRXF11",
+  "trecho_citado": "Anúncio de Encerramento",
+  "bbox_trecho": [
+   0.3941,
+   0.3885,
+   0.4579,
+   0.5287
+  ],
+  "bbox_linhas": [
+   [
+    0.3941,
+    0.3885,
+    0.4449,
+    0.4522
+   ],
+   [
+    0.3941,
+    0.465,
+    0.4579,
+    0.5287
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 258,
+  "obs": "Grade do fnet por CNPJ (50 linhas). Linha: Oferta Pública de Distribuição de Cotas · Anúncio de Encerramento · 10/09/2026 · entrega 10/09/2026 20:34. Texto pequeno (grade larga): dar zoom.",
+  "legenda": "no site da B3, o papel de 10/09 está rotulado 'Anúncio de Encerramento'"
+ },
+ {
+  "id": "d2i-fnet-entrega-10set-2034",
+  "arquivo": "d2i-fnet-entrega-10set-2034.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/abrirGerenciadorDocumentosCVM?cnpjFundo=28548288000152",
+  "fonte": "FNET B3 · grade de documentos do TRXF11",
+  "trecho_citado": "10/09/2026 20:34",
+  "bbox_trecho": [
+   0.6493,
+   0.3885,
+   0.7001,
+   0.5287
+  ],
+  "bbox_linhas": [
+   [
+    0.6493,
+    0.3885,
+    0.7001,
+    0.4522
+   ],
+   [
+    0.6493,
+    0.465,
+    0.6747,
+    0.5287
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 258,
+  "obs": "Mesma grade do d2h, grifo na data/hora de entrega.",
+  "legenda": "entregue em 10/09/2026, 20h34"
+ },
+ {
+  "id": "d3a-berrini-titulo",
+  "arquivo": "d3a-berrini-titulo.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327288",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 24/09/2026 09:37 · pág. 1",
+  "trecho_citado": "TRXF11 CONCLUI AQUISIÇÃO DE EDIFÍCIOS CORPORATIVOS",
+  "bbox_trecho": [
+   0.1627,
+   0.5805,
+   0.8376,
+   0.6739
+  ],
+  "bbox_linhas": [
+   [
+    0.1627,
+    0.5805,
+    0.8376,
+    0.6739
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 247,
+  "obs": "fnet 1327288 (há cópia idêntica 1327296, marcada 'Cancelado' na grade do fnet — reenvio).",
+  "legenda": "24/09: TRXF11 conclui aquisição de edifícios corporativos"
+ },
+ {
+  "id": "d3b-berrini-340mi",
+  "arquivo": "d3b-berrini-340mi.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327288",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 24/09/2026 09:37 · pág. 1",
+  "trecho_citado": "R$ 340.250.163,03",
+  "bbox_trecho": [
+   0.4409,
+   0.3468,
+   0.6354,
+   0.4362
+  ],
+  "bbox_linhas": [
+   [
+    0.4409,
+    0.3468,
+    0.6354,
+    0.4362
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 232,
+  "obs": "Total inclui Thera (HAAA11) + Ed. Morumbi e HOFC (HOFC11).",
+  "legenda": "investimento total: R$ 340,25 milhões"
+ },
+ {
+  "id": "d3c-berrini-thera",
+  "arquivo": "d3c-berrini-thera.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327288",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 24/09/2026 09:37 · pág. 2",
+  "trecho_citado": "Avenida Engenheiro Luiz Carlos Berrini,",
+  "bbox_trecho": [
+   0.6169,
+   0.3271,
+   0.966,
+   0.4377
+  ],
+  "bbox_linhas": [
+   [
+    0.6169,
+    0.3271,
+    0.966,
+    0.4377
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 188,
+  "obs": "",
+  "legenda": "escritórios na Av. Eng. Luiz Carlos Berrini, 105 (Thera Corporate)"
+ },
+ {
+  "id": "d3d-berrini-compensacao",
+  "arquivo": "d3d-berrini-compensacao.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327288",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 24/09/2026 09:37 · pág. 2",
+  "trecho_citado": "paga nesta data mediante compensação de créditos decorrentes da",
+  "bbox_trecho": [
+   0.3577,
+   0.3439,
+   0.9664,
+   0.4115
+  ],
+  "bbox_linhas": [
+   [
+    0.3577,
+    0.3439,
+    0.9664,
+    0.4115
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 307,
+  "obs": "",
+  "legenda": "pago 'mediante compensação de créditos'"
+ },
+ {
+  "id": "d3e-berrini-1010000-cotas",
+  "arquivo": "d3e-berrini-1010000-cotas.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327288",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 24/09/2026 09:37 · pág. 2",
+  "trecho_citado": "1.010.000 (um milhão e dez mil)",
+  "bbox_trecho": [
+   0.6511,
+   0.5071,
+   0.9662,
+   0.5747
+  ],
+  "bbox_linhas": [
+   [
+    0.6511,
+    0.5071,
+    0.9662,
+    0.5747
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 307,
+  "obs": "",
+  "legenda": "o HAAA11 recebeu 1.010.000 cotas novas"
+ },
+ {
+  "id": "d3f-berrini-parcela-inicial-95mi",
+  "arquivo": "d3f-berrini-parcela-inicial-95mi.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327288",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 24/09/2026 09:37 · pág. 2",
+  "trecho_citado": "parcela inicial de R$ 95.333.900,00",
+  "bbox_trecho": [
+   0.1687,
+   0.389,
+   0.4837,
+   0.4894
+  ],
+  "bbox_linhas": [
+   [
+    0.1687,
+    0.389,
+    0.4837,
+    0.4894
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 206,
+  "obs": "95.333.900 / 1.010.000 = R$ 94,39 por cota (conferido). Preço do Thera = 95,33 + 154,01 = R$ 249,3 mi ('uns 250 milhões' ok).",
+  "legenda": "parcela paga em cota: R$ 95,33 milhões"
+ },
+ {
+  "id": "d3g-berrini-parcela-final-154mi",
+  "arquivo": "d3g-berrini-parcela-final-154mi.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327288",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 24/09/2026 09:37 · pág. 2",
+  "trecho_citado": "parcela final de R$ 154.007.000,00",
+  "bbox_trecho": [
+   0.1687,
+   0.3477,
+   0.5145,
+   0.4371
+  ],
+  "bbox_linhas": [
+   [
+    0.1687,
+    0.3477,
+    0.5145,
+    0.4371
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 232,
+  "obs": "",
+  "legenda": "o resto: R$ 154 milhões, em 84 meses"
+ },
+ {
+  "id": "d3h-berrini-2033-ipca-920",
+  "arquivo": "d3h-berrini-2033-ipca-920.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327288",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 24/09/2026 09:37 · pág. 2",
+  "trecho_citado": "IPCA/IBGE e acrescida de juros remuneratórios de 9,20%",
+  "bbox_trecho": [
+   0.3001,
+   0.5082,
+   0.8185,
+   0.589
+  ],
+  "bbox_linhas": [
+   [
+    0.3001,
+    0.5082,
+    0.8185,
+    0.589
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 257,
+  "obs": "",
+  "legenda": "corrigido por IPCA + 9,20% ao ano"
+ },
+ {
+  "id": "d3i-berrini-vence-2033",
+  "arquivo": "d3i-berrini-vence-2033.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327288",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 24/09/2026 09:37 · pág. 2",
+  "trecho_citado": "vence em 20 de outubro de 2033,",
+  "bbox_trecho": [
+   0.3064,
+   0.4103,
+   0.6466,
+   0.4911
+  ],
+  "bbox_linhas": [
+   [
+    0.3064,
+    0.4103,
+    0.6466,
+    0.4911
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 257,
+  "obs": "",
+  "legenda": "saldo vence em 20 de outubro de 2033"
+ },
+ {
+  "id": "d4a-viana-cap-857",
+  "arquivo": "d4a-viana-cap-857.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327192",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 23/09/2026 18:59 · pág. 1",
+  "trecho_citado": "cap rate de 8,57% ao ano",
+  "bbox_trecho": [
+   0.4097,
+   0.5497,
+   0.6459,
+   0.6262
+  ],
+  "bbox_linhas": [
+   [
+    0.4097,
+    0.5497,
+    0.6459,
+    0.6262
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 272,
+  "obs": "Roteiro diz 'oito vírgula seis' (arredondado) e usa 8,57% na cartela: bate.",
+  "legenda": "galpão de Viana/ES: cap rate de 8,57% ao ano"
+ },
+ {
+  "id": "d4b-viana-compensados-337mi",
+  "arquivo": "d4b-viana-compensados-337mi.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327192",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 23/09/2026 18:59 · pág. 1",
+  "trecho_citado": "R$ 337.101.273,95",
+  "bbox_trecho": [
+   0.0341,
+   0.4241,
+   0.2075,
+   0.4943
+  ],
+  "bbox_linhas": [
+   [
+    0.0341,
+    0.4241,
+    0.2075,
+    0.4943
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 295,
+  "obs": "",
+  "legenda": "até R$ 337,1 milhões em cota do fundo"
+ },
+ {
+  "id": "d4c-viana-compensados-texto",
+  "arquivo": "d4c-viana-compensados-texto.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327192",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 23/09/2026 18:59 · pág. 1",
+  "trecho_citado": "poderão ser compensados com créditos decorrentes da",
+  "bbox_trecho": [
+   0.4456,
+   0.5055,
+   0.9659,
+   0.5758
+  ],
+  "bbox_linhas": [
+   [
+    0.4456,
+    0.5055,
+    0.9659,
+    0.5758
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 295,
+  "obs": "É CVC com condições resolutivas: ainda não concluído.",
+  "legenda": "'poderão ser compensados com créditos'"
+ },
+ {
+  "id": "d4d-viana-643mi",
+  "arquivo": "d4d-viana-643mi.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327192",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 23/09/2026 18:59 · pág. 1",
+  "trecho_citado": "643.556.977,53",
+  "bbox_trecho": [
+   0.3359,
+   0.5732,
+   0.4795,
+   0.6457
+  ],
+  "bbox_linhas": [
+   [
+    0.3359,
+    0.5732,
+    0.4795,
+    0.6457
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 286,
+  "obs": "O documento escreve o valor sem 'R$' ('643.556.977,53').",
+  "legenda": "preço total: R$ 643,6 milhões"
+ },
+ {
+  "id": "d4e-brf-cap-1025",
+  "arquivo": "d4e-brf-cap-1025.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327148",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 23/09/2026 18:27 · pág. 1",
+  "trecho_citado": "cap rate de 10,25% ao ano",
+  "bbox_trecho": [
+   0.4057,
+   0.5501,
+   0.6497,
+   0.6265
+  ],
+  "bbox_linhas": [
+   [
+    0.4057,
+    0.5501,
+    0.6497,
+    0.6265
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 272,
+  "obs": "",
+  "legenda": "sede da BRF: cap rate de 10,25% ao ano"
+ },
+ {
+  "id": "d4f-brf-compensados-93mi",
+  "arquivo": "d4f-brf-compensados-93mi.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327148",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 23/09/2026 18:27 · pág. 1",
+  "trecho_citado": "R$ 93.140.370,09",
+  "bbox_trecho": [
+   0.2587,
+   0.4674,
+   0.4222,
+   0.5324
+  ],
+  "bbox_linhas": [
+   [
+    0.2587,
+    0.4674,
+    0.4222,
+    0.5324
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 320,
+  "obs": "",
+  "legenda": "até R$ 93,1 milhões em cota do fundo"
+ },
+ {
+  "id": "d4g-brf-titulo",
+  "arquivo": "d4g-brf-titulo.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327148",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 23/09/2026 18:27 · pág. 1",
+  "trecho_citado": "LOCADO PARA BRF S.A.",
+  "bbox_trecho": [
+   0.5217,
+   0.5559,
+   0.78,
+   0.6443
+  ],
+  "bbox_linhas": [
+   [
+    0.5217,
+    0.5559,
+    0.78,
+    0.6443
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 261,
+  "obs": "",
+  "legenda": "escritura definitiva: imóvel locado para BRF, Curitiba"
+ },
+ {
+  "id": "d4h-iguatemi-306mi-taxa-di",
+  "arquivo": "d4h-iguatemi-306mi-taxa-di.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327290",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 24/09/2026 09:39 · pág. 2",
+  "trecho_citado": "corrigidas pela variação acumulada da Taxa DI,",
+  "bbox_trecho": [
+   0.0341,
+   0.5759,
+   0.4529,
+   0.6341
+  ],
+  "bbox_linhas": [
+   [
+    0.0341,
+    0.5759,
+    0.4529,
+    0.6341
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 357,
+  "obs": "O valor pago em cotas (até R$ 350,5 mi) fica na pág. 2 logo acima (não grifado).",
+  "legenda": "saldo da Iguatemi (R$ 306,7 mi) corrigido pela Taxa DI"
+ },
+ {
+  "id": "d4i-iguatemi-titulo",
+  "arquivo": "d4i-iguatemi-titulo.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327290",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 24/09/2026 09:39 · pág. 1",
+  "trecho_citado": "PORTFÓLIO DE FRAÇÕES IDEAIS DE SHOPPINGS IGUATEMI",
+  "bbox_trecho": [
+   0.1714,
+   0.6228,
+   0.8293,
+   0.7068
+  ],
+  "bbox_linhas": [
+   [
+    0.1714,
+    0.6228,
+    0.8293,
+    0.7068
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 275,
+  "obs": "CVC sujeito a condição (financiamento, segundo a imprensa).",
+  "legenda": "compromisso de compra de frações de shoppings Iguatemi"
+ },
+ {
+  "id": "d4j-hire11-compensacao-82mi",
+  "arquivo": "d4j-hire11-compensacao-82mi.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1328120",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 25/09/2026 09:24 · pág. 1",
+  "trecho_citado": "R$ 82.590.751,00",
+  "bbox_trecho": [
+   0.0916,
+   0.4072,
+   0.2547,
+   0.4706
+  ],
+  "bbox_linhas": [
+   [
+    0.0916,
+    0.4072,
+    0.2547,
+    0.4706
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 327,
+  "obs": "Acordo de investimento de 24/09 (entregue 25/09 09:24).",
+  "legenda": "HIRE11: R$ 82,6 milhões prioritariamente em cota da 13ª emissão"
+ },
+ {
+  "id": "d4k-logrecife-75mi",
+  "arquivo": "d4k-logrecife-75mi.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327150",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 23/09/2026 18:29 · pág. 1",
+  "trecho_citado": "R$ 75.000.000,00",
+  "bbox_trecho": [
+   0.702,
+   0.6873,
+   0.8657,
+   0.7663
+  ],
+  "bbox_linhas": [
+   [
+    0.702,
+    0.6873,
+    0.8657,
+    0.7663
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 263,
+  "obs": "Continua na pág. 2 (print d4k2).",
+  "legenda": "LOG Recife II (Shopee): R$ 75 milhões..."
+ },
+ {
+  "id": "d4k2-logrecife-compensados",
+  "arquivo": "d4k2-logrecife-compensados.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327150",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 23/09/2026 18:29 · pág. 2",
+  "trecho_citado": "que foram compensados com créditos decorrentes da subscrição e integralização,",
+  "bbox_trecho": [
+   0.2425,
+   0.2888,
+   0.9657,
+   0.3864
+  ],
+  "bbox_linhas": [
+   [
+    0.2425,
+    0.2888,
+    0.9657,
+    0.3864
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 212,
+  "obs": "",
+  "legenda": "...'compensados com créditos' da subscrição de cotas"
+ },
+ {
+  "id": "d4l-extrema-cyrela-voltou",
+  "arquivo": "d4l-extrema-cyrela-voltou.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1327152",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 23/09/2026 18:30 · pág. 2",
+  "trecho_citado": "Esse ativo integrou a negociação anteriormente anunciada",
+  "bbox_trecho": [
+   0.0341,
+   0.4953,
+   0.5528,
+   0.6228
+  ],
+  "bbox_linhas": [
+   [
+    0.0341,
+    0.4953,
+    0.5528,
+    0.6228
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 163,
+  "obs": "Compra de R$ 424,32 mi, fnet 1327152; é ativo do portfólio Cyrela cancelado em 31/08.",
+  "legenda": "galpão de Extrema 'integrou a negociação anteriormente anunciada' (Cyrela)"
+ },
+ {
+  "id": "d5a-protecao-titulo",
+  "arquivo": "d5a-protecao-titulo.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1302626",
+  "fonte": "FNET B3 · MATERIAL PUBLICITÁRIO 13ª EMISSÃO · entregue 27/08/2026 19:06 · pág. 21",
+  "trecho_citado": "Mecanismo de proteção de preço: dimensão e regras contratuais",
+  "bbox_trecho": [
+   0.0227,
+   0.3187,
+   0.5986,
+   0.4181
+  ],
+  "bbox_linhas": [
+   [
+    0.0227,
+    0.3187,
+    0.5986,
+    0.4181
+   ]
+  ],
+  "largura_px": 1625,
+  "altura_px": 393,
+  "obs": "Material publicitário, fnet 1302626, entregue 27/08/2026 19:06, pág. 21.",
+  "legenda": "material da oferta: 'Mecanismo de proteção de preço'"
+ },
+ {
+  "id": "d5b-protecao-205mi",
+  "arquivo": "d5b-protecao-205mi.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1302626",
+  "fonte": "FNET B3 · MATERIAL PUBLICITÁRIO 13ª EMISSÃO · entregue 27/08/2026 19:06 · pág. 21",
+  "trecho_citado": "≈ R$ 205 milhões",
+  "bbox_trecho": [
+   0.5287,
+   0.6464,
+   0.6724,
+   0.7567
+  ],
+  "bbox_linhas": [
+   [
+    0.5287,
+    0.6464,
+    0.6724,
+    0.7567
+   ]
+  ],
+  "largura_px": 1625,
+  "altura_px": 353,
+  "obs": "Na mesma página, o quadro 'Disciplina de preço' fala em 'menos de 1,7% do ativo total' — dois números no mesmo slide (1,6% e 1,7%). A conta de R$ 3,28/cota é do canal.",
+  "legenda": "cenário limite do mecanismo: ≈ R$ 205 milhões (≈1,6% do ativo)"
+ },
+ {
+  "id": "d5c-protecao-ganho-volta",
+  "arquivo": "d5c-protecao-ganho-volta.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1302626",
+  "fonte": "FNET B3 · MATERIAL PUBLICITÁRIO 13ª EMISSÃO · entregue 27/08/2026 19:06 · pág. 21",
+  "trecho_citado": "Havendo ganho na venda, o TRXF11 recebe compensação proporcional.",
+  "bbox_trecho": [
+   0.0427,
+   0.2987,
+   0.471,
+   0.4327
+  ],
+  "bbox_linhas": [
+   [
+    0.2236,
+    0.2987,
+    0.471,
+    0.3658
+   ],
+   [
+    0.0427,
+    0.3656,
+    0.197,
+    0.4327
+   ]
+  ],
+  "largura_px": 1625,
+  "altura_px": 372,
+  "obs": "",
+  "legenda": "'Havendo ganho na venda, o TRXF11 recebe compensação proporcional'"
+ },
+ {
+  "id": "d5d-protecao-6-18-meses",
+  "arquivo": "d5d-protecao-6-18-meses.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1302626",
+  "fonte": "FNET B3 · MATERIAL PUBLICITÁRIO 13ª EMISSÃO · entregue 27/08/2026 19:06 · pág. 21",
+  "trecho_citado": "janelas de 6 a 18 meses,",
+  "bbox_trecho": [
+   0.2511,
+   0.3568,
+   0.386,
+   0.4603
+  ],
+  "bbox_linhas": [
+   [
+    0.2511,
+    0.3568,
+    0.386,
+    0.4603
+   ]
+  ],
+  "largura_px": 1625,
+  "altura_px": 242,
+  "obs": "",
+  "legenda": "ajuste pago em janelas de 6 a 18 meses"
+ },
+ {
+  "id": "d7a-lockup-45-dias-material",
+  "arquivo": "d7a-lockup-45-dias-material.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1302626",
+  "fonte": "FNET B3 · MATERIAL PUBLICITÁRIO 13ª EMISSÃO · entregue 27/08/2026 19:06 · pág. 19",
+  "trecho_citado": "Lock-up médio de 45 dias a partir da liquidação",
+  "bbox_trecho": [
+   0.6427,
+   0.6689,
+   0.9357,
+   0.7627
+  ],
+  "bbox_linhas": [
+   [
+    0.6427,
+    0.6689,
+    0.9357,
+    0.7627
+   ]
+  ],
+  "largura_px": 1625,
+  "altura_px": 288,
+  "obs": "Material da oferta, pág. 19. 'Médio' e 'termos indicativos': não é trava individual confirmada por negócio.",
+  "legenda": "lock-up médio de 45 dias"
+ },
+ {
+  "id": "d7b-lockup-45-dias-nota-tecnica",
+  "arquivo": "d7b-lockup-45-dias-nota-tecnica.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1298710",
+  "fonte": "FNET B3 · NOTA TÉCNICA 13ª EMISSÃO · entregue 24/08/2026 09:16 · pág. 13",
+  "trecho_citado": "Lock-up médio de 45 dias a partir da liquidação",
+  "bbox_trecho": [
+   0.0834,
+   0.3633,
+   0.4435,
+   0.4346
+  ],
+  "bbox_linhas": [
+   [
+    0.0834,
+    0.3633,
+    0.4435,
+    0.4346
+   ]
+  ],
+  "largura_px": 967,
+  "altura_px": 254,
+  "obs": "Nota Técnica fnet 1298710 (entregue 24/08), pág. 13.",
+  "legenda": "Nota Técnica: 'Lock-up médio de 45 dias a partir da liquidação'"
+ },
+ {
+  "id": "d6a-brc-titulo",
+  "arquivo": "d6a-brc-titulo.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1329467",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 28/09/2026 10:00 · pág. 1",
+  "trecho_citado": "TRXF11 CELEBRA DOCUMENTOS DEFINITIVOS PARA VENDA DE IMÓVEIS",
+  "bbox_trecho": [
+   0.0992,
+   0.5805,
+   0.9014,
+   0.6739
+  ],
+  "bbox_linhas": [
+   [
+    0.0992,
+    0.5805,
+    0.9014,
+    0.6739
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 247,
+  "obs": "",
+  "legenda": "28/09: documentos definitivos para venda de imóveis"
+ },
+ {
+  "id": "d6b-brc-207mi",
+  "arquivo": "d6b-brc-207mi.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1329467",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 28/09/2026 10:00 · pág. 2",
+  "trecho_citado": "R$ 207.252.400,00",
+  "bbox_trecho": [
+   0.6982,
+   0.2395,
+   0.8716,
+   0.3204
+  ],
+  "bbox_linhas": [
+   [
+    0.6982,
+    0.2395,
+    0.8716,
+    0.3204
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 256,
+  "obs": "",
+  "legenda": "vendidos ao BRC por R$ 207.252.400,00"
+ },
+ {
+  "id": "d6c-brc-pago-em-cotas",
+  "arquivo": "d6c-brc-pago-em-cotas.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1329467",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 28/09/2026 10:00 · pág. 2",
+  "trecho_citado": "compensação de créditos decorrentes da subscrição e integralização, pelo Fundo, de cotas de emissão do BRC,",
+  "bbox_trecho": [
+   0.0341,
+   0.3333,
+   0.9663,
+   0.5072
+  ],
+  "bbox_linhas": [
+   [
+    0.8456,
+    0.3333,
+    0.966,
+    0.4142
+   ],
+   [
+    0.0341,
+    0.4263,
+    0.9663,
+    0.5072
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 256,
+  "obs": "O FR não diz literalmente '100% em cotas'; diz que o valor total foi pago por compensação com a subscrição de cotas do BRC.",
+  "legenda": "pago com cotas do BRC (compensação de créditos)"
+ },
+ {
+  "id": "d6d-brc-lucro-051",
+  "arquivo": "d6d-brc-lucro-051.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1329467",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 28/09/2026 10:00 · pág. 2",
+  "trecho_citado": "R$ 0,51 (cinquenta e um centavos) por cota",
+  "bbox_trecho": [
+   0.5356,
+   0.3799,
+   0.9375,
+   0.4818
+  ],
+  "bbox_linhas": [
+   [
+    0.5356,
+    0.3799,
+    0.9375,
+    0.4818
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 203,
+  "obs": "Mesmo parágrafo traz a TIR de 38,49% (roteiro diz não usar).",
+  "legenda": "lucro estimado: R$ 0,51 por cota"
+ },
+ {
+  "id": "d6e-brc-15-imoveis",
+  "arquivo": "d6e-brc-15-imoveis.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1329467",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 28/09/2026 10:00 · pág. 1",
+  "trecho_citado": "venda de 15 (quinze) imóveis",
+  "bbox_trecho": [
+   0.0341,
+   0.5883,
+   0.3312,
+   0.6559
+  ],
+  "bbox_linhas": [
+   [
+    0.0341,
+    0.5883,
+    0.3312,
+    0.6559
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 307,
+  "obs": "Lista dos 15 imóveis logo abaixo no mesmo print.",
+  "legenda": "venda de 15 imóveis"
+ },
+ {
+  "id": "d8a-rg-cota-patrimonial-9661",
+  "arquivo": "d8a-rg-cota-patrimonial-9661.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1309800",
+  "fonte": "FNET B3 · RELATÓRIO GERENCIAL AGO/26 · entregue 04/09/2026 09:52 · pág. 5",
+  "trecho_citado": "R$ 96,61",
+  "bbox_trecho": [
+   0.7376,
+   0.6482,
+   0.8265,
+   0.6875
+  ],
+  "bbox_linhas": [
+   [
+    0.7376,
+    0.6482,
+    0.8265,
+    0.6875
+   ]
+  ],
+  "largura_px": 867,
+  "altura_px": 540,
+  "obs": "Relatório gerencial de agosto (data-base 31/08). O roteiro usa R$ 96,62 (Investidor10, print p1c) — diferença de 1 centavo.",
+  "legenda": "cota patrimonial: R$ 96,61 (31/08)"
+ },
+ {
+  "id": "d8b-rg-vacancia-05",
+  "arquivo": "d8b-rg-vacancia-05.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1309800",
+  "fonte": "FNET B3 · RELATÓRIO GERENCIAL AGO/26 · entregue 04/09/2026 09:52 · pág. 5",
+  "trecho_citado": "Física: 0,5%",
+  "bbox_trecho": [
+   0.7376,
+   0.6773,
+   0.8579,
+   0.7372
+  ],
+  "bbox_linhas": [
+   [
+    0.7376,
+    0.6773,
+    0.8579,
+    0.7372
+   ]
+  ],
+  "largura_px": 867,
+  "altura_px": 355,
+  "obs": "",
+  "legenda": "vacância física: 0,5%"
+ },
+ {
+  "id": "d8c-rg-rendimento-093",
+  "arquivo": "d8c-rg-rendimento-093.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1309800",
+  "fonte": "FNET B3 · RELATÓRIO GERENCIAL AGO/26 · entregue 04/09/2026 09:52 · pág. 5",
+  "trecho_citado": "R$ 0,93",
+  "bbox_trecho": [
+   0.3892,
+   0.8432,
+   0.4659,
+   0.8825
+  ],
+  "bbox_linhas": [
+   [
+    0.3892,
+    0.8432,
+    0.4659,
+    0.8825
+   ]
+  ],
+  "largura_px": 867,
+  "altura_px": 540,
+  "obs": "",
+  "legenda": "rendimento no mês: R$ 0,93"
+ },
+ {
+  "id": "d9a-dasa-77mi",
+  "arquivo": "d9a-dasa-77mi.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1313621",
+  "fonte": "FNET B3 · COMUNICADO AO MERCADO (MoU Dasa) · entregue 09/09/2026 19:13 · pág. 1",
+  "trecho_citado": "R$ 77.000.000,00 (setenta e sete milhões de reais)",
+  "bbox_trecho": [
+   0.298,
+   0.3881,
+   0.7612,
+   0.4923
+  ],
+  "bbox_linhas": [
+   [
+    0.298,
+    0.3881,
+    0.7612,
+    0.4923
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 200,
+  "obs": "É MoU (memorando), não venda concluída.",
+  "legenda": "prédio Dasa: venda por R$ 77 milhões à vista"
+ },
+ {
+  "id": "d9b-dasa-1223-acima-laudo",
+  "arquivo": "d9b-dasa-1223-acima-laudo.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1313621",
+  "fonte": "FNET B3 · COMUNICADO AO MERCADO (MoU Dasa) · entregue 09/09/2026 19:13 · pág. 2",
+  "trecho_citado": "12,23% (doze vírgula vinte e três por cento) acima do valor do último laudo",
+  "bbox_trecho": [
+   0.2414,
+   0.3464,
+   0.9372,
+   0.4392
+  ],
+  "bbox_linhas": [
+   [
+    0.2414,
+    0.3464,
+    0.9372,
+    0.4392
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 223,
+  "obs": "",
+  "legenda": "12,23% acima do último laudo"
+ },
+ {
+  "id": "d9c-dasa-11a-emissao-compensacao",
+  "arquivo": "d9c-dasa-11a-emissao-compensacao.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1313621",
+  "fonte": "FNET B3 · COMUNICADO AO MERCADO (MoU Dasa) · entregue 09/09/2026 19:13 · pág. 2",
+  "trecho_citado": "a compensação de créditos na Oferta",
+  "bbox_trecho": [
+   0.0341,
+   0.4093,
+   0.371,
+   0.4932
+  ],
+  "bbox_linhas": [
+   [
+    0.0341,
+    0.4093,
+    0.371,
+    0.4932
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 247,
+  "obs": "",
+  "legenda": "comprado na 11ª emissão com compensação de créditos"
+ },
+ {
+  "id": "d10-goiania-41mi",
+  "arquivo": "d10-goiania-41mi.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1322394",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 16/09/2026 18:49 · pág. 1",
+  "trecho_citado": "TRXF11 CELEBRA ESCRITURA DE VENDA E COMPRA PARA ALIENAÇÃO DE IMÓVEL",
+  "bbox_trecho": [
+   0.0505,
+   0.5642,
+   0.95,
+   0.6611
+  ],
+  "bbox_linhas": [
+   [
+    0.0505,
+    0.5642,
+    0.95,
+    0.6611
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 238,
+  "obs": "FR conjunto TRXF11/TRXB11, fnet 1322394.",
+  "legenda": "16/09: escritura de venda de imóvel (Setor Bueno, Goiânia)"
+ },
+ {
+  "id": "d10b-goiania-41mi",
+  "arquivo": "d10b-goiania-41mi.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1322394",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 16/09/2026 18:49 · pág. 2",
+  "trecho_citado": "R$ 41.000.000,00",
+  "bbox_trecho": [
+   0.8048,
+   0.388,
+   0.9661,
+   0.4921
+  ],
+  "bbox_linhas": [
+   [
+    0.8048,
+    0.388,
+    0.9661,
+    0.4921
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 199,
+  "obs": "Pág. 2 do FR de 16/09.",
+  "legenda": "vendido por R$ 41 milhões"
+ },
+ {
+  "id": "d11a-nt-yield-on-cost",
+  "arquivo": "d11a-nt-yield-on-cost.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1298710",
+  "fonte": "FNET B3 · NOTA TÉCNICA 13ª EMISSÃO · entregue 24/08/2026 09:16 · pág. 12",
+  "trecho_citado": "resultado corrente sobre o capital efetivamente desembolsado, considerando a estrutura da operação (parcelamento,",
+  "bbox_trecho": [
+   0.0498,
+   0.3191,
+   0.95,
+   0.5248
+  ],
+  "bbox_linhas": [
+   [
+    0.7523,
+    0.3191,
+    0.95,
+    0.4133
+   ],
+   [
+    0.0498,
+    0.4306,
+    0.7539,
+    0.5248
+   ]
+  ],
+  "largura_px": 967,
+  "altura_px": 192,
+  "obs": "Grifo termina em '(parcelamento,'.",
+  "legenda": "Nota Técnica 6.1: yield on cost = resultado sobre o capital efetivamente desembolsado"
+ },
+ {
+  "id": "d11b-iguatemi-yoc-1234",
+  "arquivo": "d11b-iguatemi-yoc-1234.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1280507",
+  "fonte": "FNET B3 · FATO RELEVANTE (Iguatemi, MoU) · entregue 07/08/2026 18:34 · pág. 6",
+  "trecho_citado": "12,34%",
+  "bbox_trecho": [
+   0.2863,
+   0.7396,
+   0.3228,
+   0.8259
+  ],
+  "bbox_linhas": [
+   [
+    0.2863,
+    0.7396,
+    0.3228,
+    0.8259
+   ]
+  ],
+  "largura_px": 2130,
+  "altura_px": 352,
+  "obs": "ATENÇÃO: no mesmo quadro o FR de 07/08 (fnet 1280507) traz cap rate de 8,02% a.a., não 7,3% como está no roteiro (bloco 6 e cartela). Não achei 7,3% nesse documento — conferir de onde veio o 7,3 antes de gravar.",
+  "legenda": "Iguatemi: yield on cost de 12,34% durante o pagamento"
+ },
+ {
+  "id": "d12a-desiste-lajes-27ago",
+  "arquivo": "d12a-desiste-lajes-27ago.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1301577",
+  "fonte": "FNET B3 · COMUNICADO AO MERCADO · entregue 27/08/2026 09:30 · pág. 1",
+  "trecho_citado": "TRXF11 DESISTE DA AQUISIÇÃO DE PORTFÓLIO DE LAJES CORPORATIVAS EM SÃO PAULO",
+  "bbox_trecho": [
+   0.0348,
+   0.583,
+   0.9654,
+   0.6944
+  ],
+  "bbox_linhas": [
+   [
+    0.0348,
+    0.583,
+    0.9654,
+    0.6944
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 228,
+  "obs": "O comunicado não traz o valor (R$ 1,03 bi vem da imprensa/FR anterior).",
+  "legenda": "27/08: TRXF11 desiste do portfólio de lajes (Pátio Victor Malzoni)"
+ },
+ {
+  "id": "d12b-desiste-cyrela-31ago",
+  "arquivo": "d12b-desiste-cyrela-31ago.png",
+  "url": "https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=1304485",
+  "fonte": "FNET B3 · FATO RELEVANTE · entregue 31/08/2026 09:26 · pág. 1",
+  "trecho_citado": "CYRELA BRAZIL REALTY S.A.",
+  "bbox_trecho": [
+   0.6551,
+   0.8694,
+   0.9662,
+   0.8961
+  ],
+  "bbox_linhas": [
+   [
+    0.6551,
+    0.8694,
+    0.9662,
+    0.8961
+   ]
+  ],
+  "largura_px": 966,
+  "altura_px": 776,
+  "obs": "Fato relevante 31/08 09:26, fnet 1304485. Crop alto (título no topo, Cyrela no fim).",
+  "legenda": "31/08: desiste do portfólio da Cyrela"
+ },
+ {
+  "id": "p1-i10-cotacao-grafico-6m",
+  "arquivo": "p1-i10-cotacao-grafico-6m.png",
+  "url": "https://investidor10.com.br/fiis/trxf11/",
+  "fonte": "INVESTIDOR10 · 29/09/2026",
+  "trecho_citado": "R$ 72,25",
+  "bbox_trecho": [
+   0.1061,
+   0.0284,
+   0.1855,
+   0.0738
+  ],
+  "bbox_linhas": [
+   [
+    0.1061,
+    0.0284,
+    0.1855,
+    0.0738
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 771,
+  "obs": "Print de 29/09 à tarde: R$ 72,25 (roteiro usa R$ 71,94 da manhã; diferença muda '22,45' para 22,14/cota). Gráfico sem valores pontuais de 31/07 (91,10) e 26/08 (70,11); eixo mínimo R$ 68,71. Cotação padrão, não ajustada.",
+  "legenda": "TRXF11 em 6 meses: de ~R$ 91 para ~R$ 72 (cotação padrão)"
+ },
+ {
+  "id": "p1b-i10-pvp-075",
+  "arquivo": "p1b-i10-pvp-075.png",
+  "url": "https://investidor10.com.br/fiis/trxf11/",
+  "fonte": "INVESTIDOR10 · 29/09/2026",
+  "trecho_citado": "0,75",
+  "bbox_trecho": [
+   0.141,
+   0.5385,
+   0.2137,
+   0.7436
+  ],
+  "bbox_linhas": [
+   [
+    0.141,
+    0.5385,
+    0.2137,
+    0.7436
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 321,
+  "obs": "",
+  "legenda": "P/VP: 0,75"
+ },
+ {
+  "id": "p1c-i10-vp-9662-vacancia",
+  "arquivo": "p1c-i10-vp-9662-vacancia.png",
+  "url": "https://investidor10.com.br/fiis/trxf11/",
+  "fonte": "INVESTIDOR10 · 29/09/2026",
+  "trecho_citado": "R$ 96,62",
+  "bbox_trecho": [
+   0.0402,
+   0.6469,
+   0.1169,
+   0.7147
+  ],
+  "bbox_linhas": [
+   [
+    0.0402,
+    0.6469,
+    0.1169,
+    0.7147
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 498,
+  "obs": "Mesmo card mostra vacância 0,50% e último rendimento R$ 0,93.",
+  "legenda": "valor patrimonial por cota: R$ 96,62"
+ },
+ {
+  "id": "p2-i10-dividendos-093",
+  "arquivo": "p2-i10-dividendos-093.png",
+  "url": "https://investidor10.com.br/fiis/trxf11/",
+  "fonte": "INVESTIDOR10 · 29/09/2026",
+  "trecho_citado": "0,93000000",
+  "bbox_trecho": [
+   0.7808,
+   0.628,
+   0.8741,
+   0.647
+  ],
+  "bbox_linhas": [
+   [
+    0.7808,
+    0.628,
+    0.8741,
+    0.647
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 1655,
+  "obs": "Tabela mostra de 31/03 a 31/08 (data com); linhas mais antigas ficam esmaecidas pelo site. Extra de R$ 1,50: data com 30/06, pago 14/07.",
+  "legenda": "dividendo de R$ 0,93 por cota, todo mês"
+ },
+ {
+  "id": "p2b-i10-dividendo-extra-150",
+  "arquivo": "p2b-i10-dividendo-extra-150.png",
+  "url": "https://investidor10.com.br/fiis/trxf11/",
+  "fonte": "INVESTIDOR10 · 29/09/2026",
+  "trecho_citado": "1,50000000",
+  "bbox_trecho": [
+   0.7808,
+   0.698,
+   0.8741,
+   0.717
+  ],
+  "bbox_linhas": [
+   [
+    0.7808,
+    0.698,
+    0.8741,
+    0.717
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 1655,
+  "obs": "Extra de R$ 1,00 (data com 30/12/2025, pago 15/01) está fora do recorte visível.",
+  "legenda": "extra de R$ 1,50 (pago em julho)"
+ },
+ {
+  "id": "p3-i10-haaa11",
+  "arquivo": "p3-i10-haaa11.png",
+  "url": "https://investidor10.com.br/fiis/haaa11/",
+  "fonte": "INVESTIDOR10 · 29/09/2026",
+  "trecho_citado": "R$ 56,00",
+  "bbox_trecho": [
+   0.0359,
+   0.5385,
+   0.1271,
+   0.7436
+  ],
+  "bbox_linhas": [
+   [
+    0.0359,
+    0.5385,
+    0.1271,
+    0.7436
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 196,
+  "obs": "Cotação R$ 56,00 em 29/09, liquidez diária R$ 2,54 mil.",
+  "legenda": "HAAA11 (Hedge AAA), o vendedor da Berrini"
+ },
+ {
+  "id": "m01-sd-emissao-10bi",
+  "arquivo": "m01-sd-emissao-10bi.png",
+  "url": "https://www.seudinheiro.com/2026/bolsa-dolar/trxf11-entra-em-novo-ciclo-de-expansao-fii-anuncia-emissao-de-ate-r-10-bilhoes-a-maior-oferta-de-cotas-ja-vista-no-setor-davs/",
+  "fonte": "SEUDINHEIRO.COM",
+  "trecho_citado": "emissão de até R$ 10 bilhões",
+  "bbox_trecho": [
+   0.0263,
+   0.0949,
+   0.9723,
+   0.4068
+  ],
+  "bbox_linhas": [
+   [
+    0.842,
+    0.0949,
+    0.9723,
+    0.2576
+   ],
+   [
+    0.0263,
+    0.2441,
+    0.3301,
+    0.4068
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 362,
+  "obs": "R$ 10 bi = R$ 5 bi + lote adicional de 100%. O roteiro fala em 5 bi (montante inicial).",
+  "legenda": "Seu Dinheiro, 06/08: emissão de até R$ 10 bilhões"
+ },
+ {
+  "id": "m02-radar-despenca",
+  "arquivo": "m02-radar-despenca.png",
+  "url": "https://www.radarfii.com.br/noticia/trxf11-queda-13a-emissao-desconto-valor-patrimonial.html",
+  "fonte": "RADARFII.COM.BR",
+  "trecho_citado": "TRXF11 despenca",
+  "bbox_trecho": [
+   0.0336,
+   0.0759,
+   0.4742,
+   0.2627
+  ],
+  "bbox_linhas": [
+   [
+    0.0336,
+    0.0759,
+    0.4742,
+    0.2627
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 496,
+  "obs": "Sem data visível no recorte.",
+  "legenda": "Radar FII: 'TRXF11 despenca com 13ª emissão bilionária'"
+ },
+ {
+  "id": "m03-infomoney-queda-20",
+  "arquivo": "m03-infomoney-queda-20.png",
+  "url": "https://www.infomoney.com.br/onde-investir/fii-trxf11-recua-442-e-acumula-queda-de-20-em-12-meses-em-meio-a-expansao/",
+  "fonte": "INFOMONEY.COM.BR",
+  "trecho_citado": "acumula queda de 20% em 12 meses",
+  "bbox_trecho": [
+   0.0277,
+   0.0882,
+   0.8822,
+   0.4816
+  ],
+  "bbox_linhas": [
+   [
+    0.5218,
+    0.0882,
+    0.8822,
+    0.3051
+   ],
+   [
+    0.0277,
+    0.2647,
+    0.3812,
+    0.4816
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 351,
+  "obs": "",
+  "legenda": "InfoMoney, 21/08: queda de 20% em 12 meses"
+ },
+ {
+  "id": "m04-sd-desiste-malzoni",
+  "arquivo": "m04-sd-desiste-malzoni.png",
+  "url": "https://www.seudinheiro.com/2026/bolsa-dolar/trxf11-desiste-de-compra-de-imoveis-de-quase-r-1-bilhao-incluindo-predio-do-gramado-na-faria-lima-cotistas-comemoram-giov/",
+  "fonte": "SEUDINHEIRO.COM",
+  "trecho_citado": "desiste de compra de imóveis de quase R$ 1 bilhão",
+  "bbox_trecho": [
+   0.1423,
+   0.0826,
+   0.9185,
+   0.2242
+  ],
+  "bbox_linhas": [
+   [
+    0.1423,
+    0.0826,
+    0.9185,
+    0.2242
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 416,
+  "obs": "",
+  "legenda": "Seu Dinheiro, 27/08: desiste de quase R$ 1 bilhão (Pátio Victor Malzoni)"
+ },
+ {
+  "id": "m05-infomoney-cyrela-2bi",
+  "arquivo": "m05-infomoney-cyrela-2bi.png",
+  "url": "https://www.infomoney.com.br/mercados/cyrela-cyre3-afirma-que-trx-trxf11-desistiu-de-aquisicao-potencial-de-r-2-bi/",
+  "fonte": "INFOMONEY.COM.BR",
+  "trecho_citado": "desistiu de aquisição potencial de R$ 2 bi",
+  "bbox_trecho": [
+   0.0277,
+   0.36,
+   0.826,
+   0.655
+  ],
+  "bbox_linhas": [
+   [
+    0.0277,
+    0.36,
+    0.826,
+    0.655
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 258,
+  "obs": "Manchete diz R$ 2 bi; roteiro usa R$ 2,14 bi.",
+  "legenda": "InfoMoney/Reuters: Cyrela confirma desistência de R$ 2 bi"
+ },
+ {
+  "id": "m06-empiricus-948-sobras",
+  "arquivo": "m06-empiricus-948-sobras.png",
+  "url": "https://www.empiricus.com.br/artigos/investimentos/fundos-imobiliarios-trxf11-hgbs11-pmll11-e-mais-trazem-atualizacoes-aos-cotistas-confira-jdnm/",
+  "fonte": "EMPIRICUS.COM.BR",
+  "trecho_citado": "948 cotas nas sobras",
+  "bbox_trecho": [
+   0.0377,
+   0.3372,
+   0.9065,
+   0.657
+  ],
+  "bbox_linhas": [
+   [
+    0.7684,
+    0.3372,
+    0.9065,
+    0.4942
+   ],
+   [
+    0.0377,
+    0.5,
+    0.1069,
+    0.657
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 303,
+  "obs": "",
+  "legenda": "Empiricus: 948 cotas nas sobras"
+ },
+ {
+  "id": "m06b-empiricus-investidores-profissionais",
+  "arquivo": "m06b-empiricus-investidores-profissionais.png",
+  "url": "https://www.empiricus.com.br/artigos/investimentos/fundos-imobiliarios-trxf11-hgbs11-pmll11-e-mais-trazem-atualizacoes-aos-cotistas-confira-jdnm/",
+  "fonte": "EMPIRICUS.COM.BR",
+  "trecho_citado": "seguiram para o período de subscrição destinado a investidores profissionais",
+  "bbox_trecho": [
+   0.0377,
+   0.6628,
+   0.851,
+   0.8198
+  ],
+  "bbox_linhas": [
+   [
+    0.0377,
+    0.6628,
+    0.851,
+    0.8198
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 303,
+  "obs": "",
+  "legenda": "52,6 milhões de cotas seguem para investidores profissionais"
+ },
+ {
+  "id": "m07-infomoney-340mi",
+  "arquivo": "m07-infomoney-340mi.png",
+  "url": "https://www.infomoney.com.br/onde-investir/fii-trxf11-anuncia-compra-de-dois-ativos-corporativos-em-sp-por-r-3403-milhoes/",
+  "fonte": "INFOMONEY.COM.BR",
+  "trecho_citado": "R$ 340,3 milhões",
+  "bbox_trecho": [
+   0.4916,
+   0.2647,
+   0.8354,
+   0.4816
+  ],
+  "bbox_linhas": [
+   [
+    0.4916,
+    0.2647,
+    0.8354,
+    0.4816
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 351,
+  "obs": "",
+  "legenda": "InfoMoney, 14/09: compra de dois corporativos por R$ 340,3 mi"
+ },
+ {
+  "id": "m08-sd-340mi-cotas-caem",
+  "arquivo": "m08-sd-340mi-cotas-caem.png",
+  "url": "https://www.seudinheiro.com/2026/bolsa-dolar/trxf11-vai-as-compras-de-novo-apos-venda-de-imovel-a-vista-fii-desembolsa-r-340-milhoes-por-ativos-corporativos-davs/",
+  "fonte": "SEUDINHEIRO.COM",
+  "trecho_citado": "cotas caem após FII desembolsar R$ 340 milhões",
+  "bbox_trecho": [
+   0.0263,
+   0.2315,
+   0.7876,
+   0.3859
+  ],
+  "bbox_linhas": [
+   [
+    0.0263,
+    0.2315,
+    0.7876,
+    0.3859
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 382,
+  "obs": "",
+  "legenda": "Seu Dinheiro, 14/09: cotas caem após compra de R$ 340 mi"
+ },
+ {
+  "id": "m09-mt-138bi",
+  "arquivo": "m09-mt-138bi.png",
+  "url": "https://www.moneytimes.com.br/fundo-imobiliario-movimenta-mais-de-r-138-bilhao-em-compras-de-imoveis-veja-os-detalhes-igdl/",
+  "fonte": "MONEYTIMES.COM.BR",
+  "trecho_citado": "mais de R$ 1,38 bilhão",
+  "bbox_trecho": [
+   0.442,
+   0.1419,
+   0.7622,
+   0.3503
+  ],
+  "bbox_linhas": [
+   [
+    0.442,
+    0.1419,
+    0.7622,
+    0.3503
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 247,
+  "obs": "",
+  "legenda": "Money Times, 24/09: mais de R$ 1,38 bilhão em compras"
+ },
+ {
+  "id": "m10-mt-iguatemi",
+  "arquivo": "m10-mt-iguatemi.png",
+  "url": "https://www.moneytimes.com.br/fundo-imobiliario-avanca-em-compra-de-participacoes-em-shoppings-da-iguatemi-igti11-veja-os-detalhes-igdl/",
+  "fonte": "MONEYTIMES.COM.BR",
+  "trecho_citado": "shoppings da Iguatemi (IGTI11)",
+  "bbox_trecho": [
+   0.0235,
+   0.3725,
+   0.4693,
+   0.5809
+  ],
+  "bbox_linhas": [
+   [
+    0.0235,
+    0.3725,
+    0.4693,
+    0.5809
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 247,
+  "obs": "",
+  "legenda": "Money Times, 24/09: avança na compra de shoppings da Iguatemi"
+ },
+ {
+  "id": "m11-sd-283bi",
+  "arquivo": "m11-sd-283bi.png",
+  "url": "https://www.seudinheiro.com/2026/bolsa-dolar/trxf11-enche-o-carrinho-de-novo-mas-fii-cai-na-bolsa-apos-compras-de-r-283-bilhoes-veja-o-que-entra-no-portfolio-giov/",
+  "fonte": "SEUDINHEIRO.COM",
+  "trecho_citado": "paga R$ 2,83 bilhões, mas FII cai na bolsa",
+  "bbox_trecho": [
+   0.0263,
+   0.1049,
+   0.9629,
+   0.4494
+  ],
+  "bbox_linhas": [
+   [
+    0.5628,
+    0.1049,
+    0.9629,
+    0.2846
+   ],
+   [
+    0.0263,
+    0.2697,
+    0.2535,
+    0.4494
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 328,
+  "obs": "R$ 2,83 bi é soma do portal (inclui pagamentos a prazo); roteiro usa ~R$ 3,3 bi assinados em setembro.",
+  "legenda": "Seu Dinheiro, 24/09: paga R$ 2,83 bilhões, mas FII cai"
+ },
+ {
+  "id": "m11b-sd-queda-27-no-ano",
+  "arquivo": "m11b-sd-queda-27-no-ano.png",
+  "url": "https://www.seudinheiro.com/2026/bolsa-dolar/trxf11-enche-o-carrinho-de-novo-mas-fii-cai-na-bolsa-apos-compras-de-r-283-bilhoes-veja-o-que-entra-no-portfolio-giov/",
+  "fonte": "SEUDINHEIRO.COM",
+  "trecho_citado": "o ativo acumula queda de 27% desde o início de 2026",
+  "bbox_trecho": [
+   0.1399,
+   0.7135,
+   0.7025,
+   0.8281
+  ],
+  "bbox_linhas": [
+   [
+    0.1399,
+    0.7135,
+    0.7025,
+    0.8281
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 370,
+  "obs": "",
+  "legenda": "queda de 27% em 2026"
+ },
+ {
+  "id": "m12-infomoney-brc-207",
+  "arquivo": "m12-infomoney-brc-207.png",
+  "url": "https://www.infomoney.com.br/onde-investir/fii-trxf11-conclui-venda-de-15-imoveis-por-r-20725-milhoes-veja-lucro-por-cota/",
+  "fonte": "INFOMONEY.COM.BR",
+  "trecho_citado": "15 imóveis por R$ 207,25 milhões",
+  "bbox_trecho": [
+   0.0277,
+   0.1053,
+   0.9152,
+   0.5746
+  ],
+  "bbox_linhas": [
+   [
+    0.5732,
+    0.1053,
+    0.9152,
+    0.364
+   ],
+   [
+    0.0277,
+    0.3158,
+    0.3257,
+    0.5746
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 294,
+  "obs": "",
+  "legenda": "InfoMoney: conclui venda de 15 imóveis por R$ 207,25 mi"
+ },
+ {
+  "id": "m13-arevista-brc-detalhe",
+  "arquivo": "m13-arevista-brc-detalhe.png",
+  "url": "https://arevista.com.br/fiis/trxf11-vende-15-imoveis-por-r-207-milhoes-mas-ha-um-detalhe/",
+  "fonte": "AREVISTA.COM.BR",
+  "trecho_citado": "a operação não representa entrada imediata de dinheiro no caixa",
+  "bbox_trecho": [
+   0.0283,
+   0.2735,
+   0.9625,
+   0.7137
+  ],
+  "bbox_linhas": [
+   [
+    0.6621,
+    0.2735,
+    0.9625,
+    0.4701
+   ],
+   [
+    0.0283,
+    0.5171,
+    0.2787,
+    0.7137
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 155,
+  "obs": "Recorte pega o fim do título cortado no topo ('um detalhe'); A Revista, 28-29/09.",
+  "legenda": "'a operação não representa entrada imediata de dinheiro no caixa'"
+ },
+ {
+  "id": "m14-suno-brc-junho",
+  "arquivo": "m14-suno-brc-junho.png",
+  "url": "https://www.suno.com.br/noticias/trxf11-vende-15-imoveis-por-207-mi-ao-brc/",
+  "fonte": "SUNO.COM.BR",
+  "trecho_citado": "O TRXF11 fechou acordo para alienar 15 propriedades ao BRC Renda Urbana FII",
+  "bbox_trecho": [
+   0.0357,
+   0.3832,
+   0.816,
+   0.4375
+  ],
+  "bbox_linhas": [
+   [
+    0.0357,
+    0.3832,
+    0.816,
+    0.4375
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 613,
+  "obs": "Mostra que a venda ao BRC foi acertada em 10-11/06 (proposta vinculante); 28/09 foi o fechamento.",
+  "legenda": "Suno, 11/06: o acordo com o BRC vem de junho"
+ },
+ {
+  "id": "m15-clubefii-condicoes",
+  "arquivo": "m15-clubefii-condicoes.png",
+  "url": "https://www.clubefiinews.com.br/hibrido/trxf11-amplia-portfolio-com-imoveis-e-shoppings",
+  "fonte": "CLUBEFIINEWS.COM.BR",
+  "trecho_citado": "outras dependem do cumprimento de condições contratuais para serem efetivadas",
+  "bbox_trecho": [
+   0.0386,
+   0.5183,
+   0.9614,
+   0.7927
+  ],
+  "bbox_linhas": [
+   [
+    0.2451,
+    0.5183,
+    0.9614,
+    0.6341
+   ],
+   [
+    0.0386,
+    0.6768,
+    0.1385,
+    0.7927
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 296,
+  "obs": "",
+  "legenda": "Clube FII News: parte dos negócios ainda depende de condições"
+ },
+ {
+  "id": "r1-receita-fii-20",
+  "arquivo": "r1-receita-fii-20.png",
+  "url": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/fundos-de-investimento-no-brasil",
+  "fonte": "RECEITA FEDERAL · gov.br",
+  "trecho_citado": "estão sujeitos à incidência do imposto à alíquota de 20%",
+  "bbox_trecho": [
+   0.4527,
+   0.1719,
+   0.7956,
+   0.2865
+  ],
+  "bbox_linhas": [
+   [
+    0.4527,
+    0.1719,
+    0.7956,
+    0.2865
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 222,
+  "obs": "Página da Receita 'Fundos de Investimento no Brasil'. ATENÇÃO: o mesmo texto da Receita tem um parágrafo acima (fora do recorte) dizendo que lucros distribuídos por FII têm IR de 20% na fonte — não usar.",
+  "legenda": "Receita Federal: venda de cota de FII, alíquota de 20%"
+ },
+ {
+  "id": "r2-receita-isencao-so-acoes-ouro",
+  "arquivo": "r2-receita-isencao-so-acoes-ouro.png",
+  "url": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1/isencoes",
+  "fonte": "RECEITA FEDERAL · gov.br",
+  "trecho_citado": "com ações e com ouro (ativo financeiro), se o total das vendas de cada ativo",
+  "bbox_trecho": [
+   0.2992,
+   0.7839,
+   0.7598,
+   0.8411
+  ],
+  "bbox_linhas": [
+   [
+    0.2992,
+    0.7839,
+    0.7598,
+    0.8411
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 444,
+  "obs": "A página não cita FII na isenção; a lista de isentos só traz ações e ouro (a leitura 'FII não tem' é inferência pela ausência).",
+  "legenda": "isenção de R$ 20 mil vale só para ações e ouro"
+ },
+ {
+  "id": "r3-receita-darf-ultimo-dia-util",
+  "arquivo": "r3-receita-darf-ultimo-dia-util.png",
+  "url": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1/calculo-e-pagamento-do-imposto",
+  "fonte": "RECEITA FEDERAL · gov.br",
+  "trecho_citado": "até o último dia útil do mês seguinte ao mês em que o ganho tiver sido obtido",
+  "bbox_trecho": [
+   0.1811,
+   0.2012,
+   0.6541,
+   0.3354
+  ],
+  "bbox_linhas": [
+   [
+    0.1811,
+    0.2012,
+    0.6541,
+    0.3354
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 189,
+  "obs": "",
+  "legenda": "DARF até o último dia útil do mês seguinte (código 6015)"
+ },
+ {
+  "id": "r4-receita-compensacao-perdas",
+  "arquivo": "r4-receita-compensacao-perdas.png",
+  "url": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/renda-variavel/bolsa-de-valores-1/compensacoes",
+  "fonte": "RECEITA FEDERAL · gov.br",
+  "trecho_citado": "poderão ser compensadas com os ganhos líquidos obtidos em outras operações, no próprio mês ou nos meses posteriores",
+  "bbox_trecho": [
+   0.0248,
+   0.5389,
+   0.9131,
+   0.8167
+  ],
+  "bbox_linhas": [
+   [
+    0.2339,
+    0.5389,
+    0.9131,
+    0.6611
+   ],
+   [
+    0.0248,
+    0.6944,
+    0.0931,
+    0.8167
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 208,
+  "obs": "A página é de ações/operações comuns; que perda de FII só compensa ganho de FII não está neste recorte.",
+  "legenda": "prejuízo compensa ganho no mesmo mês ou nos seguintes"
+ }
+]

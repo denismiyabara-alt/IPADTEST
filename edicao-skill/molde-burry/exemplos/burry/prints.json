@@ -1,0 +1,986 @@
+[
+ {
+  "id": "m1-burry-ero",
+  "arquivo": "m1-burry-ero.png",
+  "url": "https://www.benzinga.com/markets/equities/26/09/61912940/michael-burry-ignores-the-ai-woo-hoos-bets-on-a-copper-miner-feeding-the-data-center-boom-instead",
+  "fonte": "BENZINGA · 22/09/2026",
+  "trecho_citado": "Copper Miner",
+  "bbox_trecho": [
+   0.5078,
+   0.3872,
+   0.7927,
+   0.5649
+  ],
+  "bbox_linhas": [
+   [
+    0.5078,
+    0.3872,
+    0.7927,
+    0.5649
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 466,
+  "obs": "Manchete de portal (EN). Nao achei portal BR (InfoMoney/Money Times/Exame/Valor) com a noticia em 1 busca; so Benzinga Espana. O titulo atual do Benzinga mudou em relacao ao da URL ('...Ignores The AI Woo-Hoos...') e nao cita 'Ero Copper' no titulo — o nome aparece no corpo/ticker. Alternativa com 'Copper' no titulo: m7 (Yahoo/BeInCrypto).",
+  "legenda": "o Burry abriu posição na Ero Copper — mineradora de cobre com minas na Bahia e no Pará"
+ },
+ {
+  "id": "d1-substack",
+  "arquivo": "d1-substack.png",
+  "url": "https://michaeljburry.substack.com/p/trading-post-september-21-2026",
+  "fonte": "SUBSTACK CASSANDRA UNCHAINED (MICHAEL BURRY) · 21/09/2026",
+  "trecho_citado": "I am largely ignoring the “woo-hoos.”",
+  "bbox_trecho": [
+   0.0381,
+   0.7191,
+   0.9358,
+   0.8951
+  ],
+  "bbox_linhas": [
+   [
+    0.6937,
+    0.7191,
+    0.9358,
+    0.7963
+   ],
+   [
+    0.0381,
+    0.8179,
+    0.2245,
+    0.8951
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 576,
+  "obs": "Post pago: a parte publica NAO cita Ero Copper nem 'mid-sized' (isso esta atras do paywall; aparece so na cobertura, ex. m6/Stocktwits: 'Ero common does it for me'). Grifo em 2 linhas (ver bbox_linhas).",
+  "legenda": "“estou basicamente ignorando a euforia” — sobre a inteligência artificial"
+ },
+ {
+  "id": "d1b-substack-cobre",
+  "arquivo": "d1b-substack-cobre.png",
+  "url": "https://michaeljburry.substack.com/p/trading-post-september-21-2026",
+  "fonte": "SUBSTACK CASSANDRA UNCHAINED (MICHAEL BURRY) · 21/09/2026",
+  "trecho_citado": "I think of copper, and how it gets prettier as it ages.",
+  "bbox_trecho": [
+   0.0381,
+   0.3427,
+   0.6456,
+   0.4435
+  ],
+  "bbox_linhas": [
+   [
+    0.0381,
+    0.3427,
+    0.6456,
+    0.4435
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 441,
+  "obs": "Mesmo post, abertura publica. Frase literal do cobre.",
+  "legenda": "“penso no cobre, que fica mais bonito conforme envelhece”"
+ },
+ {
+  "id": "d1c-x-burry",
+  "arquivo": "d1c-x-burry.png",
+  "url": "https://platform.twitter.com/embed/Tweet.html?id=2102142300520435935",
+  "fonte": "X @michaeljburry · 21/09/2026",
+  "trecho_citado": "I am largely ignoring the “woo-hoos.”",
+  "bbox_trecho": [
+   0.0302,
+   0.1989,
+   0.9091,
+   0.327
+  ],
+  "bbox_linhas": [
+   [
+    0.8921,
+    0.1989,
+    0.9091,
+    0.2616
+   ],
+   [
+    0.0302,
+    0.2643,
+    0.5829,
+    0.327
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 913,
+  "obs": "Post do X via embed publico (platform.twitter.com), sem login. URL original: https://x.com/michaeljburry/status/2102142300520435935. Print alto (913 px): cortar embaixo na edicao se precisar. Grifo em 2 linhas: a 1a caixa e so o 'I' no fim da linha."
+ },
+ {
+  "id": "m2-pmam-rj",
+  "arquivo": "m2-pmam-rj.png",
+  "url": "https://www.moneytimes.com.br/paranapanema-pmam3-pede-recuperacao-judicial-em-carater-de-urgencia/",
+  "fonte": "MONEY TIMES · 01/12/2022",
+  "trecho_citado": "pede recuperação judicial",
+  "bbox_trecho": [
+   0.3873,
+   0.1419,
+   0.7486,
+   0.3503
+  ],
+  "bbox_linhas": [
+   [
+    0.3873,
+    0.1419,
+    0.7486,
+    0.3503
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 247,
+  "obs": "Finance News (fonte da pesquisa) deu Cloudflare; troquei por Money Times.",
+  "legenda": "a Paranapanema pede recuperação judicial — dezembro de 2022"
+ },
+ {
+  "id": "m3-barsi-barco",
+  "arquivo": "m3-barsi-barco.png",
+  "url": "https://bpmoney.com.br/negocios/barsi-sobre-rj-da-paranapanema-pmam3-para-o-barco-nao-afundar/",
+  "fonte": "BPMONEY · 04/12/2022",
+  "trecho_citado": "\"para o barco não afundar\"",
+  "bbox_trecho": [
+   0.0187,
+   0.0973,
+   0.9479,
+   0.4228
+  ],
+  "bbox_linhas": [
+   [
+    0.6803,
+    0.0973,
+    0.9479,
+    0.2617
+   ],
+   [
+    0.0187,
+    0.2584,
+    0.1562,
+    0.4228
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 324,
+  "obs": "Grifo em 2 linhas (ver bbox_linhas)."
+ },
+ {
+  "id": "m4-escoria",
+  "arquivo": "m4-escoria.png",
+  "url": "https://www.rad.cvm.gov.br/ENETCONSULTA/frmDownloadDocumento.aspx?Tela=99&numSequencia=1066511&numVersao=1&numProtocolo=1541805&descTipo=IPE&CodigoInstituicao=1",
+  "fonte": "FATO RELEVANTE PARANAPANEMA (CVM) · 03/07/2026",
+  "trecho_citado": "R$ 849.679.062,51",
+  "bbox_trecho": [
+   0.4298,
+   0.6683,
+   0.5969,
+   0.7162
+  ],
+  "bbox_linhas": [
+   [
+    0.4298,
+    0.6683,
+    0.5969,
+    0.7162
+   ]
+  ],
+  "largura_px": 967,
+  "altura_px": 508,
+  "obs": "Documento primario, nao manchete: nenhum portal com manchete sobre pagar divida com escoria achado em 2 buscas (o Seu Dinheiro 'abate milhoes em dividas' e sobre CONVERSAO de divida em acoes, maio/2026 — virou m4b). Grifo 2 no mesmo print: 'silicato de ferro' bbox [0.8089,0.778,0.9496,0.8259]. pdftoppm -r 130 → 967 px de largura.",
+  "legenda": "R$ 849,7 milhões de dívida quitados com escória (silicato de ferro)"
+ },
+ {
+  "id": "m4b-conversao-divida",
+  "arquivo": "m4b-conversao-divida.png",
+  "url": "https://www.seudinheiro.com/2026/empresas/queridinha-de-barsi-da-nova-cartada-para-sobreviver-a-recuperacao-judicial-paranapanema-pmam3-abate-milhoes-em-dividas-com-credores-miql/",
+  "fonte": "SEU DINHEIRO · 26/05/2026",
+  "trecho_citado": "“abate” milhões em dívidas",
+  "bbox_trecho": [
+   0.0263,
+   0.2315,
+   0.8611,
+   0.5273
+  ],
+  "bbox_linhas": [
+   [
+    0.7477,
+    0.2315,
+    0.8611,
+    0.3859
+   ],
+   [
+    0.0263,
+    0.373,
+    0.3219,
+    0.5273
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 382,
+  "obs": "ATENCAO: esta manchete e sobre conversao de divida em acoes (R$ 85 mi), NAO sobre a escoria. Serve pro trecho da diluicao do Barsi. Grifo em 2 linhas.",
+  "legenda": "dívida convertida em ações novas: a fatia de quem já era sócio encolhe"
+ },
+ {
+  "id": "m5-meme",
+  "arquivo": "m5-meme.png",
+  "url": "https://platform.twitter.com/embed/Tweet.html?id=2102122957082611772",
+  "fonte": "X @StockSavvyShay · 21/09/2026",
+  "trecho_citado": "short the building and long the wiring",
+  "bbox_trecho": [
+   0.0302,
+   0.8073,
+   0.9488,
+   0.8929
+  ],
+  "bbox_linhas": [
+   [
+    0.5258,
+    0.8073,
+    0.9488,
+    0.849
+   ],
+   [
+    0.0302,
+    0.8512,
+    0.1824,
+    0.8929
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 1370,
+  "obs": "Embed publico do post 2102122957082611772 (thread: mostra tambem o post 2102121446093079024 'Michael Burry goes long copper with a new position in $ERO' com foto do Burry). Grifo em 2 linhas.",
+  "legenda": "“vendido no prédio, comprado na fiação”"
+ },
+ {
+  "id": "m6-slok",
+  "arquivo": "m6-slok.png",
+  "url": "https://www.tradingview.com/news/stocktwits:6698ee0e2094b:0-big-short-michael-burry-tunes-out-ai-woo-hoos-finds-opportunity-in-copper-qxo-and-3-more-stocks/",
+  "fonte": "STOCKTWITS (via TRADINGVIEW) · 22/09/2026",
+  "trecho_citado": "with none in 2025",
+  "bbox_trecho": [
+   0.258,
+   0.7588,
+   0.4537,
+   0.8509
+  ],
+  "bbox_linhas": [
+   [
+    0.258,
+    0.7588,
+    0.4537,
+    0.8509
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 431,
+  "obs": "Paragrafo que cita Torsten Slok (Apollo) — sem a manchete no print (fica longe). Manchete da mesma materia: 'Big Short' Michael Burry Tunes Out AI 'Woo-Hoos' — Finds Opportunity In Copper, QXO And 3 More Stocks. Fonte original do Slok (Apollo Daily Spark) nao localizada.",
+  "legenda": "nenhuma grande descoberta de cobre em 2025 — Torsten Slok, economista da Apollo"
+ },
+ {
+  "id": "m7-cobre-recorde",
+  "arquivo": "m7-cobre-recorde.png",
+  "url": "https://finance.yahoo.com/markets/commodities/articles/missed-ai-rally-michael-burry-102158704.html",
+  "fonte": "YAHOO FINANCE (BEINCRYPTO) · 23/09/2026",
+  "trecho_citado": "Copper futures touched a record $6.95 a pound",
+  "bbox_trecho": [
+   0.0559,
+   0.5879,
+   0.7579,
+   0.6505
+  ],
+  "bbox_linhas": [
+   [
+    0.0559,
+    0.5879,
+    0.7579,
+    0.6505
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 833,
+  "obs": "COMEX: recorde intradiario US$ 6,95/lb em 22/09 e fechamento recorde US$ 6,92. Foto de capa escondida por CSS.",
+  "legenda": "o cobre bateu recorde na bolsa de Nova York: US$ 6,95 a libra"
+ },
+ {
+  "id": "m7b-cobre-recorde-lme",
+  "arquivo": "m7b-cobre-recorde-lme.png",
+  "url": "https://www.brasilemfolhas.com.br/2026/09/cobre-atinge-maior-preco-da-historia-na-london-metal-exchange/",
+  "fonte": "BRASIL EM FOLHAS · 07/09/2026",
+  "trecho_citado": "maior preço da história",
+  "bbox_trecho": [
+   0.2015,
+   0.1159,
+   0.5253,
+   0.2484
+  ],
+  "bbox_linhas": [
+   [
+    0.2015,
+    0.1159,
+    0.5253,
+    0.2484
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 451,
+  "obs": "Alternativa BR (portal pequeno): recorde LME US$ 14.533/t em 07/09/2026 (bate com SCMP)."
+ },
+ {
+  "id": "d2-pmam-2t26",
+  "arquivo": "d2-pmam-2t26.png",
+  "url": "https://api.mziq.com/mzfilemanager/v2/d/419ea13e-3f77-40c7-916f-17d2c9adde94/91c327da-4576-75e4-d78f-aeed531aecf0?origin=2",
+  "fonte": "RELEASE 2T26 PARANAPANEMA · 31/08/2026",
+  "trecho_citado": "0",
+  "bbox_trecho": [
+   0.2,
+   0.51,
+   0.8,
+   0.57
+  ],
+  "bbox_linhas": [
+   [
+    0.7069,
+    0.51,
+    0.7152,
+    0.5688
+   ]
+  ],
+  "largura_px": 967,
+  "altura_px": 272,
+  "obs": "Anexo IV – Volume de Vendas: Cobre Primario 550 t (2T25) → 0 t (2T26). Grifo e so o '0' da coluna 2T26 (caixa pequena; dar folga na edicao). 967 px (pdftoppm -r 130).",
+  "legenda": "vendas de cobre primário da Paranapanema: 550 t no 2º tri/25 → 0 t no 2º tri/26"
+ },
+ {
+  "id": "d2b-pmam-hibernacao",
+  "arquivo": "d2b-pmam-hibernacao.png",
+  "url": "https://api.mziq.com/mzfilemanager/v2/d/419ea13e-3f77-40c7-916f-17d2c9adde94/91c327da-4576-75e4-d78f-aeed531aecf0?origin=2",
+  "fonte": "RELEASE 2T26 PARANAPANEMA · 31/08/2026",
+  "trecho_citado": "hibernação da unidade Caraíba.",
+  "bbox_trecho": [
+   0.1587,
+   0.5851,
+   0.4253,
+   0.7434
+  ],
+  "bbox_linhas": [
+   [
+    0.1587,
+    0.5851,
+    0.4253,
+    0.7434
+   ]
+  ],
+  "largura_px": 967,
+  "altura_px": 127,
+  "obs": "Complemento do d2: frase da hibernacao (pag. 5 do release). Tem restinho da tabela anterior na borda de cima.",
+  "legenda": "o forno da Bahia em “hibernação”"
+ },
+ {
+  "id": "d3-pmam-acionistas",
+  "arquivo": "d3-pmam-acionistas.png",
+  "url": "https://ri.paranapanema.com.br/governanca-corporativa/composicao-acionaria/",
+  "fonte": "RI PARANAPANEMA · BASE 18/09/2026",
+  "trecho_citado": "LUIS BARSI FILHO",
+  "bbox_trecho": [
+   0.0748,
+   0.7286,
+   0.2577,
+   0.7506
+  ],
+  "bbox_linhas": [
+   [
+    0.0748,
+    0.7286,
+    0.2577,
+    0.7506
+   ]
+  ],
+  "largura_px": 1338,
+  "altura_px": 1925,
+  "obs": "Linha: LUIS BARSI FILHO 1,2614% (grafia do RI: 'LUIS'). Base agora e 18/09/2026 (a pesquisa citava 03/09). Percentual 1,2614 na mesma linha a direita: bbox aprox [0.86,0.7286,0.93,0.7506] (medido no olho, nao por Range).",
+  "legenda": "Luiz Barsi Filho: 1,26% da Paranapanema (base 18/09/2026)"
+ },
+ {
+  "id": "d4-ero-guidance",
+  "arquivo": "d4-ero-guidance.png",
+  "url": "https://www.globenewswire.com/news-release/2026/08/05/3339827/0/en/Ero-Copper-Reports-Second-Quarter-2026-Operating-and-Financial-Results.html",
+  "fonte": "ERO COPPER · RELEASE 2T26 (GLOBENEWSWIRE) · 05/08/2026",
+  "trecho_citado": "$2.15 to $2.35 per pound",
+  "bbox_trecho": [
+   0.0499,
+   0.3654,
+   0.3949,
+   0.4744
+  ],
+  "bbox_linhas": [
+   [
+    0.0499,
+    0.3654,
+    0.3949,
+    0.4744
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 363,
+  "obs": "Guidance de C1 2026 mantido. Titulo do release em d4b.",
+  "legenda": "custo previsto pra 2026: US$ 2,15 a 2,35 por libra de cobre"
+ },
+ {
+  "id": "d4b-ero-titulo",
+  "arquivo": "d4b-ero-titulo.png",
+  "url": "https://www.globenewswire.com/news-release/2026/08/05/3339827/0/en/Ero-Copper-Reports-Second-Quarter-2026-Operating-and-Financial-Results.html",
+  "fonte": "ERO COPPER · RELEASE 2T26 (GLOBENEWSWIRE) · 05/08/2026",
+  "trecho_citado": "Ero Copper Reports Second Quarter 2026",
+  "bbox_trecho": [
+   0.0973,
+   0.3222,
+   0.8747,
+   0.4556
+  ],
+  "bbox_linhas": [
+   [
+    0.0973,
+    0.3222,
+    0.8747,
+    0.4556
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 490,
+  "obs": "Cabecalho do release (titulo + data) pra abrir o d4."
+ },
+ {
+  "id": "d5-vale-ebitda",
+  "arquivo": "d5-vale-ebitda.png",
+  "url": "https://www.sec.gov/Archives/edgar/data/917851/000129281426000367/vale20260212_6k2.htm (pagina image_006.jpg)",
+  "fonte": "VALE · RELATORIO DA ADMINISTRACAO 2025 (6-K SEC) · 12/02/2026",
+  "trecho_citado": "18,532",
+  "bbox_trecho": [
+   0.925,
+   0.552,
+   0.984,
+   0.588
+  ],
+  "bbox_linhas": [
+   [
+    0.925,
+    0.552,
+    0.984,
+    0.588
+   ]
+  ],
+  "largura_px": 1360,
+  "altura_px": 830,
+  "obs": "Tabela 'Selected financial indicators' (BRL milhoes): EBITDA ajustado Vale Base Metals 18,532 × Iron Ore Solutions 76,745 (bbox [0.925,0.298,0.984,0.334]); TOTAL 85,890. O 6-K e pagina-imagem (image_006.jpg, 766 px) — recortei e ampliei 2x (LANCZOS): texto um pouco macio. bbox medido no olho.",
+  "legenda": "EBITDA 2025: minério de ferro R$ 76,7 bi × metais básicos R$ 18,5 bi"
+ },
+ {
+  "id": "d6-bdr-imposto",
+  "arquivo": "d6-bdr-imposto.png",
+  "url": "https://borainvestir.b3.com.br/noticias/imposto-de-renda/renda-variavel-imposto-de-renda/como-declarar-bdrs-no-imposto-de-renda-2026-veja-guia-completo-para-nao-cometer-erros/",
+  "fonte": "B3 BORA INVESTIR · 2026",
+  "trecho_citado": "BDR não entra na regra de isenção dos R$ 20 mil",
+  "bbox_trecho": [
+   0.0519,
+   0.1,
+   0.9151,
+   0.2618
+  ],
+  "bbox_linhas": [
+   [
+    0.2983,
+    0.1,
+    0.9151,
+    0.1676
+   ],
+   [
+    0.0519,
+    0.1941,
+    0.1395,
+    0.2618
+   ]
+  ],
+  "largura_px": 1399,
+  "altura_px": 823,
+  "obs": "Guia 'Como declarar BDRs no IR 2026'. A frase e de uma especialista da GRANA CAPITAL (o patrocinador) — bom pro encaixe da publi. Paragrafo seguinte tem 'alíquota de 15%'. Grifo em 2 linhas.",
+  "legenda": "BDR não entra na isenção dos R$ 20 mil por mês"
+ },
+ {
+  "id": "d6b-bdr-titulo",
+  "arquivo": "d6b-bdr-titulo.png",
+  "url": "https://borainvestir.b3.com.br/noticias/imposto-de-renda/renda-variavel-imposto-de-renda/como-declarar-bdrs-no-imposto-de-renda-2026-veja-guia-completo-para-nao-cometer-erros/",
+  "fonte": "B3 BORA INVESTIR · 2026",
+  "trecho_citado": "Como declarar BDRs no Imposto de Renda 2026",
+  "bbox_trecho": [
+   0.0406,
+   0.1518,
+   0.848,
+   0.6339
+  ],
+  "bbox_linhas": [
+   [
+    0.0406,
+    0.1518,
+    0.848,
+    0.4196
+   ],
+   [
+    0.0406,
+    0.3661,
+    0.3108,
+    0.6339
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 318,
+  "obs": "Manchete do mesmo guia (d6). Data de publicacao nao aparece no recorte."
+ },
+ {
+  "id": "foto-burry",
+  "arquivo": "foto-burry.jpg",
+  "url": "https://mining.com.au/wp-content/uploads/2026/09/Michael-Burry-scaled.jpg",
+  "fonte": "MINING.COM.AU (og:image da materia 'Big Short investor Michael Burry bets on copper')",
+  "trecho_citado": null,
+  "bbox_trecho": null,
+  "largura_px": 1120,
+  "altura_px": 630,
+  "obs": "Sem foto do Burry no Wikimedia Commons (busca vazia; artigo da Wikipedia nao tem imagem). Benzinga (m1) nao usa foto dele. Esta e foto de agencia da estreia de 'The Big Short' (NY, 2015), credito nao informado na pagina — licenca NAO livre, uso editorial/comentario por conta do Denis. Recorte de fundo: foto-burry_cut.png (1120x630, RGBA, hyperframes remove-background) — conferido: limpo, leve halo na orelha direita."
+ },
+ {
+  "id": "x-whale",
+  "arquivo": "x-whale.png",
+  "url": "https://x.com/WhaleReceipts/status/2102300197447725073",
+  "fonte": "X @WhaleReceipts · 22/09/2026",
+  "trecho_citado": "Michael Burry just went long copper.",
+  "bbox_trecho": [
+   0.033,
+   0.1866,
+   0.4433,
+   0.2213
+  ],
+  "largura_px": 1400,
+  "altura_px": 1199,
+  "legenda": "“Michael Burry acabou de apostar no cobre. Posição nova na Ero.”",
+  "obs": "Refeito 27/09 direto do x.com sem login (a copia 1x1 escondida pro leitor de tela casava antes do post; shot.mjs agora ignora bloco <20px). Print inclui nome, texto, imagens do post (foto do Burry + grafico ERO $34.99) e a linha 4:33 · 22 de set. de 2026 · 39 mil Visualizacoes."
+ },
+ {
+  "id": "x-tracker-shorts",
+  "arquivo": "x-tracker-shorts.png",
+  "url": "https://x.com/burrytracker/status/2102106271734198381",
+  "fonte": "X @burrytracker · 21/09/2026",
+  "trecho_citado": "Neither shorts covered nor puts sold",
+  "bbox_trecho": [
+   0.033,
+   0.4191,
+   0.9385,
+   0.4766
+  ],
+  "bbox_linhas": [
+   [
+    0.6738,
+    0.4191,
+    0.9385,
+    0.4463
+   ],
+   [
+    0.033,
+    0.4493,
+    0.1817,
+    0.4766
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 1527,
+  "legenda": "“nenhuma aposta na queda foi desmontada” — o próprio Burry",
+  "obs": "Refeito 27/09 via x.com (texto completo, sem 'Show more'). Grifo em 2 linhas (ver bbox_linhas): 'Neither shorts covered' no fim de uma linha e 'nor puts sold' no inicio da seguinte. O post tambem lista '• Bought Ero Copper $ERO' (y~0.25). Imagens do post: foto do Burry + logo Zoetis. Linha de data 15:42 · 21 de set. de 2026 · 140,6 mil Visualizacoes."
+ },
+ {
+  "id": "x-bulltheory",
+  "arquivo": "x-bulltheory.png",
+  "url": "https://x.com/BullTheoryio/status/2102218596198060341",
+  "fonte": "X @BullTheoryio · 21/09/2026",
+  "trecho_citado": "MICHAEL BURRY IS QUIETLY BETTING ON COPPER",
+  "bbox_trecho": [
+   0.0699,
+   0.1124,
+   0.6507,
+   0.1333
+  ],
+  "largura_px": 1400,
+  "altura_px": 1991,
+  "legenda": "“Michael Burry está apostando no cobre, em silêncio”",
+  "obs": "Refeito 27/09 via x.com. Post longo (1993 px de altura): lista das 5 compras, 'Neither shorts covered nor puts sold.' e 2 imagens (Burry + barras de cobre). Linha de data 23:09 · 21 de set. de 2026 · 202,7 mil Visualizacoes no pe. Cortar embaixo na edicao se precisar."
+ },
+ {
+  "id": "ss-archive",
+  "arquivo": "ss-archive.png",
+  "url": "https://michaeljburry.substack.com/archive",
+  "fonte": "Substack Cassandra Unchained (Michael Burry) · arquivo",
+  "trecho_citado": "Trading Post September 21, 2026",
+  "bbox_trecho": [
+   0.062,
+   0.7737,
+   0.6682,
+   0.8724
+  ],
+  "largura_px": 1210,
+  "altura_px": 608,
+  "legenda": "o post do dia 21 no Substack do Burry: “várias compras de valor, duas novas”",
+  "obs": "Print da pagina de arquivo do Substack (capturado em rodada anterior); so registrado agora."
+ },
+ {
+  "id": "p-copx",
+  "arquivo": "p-copx.png",
+  "url": "https://www.globalxetfs.com/funds/copx/",
+  "fonte": "Global X ETFs · página do COPX · dados de 25/09/2026",
+  "trecho_citado": "The Global X Copper Miners ETF (COPX) provides investors access to a broad range of copper mining companies.",
+  "bbox_trecho": [
+   0.0508,
+   0.543,
+   0.8982,
+   0.6151
+  ],
+  "bbox_linhas": [
+   [
+    0.0508,
+    0.543,
+    0.8982,
+    0.5758
+   ],
+   [
+    0.0508,
+    0.5823,
+    0.5475,
+    0.6151
+   ]
+  ],
+  "largura_px": 1400,
+  "altura_px": 1447,
+  "legenda": "COPX: o ETF que junta as mineradoras de cobre",
+  "obs": "Bloco 'Key Information' (Net Assets US$ 7,40 bi, taxa 0,65%, NAV US$ 86,53, as of Sep 25 2026) + ETF Summary (grifo, 2 linhas) + ETF Objective. Numero de holdings nao aparece na pagina."
+ },
+ {
+  "id": "p-copx-holdings",
+  "arquivo": "p-copx-holdings.png",
+  "url": "https://www.globalxetfs.com/funds/copx/",
+  "fonte": "Global X ETFs · COPX Holdings · 25/09/2026",
+  "trecho_citado": "ERO COPPER CORP",
+  "bbox_trecho": [
+   0.2421,
+   0.902,
+   0.339,
+   0.9207
+  ],
+  "largura_px": 1400,
+  "altura_px": 1144,
+  "legenda": "a Ero está dentro do COPX, mas fora das 10 maiores",
+  "obs": "Tabela aberta com 'Show All'. Ero e a 22a linha: 1,95% do fundo (ERO CN, 3.815.876 acoes, US$ 144,4 mi). As 10 maiores vao de 5,65% (Hudbay) a 4,18% (Boliden). bbox so no nome; a linha inteira da Ero vai de x 0.017 a 0.985, mesmo y. Topo corta o titulo 'Top Holdings'."
+ },
+ {
+  "id": "p-cper",
+  "arquivo": "p-cper.png",
+  "url": "https://www.uscfinvestments.com/cper",
+  "fonte": "USCF Investments · página do CPER · NAV de 25/09/2026",
+  "trecho_citado": "United States Copper Index Fund",
+  "bbox_trecho": [
+   0.2943,
+   0.3389,
+   0.7038,
+   0.4566
+  ],
+  "largura_px": 1399,
+  "altura_px": 390,
+  "legenda": "CPER: ETF que segue só o preço do metal",
+  "obs": "Hero da pagina (CPER / nome / NAV US$ 40,58 em 25/09/2026). Banner de cookies escondido por CSS, nada aceito. Base da legenda: a pagina diz que o objetivo do CPER e refletir o SummerHaven Copper Index Total Return (futuros de cobre), nao acoes de mineradoras. Borda cinza fina na lateral direita."
+ },
+ {
+  "id": "p-bcpx39",
+  "arquivo": "p-bcpx39.png",
+  "url": "https://investidor10.com.br/bdrs/bcpx39/",
+  "fonte": "Investidor10 · BCPX39 · 27/09/2026",
+  "trecho_citado": "COTAÇÃO BCPX39",
+  "bbox_trecho": [
+   0.0676,
+   0.6007,
+   0.219,
+   0.6855
+  ],
+  "largura_px": 1400,
+  "altura_px": 367,
+  "legenda": "BCPX39: o BDR do COPX na B3",
+  "obs": "Cards: valor atual R$ 45,56, liquidez diaria R$ 162,15 K, variacao 12M 49,57%, DY 1,77%; abaixo 'Global X Copper Miners ETF'. O cabecalho com o ticker grande fica numa barra fixa do site e some com o CSS anti-banner, por isso o grifo e no titulo 'COTAÇÃO BCPX39'. Titulo da pagina: 'BCPX39 - BDR que replica o ETF Internacional COPX'."
+ },
+ {
+  "id": "p-ero-quote",
+  "arquivo": "p-ero-quote.png",
+  "url": "https://finance.yahoo.com/quote/ERO/",
+  "fonte": "Yahoo Finance · ERO (NYSE) · fechamento 25/09/2026",
+  "trecho_citado": "Ero Copper Corp. (ERO)",
+  "bbox_trecho": [
+   0.0417,
+   0.285,
+   0.4986,
+   0.4352
+  ],
+  "largura_px": 1400,
+  "altura_px": 470,
+  "legenda": "Ero Copper na Bolsa de Nova York",
+  "obs": "Cotacao NYSE: US$ 37,87 (+2,05%) no fechamento de 25/09, after hours US$ 38,00. O print mostra so a NYSE; Toronto (ERO CN) aparece na tabela do COPX (p-copx-holdings). Se quiser a legenda colada no print: 'Ero Copper na Bolsa de Nova York'."
+ },
+ {
+  "id": "p-pmam3",
+  "arquivo": "p-pmam3.png",
+  "url": "https://investidor10.com.br/acoes/pmam3/",
+  "fonte": "Investidor10 · PMAM3 · 27/09/2026",
+  "trecho_citado": "COTAÇÃO PMAM3",
+  "bbox_trecho": [
+   0.0676,
+   0.8258,
+   0.2168,
+   0.9032
+  ],
+  "largura_px": 1400,
+  "altura_px": 402,
+  "legenda": "PMAM3 na B3",
+  "obs": "Inclui o aviso 'Empresa em recuperacao judicial' e os cards: cotacao R$ 0,39, variacao 12M -71,74%, P/L -0,09, P/VP -0,02, DY 0,00%. Ticker grande do cabecalho nao aparece (barra fixa escondida), grifo no titulo 'COTAÇÃO PMAM3'."
+ },
+ {
+  "id": "p-vale3",
+  "arquivo": "p-vale3.png",
+  "url": "https://investidor10.com.br/acoes/vale3/",
+  "fonte": "Investidor10 · VALE3 · 27/09/2026",
+  "trecho_citado": "COTAÇÃO VALE3",
+  "bbox_trecho": [
+   0.0676,
+   0.7589,
+   0.2073,
+   0.8661
+  ],
+  "largura_px": 1400,
+  "altura_px": 290,
+  "legenda": "VALE3 na B3",
+  "obs": "Cards: cotacao R$ 70,80, variacao 12M 30,06%, P/L 30,30, P/VP 1,60, DY 7,93%. Grifo no titulo 'COTAÇÃO VALE3' (mesmo motivo do p-pmam3)."
+ },
+ {
+  "id": "foto-ero-mina",
+  "arquivo": "foto-ero-mina.jpg",
+  "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/1517/2025/08/AnyConv.com__Background-Layer-1-Layer-2-Layer-3-Layer-4-Layer-5-Layer-6-Curves-1-Vibrance-1-Color-Balance-1.webp",
+  "fonte": "Ero Copper · site oficial (ero.com/what-we-do/caraiba-operations/)",
+  "trecho_citado": null,
+  "bbox_trecho": [
+   0.3,
+   0.3,
+   0.7,
+   0.7
+  ],
+  "largura_px": 607,
+  "altura_px": 408,
+  "legenda": "Complexo Caraíba da Ero, na Bahia",
+  "obs": "tipo foto. Vista aerea do complexo de mineracao Caraiba (Vale do Curaca, BA). Credito: Ero Copper Corp. (site oficial), licenca nao informada = uso editorial. PEQUENA: 607x408 (maior versao no site); usar em janela/moldura ou com leve zoom."
+ },
+ {
+  "id": "foto-ero-mina2",
+  "arquivo": "foto-ero-mina2.jpg",
+  "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/1517/2025/08/Background-Layer-1-Layer-2-Layer-3-Layer-4-Layer-5-Layer-6-Curves-1-Vibrance-1-Color-Balance-1-9.png",
+  "fonte": "Ero Copper · site oficial (ero.com/what-we-do/tucuma-operation/)",
+  "trecho_citado": null,
+  "bbox_trecho": [
+   0.3,
+   0.35,
+   0.75,
+   0.65
+  ],
+  "largura_px": 607,
+  "altura_px": 408,
+  "legenda": "Mina Tucumã da Ero, no Pará",
+  "obs": "tipo foto. Vista aerea da operacao Tucuma (PA): cava ao fundo e usina no centro. Credito: Ero Copper Corp., uso editorial. PEQUENA: 607x408, cantos arredondados no original (pontas brancas) — cortar ~10 px nas bordas."
+ },
+ {
+  "id": "foto-ero-operario",
+  "arquivo": "foto-ero-operario.jpg",
+  "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/1517/2025/11/IMG_4741-scaled.webp",
+  "fonte": "Ero Copper · site oficial (ero.com, home)",
+  "trecho_citado": null,
+  "bbox_trecho": [
+   0.35,
+   0.4,
+   0.6,
+   0.95
+  ],
+  "largura_px": 2560,
+  "altura_px": 1707,
+  "legenda": "funcionária da Ero numa das operações",
+  "obs": "tipo foto (extra). Operaria de uniforme e capacete numa passarela industrial; 2560x1707, boa resolucao. Operacao nao identificada na pagina. Credito: Ero Copper Corp., uso editorial."
+ },
+ {
+  "id": "foto-ero-poco",
+  "arquivo": "foto-ero-poco.jpg",
+  "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/1517/2025/08/AnyConv.com__IMG_0905-1.webp",
+  "fonte": "Ero Copper · site oficial (banner da pagina Caraiba)",
+  "trecho_citado": null,
+  "bbox_trecho": [
+   0.3,
+   0.1,
+   0.7,
+   0.9
+  ],
+  "largura_px": 1440,
+  "altura_px": 432,
+  "legenda": "torre do poço da mina Caraíba",
+  "obs": "tipo foto (extra). Banner 1440x432: dois funcionarios na frente da torre (headframe) de poco subterraneo. Formato faixa, bom pra fundo com texto. Credito: Ero Copper Corp., uso editorial."
+ },
+ {
+  "id": "foto-vale",
+  "arquivo": "foto-vale.jpg",
+  "url": "https://commons.wikimedia.org/wiki/File:Isa_Carajas.jpg",
+  "fonte": "Wikimedia Commons · IsabeleC · CC BY-SA 4.0",
+  "trecho_citado": null,
+  "bbox_trecho": [
+   0.3,
+   0.3,
+   0.8,
+   0.7
+  ],
+  "largura_px": 1920,
+  "altura_px": 1440,
+  "legenda": "mina de ferro da Vale em Carajás, no Pará",
+  "obs": "tipo foto. Cava de minerio de ferro de Carajas (terra vermelha, bancadas e britagem). Licenca CC BY-SA 4.0, autor IsabeleC — creditar 'Foto: IsabeleC / Wikimedia Commons, CC BY-SA 4.0'. Arquivo = miniatura 1920px do original 4000x3000."
+ },
+ {
+  "id": "foto-vale-cobre",
+  "arquivo": "foto-vale-cobre.jpg",
+  "url": "https://valebasemetals.com/wp-content/uploads/2026/02/50-7.png",
+  "fonte": "Vale Base Metals · site oficial (valebasemetals.com/pt/nossas-operacoes-2/sossego/)",
+  "trecho_citado": null,
+  "bbox_trecho": [
+   0.4,
+   0.5,
+   0.62,
+   0.95
+  ],
+  "largura_px": 1441,
+  "altura_px": 351,
+  "legenda": "mina de cobre de Sossego, da Vale, no Pará",
+  "obs": "tipo foto. Cava de cobre de Sossego (Canaa dos Carajas, PA) vista do alto, com lago verde no fundo. Banner 1441x351 (faixa larga) — usar como faixa ou com zoom. Credito: Vale Base Metals, uso editorial. Alternativa no site: Salobo (50-8.png, usina, escurecida)."
+ },
+ {
+  "id": "foto-cobre-catodo",
+  "arquivo": "foto-cobre-catodo.jpg",
+  "url": "https://commons.wikimedia.org/wiki/File:Bundles_of_cathode_copper.png",
+  "fonte": "Wikimedia Commons · ChrisFountain · CC BY-SA 3.0",
+  "trecho_citado": null,
+  "bbox_trecho": [
+   0.1,
+   0.5,
+   0.85,
+   0.8
+  ],
+  "largura_px": 1920,
+  "altura_px": 1280,
+  "legenda": "cobre refinado em placas: o cátodo",
+  "obs": "tipo foto. Fardos de catodos de cobre num patio de refinaria. CC BY-SA 3.0, autor ChrisFountain. Miniatura 1920x1280."
+ },
+ {
+  "id": "foto-cobre-fio",
+  "arquivo": "foto-cobre-fio.jpg",
+  "url": "https://commons.wikimedia.org/wiki/File:Copper_wire_rod_produced_by_LS_Cable_%26_System.jpg",
+  "fonte": "Wikimedia Commons · Lsgeeks · CC BY-SA 3.0",
+  "trecho_citado": null,
+  "bbox_trecho": [
+   0.0,
+   0.35,
+   0.6,
+   0.95
+  ],
+  "largura_px": 1920,
+  "altura_px": 1440,
+  "legenda": "bobinas de vergalhão de cobre, a matéria-prima do fio",
+  "obs": "tipo foto. Fileira de bobinas de vergalhao de cobre (LS Cable & System, Coreia) na frente da fabrica. CC BY-SA 3.0, autor Lsgeeks. Nao e fio fino/cabo; nao achei foto livre melhor de bobina de fio."
+ },
+ {
+  "id": "foto-cobre-cano",
+  "arquivo": "foto-cobre-cano.jpg",
+  "url": "https://commons.wikimedia.org/wiki/File:Statue_of_Liberty_Close.jpg",
+  "fonte": "Wikimedia Commons · Darkshaed · CC BY-SA 4.0",
+  "trecho_citado": null,
+  "bbox_trecho": [
+   0.3,
+   0.3,
+   0.7,
+   0.7
+  ],
+  "largura_px": 1920,
+  "altura_px": 2560,
+  "legenda": "a Estátua da Liberdade é de cobre: o verde é a pátina",
+  "obs": "tipo foto. Estatua da Liberdade em close (tocha e rosto, patina verde). Vertical 1920x2560. CC BY-SA 4.0, autor Darkshaed."
+ },
+ {
+  "id": "foto-cobre-cano2",
+  "arquivo": "foto-cobre-cano2.jpg",
+  "url": "https://commons.wikimedia.org/wiki/File:Copper_drainpipe_(51307551459).jpg",
+  "fonte": "Wikimedia Commons · Chris Rycroft · CC BY 2.0",
+  "trecho_citado": null,
+  "bbox_trecho": [
+   0.2,
+   0.2,
+   0.8,
+   0.8
+  ],
+  "largura_px": 1920,
+  "altura_px": 2880,
+  "legenda": "cano de cobre envelhecido",
+  "obs": "tipo foto (extra). Calha/cano de cobre com oxidacao marrom-avermelhada, NAO esverdeado. Vertical 1920x2880. CC BY 2.0, autor Chris Rycroft."
+ },
+ {
+  "id": "foto-datacenter",
+  "arquivo": "foto-datacenter.jpg",
+  "url": "https://commons.wikimedia.org/wiki/File:BalticServers_data_center.jpg",
+  "fonte": "Wikimedia Commons · BalticServers.com · CC BY-SA 3.0",
+  "trecho_citado": null,
+  "bbox_trecho": [
+   0.3,
+   0.3,
+   0.7,
+   0.7
+  ],
+  "largura_px": 1920,
+  "altura_px": 1275,
+  "legenda": "data center: cada servidor vive de cobre",
+  "obs": "tipo foto. Corredor de racks de servidores com luz azul (mostra servidores, cabos pouco visiveis). CC BY-SA 3.0, autor BalticServers.com."
+ },
+ {
+  "id": "foto-caminhao-mina",
+  "arquivo": "foto-caminhao-mina.jpg",
+  "url": "https://commons.wikimedia.org/wiki/File:Haul_truck_(Continental_Mine,_Butte,_Montana,_USA)_1.jpg",
+  "fonte": "Wikimedia Commons · James St. John · CC BY 2.0",
+  "trecho_citado": null,
+  "bbox_trecho": [
+   0.2,
+   0.1,
+   0.8,
+   0.9
+  ],
+  "largura_px": 1920,
+  "altura_px": 1023,
+  "legenda": "caminhão fora de estrada numa mina de cobre",
+  "obs": "tipo foto. Caminhao fora de estrada na Continental Mine (cobre, Butte, Montana, EUA). CC BY 2.0, autor James St. John. Alternativa: Corta Cerro Colorado, Riotinto (CC BY-SA 4.0)."
+ },
+ {
+  "id": "foto-paranapanema",
+  "arquivo": "foto-paranapanema.jpg",
+  "url": "https://www.seudinheiro.com/uploads/2022/12/Paranapanema-Cobre.jpg",
+  "fonte": "Seu Dinheiro · og:image da materia sobre a Paranapanema (PMAM3)",
+  "trecho_citado": null,
+  "bbox_trecho": [
+   0.45,
+   0.2,
+   0.85,
+   0.95
+  ],
+  "largura_px": 1120,
+  "altura_px": 675,
+  "legenda": "cobre derretido na fundição da Paranapanema",
+  "obs": "tipo foto. Vazamento de cobre fundido (forno/panela). Imagem de materia do Seu Dinheiro, aparentemente repost de post de Instagram da empresa; credito original nao informado, uso editorial. Recortei 80 px da direita pra tirar a seta de carrossel do Instagram (1200→1120). Unidade (Dias d'Avila ou Santo Andre) NAO identificada. O site da Paranapanema nao tem foto grande; o video institucional (INSTITUCIONAL-PMA_PORT_2021.mp4, 854x480) tem letreiros em quase todos os quadros."
+ }
+]
