@@ -2,15 +2,15 @@
 titulo: "Apê alugado ou fundo imobiliário: o mesmo aluguel chega R$ 8 mil menor em 2026"   # recomendado pelo empacotador (alternativas nas notas)
 data_publicacao: 2026-10-06 (terça)
 formato: longo, teleprompter
-versao: "v1.4 congelada (v1.0 → juiz 7/10 → v1.1 → juiz 10/10 → punch-up do juiz-ritmo → ouvinte-frio PASSA → ajuste ao portão score_roteiro.py: 5/6, sem eliminatório)"
-duracao_estimada: "≈11:10 (1.579 palavras faladas: 10:50 a 145 por minuto, 11:40 a 135; com pausas e telas, 11 a 12 min; teto 14:00)"
+versao: "v1.5 (revisão independente: justiça da conta e gancho) ← v1.4 congelada (v1.0 → juiz 7/10 → v1.1 → juiz 10/10 → punch-up do juiz-ritmo → ouvinte-frio PASSA → ajuste ao portão score_roteiro.py: 5/6, sem eliminatório)"
+duracao_estimada: "≈11:15 (1.613 palavras faladas: 11:07 a 145 por minuto, 11:57 a 135; com pausas e telas, 11 a 12 min; teto 14:00)"
 briefing: pautas-canal/briefings/2026-10-06-fii-ou-imovel-briefing.md
 concorrentes: pautas-canal/briefings/2026-10-06-fii-ou-imovel-concorrentes.md
 notas_e_juizes: pautas-canal/roteiros/2026-10-06-fii-ou-imovel-alugado-notas.md
 fontes_de_dado: "1 fonte de dado, 2 datas-base — informes de FII na CVM (trimestral de 30/06/2026; mensal de ago/2026). Regras: Lei 14.754/2023, Lei 15.270/2025, MP 1.303/2025 (Denis valida na primária)"
 orcamento_numeros: "fontes 2 · números novos falados por bloco: B0 5 · B1 4 · B2 4 · B3 5 · B4 4 · B5 4 · B6 4 · B7 0 · frases com 3+ números: 0"
 gancho_trecho: "Num deles, chegam os vinte e quatro mil. No outro, chega menos de dezesseis mil."
-numero_ancorado_trecho: "Oito mil e cinquenta reais de diferença por ano. Mesmo aluguel. Mesmo apartamento."
+numero_ancorado_trecho: "Oito mil e cinquenta reais de diferença por ano. Mesmo dinheiro investido. Mesmo aluguel no papel."
 loop_trecho: "Oito mil e cinquenta reais por ano."
 agregado_linha_trecho: "No seu apartamento, a vacância só tem dois valores: zero ou cem por cento."
 prova_espectador_trecho: "Fácil, por quantos meses no ano? O corretor não falou. Você completou sozinho: doze."
@@ -44,11 +44,11 @@ No outro, chega menos de dezesseis mil.
 
 Oito mil e cinquenta reais de diferença por ano.
 
-Mesmo aluguel. Mesmo apartamento.
+Mesmo dinheiro investido. Mesmo aluguel no papel.
 
-E não, não é o inquilino que sumiu com a chave.
+E não, não é o inquilino que parou de pagar.
 
-Esse é outro vídeo. E outro advogado.
+Aí já é outro vídeo. E outro advogado.
 
 [CORTE: close]
 
@@ -176,6 +176,8 @@ Onze aluguéis de dois mil.
 
 Vinte e dois mil reais no ano.
 
+E olha que eu nem tirei o condomínio do mês vazio.
+
 [TELA: 2.000 × 11 meses = R$ 22.000]
 
 ## BLOCO 3 - O LEÃO DESTE ANO (3:55–5:15)
@@ -240,7 +242,7 @@ Agora põe os mesmos quatrocentos mil num fundo imobiliário.
 
 Se esse fundo pagar os mesmos seis por cento ao ano, entram vinte e quatro mil.
 
-Sem tirar mês vazio: o rendimento do fundo já sai depois dos imóveis vazios e das despesas dele.
+Sem tirar mês vazio: o rendimento do fundo já sai depois dos imóveis vazios, das despesas e da taxa do gestor.
 
 Sem tirar imposto: pra você, pessoa física, esse rendimento é isento.
 
@@ -270,7 +272,13 @@ Nos doze meses até agosto, o rendimento mediano dos fundos que passam nesse cor
 
 Sete vírgula oito sobre o patrimônio do fundo, que é o valor dos imóveis e do caixa dele, dividido pelas cotas. Não sobre o preço da cota na tela.
 
-[TELA: CVM, informe mensal de FII — 12 meses até ago/26, fundos listados que passam no corte: mediana de 7,8% sobre o valor patrimonial]
+Só que essa mediana mistura fundo dono de prédio com fundo que empresta dinheiro pro setor imobiliário.
+
+O fundo que empresta vive de juro, e o juro puxa a mediana pra cima.
+
+Por causa dessa mistura, a conta dá pro fundo seis por cento, e não a mediana.
+
+[TELA: CVM, informe mensal de FII — 12 meses até ago/26, fundos listados que passam no corte: mediana de 7,8% sobre o valor patrimonial (mistura fundos de imóvel e fundos de crédito imobiliário)]
 
 Ainda assim, tem gente que vendeu o apartamento, comprou cota de fundo
 

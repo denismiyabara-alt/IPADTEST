@@ -167,3 +167,68 @@ tem "FII". Se o Denis quiser priorizar a Pesquisa (que trouxe só 13 views ao v�
    como promessa de liquidez.
 6. **Rodar no Mac:** ouvinte-frio novo (este não foi independente) e juiz-ritmo com o DNA de voz; o portão já rodou aqui.
 7. **Item 3 do portão** (seção 1): decidir sobre o conflito com a proibição de "guarda esse número".
+
+---
+
+## 8. Revisão independente (03/10/2026, sessão separada que não escreveu o roteiro)
+
+**A conta é justa? Sim na aritmética e no lado do apartamento; tinha dois pontos de enquadramento que favoreciam o fundo, corrigidos na v1.5.**
+
+Conferido contra o briefing, passo a passo: 2.000 × 11 = 22.000 · 22.000 × 27,5% = 6.050 · 22.000 − 6.050 = 15.950 ·
+15.950 ÷ 400.000 = 3,99% · 400.000 × 6% = 24.000 · 24.000 − 15.950 = 8.050 · 8.050 × 5 = 40.250 ≈ 10% de 400 mil. Tudo
+bate. A margem de 27,5% para quem tem salário acima de R$ 7.350 é coerente com a Lei 15.270 (L3, secundária); a isenção
+do FII com 100 cotistas e menos de 10% (Lei 14.754, L1/L2, secundária) está dita na fala e as três condições na cartela.
+
+O que é honesto e já estava lá:
+- O vídeo **diz** que o 6% do apartamento é bruto e o do fundo é líquido (B1: "Os dois números parecem iguais. Só um deles
+  já tirou a roupa."; B4: "o rendimento do fundo já sai depois dos imóveis vazios e das despesas dele"). Essa assimetria é
+  a tese, não um truque: o 6% do fundo é uma hipótese "se", abaixo da mediana CVM, e não um 6% bruto disfarçado.
+- O lado do apartamento é **favorecido**, não prejudicado: a conta não tira o condomínio/IPTU do mês vazio, nem a taxa da
+  imobiliária, nem manutenção. (Ignora as deduções do carnê-leão, mas elas só existem sobre custos que a conta também não
+  tirou.) Logo, os R$ 8.050 são conservadores contra o fundo pelo lado do imóvel.
+- O 1 mês vazio (8,3%) contra os 176/2.018 (8,7%) é ordem de grandeza: o dado da CVM é foto de imóveis 100% vazios em
+  30/06, não tempo médio de vacância. A fala diz "mais ou menos a mesma proporção": aceitável.
+- Contraponto presente: risco de cota (B5, 10% = 40 mil = 5 anos de vantagem), liquidez dos dois lados (B5), concentração
+  (B6, 97 de 272), gestor decide (B6), lei muda (B6, MP 1.303). Nenhum fundo pelo nome, nenhuma corretora, disclaimer
+  "sem recomendação nenhuma, tá bom?" no B6, nenhuma frase de compra/venda.
+
+O que **não** era justo e foi mudado:
+1. **B0 "Mesmo aluguel. Mesmo apartamento."** era falso ao pé da letra: se o *mesmo apartamento* estivesse dentro de um
+   fundo, ele também teria o mês vazio e a taxa do gestor; só o imposto mudaria. O 24 mil é o de um fundo que paga 6% sobre
+   os mesmos 400 mil. → "Mesmo dinheiro investido. Mesmo aluguel no papel." (frontmatter `numero_ancorado_trecho` atualizado.)
+2. **A mediana de 7,8% como prova de que 6% "não é chute"** mistura fundos de tijolo com fundos de papel (CRI), cuja
+   renda é juro, num ano de Selic a 13,75%: seria comparar renda de juro nominal com aluguel (o defeito do P2). Refiz na
+   primária (CVM, mesmos arquivos e o mesmo recorte do C5, n = 290, script em scratchpad): fundos com ≥ 50% do ativo
+   investido em imóvel: **mediana 6,96% (n = 139; 56 abaixo de 6%)**; com ≥ 50% em CRI/LCI: **11,41% (n = 75)**; por
+   segmento declarado, Logística 7,52%, Shoppings 7,40%, Escritórios 4,76%, Residencial 1,93% (n = 19). Conclusão: o 6%
+   continua **abaixo da mediana dos fundos de imóvel**, então a hipótese segue honesta, mas a mediana de 7,8% superestima
+   a folga. → Três frases novas no B4, **sem número novo na fala**: "Só que essa mediana mistura fundo dono de prédio com
+   fundo que empresta dinheiro pro setor imobiliário. / O fundo que empresta vive de juro, e o juro puxa a mediana pra
+   cima. / Por causa dessa mistura, a conta dá pro fundo seis por cento, e não a mediana." Cartela do B4 ganhou
+   "(mistura fundos de imóvel e fundos de crédito imobiliário)".
+3. **O que já está descontado no fundo** ficou explícito: "depois dos imóveis vazios, das despesas e da taxa do gestor".
+4. **O lado do apartamento é favorecido** e o vídeo não dizia: B2 ganhou "E olha que eu nem tirei o condomínio do mês
+   vazio." (sem número).
+
+Juiz-roteiro / juiz-ritmo (leitura independente, sem refazer as notas):
+- **"Esse é outro vídeo. E outro advogado."** depois de "o inquilino que sumiu com a chave" não fechava: quem some com a
+  chave não chama advogado; quem para de pagar, sim (despejo). → "E não, não é o inquilino que parou de pagar. / Aí já é
+  outro vídeo. E outro advogado." Agora a piada se entende ouvindo.
+- O resto soa falado, não traduzido: "A calça discorda.", "onde só mora a poeira", "Pra quem não tem salário.", "Não dá pra
+  vender a cozinha." funcionam em português do Brasil. Nenhuma palavra da lista anti-IA. "Escolhe o seu chefe, Tanacão"
+  não é recomendação (é piada sobre gestor × síndico). Trechos de pronúncia mais longos, mas legíveis no teleprompter:
+  "Os fundos imobiliários contam a vacância pra CVM, a xerife do mercado, de três em três meses, imóvel por imóvel." e a
+  frase do patrimônio no B4 — mantidos.
+- Ressalva de rubrica (não mexi): o B0 diz "Num deles, chegam os vinte e quatro mil" sem "se"; o "se" só chega no B4.
+  É gancho; o juiz anterior aceitou. Denis decide.
+- Os acréscimos do B4 adicionam ~35 palavras ao bloco mais denso; não houve ouvinte-frio novo nesta revisão.
+
+Portão (v1.5): `ELIMINATORIOS: nenhum` · 5/6 (o mesmo FALHA do item 3, conflito com a proibição de "guarda esse número",
+seção 1) · costura: nenhum · CVM traduzida na hora. Avisos de ouvido: nenhum.
+
+Validações novas para o Denis:
+8. **Mediana por tipo de fundo** (item 2 acima): se quiser trocar o 7,8% da fala por um número só de fundos de imóvel
+   (≈ 7%, n = 139, critério ≥ 50% do ativo em imóvel), é número novo: conferir o critério e o arquivo antes.
+9. **Segmento residencial:** os 19 fundos residenciais listados têm mediana de 1,93% em 12 meses. Se algum comentário
+   perguntar "e fundo de apartamento?", a resposta não é o 6%. Fora da fala; só para o Denis saber.
+10. Rodar um **ouvinte-frio novo** no B4 (três frases novas).
