@@ -1,0 +1,13 @@
+vendor/
+__pycache__/
+.pytest_cache/
+candidatas/
+voz-mestra.wav
+*/imagens/
+*/hf-b*/
+*/voz_*
+*/render_*
+*/ouvido_*.json
+*/blocos.py
+*/concat.txt
+*.mp4

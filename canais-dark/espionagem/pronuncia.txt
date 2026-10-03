@@ -1,0 +1,59 @@
+# Dicionário de pronúncia da voz do canal (vale para todos os episódios).
+# Uma linha por palavra:  palavra<TAB>grafia_pra_voz[<TAB>como o Whisper escreve]
+# Muda SÓ o texto que vai para o TTS. Roteiro, cartela, legenda e conferência usam a grafia original.
+# Palavra inteira, sem diferenciar maiúscula/minúscula. Primeiro teste de ouvido: rodar ouvir_pronuncia no Mac.
+# Grafias escolhidas pela pronúncia de origem (alemão, hebraico, espanhol), adaptadas ao português falado.
+# O 'rr' e o 'r' inicial em português soam como o 'h' aspirado do alemão e do hebraico.
+Eichmann	Áichman
+Solingen	Zôlinguen
+Linz	Lints
+Wannsee	Vânzê
+Auschwitz	Áuchvits
+SS	ésse ésse
+Klement	Klemént
+Clemens	Klêmens
+Klaus	Kláus
+Sylvia	Sílvia
+Lothar	Lótar
+Hermann	Hérman
+Fritz	Frits
+Bauer	Báuer
+Hesse	Hésse
+Mossad	Mossád
+Isser	Íssêr
+Harel	Rarél
+Zvi	Tsví
+Aharoni	Arrarôni
+Neal	Nil
+Bascomb	Béscom
+Heninger	Rêninguer
+Vera	Vêra
+Rafi	Ráfi
+Eitan	Eitán
+Malkin	Málkin
+momentito	momentíto
+señor	senhór
+Britannia	Britânia
+El Al	Él Ál
+Dakar	Dacár
+Lod	Lód
+Ben-Gurion	Ben Gúrion
+Knesset	Knésset
+Garibaldi	Garibáldi
+Beit Ha'am	Bêit Rá-ám
+Moshe	Môche
+Landau	Lândau
+Halevi	Raléví
+Yitzhak	Itsrák
+Raveh	Ravê
+Gideon	Guidiôn
+Hausner	Ráusner
+Servatius	Servátsius
+Yad Vashem	Iád Vachém
+Hannah	Rána
+Arendt	Árent
+The New Yorker	Dê Niú Iórquer
+Ramla	Rámla
+Mercedes-Benz	Mercêdes Bents
+CIA	Cía	CIA
+# CIA: em caixa alta a troca vira 'CÍA' (lida como palavra pelo acento); se a voz soletrar, trocar por 'sí a'.
