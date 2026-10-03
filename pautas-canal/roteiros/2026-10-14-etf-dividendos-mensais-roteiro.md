@@ -4,9 +4,9 @@ serie: Série Renda Mensal, Ep. 1 de 6
 formato: long (teleprompter)
 data_publicacao: 2026-10-14 (quarta, 19h)
 data_roteiro: 2026-10-03
-versao: v3 (v1 reescrita no esqueleto de roteiro-regras/, commit 795bc06; v3 aplica juiz-roteiro, juiz-ritmo e ouvinte-frio da v2)
-duracao_estimada: "~13:10 (1.964 palavras faladas a 150 por minuto, números por extenso contados como palavra, mais a pausa de 2 s; teto 14:00)"
-status: "RASCUNHO v3. A v2 passou por juiz-roteiro, juiz-ritmo e ouvinte-frio independentes (notas no fim); a v3 corrige o que eles apontaram e precisa de nova rodada independente. Falta a leitura do Denis"
+versao: v4 (v2 = esqueleto de roteiro-regras/; v3 = 1ª rodada de conserto; v4 = 2ª e última rodada, regra de parada)
+duracao_estimada: "~13:10 (1.960 palavras faladas a 150 por minuto, números por extenso contados como palavra, mais a pausa de 2 s; teto 14:00)"
+status: "RASCUNHO v4. Duas rodadas de juiz-roteiro, juiz-ritmo e ouvinte-frio independentes (notas no fim); regra de parada atingida. Falta a leitura do Denis, a rodada na v4 e o empacotador-yt independente"
 briefing: pautas-canal/briefings/2026-10-14-etf-dividendos-mensais-briefing.md (GO, com ajustes)
 conferencia: pautas-canal/briefings/2026-10-14-CONFERENCIA.md
 concorrentes: pautas-canal/briefings/2026-10-14-etf-dividendos-mensais-concorrentes.md
@@ -42,9 +42,9 @@ thumbnail_conceito: "Denis agachado ao lado de um balde quase cheio embaixo de u
 thumbnail_prompt: "Denis crouching next to a nearly full metal bucket under the tap of a rooftop water tank, pointing at the bucket and looking at the camera with one eyebrow raised, mid-gesture, warm afternoon light, clean cream background (#f6f2e8), editorial photography, shallow depth of field, no text, 1280x720"
 
 gancho_escolhido: "A do briefing (o gêmeo), reescrito no esqueleto promessa → pergunta"
-cumpre_nos_15s: "Fala, Tanaka. Cem mil reais em cada um de dois ETFs da B3, que seguem o mesmo índice, nos mesmos doze meses. Pelo gráfico da cota, o que paga renda todo mês ficou nove mil, duzentos e sessenta reais atrás do outro."
+cumpre_nos_15s: "Fala, Tanaka. Nove mil, duzentos e sessenta reais atrás. Foi assim que um ETF que paga renda todo mês terminou o ano contra o irmão dele. A conta é pelo gráfico da cota, em cada cem mil reais."
 
-hook_trecho: "Pelo gráfico da cota, o que paga renda todo mês ficou nove mil, duzentos e sessenta reais atrás do outro."
+hook_trecho: "Nove mil, duzentos e sessenta reais atrás."
 stake_trecho: "No fim do ano, a diferença de verdade entre os dois foi de setecentos e quarenta reais."
 pergunta_trecho: "o ETF que paga todo mês está te pagando, ou está te devolvendo o seu próprio dinheiro?"
 loop_trecho: "Nos mesmos cem mil reais, ele terminou o ano quatro mil e cem reais atrás do CDI, a taxa de referência dos CDBs."
@@ -57,7 +57,7 @@ analogia_camada3_trecho: "O nível da caixa com torneira parecia bem mais baixo.
 analogia_ultima_trecho: "você põe o balde de volta na caixa"
 concessao_trecho: "Pra quem vive dessa renda, esse preço pode fazer sentido. Pra quem não precisa dela agora, o gêmeo mostra o que fica dentro da caixa."
 alvo_poderoso_trecho: "O ranking de yield é a única competição em que cair ajuda."
-objecao_trecho: "Aí você pensa: \"eu só quero a renda, não ligo pra cota\"."
+objecao_trecho: "Aí você deve estar pensando: \"um e meio de taxa é alto?\"."
 ferramenta_trecho: "faz a conta do balde na caixa"
 ---
 
@@ -65,16 +65,16 @@ ferramenta_trecho: "faz a conta do balde na caixa"
 
 ## BLOCO 0 - PROMESSA E PERGUNTA (0:00–0:40)
 
-Fala, Tanaka. Cem mil reais em cada um de dois ETFs da B3, que seguem o mesmo índice, nos mesmos doze meses.
+Fala, Tanaka. Nove mil, duzentos e sessenta reais atrás. Foi assim que um ETF que paga renda todo mês terminou o ano contra o irmão dele. A conta é pelo gráfico da cota, em cada cem mil reais.
 
-Pelo gráfico da cota, o que paga renda todo mês ficou nove mil, duzentos e sessenta reais atrás do outro.
+ETF é fundo negociado na bolsa, e esses dois seguem o mesmo índice, nos mesmos doze meses.
 
 No fim do ano, a diferença de verdade entre os dois foi de setecentos e quarenta reais.
 
 [TELA: duas barras sem nome, "o que reinveste" e "o que paga todo mês"; embaixo, "R$ 9.260" aparece, risca em vermelho, e
 "R$ 740" pousa ao lado (um som, só no pouso). Peça `barras` da biblioteca, rótulos sem ticker. Fonte: B3 (COTAHIST) e fnet]
 
-O resto sumiu do gráfico. Do seu bolso, não sumiu.
+Os dois números são verdadeiros. Só um deles é o que você ganhou.
 
 E tem um terceiro ETF, que paga quase um por cento ao mês. Nos mesmos cem mil reais, ele terminou o ano quatro mil e cem reais atrás do CDI, a taxa de referência dos CDBs.
 
@@ -102,7 +102,7 @@ E a inflação oficial, o IPCA, nos doze meses até agosto, foi de quatro vírgu
 
 [TELA: EXEMPLO HIPOTÉTICO · IPCA de 12 meses até ago/2026: 4,22% (BCB, SGS 13522) · retorno real: 1,04 ÷ 1,0422 − 1 = −0,21%]
 
-No exemplo, a renda inteira era a cota voltando pro bolso. Pra saber quanto disso acontece na vida real, precisava de duas caixas iguais: uma com torneira e outra sem.
+No exemplo, dois terços da renda eram a cota voltando pro bolso. Pra saber quanto da renda é cota voltando na vida real, precisava de duas caixas iguais: uma com torneira e outra sem.
 
 ---
 
@@ -155,15 +155,13 @@ Somando os doze avisos, o balde do DIVD onze recebeu oito vírgula cinco dois po
 
 [TELA: soma R$ 4,7614 por cota ÷ R$ 55,86 = 8,52%]
 
-Agora você tem os dois números na mão. Na cota, o DIVD onze ficou nove vírgula dois seis pontos atrás do gêmeo. No balde, ele recebeu oito vírgula cinco dois. Faz a subtração aí antes de mim, Tanaka.
+Agora você põe o balde de volta na caixa. Na cota, o DIVD onze ficou nove vírgula dois seis pontos atrás do gêmeo. No balde, ele recebeu oito vírgula cinco dois. Faz a subtração aí antes de mim, Tanaka.
 
 [PAUSA: 2 s, olhando pra câmera. Sem B-roll]
 
 Menos de um ponto. Zero vírgula sete quatro, pra ser exato.
 
 [TELA: 9,26 − 8,52 = 0,74 ponto]
-
-Você põe o balde de volta na caixa: a cota do DIVD onze subiu quinze vírgula um cinco, e o balde soma mais oito vírgula cinco dois. Dá vinte e três vírgula seis sete por cento, contra os vinte e quatro vírgula quatro um do gêmeo.
 
 [TELA: peça `barras`, 2º momento "cota + balde": DIVD11 vai de 15,15 para 23,67 (15,15 + 8,52); DIVO11 fica em 24,41.
 `"ativos": true`, critério "Critério: os dois ETFs da B3 que seguem o IDIV, um distribui e o outro reinveste" →
@@ -177,7 +175,7 @@ O nível da caixa com torneira parecia bem mais baixo. Só que o balde embaixo d
 
 E as duas caixas passaram com folga do CDI do mesmo período, uns nove pontos acima. A conta não acusou ninguém, viu?
 
-Receber todo mês custou menos de um ponto em doze meses. Pra quem vive dessa renda, esse preço pode fazer sentido. Pra quem não precisa dela agora, o gêmeo mostra o que fica dentro da caixa. A conta mostra o tamanho do preço; quem decide é você. E nenhum desses dois códigos está aqui como indicação: não é recomendação de investimento.
+Receber todo mês custou menos de um ponto em doze meses. Esse preço existe, e é pequeno. Se ele faz sentido, depende de você precisar da renda agora ou não, e quem decide é você. Nenhum desses dois códigos está aqui como indicação: não é recomendação de investimento.
 
 [CARD: Fb0l4KEq27o, o ranking de ETFs que mais pagaram dividendos mensais (jan/26)]
 
@@ -195,25 +193,25 @@ E na venda de ETF não tem aquela isenção das ações, de quem vende até vint
 
 Comparar o DIVD onze, que já pagou o imposto, com o DIVO onze, que ainda nem foi cobrado, é covardia.
 
-Com os dois vendidos no mesmo dia, primeiro de outubro, a diferença entre os dois ETFs fica em zero vírgula seis três ponto. Quase a mesma de antes do imposto.
+Com os dois vendidos no mesmo dia, primeiro de outubro, o DIVO onze continua na frente. Antes do imposto, a diferença era de zero vírgula sete quatro ponto. Depois do imposto, fica em zero vírgula seis três.
 
 [TELA: depois do IR, os dois vendidos no mesmo dia · DIVO11: 24,41% × 0,85 = 20,75% · DIVD11: 15,15% × 0,85 + 7,25% = 20,12%
 (a renda do balde, menos 15% retidos na fonte, vira 7,25%) · diferença: 0,63 ponto. Fonte: Lei 14.754/2023, art. 24 (15% retidos
 na distribuição); IN RFB 1.585/2015, arts. 57 e 59 (15% na venda, sem a isenção de R$ 20 mil das ações)]
 
-Um imposto vem todo mês, o outro vem no fim, e em um ano os dois ETFs quase empataram. O leão não cobra menos de ninguém. Só muda o dia da visita.
+Um imposto vem todo mês, o outro vem no fim, e em um ano os dois ETFs quase empataram. O imposto não cobra menos de ninguém. Só muda o dia da cobrança.
 
 Os setecentos e quarenta são de antes de qualquer imposto. E não vieram da taxa. Nas duas lâminas, que é o resumo que todo fundo publica, a taxa total é a mesma: zero vírgula cinco por cento ao ano.
 
 [TELA: as duas lâminas (agosto), "Taxa Total Máxima: 0,50% a.a." grifada nas duas]
 
-Entre essas duas caixas, a taxa empata. Entre ETFs diferentes, ela é um furo no fundo da caixa, e furo pequeno, em dez anos, faz poça grande.
+Entre essas duas caixas, a taxa empata. Entre ETFs diferentes, ela é um furo no fundo da caixa. E esse furo, diferente do balde, não aparece em verde no aplicativo. Quanto ele leva em dez anos?
 
 ---
 
 ## BLOCO 5 - O FURO (5:50–7:00)
 
-Pra medir a poça, nem precisa saber quanto o ETF rendeu: é a conta só da taxa, com cem mil reais parados por dez anos.
+Pra medir o furo, nem precisa saber quanto o ETF rendeu: é a conta só da taxa, com cem mil reais parados por dez anos.
 
 Se a taxa for de zero vírgula cinco por cento ao ano, ela leva uns quatro mil e novecentos reais.
 
@@ -222,19 +220,19 @@ Se a taxa for de um e meio por cento ao ano, ela leva uns catorze mil.
 [TELA: EXEMPLO · só a taxa, sem rendimento · R$ 100 mil por 10 anos · 0,5% a.a.: 0,995¹⁰ = 95,11% → tirou R$ 4.889 ·
 1,5% a.a.: 0,985¹⁰ = 85,97% → tirou R$ 14.027 · conta própria]
 
-E a taxa não tira férias, Tanaka. O imposto só cobra quando tem renda. A taxa cobra em mês bom e em mês ruim.
+E a taxa não tira férias, Tanaka. O imposto só cobra quando tem renda. A taxa cobra em mês bom e em mês ruim. É o único sócio que nunca perdeu um mês.
 
 E um e meio não é número de exemplo. É a taxa máxima de um ETF da B3 que investe em ações americanas, o SPYI onze. Um vírgula cinco um por cento ao ano, já somando a taxa do fundo americano em que ele investe.
 
 [TELA: regulamento do SPYI11 (fnet id 647768), Anexo, item 7.1.2, "Taxa Máxima: 1,51% ao ano" grifada]
 
-Aí você pensa: "um e meio de taxa é alto?". A conta dos dez anos mostra o tamanho do furo; o resto é com você.
+Aí você deve estar pensando: "um e meio de taxa é alto?". Na conta dos dez anos, um e meio leva quase três vezes o que leva meio por cento.
 
 Onde achar a taxa: na lâmina, procura a taxa total máxima. Se o ETF compra fundo lá fora, confere no regulamento se essa taxa total já soma a do fundo de fora, tá bom?
 
 E o SPYI onze, o da taxa de um e meio, é justamente o que mais pagou renda de todos que apareceram aqui. De onde vem tanta água?
 
-> [CORTE SHORT 3 — o bloco 5 de "Pra medir a poça" até "o resto é com você" (~55 s) é o Short de 25/11, "Taxa de administração do
+> [CORTE SHORT 3 — o bloco 5 de "Pra medir o furo" até "quase três vezes o que leva meio por cento" (~55 s) é o Short de 25/11, "Taxa de administração do
 > ETF: quanto tira em 10 anos" (T17). Abre com uma frase nova: "Cem mil reais parados dez anos num ETF." "EXEMPLO" na tela; o SPYI11
 > só com a taxa máxima de 1,51%, sem juízo.]
 
@@ -244,18 +242,18 @@ E o SPYI onze, o da taxa de um e meio, é justamente o que mais pagou renda de t
 
 Vem de outro cano.
 
-O SPYI onze põe noventa e cinco por cento ou mais do dinheiro num ETF americano, o SPYI. É o fundo de lá que tem as ações do S&P 500, as maiores da bolsa americana, e todo mês vende opções de compra.
+O SPYI onze põe noventa e cinco por cento ou mais do dinheiro num ETF dos Estados Unidos. É esse fundo americano que tem as ações do S&P 500, as maiores da bolsa americana, e todo mês vende opções de compra.
 
-Traduzindo: o fundo de lá vende pra alguém o direito de comprar aquelas ações por um preço acima do de hoje. Quem compra o direito paga na hora, vrau, e esse valor se chama prêmio. O prêmio é a renda.
+Traduzindo: o fundo americano vende pra alguém o direito de comprar aquelas ações por um preço acima do de hoje. Quem compra o direito paga na hora, vrau, e esse valor se chama prêmio. O prêmio é a renda.
 
-O preço dessa renda: se as ações subirem além daquele ponto, a alta fica com quem comprou o direito. Se a carteira cair, a queda vem inteirinha.
+O preço dessa renda: se as ações subirem além daquele ponto, a alta fica com quem comprou o direito. Se a carteira cair, a queda vem inteirinha. A alta tem teto. A queda veio sem nenhum.
 
 [TELA: três palavras, uma por vez: RENDA ALTA · ALTA LIMITADA · QUEDA INTEIRA. Fonte: regulamento do SPYI11 (fnet),
 Anexo, itens 5.1 e 6.1.1]
 
 Na caixa d'água, é uma caixa enchida pelo cano do prêmio, com uma boia que não deixa o nível passar de certo ponto. A torneira jorra, e o nível não sobe.
 
-E o SPYI onze, o fundo daqui, não vende opção nenhuma: o regulamento só deixa ele usar esse tipo de contrato pra se proteger. Quem vende é o fundo de lá.
+E o SPYI onze, o fundo daqui, não vende opção nenhuma: o regulamento só deixa ele usar esse tipo de contrato pra se proteger de perda. Quem vende é o fundo americano.
 
 Esse cano encheu quanto balde em doze meses? Em doze pagamentos, em reais, o balde do SPYI onze recebeu onze vírgula sete seis por cento da cota do começo. Quase um por cento ao mês.
 
@@ -265,14 +263,14 @@ Somando a cota e o balde, o SPYI onze rendeu dez vírgula três sete por cento n
 
 E o CDI, nos mesmos doze meses, rendeu catorze vírgula quatro sete.
 
-Do CDI pro SPYI onze, nos cem mil reais do começo, são os quatro mil e cem de distância. E é bruto contra bruto: o imposto ainda não entrou de nenhum dos dois lados.
+Do CDI pro SPYI onze, a distância é de quatro vírgula um pontos. Nos cem mil reais do começo, são os quatro mil e cem reais. E é bruto contra bruto: o imposto ainda não entrou de nenhum dos dois lados.
 
 [TELA: o SPYI11, mesmos 12 meses · balde: R$ 13,0763 por cota em 12 eventos ÷ R$ 111,15 = 11,76% · cota: R$ 111,15 →
 R$ 109,60 = −1,39% · total: 11,76 − 1,39 = 10,37% · CDI acumulado no período (BCB, SGS 12): 14,47% ·
 distância: 14,47 − 10,37 = 4,10 pontos = R$ 4.100 a cada cem mil. Fonte: fnet (avisos do SPYI11), B3 (COTAHIST), BCB.
 "Não é recomendação de investimento."]
 
-E teve o dólar, que caiu no período. Sem o efeito do dólar, a cota ficou praticamente parada.
+E o dólar caiu no período e puxou a cota pra baixo. Sem essa queda do dólar, a cota ficou praticamente parada.
 
 [TELA: `grafico_cotacao`, `serie.py b3 SPYI11 --comparador CDI` (mesma janela) (cota parada × CDI subindo). Fonte: B3
 (COTAHIST) · CDI: BCB (SGS 12). Legenda: "PTAX: R$ 5,3208 → R$ 5,2079, BCB"]
@@ -283,7 +281,9 @@ E essa renda não é promessa: o prêmio muda com o mercado, e a renda muda junt
 
 [CARD: IB1mBcF00jc, JEPI39, a mesma família de estratégia, em BDR]
 
-Tem um primo dessa estratégia que chega à B3 por outro caminho: o JEPI trinta e nove. É um BDR, um recibo negociado aqui de um fundo lá de fora. O rendimento dele não é isento, e a forma de pagar o imposto vem no informe de quem emite o BDR aqui.
+E o JEPI trinta e nove, um primo dessa estratégia, chega à B3 como BDR: um recibo de um fundo lá de fora, negociado aqui. O rendimento dele não é isento. A forma de pagar o imposto vem no informe de quem emite o BDR aqui.
+
+Primo ou não, a pergunta que todo mundo faz pra esses fundos é a mesma: a cota um dia volta?
 
 [TELA: tabela de 3 colunas · ETF da B3 que distribui: IR retido na fonte em cada pagamento (bloco 4) · BDR de ETF americano
 (JEPI39, na B3 desde fevereiro): não é isento; siga o informe da instituição depositária; na venda, o mesmo IR do ganho da venda
@@ -298,15 +298,13 @@ art. 3º) · "o imposto de cada um, em detalhe: vídeo de 27/10". Nenhuma alíqu
 
 ## BLOCO 7 - AS OBJEÇÕES (8:50–10:10)
 
-Renda alta, cota parada, imposto pingando: e ainda tem quem olhe pra isso e pense "mas a cota volta".
+Pode voltar. A conta de doze meses é uma janela só. Você refaz a mesma conta em mais de uma janela, de dois e de três anos, quando o ETF tiver idade pra isso.
 
-Pode voltar. A conta de doze meses é uma janela só. Refaz em mais de uma janela, de dois e de três anos, quando o ETF tiver idade pra isso.
-
-Aí você pensa: "eu só quero a renda, não ligo pra cota". A mesma porcentagem em cima de uma cota menor dá uma renda menor no ano seguinte. A cota de hoje é a renda do ano que vem. Torneira não fabrica água, Tanaka.
+E tem quem diga: "eu só quero a renda, não ligo pra cota". A mesma porcentagem em cima de uma cota menor dá uma renda menor no ano seguinte. A cota de hoje é a renda do ano que vem, Tanaka.
 
 E o yield alto? Yield é a renda dividida pelo preço da cota. Se a cota cai, o yield sobe sozinho, sem o fundo pagar um centavo a mais. O ranking de yield é a única competição em que cair ajuda.
 
-Um ETF vendido como de renda alta estreou na B3 em dezembro do ano passado. Até primeiro de outubro, a cota desse ETF caiu trinta e cinco vírgula nove cinco por cento desde a estreia. No ranking, o yield dele brilha. A cota, o ranking não mostra.
+Um ETF vendido como de renda alta estreou na B3 em dezembro do ano passado. Até primeiro de outubro, a cota desse ETF caiu trinta e cinco vírgula nove cinco por cento desde a estreia. No ranking, o yield dele brilha.
 
 [TELA: `grafico_cotacao`, `serie.py b3 ETHY11 --aviso` · R$ 101,46 (1º pregão, dezembro) → R$ 64,99
 (1º de outubro): −35,95%. Fonte: B3 (COTAHIST). "Não é recomendação de investimento." Sem "promessa de 30%" (item 15 não conferido)]
@@ -315,7 +313,7 @@ Um ETF vendido como de renda alta estreou na B3 em dezembro do ano passado. Até
 
 ## FECHO - O BALDE DE VOLTA NA CAIXA (10:10–11:00)
 
-O ranking mostra o balde. O aplicativo mostra o balde. O gráfico mostra a caixa. Ninguém junta os dois pra você.
+O aplicativo mostra o balde. O gráfico mostra a caixa. Juntar os dois dá trabalho, e não dá print.
 
 Nove mil, duzentos e sessenta pelo gráfico. Setecentos e quarenta com o balde de volta na caixa.
 
@@ -390,9 +388,10 @@ Então, Tanaka, da próxima vez que o aplicativo te mostrar o balde em verde, an
 9. **Pronúncia dos códigos** (DIVD onze, DIVO onze, SPYI onze, JEPI trinta e nove) e do índice (IDIV).
 10. **"Eu também" (bloco 1):** é o Denis entrando junto na cena do print (P4). Ele confirma se quer dizer.
 11. **Piadas** (ele corta o que não soar dele): "nem a bala do troco da padaria", "esse veio de terno e gravata", "linha da cota:
-    não consta", "com cara de quem perdeu a final", "é covardia", "o leão não cobra menos de ninguém, só muda o dia da visita",
-    "a taxa não tira férias", "furo pequeno, em dez anos, faz poça grande", "o folheto fala da renda em letra grande", "torneira
-    não fabrica água", "o ranking de yield é a única competição em que cair ajuda".
+    não consta", "com cara de quem perdeu a final", "é covardia", "o imposto não cobra menos de ninguém, só muda o dia da cobrança",
+    "a taxa não tira férias", "o folheto fala da renda em letra grande", "a alta tem
+    teto, a queda veio sem nenhum", "é o único sócio que nunca perdeu um mês", "juntar os dois dá trabalho, e não dá print",
+    "o ranking de yield é a única competição em que cair ajuda".
 
 **Antes de gravar (Mac, não é do Denis):** IPCA de set/2026 se gravar depois de 09/10 (item 13; troca o 4,22% e o −0,21%);
 o item 17 do briefing não precisa (o roteiro não cita o código que não negocia na B3); receita do `motion/biblioteca/dados.py` para as barras do par (a biblioteca pede que o
@@ -421,6 +420,8 @@ Toda linha cita o item do briefing (C = conferido no briefing, seção 4.1; R = 
 | IR na venda da cota de ETF, sem a isenção de R$ 20 mil | 15% | R6 (IN RFB 1.585/2015, arts. 57 e 59) |
 | renda líquida do DIVD11 (tela) | 7,25% | briefing 3.3; conta: 8,52 × 0,85 |
 | diferença depois do IR | 0,63 ponto ("quase a mesma de antes do imposto") | briefing 3.3, passo 3; conta: 20,75 − 20,12 |
+| "dois terços da renda eram a cota voltando" (exemplo) | 8 ÷ 12 | conta derivada de C19 (declarada aqui) |
+| "quase três vezes o que leva meio por cento" | 14.027 ÷ 4.889 = 2,87 | conta derivada de C20 (declarada aqui) |
 | prova no espectador | 9,26 − 8,52 = 0,74 | briefing 3.3 ("dos 9,26 pontos, 8,52 voltaram como renda") |
 | os dois vendidos em 01/10/2026 | 20,75% × 20,12% | R9; contas: 24,41 × 0,85 e 15,15 × 0,85 + 7,25 |
 | taxa total máxima do par | 0,50% ao ano nos dois | R3 (lâminas de 31/08/2026) |
@@ -434,7 +435,7 @@ Toda linha cita o item do briefing (C = conferido no briefing, seção 4.1; R = 
 | cota do SPYI11 | R$ 111,15 → R$ 109,60 = −1,39% | C3 |
 | retorno total do SPYI11 | 10,37% bruto; 8,61% líquido (tela) | R7 |
 | CDI no período | 14,47% (02/10/2025 a 01/10/2026) | C14 (BCB, SGS 12) |
-| SPYI11 contra o CDI | 4,10 pontos = R$ 4.100 em R$ 100 mil | briefing 3.4 e 9 (gancho C); conta: 14,47 − 10,37 (R7, C14) |
+| SPYI11 contra o CDI | 4,10 pontos ("quatro vírgula um pontos") = R$ 4.100 em R$ 100 mil | briefing 3.4 e 9 (gancho C); conta: 14,47 − 10,37 (R7, C14) |
 | dólar no período ("caiu"; números só na tela) | PTAX R$ 5,3208 → R$ 5,2079 = −2,12%; "cota praticamente parada" sem o dólar | R10 (BCB, PTAX); a cota em dólar (+0,74%) fica fora para não confundir com os 0,74 ponto do par |
 | JEPI39 na B3 (tela: "desde fevereiro") | desde 23/02/2026 | C11 |
 | FII isento | 100 cotistas ou mais; cotista com menos de 10% das cotas | R13 (Lei 11.033/2004, art. 3º) |
@@ -447,19 +448,76 @@ Toda linha cita o item do briefing (C = conferido no briefing, seção 4.1; R = 
 
 ## CHECADORES E NOTAS DOS JUÍZES
 
-### Checadores mecânicos (rodados em 03/10/2026, na nuvem)
+### Checadores mecânicos (rodados em 03/10/2026, na nuvem, na v4)
 
 - `investir-e-cocar/pipeline/gate_qualidade.py` neste arquivo, `--data 2026-10-14`, título escolhido: **OK, 0 bloqueantes, 0
   avisos, padrão de IA 0 pts.** Na 1ª rodada deu 1 BLOQUEANTE falso (`IR_BDR_DIVIDENDO_ISENTO` na frase do FII, que vinha logo
   depois da do BDR): a frase do FII foi reescrita sem mudar o fato ("a pessoa física não paga imposto sobre a renda").
 - O mesmo gate nas checagens de título (`checar_recomendacao`, `checar_corretora`, `checar_tickers`), como faz o
-  `checar_serie.py`, nos 3 títulos: **0 problemas**; os 3 com até 60 caracteres (56, 55 e 47), sem "vale a pena"/"qual a melhor".
+  `checar_serie.py`, nos 3 títulos: **0 problemas**; os 3 com até 60 caracteres (56, 52 e 47), sem "vale a pena"/"qual a melhor".
 - `pautas-canal/serie/checar_serie.py`: **OK** (só avisos antigos dos arquivos da série, nenhum deste roteiro).
-- Molde repetido (substituto local do `score_roteiro.py`): 5-gramas da fala contra os 369 roteiros de
-  `investir-e-cocar/vault/roteiros/`. Em 3+ vídeos só aparecem sequências de número ("cinco por cento ao ano", "um por cento ao
-  mês") e o aviso "não é recomendação de investimento", que a rubrica isenta. "por cento sobre o ganho" (3 vídeos) foi reescrito.
-- **Não rodaram:** `score_roteiro.py` e `fala_so.py` (estão no Mac).
+- Molde repetido, além do `score_roteiro.py` (que só compara com a pasta do próprio arquivo): 5-gramas da fala contra os 369
+  roteiros de `investir-e-cocar/vault/roteiros/`. Em 3+ vídeos só aparecem sequências de número ("cinco por cento ao ano", "um
+  por cento ao mês") e o aviso "não é recomendação de investimento", que a rubrica isenta.
+- `fala_so.py` (Mac) não existe aqui; a fala dos juízes saiu de um extrator equivalente (sem frontmatter, sem [TELA], sem notas).
 
-### Juízes
+### score_roteiro.py (roteiro-regras/, commit e070069), na v4
 
-(em andamento)
+```
+    ELIMINATORIOS: nenhum
+    
+    ITENS MECANICOS (6 de 10 — os outros 4 exigem julgamento):
+      [PASSA] item  2 — 2 numero(s) no bloco 1
+      [FALHA] item  3 — nao achou loop aberto ('guarda esse numero...')
+      [PASSA] item  6 — 1 marcador(es) de analogia (alvo: 1, esticada)
+      [PASSA] item  8 — nenhum meta-discurso
+      [FALHA] item  9 — numeros em 2+ blocos: {'R$ 740': 2}
+      [PASSA] item 10 — ferramenta nomeada
+    
+    ⚠️  SIGLAS NA FALA (o portao NAO checa traducao — confira uma a uma):
+        CDI, IPCA
+        jargao nao traduzido na hora e ELIMINATORIO pela rubrica.
+    
+    ELIMINATORIOS DE COSTURA: nenhum (pontes ok, zero molde repetido)
+    
+    AVISOS DE OUVIDO (2) — nao zeram; o teste de verdade e o agente ouvinte-frio:
+      ~ [longa+numero, 26 palavras] Foi assim que um ETF que paga renda todo mês terminou o ano contra o irmão dele, pelo gráfico da cota, em cada...
+      ~ [longa+numero, 30 palavras] de ETF · FII: a pessoa física não paga IR na renda se o fundo tiver 100 cotistas ou mais e cotista com menos d...
+    
+    parcial mecanico: 4/6
+```
+
+Leitura: item 3 falha porque o portão só reconhece loop com "guarda esse número", proibido desde 01/10 (o juiz-roteiro passou o
+item 3 nas duas rodadas). Item 9 acusa "R$ 740" na cartela do gancho e na do payoff (número da promessa voltando). CDI e IPCA
+são traduzidos na fala ("a taxa de referência dos CDBs"; "a inflação oficial, o IPCA").
+
+### Juízes independentes (cada rodada em sessão nova, sem ver as notas do autor)
+
+O fluxo pedido é roteirista → juiz-roteiro até 10/10 → juiz-ritmo → ouvinte-frio → empacotador. Aqui os três agentes rodaram em
+paralelo em duas rodadas (v2 e v3), sem esperar o 10/10, porque o acervo de roteiros e o corpus de voz do Mac não existem na nuvem
+e o prazo pedia uma leitura completa antes da do Denis. O empacotador ficou com o roteirista (títulos e thumbnail no frontmatter);
+**falta o empacotador-yt independente.**
+
+| rodada | juiz-roteiro | juiz-ritmo | ouvinte-frio |
+|---|---|---|---|
+| v2 | **0/10** (eliminatórios: 3 pontes que anunciam; "a conta que o aplicativo não faz" sem fonte). Sem eles, 4/10 | piada 5 · conexão 7 · PUNCH-UP | média 7,3 · bloco 7 (BDR/FII) com 6 · REPROVA · conta central certa |
+| v3 | **0/10** (eliminatório: "Ninguém junta os dois pra você", sem fonte). Sem ele, **7/10**: falham 1 (gancho), 6 (caixa em quase todo bloco + imagem do leão), 9 (0,74 calculado 2x; "o app mostra o balde" 4x). Costura A e B: OK | piada **7** · conexão **8** · PUNCH-UP | média **7,4** · bloco 6 (opções + JEPI39) com 6 · REPROVA · conta central certa |
+| v4 | não rodou | não rodou | não rodou |
+
+**O que a v4 mudou (2ª e última rodada de conserto; regra de parada do ouvinte-frio: 7,3 → 7,4 está dentro do ruído de ±0,3):**
+- eliminatório: "Ninguém junta os dois pra você" → "Juntar os dois dá trabalho, e não dá print" (beat do juiz-ritmo);
+- item 1: o gancho abre com o número ("Nove mil, duzentos e sessenta reais atrás") e não diz mais pra onde foi o dinheiro ("Os dois
+  números são verdadeiros. Só um deles é o que você ganhou"); "ETF" traduzido na 2ª frase;
+- item 6: sai o leão e "torneira não fabrica água"; a caixa continua nos blocos 1 a 4 e 6 e no fecho;
+- item 9: sai o 23,67 × 24,41 da fala (fica na tela); sai "a cota, o ranking não mostra" e um dos "o aplicativo mostra o balde";
+- recomendação: a concessão não aponta mais um código por perfil ("Se ele faz sentido, depende de você precisar da renda agora ou não");
+- objeções: "Aí você deve estar pensando" (bloco 5, com resposta colada: "quase três vezes o que leva meio por cento") e "E tem quem
+  diga" (bloco 7), sem o tique "Aí você pensa";
+- ouvido: 0,74 e 0,63 ditos com os dois lados e quem está na frente; 4,1 pontos antes dos R$ 4.100; "o fundo americano" no lugar de
+  "o SPYI" (soava igual a SPYI onze); "se proteger de perda"; o dólar "puxou a cota pra baixo"; "Você refaz a mesma conta"; "dois
+  terços da renda" no exemplo (era "a renda inteira", errado); o JEPI39 ganhou frase própria e a ponte do juiz-ritmo pras objeções;
+- punch-up aplicado só adicionando: "É o único sócio que nunca perdeu um mês", "A alta tem teto. A queda veio sem nenhum",
+  "não aparece em verde no aplicativo. Quanto ele leva em dez anos?" (ponte B4→B5) e "a cota um dia volta?" (ponte B6→B7).
+
+**Pendências que ficam com o Denis (regra de parada: grava como está ou corta tese, decisão dele):** o item 1 (gancho com o R$ 740,
+exigido pelo briefing); o bloco "comprar, vender ou ficar" (fora por pedido); a nova rodada independente na v4 e o empacotador-yt.
