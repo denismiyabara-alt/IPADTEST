@@ -48,7 +48,7 @@ A ordem de prioridade é: argumento, depois variável de ambiente, depois o padr
 ## Dado velho e dado faltando
 
 - **Faltou a fonte:** o bloco mostra "sem dado" e diz o que rodar.
-- **Dado com mais de 36 horas úteis:** o bloco mostra "dado velho · <data>" e continua exibindo os números. Sábado e domingo não contam. Assim, o trader de sexta às 19h10 ainda está "em dia" na segunda às 8h50.
+- **Dado com mais de 36 horas úteis:** o bloco mostra "dado velho · <data>" e continua exibindo os números. Sábado e domingo não contam. Assim, um dado de sexta ainda está "em dia" na segunda às 8h50.
 - O radar de comentários roda uma vez por semana, então de quarta em diante ele aparece como velho. Isso é esperado.
 - O "último pregão esperado" do COTAHIST não conhece os feriados da B3. No dia seguinte a um feriado, o painel pode acusar um atraso que não existe.
 
@@ -78,7 +78,7 @@ launchctl load ~/Library/LaunchAgents/com.denal.painel.plist
 
 Antes de instalar, confira:
 
-- **Horário do trader.** O pedido fala em trader às 8h40, mas o `com.denal.trader-novo.plist` deste repositório roda às **19h10**, nos dias úteis. Com 19h10, o painel das 8h50 pega a rodada da noite anterior, e tudo funciona do mesmo jeito. Se no Mac existir outro agendamento às 8h40, ele também fica antes do painel.
+- **Horário do trader.** O `com.denal.trader-novo` roda às **8h40** nos dias úteis (main do stock-signal-bot, commit f3bf0a6, confirmado pelo Mac). O painel das 8h50 pega a rodada da manhã.
 - **O Python do plist.** É `/Library/Developer/CommandLineTools/usr/bin/python3`, o mesmo do `rodar_trader_novo.sh`.
 - **Os caminhos do plist** marcados com CONFIRMAR, principalmente o do IPADTEST.
 
@@ -142,9 +142,9 @@ Fonte faltando ou velha aparece como "sem dado (motivo)" e não quebra a mensage
 | `com.denal.portfolioreview` | segunda 8h30 | `logs/portfolio.log` |
 | `com.denal.painel` e `com.denal.resumo-manha` | dias úteis 8h50 | HTML do dia / `/tmp/resumo-manha.log` |
 | `com.denal.stocksignal`, `.robusto`, `.wheel-robusto`, `com.denal.wheel`, `com.denal.tanaka-pm` | 9h15, 9h45, 10h, seg 9h30, 11h | `logs/*.log` |
-| `com.denal.trader-novo` | dias úteis **19h10** (tolerância de 90 min) | `swing_v2_resultado.json` |
+| `com.denal.trader-novo` | dias úteis **8h40** (tolerância de 30 min) | `swing_v2_resultado.json` |
 
-O pedido fala em trader às 8h40, mas o `com.denal.trader-novo.plist` roda às 19h10. Às 8h50, o resumo usa a rodada da noite anterior. Um job agendado depois das 8h50 é cobrado pela rodada do dia útil anterior. A tolerância padrão é de 30 min (`tolerancia_min`). Um log só muda quando o job imprime algo: se um job ficar ❌ "não rodou" sem motivo, troque a `saida` dele por um arquivo que ele sempre grava.
+O trader roda às 8h40, e às 8h50 o resumo já pega a rodada do dia. Um job agendado depois das 8h50 é cobrado pela rodada do dia útil anterior. A tolerância padrão é de 30 min (`tolerancia_min`). Um log só muda quando o job imprime algo: se um job ficar ❌ "não rodou" sem motivo, troque a `saida` dele por um arquivo que ele sempre grava.
 
 ### Substitui ou convive?
 

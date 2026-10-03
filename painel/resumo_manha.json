@@ -59,7 +59,7 @@
       {"label": "com.denal.stocksignal.robusto", "horario": "09:45", "dias": "todos", "saida": "/Users/denal/stock-signal-bot/logs/robusto.log", "opcional": true},
       {"label": "com.denal.stocksignal.wheel-robusto", "horario": "10:00", "dias": "todos", "saida": "/Users/denal/stock-signal-bot/logs/wheel_robusto.log", "opcional": true},
       {"label": "com.denal.tanaka-pm", "horario": "11:00", "dias": "uteis", "saida": "/Users/denal/stock-signal-bot/logs/pm_auto.log", "opcional": true},
-      {"label": "com.denal.trader-novo", "horario": "19:10", "dias": "uteis", "saida": "/Users/denal/stock-signal-bot/swing_v2_resultado.json", "tolerancia_min": 90}
+      {"label": "com.denal.trader-novo", "horario": "08:40", "dias": "uteis", "saida": "/Users/denal/stock-signal-bot/swing_v2_resultado.json", "tolerancia_min": 30, "_nota": "8h40 no main do stock-signal-bot (f3bf0a6), confirmado pelo Mac em 03/10"}
     ]
   }
 }
