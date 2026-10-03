@@ -76,7 +76,7 @@ A mínima, a máxima ou outra data marcada acendem quando a ponta passa por elas
 **Exemplo visual (render real).** `exemplos/frames/selic-16x9-quadros.jpg` traz 4 quadros do MP4:
 - 1,0 s: título "Selic: de 2% a 15%", kicker "META DA TAXA SELIC · COPOM" em mono, grade com 0%, 5%, 10% e 15% e os anos,
   a ponta parada em 4,50%;
-- 3,0 s: a linha em degrau já passou pela "Mínima: 2,00%" (em ouro) e o número no alto marca 13,25%;
+- 3,0 s: a linha em degrau já passou pela "Mínima: 2,00%" (em cobre) e o número no alto marca 13,25%;
 - 5,1 s: pousou. "13,75%" em vermelho, o anel se abrindo no último ponto, a "Máxima: 15,00%" acesa;
 - 7,9 s: "em 02/out/2026" e o selo "+9,25 p.p. desde jan/2020".
 
@@ -93,7 +93,7 @@ Estimado no Mac: 10 a 20 s por 10 s, ~2 GB. Um vídeo com 6 gráficos de 8 s cus
 Resumindo: as peças de B-roll do canal e o Faz a Conta já renderizam em HyperFrames; o Remotion ficou nos projetos de
 motion mais antigos (fiis-video, Barsi, RARA11). O `PathDraw` e o `IFIXMiniChart` do Remotion moram só no Mac
 (`~/Downloads/fiis-video/remotion/src/components/`), e por isso a técnica foi refeita em HyperFrames com os tokens do
-molde Burry (papel `#F4F1EA`, Anton, Inter e JetBrains Mono, vermelho `#C8261D`, ouro `#966B00`). Olhei o bloco
+molde Burry: a PAL do `broll/gerar.py` (`#f6f2e8`, Montserrat e Archivo Black), lida por `motion/comum/estilo.py`. Olhei o bloco
 `data-chart` do catálogo do HyperFrames: é um gráfico genérico de barras e linha. Não posiciona por data, não tem
 degrau e não traz o número que acompanha a ponta nem a fonte obrigatória, então não serve como base.
 
@@ -152,8 +152,8 @@ média nos Shorts novos, que devem voltar a 8 por mês (ação 6). **No longo, n
 legendas/karaokê" (memória `remotion-audio-video-process`), e o longo fica só com a palavra-chave isolada dentro do
 zoom da nº 2.
 
-**Exemplo visual.** 1080×1920, o Denis recortado no centro. Em y ≈ 560, "A SELIC CAIU PRA" em Inter 900, 96 px, branco
-com contorno escuro. Na palavra seguinte, "13,75%" entra sozinho em Anton vermelho, 150 px, com pop de 0,15 s.
+**Exemplo visual.** 1080×1920, o Denis recortado no centro. Em y ≈ 560, "A SELIC CAIU PRA" em Montserrat 800, 96 px, branco
+com contorno escuro. Na palavra seguinte, "13,75%" entra sozinho em Archivo Black vermelho, 150 px, com pop de 0,15 s.
 
 **Esforço.** Baixo, ~½ dia: paginação do JSON por palavra em blocos de até 4 palavras ou ~1,2 s, mais o estilo.
 
@@ -196,7 +196,7 @@ Falta o eixo comum, os rótulos de ponta sem colisão e a série do Tesouro (pre
 **Por que retém.** Liga o número à história que o Denis está contando. É o formato do "Esse Gráfico Acertou as CRISES"
 (top 3 do ano) e do alerta macro, que é 37% do top. O espectador ganha um marco a cada 1 a 2 s enquanto a linha corre.
 
-**Exemplo visual.** O gráfico da Selic da nº 1, com 3 marcos em ouro: "mar/2021: começa a alta", "jun/2025: 15%" e
+**Exemplo visual.** O gráfico da Selic da nº 1, com 3 marcos em cobre: "mar/2021: começa a alta", "jun/2025: 15%" e
 "set/2026: 1º corte". Cada um acende com um pop de 0,4 s na passagem da ponta.
 
 **Esforço.** Baixo, ~½ dia: os `destaques` da nº 1 já fazem isso (até 3, posicionados pela inversa da curva de easing

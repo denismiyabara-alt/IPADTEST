@@ -176,7 +176,7 @@ def main(argv=None):
     ap.add_argument("--kicker")
     ap.add_argument("--formato", choices=["16:9", "9:16"], default="16:9")
     ap.add_argument("--duracao", type=float, default=8.0)
-    ap.add_argument("--cor-final", choices=["vermelho", "ouro"], default="vermelho")
+    ap.add_argument("--cor-final", choices=["vermelho", "verde", "cobre"], default="vermelho")
     ap.add_argument("--destacar-extremos", action="store_true")
     ap.add_argument("--aceitar-saltos", action="store_true")
     ap.add_argument("--sem-som", action="store_true")

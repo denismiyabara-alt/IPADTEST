@@ -32,10 +32,13 @@ Num projeto **em andamento**, que já tem cópias dos scripts, copie também `pl
 ## O que fica em motion/ (não vai para a skill)
 
 `motion/` é o componente, e a skill só o chama: `grafico_cotacao/` (`especificacao.py`, `serie.py`, `gerar.py` e
-`quadro.mjs`), `package.json` (gsap, fontes OFL, hyperframes 0.8.78), `tests/` e `exemplos/`. No Mac:
+`quadro.mjs`), `comum/estilo.py` (o módulo comum com a biblioteca: a PAL e as fontes, lidas do `broll/gerar.py`), `package.json` (gsap,
+fontes OFL Montserrat e Archivo Black, hyperframes 0.8.78), `tests/` e `exemplos/`. No Mac:
 
 ```bash
-export IEC_MOTION=~/IPADTEST/motion      # ponha no ~/.zshrc; é o único caminho que a skill precisa
+export IEC_MOTION=~/IPADTEST/motion      # ponha no ~/.zshrc: é onde a skill acha o componente
+# opcional: o motion lê a PAL de edicao-skill/molde-burry/broll/gerar.py do clone; para ler a da skill viva:
+export IEC_MOLDE_BURRY_GERAR=~/.claude/skills/edicao-investir-cocar/molde-burry/broll/gerar.py
 (cd "$IEC_MOTION" && npm install)        # uma vez
 ```
 

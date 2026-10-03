@@ -113,6 +113,13 @@ Ancorado em FRASE como as outras: uma linha em `pecas.py` com a peça `"G"`, e a
 | `formato` | opcional: `"16:9"` (padrão) ou `"9:16"` (Short) |
 | `kicker`, `destaques`, `cor_final` | opcionais (`destaques="extremos"` marca a mínima e a máxima) |
 
+**Estilo:** o do molde Burry, sem cópia de valor. O `motion/comum/estilo.py` lê a `PAL` e as fontes
+(Montserrat e Archivo Black, via @fontsource, OFL) do `broll/gerar.py` por AST, sem executá-lo. Lê o
+`$IEC_MOLDE_BURRY_GERAR`, ou, sem a variável, a cópia `edicao-skill/molde-burry/broll/gerar.py` do clone do IPADTEST.
+É o mesmo módulo da biblioteca de barras e rosca. Mudou a PAL no gerar.py, o gráfico muda junto,
+e o teste `motion/tests/test_estilo.py` falha se alguma cor do gráfico sair da PAL. O número final usa o vermelho
+(`red`) ou o verde (`verde`) da PAL, os destaques usam o `cobre`, e o comparador usa o `gray`, tracejado.
+
 **Duração:** sai da fala, como nas outras peças, mas com mínimo de 5 s e teto de 10 s (`LIMITES["G"]` no
 `plano.py`). O número pousa em 62% da duração. Se a próxima peça entra antes de 5 s, o `plano.py` para com
 erro; se o `mapa.py` precisar aparar o gráfico para antes do pouso, também para.
@@ -129,6 +136,8 @@ conferida de novo no `gerar.validar()` do componente, para um JSON escrito à m�
 - `SGS:<n>`: outra taxa do BCB no mesmo eixo (por exemplo, Selic × IPCA 12 meses).
 Ativo com comparador é desenhado em **base 100** na 1ª data, porque as unidades são diferentes; taxa com taxa
 fica no mesmo eixo. O número grande continua sendo o valor real (R$ 49,77), não o da base 100.
+Todo gráfico de ação ou FII ganha no rodapé, **na tela**, a ressalva "Preço sem dividendos.": o COTAHIST é o
+fechamento sem proventos, e por isso ação contra CDI favorece o CDI.
 
 **Dado:** o cache do site-ativos (`IPADTEST/site-ativos/cache/`: SQLite e COTAHIST cru). Sem ele, o BCB é
 baixado e guardado em `$IEC_MOTION/cache/`. O COTAHIST é o fechamento **sem ajuste** por proventos; um salto
@@ -137,6 +146,8 @@ diário acima de 35% (desdobramento) recusa a série. A fala ganha da cartela em
 **Comandos** (depois do `plano.py`; a variável aponta para a pasta `motion/` do repo IPADTEST):
 ```bash
 export IEC_MOTION=~/IPADTEST/motion          # onde você clonou o IPADTEST; 1ª vez: (cd $IEC_MOTION && npm install)
+# opcional: ler a PAL da skill viva em vez da cópia do repo
+export IEC_MOLDE_BURRY_GERAR=~/.claude/skills/edicao-investir-cocar/molde-burry/broll/gerar.py
 cd videos/broll && python3 gerar.py && python3 grafico.py --render && cd ../..
 python3 mapa.py && python3 montar.py && python3 sfx.py
 ```
@@ -148,8 +159,8 @@ sem GPU): 15 a 17 s por gráfico de 8 s, com ~2 GB de pico. No Mac, a estimativa
 É um job pesado: rode sem transcrição ou voz ao mesmo tempo. Teste: `IEC_MOTION=... python3 -m pytest -q
 molde-burry/tests` (plano → gráfico → mapa → montar num corte sintético, mais as regras de compliance).
 
-Estilo congelado: papel `#F4F1EA`, Anton + Inter + JetBrains Mono, ícone stroke-only que se desenha
-atrás do número. Receitas em `~/.media/recipes/investir-cocar-broll-*`.
+Estilo congelado: molde-burry: PAL do broll/gerar.py (Montserrat + Archivo Black, #f6f2e8); scripts/ antigos: #F4F1EA + Anton + Inter + JetBrains Mono.
+Nos scripts antigos, o ícone stroke-only se desenha atrás do número. Receitas em `~/.media/recipes/investir-cocar-broll-*`.
 
 **Prints**: sempre documento primário (fato relevante, nota técnica, comunicado, post do gestor),
 nunca a matéria que cita o documento. PDF → PNG com `pdftoppm -r 130`; a posição do trecho citado sai

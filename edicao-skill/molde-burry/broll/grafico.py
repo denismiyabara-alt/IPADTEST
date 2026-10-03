@@ -16,7 +16,7 @@ Especificacao (dict da cena; o componente e o motion/grafico_cotacao):
   comparador  opcional: "IBOV" | "IFIX" | "CDI" | "SGS:<n>"
   aviso       opcional: True → "Nao e recomendacao de investimento." na tela
   formato     opcional: "16:9" (padrao) | "9:16"
-  kicker, destaques ("extremos" ou lista), cor_final ("vermelho" | "ouro"): opcionais
+  kicker, destaques ("extremos" ou lista), cor_final ("vermelho" | "verde" | "cobre", da PAL): opcionais
 
 COMPLIANCE (no codigo): COTAHIST (acao/FII) sem comparador E sem aviso → recusado, nada e gerado.
 

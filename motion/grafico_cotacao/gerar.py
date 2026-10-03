@@ -4,7 +4,7 @@ Uso:
   python3 grafico_cotacao/gerar.py exemplos/selic-16x9.json -o projetos/selic
   cd projetos/selic && npx hyperframes@0.8.78 render -o ../../renders/selic.mp4
 
-O projeto gerado é uma pasta HyperFrames autocontida: index.html + assets/ (fontes OFL, GSAP e o
+O projeto gerado é uma pasta HyperFrames autocontida: index.html + assets/ (fontes OFL do molde Burry, GSAP e o
 efeito de pouso). Nada vem de CDN na hora do render.
 
 Entrada (JSON):
@@ -14,30 +14,36 @@ Entrada (JSON):
   linha                          "linha" (cotação) ou "degrau" (Selic: o valor vale até a próxima decisão).
   unidade                        {"prefixo": "R$ ", "sufixo": "", "casas": 2}.
   variacao                       "pct" (variação %), "pp" (pontos percentuais) ou null.
-  cor_final                      "vermelho" ou "ouro": cor do número final e do ponto final.
+  cor_final                      "vermelho", "verde" ou "cobre" (cores da PAL do molde Burry): número e ponto final.
   destaques                      [{"data": "AAAA-MM-DD", "rotulo": "...", "posicao": "acima"|"abaixo"}], até 3.
   som                            false, ou {"pouso": "impact-bass-1" | "caminho/arquivo.mp3" | "sintetico"}.
   serie                          [{"data": "AAAA-MM-DD", "valor": número}], em ordem, 2 pontos ou mais.
   rotulo_final (opcional)        texto sob o número; padrão "em 02/out/2026" (data do último ponto).
 """
-import argparse, datetime as dt, json, math, os, shutil, subprocess, sys
+import argparse, datetime as dt, json, math, os, re, shutil, subprocess, sys
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 MOTION = os.path.dirname(AQUI)
 NODE_MODULES = os.path.join(MOTION, "node_modules")
 SFX_DIR = os.path.join(NODE_MODULES, "hyperframes", "dist", "skills", "media-use", "audio", "assets", "sfx")
 
-CORES = dict(papel="#F4F1EA", luz="#FFFCF5", tinta="#0E0E0E", cinza="#6B675F", grade="#D9D3C5",
-             vermelho="#C8261D", ouro="#966B00")
+sys.path.insert(0, os.path.join(MOTION, "comum"))
+import estilo    # noqa: E402  — motion/comum/estilo.py: PAL e fontes lidas do molde Burry (broll/gerar.py)
+import projeto   # noqa: E402  — motion/comum/projeto.py: CSS das fontes e busca no node_modules
+
+PAL, _ = estilo.ler_molde()   # a PAL inteira (o gráfico usa também verde, cobre e paper)
+FONTES_IEC = estilo.ESTILOS["iec"]["fontes"]
+
+# papel de cada cor no gráfico → chave da PAL. Nenhum valor de cor mora aqui.
+PAPEIS = dict(papel="bg", folha="paper", tinta="ink", cinza="gray", grade="faint",
+              vermelho="red", verde="verde", cobre="cobre")
+CORES = {papel: PAL[chave] for papel, chave in PAPEIS.items()}
+CORES_FINAIS = ("vermelho", "verde", "cobre")   # cor do número final; os destaques usam cobre (ou tinta)
+_familia = lambda papel_tipo: re.search(r"px(?:/[\d.]+)? '?([A-Za-z ]+?)'?,", estilo.TIPO[papel_tipo]).group(1)
+TEXTO, NUMERO = _familia("rotulo"), _familia("numero")   # Montserrat, Archivo Black (do TIPO do módulo comum)
 FORMATOS = {"16:9": (1920, 1080), "9:16": (1080, 1920)}
 MESES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"]
-FONTES = {  # arquivo no @fontsource -> nome no CSS
-    "anton": ("@fontsource/anton/files/anton-latin-400-normal.woff2", "Anton", 400),
-    "inter-400": ("@fontsource/inter/files/inter-latin-400-normal.woff2", "Inter", 400),
-    "inter-800": ("@fontsource/inter/files/inter-latin-800-normal.woff2", "Inter", 800),
-    "inter-900": ("@fontsource/inter/files/inter-latin-900-normal.woff2", "Inter", 900),
-    "mono-500": ("@fontsource/jetbrains-mono/files/jetbrains-mono-latin-500-normal.woff2", "JetBrains Mono", 500),
-}
+RESSALVA_PRECO = "Preço sem dividendos."   # COTAHIST: fechamento sem proventos; vai na TELA, não só no README
 FRACAO_POUSO = 0.62   # a linha chega no último ponto (e o número "pousa") em 62% da duração
 MAX_PONTOS = 600   # acima disso o SVG fica pesado; reduz guardando mínimo e máximo de cada faixa
 
@@ -76,8 +82,8 @@ def validar(d):
         erros.append("'linha' deve ser 'linha' ou 'degrau'")
     if d["variacao"] not in (None, "pct", "pp"):
         erros.append("'variacao' deve ser 'pct', 'pp' ou null")
-    if d["cor_final"] not in ("vermelho", "ouro"):
-        erros.append("'cor_final' deve ser 'vermelho' ou 'ouro' (no máximo 2 cores de destaque)")
+    if d["cor_final"] not in CORES_FINAIS:
+        erros.append(f"'cor_final' deve ser um de {CORES_FINAIS} (cores da PAL; no máximo 2 cores de destaque)")
     casas = d["unidade"]["casas"]
     if not isinstance(casas, int) or not 0 <= casas <= 4:
         erros.append("'unidade.casas' deve ser inteiro de 0 a 4")
@@ -229,9 +235,9 @@ def layout(formato):
     W, H = FORMATOS[formato]
     if formato == "16:9":
         return dict(W=W, H=H, pad=96, kicker_y=92, titulo_y=136, titulo_px=84, num_px=190, num_x=W - 96, num_y=92,
-                    num_alinha="right", gx0=200, gx1=W - 140, gy0=480, gy1=930, fonte_y=H - 64, eixo_px=30)
+                    num_alinha="right", num_largura=860, gx0=200, gx1=W - 140, gy0=480, gy1=930, fonte_y=H - 64, eixo_px=30)
     return dict(W=W, H=H, pad=72, kicker_y=200, titulo_y=246, titulo_px=88, num_px=230, num_x=72, num_y=470,
-                num_alinha="left", gx0=170, gx1=W - 90, gy0=980, gy1=1500, fonte_y=1600, eixo_px=30)
+                num_alinha="left", num_largura=W - 2 * 72, gx0=170, gx1=W - 90, gy0=980, gy1=1500, fonte_y=1600, eixo_px=30)
 
 
 def _caminho(xs, ys, degrau):
@@ -353,12 +359,13 @@ def montar_html(d, sfx_arquivo=None, sfx_duracao=1.0):
                        f'<circle cx="{h["x"]}" cy="{h["y"]}" r="11" class="dq-ponto"/>'
                        f'<text x="{h["x"] + dx}" y="{h["y"] + dy}" text-anchor="{anc}" class="dq-texto">{esc(h["rotulo"])}</text></g>')
     final_txt = texto_valor(pts[-1]["valor"], un)
+    # Archivo Black é larga (~0,6 em por caractere): o corpo do número cabe na largura do placar no pior caso
+    # (o texto mais longo que a contagem mostra). 0,66 em/caractere dá folga sobre os ~0,6 medidos no render.
+    mais_longo = max(len(texto_valor(p["valor"], un)) for p in pts)
+    num_px = min(L["num_px"], int(L["num_largura"] / (0.66 * mais_longo)))
     rotulo_final = d.get("rotulo_final") or f"em {data_br(pts[-1]['data'])}"
     variacao = texto_variacao(d)
-    fontes_css = "".join(
-        f"@font-face{{font-family:'{fam}';font-weight:{peso};font-style:normal;font-display:block;"
-        f"src:url('assets/fonts/{os.path.basename(arq)}') format('woff2');}}"
-        for arq, fam, peso in FONTES.values())
+    fontes_css = projeto.css_fontes("iec")
     audio = ""
     if sfx_arquivo:
         audio = (f'<audio id="sfx-pouso" src="assets/{sfx_arquivo}" data-start="{max(0, t_pouso - 0.03):.3f}" '
@@ -369,8 +376,10 @@ def montar_html(d, sfx_arquivo=None, sfx_duracao=1.0):
                                dq=[dict(k=h["k"], t=h["t"]) for h in destaques]), ensure_ascii=False)
     return TEMPLATE.format(
         W=W, H=H, dur=f"{dur:.3f}", fontes_css=fontes_css, **CORES, cor_final=cor_final,
+        cor_dq=CORES["tinta"] if d["cor_final"] == "cobre" else CORES["cobre"], texto=TEXTO, numero=NUMERO,
+        ressalva=(f'<div id="ressalva">{esc(RESSALVA_PRECO)}</div>' if d.get("classe") == "ativo" else ""),
         titulo=esc(d["titulo"]), kicker=esc(d["kicker"]), fonte=esc(d["fonte"]),
-        titulo_px=L["titulo_px"], num_px=L["num_px"], pad=L["pad"], kicker_y=L["kicker_y"], titulo_y=L["titulo_y"],
+        titulo_px=L["titulo_px"], num_px=num_px, pad=L["pad"], kicker_y=L["kicker_y"], titulo_y=L["titulo_y"],
         num_x=L["num_x"] if L["num_alinha"] == "left" else W - L["num_x"], num_lado="left" if L["num_alinha"] == "left" else "right",
         num_y=L["num_y"], num_alinha=L["num_alinha"], fonte_y=L["fonte_y"], eixo_px=L["eixo_px"],
         titulo_largura=W - 2 * L["pad"] - (760 if d["formato"] == "16:9" else 0),
@@ -442,13 +451,12 @@ def gerar_projeto(d, destino):
     d = validar(d)
     assets = os.path.join(destino, "assets")
     os.makedirs(os.path.join(assets, "fonts"), exist_ok=True)
+    for arq, _, _ in FONTES_IEC.values():
+        o = projeto.achar(arq)
+        if not o:
+            raise SystemExit(f"falta a fonte {arq} em node_modules. Rode: cd motion && npm install")
+        shutil.copy(o, os.path.join(assets, "fonts", os.path.basename(arq)))
     faltando = []
-    for arq, _, _ in FONTES.values():
-        o = os.path.join(NODE_MODULES, arq)
-        if os.path.exists(o):
-            shutil.copy(o, os.path.join(assets, "fonts", os.path.basename(arq)))
-        else:
-            faltando.append(arq)
     gsap = os.path.join(NODE_MODULES, "gsap", "dist", "gsap.min.js")
     if os.path.exists(gsap):
         shutil.copy(gsap, os.path.join(assets, "gsap.min.js"))
@@ -463,7 +471,8 @@ def gerar_projeto(d, destino):
               ensure_ascii=False)
     json.dump(d, open(os.path.join(destino, "entrada.json"), "w"), ensure_ascii=False, indent=1)
     open(os.path.join(assets, "CREDITOS.txt"), "w").write(
-        "Fontes: Anton, Inter, JetBrains Mono (SIL Open Font License 1.1), via @fontsource no npm.\n"
+        "Fontes: " + ", ".join(sorted({fam for _, fam, _ in FONTES_IEC.values()}))
+        + " (SIL Open Font License 1.1), via @fontsource no npm; escolhidas pelo broll/gerar.py do molde Burry.\n"
         "GSAP 3.14.2 (licença padrão sem custo da GreenSock/Webflow), via npm.\n"
         + ("Efeito de pouso: biblioteca media-use do HyperFrames, Pixabay Content License (uso comercial, sem atribuição).\n"
            if sfx and not sfx.endswith(".wav") else "Efeito de pouso: sintetizado localmente com ffmpeg.\n" if sfx else ""))
@@ -481,43 +490,47 @@ TEMPLATE = r"""<!doctype html>
   * {{ margin:0; padding:0; box-sizing:border-box; }}
   html, body {{ width:{W}px; height:{H}px; overflow:hidden; background:{papel}; }}
   #root {{ position:relative; width:{W}px; height:{H}px; overflow:hidden; color:{tinta};
-           background: radial-gradient(ellipse at 50% 38%, {luz} 0%, {papel} 62%); font-family:Inter, sans-serif; }}
+           background:{papel}; font-family:{texto}, sans-serif; }}
+  #grain {{ position:absolute; inset:0; opacity:.08; pointer-events:none; }}
   .cena {{ position:absolute; inset:0; }}
-  #kicker {{ position:absolute; left:{pad}px; top:{kicker_y}px; font:500 30px 'JetBrains Mono', monospace;
-             letter-spacing:.12em; text-transform:uppercase; color:{cinza}; }}
-  #titulo {{ position:absolute; left:{pad}px; top:{titulo_y}px; width:{titulo_largura}px; font:900 {titulo_px}px/1.04 Inter, sans-serif;
+  #kicker {{ position:absolute; left:{pad}px; top:{kicker_y}px; font:800 30px {texto}, sans-serif;
+             letter-spacing:.14em; text-transform:uppercase; color:{cinza}; }}
+  #titulo {{ position:absolute; left:{pad}px; top:{titulo_y}px; width:{titulo_largura}px; font:800 {titulo_px}px/1.08 {texto}, sans-serif;
              letter-spacing:-.02em; }}
   #placar {{ position:absolute; {num_lado}:{num_x}px; top:{num_y}px; text-align:{num_alinha}; }}
-  #numero {{ font:400 {num_px}px/1 Anton, sans-serif; font-variant-numeric:tabular-nums; letter-spacing:.01em;
+  #numero {{ font:400 {num_px}px/1 '{numero}', sans-serif; font-variant-numeric:tabular-nums; letter-spacing:.01em;
              display:inline-block; transform-origin:{num_alinha} center; white-space:nowrap; }}
-  #rotulo-final {{ font:800 34px Inter, sans-serif; color:{cinza}; margin-top:14px; }}
-  #variacao {{ display:inline-block; margin-top:16px; font:800 38px Inter, sans-serif; color:{cor_final};
+  #rotulo-final {{ font:800 34px {texto}, sans-serif; color:{cinza}; margin-top:14px; }}
+  #variacao {{ display:inline-block; margin-top:16px; font:800 38px {texto}, sans-serif; color:{cor_final};
                border:4px solid {cor_final}; border-radius:10px; padding:6px 18px; }}
   #grafico {{ position:absolute; left:0; top:0; }}
   .grade {{ stroke:{grade}; stroke-width:2; }}
   .marca {{ stroke:{cinza}; stroke-width:3; }}
-  .eixo {{ font:500 {eixo_px}px 'JetBrains Mono', monospace; fill:{cinza}; }}
+  .eixo {{ font:700 {eixo_px}px {texto}, sans-serif; fill:{cinza}; }}
   #area {{ fill:{tinta}; opacity:.06; }}
   #linha {{ fill:none; stroke:{tinta}; stroke-width:7; stroke-linejoin:round; stroke-linecap:round; }}
   #ponta {{ fill:{tinta}; }}
   #ponto-final {{ fill:{cor_final}; }}
   #anel {{ fill:none; stroke:{cor_final}; stroke-width:5; }}
-  .dq-ponto {{ fill:{ouro}; stroke:{papel}; stroke-width:4; }}
-  .dq-texto {{ font:800 36px Inter, sans-serif; fill:{ouro}; paint-order:stroke; stroke:{papel}; stroke-width:14px; }}
+  .dq-ponto {{ fill:{cor_dq}; stroke:{papel}; stroke-width:4; }}
+  .dq-texto {{ font:800 36px {texto}, sans-serif; fill:{cor_dq}; paint-order:stroke; stroke:{papel}; stroke-width:14px; }}
   #rodape {{ position:absolute; left:{pad}px; right:{pad}px; top:{fonte_y}px; display:flex; flex-direction:{rodape_dir};
-             justify-content:space-between; gap:8px 32px; font:500 26px/1.3 'JetBrains Mono', monospace; }}
+             justify-content:space-between; gap:8px 32px; font:700 26px/1.3 {texto}, sans-serif; }}
+  #avisos {{ display:flex; gap:24px; white-space:nowrap; color:{tinta}; }}
   #fonte {{ color:{cinza}; }}
   #aviso {{ color:{tinta}; white-space:nowrap; }}
   #linha-comp {{ fill:none; stroke:{cinza}; stroke-width:5; stroke-dasharray:16 10; stroke-linejoin:round; }}
   .comp-ponto {{ fill:{cinza}; }}
-  .comp-texto {{ font:800 34px Inter, sans-serif; fill:{cinza}; paint-order:stroke; stroke:{papel}; stroke-width:12px; }}
+  .comp-texto {{ font:800 34px {texto}, sans-serif; fill:{cinza}; paint-order:stroke; stroke:{papel}; stroke-width:12px; }}
   .leg-princ {{ stroke:{tinta}; stroke-width:7; }}
   .leg-comp {{ stroke:{cinza}; stroke-width:5; stroke-dasharray:16 10; }}
-  .leg-texto {{ font:800 32px Inter, sans-serif; fill:{tinta}; }}
+  .leg-texto {{ font:800 32px {texto}, sans-serif; fill:{tinta}; }}
 </style>
 </head>
 <body>
 <div id="root" data-composition-id="grafico" data-start="0" data-width="{W}" data-height="{H}" data-duration="{dur}" data-formato="{formato}">
+  <svg width="0" height="0" style="position:absolute"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="7"/><feColorMatrix type="saturate" values="0"/></filter></svg>
+  <svg id="grain" width="{W}" height="{H}"><rect width="100%" height="100%" filter="url(#noise)"/></svg>
   <section id="cena" class="clip cena" data-start="0" data-duration="{dur}" data-track-index="1">
     <div id="kicker">{kicker}</div>
     <div id="titulo">{titulo}</div>
@@ -541,7 +554,7 @@ TEMPLATE = r"""<!doctype html>
       {comp_fim}
       {marcadores}
     </svg>
-    <div id="rodape"><div id="fonte">{fonte}</div>{aviso}</div>
+    <div id="rodape"><div id="fonte">{fonte}</div><div id="avisos">{ressalva}{aviso}</div></div>
   </section>
   {audio}
 </div>

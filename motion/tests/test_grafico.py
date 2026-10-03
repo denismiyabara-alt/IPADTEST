@@ -173,7 +173,7 @@ def test_frame_renderiza_e_numero_final_bate_com_a_serie(arquivo, tmp_path):
     esperado = gerar.texto_valor(d["serie"][-1]["valor"], gerar.validar(d)["unidade"])
     assert r["numero"] == esperado
     assert r["fonte"] == d["fonte"]
-    assert {"Anton 400", "Inter 900", "JetBrains Mono 500"} <= set(r["fontes"])
+    assert {f"{fam} {p}" for _, fam, p in gerar.FONTES_IEC.values()} <= set(r["fontes"])
     assert os.path.getsize(png) > 20_000
 
 

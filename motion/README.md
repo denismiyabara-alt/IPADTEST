@@ -24,7 +24,7 @@ exemplos/*.json             entradas de exemplo com dado real (Selic 16:9, PETR4
 
 ```sh
 cd motion
-npm install                      # gsap, fontes OFL (@fontsource), hyperframes 0.8.78 (fixo, igual ao faz-a-conta)
+npm install                      # gsap, fontes OFL (Montserrat e Archivo Black, via @fontsource), hyperframes 0.8.78 (fixo)
 npx hyperframes browser ensure   # Chrome headless do HyperFrames, se ainda não houver
 python3 -m pip install pytest    # só para os testes
 ```
@@ -61,7 +61,7 @@ npx hyperframes render -o ../../renders/selic.mp4
 | `linha` | `"linha"` | `"degrau"` para Selic (o valor vale até a próxima reunião) |
 | `unidade` | `{"prefixo":"", "sufixo":"", "casas":2}` | `"R$ "`, `"%"`… formato brasileiro (1.234,56) |
 | `variacao` | `null` | `"pct"` (+58,6% desde out/2025) ou `"pp"` (+9,25 p.p. desde jan/2020) |
-| `cor_final` | `"vermelho"` | ou `"ouro"`. Os destaques são sempre ouro: no máximo 2 cores de destaque |
+| `cor_final` | `"vermelho"` | ou `"verde"`/`"cobre"` (chaves `red`/`verde`/`cobre` da PAL). Destaques em cobre (em tinta, se o final for cobre): no máximo 2 cores de destaque |
 | `destaques` | `[]` | até 3 `{"data", "rotulo", "posicao": "acima"|"abaixo"}`; acendem quando a ponta passa |
 | `som` | `false` | `{"pouso": "impact-bass-1"}` (biblioteca), um caminho de arquivo ou `"sintetico"` |
 | `rotulo_final` | `"em 02/out/2026"` | texto sob o número final |
@@ -93,7 +93,7 @@ Eles conferem:
 - o formato brasileiro, a variação, a redução de pontos (o pico e o vale nunca somem), a escala e a inversa do easing;
 - o dado real: a Selic do `serie.py` termina no último dado do SQLite do site-ativos, e o PETR4 lido do SQLite bate
   com o COTAHIST cru;
-- **no navegador**: o projeto gerado abre sem erro de JS e sem requisição falhando, carrega as 5 fontes, e no último
+- **no navegador**: o projeto gerado abre sem erro de JS e sem requisição falhando, carrega as fontes do molde Burry, e no último
   instante **o número na tela é igual ao último valor da série** (Selic 16:9 e PETR4 9:16). No meio, o número é um
   valor que existe na série.
 
@@ -123,10 +123,43 @@ com ~2 GB. É um job pesado: não rode junto com transcrição ou voz. Para ir m
 - O `PathDraw` e o `IFIXMiniChart` (Remotion) moram só no Mac, em `~/Downloads/fiis-video/remotion`, fora de
   qualquer repositório. A técnica foi refeita aqui: revelação da linha por recorte (`clipPath`), com a ponta e o número
   calculados da própria série, o que vale para linha e para degrau. Ela segue as regras da memória
-  `hyperframes-broll-timeline-travada`: sem `DrawSVGPlugin` (pago), sem animar a opacidade do `.clip`, fontes no
+  `hyperframes-broll-timeline-travada`: sem `DrawSVGPlugin`. Atenção: aquela memória está desatualizada, porque desde o GSAP 3.13 todos os plugins são grátis (DrawSVG, MorphSVG, SplitText) e vêm no `gsap` 3.14.2 do npm; o recorte foi mantido porque também serve para o degrau e para a ponta, sem animar a opacidade do `.clip`, fontes no
   subset `latin`.
 - O render é determinístico (o HyperFrames posiciona a timeline do GSAP quadro a quadro), e o teste usa o mesmo
   mecanismo (`seek`) para ler o número na tela.
+
+## Estilo: o do molde Burry, de uma fonte só (03/10)
+
+O estilo oficial é o do `edicao-skill/molde-burry/broll/gerar.py`: a `PAL` (bg `#f6f2e8`, ink, red, gray, faint, verde,
+cobre, paper), Montserrat 800/700 no texto e Archivo Black nos números. O `#F4F1EA` com Anton, Inter e JetBrains Mono
+é da geração antiga (`scripts/gerar-cartelas.py`) e saiu do gráfico.
+
+**Módulo comum: `motion/comum/estilo.py`**, o mesmo da `motion/biblioteca/` (barras e rosca), publicado em 59a35e5.
+O gráfico importa esse módulo, sem cópia própria:
+```python
+sys.path.insert(0, "<IPADTEST>/motion/comum")
+import estilo, projeto
+PAL, fontes = estilo.ler_molde()        # PAL inteira e {(família, peso)} lidos do gerar.py, sem executá-lo
+estilo.ESTILOS["iec"]["fontes"]         # arquivos @fontsource de Montserrat 700/800 e Archivo Black 400
+estilo.TIPO["numero"], estilo.TIPO["rotulo"]   # 'Archivo Black' nos números, Montserrat nos rótulos
+projeto.css_fontes("iec"), projeto.achar(arq)  # @font-face e busca no node_modules
+```
+- O gerar.py é lido por AST, sem importar, porque importar lê o `plano.json`. Caminho: `$IEC_MOLDE_BURRY_GERAR`, senão
+  `../edicao-skill/molde-burry/broll/gerar.py` a partir de `motion/` (no Mac, a cópia revisada do clone do IPADTEST).
+- O `grafico_cotacao/gerar.py` só guarda o **papel** de cada cor (`PAPEIS`: papel → `bg`, tinta → `ink`, vermelho →
+  `red`, destaques → `cobre`…). Nenhum valor `#rrggbb` mora nele.
+- O gerar.py do molde não carrega fonte nenhuma: confia no que estiver instalado. Aqui, as fontes vêm do @fontsource
+  (OFL, registrado em `assets/CREDITOS.txt`), copiadas para `assets/fonts/` do projeto, para o render não depender
+  do sistema nem da rede.
+- O `tests/test_estilo.py` **falha** em três casos: se alguma cor `#rrggbb` no HTML do gráfico estiver fora da PAL; se,
+  na tela, o fundo, o número final, a linha ou o comparador não tiverem a cor da PAL; e se a PAL deixar de vir do
+  gerar.py (há um teste com um gerar.py falso via `IEC_MOLDE_BURRY_GERAR`).
+- O número em Archivo Black é mais largo que o antigo Anton: o corpo é calculado para o texto mais longo da contagem
+  caber no placar (0,66 em por caractere).
+
+**Ressalva na tela:** todo gráfico de ação ou FII (`classe: "ativo"`) mostra "Preço sem dividendos." no rodapé,
+à direita (no 9:16, embaixo da fonte), porque o COTAHIST é o fechamento sem proventos e ação contra CDI favorece o
+CDI. Um teste confere o texto e que ele está visível no último quadro.
 
 ## Comparador e compliance (03/10)
 

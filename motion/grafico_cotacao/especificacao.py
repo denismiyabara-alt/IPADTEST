@@ -7,7 +7,7 @@
      "comparador": "CDI" | "IBOV" | "IFIX" | "SGS:<n>",   # opcional
      "aviso": true,                              # opcional: "Não é recomendação de investimento" na tela
      "formato": "16:9" | "9:16",                 # opcional (padrão 16:9)
-     "kicker": "...", "destaques": "extremos" | [...], "cor_final": "vermelho" | "ouro"}   # opcionais
+     "kicker": "...", "destaques": "extremos" | [...], "cor_final": "vermelho" | "verde" | "cobre"}   # opcionais
 
 REGRA DE COMPLIANCE (no código, não só na documentação):
   ativo isolado (COTAHIST: ação ou FII) EXIGE um comparador (IBOV, IFIX ou CDI) desenhado junto,

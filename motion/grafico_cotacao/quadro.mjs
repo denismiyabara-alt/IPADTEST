@@ -48,8 +48,18 @@ try {
     tl.seek(t, false);
     const txt = id => document.getElementById(id).textContent;
     const fontes = [...document.fonts].filter(f => f.status === 'loaded').map(f => f.family + ' ' + f.weight);
+    const cs = (sel, prop) => { const e = document.querySelector(sel); return e ? getComputedStyle(e)[prop] : null; };
+    const visivel = sel => { const e = document.querySelector(sel); if (!e) return false;
+      const r = e.getBoundingClientRect(); let o = 1;
+      for (let n = e; n && n.nodeType === 1; n = n.parentElement) o *= +getComputedStyle(n).opacity;
+      return o > 0.9 && r.width > 0 && r.right <= innerWidth && r.bottom <= innerHeight; };
+    const ressalva = document.getElementById('ressalva');
     return { t, duracao: tl.duration(), numero: txt('numero'), titulo: txt('titulo'), fonte: txt('fonte'),
-             variacao: txt('variacao'), fontes };
+             variacao: txt('variacao'), fontes,
+             ressalva: ressalva ? ressalva.textContent : null, ressalvaVisivel: visivel('#ressalva'),
+             cores: { fundo: cs('#root', 'backgroundColor'), numero: cs('#numero', 'color'),
+                      linha: cs('#linha', 'stroke'), comp: cs('#linha-comp', 'stroke'), fonte: cs('#fonte', 'color') },
+             familias: { numero: cs('#numero', 'fontFamily'), titulo: cs('#titulo', 'fontFamily') } };
   }, Number(seg));
   if (png) await p.screenshot({ path: png });
   console.log(JSON.stringify({ ...r, erros }));
