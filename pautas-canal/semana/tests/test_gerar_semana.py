@@ -124,6 +124,6 @@ def test_pacote_real_2026_10_04():
     assert "ouvinte reprovou a v1.7 (7,8): falta ouvir a v1.8" in txt
     assert "Shorts Louise\n\n- agenda não encontrada no repo — onde fica?" in txt
     if fac:
-        assert "banco Central não gastou".lower() in txt.lower() and "dom 11/10** — emendas — ❌" in txt
+        assert "banco Central não gastou".lower() in txt.lower() and "dom 11/10** — Parabéns, o dinheiro é seu" in txt
     if bar:
         assert "**dom 11/10** ✅" in txt

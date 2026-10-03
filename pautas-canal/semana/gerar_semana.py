@@ -208,10 +208,12 @@ def juiz(texto):
 
 
 # ---------------------------------------------------------------- Investir e Coçar
-def roteiros_da_data(d):
+def roteiros_da_data(d, short=False):
     pasta = RAIZ / "pautas-canal" / "roteiros"
     prin, extras = None, []
     for p in sorted(pasta.glob(f"{d.isoformat()}-*.md")):
+        if p.name.endswith("-short.md") != short:
+            continue
         if re.search(r"-(notas|CONFERENCIA|EMPACOTAMENTO)\.md$", p.name):
             extras.append(p)
         else:
@@ -242,7 +244,13 @@ def investir(seg, dom, abafa=None):
         if r.get("serie_ep"):
             cab += f" _({r['serie_ep']})_"
         if r["formato"] != "longo":
-            linhas.append(f"- {cab} — {FALTA} falta roteiro (só a pauta) · [pauta](../SHORTS-MES.md)")
+            rs, _ = roteiros_da_data(d, short=True)
+            if not rs:
+                linhas.append(f"- {cab} — {FALTA} falta roteiro (só a pauta) · [pauta](../SHORTS-MES.md)")
+                continue
+            vs = versao_num(frontmatter(rs.read_text(encoding="utf-8")).get("versao", ""))
+            vtx = f"roteiro v{vs}" if vs else "roteiro escrito"
+            linhas.append(f"- {cab} — {REV} {vtx}, falta ouvinte-frio na versão final · [roteiro]({rel(rs)})")
             continue
         rot, extras = roteiros_da_data(d)
         brief = briefing_da_data(d)
@@ -461,6 +469,9 @@ def canais_dark():
         for c in conf:
             t = c.read_text(encoding="utf-8", errors="ignore")
             pend += len(re.findall(r"\[ \]", t)) or len(itens_lista(t))
+        marcado = not pend and any(  # pendências marcadas dentro do roteiro/quadro/planilha
+            "CONFERIR NO MAC" in x.read_text(encoding="utf-8", errors="ignore")
+            for x in arquivos if x.suffix in (".md", ".csv"))
         mac = None
         if como:
             t = como[0].read_text(encoding="utf-8", errors="ignore")
@@ -468,12 +479,14 @@ def canais_dark():
             if m:
                 cmds = [l.strip() for l in m.group(1).splitlines() if l.strip() and not l.strip().startswith("#")]
                 mac = cmds[0] if cmds else None
-        st = OK if not falta and not pend else REV
+        st = OK if not falta and not pend and not marcado else REV
         partes = [f"{len(arquivos)} arquivos"]
         if falta:
             partes.append("falta " + ", ".join(falta))
         if pend:
             partes.append(f"{pend} itens a conferir no Mac")
+        elif marcado:
+            partes.append("tem fatos marcados CONFERIR NO MAC (a voz só grava depois)")
         links = [f"[{x.name}]({rel(x)})" for x in (como + voz + roteiro + conf)[:4]]
         linha = f"- **{nome}** — {st} " + " · ".join(partes)
         if mac:
