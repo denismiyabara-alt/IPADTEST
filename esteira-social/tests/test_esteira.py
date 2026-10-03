@@ -88,6 +88,31 @@ def test_ep1_so_usa_numero_de_dados_conferidos():
         assert g.checar_numeros(c, c["_row"]) == []
 
 
+def test_ep1_tese_conferida():
+    """Tese do briefing reescrito (c128aee): parece R$ 9 mil; somando a renda, R$ 740; com imposto, quase empata.
+    O R$ 9.260 nunca aparece sem o R$ 740 na mesma peça; nada de "o imposto mensal é o que custa"; os 0,74 ponto
+    não são atribuídos à taxa (é igual nos dois)."""
+    c = next(c for c in MONTADOS if c["serie_ep"] == "Ep. 1")
+    texto = c["texto_gate"]
+    for t in ("23,67%", "0,74 ponto", "R$ 740", "20,12%", "20,75%", "10,37%", "14,47%", "0,50%"):
+        assert t in texto, t
+    assert not g.pendencias(c)
+    for c2 in MONTADOS:
+        pecas = [s["texto"] for s in c2["slides"]] + [c2["legenda"]] + [p["texto"] for p in c2["posts"]]
+        for p in pecas:
+            if "9.260" in p:
+                assert "740" in p, (c2["id"], p)
+            assert "imposto mensal" not in p.lower() and "custa é o imposto" not in p.lower()
+            assert not re.search(r"(0,74|R\$ 740)[^.]*\btaxa\b", p), p
+        if c2["serie_ep"] != "Ep. 1":
+            assert "DIVD11" not in c2["texto_gate"] and "DIVO11" not in c2["texto_gate"], c2["id"]
+
+
+def test_short_pre_estreia_diz_que_na_vida_real_nem_sempre_da_zero():
+    c = next(c for c in MONTADOS if c["serie_ep"] == "Ep. 1 (Short)")
+    assert "Na vida real, nem sempre dá zero" in c["texto_gate"]
+
+
 def test_ep1_nao_soa_como_recomendacao():
     """DIVD11 x DIVO11 são estudo de caso: sem verbo de compra, sem "melhor", e o card diz que é prova da conta."""
     c = next(c for c in MONTADOS if c["serie_ep"] == "Ep. 1")
@@ -173,8 +198,8 @@ def test_autoexame_pega_o_que_o_juiz_reprova(texto, criterio):
 def test_checar_nao_elimina_o_card():
     """Decisão do Mac: o [CHECAR] fica para o Denis preencher na publicação e não elimina o card."""
     com = [c for c in MONTADOS if g.pendencias(c)]
-    assert {g.chave(c["_row"]) for c in com} == {"2026-10-14|longo", "2026-10-27|longo", "2026-10-28|short",
-                                                 "2026-11-03|longo", "2026-11-25|longo"}
+    assert {g.chave(c["_row"]) for c in com} == {"2026-10-27|longo", "2026-10-28|short", "2026-11-03|longo",
+                                                 "2026-11-25|longo"}
     assert all(g.autoexame(c) == [] for c in com)
 
 

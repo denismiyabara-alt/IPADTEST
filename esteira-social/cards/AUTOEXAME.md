@@ -11,8 +11,8 @@ Gerado por `gerar_cards.py`. Duas partes:
 
 ## Parte 2: risco no juiz-post (estimativa)
 
-- **baixo** (19): pauta com bolso ou nome conhecido; deve passar se o PNG da thumbnail for legível.
-- **médio** (19): pauta ok, mas o carrossel mais explica que reage (item 2 vale no máximo 1), ou há uma regra que o juiz vai querer inteira.
+- **baixo** (20): pauta com bolso ou nome conhecido; deve passar se o PNG da thumbnail for legível.
+- **médio** (18): pauta ok, mas o carrossel mais explica que reage (item 2 vale no máximo 1), ou há uma regra que o juiz vai querer inteira.
 - **alto** (0): pauta que o juiz lista como eliminatória (finança pessoal básica) ou tema gringo sem ponte. O texto não salva: "PAUTA MORTA, descartar".
 
 ### alto
@@ -24,7 +24,6 @@ Gerado por `gerar_cards.py`. Duas partes:
 - 06/10 Fundo imobiliário ou imóvel alugado: a conta de 2026: Repete o dilema do Short de 11/11; o carrossel explica mais que reage.
 - 12/10 Resgatou o CDB antes de 30 dias? O IOF come o rendimento: Pauta de produto bancário básico; capa clara e com bolso.
 - 13/10 Dividendos mensais com ações: como montar um calendário: Pauta boa (renda mensal); o carrossel explica mais que reage, o que limita a voz a 1.
-- 14/10 ETF que paga dividendos mensais: a renda saiu da cota?: Pauta forte (top 10 da linha), mas tem tickers: o texto diz que os dois são prova da conta, não escolha. Duas pendências [CHECAR] (regulamentos e soma dos rendimentos) que fecham a conta central.
 - 15/10 Crise financeira: o gráfico de 1929, 2008 e 2020, hoje: Pauta de crise sem ponte clara com o bolso; 'e daí?' é o risco do item 1.
 - 19/10 FII é isento de imposto? Só se cumprir estas 3 regras: Regra de imposto: o juiz pede a regra INTEIRA; o texto fala em 'regras principais' (Lei 14.754/2023 tem outros detalhes que o calendário não traz).
 - 22/10 LCI e LCA ou CDB: a conta de 2026 com imposto e prazo: Pauta de produto bancário; pergunta real com R$ dá bolso. Carrossel explicativo.
@@ -44,6 +43,7 @@ Gerado por `gerar_cards.py`. Duas partes:
 
 - 07/10 Recebeu 1% ao mês e a cota caiu 1%: quanto ganhou?: Conta em R$ simples e mandável; exemplo hipotético dito como exemplo.
 - 08/10 Tesouro IPCA+ a 7% em janeiro: quanto ganhou quem comprou: Continuação de top 10, bolso claro. Risco: o print oficial do Tesouro precisa ser do dia.
+- 14/10 ETF que paga dividendos mensais: a renda saiu da cota?: Virada forte e conferida (R$ 9.260 que vira R$ 740), com tickers como prova da conta, não escolha. Imposto e taxa na régua do briefing (sem 'o imposto mensal é o que custa' e sem pôr os 0,74 ponto na taxa).
 - 14/10 Tesouro IPCA+ negativo? Calma, isso tem nome: Dor no bolso clara (vermelho no app). Risco: jargão do título na thumbnail não conta como trava.
 - 20/10 TRXF11: o que aconteceu com a renda desde agosto: Nome que o público busca + bolso de quem tem cota. Neutro, sem recomendação. Voltou da fila de dezembro (troca T15); texto do card de 31/10 do v2, números reconferidos: o único é '6 meses', da linha do calendário.
 - 21/10 Dividendos altos demais: 4 contas antes de confiar na renda: Bolso claro (dividendo) e critério aplicável; exemplos hipotéticos ditos como exemplo.

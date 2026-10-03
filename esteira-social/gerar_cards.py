@@ -90,7 +90,8 @@ ESTRUTURAS = {
 RE_CHECAR = re.compile(r"\[CHECAR:[^\]]*\]")
 RE_NUM = re.compile(r"(?<![\w])\d+(?:[.,]\d+)*")
 # eliminatório do juiz-post: afirmação absoluta ("só", "nunca", "todo", "ninguém", "sempre")
-RE_ABSOLUTO = re.compile(r"(?<![\wÀ-ú])(só|somente|apenas|nunca|jamais|todo|toda|todos|todas|tudo|ninguém|sempre|"
+# "nem sempre", "nem todo" negam o absoluto: não são afirmação absoluta
+RE_ABSOLUTO = re.compile(r"(?<![\wÀ-ú])(?<!nem )(só|somente|apenas|nunca|jamais|todo|toda|todos|todas|tudo|ninguém|sempre|"
                          r"nenhum|nenhuma)(?![\wÀ-ú])", re.I)
 # eliminatório: CTA e link
 RE_CTA = re.compile(r"https?://|www\.|\blink\b|\bbio\b|\bsiga\b|\bsegue a gente|\bcomenta(?:e|r)?\b|\bsalv[ae]\b|"

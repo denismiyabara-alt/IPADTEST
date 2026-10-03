@@ -816,18 +816,19 @@ C["2026-10-07|short"] = dict(
         "Exemplo: R$ 100 mil num ETF (fundo vendido na bolsa) que paga 1% ao mês.",
         "Em um ano, a renda que caiu na conta soma R$ 11.362.",
         "No mesmo ano, a cota cai 1% ao mês e termina em R$ 88.638.",
-        "Somando os dois: R$ 100.000. Ganho de zero. O extrato mostrou a renda; a cota, não.",
+        "Somando os dois: R$ 100.000. Ganho de zero. Na vida real, nem sempre dá zero.",
     ],
     legenda="Tanaka, um ETF (fundo vendido na bolsa) te paga 1% ao mês, e a cota cai 1% ao mês. Quanto você ganhou "
             "em um ano?\n\n"
             "No exemplo, R$ 100 mil viram R$ 11.362 de renda e R$ 88.638 de cota. Somando: R$ 100.000. Zero.\n\n"
-            "O extrato mostra a renda caindo na conta. A cota descendo, você descobre quando vende.",
+            "O extrato mostra a renda caindo na conta. A cota descendo, você descobre quando vende. Na vida real, nem "
+            "sempre dá zero: o vídeo com dois ETFs de verdade sai na quarta que vem.",
     posts=[
         "Tanaka, recebeu 1% ao mês e ficou feliz?\n\nA cota caiu 1% ao mês no mesmo período.\n\nAgora soma.",
         "Exemplo com R$ 100 mil num ETF (fundo vendido na bolsa):\n\n→ renda do ano: R$ 11.362\n"
         "→ cota no fim: R$ 88.638\n\nSoma: R$ 100.000.",
-        "Ganho do ano: zero.\n\nO extrato mostra a renda caindo na conta. A cota descendo, ele não mostra.\n\n"
-        "Na semana que vem, o episódio da série faz essa conta com dados da bolsa.",
+        "Ganho do ano, no exemplo: zero.\n\nO extrato mostra a renda caindo na conta. A cota descendo, ele não mostra.\n\n"
+        "Na vida real, nem sempre dá zero. O vídeo com dois fundos de verdade sai na quarta que vem.",
     ],
     numeros=list(N_EP1_SHORT),
     risco=("baixo", "Conta em R$ simples e mandável; exemplo hipotético dito como exemplo."),
@@ -836,44 +837,57 @@ C["2026-10-07|short"] = dict(
 C["2026-10-14|longo"] = dict(
     titulo="ETF que paga dividendos mensais: a renda saiu da cota?",
     estrutura="E", mecanica="extrato-falso",
-    mensagem_capa="A renda que um ETF paga sai da própria cota; o vídeo mostra a conta pra saber quanto sobrou.",
-    capa="Essa renda mensal saiu do seu bolso?",
+    mensagem_capa="Olhando só a cota, um ETF parece ter perdido R$ 9 mil para o gêmeo; somando a renda, perdeu R$ 740.",
+    capa="Parece que perdeu R$ 9 mil. Perdeu?",
     slides=[
-        "Dois ETFs (fundos vendidos na bolsa) de dividendos: um paga renda mensal; o outro reinveste. [CHECAR: regulamentos]",
-        "Em 12 meses, a cota do que reinveste subiu 24,41%. A do que paga renda, 15,15%.",
-        "A diferença, 9,26 pontos, é em boa parte a renda que saiu da cota e caiu na conta.",
-        "O extrato de três linhas: quanto pagou, quanto a cota andou, quanto ficou acima da inflação.",
+        "Dois ETFs (fundos vendidos na bolsa) do mesmo índice: o DIVD11 (paga renda mensal) e o DIVO11 (reinveste).",
+        "A cota sozinha, em 12 meses: a do que reinveste subiu 24,41%; a do que paga renda, 15,15%.",
+        "Somando a renda que caiu na conta, o que paga renda chega a 23,67%. A diferença cai pra 0,74 ponto.",
+        "Em R$ 100 mil, a perda aparente de R$ 9.260 vira R$ 740.",
     ],
-    legenda="Tanaka, ETF (fundo vendido na bolsa) que paga renda mensal paga com a própria cota. Isso não é defeito. "
-            "É como funciona.\n\n"
-            "Nos 12 meses até o começo de outubro, a cota do DIVO11, que reinveste, subiu 24,41%. A do DIVD11, que distribui, "
-            "subiu 15,15%. A diferença é em boa parte a renda que caiu na conta.\n\n"
-            "O vídeo soma a renda de volta e compara com os juros do país e a inflação. Os dois entram como prova da conta.",
+    legenda="Tanaka, dois ETFs (fundos vendidos na bolsa) do mesmo índice. Olhando a cota sozinha, o DIVD11, que paga "
+            "renda mensal, parece ter perdido R$ 9.260 em cada R$ 100 mil para o DIVO11, que reinveste.\n\n"
+            "Mas ele pagou R$ 4,7614 por cota em 12 eventos: 8,52 pontos voltaram como renda. A diferença de verdade "
+            "foi de R$ 740. Com o imposto na mesma régua, quase empatou.\n\n"
+            "Os dois entram como prova da conta, não como escolha.",
     posts=[
-        "Tanaka, sua renda mensal saiu de onde?\n\nUm ETF (fundo vendido na bolsa) que paga renda mensal paga com a "
-        "própria cota.\n\nNão é defeito. É a conta que o extrato não mostra.",
-        "DIVO11 (ETF que reinveste) e DIVD11 (ETF que paga renda mensal), em 12 meses:\n\n→ cota do DIVO11: +24,41%\n"
-        "→ cota do DIVD11: +15,15%\n\nOs dois entram como prova da conta, não como escolha.",
-        "A diferença, 9,26 pontos, é em boa parte a renda que saiu da cota e caiu na conta.\n\nEm R$ 100 mil, R$ 9.260.\n\n"
-        "Somando a renda de volta, quanto sobra? [CHECAR: soma dos rendimentos do DIVD11 em 12 meses, A CONFERIR 10]",
-        "A régua do mesmo período:\n\n→ 14,47% no CDI (a taxa de referência dos CDBs)\n"
-        "→ 4,22% de inflação em 12 meses, até agosto\n\nRenda que não passa da régua foi a cota voltando pro bolso.",
-        "Mais dois blocos no vídeo:\n\n→ opções de compra (o fundo vende a alguém a alta da carteira acima de um "
-        "preço): a cota do SPYI11 (fundo de opções vendido na bolsa) andou −1,39% em 12 meses\n"
-        "→ taxa de administração (o que o gestor cobra por ano): quanto tira da renda em uma década",
+        "Tanaka, parece que perdeu R$ 9 mil.\n\nUm ETF (fundo vendido na bolsa) que paga renda mensal ficou atrás do "
+        "gêmeo que reinveste.\n\nMas a renda caiu na conta. Somando, a história muda.",
+        "A cota sozinha, num ano:\n\n→ DIVO11 (fundo da bolsa que reinveste): +24,41%\n→ DIVD11 (fundo da bolsa que paga renda mensal): +15,15%\n\n"
+        "Parece perda. Falta somar a renda que caiu na conta.",
+        "Somando a renda que o DIVD11 (fundo da bolsa que paga renda mensal) pagou no ano, o retorno total vai a 23,67%.\n\n"
+        "A diferença pro gêmeo cai pra 0,74 ponto: R$ 740 em cada R$ 100 mil.\n\n"
+        "Os dois entram como prova da conta, não como escolha.",
+        "E o imposto? O DIVD11 (fundo da bolsa que paga renda mensal) tem 15% retidos a cada pagamento; o gêmeo paga 15% ao vender.\n\n"
+        "Com os dois vendidos: 20,12% contra 20,75%. Quase empatou.\n\n"
+        "E não é a taxa: a dos dois é 0,50% ao ano.",
+        "O SPYI11 (fundo da bolsa que investe num fundo americano) pagou quase 1% ao mês, em reais.\n\n"
+        "Somando renda e cota: 10,37% em um ano, contra 14,47% do CDI (taxa de referência dos CDBs).\n\n"
+        "Quem vende as opções de compra (a alta acima de um preço) é o fundo americano, o SPYI.",
     ],
     numeros=[
-        arq("1,39", BRIEF_EP1, "R$ 111,15 → R$ 109,60: **−1,39%**"),
         arq("24,41", BRIEF_EP1, "R$ 132,90 (01/10/2026): **+24,41%**"),
         arq("15,15", BRIEF_EP1, "R$ 55,86 → R$ 64,32: **+15,15%**"),
+        arq("4,7614", BRIEF_EP1, "**R$ 4,7614 por cota bruto** em 12 eventos"),
+        arq("12", BRIEF_EP1, "**R$ 4,7614 por cota bruto** em 12 eventos"),
+        arq("23,67", BRIEF_EP1, "Retorno total **23,67% bruto, 22,39% líquido**"),
+        arq("15", BRIEF_EP1, "**15%, retido na fonte na data da distribuição**"),
+        arq("20,75", BRIEF_EP1, "DIVO11 24,41% × 0,85 = 20,75%; DIVD11 15,15% × 0,85 + 7,25% = 20,12%"),
+        arq("20,12", BRIEF_EP1, "DIVO11 24,41% × 0,85 = 20,75%; DIVD11 15,15% × 0,85 + 7,25% = 20,12%"),
+        arq("0,50", BRIEF_EP1, "**Taxa Total Máxima 0,50% ao ano** nos dois"),
+        arq("10,37", BRIEF_EP1, "Retorno total **10,37% bruto, 8,61% líquido**"),
         arq("14,47", BRIEF_EP1, "**14,47%** (251 dias úteis, 02/10/2025 a 01/10/2026)"),
-        arq("4,22", BRIEF_EP1, "**4,22%** até ago/2026"),
-        conta("9,26", "24.41 - 15.15", "cotas do DIVO11 e do DIVD11 em 12 meses (briefing, DADOS CONFERIDOS C1 e C2)"),
+        conta("9", "24.41 - 15.15", "cotas do DIVO11 e do DIVD11 (C1 e C2): 9,26 pontos, 'R$ 9 mil' em R$ 100 mil"),
         conta("9.260", "100000 * (0.2441 - 0.1515)", "R$ 100 mil x 9,26 pontos (C1 e C2)"),
-        conta("100", "100000 / 1000", "base de R$ 100 mil da conta acima"),
+        conta("100", "100000 / 1000", "base de R$ 100 mil"),
+        conta("8,52", "4.7614 / 55.86 * 100", "R$ 4,7614 por cota (R4) sobre a cota de R$ 55,86 (C2)"),
+        conta("0,74", "24.41 - 23.67", "DIVO11 (C1) menos o retorno total do DIVD11 (R4)"),
+        conta("740", "100000 * (0.2441 - 0.2367)", "0,74 ponto em R$ 100 mil (C1 e R4)"),
+        conta("1", "13.0763 / 111.15 / 12 * 100", "'quase 1% ao mês': R$ 13,0763 em 12 eventos (R7) sobre a cota de R$ 111,15 (C3)"),
     ],
-    risco=("médio", "Pauta forte (top 10 da linha), mas tem tickers: o texto diz que os dois são prova da conta, não "
-                    "escolha. Duas pendências [CHECAR] (regulamentos e soma dos rendimentos) que fecham a conta central."),
+    risco=("baixo", "Virada forte e conferida (R$ 9.260 que vira R$ 740), com tickers como prova da conta, não escolha. "
+                    "Imposto e taxa na régua do briefing (sem 'o imposto mensal é o que custa' e sem pôr os 0,74 ponto "
+                    "na taxa)."),
 )
 
 C["2026-10-21|longo"] = dict(

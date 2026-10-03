@@ -56,14 +56,14 @@ pngs: "pendente (renderizar antes do juiz-post)"
 #### Slide 5
 - imagem: sem imagem (slide só de texto)
 - png: `esteira-social/render/2026-10-07-recebeu-1-ao-mes-e-a-cota-caiu-1-quanto-ganhou/slide-5.png`
-> Somando os dois: R$ 100.000. Ganho de zero. O extrato mostrou a renda; a cota, não.
+> Somando os dois: R$ 100.000. Ganho de zero. Na vida real, nem sempre dá zero.
 
-### LEGENDA (297 caracteres)
+### LEGENDA (387 caracteres)
 > Tanaka, um ETF (fundo vendido na bolsa) te paga 1% ao mês, e a cota cai 1% ao mês. Quanto você ganhou em um ano?
 >
 > No exemplo, R$ 100 mil viram R$ 11.362 de renda e R$ 88.638 de cota. Somando: R$ 100.000. Zero.
 >
-> O extrato mostra a renda caindo na conta. A cota descendo, você descobre quando vende.
+> O extrato mostra a renda caindo na conta. A cota descendo, você descobre quando vende. Na vida real, nem sempre dá zero: o vídeo com dois ETFs de verdade sai na quarta que vem.
 
 ### HASHTAGS (no fim da legenda)
 #InvestirECocar #EducacaoFinanceira #ETF #ETFs #TaxaDeAdministracao #DividendosMensais #RendaMensal
@@ -87,13 +87,13 @@ pngs: "pendente (renderizar antes do juiz-post)"
 >
 > Soma: R$ 100.000.
 
-#### Post C (170/280)
+#### Post C (200/280)
 - imagem: só texto
-> Ganho do ano: zero.
+> Ganho do ano, no exemplo: zero.
 >
 > O extrato mostra a renda caindo na conta. A cota descendo, ele não mostra.
 >
-> Na semana que vem, o episódio da série faz essa conta com dados da bolsa.
+> Na vida real, nem sempre dá zero. O vídeo com dois fundos de verdade sai na quarta que vem.
 
 ## PARA O LEITOR-FRIO (depois do APROVADO do juiz)
 Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa quer me dizer" com:
@@ -156,12 +156,12 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     },
     {
       "numero": 5,
-      "texto": "Somando os dois: R$ 100.000. Ganho de zero. O extrato mostrou a renda; a cota, não.",
+      "texto": "Somando os dois: R$ 100.000. Ganho de zero. Na vida real, nem sempre dá zero.",
       "imagem": "sem imagem (slide só de texto)",
       "png": "esteira-social/render/2026-10-07-recebeu-1-ao-mes-e-a-cota-caiu-1-quanto-ganhou/slide-5.png"
     }
   ],
-  "legenda": "Tanaka, um ETF (fundo vendido na bolsa) te paga 1% ao mês, e a cota cai 1% ao mês. Quanto você ganhou em um ano?\n\nNo exemplo, R$ 100 mil viram R$ 11.362 de renda e R$ 88.638 de cota. Somando: R$ 100.000. Zero.\n\nO extrato mostra a renda caindo na conta. A cota descendo, você descobre quando vende.",
+  "legenda": "Tanaka, um ETF (fundo vendido na bolsa) te paga 1% ao mês, e a cota cai 1% ao mês. Quanto você ganhou em um ano?\n\nNo exemplo, R$ 100 mil viram R$ 11.362 de renda e R$ 88.638 de cota. Somando: R$ 100.000. Zero.\n\nO extrato mostra a renda caindo na conta. A cota descendo, você descobre quando vende. Na vida real, nem sempre dá zero: o vídeo com dois ETFs de verdade sai na quarta que vem.",
   "hashtags": "#InvestirECocar #EducacaoFinanceira #ETF #ETFs #TaxaDeAdministracao #DividendosMensais #RendaMensal",
   "numeros": [
     {
@@ -212,7 +212,7 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "assunto": "renda mensal",
     "termo_busca": "—"
   },
-  "instagram_caption": "Tanaka, um ETF (fundo vendido na bolsa) te paga 1% ao mês, e a cota cai 1% ao mês. Quanto você ganhou em um ano?\n\nNo exemplo, R$ 100 mil viram R$ 11.362 de renda e R$ 88.638 de cota. Somando: R$ 100.000. Zero.\n\nO extrato mostra a renda caindo na conta. A cota descendo, você descobre quando vende.",
+  "instagram_caption": "Tanaka, um ETF (fundo vendido na bolsa) te paga 1% ao mês, e a cota cai 1% ao mês. Quanto você ganhou em um ano?\n\nNo exemplo, R$ 100 mil viram R$ 11.362 de renda e R$ 88.638 de cota. Somando: R$ 100.000. Zero.\n\nO extrato mostra a renda caindo na conta. A cota descendo, você descobre quando vende. Na vida real, nem sempre dá zero: o vídeo com dois ETFs de verdade sai na quarta que vem.",
   "tweets": [
     {
       "numero": 1,
@@ -229,7 +229,7 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     {
       "numero": 3,
       "letra": "C",
-      "texto": "Ganho do ano: zero.\n\nO extrato mostra a renda caindo na conta. A cota descendo, ele não mostra.\n\nNa semana que vem, o episódio da série faz essa conta com dados da bolsa.",
+      "texto": "Ganho do ano, no exemplo: zero.\n\nO extrato mostra a renda caindo na conta. A cota descendo, ele não mostra.\n\nNa vida real, nem sempre dá zero. O vídeo com dois fundos de verdade sai na quarta que vem.",
       "imagem": "só texto"
     }
   ],
@@ -242,7 +242,7 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
       "esteira-social/render/2026-10-07-recebeu-1-ao-mes-e-a-cota-caiu-1-quanto-ganhou/slide-4.png",
       "esteira-social/render/2026-10-07-recebeu-1-ao-mes-e-a-cota-caiu-1-quanto-ganhou/slide-5.png"
     ],
-    "legenda": "Tanaka, um ETF (fundo vendido na bolsa) te paga 1% ao mês, e a cota cai 1% ao mês. Quanto você ganhou em um ano?\n\nNo exemplo, R$ 100 mil viram R$ 11.362 de renda e R$ 88.638 de cota. Somando: R$ 100.000. Zero.\n\nO extrato mostra a renda caindo na conta. A cota descendo, você descobre quando vende.",
+    "legenda": "Tanaka, um ETF (fundo vendido na bolsa) te paga 1% ao mês, e a cota cai 1% ao mês. Quanto você ganhou em um ano?\n\nNo exemplo, R$ 100 mil viram R$ 11.362 de renda e R$ 88.638 de cota. Somando: R$ 100.000. Zero.\n\nO extrato mostra a renda caindo na conta. A cota descendo, você descobre quando vende. Na vida real, nem sempre dá zero: o vídeo com dois ETFs de verdade sai na quarta que vem.",
     "mensagem_pretendida_da_capa": "Receber 1% ao mês enquanto a cota cai 1% ao mês dá, em um ano, ganho zero."
   }
 }

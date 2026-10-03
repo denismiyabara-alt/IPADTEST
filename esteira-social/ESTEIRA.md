@@ -14,6 +14,9 @@ mais o Tesouro antes do Copom (03/11). Os textos saem de `pautas-canal/serie/SER
 `serie/MOLDE-TESOURO-COPOM.md` e, no Ep. 1, do briefing `pautas-canal/briefings/2026-10-14-etf-dividendos-mensais-briefing.md`.
 No Ep. 1 e no Short dele, o número do briefing vem **só** da seção "4. DADOS CONFERIDOS" (há um teste para isso), e o
 que está em "A CONFERIR" vira `[CHECAR: …]`. DIVD11 e DIVO11 aparecem como prova da conta, nunca como escolha.
+A tese do Ep. 1 segue o briefing conferido: só a cota sugere R$ 9.260 de diferença em R$ 100 mil; somando a renda, R$ 740
+(0,74 ponto); com o imposto nos dois, 20,12% contra 20,75%. Um teste garante que o R$ 9.260 nunca aparece sem o R$ 740 na
+mesma peça e que os 0,74 ponto não são atribuídos à taxa, que é igual nos dois.
 - **Títulos provisórios:** os 11 títulos `provisório` da série levam a marca **"título provisório: atualizar depois do
   empacotador/A-B"** no frontmatter, no cabeçalho e no INDICE. O texto do card não depende das palavras do título.
 - **Ajuste de 03/10 (`pautas-canal/trocas.json`, T14 a T17):**
@@ -42,7 +45,7 @@ calendário oficial (CALENDARIO.csv, v3) ──► gerar_cards.py + conteudo.py 
 cd esteira-social
 python3 gerar_cards.py            # 38 cards, INDICE.csv, GATE-RELATORIO.md e AUTOEXAME.md
 python3 gerar_cards.py --checar   # só o autoexame; sai com 1 se algum card falhar
-python3 -m pytest -q tests/       # 329 testes; os de gate pulam se o gate não for encontrado
+python3 -m pytest -q tests/       # 331 testes; os de gate pulam se o gate não for encontrado
 ```
 
 - **Gerador:** usa só a biblioteca padrão. Os testes precisam de `pytest`.
@@ -123,8 +126,8 @@ entre 6 e 8 cada. Nem a estrutura nem a mecânica se repetem em dois cards segui
 
 - **[CHECAR]:** o Denis preenche na publicação, e a marca **não elimina** o card (decisão do Mac). O contrato do
   juiz-post não fala em `[CHECAR]`, mas o juiz julga "o que o Tanaka vê". Um `[CHECAR: …]` visível no PNG pode ser lido
-  como texto quebrado ou número sem fonte. No v3 são cinco cards: o Ep. 1 (14/10), 27/10, 28/10 (Short), 03/11 e o
-  Ep. 6 (25/11).
+  como texto quebrado ou número sem fonte. São quatro cards: 27/10, 28/10 (Short), 03/11 e o Ep. 6 (25/11). O Ep. 1 não
+  tem mais [CHECAR]: a soma dos rendimentos do DIVD11 foi conferida (briefing c128aee, R4).
 - **CTA para o vídeo:** o pedido original queria CTA. O juiz-post elimina CTA e link. Por isso o texto julgado não tem
   CTA nem link. O destino do link (bio do Instagram e, no X, uma resposta à parte depois da aprovação) está na seção
   PUBLICAÇÃO, fora do julgamento.
