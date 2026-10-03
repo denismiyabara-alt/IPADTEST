@@ -2,21 +2,21 @@
 titulo_trabalho: "Tesouro IPCA+ a 7% em janeiro: quanto ganhou quem comprou"
 data: 2026-10-08
 formato: longo (teleprompter)
-versao: v1.2 (v1.0 escrita → juiz-roteiro 8/10 → v1.1 10/10 → punch-up do juiz-ritmo → conserto do ouvinte-frio)
+versao: v1.3 (v1.0 escrita → juiz-roteiro 8/10 → v1.1 10/10 → punch-up do juiz-ritmo → conserto do ouvinte-frio → v1.3 revisão independente + score_roteiro.py)
 duracao_estimada: "~10 min (≈1.370 palavras de fala a ~140 por minuto; teto 14)"
 briefing: pautas-canal/briefings/2026-10-08-tesouro-ipca-7-briefing.md
 fonte_unica: "Tesouro Transparente, PrecoTaxaTesouroDireto.csv (data-base 01/10/2026). IR: Lei 11.033/2004."
 corte_short: "Short 14/10 'Tesouro IPCA+ negativo? Calma, isso tem nome' = BLOCO 2, entre [CORTE SHORT — INÍCIO] e [CORTE SHORT — FIM]"
 orcamento_numeros: "fontes 1 (+ lei do IR) · datas-base faladas: 28/01 (compra) e 01/10 (hoje); julho entra com UM número grudado no mês (8,22) e um valor (9.968) · números novos falados por bloco: B0 4 · B1 5 · B2 3 · B3 5 · B4 3 · B5 2 · B6 1 · frases com 3+ números: 0"
-promessa_trecho: "Hoje, um desses dois investimentos está duzentos e oitenta reais na frente do outro."
-pergunta_trecho: "Escreve aí embaixo antes de eu abrir: IPCA+ ou Selic?"
+promessa_trecho: "Guarda esse contraste: duzentos e oitenta reais de diferença, entre dez mil e dez mil comprados no mesmo dia."
+pergunta_trecho: "Escreve aí embaixo antes de eu abrir o extrato: IPCA+ ou Selic?"
 moral_trecho: "A taxa que você trava não é o dinheiro que aparece no app."
 loop_trecho: "duzentos e oitenta reais"
 agregado_linha_trecho: "E o que separa o melhor do pior da lista é uma linha só: a data de vencimento."
 prova_espectador_trecho: "Se você comprasse os dez mil às dez da manhã de 28 de janeiro e vendesse um minuto depois, voltava quanto?"
 analogia_trecho: "camada 1: 'Pensa no título como um carro zero que você comprou em janeiro.' · camada 2: 'É o carro perdendo valor no minuto em que sai da loja.' · camada 3: 'é a FIPE de um carro que não está à venda.'"
 concessao_trecho: "O vídeo de janeiro era meu. Então essa conta também é minha."
-ferramenta_trecho: "o Tanaka faz a pergunta da revenda: eu vou vender esse carro antes de 2035?"
+ferramenta_trecho: "faz a pergunta da revenda, Tanaka. É a pergunta que separa a FIPE do dinheiro: eu vou vender esse carro antes de 2035?"
 ---
 
 <!--
@@ -38,21 +38,23 @@ E naquele mesmo dia saiu um vídeo aqui no canal com "última chance" no título
 
 [TELA: título e thumb do vídeo de 28/01/2026 (dHYQtxnMSrw). SEM meme entre 0:08 e 0:20]
 
-Do outro lado, os mesmos dez mil, no mesmo dia, no título mais sem graça do Tesouro Direto: o Tesouro Selic.
-
 Só que a última chance voltou.
 
-Em julho, o mesmo IPCA+ 2035 chegou a pagar oito vírgula vinte e dois.
+Em julho, o mesmo IPCA+ 2035 chegou a pagar a inflação mais oito vírgula vinte e dois.
 
 Última chance que volta em julho com desconto maior é loja de colchão, Tanaka.
 
 [TELA: 28/01: 7,47% → 30/07: 8,22% (taxa de compra, manhã) · Tesouro Transparente]
 
-Hoje, um desses dois investimentos está duzentos e oitenta reais na frente do outro.
+Do outro lado, os mesmos dez mil, no mesmo dia, no título mais sem graça do Tesouro Direto: o Tesouro Selic.
 
-Qual dos dois?
+Hoje, um desses dois investimentos está na frente do outro.
 
-Escreve aí embaixo antes de eu abrir: IPCA+ ou Selic?
+Guarda esse contraste: duzentos e oitenta reais de diferença, entre dez mil e dez mil comprados no mesmo dia.
+
+Qual dos dois está na frente?
+
+Escreve aí embaixo antes de eu abrir o extrato: IPCA+ ou Selic?
 
 [TELA: "R$ 10 mil em 28/01: IPCA+ 2035 ou Tesouro Selic?"]
 
@@ -93,7 +95,7 @@ Aí você pensa: "Beleza, Denis, mas você escolheu o pior título da lista pra 
 
 Escolhi o mais conhecido.
 
-E ele nem foi o pior.
+E o 2035 nem foi o pior.
 
 No dia 28 de janeiro, onze títulos IPCA+ que ainda não venceram pagavam mais de sete por cento.
 
@@ -111,7 +113,7 @@ O 2050 rendeu cinco vírgula sessenta e três por cento, já somando os juros qu
 
 Quanto mais longe o vencimento, mais o preço do título balançou no caminho.
 
-E o 2035 balançou o bastante pra passar meses no vermelho.
+E o 2035 balançou o bastante pra aparecer no vermelho até julho.
 
 ## BLOCO 2 - O VERMELHO TEM NOME (3:00–4:45)
 
@@ -143,7 +145,9 @@ Não tinha, Tanacão.
 
 Mas o carro continua andando.
 
-Quem leva o título até 2035 recebe a inflação mais os sete e quarenta e sete que travou em janeiro, com a FIPE alta ou baixa.
+Quem leva o título até 2035 recebe a inflação mais os sete e quarenta e sete que travou em janeiro.
+
+Com a FIPE alta ou baixa.
 
 O vermelho só vira prejuízo de verdade num dia: no dia em que você vende.
 
@@ -175,7 +179,9 @@ Voltavam nove mil, oitocentos e noventa e quatro.
 
 O título tem dois preços no mesmo dia: o que você paga pra comprar e o que o Tesouro paga pra recomprar de você.
 
-A taxa de recompra fica doze centésimos acima da taxa de compra, e taxa mais alta quer dizer preço mais baixo.
+A taxa de recompra fica doze centésimos acima da taxa de compra.
+
+E taxa mais alta quer dizer preço mais baixo.
 
 Nos seus dez mil, esse pedágio dá uns cento e dez reais.
 
@@ -201,13 +207,13 @@ Nesses oito meses, o juro do Banco Central pagou mais do que a inflação mais s
 
 Juro alto do Banco Central paga muito no curto prazo.
 
-O IPCA+ é uma promessa pra longe.
+O IPCA+ só paga a promessa inteira lá em 2035.
 
 O pedágio, a taxa e o juro do Selic: somados, são os duzentos e oitenta.
 
 [TELA: R$ 280 = ~R$ 108 (pedágio entre compra e recompra, 0,12 p.p.) + ~R$ 77 (taxa de 7,47% para 7,56%) + ~R$ 94 (Selic pagou mais que IPCA + 7,47% no período) · conta derivada do CSV do Tesouro Transparente, data-base 01/10/2026 · ver briefing, seção 2a]
 
-E tem um IPCA+ que encostou mais no Selic: o que deposita um dinheiro na sua conta a cada seis meses.
+E tem um 2035 que encostou mais no Selic: o que deposita um dinheiro na sua conta a cada seis meses.
 
 ## BLOCO 4 - O CUPOM (7:30–9:00)
 
@@ -225,9 +231,11 @@ Somando o cupom com o preço de hoje, os dez mil viraram dez mil, setecentos e q
 
 [TELA: Tesouro IPCA+ c/ Juros Semestrais 2035 · PU compra 28/01: R$ 4.213,62 · PU venda 01/10: R$ 4.388,12 + cupom ≈ R$ 139,08 · R$ 10.744 · Tesouro Selic no mesmo período: R$ 10.942]
 
-Na frente do IPCA+ 2035 sem cupom, e ainda atrás do Selic.
+Na frente do IPCA+ 2035 sem cupom, que é outro título, com outra taxa.
 
-Aí você deve estar pensando: "Então o cupom é dinheiro a mais."
+E ainda atrás do Selic.
+
+"Então o cupom é dinheiro a mais, Denis?"
 
 Não é.
 
@@ -237,7 +245,7 @@ No dia em que o cupom cai na conta, o preço do título cai mais ou menos do mes
 
 E o imposto do cupom já vem descontado no dia em que ele cai.
 
-O cupom não muda o resultado; muda o dia em que você enxerga o dinheiro.
+O cupom não é dinheiro a mais; ele muda o dia em que você enxerga o dinheiro.
 
 ## BLOCO 5 - COMPRAR, VENDER OU FICAR (9:00–10:45)
 
@@ -249,21 +257,25 @@ Pra quem pensa em comprar agora: o IPCA+ 2035 pagava, no dia primeiro de outubro
 
 Quem compra e leva até 2035 recebe essa taxa.
 
-O cuidado: em julho a mesma taxa esteve bem mais alta, e quem precisar do dinheiro antes vende pelo preço do dia.
+O cuidado: em julho essa taxa esteve bem mais alta.
+
+Se ela subir de novo, o preço cai de novo, e quem precisar do dinheiro antes vende pelo preço do dia.
 
 [TELA: IPCA+ 2035 · 01/10/2026 · compra 7,56% · venda 7,68% · Tesouro Transparente · "não é recomendação"]
 
-Pra quem pensa em vender: nesses oito meses o Selic pagou mais, e quem vai precisar do dinheiro em um ou dois anos está com um título longo demais na mão.
+Pra quem pensa em vender: nesses oito meses o Selic pagou mais.
 
-O outro lado: quem vende hoje troca uma taxa travada até 2035 por um juro que muda a cada reunião do Copom.
+E quem vai precisar do dinheiro em um ou dois anos está com um título longo demais na mão.
+
+O outro lado: quem vende hoje troca uma taxa travada até 2035 por um juro que o Banco Central pode mudar a cada reunião.
 
 E paga duas vezes na saída: o imposto sobre o ganho e o pedágio da recompra.
 
 Pra quem fica: uma comparação só, a taxa do seu título hoje contra a taxa que você travou.
 
-Taxa de hoje acima da sua, o app fica vermelho.
+Taxa de hoje acima da sua, o app puxa o seu título pra baixo.
 
-Taxa de hoje abaixo da sua, o app fica verde.
+Taxa de hoje abaixo da sua, puxa pra cima.
 
 E nenhuma das duas muda o que você recebe se ficar até o fim.
 
@@ -275,15 +287,17 @@ Duzentos e oitenta reais.
 
 Pra quem vende hoje, essa diferença é dinheiro de verdade.
 
-Pra quem fica até 2035, é a FIPE de um carro que não está à venda.
+Pra quem fica até 2035, a maior parte dela é a FIPE de um carro que não está à venda.
 
-Então, antes de abrir o app do Tesouro, o Tanaka faz a pergunta da revenda: eu vou vender esse carro antes de 2035?
+Então, antes de abrir o app do Tesouro, faz a pergunta da revenda, Tanaka.
+
+É a pergunta que separa a FIPE do dinheiro: eu vou vender esse carro antes de 2035?
 
 [TELA final: card para o vídeo de 28/01 (dHYQtxnMSrw) e para o Short de 14/10]
 
 ---
 
-# NOTAS DE PRODUÇÃO (não vão pro teleprompter)
+## CUIDADOS — NOTAS DE PRODUÇÃO (não vão pro teleprompter)
 
 ## Tabela número → fonte
 
@@ -367,22 +381,105 @@ veredito: PASSA depois do punch-up
 ```
 Risco anotado: "loja de colchão" é piada de um toque sobre o título do próprio vídeo de janeiro: ver validação 2.
 
-## Ouvinte-frio, sobre a v1.1 com punch-up
+## Ouvinte-frio, sobre a v1.1 com punch-up (SUBSTITUÍDO)
 
-**(ESCUTA REPETIDA — nota inflada):** o mesmo modelo escreveu e julgou; este teste NÃO vale como ouvinte frio. Rodar um
-ouvinte novo no Mac (`fala_so.py` + agente `ouvinte-frio`) antes de subir a LEITURA.
+A rodada anterior (média 8,3, PASSA) foi feita pelo mesmo modelo que escreveu: nota inflada, não vale. Fica no
+histórico do git. A escuta que vale está na seção "Revisão independente" abaixo.
+
+## Revisão independente (03/10/2026, outro agente, não escreveu o roteiro)
+
+Ressalva honesta: li a fala da v1.2 bloco a bloco, mas o arquivo veio inteiro na tela (notas junto), então não é uma
+escuta 100% cega. Mesmo assim ela achou o que a escuta do autor não achou.
+
+### Ouvinte-frio sobre a v1.2 (antes das correções)
 ```
-B0 9 · B1 8 · B2 9 · B3 7 → 8 · B4 8 · B5 8 · B6 9
-travas (rodada 1):
-- B3 "A taxa de venda fica zero vírgula doze ponto percentual acima." — "ponto percentual" e "taxa de venda" sem tradução; não diz que taxa maior = preço menor
-- B3 "Os três somados dão os duzentos e oitenta" — os três pedaços ditos longe um do outro
-- B4 "pagou o cupom em 15 de maio" — "cupom" chegava antes da tradução
-conta central recontada: R$ 10 mil em 28/01 → Selic R$ 10.942, IPCA+ 2035 R$ 10.662; diferença R$ 280 = pedágio ~110 + taxa ~80 + juro do Selic ~90
-média: 8,3/10 · blocos abaixo de 7: nenhum · veredito: PASSA (com ressalva de escuta repetida)
+B0 8 · B1 7 · B2 8 · B3 7 · B4 6 · B5 6 · B6 8 → média 7,1 · blocos abaixo de 7: B4, B5 · REPROVA
+travas:
+- B0 "Do outro lado... o Tesouro Selic. Só que a última chance voltou." — o "só que" responde a frase de duas linhas antes; o Selic cortou o fio
+- B0 "chegou a pagar oito vírgula vinte e dois" — oito vírgula vinte e dois de quê? (faltou "a inflação mais")
+- B1 "E o 2035 balançou o bastante pra passar meses no vermelho." — o briefing tem 30 pregões no vermelho espalhados entre 28/01 e 30/07, não "meses"
+- B3 "A taxa de recompra fica doze centésimos acima..., e taxa mais alta quer dizer preço mais baixo." — dois passos numa frase
+- B3→B4 "tem um IPCA+ que encostou mais no Selic" — mas o B1 acabou de dizer que o IPCA+ 2029 quase empatou; qual encostou mais?
+- B4 "Na frente do IPCA+ 2035 sem cupom" + "O cupom não muda o resultado" — se não muda, por que ficou na frente? contradição ouvida
+- B5 "Taxa de hoje acima da sua, o app fica vermelho." — o vídeo acabou de mostrar 7,56 acima de 7,47 com o app em +6,62%: o próprio vídeo desmonta a frase
+- B5 "reunião do Copom" — sigla sem tradução; "O cuidado: em julho a mesma taxa esteve bem mais alta" — cuidado com o quê? faltou o passo (subir de novo → preço cai)
+- B6 "o Tanaka faz a pergunta" — terceira pessoa falando com o Tanaka
+conta central recontada: R$ 10 mil em 28/01 → Selic R$ 10.942, IPCA+ 2035 R$ 10.662, diferença R$ 280 = pedágio ~110 + taxa ~80 + juro do Selic ~90 (certa)
 ```
-Conserto só adicionando (v1.2): "taxa de recompra fica doze centésimos acima da taxa de compra, e taxa mais alta quer dizer
-preço mais baixo"; "O pedágio, a taxa e o juro do Selic: somados, são os duzentos e oitenta"; "O juro que ele deposita a
-cada seis meses se chama cupom" antes da data do cupom. Congelado.
+
+### Correções aplicadas na v1.3 (só adicionando/quebrando; nenhum número novo)
+- B0: Selic vai pra logo antes da pergunta; "a inflação mais oito vírgula vinte e dois"; "antes de eu abrir o extrato";
+  loop vira "Guarda esse contraste: duzentos e oitenta reais de diferença, entre dez mil e dez mil comprados no mesmo dia."
+  (o item 3 da rubrica e o portão pedem o loop com "guarda" + significado na mesma frase; fica no B0, não no fecho)
+- B1: "E o 2035 nem foi o pior." (tira o "ele"); "pra aparecer no vermelho até julho" no lugar de "meses no vermelho"
+- B2: a frase de 26 palavras quebrada em duas
+- B3: frase da recompra quebrada em duas; "O IPCA+ é uma promessa pra longe" (soava traduzido) → "O IPCA+ só paga a promessa
+  inteira lá em 2035"; ponte "tem um 2035 que encostou mais no Selic"
+- B4: "que é outro título, com outra taxa" (taxa de compra 7,53% contra 7,47%, briefing seção 1); fecho do bloco vira
+  "O cupom não é dinheiro a mais; ele muda o dia em que você enxerga o dinheiro."; tirado o segundo "Aí você pensa" do vídeo
+- B5: "Se ela subir de novo, o preço cai de novo"; "Copom" → "o Banco Central pode mudar a cada reunião";
+  vermelho/verde → "o app puxa o seu título pra baixo / pra cima" (direção certa, sem contradizer o B1); frase longa quebrada
+- B6: "a maior parte dela é a FIPE" (os ~R$ 94 do juro do Selic não são marcação); "faz a pergunta da revenda, Tanaka.
+  É a pergunta que separa a FIPE do dinheiro: ..."
+
+### Juiz-roteiro (rubrica-roteiro-10.md, agora no repo) sobre a v1.3
+```
+nota: 10/10 (com item 9 decidido pelo juiz contra o portão, ver abaixo)
+eliminatorio: nenhum
+item  1 clique confirmado ≤15s ...... PASSA — "Dez mil reais no Tesouro IPCA+ 2035, comprados no dia 28 de janeiro."
+item  2 número ancorado <20s ........ PASSA — "o título pagava a inflação mais sete vírgula quarenta e sete por cento ao ano."
+item  3 loop = número ANCORADO ...... PASSA — "Guarda esse contraste: duzentos e oitenta reais de diferença, entre dez mil e dez mil comprados no mesmo dia."
+item  4 agregado → linha ............ PASSA — "o que separa o melhor do pior da lista é uma linha só: a data de vencimento." (vale pros extremos; no meio, o IPCA+ 2040 bateu o 2035)
+item  5 prova no espectador ......... PASSA — "vendesse um minuto depois, voltava quanto? ... Você já sabe, porque você já comprou carro."
+item  6 uma analogia, em camadas .... PASSA — carro zero → "perdendo valor no minuto em que sai da loja" → "FIPE de um carro que não está à venda"
+item  7 violação benigna + concessão  PASSA — "O vídeo de janeiro era meu. Então essa conta também é minha."
+item  8 atitude, zero meta-discurso . PASSA — "O título sem graça não postou nada, não prometeu nada, e ganhou."
+item  9 arco linear, cada fato 1x ... PASSA (juiz) — o portão lista só números de [TELA]; na fala, 7,47 e 280 voltam como premissa/callback
+item 10 fecho = ferramenta NOMEADA .. PASSA — "faz a pergunta da revenda, Tanaka. É a pergunta que separa a FIPE do dinheiro"
+elim. costura A — pontes ........... OK — o portão não achou ponte que anuncia
+elim. costura B — molde repetido ... OK — portão comparou com pautas-canal/roteiros/ (não com o acervo do Mac)
+```
+Checagens: todo número falado está no briefing com fonte (seções 1, 2, 2a, 3 e 4); nenhuma corretora; nenhuma frase
+"compre/venda" (B5 tem "não é recomendação" e os dois lados); sem quiz no fecho; promessa (B0) → pergunta ("IPCA+ ou
+Selic?") → moral (1ª frase do B1); "IPCA" traduzido na hora ("a inflação mais"); "Copom" saiu.
+
+### score_roteiro.py (roteiro-regras/score_roteiro.py, commit e070069) sobre a v1.3
+```
+ELIMINATORIOS: nenhum
+  [PASSA] item  2 — 10 numero(s) no bloco 1
+  [PASSA] item  3 — loop ancorado na mesma frase
+  [PASSA] item  6 — 1 marcador(es) de analogia (alvo: 1, esticada)
+  [PASSA] item  8 — nenhum meta-discurso
+  [FALHA] item  9 — numeros em 2+ blocos: {'R$ 2.363,30': 2, 'R$ 280': 2, 'R$ 10.000': 2, '7,47%': 2, '8,22%': 2, 'R$ 10': 3, '7,56%': 2, '2026': 6, 'R$ 10.942': 2}
+  [PASSA] item 10 — ferramenta nomeada
+SIGLAS NA FALA: IPCA (traduzida: "a inflação mais")
+ELIMINATORIOS DE COSTURA: nenhum (pontes ok, zero molde repetido)
+AVISOS DE OUVIDO: nenhum
+parcial mecanico: 5/6 (não zerado)
+```
+Item 9: todos os números listados estão em linhas [TELA] (o portão lê o bloco inteiro e a fala está por extenso).
+É o "limite conhecido do portão" da rubrica (premissa × fato re-servido): decidido pelo juiz como PASSA. Para o
+portão ficar verde sem mexer nele, o heading das notas virou "## CUIDADOS — NOTAS DE PRODUÇÃO" (o script corta a
+partir de "## CUIDADOS"; antes ele lia as notas como fala e acusava 27 repetições e fecho sem ferramenta).
+
+### Juiz-ritmo sobre a v1.3
+```
+piada: 7/10
+  beats: B0 1 · B1 2 · B2 2 · B3 2 · B4 0-1 · B5 0 · B6 0 (B5 = bloco de disclaimer, aceito)
+  melhores: "...é loja de colchão, Tanaka." (funciona falado: liquidação de colchão que nunca acaba) · "Não tinha, Tanacão." ·
+            "Você já sabe, porque você já comprou carro."
+  cena de vergonha: "E você abriu o app, viu o vermelho, fechou, e abriu de novo dez minutos depois..." (B2)
+  piada explicada: nenhuma · teto: B4 quase sem beat
+conexao: 8/10 — B0→B1 2 · B1→B2 2 · B2→B3 2 · B3→B4 2 · B4→B5 1 · B5→B6 1
+teleprompter: sem trava de pronúncia; atenção só a "IPCA+ 2035 viraram dez mil, seiscentos e sessenta e dois" (número
+colado em número: respirar depois de "2035")
+```
+
+### O que fica pro Denis
+- Rodar um ouvinte-frio NOVO (fala_so.py + agente) na v1.3: as correções acima ainda não foram ouvidas por ninguém frio.
+- "Escolhi o mais conhecido" (B1) não tem fonte (o briefing não verificou "o mais negociado"); se incomodar, trocar.
+- "Guarda esse contraste" atende a rubrica/portão, mas o juiz-ritmo chama "guarda esse número" de molde morto: o tom é seu.
+- Molde repetido só foi checado contra pautas-canal/roteiros/; rodar o portão no acervo do Mac.
 
 ## Empacotador-yt
 
