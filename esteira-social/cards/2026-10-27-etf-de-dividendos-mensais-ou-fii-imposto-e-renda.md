@@ -9,7 +9,7 @@ video_formato: "longo"
 video_titulo: "ETF de dividendos mensais ou FII: imposto e renda de cada um"
 status_titulo: "definido no v2"
 serie_ep: "—"
-origem: "v2 (título ou ângulo ajustado ao Ep. 1)"
+origem: "v2 (título trocado)"
 assunto: "renda mensal"
 temas: ["ETF", "FII", "IR"]
 termo_busca: "etf dividendos"
@@ -100,7 +100,7 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
 - PNGs: `esteira-social/render/2026-10-27-etf-de-dividendos-mensais-ou-fii-imposto-e-renda/slide-1.png`, `esteira-social/render/2026-10-27-etf-de-dividendos-mensais-ou-fii-imposto-e-renda/slide-2.png`, `esteira-social/render/2026-10-27-etf-de-dividendos-mensais-ou-fii-imposto-e-renda/slide-3.png`, `esteira-social/render/2026-10-27-etf-de-dividendos-mensais-ou-fii-imposto-e-renda/slide-4.png`, `esteira-social/render/2026-10-27-etf-de-dividendos-mensais-ou-fii-imposto-e-renda/slide-5.png`
 
 ## FONTES E NÚMEROS (para conferir; não vão no post)
-- Calendário (27/10): fontes a conferir: Lei 14.754/2023; regulamentos. Ângulo: Comparar como cada um paga, a tributação de cada um em 2026 e a volatilidade da renda. Guardrail do Ep. 1: o imposto detalhado é deste vídeo; o Ep. 1 só tem uma tabela curta. Título trocado (o do v2 terminava em "o que sobra", como o Ep. 1); o empacotador vê os dois juntos.
+- Calendário (27/10): fontes a conferir: Lei 14.754/2023; regulamentos. Ângulo: Comparar como cada um paga, a tributação de cada um em 2026 e a volatilidade da renda. Guardrail do Ep. 1: o imposto detalhado é deste vídeo; o Ep. 1 só tem uma tabela curta. O empacotador vê os dois títulos juntos.
 - Números da própria linha do calendário: liberados (a linha é o briefing).
 - 100: pautas-canal/serie/SERIE-RENDA-MENSAL.md: "FII isento só com 100 cotistas ou mais"
 

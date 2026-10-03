@@ -9,7 +9,7 @@ video_formato: "longo"
 video_titulo: "Fundo imobiliário ou imóvel alugado: a conta de 2026"
 status_titulo: "definido no v2"
 serie_ep: "—"
-origem: "v2 (puxada de 12/11 para a vaga de 06/10)"
+origem: "v2 (voltou da fila em 06/10; era 12/11)"
 assunto: "FII"
 temas: ["FII"]
 termo_busca: "fundo imobiliario"

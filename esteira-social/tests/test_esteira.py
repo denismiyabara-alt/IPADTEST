@@ -41,19 +41,21 @@ def textos_do_post(js):
 def test_le_o_calendario_oficial_v3():
     """O v3 (pautas-canal/CALENDARIO.csv) é o oficial; o CALENDARIO-8-SEMANAS.csv (v2) virou histórico."""
     assert g.CALENDARIO.name == "CALENDARIO.csv"
-    assert Counter(r["formato"] for r in ROWS) == {"longo": 23, "short": 16}
+    assert Counter(r["formato"] for r in ROWS) == {"longo": 22, "short": 16}
     assert {"status_titulo", "serie_ep", "origem"} <= set(ROWS[0])
 
 
 def test_cards_de_video_que_saiu_ficam_no_arquivo():
-    """As 7 pautas fora do nicho, as 2 movidas para dezembro e o pós-Copom saíram; as versões antigas das pautas que
-    mudaram de data ou de título também. Nada disso fica na fila do juiz."""
+    """Saíram: as 7 pautas fora do nicho, o ETF de 06/10 (dezembro), o pós-Copom, os longos de opções (20/10) e de taxa
+    (17/11), absorvidos pelo Ep. 1, e as versões antigas das pautas que mudaram de data ou de título (o TRXF11 de 31/10
+    voltou em 20/10 com card novo). Nada disso fica na fila do juiz."""
     arquivados = sorted(p.name for p in (CARDS / "_arquivo").glob("2026-*.md"))
-    assert len(arquivados) == 13
+    assert len(arquivados) == 16
     assert not set(arquivados) & set(ARQUIVOS)
     leia = (CARDS / "_arquivo" / "README.md").read_text(encoding="utf-8")
     for t in ("Como juntar 1 milhão", "Casal que investe", "Perfil de investidor", "Juros compostos", "Bolha da IA",
-              "Reserva de emergência", "Tesouro Direto na reserva", "o que mudou em 2026", "TRXF11"):
+              "Reserva de emergência", "Tesouro Direto na reserva", "o que mudou em 2026", "TRXF11",
+              "absorvido pelo Ep. 1 (blocos A e B)"):
         assert t in leia, t
 
 
@@ -90,8 +92,9 @@ def test_ep1_nao_soa_como_recomendacao():
     """DIVD11 x DIVO11 são estudo de caso: sem verbo de compra, sem "melhor", e o card diz que é prova da conta."""
     c = next(c for c in MONTADOS if c["serie_ep"] == "Ep. 1")
     texto = g.RE_CHECAR.sub(" ", c["texto_gate"]).lower()
+    sem_termo = texto.replace("opções de compra", "")  # nome do instrumento, não verbo de compra
     for w in ("compr", "melhor", "vale a pena", "recomend", "indic", "aproveit", "oportunidade", "invista", "escolha o"):
-        assert w not in texto, w
+        assert w not in sem_termo, w
     assert "prova da conta" in texto
 
 
@@ -175,6 +178,13 @@ def test_checar_nao_elimina_o_card():
     assert all(g.autoexame(c) == [] for c in com)
 
 
+def test_short_de_25_11_e_corte_do_bloco_de_taxa_do_ep1():
+    c = next(c for c in MONTADOS if g.chave(c["_row"]) == "2026-11-25|short")
+    assert c["corte_de"] == "2026-10-14"
+    txt = (CARDS / c["arquivo"]).read_text(encoding="utf-8")
+    assert "corte do longo de 14/10" in txt and "bloco de taxa" in txt
+
+
 @pytest.mark.parametrize("arquivo", ARQUIVOS)
 def test_sem_cta_link_hashtag_no_texto_julgado(arquivo):
     _, _, js = ler_card(arquivo)
@@ -200,7 +210,7 @@ def test_x_nenhuma_mecanica_mais_de_5_vezes():
 
 
 def test_x_estruturas_equilibradas():
-    """Só há 5 estruturas (A-E) para 39 cards: o mínimo possível na mais usada é 8."""
+    """Só há 5 estruturas (A-E) para 38 cards: o mínimo possível na mais usada é 8."""
     cont = Counter(c["estrutura"] for c in MONTADOS)
     assert set(cont) == set("ABCDE") and max(cont.values()) <= 8, cont
 

@@ -9,7 +9,7 @@ video_formato: "longo"
 video_titulo: "Dividendos mensais de R$ 1.000: quanto precisa investir"
 status_titulo: "definido no v2"
 serie_ep: "—"
-origem: "v2 (movida de ter 03/11)"
+origem: "v2 (movida de 03/11)"
 assunto: "renda mensal"
 temas: ["ações e dividendos", "FII", "Tesouro"]
 termo_busca: "dividendos mensais"

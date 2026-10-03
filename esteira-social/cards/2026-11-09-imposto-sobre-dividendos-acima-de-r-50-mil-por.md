@@ -14,7 +14,7 @@ assunto: "imposto e regras"
 temas: ["IR", "ações e dividendos"]
 termo_busca: "—"
 mensagem_capa: "O imposto novo sobre dividendos vale pra quem recebe mais de R$ 50 mil por mês de uma mesma empresa."
-estrutura: "D (A Pergunta Que Ninguém Faz)"
+estrutura: "A (O Choque → A Causa Escondida)"
 mecanica: "mito-x-fato"
 instagram_data: "2026-11-09"
 instagram_horario: "18:00"
@@ -113,7 +113,7 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     "IR",
     "ações e dividendos"
   ],
-  "estrutura": "D",
+  "estrutura": "A",
   "mecanica": "mito-x-fato",
   "mensagem_capa": "O imposto novo sobre dividendos vale pra quem recebe mais de R$ 50 mil por mês de uma mesma empresa.",
   "slides": [

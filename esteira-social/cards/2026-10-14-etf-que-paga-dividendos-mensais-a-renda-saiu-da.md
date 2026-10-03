@@ -104,15 +104,12 @@ pngs: "pendente (renderizar antes do juiz-post)"
 >
 > Renda que não passa da régua foi a cota voltando pro bolso.
 
-#### Post E (172/280)
+#### Post E (277/280)
 - imagem: só texto
-> O extrato de três linhas:
+> Mais dois blocos no vídeo:
 >
-> → quanto pagou
-> → quanto a cota andou
-> → quanto ficou acima da régua (juros do país e inflação)
->
-> Se a terceira der negativa, a renda foi devolução.
+> → opções de compra (o fundo vende a alguém a alta da carteira acima de um preço): a cota do SPYI11 (fundo de opções vendido na bolsa) andou −1,39% em 12 meses
+> → taxa de administração (o que o gestor cobra por ano): quanto tira da renda em uma década
 
 ## PARA O LEITOR-FRIO (depois do APROVADO do juiz)
 Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa quer me dizer" com:
@@ -120,8 +117,9 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
 - PNGs: `esteira-social/render/2026-10-14-etf-que-paga-dividendos-mensais-a-renda-saiu-da/slide-1.png`, `esteira-social/render/2026-10-14-etf-que-paga-dividendos-mensais-a-renda-saiu-da/slide-2.png`, `esteira-social/render/2026-10-14-etf-que-paga-dividendos-mensais-a-renda-saiu-da/slide-3.png`, `esteira-social/render/2026-10-14-etf-que-paga-dividendos-mensais-a-renda-saiu-da/slide-4.png`, `esteira-social/render/2026-10-14-etf-que-paga-dividendos-mensais-a-renda-saiu-da/slide-5.png`
 
 ## FONTES E NÚMEROS (para conferir; não vão no post)
-- Calendário (14/10): fontes a conferir: SGS 13522 (IPCA 12 meses); B3 (séries históricas e eventos corporativos); regras de 2026 da série (LC 224/2025; Lei 14.754/2023; Lei 15.270/2025; Res. CMN 5.215; fgc.org.br; Lei 11.033/2004). Ângulo: Ep. 1: retorno total = cota + rendimentos; o passo a passo para refazer com o histórico da B3, sem lista de ETFs.
+- Calendário (14/10): fontes a conferir: SGS 13522 (IPCA 12 meses); B3 (séries históricas e eventos corporativos); regras de 2026 da série (LC 224/2025; Lei 14.754/2023; Lei 15.270/2025; Res. CMN 5.215; fgc.org.br; Lei 11.033/2004). Ângulo: Ep. 1: retorno total = cota + rendimentos; o passo a passo para refazer com o histórico da B3, sem lista de ETFs. BLOCOS ABSORVIDOS (T14): opções cobertas: como o prêmio vira renda e por que a alta fica limitada (era o 20/10); taxa: a conta de 10 anos com 0,5% e 1,5% ao ano e onde ler a taxa na lâmina (era o 17/11).
 - Números da própria linha do calendário: liberados (a linha é o briefing).
+- 1,39: pautas-canal/briefings/2026-10-14-etf-dividendos-mensais-briefing.md: "R$ 111,15 → R$ 109,60: **−1,39%**"
 - 24,41: pautas-canal/briefings/2026-10-14-etf-dividendos-mensais-briefing.md: "R$ 132,90 (01/10/2026): **+24,41%**"
 - 15,15: pautas-canal/briefings/2026-10-14-etf-dividendos-mensais-briefing.md: "R$ 55,86 → R$ 64,32: **+15,15%**"
 - 14,47: pautas-canal/briefings/2026-10-14-etf-dividendos-mensais-briefing.md: "**14,47%** (251 dias úteis, 02/10/2025 a 01/10/2026)"
@@ -187,6 +185,11 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
   "legenda": "Tanaka, ETF (fundo vendido na bolsa) que paga renda mensal paga com a própria cota. Isso não é defeito. É como funciona.\n\nNos 12 meses até o começo de outubro, a cota do DIVO11, que reinveste, subiu 24,41%. A do DIVD11, que distribui, subiu 15,15%. A diferença é em boa parte a renda que caiu na conta.\n\nO vídeo soma a renda de volta e compara com os juros do país e a inflação. Os dois entram como prova da conta.",
   "hashtags": "#InvestirECocar #EducacaoFinanceira #ETF #ETFs #TaxaDeAdministracao #DividendosMensais #RendaMensal",
   "numeros": [
+    {
+      "valor": "1,39",
+      "fonte": "briefings/2026-10-14-etf-dividendos-mensais-briefing.md",
+      "trecho": "R$ 111,15 → R$ 109,60: **−1,39%**"
+    },
     {
       "valor": "24,41",
       "fonte": "briefings/2026-10-14-etf-dividendos-mensais-briefing.md",
@@ -282,7 +285,7 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
     {
       "numero": 5,
       "letra": "E",
-      "texto": "O extrato de três linhas:\n\n→ quanto pagou\n→ quanto a cota andou\n→ quanto ficou acima da régua (juros do país e inflação)\n\nSe a terceira der negativa, a renda foi devolução.",
+      "texto": "Mais dois blocos no vídeo:\n\n→ opções de compra (o fundo vende a alguém a alta da carteira acima de um preço): a cota do SPYI11 (fundo de opções vendido na bolsa) andou −1,39% em 12 meses\n→ taxa de administração (o que o gestor cobra por ano): quanto tira da renda em uma década",
       "imagem": "só texto"
     }
   ],

@@ -1,12 +1,12 @@
 # Esteira social: do calendário de vídeos aos posts de Instagram e X
 
-Para cada vídeo do calendário oficial, `pautas-canal/CALENDARIO.csv` (v3, aprovado em 03/10/2026: 23 longos e 16
-Shorts), a esteira gera **um card 🎬**. O `CALENDARIO-8-SEMANAS.csv` (v2) virou histórico. Cada card tem:
+Para cada vídeo do calendário oficial, `pautas-canal/CALENDARIO.csv` (v3, aprovado em 03/10/2026 e ajustado no mesmo dia:
+22 longos e 16 Shorts), a esteira gera **um card 🎬**. O `CALENDARIO-8-SEMANAS.csv` (v2) virou histórico. Cada card tem:
 - o carrossel do Instagram, com a capa e os slides;
 - a legenda;
 - de 3 a 5 posts do X (A, B, C…).
 
-Esse é o formato que o **juiz-post** espera (`agentes/juiz-post.md`, a cópia do Mac). São **39 cards**, todos com
+Esse é o formato que o **juiz-post** espera (`agentes/juiz-post.md`, a cópia do Mac). São **38 cards**, todos com
 status `rascunho`. Nada aqui publica nada.
 
 **v3:** entram os 6 episódios da Série Renda Mensal e 4 Shorts derivados (o 6º Short fica para 30/11, fora da janela),
@@ -16,9 +16,19 @@ No Ep. 1 e no Short dele, o número do briefing vem **só** da seção "4. DADOS
 que está em "A CONFERIR" vira `[CHECAR: …]`. DIVD11 e DIVO11 aparecem como prova da conta, nunca como escolha.
 - **Títulos provisórios:** os 11 títulos `provisório` da série levam a marca **"título provisório: atualizar depois do
   empacotador/A-B"** no frontmatter, no cabeçalho e no INDICE. O texto do card não depende das palavras do título.
-- **Cards que saíram:** ficam em `cards/_arquivo/` (README com o motivo). São as 7 pautas fora do nicho, as 2 que foram
-  para dezembro (ETFs de 06/10 e TRXF11), o pós-Copom (trocado pelo pré) e as versões antigas das 3 pautas que mudaram
-  de data ou de título (27/10, 03/11 → 05/11, 12/11 → 06/10).
+- **Ajuste de 03/10 (`pautas-canal/trocas.json`, T14 a T17):**
+  - os longos de opções (20/10) e de taxa (17/11) foram absorvidos pelo Ep. 1, como blocos A e B. O card do Ep. 1 ganhou
+    o post E sobre os dois blocos, com o dado de opções de DADOS CONFERIDOS (C3: SPYI11 −1,39%);
+  - o TRXF11 voltou da fila para 20/10, com o texto do card antigo e o único número ("6 meses") reconferido na linha;
+  - "Fundos imobiliários para iniciantes" passou de 07/11 para 17/11, e 07/11 ficou sem longo;
+  - o Short de 25/11 virou corte do bloco de taxa do Ep. 1, e o link do CTA aponta para o Ep. 1.
+- **Cards que saíram:** ficam em `cards/_arquivo/` (16, com o motivo no README):
+  - as 7 pautas fora do nicho;
+  - o ETF de 06/10, que foi para dezembro;
+  - o pós-Copom, trocado pelo pré;
+  - os 2 longos absorvidos pelo Ep. 1;
+  - as versões antigas das pautas que mudaram de data ou de título: 27/10, 31/10 → 20/10, 03/11 → 05/11,
+    07/11 → 17/11 e 12/11 → 06/10.
 
 ```
 calendário oficial (CALENDARIO.csv, v3) ──► gerar_cards.py + conteudo.py ──► cards/*.md + INDICE.csv
@@ -30,9 +40,9 @@ calendário oficial (CALENDARIO.csv, v3) ──► gerar_cards.py + conteudo.py 
 
 ```bash
 cd esteira-social
-python3 gerar_cards.py            # 39 cards, INDICE.csv, GATE-RELATORIO.md e AUTOEXAME.md
+python3 gerar_cards.py            # 38 cards, INDICE.csv, GATE-RELATORIO.md e AUTOEXAME.md
 python3 gerar_cards.py --checar   # só o autoexame; sai com 1 se algum card falhar
-python3 -m pytest -q tests/       # 336 testes; os de gate pulam se o gate não for encontrado
+python3 -m pytest -q tests/       # 329 testes; os de gate pulam se o gate não for encontrado
 ```
 
 - **Gerador:** usa só a biblioteca padrão. Os testes precisam de `pytest`.
@@ -97,7 +107,7 @@ cada PNG (passo 4), então é preciso renderizar antes de chamar o juiz.
 - o post A tem no máximo 1 número; os outros, até 4.
 
 **Voz:** a legenda abre com "Tanaka,". Nenhuma mecânica de piada aparece mais de 5 vezes. As estruturas A-E ficam
-entre 7 e 8 cada. Nem a estrutura nem a mecânica se repetem em dois cards seguidos.
+entre 6 e 8 cada. Nem a estrutura nem a mecânica se repetem em dois cards seguidos.
 
 **Regras do canal:**
 - nenhuma recomendação de ativo nem corretora;

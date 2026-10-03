@@ -12,7 +12,7 @@ Gerado por `gerar_cards.py`. Duas partes:
 ## Parte 2: risco no juiz-post (estimativa)
 
 - **baixo** (19): pauta com bolso ou nome conhecido; deve passar se o PNG da thumbnail for legível.
-- **médio** (20): pauta ok, mas o carrossel mais explica que reage (item 2 vale no máximo 1), ou há uma regra que o juiz vai querer inteira.
+- **médio** (19): pauta ok, mas o carrossel mais explica que reage (item 2 vale no máximo 1), ou há uma regra que o juiz vai querer inteira.
 - **alto** (0): pauta que o juiz lista como eliminatória (finança pessoal básica) ou tema gringo sem ponte. O texto não salva: "PAUTA MORTA, descartar".
 
 ### alto
@@ -27,17 +27,16 @@ Gerado por `gerar_cards.py`. Duas partes:
 - 14/10 ETF que paga dividendos mensais: a renda saiu da cota?: Pauta forte (top 10 da linha), mas tem tickers: o texto diz que os dois são prova da conta, não escolha. Duas pendências [CHECAR] (regulamentos e soma dos rendimentos) que fecham a conta central.
 - 15/10 Crise financeira: o gráfico de 1929, 2008 e 2020, hoje: Pauta de crise sem ponte clara com o bolso; 'e daí?' é o risco do item 1.
 - 19/10 FII é isento de imposto? Só se cumprir estas 3 regras: Regra de imposto: o juiz pede a regra INTEIRA; o texto fala em 'regras principais' (Lei 14.754/2023 tem outros detalhes que o calendário não traz).
-- 20/10 ETF de dividendos mensais com opções: de onde vem a renda: Mecanismo de opções é difícil pro leitor leigo; a analogia da garagem carrega a clareza.
 - 22/10 LCI e LCA ou CDB: a conta de 2026 com imposto e prazo: Pauta de produto bancário; pergunta real com R$ dá bolso. Carrossel explicativo.
 - 26/10 FGC: o que cobre e o que não cobre: Pauta de produto bancário básico; regra completa no calendário (limite e teto).
 - 27/10 ETF de dividendos mensais ou FII: imposto e renda de cada um: Imposto do ETF ainda não conferido em fonte primária ([CHECAR]); o juiz pede a regra inteira.
 - 29/10 Tesouro IPCA+ acima de 7%: o que é travar a taxa: Pauta forte (busca de 'tesouro ipca'), mas o conceito é técnico pro leitor leigo.
-- 07/11 Fundos imobiliários para iniciantes: de onde vem a renda: Pauta de iniciante: 'abstrato' é o risco do item 1; a analogia do shopping segura a voz.
 - 09/11 Imposto sobre dividendos acima de R$ 50 mil por mês: quem paga: Regra de imposto: o juiz pede a regra inteira; a Lei 15.270/2025 também tem o imposto mínimo de alta renda, que o calendário não traz.
 - 10/11 Renda mensal com Tesouro Direto: juros semestrais e RendA+: Pauta boa (renda), mas o carrossel explica mais que reage.
 - 11/11 LCI e LCA para renda mensal: a escada de vencimentos: Produto bancário; construção útil, mas o carrossel explica mais que reage.
 - 14/11 CDB prefixado ou pós-fixado: qual rende mais em 2026: Pauta de produto bancário; título com 'qual rende mais' pode soar comparativo de compra.
 - 16/11 LCI e LCA não pagam todo mês. Mas dá para fazer vencer uma por mês: Produto bancário; capa clara.
+- 17/11 Fundos imobiliários para iniciantes: de onde vem a renda: Pauta de iniciante: 'abstrato' é o risco do item 1; a analogia do shopping segura a voz.
 - 24/11 Dividendos mensais com a Selic caindo: o que acontece: Pauta macro com ponte pra renda; clareza depende de o leitor ligar juros e dividendos.
 - 25/11 Renda todo mês com Tesouro e FII: a grade de 12 meses: Fechamento da série; as datas de pagamento do Tesouro ficam em [CHECAR] até o Mac conferir.
 
@@ -46,6 +45,7 @@ Gerado por `gerar_cards.py`. Duas partes:
 - 07/10 Recebeu 1% ao mês e a cota caiu 1%: quanto ganhou?: Conta em R$ simples e mandável; exemplo hipotético dito como exemplo.
 - 08/10 Tesouro IPCA+ a 7% em janeiro: quanto ganhou quem comprou: Continuação de top 10, bolso claro. Risco: o print oficial do Tesouro precisa ser do dia.
 - 14/10 Tesouro IPCA+ negativo? Calma, isso tem nome: Dor no bolso clara (vermelho no app). Risco: jargão do título na thumbnail não conta como trava.
+- 20/10 TRXF11: o que aconteceu com a renda desde agosto: Nome que o público busca + bolso de quem tem cota. Neutro, sem recomendação. Voltou da fila de dezembro (troca T15); texto do card de 31/10 do v2, números reconferidos: o único é '6 meses', da linha do calendário.
 - 21/10 Dividendos altos demais: 4 contas antes de confiar na renda: Bolso claro (dividendo) e critério aplicável; exemplos hipotéticos ditos como exemplo.
 - 21/10 O dividend yield dobrou e a empresa não pagou nada a mais: Conta curta e mandável.
 - 28/10 Gastar ou reinvestir os dividendos: a conta de 10 anos: Conta em R$ com contraste forte (R$ 600 x R$ 1.230).
@@ -55,7 +55,6 @@ Gerado por `gerar_cards.py`. Duas partes:
 - 04/11 Copom hoje: 3 números para olhar no seu Tesouro: Evento com data e bolso. Risco: três ideias técnicas pro leitor leigo nos slides.
 - 05/11 Dividendos mensais de R$ 1.000: quanto precisa investir: Promessa em R$ que cabe no bolso do Tanaka; conta simples.
 - 11/11 FII ou aluguel: quanto rende R$ 100 mil em cada um: Dilema que o Tanaka vive (imóvel x fundo) com R$ na capa.
-- 17/11 ETF de dividendos mensais: quanto a taxa tira da renda: Conta em % com frase que fica ('quase o triplo de mordida').
 - 18/11 Renda mensal e inflação: quanto reinvestir para não encolher: Dor no bolso (renda encolhendo) com conta em R$.
 - 18/11 R$ 100 mil, 10 anos: gastar a renda ou reinvestir?: Conta em R$ e contraste claro.
 - 19/11 Bitcoin depois do 'alerta': o que mudou desde fevereiro: Nome que o brasileiro reconhece (bitcoin) e continuação de top 10.

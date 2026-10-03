@@ -9,7 +9,7 @@ video_formato: "short"
 video_titulo: "Copom hoje: 3 números para olhar no seu Tesouro"
 status_titulo: "definido no v2"
 serie_ep: "—"
-origem: "v2 (ângulo ajustado ao pré)"
+origem: "v2"
 assunto: "tesouro e renda fixa"
 temas: ["Tesouro", "juros"]
 termo_busca: "—"

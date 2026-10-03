@@ -268,37 +268,6 @@ C["2026-10-19|short"] = dict(
                     "(Lei 14.754/2023 tem outros detalhes que o calendário não traz)."),
 )
 
-C["2026-10-20|longo"] = dict(
-    titulo="ETF de dividendos mensais com opções: de onde vem a renda",
-    estrutura="C", mecanica="tradutor-juramentado",
-    mensagem_capa="Esses fundos pagam renda alta porque vendem uma parte da alta futura das ações.",
-    capa="A renda alta desse fundo tem um preço.",
-    slides=[
-        "Esses ETFs (fundos vendidos na bolsa) vendem opções de compra (o direito de alguém comprar as ações deles "
-        "por um preço combinado).",
-        "O que eles recebem por isso vira a renda do mês.",
-        "Mercado de lado: a renda brilha. Mercado subindo forte: o fundo fica com uma parte da alta.",
-        "É alugar a vaga de garagem no dia da final: entra dinheiro, mas a vaga já está alugada pelo preço combinado.",
-    ],
-    legenda="Tanaka, tem ETF (fundo vendido na bolsa) que paga renda alta a cada mês. O dinheiro vem, em boa "
-            "parte, de vender opções de compra (o direito de alguém comprar as ações do fundo por um preço "
-            "combinado).\n\n"
-            "É como alugar a vaga de garagem no dia do jogo: entra dinheiro, mas no dia da final a vaga já está "
-            "alugada pelo preço combinado.",
-    posts=[
-        "Tanaka, esse fundo paga renda alta mensal.\n\nÉ um ETF (fundo vendido na bolsa), e o dinheiro não vem de "
-        "mágica.\n\nVem de vender uma coisa que você nem sabia que tinha.",
-        "Ele vende opções de compra.\n\nTradução: aluga pra alguém o direito de comprar as ações do fundo por um "
-        "preço combinado.\n\nO aluguel vira a sua renda do mês.",
-        "É como alugar a sua vaga de garagem no dia do jogo.\n\nEntra dinheiro a cada domingo.\n\n"
-        "Mas no dia da final, quando a vaga vale ouro, ela já está alugada pelo preço combinado.",
-        "ETF de dividendos comum (fundo vendido na bolsa) divide o lucro das empresas.\n\n"
-        "O de opções vende o seu ingresso pra final.\n\nRenda alta tem preço. Ele não aparece no extrato do mês.",
-    ],
-    numeros=[],
-    risco=("médio", "Mecanismo de opções é difícil pro leitor leigo; a analogia da garagem carrega a clareza."),
-)
-
 C["2026-10-22|longo"] = dict(
     titulo="LCI e LCA ou CDB: a conta de 2026 com imposto e prazo",
     estrutura="C", mecanica="eco-do-gatilho (preso)",
@@ -496,7 +465,7 @@ C["2026-11-05|longo"] = dict(
     risco=("baixo", "Promessa em R$ que cabe no bolso do Tanaka; conta simples."),
 )
 
-C["2026-11-07|longo"] = dict(
+C["2026-11-17|longo"] = dict(
     titulo="Fundos imobiliários para iniciantes: de onde vem a renda",
     estrutura="A", mecanica="tradutor-juramentado",
     mensagem_capa="Fundo imobiliário é aluguel e juros de imóveis divididos entre muita gente.",
@@ -526,7 +495,7 @@ C["2026-11-07|longo"] = dict(
 
 C["2026-11-09|short"] = dict(
     titulo="Imposto sobre dividendos acima de R$ 50 mil por mês: quem paga",
-    estrutura="D", mecanica="mito-x-fato",
+    estrutura="A", mecanica="mito-x-fato",
     mensagem_capa="O imposto novo sobre dividendos vale pra quem recebe mais de R$ 50 mil por mês de uma mesma empresa.",
     capa="Dividendo paga imposto? Acima de R$ 50 mil por mês.",
     slides=[
@@ -638,36 +607,6 @@ C["2026-11-14|longo"] = dict(
     risco=("médio", "Pauta de produto bancário; título com 'qual rende mais' pode soar comparativo de compra."),
 )
 
-C["2026-11-17|longo"] = dict(
-    titulo="ETF de dividendos mensais: quanto a taxa tira da renda",
-    estrutura="A", mecanica="elogio-envenenado",
-    mensagem_capa="Uma taxa de 1,5% ao ano tira cerca de 14% do patrimônio em 10 anos.",
-    capa="Taxa de 1,5% ao ano é alta?",
-    slides=[
-        "A taxa de administração (o que o gestor cobra por ano) sai do patrimônio do fundo, a cada dia, sem boleto.",
-        "Em 10 anos, uma taxa de 0,5% ao ano come cerca de 5% do patrimônio.",
-        "Em 10 anos, uma taxa de 1,5% ao ano come cerca de 14%.",
-        "Taxa alta precisa explicar, a cada ano, o que entrega a mais.",
-    ],
-    legenda="Tanaka, \"essa taxa de 1,50 é alta?\" A pergunta é essa.\n\n"
-            "A taxa de administração (o que o gestor cobra por ano) sai do patrimônio do ETF (fundo vendido na "
-            "bolsa), um pouco a cada dia. Na conta simples, 0,5% ao ano come cerca de 5% do patrimônio em 10 anos. "
-            "A de 1,5% come cerca de 14%.\n\n"
-            "Taxa alta precisa se explicar a cada ano.",
-    posts=[
-        "Tanaka, taxa de 1,5% ao ano é alta?\n\nNum ETF (fundo vendido na bolsa), a resposta cabe numa conta.",
-        "A taxa de administração (o que o gestor cobra) sai do patrimônio do fundo, um pouco a cada dia.\n\n"
-        "Você não vê o débito.\n\nVê a renda um pouco menor do que poderia ser.",
-        "Em 10 anos, uma taxa de 0,5% ao ano come cerca de 5% do patrimônio.\n\nParece pouco. Guarda esse número.",
-        "Agora a de 1,5% ao ano, nos mesmos 10 anos: cerca de 14% do patrimônio.\n\n"
-        "Um ponto de taxa vira quase o triplo de mordida.",
-        "Justiça seja feita ao gestor: ele cobra a cada dia, sem falhar.\n\nNem nos meses em que o fundo pagou menos.\n\n"
-        "Disciplina que muito investidor queria ter com o próprio aporte.",
-    ],
-    numeros=list(N_TAXA_ETF),
-    risco=("baixo", "Conta em % com frase que fica ('quase o triplo de mordida')."),
-)
-
 C["2026-11-19|longo"] = dict(
     titulo="Bitcoin depois do 'alerta': o que mudou desde fevereiro",
     estrutura="B", mecanica="necrologio",
@@ -754,7 +693,7 @@ C["2026-11-25|short"] = dict(
         conta("4,9", "100000 * (1 - 0.995 ** 10) / 1000", "R$ 100 mil, 0,5% ao ano, 10 anos (CALENDARIO 25/11 e 11/11)"),
         conta("14", "100000 * (1 - 0.985 ** 10) / 1000", "R$ 100 mil, 1,5% ao ano, 10 anos (CALENDARIO 25/11 e 11/11)"),
     ],
-    corte_de="2026-11-17",
+    corte_de="2026-10-14",
     risco=("baixo", "Conta em R$ mandável ('quase o triplo de mordida')."),
 )
 
@@ -785,6 +724,40 @@ C["2026-11-26|longo"] = dict(
     ],
     numeros=[],
     risco=("baixo", "Dor no bolso de quem tem fundo imobiliário, com uma ideia por peça."),
+)
+
+
+# ------------------------------------------------------------------ voltou da fila de dezembro (v3 ajustado, T15)
+C["2026-10-20|longo"] = dict(
+    titulo="TRXF11: o que aconteceu com a renda desde agosto",
+    estrutura="C", mecanica="mito-x-fato",
+    mensagem_capa="O vídeo mostra os números do fundo mais buscado no canal desde agosto, sem dizer se compra ou vende.",
+    capa="Esse fundo lidera as buscas do canal. E a renda?",
+    slides=[
+        "TRXF11 (um fundo imobiliário) é o termo de investimento mais buscado do canal nos últimos 6 meses.",
+        "Rendimento: quanto o fundo distribuiu, mês a mês, desde agosto.",
+        "Imóvel vazio: quanto dos imóveis está sem inquilino. Cota: quanto o mercado paga hoje.",
+        "O número é do fundo. A decisão é sua. O vídeo não diz compra nem venda.",
+    ],
+    legenda="Tanaka, o TRXF11 (um fundo imobiliário) foi o termo de investimento mais buscado no canal nos últimos "
+            "6 meses.\n\n"
+            "Então o vídeo abre os números do fundo desde agosto: rendimento distribuído, imóveis sem inquilino e "
+            "preço da cota, mês a mês, a partir dos relatórios do fundo.\n\n"
+            "Acompanhamento neutro. Aqui não tem dica de compra nem de venda.",
+    posts=[
+        "Tanaka, esse fundo lidera as buscas do canal.\n\nÉ o TRXF11 (um fundo imobiliário).\n\n"
+        "Então vamos aos números dele, sem torcida.",
+        "É o termo de investimento mais buscado do canal nos últimos 6 meses.\n\n"
+        "Quem tem cota quer saber se a renda vai se manter.\n\n"
+        "Pergunta justa. A resposta vem dos relatórios do fundo, não do grupo de WhatsApp.",
+        "Desde agosto, três linhas contam a história:\n\n→ quanto o fundo distribuiu de rendimento\n"
+        "→ quanto dos imóveis está vazio\n→ quanto vale a cota",
+        "Mito: o vídeo vai dizer se compra ou vende.\n\n"
+        "Fato: o vídeo mostra rendimento, imóvel vazio e cota, mês a mês, e para aí.\n\n"
+        "O número é do fundo. A decisão é sua.",
+    ],
+    numeros=[],
+    risco=("baixo", "Nome que o público busca + bolso de quem tem cota. Neutro, sem recomendação. Voltou da fila de dezembro (troca T15); texto do card de 31/10 do v2, números reconferidos: o único é '6 meses', da linha do calendário."),
 )
 
 
@@ -885,10 +858,12 @@ C["2026-10-14|longo"] = dict(
         "Somando a renda de volta, quanto sobra? [CHECAR: soma dos rendimentos do DIVD11 em 12 meses, A CONFERIR 10]",
         "A régua do mesmo período:\n\n→ 14,47% no CDI (a taxa de referência dos CDBs)\n"
         "→ 4,22% de inflação em 12 meses, até agosto\n\nRenda que não passa da régua foi a cota voltando pro bolso.",
-        "O extrato de três linhas:\n\n→ quanto pagou\n→ quanto a cota andou\n"
-        "→ quanto ficou acima da régua (juros do país e inflação)\n\nSe a terceira der negativa, a renda foi devolução.",
+        "Mais dois blocos no vídeo:\n\n→ opções de compra (o fundo vende a alguém a alta da carteira acima de um "
+        "preço): a cota do SPYI11 (fundo de opções vendido na bolsa) andou −1,39% em 12 meses\n"
+        "→ taxa de administração (o que o gestor cobra por ano): quanto tira da renda em uma década",
     ],
     numeros=[
+        arq("1,39", BRIEF_EP1, "R$ 111,15 → R$ 109,60: **−1,39%**"),
         arq("24,41", BRIEF_EP1, "R$ 132,90 (01/10/2026): **+24,41%**"),
         arq("15,15", BRIEF_EP1, "R$ 55,86 → R$ 64,32: **+15,15%**"),
         arq("14,47", BRIEF_EP1, "**14,47%** (251 dias úteis, 02/10/2025 a 01/10/2026)"),
@@ -1236,7 +1211,7 @@ TEMAS_VIDEO = {
     "2026-10-14|short": ["Tesouro"],
     "2026-10-15|longo": ["crise"],
     "2026-10-19|short": ["IR", "FII"],
-    "2026-10-20|longo": ["ETF"],
+    "2026-10-20|longo": ["FII"],
     "2026-10-21|longo": ["ações e dividendos"],
     "2026-10-21|short": ["ações e dividendos"],
     "2026-10-22|longo": ["renda fixa bancária"],
@@ -1249,14 +1224,13 @@ TEMAS_VIDEO = {
     "2026-11-03|longo": ["Tesouro", "juros"],
     "2026-11-04|short": ["Tesouro", "juros"],
     "2026-11-05|longo": ["ações e dividendos", "FII", "Tesouro"],
-    "2026-11-07|longo": ["FII"],
     "2026-11-09|short": ["IR", "ações e dividendos"],
     "2026-11-10|longo": ["Tesouro"],
     "2026-11-11|longo": ["renda fixa bancária"],
     "2026-11-11|short": ["FII"],
     "2026-11-14|longo": ["renda fixa bancária"],
     "2026-11-16|short": ["renda fixa bancária"],
-    "2026-11-17|longo": ["ETF"],
+    "2026-11-17|longo": ["FII"],
     "2026-11-18|longo": ["inflação"],
     "2026-11-18|short": ["ações e dividendos"],
     "2026-11-19|longo": ["cripto"],
@@ -1273,6 +1247,14 @@ TEMAS_VIDEO = {
 CAL_MD = "pautas-canal/CALENDARIO-8-SEMANAS.md"
 RELATORIO = "auditoria-canal/RELATORIO.md"
 AFIRMACOES = {
+    "2026-10-20|longo": [
+        {"texto": "lidera as buscas", "arquivo": "pautas-canal/CALENDARIO.csv",
+         "trecho": "'trxf11' é o termo de investimento mais buscado do canal nos últimos 6 meses"},
+        {"texto": "mais buscado do canal nos últimos 6 meses", "arquivo": "pautas-canal/CALENDARIO.csv",
+         "trecho": "'trxf11' é o termo de investimento mais buscado do canal nos últimos 6 meses"},
+        {"texto": "mais buscado no canal nos últimos 6 meses", "arquivo": "pautas-canal/CALENDARIO.csv",
+         "trecho": "'trxf11' é o termo de investimento mais buscado do canal nos últimos 6 meses"},
+    ],
     "2026-10-08|longo": [
         {"texto": "está no top 10 do ano do canal", "arquivo": RELATORIO, "trecho": "Dois dos top 10 (421 e 246)"},
         {"texto": "está no top 10 do ano do canal", "arquivo": CAL_MD, "trecho": "tesouro: dHYQtxnMSrw"},

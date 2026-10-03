@@ -112,7 +112,7 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
 - Instagram: 18/11 às 18:00 (D+0, no dia do Short)
 - X: 18/11 às 12:00 (D+0, no dia do Short)
 - Link do vídeo: nenhum no texto (o juiz-post elimina CTA e link). O link fica na bio do Instagram e no canal Investir e Coçar; no X, se o Denis quiser, numa resposta publicada à parte, depois da aprovação.
-- Este Short é um corte do longo de 28/10.
+- Este Short é um corte do longo de 28/10. CTA: na bio do Instagram e na resposta do X vai o link desse longo, não o de um vídeo próprio do Short.
 - Risco no juiz-post (autoexame): baixo. Conta em R$ e contraste claro.
 
 ---JSON---

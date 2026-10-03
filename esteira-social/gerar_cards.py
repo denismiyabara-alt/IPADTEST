@@ -459,7 +459,9 @@ def render(card):
           f"- Link do vídeo: nenhum no texto (o juiz-post elimina CTA e link). O link fica na bio do Instagram e no "
           f"canal {CANAL}; no X, se o Denis quiser, numa resposta publicada à parte, depois da aprovação."]
     if card["corte_de"]:
-        L.append(f'- Este Short é um corte do longo de {ddmm(card["corte_de"])}.')
+        bloco = " (bloco de taxa)" if "bloco de taxa" in card["_row"].get("continuacao_de", "") else ""
+        L.append(f'- Este Short é um corte do longo de {ddmm(card["corte_de"])}{bloco}. CTA: na bio do Instagram e na '
+                 f'resposta do X vai o link desse longo, não o de um vídeo próprio do Short.')
     L += [f'- Risco no juiz-post (autoexame): {card["risco"]["nivel"]}. {card["risco"]["nota"]}',
           "", "---JSON---", _json(card), "---FIM---", ""]
     return "\n".join(L)

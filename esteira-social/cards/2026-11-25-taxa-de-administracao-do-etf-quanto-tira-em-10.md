@@ -92,7 +92,7 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
 - PNGs: `esteira-social/render/2026-11-25-taxa-de-administracao-do-etf-quanto-tira-em-10/slide-1.png`, `esteira-social/render/2026-11-25-taxa-de-administracao-do-etf-quanto-tira-em-10/slide-2.png`, `esteira-social/render/2026-11-25-taxa-de-administracao-do-etf-quanto-tira-em-10/slide-3.png`, `esteira-social/render/2026-11-25-taxa-de-administracao-do-etf-quanto-tira-em-10/slide-4.png`, `esteira-social/render/2026-11-25-taxa-de-administracao-do-etf-quanto-tira-em-10/slide-5.png`
 
 ## FONTES E NÚMEROS (para conferir; não vão no post)
-- Calendário (25/11): fontes a conferir: Lâminas. Ângulo: 0,5% contra 1,5% ao ano em 10 anos; corte do longo de 17/11.
+- Calendário (25/11): fontes a conferir: Lâminas. Ângulo: 0,5% contra 1,5% ao ano em 10 anos; corte do bloco de taxa do Ep. 1 (14/10).
 - Números da própria linha do calendário: liberados (a linha é o briefing).
 - 100: pautas-canal/CALENDARIO-8-SEMANAS.csv: "FII ou aluguel: quanto rende R$ 100 mil em cada um"
 - 4,9: cálculo `100000 * (1 - 0.995 ** 10) / 1000` a partir de R$ 100 mil, 0,5% ao ano, 10 anos (CALENDARIO 25/11 e 11/11)
@@ -106,7 +106,7 @@ Recebe só os PNGs dos slides, em ordem, e a legenda. Quem chama compara "a capa
 - Instagram: 25/11 às 18:00 (D+0, no dia do Short)
 - X: 25/11 às 12:00 (D+0, no dia do Short)
 - Link do vídeo: nenhum no texto (o juiz-post elimina CTA e link). O link fica na bio do Instagram e no canal Investir e Coçar; no X, se o Denis quiser, numa resposta publicada à parte, depois da aprovação.
-- Este Short é um corte do longo de 17/11.
+- Este Short é um corte do longo de 14/10 (bloco de taxa). CTA: na bio do Instagram e na resposta do X vai o link desse longo, não o de um vídeo próprio do Short.
 - Risco no juiz-post (autoexame): baixo. Conta em R$ mandável ('quase o triplo de mordida').
 
 ---JSON---
