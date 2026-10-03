@@ -1,0 +1,5 @@
+# dado de terceiros (nome de autor, texto) e respostas do canal ficam fora do git
+dados/
+fila.csv
+__pycache__/
+.pytest_cache/

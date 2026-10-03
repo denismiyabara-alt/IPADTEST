@@ -1,0 +1,343 @@
+{
+ "_leia": "Fixture sintética para testes: autores e textos inventados, nenhum dado real.",
+ "canal_id": "UCcanalExemplo000000000",
+ "videos": [
+  {
+   "id": "vidExemplo01",
+   "titulo": "Quanto rende R$ 1.000 no CDB (exemplo)",
+   "publicado_em": "2026-09-20T22:00:00Z"
+  },
+  {
+   "id": "vidExemplo02",
+   "titulo": "Imposto de renda de FII (exemplo)",
+   "publicado_em": "2025-03-01T22:00:00Z"
+  },
+  {
+   "id": "vidExemplo03",
+   "titulo": "Juros compostos na prática (exemplo)",
+   "publicado_em": "2021-05-01T22:00:00Z"
+  },
+  {
+   "id": "vidExemplo04",
+   "titulo": "Vídeo com comentários desativados (exemplo)",
+   "publicado_em": "2024-01-01T22:00:00Z"
+  }
+ ],
+ "comentarios_desativados": [
+  "vidExemplo04"
+ ],
+ "views_28d": {
+  "vidExemplo01": 42000,
+  "vidExemplo02": 3100,
+  "vidExemplo03": 150
+ },
+ "threads": {
+  "vidExemplo01": [
+   [
+    {
+     "id": "UgxEx01",
+     "snippet": {
+      "topLevelComment": {
+       "id": "UgxEx01",
+       "snippet": {
+        "authorDisplayName": "Tanaka Exemplo A",
+        "authorChannelId": {
+         "value": "UCpublico_Ex01"
+        },
+        "textOriginal": "Quanto rende 1000 reais no CDB por mês?",
+        "textDisplay": "Quanto rende 1000 reais no CDB por mês?",
+        "likeCount": 40,
+        "publishedAt": "2026-09-28T12:00:00Z"
+       }
+      },
+      "totalReplyCount": 0
+     }
+    },
+    {
+     "id": "UgxEx02",
+     "snippet": {
+      "topLevelComment": {
+       "id": "UgxEx02",
+       "snippet": {
+        "authorDisplayName": "Tanaka Exemplo B",
+        "authorChannelId": {
+         "value": "UCpublico_Ex02"
+        },
+        "textOriginal": "Vale a pena colocar a reserva na poupança?",
+        "textDisplay": "Vale a pena colocar a reserva na poupança?",
+        "likeCount": 12,
+        "publishedAt": "2026-09-27T12:00:00Z"
+       }
+      },
+      "totalReplyCount": 1
+     },
+     "replies": {
+      "comments": [
+       {
+        "id": "UgxEx02.r1",
+        "snippet": {
+         "authorDisplayName": "Investir e Coçar",
+         "authorChannelId": {
+          "value": "UCcanalExemplo000000000"
+         },
+         "textOriginal": "Tanaka, depende do prazo; tem vídeo sobre reserva.",
+         "textDisplay": "Tanaka, depende do prazo; tem vídeo sobre reserva.",
+         "likeCount": 3,
+         "publishedAt": "2026-09-27T15:00:00Z"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "id": "UgxEx03",
+     "snippet": {
+      "topLevelComment": {
+       "id": "UgxEx03",
+       "snippet": {
+        "authorDisplayName": "Tanaka Exemplo C",
+        "authorChannelId": {
+         "value": "UCpublico_Ex03"
+        },
+        "textOriginal": "Me chama no WhatsApp +55 11 91234-5678 que eu te ensino a lucrar",
+        "textDisplay": "Me chama no WhatsApp +55 11 91234-5678 que eu te ensino a lucrar",
+        "likeCount": 0,
+        "publishedAt": "2026-09-26T12:00:00Z"
+       }
+      },
+      "totalReplyCount": 0
+     }
+    },
+    {
+     "id": "UgxEx04",
+     "snippet": {
+      "topLevelComment": {
+       "id": "UgxEx04",
+       "snippet": {
+        "authorDisplayName": "Investir e Coçar",
+        "authorChannelId": {
+         "value": "UCcanalExemplo000000000"
+        },
+        "textOriginal": "Comentário fixado do canal: o link da planilha está na descrição.",
+        "textDisplay": "Comentário fixado do canal: o link da planilha está na descrição.",
+        "likeCount": 80,
+        "publishedAt": "2026-09-20T22:05:00Z"
+       }
+      },
+      "totalReplyCount": 0
+     }
+    }
+   ],
+   [
+    {
+     "id": "UgxEx05",
+     "snippet": {
+      "topLevelComment": {
+       "id": "UgxEx05",
+       "snippet": {
+        "authorDisplayName": "Tanaka Exemplo D",
+        "authorChannelId": {
+         "value": "UCpublico_Ex05"
+        },
+        "textOriginal": "Ótimo vídeo, valeu!",
+        "textDisplay": "Ótimo vídeo, valeu!",
+        "likeCount": 5,
+        "publishedAt": "2026-09-22T12:00:00Z"
+       }
+      },
+      "totalReplyCount": 0
+     }
+    },
+    {
+     "id": "UgxEx06",
+     "snippet": {
+      "topLevelComment": {
+       "id": "UgxEx06",
+       "snippet": {
+        "authorDisplayName": "Tanaka Exemplo E",
+        "authorChannelId": {
+         "value": "UCpublico_Ex06"
+        },
+        "textOriginal": "Devo comprar ABCD3 agora ou esperar cair?",
+        "textDisplay": "Devo comprar ABCD3 agora ou esperar cair?",
+        "likeCount": 3,
+        "publishedAt": "2026-09-21T12:00:00Z"
+       }
+      },
+      "totalReplyCount": 0
+     }
+    },
+    {
+     "id": "UgxEx07",
+     "snippet": {
+      "topLevelComment": {
+       "id": "UgxEx07",
+       "snippet": {
+        "authorDisplayName": "Tanaka Exemplo F",
+        "authorChannelId": {
+         "value": "UCpublico_Ex07"
+        },
+        "textOriginal": "Como funciona a liquidez diária?",
+        "textDisplay": "Como funciona a liquidez diária?",
+        "likeCount": 2,
+        "publishedAt": "2026-09-21T10:00:00Z"
+       }
+      },
+      "totalReplyCount": 7
+     },
+     "replies": {
+      "comments": [
+       {
+        "id": "UgxEx07.r1",
+        "snippet": {
+         "authorDisplayName": "Tanaka Exemplo G",
+         "authorChannelId": {
+          "value": "UCpublico_7.r1"
+         },
+         "textOriginal": "Também quero saber",
+         "textDisplay": "Também quero saber",
+         "likeCount": 0,
+         "publishedAt": "2026-09-21T11:00:00Z"
+        }
+       },
+       {
+        "id": "UgxEx07.r1",
+        "snippet": {
+         "authorDisplayName": "Tanaka Exemplo G",
+         "authorChannelId": {
+          "value": "UCpublico_7.r1"
+         },
+         "textOriginal": "Também quero saber",
+         "textDisplay": "Também quero saber",
+         "likeCount": 0,
+         "publishedAt": "2026-09-21T11:00:00Z"
+        }
+       },
+       {
+        "id": "UgxEx07.r1",
+        "snippet": {
+         "authorDisplayName": "Tanaka Exemplo G",
+         "authorChannelId": {
+          "value": "UCpublico_7.r1"
+         },
+         "textOriginal": "Também quero saber",
+         "textDisplay": "Também quero saber",
+         "likeCount": 0,
+         "publishedAt": "2026-09-21T11:00:00Z"
+        }
+       },
+       {
+        "id": "UgxEx07.r1",
+        "snippet": {
+         "authorDisplayName": "Tanaka Exemplo G",
+         "authorChannelId": {
+          "value": "UCpublico_7.r1"
+         },
+         "textOriginal": "Também quero saber",
+         "textDisplay": "Também quero saber",
+         "likeCount": 0,
+         "publishedAt": "2026-09-21T11:00:00Z"
+        }
+       },
+       {
+        "id": "UgxEx07.r1",
+        "snippet": {
+         "authorDisplayName": "Tanaka Exemplo G",
+         "authorChannelId": {
+          "value": "UCpublico_7.r1"
+         },
+         "textOriginal": "Também quero saber",
+         "textDisplay": "Também quero saber",
+         "likeCount": 0,
+         "publishedAt": "2026-09-21T11:00:00Z"
+        }
+       }
+      ]
+     }
+    }
+   ]
+  ],
+  "vidExemplo02": [
+   [
+    {
+     "id": "UgxEx08",
+     "snippet": {
+      "topLevelComment": {
+       "id": "UgxEx08",
+       "snippet": {
+        "authorDisplayName": "Tanaka Exemplo H",
+        "authorChannelId": {
+         "value": "UCpublico_Ex08"
+        },
+        "textOriginal": "Rendimento de FII precisa declarar no imposto de renda?",
+        "textDisplay": "Rendimento de FII precisa declarar no imposto de renda?",
+        "likeCount": 25,
+        "publishedAt": "2025-04-10T12:00:00Z"
+       }
+      },
+      "totalReplyCount": 0
+     }
+    },
+    {
+     "id": "UgxEx09",
+     "snippet": {
+      "topLevelComment": {
+       "id": "UgxEx09",
+       "snippet": {
+        "authorDisplayName": "Tanaka Exemplo I",
+        "authorChannelId": {
+         "value": "UCpublico_Ex09"
+        },
+        "textOriginal": "Vídeo péssimo, só enrolação e não explicou nada, qual o sentido?",
+        "textDisplay": "Vídeo péssimo, só enrolação e não explicou nada, qual o sentido?",
+        "likeCount": 1,
+        "publishedAt": "2025-03-05T12:00:00Z"
+       }
+      },
+      "totalReplyCount": 0
+     }
+    }
+   ]
+  ],
+  "vidExemplo03": [
+   [
+    {
+     "id": "UgxEx10",
+     "snippet": {
+      "topLevelComment": {
+       "id": "UgxEx10",
+       "snippet": {
+        "authorDisplayName": "Tanaka Exemplo J",
+        "authorChannelId": {
+         "value": "UCpublico_Ex10"
+        },
+        "textOriginal": "Se eu aportar 500 por mês, em quanto tempo chego a 100 mil?",
+        "textDisplay": "Se eu aportar 500 por mês, em quanto tempo chego a 100 mil?",
+        "likeCount": 60,
+        "publishedAt": "2022-01-10T12:00:00Z"
+       }
+      },
+      "totalReplyCount": 0
+     }
+    }
+   ]
+  ]
+ },
+ "respostas": {
+  "UgxEx07": [
+   {
+    "id": "UgxEx07.r9",
+    "snippet": {
+     "authorDisplayName": "Investir e Coçar",
+     "authorChannelId": {
+      "value": "UCcanalExemplo000000000"
+     },
+     "textOriginal": "Tanaka, é poder resgatar em qualquer dia útil.",
+     "textDisplay": "Tanaka, é poder resgatar em qualquer dia útil.",
+     "likeCount": 1,
+     "publishedAt": "2026-09-22T09:00:00Z"
+    }
+   }
+  ]
+ }
+}
