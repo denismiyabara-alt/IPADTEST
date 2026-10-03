@@ -2,7 +2,7 @@
 titulo_trabalho: "Tesouro IPCA+ a 7% em janeiro: quanto ganhou quem comprou"
 data: 2026-10-08
 formato: longo (teleprompter)
-versao: v1.5 (v1.0 escrita → juiz-roteiro 8/10 → v1.1 10/10 → punch-up do juiz-ritmo → conserto do ouvinte-frio → v1.3 revisão independente + score_roteiro.py → v1.4 conserto do ouvinte-frio cego, que reprovou a v1.3 → v1.5 conserto do 2º ouvinte-frio cego, que reprovou a v1.4)
+versao: v1.5 (v1.0 escrita → juiz-roteiro 8/10 → v1.1 10/10 → punch-up do juiz-ritmo → conserto do ouvinte-frio → v1.3 revisão independente + score_roteiro.py → v1.4 conserto do ouvinte-frio cego, que reprovou a v1.3 → v1.5 conserto do 2º ouvinte-frio cego, que reprovou a v1.4 → v1.6 conserto do 3º ouvinte-frio cego (7,8; cupom 6))
 duracao_estimada: "~10,6 min (≈1.490 palavras de fala sem [TELA], a ~140 por minuto; teto 14)"
 briefing: pautas-canal/briefings/2026-10-08-tesouro-ipca-7-briefing.md
 fonte_unica: "Tesouro Transparente, PrecoTaxaTesouroDireto.csv (data-base 01/10/2026). IR: Lei 11.033/2004."
@@ -108,7 +108,7 @@ Em janeiro, uma fila de títulos IPCA+ pagava mais de sete por cento, e todos es
 
 [TELA: os 11 títulos IPCA+ acima de 7% em 28/01 (ainda não vencidos), taxa em 28/01, taxa em 01/10, "R$ 10 mil viraram" (tabela da seção 2 do briefing) · todos atrás do Tesouro Selic 2029 (R$ 10.942) · IPCA+ 2029: R$ 10.906 · IPCA+ c/ Juros Semestrais 2050: R$ 10.563 (com cupons) · ordem: do vencimento mais curto ao mais longo · Tesouro Transparente, data-base 01/10/2026]
 
-E o que separa o melhor do pior da lista é uma linha só: a data de vencimento.
+E o que separa o melhor do pior da lista não é sorte. É a data de vencimento.
 
 O mais curto, o IPCA+ 2029, quase empatou com o Selic.
 
@@ -130,7 +130,7 @@ O Tesouro promete te pagar um valor fechado lá em 2035.
 
 Você pagou dez mil reais por essa promessa em janeiro.
 
-Se depois alguém consegue a mesma promessa pagando menos de dez mil, quem paga menos ganha mais no caminho.
+Se depois alguém compra essa mesma promessa por menos de dez mil, ele ganha mais do que você até 2035.
 
 É isso que é taxa maior: a mesma promessa, mais barata.
 
@@ -168,11 +168,19 @@ O vermelho só vira prejuízo de verdade num dia: no dia em que você vende.
 
 [CORTE: no Short, abrir com o texto "Seu Tesouro ficou negativo?" na tela e fechar no "no dia em que você vende". No Short, trocar "é aquele oito e vinte e dois do começo do vídeo" por "o IPCA+ 2035 chegou a pagar a inflação mais oito e vinte e dois". O trecho marcado tem ≈ 257 palavras (~1:50 a 140/min). Versão de ~45 s: "Tesouro IPCA+ no vermelho tem nome" → "O Tesouro promete…" → "Se depois alguém…" → "É isso que é taxa maior…" → "Em julho, a promessa ficou mais barata…" → "No fim de julho… nove mil, novecentos e sessenta e oito" → "Quem leva o título até 2035…" → "O vermelho só vira prejuízo…"]
 
-Só que em outubro a promessa voltou pra quase o preço de janeiro: o 2035 pagava a inflação mais sete e cinquenta e seis.
+Só que em outubro a taxa voltou pra perto da de janeiro.
+
+Sete e cinquenta e seis, contra os sete e quarenta e sete da compra.
+
+A promessa ainda está um pouquinho mais barata do que no dia em que você comprou.
+
+E se o seu app ainda está vermelho hoje, você comprou noutro dia, com outra taxa.
+
+A conta é a mesma: se a taxa de hoje é maior que a que você travou, a FIPE do seu título está abaixo do que você pagou.
 
 E mesmo assim o extrato continua duzentos e oitenta reais atrás do Selic.
 
-Se a promessa quase voltou pro preço de janeiro, pra onde foram os duzentos e oitenta?
+Se a taxa quase voltou pra de janeiro, pra onde foram os duzentos e oitenta?
 
 São três pedaços, e o maior você paga no dia da compra sem perceber.
 
@@ -224,7 +232,9 @@ O IPCA+ só paga a promessa inteira lá em 2035.
 
 Dos duzentos e oitenta, cento e dez reais são do pedágio.
 
-Quase oitenta são da promessa mais barata, e o resto é o juro do Selic.
+Quase oitenta são da promessa que ainda está mais barata.
+
+E uns noventa são do juro do Selic, que pagou mais no caminho.
 
 [TELA: R$ 280 = ~R$ 108 (pedágio entre compra e recompra, 0,12 p.p.) + ~R$ 77 (taxa de 7,47% para 7,56%) + ~R$ 94 (Selic pagou mais que IPCA + 7,47% no período) · conta derivada do CSV do Tesouro Transparente, data-base 01/10/2026 · ver briefing, seção 2a]
 
@@ -235,6 +245,8 @@ Quem queria renda no caminho comprou o outro 2035: o que paga juros no meio do c
 ## BLOCO 4 - O OUTRO 2035 (7:00–7:50)
 
 Esse outro 2035 deposita juros na sua conta a cada seis meses.
+
+Como saber qual é o seu? No app, esse aparece com "juros semestrais" no nome. Se o seu não tem isso no nome, você está no primeiro.
 
 Em maio, caiu uns trezentos e trinta reais na conta de quem pôs dez mil em janeiro.
 
@@ -627,3 +639,17 @@ sem "última chance", sem "vale a pena". Meme: nenhum insert entre 0:08 e 0:20.
 6. **Rodar no Mac:** pesquisador (YouTube + comentários: confirmar a dúvida nº 1), `score_roteiro.py` (portão + molde
    repetido), ouvinte-frio novo e o checklist do empacotador.
 7. **Short 14/10:** a fala marcada tem ≈ 55 s; a nota do [CORTE] diz o que tirar pra chegar a 40 s.
+
+### 3º ouvinte-frio cego (v1.5, persona professora com app vermelho) e correções v1.6
+
+Média 7,8, REPROVA (bloco do outro 2035 com 6: "nem sei qual comprei no app do banco"). Conta central recontada certa; não sentiu empurrão.
+Correções (só fala; nenhum número novo — "uns noventa" é o ~R$ 94 da seção 2a do briefing, já na [TELA]):
+- "uma linha só: a data de vencimento" (não entendeu "linha") → "não é sorte. É a data de vencimento."
+- "quem paga menos ganha mais no caminho" (abstrato) → "ele ganha mais do que você até 2035".
+- "a promessa voltou pra quase o preço de janeiro" (7,56 > 7,47 confundiu) → taxa dita em duas frases + "a promessa ainda está um pouquinho mais barata".
+- App vermelho HOJE (ela não se achou no exemplo): "se o seu app ainda está vermelho, você comprou noutro dia, com outra taxa; se a taxa de hoje é maior que a que você travou, a FIPE do seu título está abaixo do que você pagou".
+- Terceiro pedaço dito: "uns noventa são do juro do Selic".
+- Bloco do outro 2035: "Como saber qual é o seu? No app, esse aparece com 'juros semestrais' no nome."
+- "Tanaka" sem apresentação incomodou quem não conhece o canal: mantido (personagem fixo do canal; decisão do Denis).
+score_roteiro.py v1.6: sem eliminatório, sem costura, 5/6 (item 9 conta números de [TELA], limite já aceito).
+
