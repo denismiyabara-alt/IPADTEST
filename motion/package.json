@@ -1,0 +1,16 @@
+{
+  "name": "iec-motion",
+  "private": true,
+  "description": "Componentes de motion do Investir e Coçar (HyperFrames)",
+  "license": "UNLICENSED",
+  "scripts": {
+    "teste": "python3 -m pytest -q tests"
+  },
+  "dependencies": {
+    "@fontsource/anton": "^5.2.0",
+    "@fontsource/inter": "^5.2.0",
+    "@fontsource/jetbrains-mono": "^5.2.0",
+    "gsap": "3.14.2",
+    "hyperframes": "0.8.78"
+  }
+}

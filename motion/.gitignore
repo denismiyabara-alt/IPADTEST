@@ -1,0 +1,7 @@
+node_modules/
+projetos/
+renders/
+cache/
+__pycache__/
+.pytest_cache/
+snapshots/
