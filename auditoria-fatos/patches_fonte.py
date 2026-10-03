@@ -24,7 +24,7 @@ DIV_2026 = ("desde janeiro de 2026, dividendos acima de R$ 50 mil por mês pagos
             "à mesma pessoa têm 10% de IR retido na fonte (Lei 15.270/2025)")
 
 PATCHES = {}
-LOTES = {"A": [], "B": [], "C": []}
+LOTES = {"A": [], "B": [], "C": [], "D": []}
 DESCRICAO = {
     "A": "Regras de IR de 2026: JCP 17,5% (LC 224/2025), FII com 100 cotistas (Lei 14.754/2023), dividendos acima de "
          "R$ 50 mil/mês (Lei 15.270/2025), prazo mínimo de LCI/LCA (Res. CMN 5.215/2025). Os posts deste lote levam "
@@ -32,6 +32,8 @@ DESCRICAO = {
     "B": "Post 4537 (destino de 301 do 1083): sem o JEPQ39 e com os demais erros corrigidos.",
     "C": "Posts publicados em 07/05/2026 que não estão no lote A: Selic/CDI/IPCA fixos no texto trocados por frase sem "
          "número ou por valor com data e fonte; demais erros pontuais encontrados na leitura.",
+    "D": "Post 4544 (dólar abaixo de R$ 5, ETFs de renda em dólar): sem os tickers que não existem na B3 (JEPQ39, BNDW39, "
+         "DVDY11) e sem afirmar que qualquer corretora vende o JEPI39. Gerado sobre o content.rendered de 03/10/2026.",
 }
 
 
@@ -358,3 +360,30 @@ post(4537, "B", "Destino do 301 do 1083. Tratava o JEPQ39 como BDR negociado na 
      ],
      manual=["Tabela: na linha do JEPQ, trocar a célula do ticker 'JEPQ39' por 'Não tem BDR' e a faixa '10–15%' por '-' (células curtas, com travessão).",
              "O título cita JEPQ39; pela regra, título e slug não foram mudados. Avaliar trocar o título no Yoast/editor."])
+
+# =====================================================================================================  LOTE D
+post(4544, "D", "Citava JEPQ39, BNDW39 e DVDY11 como produtos negociados na B3: nenhum dos três tem negócio no COTAHIST "
+     "à vista de 2021 a 01/10/2026 (o JEPQ só é negociado nos EUA). O FAQ dizia que qualquer corretora permite a compra "
+     "do JEPI39, o que não está confirmado (o produto pode ser restrito a investidor qualificado).",
+     f"{B3} (JEPQ39, BNDW39 e DVDY11 sem negócios 2021-2026; JEPI39 = 'JPM JEPI', negocia desde 23/02/2026)",
+     [
+         ("negociados aqui na B3, como o JEPI39 e o JEPQ39", "negociados aqui na B3, como o JEPI39"),
+         ("BDR do JPMorgan Nasdaq Equity Premium Income (Nasdaq 100 + covered calls)",
+          "JPMorgan Nasdaq Equity Premium Income (Nasdaq 100 + covered calls): não tem BDR na B3, só é negociado nos EUA"),
+         ("BDR do Vanguard Total World Bond ETF", "Vanguard Total World Bond ETF: não há BDR listado na B3"),
+         ("ETF local da Invesco focado em ações internacionais de dividendos", "Não há ETF listado na B3 com esse código"),
+         ("JEPI39 e JEPQ39: os mais populares para renda mensal em dólar", "JEPI39 e JEPQ: renda mensal em dólar com covered calls"),
+         ("Os dois BDRs da JPMorgan se tornaram os preferidos do investidor brasileiro que quer renda mensal dolarizada.",
+          "Os dois ETFs da JPMorgan, JEPI e JEPQ, são conhecidos de quem busca renda mensal dolarizada, mas só o JEPI tem "
+          "BDR na B3: o JEPI39, negociado desde fevereiro de 2026. O JEPQ só é negociado nos EUA."),
+         ("mais yield, mais risco", "mais yield, mais risco (não tem BDR na B3: o JEPQ só é negociado nos EUA)"),
+         ("BDRs de ETFs (como JEPI39 e JEPQ39)", "BDRs de ETFs (como o JEPI39)"),
+         ("Sim. BDRs de ETFs como JEPI39 e JEPQ39 são negociados na B3 normalmente. Qualquer corretora com acesso à bolsa brasileira permite a compra.",
+          "Os BDRs de ETFs, como o JEPI39, são negociados na B3. Confira na sua corretora se o produto está disponível "
+          "para o seu perfil de investidor."),
+         ("ETFs como JEPI39 e JEPQ39 permitem montar", "Produtos como o JEPI39 permitem montar"),
+     ],
+     manual=["Tabela 'Principais ETFs com renda em dólar disponíveis na B3': apagar as linhas JEPQ39, BNDW39 e DVDY11 "
+             "(células curtas, com til e travessão; não é seguro casar). Se preferir manter a linha do JEPQ, trocar a "
+             "célula 'JEPQ39' por 'JEPQ (só nos EUA)' e a faixa '~10–12% a.a.' por '-'.",
+             "Título em negrito 'JEPQ39 — mais yield, mais risco': trocar 'JEPQ39' por 'JEPQ' (o resto da frase já vem do patch)."])

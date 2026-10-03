@@ -1,0 +1,63 @@
+{
+ "post_id": 4544,
+ "url": "https://investirecocaresocomecar.com.br/dolar-abaixo-de-r5-etfs-renda-dolar-b3/",
+ "lote": "D",
+ "motivo": "Citava JEPQ39, BNDW39 e DVDY11 como produtos negociados na B3: nenhum dos três tem negócio no COTAHIST à vista de 2021 a 01/10/2026 (o JEPQ só é negociado nos EUA). O FAQ dizia que qualquer corretora permite a compra do JEPI39, o que não está confirmado (o produto pode ser restrito a investidor qualificado).",
+ "trocas": [
+  {
+   "de": "negociados aqui na B3, como o JEPI39 e o JEPQ39",
+   "para": "negociados aqui na B3, como o JEPI39",
+   "de_rendered": "negociados aqui na B3, como o JEPI39 e o JEPQ39"
+  },
+  {
+   "de": "BDR do JPMorgan Nasdaq Equity Premium Income (Nasdaq 100 + covered calls)",
+   "para": "JPMorgan Nasdaq Equity Premium Income (Nasdaq 100 + covered calls): não tem BDR na B3, só é negociado nos EUA",
+   "de_rendered": "BDR do JPMorgan Nasdaq Equity Premium Income (Nasdaq 100 + covered calls)"
+  },
+  {
+   "de": "BDR do Vanguard Total World Bond ETF",
+   "para": "Vanguard Total World Bond ETF: não há BDR listado na B3",
+   "de_rendered": "BDR do Vanguard Total World Bond ETF"
+  },
+  {
+   "de": "ETF local da Invesco focado em ações internacionais de dividendos",
+   "para": "Não há ETF listado na B3 com esse código",
+   "de_rendered": "ETF local da Invesco focado em ações internacionais de dividendos"
+  },
+  {
+   "de": "JEPI39 e JEPQ39: os mais populares para renda mensal em dólar",
+   "para": "JEPI39 e JEPQ: renda mensal em dólar com covered calls",
+   "de_rendered": "JEPI39 e JEPQ39: os mais populares para renda mensal em dólar"
+  },
+  {
+   "de": "Os dois BDRs da JPMorgan se tornaram os preferidos do investidor brasileiro que quer renda mensal dolarizada.",
+   "para": "Os dois ETFs da JPMorgan, JEPI e JEPQ, são conhecidos de quem busca renda mensal dolarizada, mas só o JEPI tem BDR na B3: o JEPI39, negociado desde fevereiro de 2026. O JEPQ só é negociado nos EUA.",
+   "de_rendered": "Os dois BDRs da JPMorgan se tornaram os preferidos do investidor brasileiro que quer renda mensal dolarizada."
+  },
+  {
+   "de": "mais yield, mais risco",
+   "para": "mais yield, mais risco (não tem BDR na B3: o JEPQ só é negociado nos EUA)",
+   "de_rendered": "mais yield, mais risco"
+  },
+  {
+   "de": "BDRs de ETFs (como JEPI39 e JEPQ39)",
+   "para": "BDRs de ETFs (como o JEPI39)",
+   "de_rendered": "BDRs de ETFs (como JEPI39 e JEPQ39)"
+  },
+  {
+   "de": "Sim. BDRs de ETFs como JEPI39 e JEPQ39 são negociados na B3 normalmente. Qualquer corretora com acesso à bolsa brasileira permite a compra.",
+   "para": "Os BDRs de ETFs, como o JEPI39, são negociados na B3. Confira na sua corretora se o produto está disponível para o seu perfil de investidor.",
+   "de_rendered": "Sim. BDRs de ETFs como JEPI39 e JEPQ39 são negociados na B3 normalmente. Qualquer corretora com acesso à bolsa brasileira permite a compra."
+  },
+  {
+   "de": "ETFs como JEPI39 e JEPQ39 permitem montar",
+   "para": "Produtos como o JEPI39 permitem montar",
+   "de_rendered": "ETFs como JEPI39 e JEPQ39 permitem montar"
+  }
+ ],
+ "fonte": "https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/historico/mercado-a-vista/series-historicas/ (JEPQ39, BNDW39 e DVDY11 sem negócios 2021-2026; JEPI39 = 'JPM JEPI', negocia desde 23/02/2026)",
+ "manual": [
+  "Tabela 'Principais ETFs com renda em dólar disponíveis na B3': apagar as linhas JEPQ39, BNDW39 e DVDY11 (células curtas, com til e travessão; não é seguro casar). Se preferir manter a linha do JEPQ, trocar a célula 'JEPQ39' por 'JEPQ (só nos EUA)' e a faixa '~10–12% a.a.' por '-'.",
+  "Título em negrito 'JEPQ39 — mais yield, mais risco': trocar 'JEPQ39' por 'JEPQ' (o resto da frase já vem do patch)."
+ ]
+}

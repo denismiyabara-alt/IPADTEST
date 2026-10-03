@@ -256,6 +256,8 @@ def main():
       "o prospecto do JEPI39 e alguns portais de notícia estão bloqueados pela rede do ambiente (não contornado), por isso o público-alvo do JEPI39 ficou como DÚVIDA; "
       "proventos por ação não estão no SQLite do site-ativos (tabela `provento` vazia), então DY e valores por ação dos posts não foram recalculados.")
     w("")
+    w("Patches: o post 4544 (JEPQ39, BNDW39 e DVDY11, que não existem na B3, e 'qualquer corretora permite a compra' do JEPI39) entrou no lote D (`patches/LOTE_D.json`), gerado sobre o content.rendered de 03/10/2026; a tabela e o título em negrito do JEPQ39 ficam como ajuste manual no editor.")
+    w("")
     w("## Reproduzir")
     w("")
     w("```sh")
