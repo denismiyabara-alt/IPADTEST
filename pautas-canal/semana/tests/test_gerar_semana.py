@@ -79,7 +79,8 @@ def test_barsi_e_louise_sem_agenda(tmp_path):
     assert bl[0].startswith("- **seg 05/10** ⏳ 12h Barsi: um · 18h Barsi: dois")
     assert bl[1].startswith("- **ter 06/10** ❌")
     assert not any("fora da semana" in l for l in bl)
-    assert lou == ["- agenda não encontrada no repo — onde fica?"]
+    assert lou[0].startswith("- **seg 05/10** ⏳ 12h corte 1 de 6")  # agenda fixa (louise_agenda.csv)
+    assert "UCNt4cEGgfsJ4WYNcsQeTbhQ" in lou[-1]
 
 
 def test_faz_a_conta_status(tmp_path):
@@ -118,11 +119,11 @@ def test_pacote_real_2026_10_04():
               "## Shorts Louise", "## Cards Instagram e X", "## Canais dark"]
     pos = [txt.index(s) for s in secoes]
     assert pos == sorted(pos)
-    assert "guarda esse número" in txt and "rotativo" in txt and "R$ 740" in txt
-    assert txt.count("guarda esse") == 1          # a decisão fixa abafa as cópias dos roteiros
+    assert "rotativo" in txt and "R$ 740" in txt
+    assert "guarda esse" not in txt               # D1 resolvida em 03/10: proibido, sai do pacote
     assert "seg 05/10 · Short" in txt and "qui 08/10 · Longo" in txt and "12/10" not in txt.split("## Faz a Conta")[0]
     assert "ouvinte reprovou a v1.7 (7,8): falta ouvir a v1.8" in txt
-    assert "Shorts Louise\n\n- agenda não encontrada no repo — onde fica?" in txt
+    assert "Shorts Louise\n\n- **seg 05/10** ⏳ 12h corte 1 de 6" in txt
     if fac:
         assert "banco Central não gastou".lower() in txt.lower() and "dom 11/10** — Parabéns, o dinheiro é seu" in txt
     if bar:

@@ -30,10 +30,16 @@ Teste 1: dá pra escrever num card o que foi prometido? Se não dá, é suspense
 Teste 2 (novo, 24/08/2026): o número diz **o que ele é ou o que ele faz**, no mesmo fôlego.
 Dizer qual número decorar não é dizer o que ele significa.
 ❌ "tem um detalhe no final que ninguém fala"
-❌ "Guarda esse número: 8,3%." — número nu, o "e daí?" fica 11 minutos sem resposta
-❌ "Guarda esse número: 107.527, e não os 100.000." — contrasta com outro número e para aí
-✅ "guarda esse número: 720. Não é valor em real, é dia de calendário, e vale mais que 20 pontos de CDI."
-✅ "Guarda esse número: 4,73 bilhões — é quanto entrou de empréstimo e de CRI novo no caixa dela."
+**PROIBIDO desde 01/10/2026 (decisão do Denis, reafirmada em 03/10):** a fórmula "guarda esse número" e
+variações ("guarda esse contraste", "guarda essa conta", "guarda esse detalhe") — no fecho E no meio. O loop
+continua obrigatório; ele é o próprio número dito com a consequência, sem a fórmula. O `score_roteiro.py`
+trata a fórmula como ELIMINATÓRIO.
+❌ "Guarda esse número: 720, que vale mais que 20 pontos de CDI." — ancorado, mas usa a fórmula proibida
+❌ "O número é 8,3%." — número nu, o "e daí?" fica 11 minutos sem resposta
+❌ "São 107.527, e não os 100.000." — contrasta com outro número e para aí
+✅ "Setecentos e vinte. Não é valor em real, é dia de calendário, e vale mais que 20 pontos de CDI."
+✅ "Quatro vírgula setenta e três bilhões: é quanto entrou de empréstimo e de CRI novo no caixa dela."
+✅ "Oito mil e cinquenta reais de diferença por ano. Mesmo dinheiro investido."
 *Se o número só faz sentido depois da conta, o loop não é o número: é a pergunta que a conta responde.*
 
 **4. Desce do agregado pra linha** — P2
@@ -158,7 +164,7 @@ O portão mecânico mede isso sozinho, sem lista fixa de frases proibidas — li
 já queimou a gente antes.
 
 **Não conta como molde** (repetição obrigatória, não tique):
-disclaimer de compra/venda · "Fala, Tanaka" · "Guarda esse número" e os outros dispositivos que a
+disclaimer de compra/venda · "Fala, Tanaka" e os outros dispositivos que a
 própria rubrica exige. Reprovar o que a regra manda repetir treina todo mundo a ignorar o portão.
 
 A concessão do P3 continua **obrigatória** — o que não pode é ela chegar sempre com as mesmas

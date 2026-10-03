@@ -22,6 +22,16 @@ ANCORA = ["e quanto","e o que","e o dia","nao e valor","nao e um","vale mais","v
           "a menos","a mais","custou","custa","deixou de","perdeu","por mes","por ano",
           "de diferenca","e ele responde","e ele fecha","e a chave"]
 
+# "guarda esse numero/contraste/detalhe..." — formula proibida (decisao do Denis, 01/10/2026).
+R_GUARDA = re.compile(r"\bguard[ae]\s+(?:ess[ea]|est[ea]|o|a)\s+"
+                      r"(?:numero|detalhe|contraste|raciocinio|informacao|conta|dado|valor)")
+
+# numero escrito por extenso (os roteiros falam assim): conta como numero no loop.
+R_NUM_EXTENSO = re.compile(r"\b(?:dois|tres|quatro|cinco|seis|sete|oito|nove|dez|onze|doze|treze|"
+                           r"quatorze|catorze|quinze|vinte|trinta|quarenta|cinquenta|sessenta|setenta|"
+                           r"oitenta|noventa|cem|cento|duzentos|trezentos|quatrocentos|quinhentos|"
+                           r"seiscentos|setecentos|oitocentos|novecentos|mil|milhoes|milhao|bilhoes|bilhao)\b")
+
 # item 10: ferramenta portatil precisa de NOME. "faz tres contas" sem batismo nao gruda.
 NOME_FERRAMENTA = r"(?:eu\s+)?chamo\s+(?:isso\s+)?de\s+\w+|(?:a|essa|minha)\s+(?:conta|pergunta|regra|prova)\s+d[eoa]\s+\w+"
 
@@ -124,7 +134,7 @@ def _e_numerico(sh):
     return sum(w in NUMERAL for w in ws) >= len(ws) - 1
 
 EXENTO = ["indicacao de compra", "compra nem de venda", "de compra ou de venda",
-          "nao e recomendacao", "guarda esse numero", "fala tanaka",
+          "nao e recomendacao", "fala tanaka",
           # Declaracao de conflito da EQI: obrigatoria pelo P3 e pelo compliance —
           # reprova-la seria mandar apagar justamente o que protege o Denis.
           # NAO entram aqui: copy de oferta ("pega o seu e-mail", "link na descricao").
@@ -228,6 +238,11 @@ def avaliar(texto):
         elim.append("nao abre com 'Fala, Tanaka'")
     if re.search(r"\b\d+\s?%\s+(da sua carteira|em renda fixa)", n) and "não é recomendação" not in n:
         elim.append("alocacao em % sem disclaimer")
+    # "guarda esse numero" e PROIBIDO no roteiro inteiro, no fecho e no meio
+    # (decisao do Denis em 01/10/2026; reafirmada em 03/10/2026). O loop continua
+    # obrigatorio (item 3), mas sem a formula.
+    if R_GUARDA.search(n):
+        elim.append("'guarda esse numero' (e variacoes) e proibido — decisao do Denis, 01/10/2026")
     out["eliminatorios"] = elim
 
     # SIGLAS: o portao NAO consegue saber se um acronimo foi traduzido na fala.
@@ -240,20 +255,22 @@ def avaliar(texto):
     m8 = [w for w in META if w in n]
     out[8] = (len(m8) == 0, f"meta-discurso: {m8}" if m8 else "nenhum meta-discurso")
 
-    # item 3 — loop = numero ANCORADO, nao digito solto
-    # a frase do loop vai ate o fim do periodo; o numero tem que vir com consequencia junto.
-    mloop = re.search(r"guarda(?:\s+esse|\s+o)?\s+(?:numero|detalhe|contraste|raciocinio)"
-                      r"(?:(?!\n\s*##).){0,260}", n, re.S)
-    if not mloop:
-        out[3] = (False, "nao achou loop aberto ('guarda esse numero...')")
-        loop_nums = set()
+    # item 3 — loop = numero ANCORADO, nao digito solto, SEM a formula "guarda esse numero"
+    # (proibida desde 01/10/2026). O loop e a primeira frase da abertura (2 primeiros
+    # blocos) que tem numero E consequencia na mesma frase.
+    loop_nums = set()
+    abertura = "\n".join(norm(b) for b in bs[:2]) if bs else n
+    frases = [f for f in re.split(r"(?<=[.!?])\s+|\n+", abertura)
+              if f.strip() and not f.strip().startswith(("[", "|"))]
+    loop = next((f for f in frases
+                 if (re.search(r"\d", f) or R_NUM_EXTENSO.search(f)) and any(a in f for a in ANCORA)), None)
+    if loop:
+        loop_nums = {x.strip() for x in numeros(loop)}
+        out[3] = (True, f"loop ancorado na mesma frase: '{loop.strip()[:80]}'")
     else:
-        frase = mloop.group(0)
-        loop_nums = {x.strip() for x in numeros(frase)}
-        ancorado = any(a in frase for a in ANCORA)
-        out[3] = (ancorado,
-                  "loop ancorado na mesma frase" if ancorado
-                  else f"numero solto no loop: {sorted(loop_nums) or 'nenhum'} — falta consequencia na mesma frase")
+        com_num = [f for f in frases if re.search(r"\d", f) or R_NUM_EXTENSO.search(f)]
+        out[3] = (False, "abertura sem numero ancorado (numero + consequencia na mesma frase)"
+                  if com_num else "abertura sem numero")
 
     # item 9 — arco linear: numero relevante em 2+ blocos
     reps = {}
@@ -382,7 +399,7 @@ Resumindo pra voce: R$ 930 por mes. Se inscreve no canal.
 
     bom = """## BLOCO 1 - HOOK
 Fala, Tanaka! O aporte carrega 5 vezes mais que o juro ate os R$ 100 mil.
-Guarda esse numero: 720. Nao e valor em real, e dia de calendario.
+O numero e 720: nao e valor em real, e dia de calendario.
 ## BLOCO 2
 O banco vira aquele parente que sabe que voce nao vai reclamar.
 ## BLOCO 3 - FECHA
@@ -394,7 +411,7 @@ Antes de comemorar marco, faz tres perguntas — eu chamo isso de conta da ladei
 
     # item 3: numero solto no loop reprova (casos reais 23/08/2026)
     solto = """## BLOCO 1
-Fala, Tanaka! Tem 58 empresas pagando acima de 10%. Guarda esse numero: 8,3%.
+Fala, Tanaka! Tem 58 empresas pagando acima de 10%. O numero e 8,3%.
 ## FECHA
 Faz tres perguntas — eu chamo isso de conta do rodizio."""
     r3 = avaliar(solto)
@@ -403,7 +420,7 @@ Faz tres perguntas — eu chamo isso de conta do rodizio."""
 
     # item 10: ferramenta sem batismo nao basta
     sem_nome = """## BLOCO 1
-Fala, Tanaka! O aporte pesa mais. Guarda esse numero: 720, que vale mais que 20 pontos.
+Fala, Tanaka! O aporte pesa mais. O numero e 720, que vale mais que 20 pontos.
 ## FECHA
 A gente faz tres contas antes de assinar qualquer coisa."""
     r4 = avaliar(sem_nome)
@@ -428,12 +445,27 @@ A gente faz tres contas — eu chamo isso de conta da ladeira.
     assert avaliar(tardio)[10][0], "nao achou o FECHO quando ha bloco depois dele"
     # regressao: "2.000" nao pode casar dentro de "12.000" (bug de substring, 24/08/2026)
     substr = """## BLOCO 1
-Fala, Tanaka! Voce deposita 12.000 por ano. Guarda esse numero: 720, que vale mais que 20 pontos.
+Fala, Tanaka! Voce deposita 12.000 por ano. O numero e 720, que vale mais que 20 pontos.
 ## BLOCO 2
 Quem guarda 2.000 por mes chega mais tarde.
 ## FECHA
 Pega o aporte e divide — eu chamo isso de conta da ladeira."""
     assert avaliar(substr)[9][0], "'2.000' nao pode contar como repeticao de '12.000'"
+
+    # "guarda esse numero" e proibido (decisao do Denis, 01/10/2026): eliminatorio, ate ancorado
+    guarda = """## BLOCO 1
+Fala, Tanaka! O aporte pesa mais. Guarda esse numero: 720, que vale mais que 20 pontos.
+## FECHA
+Pega o aporte e divide — eu chamo isso de conta da ladeira."""
+    assert any("guarda" in e for e in avaliar(guarda)["eliminatorios"]), "'guarda esse numero' devia ser eliminatorio"
+    contraste = guarda.replace("Guarda esse numero", "Guarda esse contraste")
+    assert any("guarda" in e for e in avaliar(contraste)["eliminatorios"]), "variacao devia ser eliminatoria"
+    # loop por extenso (como os roteiros falam) passa sem a formula
+    extenso = """## BLOCO 1
+Fala, Tanaka! Oito mil e cinquenta reais de diferenca por ano.
+## FECHA
+Pega o aporte e divide — eu chamo isso de conta da ladeira."""
+    assert avaliar(extenso)[3][0], "numero por extenso com 'de diferenca' devia passar o item 3"
 
     # regressao: tabela de telas repete numero por desenho, nao pode reprovar item 9
     com_tabela = """## BLOCO 1

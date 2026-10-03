@@ -308,8 +308,10 @@ def decisoes_fixas():
     if not p.is_file():
         return [], []
     with open(p, encoding="utf-8") as f:
-        abertas = [r for r in csv.DictReader(f) if r["status"].strip().lower() == "aberta"]
-    cobre = [r["cobre"] for r in abertas if r.get("cobre")]
+        todas = list(csv.DictReader(f))
+    abertas = [r for r in todas if r["status"].strip().lower() == "aberta"]
+    # resolvida também abafa: as cópias nos roteiros/notas viram ruído depois da decisão
+    cobre = [r["cobre"] for r in todas if r.get("cobre")]
     return abertas, cobre
 
 
@@ -404,7 +406,17 @@ def barsi(seg, dom, repo, ref):
     else:
         bl.append(f"  _{OK} já subido e agendado · {REV} cortado, falta subir · {FALTA} vaga sem corte. "
                   f"Fonte: `barsi-cortes/agenda_lote*.tsv`_")
-    # Louise
+    # Louise: agenda fixa em pautas-canal/semana/louise_agenda.csv (decisão de 03/10/2026)
+    ag = RAIZ / "pautas-canal" / "semana" / "louise_agenda.csv"
+    if ag.is_file():
+        with ag.open(encoding="utf-8") as f:
+            rows = [r for r in csv.DictReader(f) if seg.isoformat() <= r["data"] <= dom.isoformat()]
+        if rows:
+            st_map = {"agendado": OK, "subido": OK, "a subir": REV}
+            lou = [f"- **{dia(date.fromisoformat(r['data']))}** {st_map.get(r['status'], FALTA)} {r['hora']} "
+                   f"{r['corte']} ({r['status']})" for r in rows]
+            lou.append(f"  _Canal {rows[0]['canal']}. Fonte: `pautas-canal/semana/louise_agenda.csv`_")
+            return bl, lou
     lo = [p for p in repo.rglob("*") if p.is_file() and "louise" in p.name.lower()
           and re.search(r"agenda|fila|calend", p.name, re.I) and ".git" not in p.parts]
     if lo:

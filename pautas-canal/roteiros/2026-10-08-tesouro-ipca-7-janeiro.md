@@ -2,13 +2,13 @@
 titulo_trabalho: "Tesouro IPCA+ a 7% em janeiro: quanto ganhou quem comprou"
 data: 2026-10-08
 formato: longo (teleprompter)
-versao: v1.5 (v1.0 escrita → juiz-roteiro 8/10 → v1.1 10/10 → punch-up do juiz-ritmo → conserto do ouvinte-frio → v1.3 revisão independente + score_roteiro.py → v1.4 conserto do ouvinte-frio cego, que reprovou a v1.3 → v1.5 conserto do 2º ouvinte-frio cego, que reprovou a v1.4 → v1.6 conserto do 3º ouvinte-frio cego (7,8; cupom 6) → v1.7 conserto do 4º (7,5; cupom 6))
+versao: v1.5 (v1.0 escrita → juiz-roteiro 8/10 → v1.1 10/10 → punch-up do juiz-ritmo → conserto do ouvinte-frio → v1.3 revisão independente + score_roteiro.py → v1.4 conserto do ouvinte-frio cego, que reprovou a v1.3 → v1.5 conserto do 2º ouvinte-frio cego, que reprovou a v1.4 → v1.6 conserto do 3º ouvinte-frio cego (7,8; cupom 6) → v1.7 conserto do 4º (7,5; cupom 6) → v1.7.1 sem "guarda esse contraste", proibido desde 01/10)
 duracao_estimada: "~10,6 min (≈1.490 palavras de fala sem [TELA], a ~140 por minuto; teto 14)"
 briefing: pautas-canal/briefings/2026-10-08-tesouro-ipca-7-briefing.md
 fonte_unica: "Tesouro Transparente, PrecoTaxaTesouroDireto.csv (data-base 01/10/2026). IR: Lei 11.033/2004."
 corte_short: "Short 14/10 'Tesouro IPCA+ negativo? Calma, isso tem nome' = BLOCO 2, entre [CORTE SHORT — INÍCIO] e [CORTE SHORT — FIM]"
 orcamento_numeros: "fontes 1 (+ lei do IR) · datas-base faladas: 28/01 (compra) e 01/10 (hoje); julho entra com UM número grudado no mês (8,22) e um valor (9.968) · números novos falados por bloco (v1.5): B0 4 · B1 5 · B2 1 · B3 3 · B4 2 · B5 0 · B6 0 · frases com 3+ números: 0"
-promessa_trecho: "Guarda esse contraste: duzentos e oitenta reais de diferença, entre dez mil e dez mil comprados no mesmo dia."
+promessa_trecho: "Duzentos e oitenta reais de diferença, entre dez mil e dez mil comprados no mesmo dia."
 pergunta_trecho: "Escreve aí embaixo antes de eu abrir o extrato: IPCA+ ou Selic?"
 moral_trecho: "A taxa que você trava no IPCA+ é o que você recebe se ficar com o título até 2035."
 loop_trecho: "duzentos e oitenta reais"
@@ -53,7 +53,7 @@ Do outro lado, os mesmos dez mil, no mesmo dia, no título mais sem graça do Te
 
 Hoje, um desses dois investimentos está na frente do outro.
 
-Guarda esse contraste: duzentos e oitenta reais de diferença, entre dez mil e dez mil comprados no mesmo dia.
+Duzentos e oitenta reais de diferença, entre dez mil e dez mil comprados no mesmo dia.
 
 Qual dos dois está na frente?
 
@@ -672,3 +672,7 @@ Correções (nenhum número novo; "quase cento e noventa" = ~R$ 108 + ~R$ 77 da 
 - Fecho: "a maior parte é FIPE" (o juro do Selic não é FIPE) → "quase cento e noventa desses duzentos e oitenta são FIPE e pedágio. Só existem se você vender o carro."
 Nota: 4 ouvintes cegos com personas diferentes ficaram entre 7,4 e 7,8, sempre com a conta central recontada certa e sem empurrão; o bloco do outro 2035 é o ponto fraco recorrente. Se o Denis quiser, dá pra tirar esse bloco da fala e deixá-lo só no comentário fixado (decisão dele, porque o vídeo de janeiro mostrou os dois 2035).
 
+
+### v1.7.1 (03/10/2026): "guarda esse contraste" removido
+
+O Denis decidiu em 01/10 (reafirmado em 03/10): "guarda esse número" e variações são PROIBIDOS no roteiro inteiro. O loop do B0 virou "Duzentos e oitenta reais de diferença, entre dez mil e dez mil comprados no mesmo dia." O score_roteiro.py agora trata a fórmula como eliminatório e acha o loop na primeira frase da abertura com número + consequência.
