@@ -2,18 +2,19 @@
 titulo_trabalho: "Tesouro IPCA+ a 7% em janeiro: quanto ganhou quem comprou"
 data: 2026-10-08
 formato: longo (teleprompter)
-versao: v1.4 (v1.0 escrita → juiz-roteiro 8/10 → v1.1 10/10 → punch-up do juiz-ritmo → conserto do ouvinte-frio → v1.3 revisão independente + score_roteiro.py → v1.4 conserto do ouvinte-frio cego, que reprovou a v1.3)
-duracao_estimada: "~11,5 min (≈1.620 palavras de fala sem [TELA], a ~140 por minuto; teto 14)"
+versao: v1.5 (v1.0 escrita → juiz-roteiro 8/10 → v1.1 10/10 → punch-up do juiz-ritmo → conserto do ouvinte-frio → v1.3 revisão independente + score_roteiro.py → v1.4 conserto do ouvinte-frio cego, que reprovou a v1.3 → v1.5 conserto do 2º ouvinte-frio cego, que reprovou a v1.4)
+duracao_estimada: "~10,6 min (≈1.490 palavras de fala sem [TELA], a ~140 por minuto; teto 14)"
 briefing: pautas-canal/briefings/2026-10-08-tesouro-ipca-7-briefing.md
 fonte_unica: "Tesouro Transparente, PrecoTaxaTesouroDireto.csv (data-base 01/10/2026). IR: Lei 11.033/2004."
 corte_short: "Short 14/10 'Tesouro IPCA+ negativo? Calma, isso tem nome' = BLOCO 2, entre [CORTE SHORT — INÍCIO] e [CORTE SHORT — FIM]"
-orcamento_numeros: "fontes 1 (+ lei do IR) · datas-base faladas: 28/01 (compra) e 01/10 (hoje); julho entra com UM número grudado no mês (8,22) e um valor (9.968) · números novos falados por bloco (v1.4): B0 4 · B1 6 · B2 3 · B3 3 · B4 3 · B5 2 · B6 1 · frases com 3+ números: 0"
+orcamento_numeros: "fontes 1 (+ lei do IR) · datas-base faladas: 28/01 (compra) e 01/10 (hoje); julho entra com UM número grudado no mês (8,22) e um valor (9.968) · números novos falados por bloco (v1.5): B0 4 · B1 5 · B2 1 · B3 3 · B4 2 · B5 0 · B6 0 · frases com 3+ números: 0"
 promessa_trecho: "Guarda esse contraste: duzentos e oitenta reais de diferença, entre dez mil e dez mil comprados no mesmo dia."
 pergunta_trecho: "Escreve aí embaixo antes de eu abrir o extrato: IPCA+ ou Selic?"
 moral_trecho: "A taxa que você trava no IPCA+ é o que você recebe se ficar com o título até 2035."
 loop_trecho: "duzentos e oitenta reais"
 agregado_linha_trecho: "E o que separa o melhor do pior da lista é uma linha só: a data de vencimento."
 prova_espectador_trecho: "Se você comprasse os dez mil às dez da manhã de 28 de janeiro e vendesse um minuto depois, voltava quanto?"
+explicacao_taxa_preco: "(uma vez, B2, antes do carro) 'O Tesouro promete te pagar um valor fechado lá em 2035.' … 'É isso que é taxa maior: a mesma promessa, mais barata.' Depois só reuso: 'a promessa ficou mais barata'"
 analogia_trecho: "camada 1: 'Pensa no título como um carro zero que você comprou em janeiro.' · camada 2: 'É o carro perdendo valor no minuto em que sai da loja.' · camada 3: 'é a FIPE de um carro que não está à venda.'"
 concessao_trecho: "O vídeo de janeiro era meu. Então essa conta também é minha."
 ferramenta_trecho: "faz a pergunta da revenda, Tanaka. É a pergunta que separa a FIPE do dinheiro: eu vou vender esse carro antes de 2035?"
@@ -40,8 +41,6 @@ E naquele mesmo dia saiu um vídeo aqui no canal com "última chance" no título
 
 [TELA: título e thumb do vídeo de 28/01/2026 (dHYQtxnMSrw). SEM meme entre 0:08 e 0:20]
 
-O vídeo mostrou os dois IPCA+ 2035, com e sem juros no meio do caminho; eu começo pelo sem.
-
 Só que a última chance voltou.
 
 Em julho, o mesmo IPCA+ 2035 chegou a pagar a inflação mais oito vírgula vinte e dois.
@@ -62,7 +61,7 @@ Escreve aí embaixo antes de eu abrir o extrato: IPCA+ ou Selic?
 
 [TELA: "R$ 10 mil em 28/01: IPCA+ 2035 (sem juros semestrais) ou Tesouro Selic?"]
 
-## BLOCO 1 - O EXTRATO (0:40–3:00)
+## BLOCO 1 - O EXTRATO (0:40–2:40)
 
 A taxa que você trava no IPCA+ é o que você recebe se ficar com o título até 2035.
 
@@ -87,8 +86,6 @@ Viu?
 
 Então a pergunta agora é outra: se o IPCA+ era a última chance, pra onde foram esses duzentos e oitenta reais?
 
-São três pedaços, e um deles você paga no dia da compra sem perceber.
-
 Esses valores são antes do imposto.
 
 E o imposto é a mesma tabela pros dois: quem vende entre seis meses e um ano paga vinte por cento sobre o ganho.
@@ -107,39 +104,43 @@ Escolhi o mais conhecido.
 
 E o 2035 nem foi o pior.
 
-No dia 28 de janeiro, onze títulos IPCA+ que ainda não venceram pagavam mais de sete por cento.
+Em janeiro, uma fila de títulos IPCA+ pagava mais de sete por cento, e todos estão atrás do Tesouro Selic.
 
-Os onze estão atrás do Tesouro Selic.
-
-[TELA: os 11 títulos, taxa em 28/01, taxa em 01/10, "R$ 10 mil viraram" (tabela da seção 2 do briefing) · ordem: do vencimento mais curto ao mais longo]
+[TELA: os 11 títulos IPCA+ acima de 7% em 28/01 (ainda não vencidos), taxa em 28/01, taxa em 01/10, "R$ 10 mil viraram" (tabela da seção 2 do briefing) · todos atrás do Tesouro Selic 2029 (R$ 10.942) · IPCA+ 2029: R$ 10.906 · IPCA+ c/ Juros Semestrais 2050: R$ 10.563 (com cupons) · ordem: do vencimento mais curto ao mais longo · Tesouro Transparente, data-base 01/10/2026]
 
 E o que separa o melhor do pior da lista é uma linha só: a data de vencimento.
 
-O mais curto, o IPCA+ 2029, quase empatou.
+O mais curto, o IPCA+ 2029, quase empatou com o Selic.
 
-Os dez mil no 2029 viraram dez mil, novecentos e seis: quase encostou nos dez mil, novecentos e quarenta e dois do Selic.
-
-O último da lista foi um dos mais longos, um IPCA+ que só vence em 2050.
-
-Os dez mil no 2050 viraram dez mil, quinhentos e sessenta e três.
+Um dos mais longos, o 2050, foi o que ficou mais atrás.
 
 Quanto mais longe o vencimento, mais o preço do título balançou no caminho.
 
 E o 2035 balançou o bastante pra aparecer no vermelho até julho.
 
-## BLOCO 2 - O VERMELHO TEM NOME (3:00–4:45)
+## BLOCO 2 - O VERMELHO TEM NOME (2:40–4:45)
 
 [CORTE SHORT 14/10 — INÍCIO]
 
 Tesouro IPCA+ no vermelho tem nome: marcação a mercado.
 
+E a marcação começa no que o título é: uma promessa.
+
+O Tesouro promete te pagar um valor fechado lá em 2035.
+
+Você pagou dez mil reais por essa promessa em janeiro.
+
+Se depois alguém consegue a mesma promessa pagando menos de dez mil, quem paga menos ganha mais no caminho.
+
+É isso que é taxa maior: a mesma promessa, mais barata.
+
 Pensa no título como um carro zero que você comprou em janeiro.
 
 O app do Tesouro é a tabela FIPE desse carro: mostra quanto ele valeria se você vendesse hoje.
 
-Aí, em julho, a concessionária começa a vender o mesmo carro com um desconto maior.
+Em julho, a promessa ficou mais barata: é aquele oito e vinte e dois do começo do vídeo.
 
-O desconto maior é a taxa nova: o IPCA+ 2035 pagando oito e vinte e dois, em vez de sete e quarenta e sete.
+É a concessionária vendendo o mesmo carro zero por menos.
 
 Ninguém paga caro no seu usado se o novo está saindo mais barato.
 
@@ -165,17 +166,19 @@ O vermelho só vira prejuízo de verdade num dia: no dia em que você vende.
 
 [CORTE SHORT 14/10 — FIM]
 
-[CORTE: no Short, abrir com o texto "Seu Tesouro ficou negativo?" na tela e fechar no "no dia em que você vende". Duração da fala ≈ 55 s; se precisar de 40 s, tirar as duas linhas do "abriu o app" e a do "Seis meses de juros"]
+[CORTE: no Short, abrir com o texto "Seu Tesouro ficou negativo?" na tela e fechar no "no dia em que você vende". No Short, trocar "é aquele oito e vinte e dois do começo do vídeo" por "o IPCA+ 2035 chegou a pagar a inflação mais oito e vinte e dois". O trecho marcado tem ≈ 257 palavras (~1:50 a 140/min). Versão de ~45 s: "Tesouro IPCA+ no vermelho tem nome" → "O Tesouro promete…" → "Se depois alguém…" → "É isso que é taxa maior…" → "Em julho, a promessa ficou mais barata…" → "No fim de julho… nove mil, novecentos e sessenta e oito" → "Quem leva o título até 2035…" → "O vermelho só vira prejuízo…"]
 
-Só que em outubro a taxa do 2035 voltou pra perto de janeiro: sete e cinquenta e seis.
+Só que em outubro a promessa voltou pra quase o preço de janeiro: o 2035 pagava a inflação mais sete e cinquenta e seis.
 
 E mesmo assim o extrato continua duzentos e oitenta reais atrás do Selic.
 
-Se a taxa voltou, pra onde foram os duzentos e oitenta?
+Se a promessa quase voltou pro preço de janeiro, pra onde foram os duzentos e oitenta?
 
-## BLOCO 3 - PRA ONDE FORAM OS DUZENTOS E OITENTA (4:45–7:30)
+São três pedaços, e o maior você paga no dia da compra sem perceber.
 
-O primeiro pedaço dos duzentos e oitenta, e o maior, nasce no dia da compra.
+## BLOCO 3 - PRA ONDE FORAM OS DUZENTOS E OITENTA (4:45–7:00)
+
+Primeiro pedaço: o dia da compra.
 
 Se você comprasse os dez mil às dez da manhã de 28 de janeiro e vendesse um minuto depois, voltava quanto?
 
@@ -185,39 +188,31 @@ Você já sabe, porque você já comprou carro.
 
 Voltavam nove mil, oitocentos e noventa e quatro.
 
-[TELA: IPCA+ 2035 (sem juros semestrais) · 28/01/2026 · compra a R$ 2.363,30 · recompra a R$ 2.338,16 · R$ 10.000 → R$ 9.894 · Tesouro Transparente]
+[TELA: IPCA+ 2035 (sem juros semestrais) · 28/01/2026 · compra a R$ 2.363,30 (7,47%) · recompra a R$ 2.338,16 (7,59%) · taxa de recompra 0,12 p.p. acima da de compra · R$ 10.000 → R$ 9.894 · Tesouro Transparente]
 
 É o carro perdendo valor no minuto em que sai da loja.
 
 O título tem dois preços no mesmo dia: o que você paga pra comprar e o que o Tesouro paga pra recomprar de você.
 
-Na recompra, a taxa fica zero vírgula doze ponto acima da taxa de compra.
-
-Taxa mais alta na recompra quer dizer que o Tesouro paga menos pelo seu título.
-
-Porque o título paga um valor certo lá em 2035: quem paga menos por ele hoje ganha uma taxa maior até lá.
+O Tesouro compra de volta um pouquinho mais barato do que vende: é o pedágio.
 
 Nos seus dez mil, esse pedágio dá uns cento e dez reais.
 
 Quem fica até o vencimento nunca paga esse pedágio.
 
-Quem vende no meio do caminho paga, e paga sem perceber, vrau.
+Quem vende no meio do caminho paga, e paga sem perceber.
 
-O segundo pedaço é a taxa, que não voltou inteira.
+O segundo pedaço é a promessa, que não voltou inteira pro preço de janeiro.
 
-Em janeiro, o 2035 pagava sete e quarenta e sete.
+Hoje ela ainda está um pouquinho mais barata: sete e cinquenta e seis, contra os sete e quarenta e sete de janeiro.
 
-Agora paga sete e cinquenta e seis.
-
-Parece pouco, mas num título que só vence em 2035 qualquer pedacinho de taxa pesa no preço.
-
-A taxa um pouco mais alta tirou mais um pedaço do preço.
+Parece nada, mas numa promessa que só vence em 2035 essa diferencinha custou quase oitenta reais nos seus dez mil.
 
 [TELA: taxa de 7,47% (28/01) para 7,56% (01/10) → ~R$ 77 nos R$ 10 mil · conta derivada do CSV, briefing seção 2a]
 
 O terceiro pedaço não tem nada a ver com vermelho nenhum.
 
-Mesmo se a taxa do 2035 não tivesse mexido um milímetro desde janeiro, o Selic ainda estaria na frente.
+Mesmo se a promessa não tivesse ficado nem um centavo mais barata desde janeiro, o Selic ainda estaria na frente.
 
 [TELA: se a taxa ficasse em 7,47%: Selic ainda ~R$ 94 na frente · conta derivada do CSV, briefing seção 2a]
 
@@ -229,47 +224,35 @@ O IPCA+ só paga a promessa inteira lá em 2035.
 
 Dos duzentos e oitenta, cento e dez reais são do pedágio.
 
-O resto se divide quase meio a meio entre a taxa e o juro do Selic.
+Quase oitenta são da promessa mais barata, e o resto é o juro do Selic.
 
 [TELA: R$ 280 = ~R$ 108 (pedágio entre compra e recompra, 0,12 p.p.) + ~R$ 77 (taxa de 7,47% para 7,56%) + ~R$ 94 (Selic pagou mais que IPCA + 7,47% no período) · conta derivada do CSV do Tesouro Transparente, data-base 01/10/2026 · ver briefing, seção 2a]
 
 Só que em janeiro nem todo mundo queria esperar até 2035 pra ver dinheiro.
 
-Quem queria renda no caminho comprou outro título, com o mesmo vencimento: o IPCA+ 2035 com juros semestrais.
+Quem queria renda no caminho comprou o outro 2035: o que paga juros no meio do caminho.
 
-## BLOCO 4 - O CUPOM (7:30–9:00)
+## BLOCO 4 - O OUTRO 2035 (7:00–7:50)
 
-Nesse título, o Tesouro deposita juros na sua conta a cada seis meses, e esse depósito se chama cupom.
+Esse outro 2035 deposita juros na sua conta a cada seis meses.
 
-No dia 28 de janeiro, esse 2035 com juros pagava a inflação mais sete e cinquenta e três.
+Em maio, caiu uns trezentos e trinta reais na conta de quem pôs dez mil em janeiro.
 
-[TELA: Tesouro IPCA+ c/ Juros Semestrais 2035 · 28/01/2026 · IPCA + 7,53% (taxa de compra, manhã) · Tesouro Transparente]
+[TELA: Tesouro IPCA+ c/ Juros Semestrais 2035 · 28/01/2026 · IPCA + 7,53% (taxa de compra, manhã) · cupom: 6% ao ano, pago em duas parcelas → (1,06)^0,5 − 1 = 2,9563% por semestre sobre o VNA · VNA 15/05/2026 ≈ R$ 4.704,56 → cupom ≈ R$ 139,08 por título · R$ 10.000 ÷ R$ 4.213,62 = 2,3733 títulos × R$ 139,08 ≈ R$ 330 bruto · regra: Tesouro Direto · VNA estimado pelo CSV do Tesouro Transparente]
 
-A regra do título é cupom de seis por cento ao ano, pago em duas parcelas, uma a cada seis meses.
-
-Nos dez mil comprados em janeiro, o cupom de maio deu uns trezentos e trinta reais.
-
-[TELA: regra: 6% ao ano → (1,06)^0,5 − 1 = 2,9563% por semestre sobre o valor nominal atualizado (VNA) · VNA 15/05/2026 ≈ R$ 4.704,56 → cupom ≈ R$ 139,08 por título · R$ 10.000 ÷ R$ 4.213,62 = 2,3733 títulos × R$ 139,08 ≈ R$ 330 bruto · regra: Tesouro Direto, Tesouro IPCA+ com Juros Semestrais · VNA estimado pelo CSV do Tesouro Transparente]
-
-Somando esse cupom com o preço de hoje, os dez mil nesse título viraram dez mil, setecentos e quarenta e quatro.
+Somando esse depósito com o preço de hoje, ficou em dez mil, setecentos e quarenta e quatro: ainda atrás do Selic.
 
 [TELA: Tesouro IPCA+ c/ Juros Semestrais 2035 · PU compra 28/01: R$ 4.213,62 · PU venda 01/10: R$ 4.388,12 + cupom ≈ R$ 139,08 · R$ 10.744 · Tesouro Selic no mesmo período: R$ 10.942]
 
-O 2035 com juros ficou mais perto do Selic, mas ainda atrás.
+"Então caiu dinheiro a mais, Denis?"
 
-"Então o cupom é dinheiro a mais, Denis?"
+Não caiu.
 
-Não é.
+No dia do depósito, o preço do título cai mais ou menos do mesmo tamanho.
 
-No dia em que o cupom cai na conta, o preço do título cai mais ou menos do mesmo tamanho.
+Esse dinheiro não é a mais: é o mesmo bolo, trocando de bolso.
 
-É o mesmo dinheiro trocando de bolso: sai do preço e entra na conta.
-
-E o imposto do cupom já vem descontado nesse mesmo dia.
-
-O cupom não é dinheiro a mais; ele muda o dia em que você enxerga o dinheiro.
-
-## BLOCO 5 - COMPRAR, VENDER OU FICAR (9:00–10:45)
+## BLOCO 5 - COMPRAR, VENDER OU FICAR (7:50–9:30)
 
 Com o extrato aberto, cada um olha pra um lado diferente.
 
@@ -281,9 +264,9 @@ No dia primeiro de outubro, ele pagava a inflação mais sete e cinquenta e seis
 
 Quem compra e leva até 2035 recebe essa taxa.
 
-O cuidado: em julho essa taxa esteve bem mais alta.
+O cuidado: em julho essa mesma promessa esteve bem mais barata.
 
-Se ela subir de novo, o preço cai de novo, e quem precisar do dinheiro antes vende pelo preço do dia.
+Se ela ficar mais barata de novo, a FIPE cai de novo, e quem precisar do dinheiro antes vende pelo preço do dia.
 
 [TELA: IPCA+ 2035 (sem juros semestrais) · 01/10/2026 · compra 7,56% · venda 7,68% · Tesouro Transparente · "não é recomendação"]
 
@@ -295,15 +278,15 @@ O outro lado: quem vende hoje troca uma taxa travada até 2035 por um juro que o
 
 E paga duas vezes na saída: o imposto sobre o ganho e o pedágio da recompra.
 
-Pra quem fica: uma comparação só, a taxa do seu título hoje contra a taxa que você travou.
+Pra quem fica: uma comparação só, a promessa de hoje contra a que você comprou.
 
-Taxa de hoje acima da sua, o app puxa o seu título pra baixo.
+Se hoje a mesma promessa está mais barata do que quando você comprou, o app puxa o seu título pra baixo.
 
-Taxa de hoje abaixo da sua, puxa pra cima.
+Se está mais cara, puxa pra cima.
 
 E nenhuma das duas muda o que você recebe se ficar até o fim.
 
-## BLOCO 6 - CONCLUSÃO (10:45–11:15)
+## BLOCO 6 - CONCLUSÃO (9:30–10:00)
 
 Duzentos e oitenta reais.
 
@@ -336,16 +319,16 @@ colunas Taxa Compra Manha / PU Compra Manha / PU Venda Manha. [conta] = derivado
 | R$ 10.942 (Tesouro Selic 2029) | B1 | CSV | 28/01 → 01/10 | 10.000 × 19.970,63 ÷ 18.252,04 |
 | R$ 10.662 (IPCA+ 2035 SEM juros semestrais) | B1 | CSV | 28/01 → 01/10 | 10.000 × 2.519,80 ÷ 2.363,30 |
 | 20% de IR (181 a 360 dias) | B1 | Lei 11.033/2004, art. 1º | — | 28/01 → 08/10 = 253 dias |
-| 11 títulos acima de 7%, todos atrás do Selic | B1 | CSV | 28/01 e 01/10 | contagem; briefing seção 1 e 2 |
-| R$ 10.906 (IPCA+ 2029) contra R$ 10.942 (Selic 2029) | B1 | CSV | 28/01 → 01/10 | 10.000 × PU venda 01/10 ÷ PU compra 28/01 (briefing seção 2) |
-| R$ 10.563 (Semestrais 2050, já com os cupons) | B1 | CSV | 28/01 → 01/10 | (4.121,42 + 276,20) ÷ 4.163,27; cupons [conta, seção 3]; a fala diz só "um IPCA+ que só vence em 2050" |
+| "uma fila de títulos IPCA+ acima de 7%, todos atrás do Selic" (os 11 só na [TELA]) | B1 | CSV | 28/01 e 01/10 | contagem; briefing seção 1 e 2 |
+| R$ 10.906 (IPCA+ 2029; só [TELA], a fala diz "quase empatou com o Selic") | B1 | CSV | 28/01 → 01/10 | 10.000 × PU venda 01/10 ÷ PU compra 28/01 (briefing seção 2) |
+| R$ 10.563 (Semestrais 2050, já com os cupons) | B1 | CSV | 28/01 → 01/10 | (4.121,42 + 276,20) ÷ 4.163,27; cupons [conta, seção 3]; só [TELA]; a fala diz "Um dos mais longos, o 2050, foi o que ficou mais atrás" |
 | R$ 9.968 (fim de julho) | B2 | CSV | 30/07/2026 | 10.000 × 2.355,68 ÷ 2.363,30 |
 | 7,56% (IPCA+ 2035, compra hoje) | B2, B3, B5 | CSV | 01/10/2026 | — |
 | R$ 9.894 (compra e venda no mesmo minuto) | B3 | CSV | 28/01/2026 | 10.000 × 2.338,16 ÷ 2.363,30 |
-| 0,12 p.p. ("zero vírgula doze ponto", taxa de recompra acima da de compra) | B3 | CSV | 28/01 e 01/10 | 7,59 − 7,47; 7,68 − 7,56 |
-| ~R$ 110 (pedágio; os outros dois pedaços, R$ 77 e R$ 94, só na [TELA]: a fala diz "quase meio a meio") | B3 | CSV | 01/10/2026 | R$ 108 / R$ 77 / R$ 94, briefing seção 2a (o de R$ 77 usa PU estimado por dias úteis) |
-| 7,53% (IPCA+ 2035 COM juros semestrais, compra) | B4 | CSV (linha "Tesouro IPCA+ com Juros Semestrais;15/05/2035;28/01/2026") | 28/01/2026 | — |
-| 6% ao ano, pago em duas parcelas semestrais (regra do cupom) | B4 | regra da NTN-B / Tesouro IPCA+ com Juros Semestrais: página do título no Tesouro Direto (www.tesourodireto.com.br, **bloqueada daqui**: 403 no proxy em 03/10/2026; planalto.gov.br também 403). Regra pública e estável; Denis confere a página no Mac | — | (1,06)^0,5 − 1 = 2,9563% por semestre |
+| 0,12 p.p. (só [TELA]; a fala diz "o Tesouro compra de volta um pouquinho mais barato do que vende: é o pedágio") | B3 | CSV | 28/01 e 01/10 | 7,59 − 7,47; 7,68 − 7,56 |
+| ~R$ 110 (pedágio) e "quase oitenta" (taxa de 7,47 para 7,56; ~R$ 77); o de ~R$ 94 só na [TELA]: a fala diz "o resto é o juro do Selic" | B3 | CSV | 01/10/2026 | R$ 108 / R$ 77 / R$ 94, briefing seção 2a (o de R$ 77 usa PU estimado por dias úteis) |
+| 7,53% (IPCA+ 2035 COM juros semestrais, compra; só [TELA]) | B4 | CSV (linha "Tesouro IPCA+ com Juros Semestrais;15/05/2035;28/01/2026") | 28/01/2026 | — |
+| 6% ao ano, pago em duas parcelas semestrais (regra do cupom; só [TELA]) | B4 | regra da NTN-B / Tesouro IPCA+ com Juros Semestrais: página do título no Tesouro Direto (www.tesourodireto.com.br, **bloqueada daqui**: 403 no proxy em 03/10/2026; planalto.gov.br também 403). Regra pública e estável; Denis confere a página no Mac | — | (1,06)^0,5 − 1 = 2,9563% por semestre |
 | ~R$ 330 de cupom em maio (só do 2035 COM juros semestrais) | B4 | CSV [conta] | 15/05/2026 | VNA 15/05 ≈ R$ 4.704,56 (estimado: IPCA+ 2026 sem cupom = VNA ÷ (1 + taxa)^(du/252), briefing seção 3) × 2,9563% = R$ 139,08 por título · R$ 10.000 ÷ R$ 4.213,62 (PU compra 28/01 do 2035 COM juros) = 2,3733 títulos · 2,3733 × 139,08 = R$ 330,08 |
 | R$ 10.744 (2035 COM juros semestrais) | B4 | CSV [conta] | 28/01 → 01/10 | 10.000 × (4.388,12 + 139,08) ÷ 4.213,62 |
 
@@ -392,13 +375,13 @@ piada: 7/10 (v1.1) → 8/10 depois do punch-up (v1.2)
   mecânicas: exagero/comparação absurda (B0 "loja de colchão"), personificação do sem graça (B1 "não postou nada… e ganhou")
   cena de vergonha: "E você abriu o app, viu o vermelho, fechou, e abriu de novo dez minutos depois pra ver se tinha mudado." (B2)
   piada explicada: nenhuma
-  voz: vrau 1 · Tanacão 1 · viu? 1 · tá bom? 0
-  melhores 3 beats: "Última chance que volta em julho com desconto maior é loja de colchão, Tanaka." · "Não tinha, Tanacão." · "Você já sabe, porque você já comprou carro."
+  voz: (onomatopeia, proibida) 1 · (apelido do Tanaka, proibido) 1 · viu? 1 · tá bom? 0
+  melhores 3 beats: "Última chance que volta em julho com desconto maior é loja de colchão, Tanaka." · "Não tinha, (apelido do Tanaka, proibido)." · "Você já sabe, porque você já comprou carro."
   blocos sem beat: B5 (comprar/vender/ficar; aceito, é o bloco de disclaimer)
 punch-up aplicado (só adicionando, nenhum número novo):
   - [B1, depois de "na frente do IPCA+ da última chance"] "O título sem graça não postou nada, não prometeu nada, e ganhou." + "Viu?"
-  - [B2, depois do R$ 9.968] cena de vergonha + "Não tinha, Tanacão."
-  - [B3, depois de "paga sem perceber"] ", vrau"
+  - [B2, depois do R$ 9.968] cena de vergonha + "Não tinha, (apelido do Tanaka, proibido)."
+  - [B3, depois de "paga sem perceber"] ", (onomatopeia, proibida)"
   - [B4, fecho do bloco] "O cupom não muda o resultado; muda o dia em que você enxerga o dinheiro."
 conexao: 9/10
   viradas: B0→B1 2 · B1→B2 2 · B2→B3 2 · B3→B4 2 · B4→B5 1 · B5→B6 2
@@ -492,7 +475,7 @@ partir de "## CUIDADOS"; antes ele lia as notas como fala e acusava 27 repetiç�
 ```
 piada: 7/10
   beats: B0 1 · B1 2 · B2 2 · B3 2 · B4 0-1 · B5 0 · B6 0 (B5 = bloco de disclaimer, aceito)
-  melhores: "...é loja de colchão, Tanaka." (funciona falado: liquidação de colchão que nunca acaba) · "Não tinha, Tanacão." ·
+  melhores: "...é loja de colchão, Tanaka." (funciona falado: liquidação de colchão que nunca acaba) · "Não tinha, (apelido do Tanaka, proibido)." ·
             "Você já sabe, porque você já comprou carro."
   cena de vergonha: "E você abriu o app, viu o vermelho, fechou, e abriu de novo dez minutos depois..." (B2)
   piada explicada: nenhuma · teto: B4 quase sem beat
@@ -507,7 +490,7 @@ Ouvinte-frio realmente cego (leu só a fala, sem notas): **média 7,8, bloco do 
 1. B1, "A taxa que você trava não é o dinheiro que aparece no app." — abstrata; só fez sentido depois.
 2. Onze títulos: "9,06 contra 9,42 do Selic" — o 9,42 nunca foi dito em voz, só em reais; "o 2050 com juros semestrais"
    aparece antes de explicar juros semestrais; "já somando os juros que caíram na conta" — quais juros?
-3. "Tanacão" não foi entendido (pareceu erro de fala).
+3. "(apelido do Tanaka, proibido)" não foi entendido (pareceu erro de fala).
 4. Três pedaços: "doze centésimos acima" — centésimos de quê?; "taxa mais alta quer dizer preço mais baixo" sem o porquê;
    três valores em reais seguidos (110, 80, 90): só o 110 ficou.
 5. Bloco CUPOM (nota 6, ponto de abandono): "tem um 2035 que encostou mais no Selic" confundiu com o mesmo 2035; o
@@ -522,7 +505,7 @@ O que mudou (só a fala e as [TELA]/notas correspondentes; nenhum número novo, 
    nos dez mil, novecentos e quarenta e dois do Selic." O 2050 vira "um IPCA+ que só vence em 2050" e "Os dez mil no 2050
    viraram dez mil, quinhentos e sessenta e três" (R$ 10.563 já inclui os cupons; dito só na tabela de fontes). Saíram
    9,06%, 9,42%, 5,63%, "juros semestrais" e "os juros que caíram na conta" do B1.
-3. "Não tinha, Tanacão." → "Não tinha mudado, Tanaka."
+3. "Não tinha, (apelido do Tanaka, proibido)." → "Não tinha mudado, Tanaka."
 4. "zero vírgula doze ponto acima da taxa de compra"; porquê numa frase, sem segunda analogia: "Porque o título paga um
    valor certo lá em 2035: quem paga menos por ele hoje ganha uma taxa maior até lá." "Nove centésimos" → "qualquer
    pedacinho de taxa pesa no preço". Na fala fica só o maior pedaço (cento e dez); ~R$ 77 e ~R$ 94 vão pra [TELA] própria
@@ -548,6 +531,54 @@ sem."; B5 "o título é o mesmo 2035 sem juros no meio do caminho"; todas as [TE
 em duas parcelas, uma a cada seis meses", com a conta na [TELA] e na tabela; saiu "conferir no extrato"; (c) "loja de colchão" mantida (aprovada);
 (d) comando de atualização da véspera visível nas validações.
 Duração: ≈1.620 palavras de fala (sem [TELA]) → ~11,5 min (v1.3: ≈1.450 → ~10,4 min, na mesma contagem). Pendente: ouvinte-frio cego de novo na v1.4.
+
+### 2º ouvinte-frio cego (v1.4) e correções v1.5
+
+Segundo ouvinte-frio cego (leu só scratchpad/fala-0810-v14.txt): **média 7,4; bloco 3 (pedágio) 6 e bloco 4 (cupom) 6 →
+REPROVA.** Conta central recontada certa (Selic R$ 10.942 × IPCA+ R$ 10.662, R$ 280). O que ele levou do vídeo: "O vermelho
+do Tesouro é tipo a FIPE do carro, só perde se vender." A FIPE virou a espinha. Travas (linhas da fala v1.4):
+1. Taxa sobe → preço cai: não entendeu em nenhuma das três tentativas (l.46 "o desconto maior é a taxa nova", l.66-68
+   "zero vírgula doze ponto" + "taxa mais alta na recompra quer dizer...", l.75 "qualquer pedacinho de taxa pesa no preço").
+2. l.6 "os dois IPCA+ 2035, com e sem juros no meio do caminho" cedo demais.
+3. l.24 "São três pedaços" e os pedaços só na l.60.
+4. Onze títulos (l.28-41): números demais seguidos.
+5. l.75 "qualquer pedacinho de taxa pesa no preço": quanto?
+6. Cupom: "cupom de seis por cento ao ano" ao lado de 7,53% = duas taxas, confundiu.
+7. "(onomatopeia, proibida)" (l.71) não pegou.
+
+Correções v1.5 (nenhum número fora do briefing):
+1. Uma explicação só, no B2, antes do carro: "O Tesouro promete te pagar um valor fechado lá em 2035. Você pagou dez mil
+   reais por essa promessa em janeiro. Se depois alguém consegue a mesma promessa pagando menos de dez mil, quem paga menos
+   ganha mais no caminho. É isso que é taxa maior: a mesma promessa, mais barata." Daí em diante, só reuso da imagem:
+   julho = "a promessa ficou mais barata" (8,22 vira callback: "é aquele oito e vinte e dois do começo do vídeo");
+   outubro = "a promessa voltou pra quase o preço de janeiro"; B3 2º pedaço = "a promessa, que não voltou inteira";
+   3º pedaço = "nem um centavo mais barata"; B5 = "Se ela ficar mais barata de novo, a FIPE cai de novo" e "a promessa de
+   hoje contra a que você comprou". Saíram "desconto maior é a taxa nova", "zero vírgula doze ponto" e as duas frases do
+   porquê no B3. Pedágio: "O Tesouro compra de volta um pouquinho mais barato do que vende: é o pedágio." (0,12 p.p. e as
+   duas taxas só na [TELA]). A piada do colchão ("desconto maior") ficou como está: aprovada, e é piada, não explicação.
+2. Saiu do B0 "O vídeo mostrou os dois IPCA+ 2035...". O outro 2035 só aparece na ponte B3→B4 ("comprou o outro 2035: o que
+   paga juros no meio do caminho"). Fica no B0 "É o 2035 sem juros no meio do caminho: você só vê o dinheiro no fim."
+3. "São três pedaços..." saiu do B1 e foi pro fim do B2, logo antes do B3: "São três pedaços, e o maior você paga no dia da
+   compra sem perceber." B3 abre "Primeiro pedaço: o dia da compra." O loop do B1 continua ("pra onde foram esses duzentos
+   e oitenta reais?").
+4. Onze títulos: "Em janeiro, uma fila de títulos IPCA+ pagava mais de sete por cento, e todos estão atrás do Tesouro
+   Selic." + "O mais curto, o IPCA+ 2029, quase empatou com o Selic. Um dos mais longos, o 2050, foi o que ficou mais atrás."
+   (o 2050 não é o mais longo: há 2055 e 2060; "um dos mais longos" segue o briefing). 11, R$ 10.906 e R$ 10.563 só na [TELA].
+5. 2º pedaço com valor: "essa diferencinha custou quase oitenta reais nos seus dez mil" (~R$ 77, briefing 2a). Fecho do
+   B3 em duas frases (máx. 2 números por frase): "Dos duzentos e oitenta, cento e dez reais são do pedágio." + "Quase oitenta são da promessa mais barata, e o resto é o juro do Selic.".
+6. B4 curto (4 falas + pergunta): "Esse outro 2035 deposita juros na sua conta a cada seis meses. Em maio, caiu uns
+   trezentos e trinta reais..." → "ficou em dez mil, setecentos e quarenta e quatro: ainda atrás do Selic." → "Então caiu
+   dinheiro a mais, Denis?" / "Não caiu." / preço cai do mesmo tamanho / "Esse dinheiro não é a mais: é o mesmo bolo,
+   trocando de bolso." 6% e 7,53% só na [TELA]; a palavra "cupom" não é falada. Bloco renomeado "O OUTRO 2035".
+7. Sem "(onomatopeia, proibida)" e sem "(apelido do Tanaka, proibido)" na fala (também redigidos aqui nas notas).
+Mantidos: piada do colchão (aprovada) e o fecho (nota 9) sem mudança.
+Short 14/10: o trecho marcado ganhou a explicação da promessa (≈ 257 palavras; a v1.4 tinha 206); a nota do [CORTE] traz
+a sequência de ~45 s.
+
+score_roteiro.py sobre a v1.5: ELIMINATORIOS nenhum · costura nenhum (pontes ok, zero molde) · avisos de ouvido nenhum
+(o único, "E ela começa...", virou "E a marcação começa...") · parcial mecânico 5/6 (item 9: só números de [TELA], mesmo
+limite já decidido pelo juiz). Duração: ≈1.490 palavras de fala → ~10,6 min (v1.4: ≈1.620 → ~11,5).
+Fala limpa para o próximo ouvinte: scratchpad/fala-0810-v15.txt (110 linhas). Pendente: 3º ouvinte-frio cego na v1.5.
 
 ### O que fica pro Denis
 - Rodar um ouvinte-frio NOVO (fala_so.py + agente) na v1.3: as correções acima ainda não foram ouvidas por ninguém frio.
