@@ -1,0 +1,25 @@
+{
+ "peca": "manchete",
+ "estilo": "iec",
+ "formato": "16:9",
+ "duracao": 6.0,
+ "kicker": "IPCA · acumulado em 12 meses",
+ "frase": "Inflação em 12 meses cai para 4,22% em agosto",
+ "chave": "4,22%",
+ "marca": "preencher",
+ "palavras": null,
+ "fonte": "Fonte: BCB/SGS 13522 (IPCA em 12 meses, ago/2026; jul/2026: 4,44%)",
+ "som": {
+  "pouso": "impact-bass-1"
+ },
+ "_conferido": {
+  "mes": "2026-08-01",
+  "valor": 4.22,
+  "mes_anterior": "2026-07-01",
+  "valor_anterior": 4.44
+ },
+ "_origem": {
+  "arquivo": "site-ativos/cache/dados.sqlite (macro 13522)",
+  "gerado_em": "2026-10-03T03:24:01"
+ }
+}

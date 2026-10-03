@@ -1,0 +1,176 @@
+{
+ "peca": "barra_linha",
+ "estilo": "iec",
+ "formato": "16:9",
+ "duracao": 9.0,
+ "titulo": "IPCA: o mês e os 12 meses",
+ "kicker": "Inflação oficial (IBGE) · mês a mês",
+ "fonte": "Fonte: BCB/SGS 433 (IPCA mensal) · 12 meses calculado e conferido com a SGS 13522",
+ "unidade": {
+  "prefixo": "",
+  "sufixo": "%",
+  "casas": 2
+ },
+ "mostrar": 12,
+ "rotulos": {
+  "mes": "IPCA no mês",
+  "doze": "IPCA em 12 meses"
+ },
+ "som": {
+  "pouso": "impact-bass-1"
+ },
+ "mensal": [
+  {
+   "data": "2024-10-01",
+   "valor": 0.56
+  },
+  {
+   "data": "2024-11-01",
+   "valor": 0.39
+  },
+  {
+   "data": "2024-12-01",
+   "valor": 0.52
+  },
+  {
+   "data": "2025-01-01",
+   "valor": 0.16
+  },
+  {
+   "data": "2025-02-01",
+   "valor": 1.31
+  },
+  {
+   "data": "2025-03-01",
+   "valor": 0.56
+  },
+  {
+   "data": "2025-04-01",
+   "valor": 0.43
+  },
+  {
+   "data": "2025-05-01",
+   "valor": 0.26
+  },
+  {
+   "data": "2025-06-01",
+   "valor": 0.24
+  },
+  {
+   "data": "2025-07-01",
+   "valor": 0.26
+  },
+  {
+   "data": "2025-08-01",
+   "valor": -0.11
+  },
+  {
+   "data": "2025-09-01",
+   "valor": 0.48
+  },
+  {
+   "data": "2025-10-01",
+   "valor": 0.09
+  },
+  {
+   "data": "2025-11-01",
+   "valor": 0.18
+  },
+  {
+   "data": "2025-12-01",
+   "valor": 0.33
+  },
+  {
+   "data": "2026-01-01",
+   "valor": 0.33
+  },
+  {
+   "data": "2026-02-01",
+   "valor": 0.7
+  },
+  {
+   "data": "2026-03-01",
+   "valor": 0.88
+  },
+  {
+   "data": "2026-04-01",
+   "valor": 0.67
+  },
+  {
+   "data": "2026-05-01",
+   "valor": 0.58
+  },
+  {
+   "data": "2026-06-01",
+   "valor": 0.16
+  },
+  {
+   "data": "2026-07-01",
+   "valor": 0.07
+  },
+  {
+   "data": "2026-08-01",
+   "valor": -0.32
+  }
+ ],
+ "referencia_12m": [
+  {
+   "data": "2025-09-01",
+   "valor": 5.17
+  },
+  {
+   "data": "2025-10-01",
+   "valor": 4.68
+  },
+  {
+   "data": "2025-11-01",
+   "valor": 4.46
+  },
+  {
+   "data": "2025-12-01",
+   "valor": 4.26
+  },
+  {
+   "data": "2026-01-01",
+   "valor": 4.44
+  },
+  {
+   "data": "2026-02-01",
+   "valor": 3.81
+  },
+  {
+   "data": "2026-03-01",
+   "valor": 4.14
+  },
+  {
+   "data": "2026-04-01",
+   "valor": 4.39
+  },
+  {
+   "data": "2026-05-01",
+   "valor": 4.72
+  },
+  {
+   "data": "2026-06-01",
+   "valor": 4.64
+  },
+  {
+   "data": "2026-07-01",
+   "valor": 4.44
+  },
+  {
+   "data": "2026-08-01",
+   "valor": 4.22
+  }
+ ],
+ "_conferido": {
+  "mes": "2026-08-01",
+  "calculado_433": 4.223453,
+  "sgs_13522": 4.22,
+  "maior_diferenca_pp": 0.0
+ },
+ "_origem": {
+  "arquivo": "site-ativos/cache/dados.sqlite (macro 433); referência: site-ativos/cache/dados.sqlite (macro 13522)",
+  "gerado_em": "2026-10-03T03:24:01"
+ }
+}

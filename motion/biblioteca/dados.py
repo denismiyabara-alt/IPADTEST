@@ -8,17 +8,33 @@
              fact-check do Faz a Conta (pautas/megasena-factcheck.md) e conferida contra o quadro "Números
              conferidos" do megasena/roteiro.md (prêmio bruto 43,79% = R$ 2,63, status conferido).
 
+Lote 2 (séries do BCB, lidas pelo grafico_cotacao/serie.py: SQLite do site-ativos → JSON cru do site-ativos →
+cache próprio → API do BCB; o JSON guarda de onde saiu em `_origem`):
+  copom      Selic (SGS 432) com os eventos do ciclo: a 1ª alta, o pico e o 1º corte, achados nas mudanças da
+             própria série (cada mudança da meta é uma decisão do Copom). Peça: eventos.
+  ipca       IPCA mensal (SGS 433) que vira o acumulado em 12 meses, CALCULADO do 433 e conferido mês a mês
+             contra a SGS 13522 (diferença máxima 0,01 p.p.; senão, para). Peça: barra_linha.
+  selic      a meta Selic de hoje (SGS 432), que vira o último ponto da série desde jan/2020. Peça: numero_linha.
+  manchete-ipca  "Inflação em 12 meses cai para 4,22% em agosto": verbo, número e mês saem da SGS 13522.
+             Peça: manchete.
+
 Uso (de motion/):
   python3 biblioteca/dados.py dy-caixa  -o exemplos/barras-dy-caixa-16x9.json
   python3 biblioteca/dados.py cotistas  --formato 9:16 -o exemplos/barras-cotistas-9x16.json
   python3 biblioteca/dados.py megasena  --peca rosca --estilo fazaconta -o exemplos/rosca-megasena-fazaconta-16x9.json
+  python3 biblioteca/dados.py copom     -o exemplos/eventos-selic-copom-16x9.json
+  python3 biblioteca/dados.py ipca      -o exemplos/barra-linha-ipca-16x9.json
+  python3 biblioteca/dados.py selic     --formato 9:16 -o exemplos/numero-linha-selic-9x16.json
+  python3 biblioteca/dados.py manchete-ipca --formato 9:16 -o exemplos/manchete-ipca-9x16.json
 """
 import argparse, datetime as dt, json, os, re, sqlite3, sys
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 MOTION = os.path.dirname(AQUI)
 sys.path.insert(0, os.path.join(MOTION, "comum"))
-from estilo import fmt_br  # noqa: E402
+sys.path.insert(0, os.path.join(MOTION, "grafico_cotacao"))
+from estilo import MESES, fmt_br  # noqa: E402
+import serie as S  # noqa: E402  — leitura das séries do BCB (mesma do grafico_cotacao)
 
 
 def _achar(env, candidatos, marca):
@@ -174,13 +190,147 @@ def montar_megasena(a):
             "itens": [{"rotulo": r, "valor": p} for r, p in fatias]}
 
 
+# ---------------------------------------------------------------- lote 2: séries do BCB
+MESES_EXTENSO = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro",
+                 "novembro", "dezembro"]
+
+
+def _mes(iso):
+    return f"{MESES[int(iso[5:7]) - 1]}/{iso[:4]}"
+
+
+def bcb(serie, desde="2020-01-01", ate=None):
+    """-> ([(iso, valor)], origem). Mesma leitura do grafico_cotacao/serie.py (sem rede se houver cache)."""
+    return S.serie_bcb(serie, desde, ate)
+
+
+def mudancas_selic(desde="2020-01-01"):
+    """Cada mudança da meta (SGS 432) = uma decisão do Copom. -> [(data de vigência, nova meta, anterior)]."""
+    pontos, _ = bcb(432, desde)
+    out = []
+    for (d0, v0), (d1, v1) in zip(pontos, pontos[1:]):
+        if v1 != v0:
+            out.append((d1, v1, v0))
+    return out
+
+
+def eventos_ciclo(desde, ate=None):
+    """1ª alta e 1º corte de cada ciclo (mudança de sentido) e o início do pico, dentro do período."""
+    mud = mudancas_selic("2020-01-01")
+    ev, sentido = [], 0
+    for d, v, v0 in mud:
+        s = 1 if v > v0 else -1
+        if s != sentido and desde <= d <= (ate or "9999"):
+            ev.append({"data": d, "rotulo": f"{'1ª alta' if s > 0 else '1º corte'}: {fmt_br(v, 2)}%"})
+        sentido = s
+    pontos, _ = bcb(432, desde, ate)
+    pico = max(v for _, v in pontos)
+    inicio_pico = next(d for d, v, _ in mud if v == pico and desde <= d)
+    ev.append({"data": inicio_pico, "rotulo": f"Pico: {fmt_br(pico, 2)}%"})
+    return sorted(ev, key=lambda e: e["data"])
+
+
+def montar_copom(a):
+    import especificacao as E
+    desde = a.desde or "2024-01-01"
+    espec = {"serie": "SGS:432", "periodo": f"{desde}:", "rotulo": a.titulo or "Selic: da alta ao 1º corte",
+             "kicker": "Meta da taxa Selic · decisões do Copom", "formato": a.formato}
+    d = E.montar_entrada(espec, a.duracao, som={"pouso": "impact-bass-1"})
+    d["fonte"] = "Fonte: BCB/SGS 432 (meta Selic; data de vigência de cada decisão)"
+    d["peca"] = "eventos"
+    d["eventos"] = eventos_ciclo(desde)
+    d["_origem"]["gerado_em"] = dt.datetime.now().isoformat(timespec="seconds")
+    d["_origem"]["eventos"] = "mudanças da própria SGS 432 (1ª alta, pico, 1º corte)"
+    return d
+
+
+def ipca(mostrar=12):
+    """-> (mensal [(iso, %)], referência 13522 [(iso, %)], origens). Os meses mostrados terminam no último mês que
+    as DUAS séries têm."""
+    m, o1 = bcb(433, "2019-01-01")
+    r, o2 = bcb(13522, "2019-01-01")
+    fim = min(m[-1][0], r[-1][0])
+    m = [p for p in m if p[0] <= fim]
+    return m[-(mostrar + 11):], [p for p in r if p[0] <= fim][-mostrar:], (o1, o2)
+
+
+def conferir_ipca(mensal, ref):
+    """-> [(mês, calculado, oficial)]. Para (SystemExit) se algum mês diferir mais de 0,01 p.p."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("barra_linha_gerar", os.path.join(AQUI, "barra_linha", "gerar.py"))
+    bl = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(bl)
+    oficial = dict(ref)
+    out = [(d, v, oficial.get(d)) for d, v in bl.acumulado_12m(mensal)[-len(ref):]]
+    ruins = [x for x in out if x[2] is None or abs(round(x[1], 2) - x[2]) > 0.01 + 1e-9]
+    if ruins:
+        raise SystemExit(f"acumulado do 433 não bate com a SGS 13522: {ruins}")
+    return out
+
+
+def montar_ipca(a):
+    n = a.top or 12
+    mensal, ref, (o1, o2) = ipca(n)
+    conf = conferir_ipca(mensal, ref)
+    ult = conf[-1]
+    return {
+        "peca": "barra_linha", "estilo": a.estilo, "formato": a.formato, "duracao": a.duracao if a.duracao != 8.0 else 9.0,
+        "titulo": a.titulo or "IPCA: o mês e os 12 meses",
+        "kicker": "Inflação oficial (IBGE) · mês a mês",
+        "fonte": "Fonte: BCB/SGS 433 (IPCA mensal) · 12 meses calculado e conferido com a SGS 13522",
+        "unidade": {"prefixo": "", "sufixo": "%", "casas": 2}, "mostrar": n,
+        "rotulos": {"mes": "IPCA no mês", "doze": "IPCA em 12 meses"},
+        "som": {"pouso": "impact-bass-1"},
+        "mensal": [{"data": d, "valor": v} for d, v in mensal],
+        "referencia_12m": [{"data": d, "valor": v} for d, v in ref],
+        "_conferido": {"mes": ult[0], "calculado_433": round(ult[1], 6), "sgs_13522": ult[2],
+                       "maior_diferenca_pp": round(max(abs(round(c, 2) - o) for _, c, o in conf), 4)},
+        "_origem": _origem(f"{o1}; referência: {o2}"),
+    }
+
+
+def montar_selic(a):
+    desde = a.desde or "2020-01-01"
+    pontos, origem = bcb(432, desde)
+    pontos = S.so_mudancas(pontos)
+    return {
+        "peca": "numero_linha", "estilo": a.estilo, "formato": a.formato, "duracao": a.duracao,
+        "titulo": a.titulo or f"Selic: {fmt_br(pontos[-1][1], 2)}%, e o caminho até aqui",
+        "kicker": "Meta da taxa Selic · Copom",
+        "fonte": "Fonte: BCB/SGS 432 (meta Selic)",
+        "classe": "indicador", "linha": "degrau", "variacao": "pp",
+        "unidade": {"prefixo": "", "sufixo": "%", "casas": 2},
+        "rotulo_numero": f"meta Selic em {pontos[-1][0][8:10]}/{_mes(pontos[-1][0])}",
+        "som": {"pouso": "impact-bass-1"},
+        "serie": [{"data": d, "valor": v} for d, v in pontos],
+        "_origem": _origem(origem),
+    }
+
+
+def montar_manchete_ipca(a):
+    r, origem = bcb(13522, "2019-01-01")
+    (d0, v0), (d1, v1) = r[-2], r[-1]
+    verbo = "cai" if v1 < v0 else "sobe" if v1 > v0 else "fica"
+    numero = f"{fmt_br(v1, 2)}%"
+    frase = f"Inflação em 12 meses {verbo} {'em' if verbo == 'fica' else 'para'} {numero} em {MESES_EXTENSO[int(d1[5:7]) - 1]}"
+    return {
+        "peca": "manchete", "estilo": a.estilo, "formato": a.formato, "duracao": a.duracao if a.duracao != 8.0 else 6.0,
+        "kicker": "IPCA · acumulado em 12 meses",
+        "frase": frase, "chave": numero, "marca": a.marca, "palavras": None,
+        "fonte": f"Fonte: BCB/SGS 13522 (IPCA em 12 meses, {_mes(d1)}; {_mes(d0)}: {fmt_br(v0, 2)}%)",
+        "som": {"pouso": "impact-bass-1"},
+        "_conferido": {"mes": d1, "valor": v1, "mes_anterior": d0, "valor_anterior": v0},
+        "_origem": _origem(origem),
+    }
+
+
 def _br(iso):
     return f"{iso[8:10]}/{iso[5:7]}/{iso[:4]}"
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("conjunto", choices=["dy-caixa", "cotistas", "megasena"])
+    ap.add_argument("conjunto", choices=["dy-caixa", "cotistas", "megasena", "copom", "ipca", "selic", "manchete-ipca"])
     ap.add_argument("--peca", choices=["barras", "rosca"], default="barras")
     ap.add_argument("--estilo", choices=["iec", "fazaconta"], default="iec")
     ap.add_argument("--formato", choices=["16:9", "9:16"], default="16:9")
@@ -190,13 +340,18 @@ def main(argv=None):
     ap.add_argument("--top", type=int)
     ap.add_argument("--antes", default="2025-08-01")
     ap.add_argument("--depois", default="2026-08-01")
+    ap.add_argument("--desde", help="AAAA-MM-DD (copom, selic)")
+    ap.add_argument("--marca", choices=["preencher", "marca-texto"], default="preencher", help="manchete")
     ap.add_argument("-o", "--saida", required=True)
     a = ap.parse_args(argv)
-    d = {"dy-caixa": montar_dy_caixa, "cotistas": montar_cotistas, "megasena": montar_megasena}[a.conjunto](a)
+    d = {"dy-caixa": montar_dy_caixa, "cotistas": montar_cotistas, "megasena": montar_megasena,
+         "copom": montar_copom, "ipca": montar_ipca, "selic": montar_selic,
+         "manchete-ipca": montar_manchete_ipca}[a.conjunto](a)
     os.makedirs(os.path.dirname(os.path.abspath(a.saida)), exist_ok=True)
     json.dump(d, open(a.saida, "w"), ensure_ascii=False, indent=1)
-    n = len(d.get("itens") or d.get("fatias"))
-    print(f"ok: {a.saida} ({d['peca']}, {n} itens; origem: {d['_origem']['arquivo']})")
+    n = len(d.get("itens") or d.get("fatias") or d.get("eventos") or d.get("mensal") or d.get("serie") or [d.get("frase")])
+    print(f"ok: {a.saida} ({d['peca']}, {n} itens; origem: {d['_origem']['arquivo']})"
+          + (f"; conferido: {d['_conferido']}" if "_conferido" in d else ""))
 
 
 if __name__ == "__main__":

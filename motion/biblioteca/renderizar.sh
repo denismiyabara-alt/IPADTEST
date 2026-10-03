@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Gera o projeto HyperFrames de uma peça da biblioteca (barras ou rosca, lida do campo "peca" do JSON),
+# Gera o projeto HyperFrames de uma peça da biblioteca (barras, rosca, eventos, barra_linha, numero_linha ou manchete,
+# lida do campo "peca" do JSON),
 # renderiza o MP4 medindo o tempo e, com --gif, faz um GIF curto para revisão.
 # Mesmo jeito do motion/renderizar.sh do grafico_cotacao (que não muda).
 # Uso (de motion/): ./biblioteca/renderizar.sh exemplos/rosca-megasena-9x16.json [saida.mp4] [--gif]
@@ -14,7 +15,7 @@ GIF="${3:-}"
 [ -d node_modules/hyperframes ] || npm install
 [ -d biblioteca/node_modules/@fontsource ] || (cd biblioteca && npm install)
 PECA=$(python3 -c "import json,sys; print(json.load(open(sys.argv[1])).get('peca', ''))" "$ENTRADA")
-case "$PECA" in barras|rosca) ;; *) echo "campo 'peca' deve ser barras ou rosca (veio '$PECA')" >&2; exit 2;; esac
+case "$PECA" in barras|rosca|eventos|barra_linha|numero_linha|manchete) ;; *) echo "campo 'peca' deve ser barras, rosca, eventos, barra_linha, numero_linha ou manchete (veio '$PECA')" >&2; exit 2;; esac
 mkdir -p "$(dirname "$SAIDA")"
 python3 "biblioteca/$PECA/gerar.py" "$ENTRADA" -o "projetos/$NOME"
 ABS="$(cd "$(dirname "$SAIDA")"; pwd)/$(basename "$SAIDA")"

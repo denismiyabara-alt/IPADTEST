@@ -8,16 +8,22 @@ som, só no pouso**, formatos 16:9 e 9:16, e teste que prova que os números da 
 |---|---|---|
 | **barras** | barras horizontais que crescem do zero com o valor contando junto; com dois momentos (antes → depois), trocam de lugar | `barras/` |
 | **rosca** | uma rosca que se divide em fatias, uma por vez, com rótulo e percentual; a soma tem de dar 100% | `rosca/` |
+| **eventos** (lote 2) | o gráfico de cotação com marcadores anotados (ex.: decisões do Copom) que acendem quando a linha passa | `eventos/` |
+| **barra_linha** (lote 2) | a taxa do mês em barras que se transformam na linha do acumulado em 12 meses (IPCA 433 → 12 meses) | `barra_linha/` |
+| **numero_linha** (lote 2) | o número grande (Selic de hoje) que encolhe e vira o último ponto da linha histórica | `numero_linha/` |
+| **manchete** (lote 2) | a frase de manchete em que a palavra-chave se enche de vermelho (ou ganha marca-texto) no tempo da fala | `manchete/` |
 
 ```
-comum/estilo.py        estilos, formato brasileiro (fmt_br), validação comum; o estilo iec é LIDO do molde Burry
-comum/projeto.py       monta o projeto: fontes, GSAP, som de pouso, créditos, <head>, filtro boil, marca-d'água
+comum/estilo.py        estilos, formato brasileiro (fmt_br), validação comum, checar_ativos; o estilo iec é LIDO do molde Burry
+comum/projeto.py       monta o projeto: fontes, GSAP, som de pouso, créditos, <head>, filtro boil, marca-d'água;
+                       grafico_cotacao() carrega o grafico_cotacao/gerar.py (escala, easing, layout) para o lote 2
 comum/quadro.mjs       abre o projeto num Chrome headless, faz seek e lê window.__tela() (genérico para qualquer peça)
 comum/teste.py         ajuda dos testes de navegador (pulados sem node_modules ou Chrome)
 biblioteca/dados.py    monta os JSON de exemplo a partir da origem (SQLite do site-ativos, fact-check do Faz a Conta)
 biblioteca/barras/gerar.py, biblioteca/rosca/gerar.py   JSON → projeto HyperFrames
-biblioteca/renderizar.sh   gerar + render + tempo (+ GIF com --gif)
-biblioteca/tests/      54 testes
+biblioteca/{eventos,barra_linha,numero_linha,manchete}/gerar.py   lote 2, mesmo padrão
+biblioteca/renderizar.sh   gerar + render + tempo (+ GIF com --gif); escolhe a peça pelo campo "peca"
+biblioteca/tests/      114 testes (54 do lote 1 em test_biblioteca.py, 60 do lote 2 em test_lote2.py)
 ```
 
 O `grafico_cotacao/`, o `renderizar.sh` da raiz e os `tests/` dele não mudaram.
@@ -39,6 +45,10 @@ python3 biblioteca/dados.py dy-caixa --destaque PETR4 -o exemplos/barras-dy-caix
 python3 biblioteca/dados.py cotistas --formato 9:16 -o exemplos/barras-cotistas-9x16.json
 python3 biblioteca/dados.py megasena --peca rosca --formato 9:16 -o exemplos/rosca-megasena-9x16.json
 python3 biblioteca/dados.py megasena --peca rosca --estilo fazaconta -o exemplos/rosca-megasena-fazaconta-16x9.json
+python3 biblioteca/dados.py copom -o exemplos/eventos-selic-copom-16x9.json                 # lote 2
+python3 biblioteca/dados.py ipca --formato 9:16 -o exemplos/barra-linha-ipca-9x16.json
+python3 biblioteca/dados.py selic -o exemplos/numero-linha-selic-16x9.json
+python3 biblioteca/dados.py manchete-ipca --marca marca-texto --formato 9:16 -o exemplos/manchete-ipca-marcatexto-9x16.json
 
 # 2. JSON → MP4 (+ GIF de revisão)
 ./biblioteca/renderizar.sh exemplos/rosca-megasena-9x16.json renders/rosca.mp4 --gif
@@ -124,7 +134,99 @@ prêmio") com o único som. Por fim, "soma: 100,00%".
 percentuais **como aparecem na tela** (arredondados em `casas`) não der 100 (ex.: 33,33 × 3 = 99,99%); ou uma fatia
 aparecer como 0%.
 
-## Compliance (vale para as duas peças)
+## Lote 2: eventos, barra_linha, numero_linha e manchete
+
+As quatro seguem o padrão do lote 1: `gerar.py` (JSON → projeto autocontido), `validar()` que recusa a entrada
+errada com a lista dos problemas, `assets/tela.js` lido pelo `comum/quadro.mjs` no teste, um único som no pouso,
+16:9 e 9:16, só cores da PAL do molde Burry (estilo `iec`), e o `Fonte: BCB/SGS <n>` no rodapé a peça inteira.
+O dado sai do `dados.py`, que lê as séries do BCB pelo mesmo caminho do `grafico_cotacao/serie.py`: SQLite do
+site-ativos → JSON cru do site-ativos (`cache/raw/bcb/sgs_<n>.json`) → cache próprio → API do BCB.
+
+**Rede, 03/10/2026:** daqui, a `api.bcb.gov.br` está bloqueada pelo proxy (CONNECT recusado). Os exemplos saíram do
+cache do site-ativos, baixado da API em 02/10/2026 16:09 UTC (433 e 13522 até ago/2026; 432 até 02/10/2026). Nenhum
+número foi digitado.
+
+### Peça: eventos
+
+**O que acontece:** é o gráfico de cotação inteiro (o mesmo `grafico_cotacao/gerar.py`, com a mesma validação e a
+mesma regra de compliance), com uma camada a mais: cada evento é um traço tracejado vertical, um ponto sobre a linha
+e um rótulo curto, que **acendem quando a ponta da linha passa pela data**. O rótulo vai do lado oposto ao da linha
+(em cima se a linha está embaixo) e desce um nível se fosse bater no vizinho.
+
+```json
+{"peca": "eventos", "titulo": "Selic: da alta ao 1º corte", "classe": "indicador", "linha": "degrau",
+ "fonte": "Fonte: BCB/SGS 432 (meta Selic; data de vigência de cada decisão)", "serie": ["…"],
+ "eventos": [{"data": "2024-09-19", "rotulo": "1ª alta: 10,75%"}, {"data": "2025-06-19", "rotulo": "Pico: 15,00%"},
+             {"data": "2026-03-19", "rotulo": "1º corte: 14,75%"}]}
+```
+
+| campo | padrão | o que faz |
+|---|---|---|
+| (todos os do grafico_cotacao) | | `serie`, `classe`, `linha`, `unidade`, `variacao`, `comparador`/`aviso`, `som`… |
+| `eventos` | obrigatório | 1 a 8 `{data, rotulo}`, em ordem, dentro do período; rótulo de até 22 caracteres |
+
+No `dados.py copom`, os eventos são achados nas mudanças da própria SGS 432 (cada mudança da meta é uma decisão do
+Copom): a 1ª alta e o 1º corte de cada ciclo e o início do pico. A data é a de **vigência** que a SGS registra (o dia
+seguinte à reunião), e a fonte na tela diz isso.
+
+### Peça: barra_linha
+
+**O que acontece:** as barras do mês crescem do zero (para baixo se negativo), com o valor em cima de cada uma, e o
+placar mostra o valor do mês da última barra que entrou (sempre um número real). Depois, cada barra **encolhe num
+ponto, na altura do acumulado em 12 meses daquele mês**, enquanto a escala troca; a linha liga os pontos e o placar
+pousa no último acumulado, em vermelho, com o único som.
+
+O acumulado é **calculado** a partir do mensal (composto: prod(1 + m/100) dos 12 meses − 1, não a soma). Com
+`referencia_12m` (a série oficial), cada mês mostrado tem de bater em até 0,01 p.p. (o BCB arredonda); se não bater,
+`validar()` recusa e nada é gerado. O `dados.py ipca` sempre põe a SGS 13522 como referência e para se divergir.
+
+| campo | padrão | o que faz |
+|---|---|---|
+| `mensal` | obrigatório | `[{data, valor}]` mês a mês, sem buraco, com 11 meses antes do 1º mostrado |
+| `mostrar` | `12` | quantos meses (6 a 24), os últimos |
+| `referencia_12m` | `null` | a série oficial do acumulado (SGS 13522) para conferir mês a mês |
+| `rotulos` | `{"mes": "no mês", "doze": "em 12 meses"}` | texto sob o placar em cada fase |
+| `duracao` | `9` | 5 a 10 s |
+
+**Conferência (cache de 02/10/2026):** o acumulado calculado do 433 bate com a 13522 em todos os 69 meses do cache
+(dez/2020 a ago/2026) dentro de 0,01 p.p.; nos 12 meses mostrados, a diferença é zero. Ago/2026: calculado
+4,2235% → **4,22%**, SGS 13522 = **4,22%**. O único mês em que o arredondamento difere é dez/2022 (5,7848% → 5,78
+contra 5,79 publicado), dentro da tolerância.
+
+### Peça: numero_linha
+
+**O que acontece:** o número grande (o último valor da série) pousa no centro com o único som e o rótulo
+("meta Selic em 02/out/2026"). Ele encolhe e desliza até a faixa logo acima do último ponto do gráfico, os eixos
+entram, o ponto final acende (um traço tracejado liga o número ao ponto) e **a linha se desenha da direita para a
+esquerda**, do hoje até o começo. No fim, a variação ("+9,25 p.p. desde jan/2020") entra sob o número.
+
+| campo | padrão | o que faz |
+|---|---|---|
+| `serie` | obrigatório | `[{data, valor}]` em ordem; o número é o último valor |
+| `linha` | `"linha"` | `"degrau"` para a Selic |
+| `rotulo_numero` | `"em 02/out/2026"` | texto sob o número grande |
+| `variacao` | `null` | `"pp"` ou `"pct"`, como no grafico_cotacao |
+| `classe` | `"indicador"` | `"ativo"` exige `"ativos": true` (e o aviso vai na tela) |
+
+### Peça: manchete
+
+**O que acontece:** a frase entra palavra por palavra e, no instante em que a palavra-chave é falada (`t_chave`),
+ela se enche da esquerda para a direita: `"preencher"` = o texto vira vermelho; `"marca-texto"` = uma faixa vermelha
+passa por trás e o texto fica da cor do papel. No fim do preenchimento, um pulso e o único som.
+
+| campo | padrão | o que faz |
+|---|---|---|
+| `frase` | obrigatório | até 90 caracteres |
+| `chave` | obrigatório | palavra(s) inteira(s) da frase, que aparecem uma vez só |
+| `marca` | `"preencher"` | ou `"marca-texto"` |
+| `palavras` | `null` | o instante (s) de cada palavra da frase, tirado da transcrição (ex.: Whisper com word timestamps); sem ele, as palavras entram em cascata |
+| `t_chave` | o instante da chave em `palavras`, senão logo depois da cascata | quando a chave começa a encher; tem de terminar até 0,8 s antes do fim |
+| `dur_chave` | `0.5` | 0,15 a 1,5 s |
+
+No exemplo, a frase sai da SGS 13522: o verbo ("cai", "sobe" ou "fica") compara o último mês com o anterior
+(ago/2026 4,22% contra jul/2026 4,44%), e a fonte na tela mostra os dois números.
+
+## Compliance (vale para todas as peças)
 
 - `fonte` é obrigatória e começa com `Fonte:`; ela fica no canto a peça inteira.
 - **Ranking ou composição de ativos** (FII ou ação) exige `"ativos": true` e um `criterio` começando com `Critério:`
@@ -133,11 +235,15 @@ aparecer como 0%.
   recusada.
 - A barra-chave é escolha editorial (o ativo de que o vídeo fala), não indicação: a ordem é só a do número.
 - O dado vem de origem conferida e o JSON guarda de onde saiu (`_origem`). Não digite número à mão: use o `dados.py`.
+- **Lote 2** (texto livre: manchete, rótulos de evento, títulos): `estilo.checar_ativos` recusa a entrada se algum
+  texto citar um ticker (`ABCD3`, `ABCD11`) sem `"ativos": true`; com ele, a tela mostra "Não é recomendação de
+  investimento." O `eventos` também herda a regra do grafico_cotacao (ativo isolado só com comparador ou aviso).
+  Os exemplos do lote 2 são só indicadores (Selic, IPCA): nenhum ativo aparece nem é recomendado.
 
 ## Testes
 
 ```sh
-python3 -m pytest -q biblioteca/tests      # 54 testes, ~20 s
+python3 -m pytest -q biblioteca/tests      # 114 testes (54 + 60), ~50 s
 ```
 
 - validação: 17 casos de barras errada, 5 de rosca que não soma 100% (e não gera projeto), 6 outros de rosca;
@@ -153,6 +259,17 @@ python3 -m pytest -q biblioteca/tests      # 54 testes, ~20 s
   R$ 2,63 e a soma em 100%. No meio: nas barras de dois momentos, a tela mostra os valores e a ordem do "antes"; na
   rosca, 2 fatias completas, a 3ª parcial e o resto zerado (uma por vez).
 
+**Lote 2** (`tests/test_lote2.py`, 60 testes): 31 casos de entrada errada nas quatro peças (inclusive acumulado
+que não bate com a 13522, mês faltando, chave fora da frase, chave antes de ser falada, ticker sem aviso); o
+acumulado é composto (12 × 1% = 12,68%); estrutura: o `comum/quadro.mjs` passa no `node --check`, cada HTML
+registra a timeline com o id da composição, carrega `assets/tela.js`, não usa CDN, tem a fonte no rodapé e só cores
+da PAL; dado real: o acumulado do 433 bate com a 13522 em todos os meses do cache e dá 4,22% em ago/2026, os
+exemplos são iguais ao SQLite (433, 13522, 432), os eventos são mudanças reais da 432; **no navegador**: eventos no
+lugar, sem sobreposição e acesos só depois de a linha passar; barras com altura proporcional ao mês e, no fim,
+pontos na altura do acumulado, placar em 4,22% vermelho; o número grande no centro e, no fim, pequeno logo acima do
+último ponto, com a linha revelada de trás para a frente; a chave vazia antes da fala, pela metade no meio e cheia no
+fim, na cor certa.
+
 ## Exemplos com dado real
 
 | exemplo | estilo | dado | fonte na tela |
@@ -162,6 +279,10 @@ python3 -m pytest -q biblioteca/tests      # 54 testes, ~20 s
 | `rosca-megasena-9x16` | iec | pra onde vão os R$ 6 da Mega-Sena: 9 fatias somando 100,00%; centro R$ 2,63 | Fonte: Lei 13.756/2018, art. 16 |
 | `rosca-megasena-fazaconta-16x9` | fazaconta | o mesmo | idem |
 | `barras-megasena-fazaconta-9x16` | fazaconta | o mesmo, em barras (%) | idem |
+| `eventos-selic-copom-16x9` | iec | Selic desde jan/2024 (11,75%; mínima 10,50%; hoje 13,75%) com 1ª alta 10,75% (19/09/2024), pico 15,00% (19/06/2025) e 1º corte 14,75% (19/03/2026) | Fonte: BCB/SGS 432 (meta Selic; data de vigência de cada decisão) |
+| `barra-linha-ipca-16x9`, `-9x16` | iec | IPCA de set/2025 a ago/2026 (0,48 … 0,88 … −0,32) → 12 meses de 5,17% a 4,22% | Fonte: BCB/SGS 433 (IPCA mensal) · 12 meses calculado e conferido com a SGS 13522 |
+| `numero-linha-selic-16x9`, `-9x16` | iec | 13,75% (02/10/2026) que vira o último ponto da Selic desde jan/2020 (+9,25 p.p.) | Fonte: BCB/SGS 432 (meta Selic) |
+| `manchete-ipca-16x9` (preencher), `manchete-ipca-marcatexto-9x16` | iec | "Inflação em 12 meses cai para 4,22% em agosto", chave 4,22% | Fonte: BCB/SGS 13522 (IPCA em 12 meses, ago/2026; jul/2026: 4,44%) |
 
 Divisão da Mega-Sena usada (fact-check do Faz a Conta, 26/09/2026, Lei 13.756 art. 16): prêmio 43,79% (com o IR),
 custeio Caixa e lotéricas 19,13%, seguridade 17,32%, segurança pública (FNSP) 6,8%, esporte 4,36%, Funpen 3%,
@@ -182,6 +303,13 @@ Linux, 4 núcleos Xeon 2,8 GHz, sem GPU, HyperFrames 0.8.78, workers automático
 | barras Mega-Sena 9:16 (fazaconta) | 8 s | 20,7 s | 872 KB | 438 KB |
 | rosca Mega-Sena 9:16 (iec) | 8 s | 24,6 s | 1,0 MB | 420 KB |
 | rosca Mega-Sena 16:9 (fazaconta) | 8 s | 33,3 s | 1,1 MB | 493 KB |
+| eventos Selic/Copom 16:9 (lote 2) | 8 s | 20,3 s | 697 KB | 396 KB |
+| barra_linha IPCA 16:9 | 9 s | 19,8 s | 734 KB | 355 KB |
+| barra_linha IPCA 9:16 | 9 s | 19,4 s | 762 KB | 346 KB |
+| numero_linha Selic 16:9 | 8 s | 19,9 s | 565 KB | 367 KB |
+| numero_linha Selic 9:16 | 8 s | 17,4 s | 536 KB | 345 KB |
+| manchete IPCA 16:9 (preencher) | 6 s | 14,3 s | 322 KB | 99 KB |
+| manchete IPCA 9:16 (marca-texto) | 6 s | 14,2 s | 317 KB | 105 KB |
 
 Na mesma faixa do gráfico de cotação (17 s por 8 s). No Mac, a estimativa é a mesma: 10 a 20 s por peça de 8 s,
 ~2 GB. Um job pesado por vez.

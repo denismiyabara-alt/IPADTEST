@@ -162,3 +162,22 @@ JS_FMT = r"""
     return (neg ? '-' : '') + i.replace(/\B(?=(\d{3})+(?!\d))/g, '.') + (d ? ',' + d : '');
   }
 """
+
+
+def grafico_cotacao():
+    """O módulo motion/grafico_cotacao/gerar.py (escala, easing, layout e o próprio gráfico), carregado uma vez
+    com nome próprio (as peças da biblioteca também se chamam gerar.py)."""
+    import importlib.util, sys
+    nome = "grafico_cotacao_gerar"
+    if nome not in sys.modules:
+        spec = importlib.util.spec_from_file_location(nome, os.path.join(MOTION, "grafico_cotacao", "gerar.py"))
+        m = importlib.util.module_from_spec(spec)
+        sys.modules[nome] = m
+        spec.loader.exec_module(m)
+    return sys.modules[nome]
+
+
+def escrever_tela(destino, tela_js):
+    """assets/tela.js: o leitor da tela que o teste usa (comum/quadro.mjs). Fora da timeline: não roda no render."""
+    open(os.path.join(destino, "assets", "tela.js"), "w").write(
+        "// lido pelo teste (comum/quadro.mjs)\n(() => {\n" + tela_js + "})();\n")

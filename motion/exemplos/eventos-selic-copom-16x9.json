@@ -1,0 +1,118 @@
+{
+ "titulo": "Selic: da alta ao 1º corte",
+ "kicker": "Meta da taxa Selic · decisões do Copom",
+ "nome_serie": "Meta da taxa Selic",
+ "fonte": "Fonte: BCB/SGS 432 (meta Selic; data de vigência de cada decisão)",
+ "classe": "indicador",
+ "formato": "16:9",
+ "duracao": 8.0,
+ "linha": "degrau",
+ "unidade": {
+  "prefixo": "",
+  "sufixo": "%",
+  "casas": 2
+ },
+ "variacao": "pp",
+ "cor_final": "vermelho",
+ "som": {
+  "pouso": "impact-bass-1"
+ },
+ "destaques": [],
+ "serie": [
+  {
+   "data": "2024-01-01",
+   "valor": 11.75
+  },
+  {
+   "data": "2024-02-01",
+   "valor": 11.25
+  },
+  {
+   "data": "2024-03-21",
+   "valor": 10.75
+  },
+  {
+   "data": "2024-05-09",
+   "valor": 10.5
+  },
+  {
+   "data": "2024-09-19",
+   "valor": 10.75
+  },
+  {
+   "data": "2024-11-07",
+   "valor": 11.25
+  },
+  {
+   "data": "2024-12-12",
+   "valor": 12.25
+  },
+  {
+   "data": "2025-01-30",
+   "valor": 13.25
+  },
+  {
+   "data": "2025-03-20",
+   "valor": 14.25
+  },
+  {
+   "data": "2025-05-08",
+   "valor": 14.75
+  },
+  {
+   "data": "2025-06-19",
+   "valor": 15.0
+  },
+  {
+   "data": "2026-03-19",
+   "valor": 14.75
+  },
+  {
+   "data": "2026-04-30",
+   "valor": 14.5
+  },
+  {
+   "data": "2026-06-18",
+   "valor": 14.25
+  },
+  {
+   "data": "2026-08-06",
+   "valor": 14.0
+  },
+  {
+   "data": "2026-09-17",
+   "valor": 13.75
+  },
+  {
+   "data": "2026-10-02",
+   "valor": 13.75
+  }
+ ],
+ "_origem": {
+  "arquivo": "site-ativos/cache/dados.sqlite (macro 432)",
+  "espec": {
+   "serie": "SGS:432",
+   "periodo": "2024-01-01:",
+   "rotulo": "Selic: da alta ao 1º corte",
+   "kicker": "Meta da taxa Selic · decisões do Copom",
+   "formato": "16:9"
+  },
+  "gerado_em": "2026-10-03T03:24:01",
+  "eventos": "mudanças da própria SGS 432 (1ª alta, pico, 1º corte)"
+ },
+ "peca": "eventos",
+ "eventos": [
+  {
+   "data": "2024-09-19",
+   "rotulo": "1ª alta: 10,75%"
+  },
+  {
+   "data": "2025-06-19",
+   "rotulo": "Pico: 15,00%"
+  },
+  {
+   "data": "2026-03-19",
+   "rotulo": "1º corte: 14,75%"
+  }
+ ]
+}

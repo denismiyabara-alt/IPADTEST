@@ -158,3 +158,18 @@ def validar_base(d, erros, duracao=(5, 10)):
 
 def numero_ok(v):
     return not isinstance(v, bool) and isinstance(v, (int, float)) and math.isfinite(v)
+
+
+TICKER_NO_TEXTO = re.compile(r"\b[A-Z]{4}\d{1,2}\b")
+
+
+def checar_ativos(d, textos, erros):
+    """Compliance das peças do lote 2 (texto livre: manchete, rótulos de evento, título).
+    Se algum texto cita um ticker (ABCD3, ABCD11), a entrada precisa de "ativos": true, e a peça então mostra
+    AVISO_ATIVOS na tela. Sem isso, a entrada é recusada. Devolve True se o aviso vai na tela."""
+    d.setdefault("ativos", False)
+    achados = sorted({m for t in textos if isinstance(t, str) for m in TICKER_NO_TEXTO.findall(t)})
+    if achados and not d["ativos"]:
+        erros.append(f"o texto cita ativo ({', '.join(achados[:3])}): use \"ativos\": true (a tela mostra "
+                     f"'{AVISO_ATIVOS}'); nenhum ativo é recomendado")
+    return bool(d["ativos"])
