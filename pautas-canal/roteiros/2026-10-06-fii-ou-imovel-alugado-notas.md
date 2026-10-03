@@ -1,6 +1,6 @@
 # Notas do roteiro de 06/10/2026: FII ou imóvel alugado
 
-Roteiro: `2026-10-06-fii-ou-imovel-alugado.md` (v1.6; a v1.4 foi a congelada, ver seções 8 e 9). Briefing e concorrentes em `pautas-canal/briefings/`.
+Roteiro: `2026-10-06-fii-ou-imovel-alugado.md` (v1.7; a v1.4 foi a congelada, ver seções 8, 9 e 10). **Título recomendado mudou na v1.7** (seção 10). Briefing e concorrentes em `pautas-canal/briefings/`.
 
 **Limitações (ler antes das notas).** Todos os papéis foram feitos pela mesma sessão da nuvem, em sequência, e não por
 agentes separados. O ouvinte-frio, em especial, **não é uma escuta independente**: quem ouviu já sabia a tese. Os arquivos
@@ -145,20 +145,22 @@ tem "FII". Se o Denis quiser priorizar a Pesquisa (que trouxe só 13 views ao v�
 | R$ 2.000/mês, R$ 400 mil, 6% ao ano | B0, B1, B4 | **hipótese** ("se"), em linha com FipeZap ago/26 = 6,14% a.a. | FipeZap só por snippet (PDF bloqueado) — Denis confere |
 | 2.018 imóveis prontos; 176 totalmente vazios (quase 1 em 11) | B2 | CVM, informe trimestral de FII, 30/06/2026, fundos com negociação em bolsa | conferido na primária (dados.cvm.gov.br) |
 | 1 mês vazio por ano → 11 aluguéis → R$ 22.000 | B2 | hipótese, ordem de grandeza do 176/2.018 | conta |
-| R$ 5.000/mês isento; R$ 7.350; 27,5% | B3 | Lei 15.270/2025 e tabela do IRPF 2026 | só secundária (planalto/Receita bloqueados) — Denis valida |
-| R$ 6.050 de IR; sobra R$ 15.950; ≈ 4% | B3, B4 | conta: 22.000 × 27,5%; 22.000 − 6.050; 15.950 ÷ 400.000 = 3,99% | conta |
-| R$ 24.000 no fundo, isento; diferença R$ 8.050 | B0, B4, B5, B7 | conta: 400.000 × 6%; 24.000 − 15.950; isenção pela Lei 11.033 art. 3º (red. Lei 14.754) | conta + lei (secundária) |
+| R$ 5.000/mês isento; R$ 7.350; 27,5% (faixa só na cartela; na fala: "até cinco mil... acima disso, o desconto vai sumindo") | B3 | Lei 15.270/2025 e tabela do IRPF 2026 (briefing L3) | só secundária (planalto/Receita bloqueados) — Denis valida |
+| Caso 1, dono com salário acima de R$ 7.350: R$ 6.050 de IR; sobra R$ 15.950; ≈ 4% | B3, B4 | hipótese ("primeiro caso") + conta: 22.000 × 27,5%; 22.000 − 6.050; 15.950 ÷ 400.000 = 3,99% (briefing L3/L4, seção 4) | conta |
+| Caso 2, aluguel como única renda: R$ 2.000/mês < R$ 5.000 → IR zero; ficam R$ 22.000 | B3, B4 | hipótese ("segundo caso") + regra L3 (zero até R$ 5.000/mês de renda tributável) e L4 (carnê-leão, soma no ajuste: 22.000/ano < 12 × 5.000 = 60.000) | conta + lei (secundária) — Denis valida (seção 10) |
+| R$ 24.000 no fundo, isento; diferença R$ 8.050 (caso 1) e R$ 2.000 (caso 2) | B0, B4, B5, B7 | conta: 400.000 × 6%; 24.000 − 15.950; 24.000 − 22.000; isenção pela Lei 11.033 art. 3º (red. Lei 14.754) | conta + lei (secundária) |
 | 100 cotistas; menos de 10% das cotas | B4 | Lei 14.754/2023 (alterou a Lei 11.033, art. 3º) | só secundária — Denis valida |
 | 48 fundos abertos ao público com menos de 100 cotistas | só cartela B4 | CVM, informe mensal ago/2026 | conferido na primária |
 | 7,8% (mediana, 12 meses até ago/26, sobre o patrimônio) | B4 | CVM, informe mensal, soma do Dividend_Yield_Mes set/25–ago/26, 290 fundos listados com 100+ cotistas | conferido na primária |
-| 10% de queda = R$ 40 mil; 5 anos de vantagem | B5 | hipótese ("se") e conta (8.050 × 5 = 40.250) | conta |
+| 10% de queda = R$ 40 mil; 5 anos de vantagem (caso 1); 20 anos (caso 2) | B5 | hipótese ("se") e conta (8.050 × 5 = 40.250; 2.000 × 20 = 40.000) | conta |
 | MP de 5% sobre rendimento de FII, derrubada em outubro de 2025 | B6 | MP 1.303/2025; Câmara, 08/10/2025 | só secundária — Denis valida |
 | 97 de 272 fundos com um imóvel só | B6 | CVM, informe trimestral 30/06/2026 | conferido na primária |
 
 ## 7. Validações que só o Denis faz
 
 1. **Lei 14.754/2023 / Lei 11.033, art. 3º:** 100 cotistas e menos de 10% das cotas (B4 e cartela).
-2. **Lei 15.270/2025:** quem tem salário acima de R$ 7.350 por mês paga 27,5% na margem sobre o aluguel em 2026 (B3).
+2. **Lei 15.270/2025:** quem tem salário acima de R$ 7.350 por mês paga 27,5% na margem sobre o aluguel em 2026 (B3);
+   e, desde a v1.7, quem tem o aluguel de R$ 2.000/mês como única renda tributável paga zero (seção 10).
    A conta ignora deduções do carnê-leão (IPTU, condomínio, taxa da imobiliária pagos pelo dono): se quiser, uma frase na
    cartela.
 3. **MP 1.303/2025:** 5% sobre rendimento de FII a partir de 2026 e derrubada pela Câmara em 08/10/2025 (B6).
@@ -273,3 +275,67 @@ Portão (v1.6): `ELIMINATORIOS: nenhum` · 5/6 (o mesmo FALHA do item 3, conflit
 traduzida na hora. Fala limpa em `scratchpad/fala-0610-v16.txt` (174 linhas, 1.698 palavras, ≈ 11:45).
 Nota de processo: esta passada **cortou** frases (B4 e "Vrau"), contra a regra "conserto só adiciona"; foi pedido
 explícito, porque o resíduo era densidade. **Falta:** novo ouvinte-frio cego na v1.6 antes do Drive.
+
+---
+
+## 10. Ouvinte-frio cego (v1.6) e correções v1.7
+
+Ouvinte-frio **cego** (sessão separada, leu só `scratchpad/fala-0610-v16.txt`; persona: dono de apê herdado, desconfia
+de FII): **REPROVOU a v1.6, média 7,75**, bloco do preço da cota com nota 6. O ponto mais grave foi de honestidade: a
+conta assume salário acima de R$ 7.350 (27,5% na margem) e o ouvinte, que ganha menos, sentiu que o vídeo trata isso
+como regra de todo mundo; "A isenção dos cinco mil é uma ótima notícia. / Pra quem não tem salário." soou deboche.
+
+**O que o briefing sustenta sobre quem vive só do aluguel.** L3 (Lei 15.270/2025, secundária): imposto zero até
+R$ 5.000/mês de **renda tributável**, redutor até R$ 7.350. L4: aluguel de pessoa física paga pelo carnê-leão e **soma
+no ajuste anual**. Logo, se os R$ 2.000/mês forem a única renda tributável da pessoa, ela fica abaixo de R$ 5.000 por
+mês (e 22.000 no ano < 60.000): **IR zero sobre o aluguel**. Conta: o apê entrega 22.000; o fundo a 6%, 24.000;
+diferença **24.000 − 22.000 = R$ 2.000 por ano, só o mês vazio**. Contraprova do B5: 40.000 ÷ 2.000 = 20 anos.
+O briefing **não** separa o carnê-leão mensal do ajuste nem diz se aposentadoria/pensão contam (contam como renda
+tributável, e aí a pessoa volta pro caso do meio). A fala diz "o aluguel é a sua única renda", que é o caso que o
+briefing cobre. **Denis valida:** (a) que o redutor da Lei 15.270 vale também no carnê-leão mensal, não só no ajuste;
+(b) que R$ 2.000/mês de aluguel como única renda tributável dá IR zero em 2026.
+
+Correções da v1.7 (só a fala e as cartelas; nenhum número fora do briefing e das contas declaradas):
+
+1. **Honestidade da conta.** B0: depois do 8.050, "Esse é o caso de quem já tem salário. / Pra quem vive só do aluguel,
+   a diferença é bem menor." B3: a faixa do imposto saiu da voz ("Acima disso, o desconto vai sumindo, até voltar a
+   tabela de sempre."; faixa completa na [TELA]); "o leão soma o aluguel com o resto da sua renda. / Então quanto o
+   leão morde depende de quanto você já ganha."; **primeiro caso** (salário acima de 7.350: 6.050 de leão, sobram
+   15.950) e **segundo caso** ("o aluguel é a sua única renda... o leão não leva nada, e os vinte e dois mil ficam
+   inteiros. / Pra esse dono, a lei nova é uma notícia boa de verdade."); "quem ganha entre um caso e o outro fica no
+   meio do caminho". Saiu "Pra quem não tem salário." B4: os dois resultados e "Pra quem ganha bem, oito mil. Pra quem
+   vive só do aluguel, dois mil. / Quem decide o tamanho da diferença é o leão." B5: "Pra quem vive só do aluguel, são
+   vinte anos de vantagem." B7: "Oito mil pra quem tem salário. Dois mil pra quem vive do aluguel." e "Tira o leão. O
+   seu leão, do tamanho da sua renda." Cartelas de B3, B4, B5 e B7 com os dois cenários; tabela da seção 6 atualizada.
+2. **Bloco do preço (B5, agora "O preço na tela").** Saiu a balança inteira (pandemia/calça/farmácia e "aqui a balança
+   pesa outra coisa"). Entrou: "A cota do fundo tem preço na tela do app todo dia" / "O apartamento não tem preço na
+   tela. / Você só descobre quanto o apartamento vale quando tenta vender." Equilíbrio no lugar de "ele não te avisa":
+   "Os dois têm risco de preço. A cota mostra o risco todo dia; o apartamento esconde até a venda. / Mostrar ou
+   esconder não deixa nenhum dos dois mais seguro."
+3. **B1.** O casaco vem antes da metáfora: "Então o aluguel do anúncio ainda carrega duas coisas que ninguém tirou: o
+   mês vazio e o imposto. / Essas duas coisas são o casaco. / O aluguel do anúncio sobe na balança de casaco e bota."
+   Saíram "Um chega de casaco. O outro chega pelado. / Não precisa imaginar a cena" e a menção solta ao "defeito" do
+   fundo (o preço da cota agora só aparece no B5, puxado pela objeção do Tanaka).
+4. **Lei de 2023 (B4):** "O fundo precisa ter pelo menos cem cotistas, e você precisa ter menos de dez por cento
+   dele." (L1 diz "menos de 10%"; por isso não "mais de dez"). O corte ficou explícito: "metade dos fundos da bolsa com
+   cem cotistas ou mais".
+5. **Repetição "a favor do fundo":** saiu o chuveiro do B4 (piada só contra o apê); "pra não roubar a favor do fundo"
+   → "pra não inflar a conta"; abertura do B5 → "Oito mil ou dois mil, a renda do fundo chega maior nos dois casos."
+6. **Piada do síndico** ("O fundo tem gestor. O apartamento tem síndico. / Escolhe o seu chefe, Tanaka.") saiu.
+
+Mantidos (notas 8–9): gancho, vacância (B2 inteiro), prós e contras do B6, estrutura do fecho.
+
+Título: o "R$ 8 mil menor" da v1.6 só vale para quem tem salário acima de R$ 7.350.
+```
+titulo_1 (recomendado): "Apê alugado ou fundo imobiliário em 2026: o leão decide se a diferença é R$ 2 mil ou R$ 8 mil"
+titulo_2: "Imóvel alugado ou FII em 2026: quanto o leão leva do seu aluguel muda a conta inteira"
+titulo_3: "FII ou imóvel alugado em 2026: a conta que o anúncio do apartamento não faz"   (o 3 da v1.6, sem número, ainda honesto)
+```
+Nenhum diz qual comprar. A thumb "6% → 4%" da seção 5 é o caso de quem tem salário: se mantiver, a thumb precisa de
+"com salário" ou troca por "R$ 2 mil ou R$ 8 mil?".
+
+Portão (v1.7): `ELIMINATORIOS: nenhum` · 5/6 (o mesmo FALHA do item 3, conflito da seção 1) · item 9 PASSA (as cartelas
+foram escritas sem repetir número entre blocos) · costura: nenhum · avisos de ouvido: nenhum · CVM traduzida na hora.
+Marcador de analogia do portão: 1. Fala limpa em `scratchpad/fala-0610-v17.txt` (175 linhas, 1.735 palavras, ≈ 12:00
+a 145 por minuto, 12:51 a 135). Nota de processo: de novo houve corte (balança do B5, síndico, chuveiro do B4, "pelado"),
+por pedido explícito. **Falta:** novo ouvinte-frio cego na v1.7 antes do Drive.

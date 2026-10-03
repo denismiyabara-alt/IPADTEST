@@ -1,20 +1,20 @@
 ---
-titulo: "Apê alugado ou fundo imobiliário: o mesmo aluguel chega R$ 8 mil menor em 2026"   # recomendado pelo empacotador (alternativas nas notas)
+titulo: "Apê alugado ou fundo imobiliário em 2026: o leão decide se a diferença é R$ 2 mil ou R$ 8 mil"   # recomendado na v1.7 (o "R$ 8 mil menor" da v1.6 só vale pra quem tem salário; alternativas nas notas, seção 10)
 data_publicacao: 2026-10-06 (terça)
 formato: longo, teleprompter
-versao: "v1.6 (ouvinte-frio cego reprovou a v1.5, média 7,5: balança justa com valorização, B4 simplificado, fecho sem veredito) ← v1.5 (revisão independente: justiça da conta e gancho) ← v1.4 congelada (v1.0 → juiz 7/10 → v1.1 → juiz 10/10 → punch-up do juiz-ritmo → ouvinte-frio PASSA → ajuste ao portão score_roteiro.py: 5/6, sem eliminatório)"
-duracao_estimada: "≈11:45 (1.698 palavras faladas: 11:43 a 145 por minuto, 12:35 a 135; com pausas e telas, 11:30 a 12:30; teto 14:00)"
+versao: "v1.7 (ouvinte-frio cego reprovou a v1.6, média 7,75: conta honesta com os dois donos — com salário, R$ 8.050; aluguel como única renda, R$ 2.000; bloco do preço sem balança; casaco apresentado antes da metáfora) ← v1.6 (ouvinte-frio cego reprovou a v1.5, média 7,5: balança justa com valorização, B4 simplificado, fecho sem veredito) ← v1.5 (revisão independente: justiça da conta e gancho) ← v1.4 congelada (v1.0 → juiz 7/10 → v1.1 → juiz 10/10 → punch-up do juiz-ritmo → ouvinte-frio PASSA → ajuste ao portão score_roteiro.py: 5/6, sem eliminatório)"
+duracao_estimada: "≈12:00 (1.735 palavras faladas: 11:58 a 145 por minuto, 12:51 a 135; com pausas e telas, 11:45 a 13:00; teto 14:00)"
 briefing: pautas-canal/briefings/2026-10-06-fii-ou-imovel-briefing.md
 concorrentes: pautas-canal/briefings/2026-10-06-fii-ou-imovel-concorrentes.md
 notas_e_juizes: pautas-canal/roteiros/2026-10-06-fii-ou-imovel-alugado-notas.md
 fontes_de_dado: "1 fonte de dado, 2 datas-base — informes de FII na CVM (trimestral de 30/06/2026; mensal de ago/2026). Regras: Lei 14.754/2023, Lei 15.270/2025, MP 1.303/2025 (Denis valida na primária)"
-orcamento_numeros: "fontes 2 · números novos falados por bloco: B0 5 · B1 4 · B2 4 · B3 5 · B4 4 · B5 4 · B6 4 · B7 0 · frases com 3+ números: 0"
+orcamento_numeros: "fontes 2 · números novos falados por bloco: B0 5 · B1 4 · B2 4 · B3 5 · B4 5 · B5 4 · B6 4 · B7 0 · frases com 3+ números: 0"
 gancho_trecho: "Num deles, chegam os vinte e quatro mil. No outro, chega menos de dezesseis mil."
 numero_ancorado_trecho: "Oito mil e cinquenta reais de diferença por ano. Mesmo dinheiro investido. Mesmo aluguel no papel."
-loop_trecho: "Oito mil e cinquenta reais por ano."
+loop_trecho: "Oito mil pra quem tem salário. Dois mil pra quem vive do aluguel."
 agregado_linha_trecho: "No seu apartamento, a vacância só tem dois valores: zero ou cem por cento."
 prova_espectador_trecho: "Fácil, por quantos meses no ano? O corretor não falou. Você completou sozinho: doze."
-analogia_trecho: "Só que o aluguel do anúncio se pesou de casaco e bota. O rendimento do fundo subiu na balança sem roupa."
+analogia_trecho: "Essas duas coisas são o casaco. O aluguel do anúncio sobe na balança de casaco e bota."
 concessao_trecho: "dos duzentos e setenta e dois fundos com imóvel pronto em junho, noventa e sete tinham um imóvel só."
 fecho_trecho: "Antes de dizer que o apê rende mais, ou que o fundo rende mais, Tanaka, você faz a conta do casaco."
 ---
@@ -24,7 +24,7 @@ fecho_trecho: "Antes de dizer que o apê rende mais, ou que o fundo rende mais, 
 > Formato teleprompter: uma ideia por linha. Tudo que está entre colchetes é produção e **não se fala**.
 > Números falados por extenso, do jeito que se fala. Nenhum fundo pelo nome, nenhuma corretora.
 
-## BLOCO 0 - PROMESSA E PERGUNTA (0:00–0:50)
+## BLOCO 0 - PROMESSA E PERGUNTA (0:00–0:55)
 
 Fala, Tanaka.
 
@@ -40,11 +40,15 @@ Num deles, chegam os vinte e quatro mil.
 
 No outro, chega menos de dezesseis mil.
 
-[TELA: R$ 24.000 × menos de R$ 16.000 — mesmo aluguel]
+[TELA: R$ 24.000 × menos de R$ 16.000 — mesmo aluguel, dono com salário]
 
 Oito mil e cinquenta reais de diferença por ano.
 
 Mesmo dinheiro investido. Mesmo aluguel no papel.
+
+Esse é o caso de quem já tem salário.
+
+Pra quem vive só do aluguel, a diferença é bem menor.
 
 E não, não é o inquilino que parou de pagar.
 
@@ -68,7 +72,7 @@ Errada costuma ser a conta que a gente faz antes de responder.
 
 [TELA: comente "apê" ou "fundo"]
 
-## BLOCO 1 - O CASACO (0:50–2:20)
+## BLOCO 1 - O CASACO (0:55–2:10)
 
 Dois mil por mês, num apartamento de quatrocentos mil.
 
@@ -77,12 +81,6 @@ No ano, dá seis por cento do preço.
 E tem fundo imobiliário pagando seis por cento também.
 
 Os dois números parecem iguais.
-
-Só que o aluguel do anúncio se pesou de casaco e bota.
-
-O rendimento do fundo subiu na balança sem roupa.
-
-[TELA: balança — "aluguel do anúncio: de casaco" | "rendimento do fundo: sem roupa"]
 
 Faz o teste com o anúncio do apartamento.
 
@@ -106,27 +104,27 @@ Anúncio de aluguel é foto de perfil.
 
 Melhor ângulo, luz boa e doze meses de inquilino.
 
+Então o aluguel do anúncio ainda carrega duas coisas que ninguém tirou: o mês vazio e o imposto.
+
+Essas duas coisas são o casaco.
+
+O aluguel do anúncio sobe na balança de casaco e bota.
+
 Agora o fundo imobiliário.
 
 O fundo é dono de prédio, galpão, shopping, e reparte o aluguel com quem tem cota.
 
-Só que o rendimento que ele te paga já vem com os descontos feitos.
+Só que o rendimento do fundo chega na sua conta com os descontos já feitos.
 
-Antes de cair na sua conta, o fundo já tirou o que tinha que tirar.
+O rendimento do fundo sobe na balança sem o casaco.
 
-Um chega de casaco. O outro chega pelado.
-
-Não precisa imaginar a cena, Tanaka.
-
-O fundo tem um defeito que o apartamento não tem:
-
-o preço da cota aparece na tela todo dia, na frente de todo mundo.
+[TELA: balança — "aluguel do anúncio: de casaco (mês vazio + imposto)" | "rendimento do fundo: sem casaco"]
 
 O casaco do apartamento tem duas peças.
 
 A primeira é o mês em que ninguém mora lá.
 
-## BLOCO 2 - O MÊS VAZIO (2:20–3:55)
+## BLOCO 2 - O MÊS VAZIO (2:10–3:45)
 
 O inquilino sai.
 
@@ -182,7 +180,7 @@ E olha que eu nem tirei o condomínio do mês vazio.
 
 [TELA: 2.000 × 11 meses = R$ 22.000]
 
-## BLOCO 3 - O LEÃO DESTE ANO (3:55–5:15)
+## BLOCO 3 - O LEÃO DESTE ANO (3:45–5:20)
 
 Vinte e dois mil de aluguel no ano.
 
@@ -196,51 +194,49 @@ Mudou mesmo.
 
 Desde janeiro, quem tem renda tributável de até cinco mil por mês não paga imposto de renda.
 
-Entre cinco mil e sete mil, trezentos e cinquenta, o desconto vai diminuindo.
+Acima disso, o desconto vai sumindo, até voltar a tabela de sempre.
 
-Acima de sete mil, trezentos e cinquenta, vale a tabela de sempre, com a alíquota cheia.
+[TELA: Lei 15.270 — imposto zero até R$ 5.000/mês de renda tributável; desconto parcial até R$ 7.350; acima disso, tabela antiga (máx. 27,5%)]
 
 Só que o leão não olha o aluguel sozinho.
 
-Na declaração, ele soma o aluguel com o seu salário.
+Na declaração, o leão soma o aluguel com o resto da sua renda.
 
-Se o seu salário já passa de sete mil, trezentos e cinquenta reais por mês,
+Então quanto o leão morde depende de quanto você já ganha.
 
-a isenção nova não encosta no seu aluguel.
+Primeiro caso: você já tem um salário acima de sete mil, trezentos e cinquenta reais por mês.
 
-Cada real de aluguel paga vinte e sete e meio por cento.
+Aí a isenção nova não encosta no seu aluguel.
 
-É a alíquota mais alta da tabela.
+Cada real de aluguel paga vinte e sete e meio por cento, a alíquota mais alta da tabela.
 
-[TELA: Lei 15.270 — imposto zero até R$ 5.000/mês; desconto parcial até R$ 7.350; acima disso, tabela antiga (máx. 27,5%)]
-
-A isenção dos cinco mil é uma ótima notícia.
-
-Pra quem não tem salário.
-
-Então o leão leva vinte e sete e meio por cento dos vinte e dois mil.
-
-São seis mil e cinquenta reais.
-
-Tira os seis mil e cinquenta dos vinte e dois mil.
+O leão leva seis mil e cinquenta dos vinte e dois mil.
 
 Sobram quinze mil, novecentos e cinquenta.
 
-[TELA: 22.000 × 27,5% = 6.050 | 22.000 − 6.050 = R$ 15.950]
+Segundo caso: o aluguel é a sua única renda.
+
+Dois mil por mês ficam abaixo dos cinco mil.
+
+Aí o leão não leva nada, e os vinte e dois mil ficam inteiros.
+
+Pra esse dono, a lei nova é uma notícia boa de verdade.
+
+E quem ganha entre um caso e o outro fica no meio do caminho.
+
+[TELA: dois donos, o mesmo aluguel de 22 mil no ano — salário acima de R$ 7.350: 27,5% de IR = 6.050, sobram R$ 15.950 | aluguel como única renda (2 mil/mês, abaixo de R$ 5.000): IR zero, fica tudo | renda no meio: entre os dois]
 
 O anúncio prometia vinte e quatro.
 
-## BLOCO 4 - O OUTRO LADO DA BALANÇA (5:15–7:05)
+## BLOCO 4 - O OUTRO LADO DA BALANÇA (5:20–7:15)
 
 Agora divide os quinze mil, novecentos e cinquenta pelo preço do apartamento, os quatrocentos mil.
 
 Dá quase quatro por cento ao ano.
 
-[TELA: 15.950 ÷ 400.000 = 3,99% ao ano]
+[TELA: dono com salário — 15.950 ÷ 400.000 = 3,99% ao ano]
 
-O apartamento que ia render seis rende quatro.
-
-E ainda te liga às onze da noite porque o chuveiro queimou.
+Pra quem tem salário, o apartamento que ia render seis rende quatro.
 
 Agora põe os mesmos quatrocentos mil num fundo imobiliário.
 
@@ -250,19 +246,27 @@ Sem tirar mês vazio: o rendimento do fundo já sai depois dos imóveis vazios, 
 
 Sem tirar imposto: pra você, pessoa física, esse rendimento é isento.
 
-[TELA: fundo — 400.000 × 6% = R$ 24.000, isento | apartamento — o líquido da conta acima]
+[TELA: fundo — 400.000 × 6% = R$ 24.000, isento | apê, dono com salário: 24.000 − 15.950 = R$ 8.050 a menos | apê, aluguel como única renda: 24.000 − 22.000 = R$ 2 mil a menos (só o mês vazio)]
 
-Vinte e quatro mil no fundo. Quinze mil, novecentos e cinquenta no apartamento.
+Vinte e quatro mil no fundo.
 
-O fundo entrega oito mil e cinquenta reais a mais por ano.
+Pra quem tem salário, o apartamento entrega quinze mil, novecentos e cinquenta.
 
-Só que essa isenção tem letra miúda.
+São os oito mil e cinquenta a menos por ano.
 
-A lei de dezembro de 2023 subiu a régua: o fundo precisa ter pelo menos cem cotistas,
+Pra quem vive só do aluguel, o apartamento entrega vinte e dois mil.
 
-e você não pode ter dez por cento ou mais das cotas.
+A diferença cai pra dois mil por ano. É só o mês vazio.
 
-Fundo pequeno, com poucos cotistas, perde a isenção.
+Pra quem ganha bem, oito mil. Pra quem vive só do aluguel, dois mil.
+
+Quem decide o tamanho da diferença é o leão.
+
+Só que a isenção do fundo tem letra miúda.
+
+O fundo precisa ter pelo menos cem cotistas, e você precisa ter menos de dez por cento dele.
+
+Fundo pequeno, com menos de cem cotistas, perde a isenção.
 
 O leão não some. O leão só não entra em fundo cheio.
 
@@ -272,47 +276,35 @@ E de onde saiu o seis por cento do fundo?
 
 Dos informes que os fundos mandam pra CVM todo mês.
 
-Nos doze meses até agosto, metade dos fundos que passam nesse corte pagou mais de sete vírgula oito por cento. A outra metade pagou menos.
+Nos doze meses até agosto, metade dos fundos da bolsa com cem cotistas ou mais pagou acima de sete vírgula oito por cento.
+
+A outra metade pagou menos.
 
 Nessa conta entram fundos que emprestam dinheiro e vivem de juro, e o juro puxa pra cima.
 
-Por isso eu usei seis, mais baixo, pra não roubar a favor do fundo.
+Por isso eu usei seis, mais baixo, pra não inflar a conta.
 
-[TELA: CVM, informe mensal de FII — 12 meses até ago/26, fundos listados que passam no corte: mediana de 7,8% ao ano sobre o valor patrimonial da cota (valor dos imóveis e do caixa ÷ cotas), não sobre o preço de tela. A mediana mistura fundos de imóvel e fundos de crédito imobiliário; a conta usa 6%]
+[TELA: CVM, informe mensal de FII — 12 meses até ago/26, fundos listados com 100+ cotistas: mediana de 7,8% ao ano sobre o valor patrimonial da cota (valor dos imóveis e do caixa ÷ cotas), não sobre o preço de tela. A mediana mistura fundos de imóvel e fundos de crédito imobiliário; a conta usa 6%]
 
-## BLOCO 5 - A BALANÇA DE TODO DIA (7:05–8:40)
+## BLOCO 5 - O PREÇO NA TELA (7:15–8:55)
 
-Oito mil e cinquenta por ano a favor do fundo.
+Oito mil ou dois mil, a renda do fundo chega maior nos dois casos.
 
 Aí você pensa: "Tá, Denis, mas a cota do fundo cai. O meu apartamento nunca caiu."
 
-Nunca caiu, ou você nunca pesou?
+Nunca caiu, ou ninguém nunca te mostrou o preço?
 
-Você não sobe na balança do banheiro desde a pandemia
-
-e jura que continua com o mesmo peso.
-
-A calça discorda.
-
-Só que aqui a balança pesa outra coisa: não é a renda, é o preço.
-
-O apartamento é assim.
-
-O apartamento tem preço todo dia. Só que ninguém publica.
-
-[CORTE: Denis de lado, cara de "pois é"]
-
-A cota do fundo sobe na balança todo dia,
-
-no pregão da bolsa, com o mercado inteiro olhando.
+A cota do fundo tem preço na tela do app todo dia, no pregão da bolsa.
 
 Se cair um por cento, aparece vermelho no seu celular.
 
-O apartamento só sobe na balança no dia em que você vende.
+[CORTE: Denis de lado, cara de "pois é"]
 
-E é a balança da farmácia: pública, com fila atrás de você,
+O apartamento não tem preço na tela.
 
-e o comprador oferecendo menos porque o prédio não tem elevador.
+Você só descobre quanto o apartamento vale quando tenta vender.
+
+E descobre na frente do comprador, que oferece menos porque o prédio não tem elevador.
 
 Isso quando aparece comprador. Pode levar meses.
 
@@ -322,25 +314,29 @@ E eu não vou fingir que a cota não pesa.
 
 Se a cota cair dez por cento num ano, saem quarenta mil reais dos quatrocentos mil.
 
-[TELA: queda de 10% da cota = R$ 40.000 | 8.050 × 5 anos ≈ R$ 40.000]
-
-A vantagem do fundo é de oito mil e cinquenta por ano.
+Pra quem tem salário, a vantagem do fundo é de oito mil e cinquenta por ano.
 
 Cinco anos dessa vantagem somem num ano ruim da cota.
 
-Só que o seu apartamento também tem ano ruim.
+Pra quem vive só do aluguel, são vinte anos de vantagem.
 
-A diferença é que ele não te avisa.
+[TELA: queda de 10% da cota = R$ 40.000 | dono com salário: 8.050 × 5 anos ≈ R$ 40.000 | aluguel como única renda: 2 mil × 20 anos = R$ 40 mil]
+
+Só que o apartamento também tem ano ruim de preço.
+
+Os dois têm risco de preço. A cota mostra o risco todo dia; o apartamento esconde até a venda.
+
+Mostrar ou esconder não deixa nenhum dos dois mais seguro.
 
 E vale o contrário.
 
-Se o apartamento subir de preço nesses anos, essa subida não entrou na conta dos oito mil e cinquenta.
+Se o apartamento subir de preço nesses anos, essa subida não entrou na conta.
 
-Os oito mil e cinquenta são só a renda.
+A diferença que eu fiz é só de renda.
 
 Valorização é outra conta, e ela vale pros dois lados: o apartamento pode subir ou cair, e a cota também.
 
-## BLOCO 6 - O QUE PESA DE CADA LADO (8:40–10:35)
+## BLOCO 6 - O QUE PESA DE CADA LADO (8:55–10:40)
 
 Nenhum dos dois é santo.
 
@@ -386,10 +382,6 @@ Só que com gestor cobrando taxa.
 
 E quem decide vender o prédio é o gestor, não você.
 
-O fundo tem gestor. O apartamento tem síndico.
-
-Escolhe o seu chefe, Tanaka.
-
 E pra quem já tem os dois, o que olhar todo mês:
 
 no apartamento, quantos meses ele ficou vazio no ano.
@@ -398,19 +390,19 @@ Porque é no mês vazio que o aluguel do anúncio começa a escapar.
 
 No fundo, o número de cotistas e a vacância que ele declara à CVM. É público. Qualquer um consulta.
 
-## BLOCO 7 - A CONTA DO CASACO (10:35–11:10)
+## BLOCO 7 - A CONTA DO CASACO (10:40–11:20)
 
-Oito mil e cinquenta reais por ano.
+Oito mil pra quem tem salário. Dois mil pra quem vive do aluguel.
 
-Essa diferença não diz qual dos dois é melhor.
+Nenhuma das duas diferenças diz qual dos dois é melhor.
 
-Diz que a comparação estava torta: um lado se pesou de casaco, o outro sem roupa.
+Dizem que a comparação estava torta: um lado se pesou de casaco, o outro sem.
 
 Antes de dizer que o apê rende mais, ou que o fundo rende mais, Tanaka, você faz a conta do casaco.
 
 Pega o aluguel e multiplica por onze meses, não doze.
 
-Tira o leão.
+Tira o leão. O seu leão, do tamanho da sua renda.
 
 Divide pelo preço que alguém pagaria hoje no apartamento.
 
@@ -418,6 +410,6 @@ A valorização fica de fora, nos dois lados.
 
 Aí sim você põe o apartamento do lado do fundo, os dois sem casaco.
 
-[TELA: a conta do casaco — (aluguel × 11 − leão) ÷ preço de venda hoje → compare com o rendimento do fundo. Valorização: fora da conta, nos dois lados]
+[TELA: a conta do casaco — (aluguel × 11 − o seu leão) ÷ preço de venda hoje → compare com o rendimento do fundo. Leão: depende da sua renda total. Valorização: fora da conta, nos dois lados]
 
 [FIM]
