@@ -100,7 +100,8 @@ rende e menos a "ações e empresas", que é o assunto mais produzido (28 dos 80
 - **Catálogo constante:** ele cai devagar, mas os vídeos novos viram catálogo.
 - **Perdas** na média de 6 meses.
 - **Defasagem:** os inscritos de cada vídeo chegam 60% no mês da publicação, 25% no seguinte e 15% no outro.
-- **Rampa:** em out/26, a produção é de 75% do plano (calendário v2).
+- **Rampa:** em out/26, a produção é de 75% do plano (calendário v2). O calendário oficial, v3 (`CALENDARIO.md`),
+  tem 11 longos de 05/10 a 31/10 e compara a estimativa dele com estas metas.
 
 ## Metas mensais (cenário recomendado)
 
@@ -142,8 +143,8 @@ razão intencional/views dos Shorts em agosto, antes do efeito de 27/08.
 
 ## Metas semanais (out e nov/26)
 
-As semanas seguem o calendário v2. A meta semanal é a mensal ÷ 4,33. Na produção, a quinta é dia de longo, e a partir de
-26/10 entra o 3º longo semanal.
+A meta semanal é a mensal ÷ 4,33. A coluna de longos é a do plano (rampa do calendário v2: 2 por semana até 25/10 e 3
+depois). O calendário oficial, v3 (`CALENDARIO.md`), já tem 3 longos por semana a partir de 12/10 e nunca mais de 3.
 
 | semana | inscritos líquidos | ganhos | longos | Shorts |
 |---|---|---|---|---|

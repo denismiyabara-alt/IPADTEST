@@ -2,6 +2,7 @@
 """Calendário v2 (05/10 a 29/11/2026): pautas escolhidas pelo ranking de inscritos esperados por vídeo (TEMAS.md) e
 pela demanda de busca do próprio canal, com os inscritos esperados de cada pauta e a soma semanal comparada com a
 meta semanal de META.md. Gera CALENDARIO-8-SEMANAS.md e .csv. A v1 está em CALENDARIO-8-SEMANAS_v1.*.
+HISTÓRICO: o calendário oficial agora é o v3 (calendario_v3.py → CALENDARIO.md e .csv), que parte destas PAUTAS.
 
 O assunto de cada pauta sai do PRÓPRIO TÍTULO (analisar.assunto); o teste confere que bate com o planejado.
 
@@ -269,7 +270,10 @@ def markdown(d, linhas):
     esp = {a: temas.esperado_por_assunto(d, L, a)[0] for a in mix}
     mix_md = "\n".join(["  | assunto | longos nas 8 semanas | inscritos esperados por longo |", "  |---|---|---|"]
                        + [f"  | {a} | {n} | {br(esp[a])} |" for a, n in mix.most_common()])
-    out = [f"""# Calendário de 8 semanas: v2 (05/10 a 29/11/2026)
+    out = [f"""# Calendário de 8 semanas: v2 (05/10 a 29/11/2026), histórico
+
+**Substituído pelo v3 em 03/10/2026.** O calendário oficial é `CALENDARIO.md` (gerado por `calendario_v3.py`). Este
+arquivo fica como histórico, com o nome antigo porque a `esteira-social/` ainda lê o `.csv` dele.
 
 Gerado por `calendario_v2.py`. Todas as colunas estão em `CALENDARIO-8-SEMANAS.csv`; a v1 ficou em
 `CALENDARIO-8-SEMANAS_v1.md`.

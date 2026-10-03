@@ -1,7 +1,7 @@
 # Molde: o vídeo de Tesouro e IPCA+ de cada Copom
 
-Um roteiro que se repete a cada reunião do Copom: só mudam os números entre colchetes. Montado em 03/10/2026. Para o
-Denis aprovar.
+Um roteiro que se repete a cada reunião do Copom: só mudam os números entre colchetes. Montado em 03/10/2026. Aprovado
+pelo Denis em 03/10/2026: a versão pré estreia na terça 03/11 (`../CALENDARIO.md`).
 
 **Por que vale repetir:** Tesouro e renda fixa é o assunto com mais inscritos esperados por longo nos últimos 12 meses:
 195 por vídeo, faixa de 106 a 212, n = 5 (`TEMAS.md`). O relatório mede mediana de 142 inscritos por vídeo e 11,0 por mil
@@ -60,13 +60,15 @@ Reunião sempre em terça e quarta; o comunicado sai na quarta, a partir das 18h
 | quarta (2º dia), manhã | anotar as taxas da manhã: são o [*_ANTES] definitivo. Short pré-decisão (já previsto na v2: 04/11) | é o último preço sem o comunicado |
 | quarta, 18h30 | ler o comunicado duas vezes. Preencher [SELIC_NOVA], [DECISAO], [VOTACAO], [FRASE_TOM]. Não gravar à noite | a reação do mercado só aparece na abertura de quinta; gravar na quarta à noite seria opinar sem o dado |
 | quinta, depois da abertura do Tesouro Direto | anotar as taxas novas (site do Tesouro Direto, com a hora) → [*_DEPOIS]. Gravar entre 10h e 12h; editar à tarde | o vídeo mostra o que de fato mudou no preço do título, que é a pergunta de quem tem Tesouro |
-| quinta, 19h | **publicar a versão pós** | 19h é o horário dos longos do canal (`CALENDARIO-8-SEMANAS.md`) |
+| quinta, 19h | **publicar a versão pós** | 19h é o horário dos longos do canal (`../CALENDARIO.md`) |
 | sexta ou segunda | Short derivado: "o IPCA+ subiu ou caiu depois do Copom?" | Shorts de Tesouro vivem de Pesquisa no vitalício (67%, `TEMAS.md`) |
 | terça seguinte, 8h | ler a ata; se mudar o tom, comentário fixado ou post na comunidade, sem vídeo novo | a ata explica o comunicado; não justifica outro longo |
 
-**Teste proposto:** em 03-04/11, seguir a v2 (Short na quarta 04/11 e longo pós na quinta 05/11). Em 08-09/12, publicar o
-longo pré na terça 08/12 e um Short pós na quinta 10/12. Comparar inscritos e views intencionais de 7 dias. Decidir o padrão
-de 2027 com as duas reuniões.
+**Teste aprovado (03/10/2026, `../CALENDARIO.md`):** em 03-04/11, longo **pré** na terça 03/11, 19h (02/11 é feriado
+de Finados e o Focus só sai na terça), e Short na quarta 04/11. Em 08-09/12: se o longo de 03/11 fizer 69 inscritos ou
+mais nos 7 primeiros dias, repetir o pré (terça 08/12, e Short pós na quinta 10/12); se fizer menos, testar o pós
+(Short pré na quarta 09/12 e longo pós na quinta 10/12). Comparar inscritos e views intencionais de 7 dias e decidir o
+padrão de 2027 com as duas reuniões.
 
 ---
 
@@ -192,8 +194,8 @@ Para testar o molde com dados reais. Tudo conferido em 03/10/2026.
 
 | reunião | datas | comunicado | vídeo pós (molde) | fonte |
 |---|---|---|---|---|
-| 282ª | ter 03 e qua 04/11/2026 | 04/11, a partir das 18h30 | qui 05/11/2026 (já na v2) | ver abaixo |
-| 283ª | ter 08 e qua 09/12/2026 | 09/12 | qui 10/12/2026 (ou pré em ter 08/12, teste) | ver abaixo |
+| 282ª | ter 03 e qua 04/11/2026 | 04/11, a partir das 18h30 | nenhum: o longo é o pré, na terça 03/11 (v3) | ver abaixo |
+| 283ª | ter 08 e qua 09/12/2026 | 09/12 | qui 10/12/2026, ou o pré em ter 08/12 (regra do `CALENDARIO.md`) | ver abaixo |
 | 2027 | 26-27/01 · 16-17/03 · 27-28/04 · 15-16/06 · 03-04/08 · 21-22/09 · 26-27/10 · 07-08/12 | no 2º dia de cada uma | a quinta seguinte: 28/01, 18/03, 29/04, 17/06, 05/08, 23/09, 28/10, 09/12 | ver abaixo |
 
 **Fonte e grau de conferência:**

@@ -1,4 +1,7 @@
-# Calendário de 8 semanas: v2 (05/10 a 29/11/2026)
+# Calendário de 8 semanas: v2 (05/10 a 29/11/2026), histórico
+
+**Substituído pelo v3 em 03/10/2026.** O calendário oficial é `CALENDARIO.md` (gerado por `calendario_v3.py`). Este
+arquivo fica como histórico, com o nome antigo porque a `esteira-social/` ainda lê o `.csv` dele.
 
 Gerado por `calendario_v2.py`. Todas as colunas estão em `CALENDARIO-8-SEMANAS.csv`; a v1 ficou em
 `CALENDARIO-8-SEMANAS_v1.md`.

@@ -1,6 +1,6 @@
 # Série Renda Mensal: os 6 próximos episódios
 
-Pauta para o Denis aprovar. Montada em 03/10/2026 com os dados de `auditoria-canal/dados/` (exportação de 02/10/2026),
+Pauta aprovada pelo Denis em 03/10/2026. Montada em 03/10/2026 com os dados de `auditoria-canal/dados/` (exportação de 02/10/2026),
 `pautas-canal/TERMOS.md` e `pautas-canal/TEMAS.md`. A checagem automática dos títulos está em `checar_serie.py`, nesta
 pasta.
 
@@ -39,7 +39,8 @@ Longos de renda dos últimos 6 meses (`videos.csv`, de 04/04 a 01/10/2026) e pau
 5. Renda e inflação (proteção)
 6. A grade de 12 meses (fechamento: junta tudo)
 
-Datas propostas: quartas às 19 h, de 14/10 a 25/11, pulando a semana do Copom (ver `PROPOSTA-CALENDARIO-V3.md`).
+Datas APROVADAS pelo Denis em 03/10/2026: quartas às 19 h, de 14/10 a 25/11, pulando a semana do Copom (calendário
+oficial: `../CALENDARIO.md`). Os títulos abaixo são provisórios: ainda passam pelo empacotador e pelo teste A/B.
 
 **Fontes que valem para todos os episódios** (regras de 2026 já conferidas no projeto; use só estas):
 

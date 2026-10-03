@@ -10,7 +10,7 @@
 - **Gancho:** o primeiro segundo é a frase do gancho, falada e escrita na tela.
 - **Final:** todo Short termina apontando para o longo da mesma semana (card ou "vídeo relacionado").
 
-**Datas:** segunda e quarta, nas semanas em que o longo sai terça e quinta (`CALENDARIO-8-SEMANAS.md`). Em novembro, os dois Shorts do Copom saem em 03/11 (antes) e 06/11 (depois).
+**Datas:** valem as do calendário oficial (`CALENDARIO.md`, v3). Lá, o Copom de novembro tem o longo pré na terça 03/11 e o Short na quarta 04/11.
 
 **Regras:**
 - nada de recomendar ativo ou citar corretora;

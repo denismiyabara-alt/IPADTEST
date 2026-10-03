@@ -1,8 +1,9 @@
 """Testes de pautas-canal (sem rede). Os que dependem dos dados reais pulam se eles não estiverem no repositório."""
 import csv
+from collections import Counter
 import re
 import sys
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 import pytest
@@ -158,3 +159,102 @@ def test_termos_reais():
         top = sorted((r for r in T.linhas() if r["categoria"] == "investimento"), key=lambda r: -r["recente"])
         assert top[0]["termo"] == "trxf11" and top[0]["assunto"] == "FII"
     assert por_data["2026-10-22"]["views_pesquisa_vitalicio"] > 0
+
+
+# ------------------------------------------------------------------ calendário oficial (v3)
+import calendario_v3 as cal3  # noqa: E402
+import os  # noqa: E402
+
+CAL3_CSV = AQUI / "CALENDARIO.csv"
+GATE_DIR = Path(os.environ.get("GATE_DIR", "/home/user/investir-e-cocar/pipeline"))
+
+
+def linhas_v3():
+    with open(CAL3_CSV, encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+def test_calendario_v3_no_maximo_3_longos_por_semana():
+    longos = [r for r in linhas_v3() if r["formato"] == "longo"]
+    por_semana = Counter((date.fromisoformat(r["data"]) - cal3.INICIO).days // 7 for r in longos)
+    assert set(por_semana) == set(range(8))
+    assert max(por_semana.values()) <= 3, por_semana
+    for r in linhas_v3():
+        assert cal3.INICIO <= date.fromisoformat(r["data"]) <= cal3.FIM
+
+
+def test_calendario_v3_sem_as_7_pautas_fora_do_nicho():
+    assert len(cal3.FORA_DO_NICHO) == 7
+    titulos = {an.norm(r["titulo"]) for r in linhas_v3()}
+    for data_, titulo in cal3.FORA_DO_NICHO.items():
+        assert an.norm(titulo) not in titulos, titulo
+        assert any(p[0] == data_ and p[3] == titulo for p in cal.PAUTAS), (data_, titulo)   # existia no v2
+    t = " ".join(titulos)
+    assert not re.search(r"bolha da ia|perfil de investidor|casal que investe|1 centavo dobrando|reserva de emergencia", t)
+
+
+def test_calendario_v3_serie_copom_e_titulos_provisorios():
+    ls = linhas_v3()
+    eps = sorted((r["data"], r["serie_ep"]) for r in ls if r["formato"] == "longo" and r["serie_ep"])
+    assert eps == [("2026-10-14", "Ep. 1"), ("2026-10-21", "Ep. 2"), ("2026-10-28", "Ep. 3"), ("2026-11-11", "Ep. 4"),
+                   ("2026-11-18", "Ep. 5"), ("2026-11-25", "Ep. 6")]
+    for r in ls:
+        assert (r["status_titulo"] == cal3.PROVISORIO) == bool(r["serie_ep"]), r["titulo"]
+        assert an.assunto(r["titulo"], cal3.SERIE if r["serie_ep"] else None) == r["assunto"], r["titulo"]
+    copom = [r for r in ls if r["formato"] == "longo" and "Copom" in r["titulo"]]
+    assert [r["data"] for r in copom] == ["2026-11-03"] and copom[0]["assunto"] == "tesouro e renda fixa"
+    assert not any(r["data"] == "2026-11-02" and r["formato"] == "longo" for r in ls)   # feriado de Finados
+    assert sum(1 for r in ls if r["formato"] == "short") == 16
+
+
+def test_calendario_v3_ep1_sem_canibalizacao():
+    ls = linhas_v3()
+    ep1 = date(2026, 10, 14)
+    for r in ls:
+        dt = date.fromisoformat(r["data"])
+        t = an.norm(r["titulo"])
+        if r["formato"] == "longo" and not r["serie_ep"] and ep1 - timedelta(days=14) <= dt < ep1:
+            assert not ("etf" in t and "dividendos mensais" in t), r["titulo"]     # mesmo tema e termo do Ep. 1
+        if not r["serie_ep"]:
+            assert "o que sobra" not in t, r["titulo"]                              # promessa do Ep. 1
+    assert cal3.CANIBALIZA_EP1[1] not in {r["titulo"] for r in ls}
+    assert any(r["data"] == "2026-10-06" and r["titulo"] == cal3.VAGA_06_10 for r in ls)
+
+
+def test_calendario_v3_todo_titulo_passa_no_gate():
+    sys.path.insert(0, str(GATE_DIR))
+    g = pytest.importorskip("gate_qualidade")
+    titulos = [r["titulo"] for r in linhas_v3()]
+    assert len(titulos) == len(set(titulos))
+    for t in titulos:
+        post = g.Post(t, "", "md")
+        probs = g.checar_recomendacao(post) + g.checar_corretora(post) + g.checar_tickers(post)
+        assert not probs, (t, probs)
+        r = g.avaliar(post)
+        assert r["bloqueantes"] == 0, (t, r["problemas"])
+
+
+def test_regra_dos_3_longos_tira_o_mais_fraco_ou_empurra():
+    def p(data_, e, ep=""):
+        return {"data": data_, "formato": "longo", "_e": e, "serie_ep": ep, "origem": "v2", "titulo": data_,
+                "assunto": "x"}
+    # semana de 12/10 com 4 longos: o episódio (10) é fixo; o mais fraco dos outros é o de 13/10 (30)
+    ls = [p("2026-10-12", 91), p("2026-10-13", 30), p("2026-10-14", 10, "Ep. 1"), p("2026-10-15", 195),
+          p("2026-10-20", 91)]
+    out, dec = cal3.aplicar_limite(ls)
+    # a terça 20/10 já tem longo: vai para a terça seguinte com vaga, 27/10
+    assert len(dec) == 1 and dec[0]["sai"] == "2026-10-13" and dec[0]["acao"] == "empurrado para 27/10"
+    assert [r["data"] for r in out if r["titulo"] == "2026-10-13"] == ["2026-10-27"]
+    # sem vaga em nenhuma semana seguinte: sai da janela
+    cheio = [p(f"2026-11-{d:02d}", 50) for d in (23, 24, 25)] + [p("2026-11-26", 40), p("2026-11-27", 45)]
+    out, dec = cal3.aplicar_limite(cheio)
+    assert [d["sai"] for d in dec] == ["2026-11-26", "2026-11-27"]          # 5 longos: saem os 2 mais fracos
+    assert all("fila de dezembro" in d["acao"] for d in dec) and len(out) == 3
+
+
+@pytest.mark.skipif(not DADOS_REAIS, reason="dados reais ausentes")
+def test_calendario_v3_csv_e_o_que_o_script_gera():
+    linhas, decisoes = cal3.montar(mo.carregar())
+    assert [(r["data"], r["titulo"]) for r in linhas] == [(r["data"], r["titulo"]) for r in linhas_v3()]
+    assert [d["sai"] for d in decisoes] == ["TRXF11: o que aconteceu com a renda desde agosto",
+                                           "Fundo imobiliário ou imóvel alugado: a conta de 2026"]
