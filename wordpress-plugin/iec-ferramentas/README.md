@@ -102,6 +102,7 @@ PLAYWRIGHT=$(npm root -g)/playwright node tests/navegador.mjs
 
 ## Versões
 
+- 1.3.1: quiz de perfil vira "Qual é o seu nível de cagaço?" (Bunda na parede, Bundão, Furico aberto) e ganha captura de e-mail no Brevo (lista "Quiz Nível de Cagaço", campo PERFIL).
 - 1.3.0: adiciona `um-milhao`, `jcp-liquido`, `aposentadoria-renda` e `ir-fii-venda`; atributos opcionais no shortcode (`modo="compacto"`, `metodologia` e preenchimento de campos).
 - 1.2.0: adiciona `lci-lca-cdb`, `juros-anual-mensal`, `renda-fixa-comparador`, `perfil-investidor` e `preco-justo`.
 - 1.1.0: adiciona `renda-fii`.

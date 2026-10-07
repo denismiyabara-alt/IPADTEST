@@ -230,3 +230,19 @@
 
 /* ---------- Modo compacto (shortcode modo="compacto") ---------- */
 #perfil-inv .iec-compacto { margin: 24px 0 0; font-size: 14px; color: var(--muted); }
+
+/* ---------- Captura de e-mail (Brevo) ---------- */
+#perfil-inv #p-form { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+#perfil-inv .p-email {
+  flex: 1 1 200px; min-width: 0; padding: 10px 12px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  font: 16px/1.3 var(--font-body); color: var(--text); background: var(--surface);
+}
+#perfil-inv .p-btn {
+  padding: 10px 16px; border: 0; border-radius: var(--radius);
+  background: var(--accent); color: #fff; font: 700 15px/1.2 var(--font-display); cursor: pointer;
+}
+#perfil-inv .p-btn:disabled { opacity: .6; cursor: default; }
+#perfil-inv .p-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+#perfil-inv .fine.pos { color: var(--pos); }
+#perfil-inv .fine.neg { color: var(--neg); }

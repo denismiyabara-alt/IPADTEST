@@ -1,8 +1,8 @@
 <div id="perfil-inv" class="iec-ferramenta">
   <header>
-    <p class="eyebrow">Comece aqui · Ferramenta</p>
-    <h2 class="titulo">Quiz: qual é o seu perfil de investidor?</h2>
-    <p>Sete perguntas rápidas sobre prazo, reserva e como você reage quando o mercado cai. No fim, você vê se o seu perfil é conservador, moderado ou arrojado, e o que isso costuma significar na prática.</p>
+    <p class="eyebrow">Comece aqui · Quiz</p>
+    <h2 class="titulo">Qual é o seu nível de cagaço?</h2>
+    <p>Sete perguntas sobre prazo, reserva e o que você faz quando a bolsa cai. No fim, você descobre se é Bunda na parede, Bundão ou Furico aberto. É o seu perfil de investidor, só que sem a cara de formulário de banco.</p>
   </header>
   <div class="grid">
     <div class="card">
@@ -66,11 +66,23 @@
     </div>
     <div class="stack">
       <div class="card">
-        <div class="fine" id="p-label">Responda as 7 perguntas para ver o resultado.</div>
+        <div class="fine" id="p-label">Responda as 7 perguntas para ver o seu nível.</div>
         <div class="big" id="p-perfil">—</div>
         <div class="fine" id="p-progresso"></div>
         <div class="story" id="p-texto" hidden></div>
         <div id="p-alerta" class="story bad" hidden></div>
+      </div>
+      <div class="card" id="p-lead" hidden>
+        <h3>Quer receber conteúdo pro seu nível?</h3>
+        <p class="fine">Deixe o e-mail e eu mando o que faz sentido pra quem é <strong id="p-lead-nome">—</strong>. Sem spam.</p>
+        <form id="p-form" action="https://b12b9383.sibforms.com/serve/MUIFADjo5wlUe6R0rK5B-Zu0-113vg6xJh1R4KwJiZvbI6qZPLxYRdiMsCK7Q8Mfz34yaEUQ9ROEIEj2aMJR9z7blbHHUe3eTf9WDeMZNMHlBRyrBC3Vc1hFEV243w6ByQtOXu9TUgrhTBiThUiiV0XOf4ZS_XMS52kBgMktMVtQdwCKT1v50iBHdcGKgabr1SN1mosP6YflFuyu" method="POST" novalidate>
+          <input class="p-email" type="email" name="EMAIL" id="p-email" placeholder="seu@email.com" autocomplete="email" required>
+          <input type="hidden" name="PERFIL" id="p-perfil-campo" value="">
+          <input type="hidden" name="locale" value="pt">
+          <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="p-hp">
+          <button type="submit" class="p-btn" id="p-enviar">Quero receber</button>
+        </form>
+        <p class="fine" id="p-lead-msg" hidden></p>
       </div>
       <div class="card" id="p-guia" hidden>
         <h3>Para continuar estudando</h3>
@@ -84,9 +96,9 @@
     <p>O perfil não é uma etiqueta para sempre. Ele muda quando muda a sua vida: renda, família, idade, objetivos. Vale refazer de tempos em tempos.</p>
     <h2 class="secao">Sobre este quiz</h2>
     <ul class="fine">
-      <li>Cada resposta vale de 1 a 3 pontos. Até 11 pontos: conservador. De 12 a 16: moderado. 17 ou mais: arrojado.</li>
+      <li>Cada resposta vale de 1 a 3 pontos. Até 11 pontos: Bunda na parede (perfil conservador). De 12 a 16: Bundão (moderado). 17 ou mais: Furico aberto (arrojado).</li>
       <li>É uma ferramenta educativa e simplificada. Não substitui a análise de perfil (suitability) que corretoras e bancos são obrigados a fazer, e não é recomendação de investimento.</li>
-      <li>Nenhuma resposta é enviada ou salva: tudo é calculado no seu navegador.</li>
+      <li>As respostas são calculadas no seu navegador e não são salvas. Só se você deixar o e-mail, o e-mail e o nome do seu nível vão para a nossa lista (Brevo), e você pode sair dela quando quiser.</li>
     </ul>
   </section>
 </div>
