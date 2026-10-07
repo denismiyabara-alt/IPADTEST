@@ -8,9 +8,9 @@ import csv, json, os, subprocess, sys, time, urllib.parse, urllib.request
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 UA = {"User-Agent": "doc-licencas/0.1 (baixar_imagens.py)"}
-PAGINAS_NARA = {   # arquivo -> URL da pagina escaneada (CONFERIR NO MAC a do memorando de 1958)
+PAGINAS_NARA = {   # arquivo -> URL da pagina escaneada
     "cia-memo-dulles-1953.jpg": "https://catalog.archives.gov/medialz/dc-metro/rg-263/640446/640446_Box31_Folder2/640446_Box31_Folder2-0012.jpg",
-    "cia-memo-1958-clemens.jpg": None,
+    "cia-memo-1958-clemens.jpg": "https://catalog.archives.gov/medialz/dc-metro/rg-263/640446/640446_Box30_Folder3/640446_Box30_Folder3-0078.jpg",
 }
 
 

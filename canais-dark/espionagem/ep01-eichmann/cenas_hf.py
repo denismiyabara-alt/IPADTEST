@@ -21,9 +21,9 @@ CENAS = {
         ("Onze de maio de mil novecentos e sessenta", datilo("11 DE MAIO DE 1960")),
         ("Já é noite em San Fernando", mapa_sf(noite=True)),
         ("Em volta dele", mapa_sf(noite=True, carros=True)),
-        ("Os documentos dele dizem", arquivo("eichmann-passaporte-cruz-vermelha.jpg", foco=(0.3, 0.5))),
+        ("Os documentos dele dizem", datilo("RICARDO KLEMENT", classe="nome")),
         ("Naquela noite, o ônibus de sempre chega", mapa_sf(noite=True, carros=True, relogio=("19:40", "20:05"))),
-        ("Adolf Eichmann.", arquivo("eichmann-julgamento-1961.jpg")),
+        ("Adolf Eichmann.", datilo("ADOLF EICHMANN", classe="nome")),
         ("Esta é a história", titulo("A captura de Eichmann", "BUENOS AIRES · 1960")),
     ],
     "b1": [
@@ -38,7 +38,7 @@ CENAS = {
         ("No fim da guerra", cartela_ato("II. Ricardo Klement")),
         ("Em mil novecentos e cinquenta, atravessou", rota([("Norte da Alemanha", 53, 10), ("Gênova", 44.4, 8.9),
                                                              ("Buenos Aires", -34.6, -58.4)], EUROPA_SUL)),
-        ("Em Gênova, conseguiu", arquivo("eichmann-passaporte-cruz-vermelha.jpg", zoom="out")),
+        ("Em Gênova, conseguiu", datilo("CRUZ VERMELHA · GÊNOVA · 1950", rec=True)),
         ("Com ele, embarcou", linha_tempo(LINHA, 5)),
         ("A família chegou usando o sobrenome verdadeiro", datilo("EICHMANN")),
     ],
@@ -46,7 +46,7 @@ CENAS = {
         ("A pista que levou", cartela_ato("III. A pista")),
         ("Klaus, o filho mais velho", silhueta("banco")),
         ("Em mil novecentos e cinquenta e sete", datilo("FRITZ BAUER · PROCURADOR-GERAL DE HESSE", classe="nome")),
-        ("Lá, o caso foi para o Mossad", arquivo("isser-harel-1969.jpg")),
+        ("Lá, o caso foi para o Mossad", datilo("ISSER HAREL · MOSSAD", classe="nome")),
         ("Em mil novecentos e cinquenta e oito, um agente", mapa_sf(noite=False)),
         ("Arquivos da CIA abertos", documento("cia-memo-dulles-1953.jpg", caixa=(0.25, 0.362, 0.53, 0.112))),
         ("O texto diz que o único caminho legal", documento(
@@ -55,7 +55,8 @@ CENAS = {
                      "que poderia então pedir a extradição. (...) Qualquer ação da Agência teria de ser secreta e ilegal.\" "
                      "CIA, 9 out. 1953 (tradução do canal)")),
         ("Um memorando de março", documento("cia-memo-1958-clemens.jpg",
-                                            traducao="Março de 1958: \"Eichmann vive na Argentina com o nome de Clemens\" (CONFERIR NO MAC a página e a citação).")),
+                                            traducao="\"Adolf Eichmann (...) teria vivido na Argentina com o nome falso de CLEMENS desde 1952.\" "
+                                                     "CIA, despacho EGMA-32934, 19 mar. 1958, pág. 2 (tradução do canal)")),
     ],
     "b4": [
         ("Quem reacendeu o caso", cartela_ato("IV. As flores")),
@@ -71,25 +72,25 @@ CENAS = {
     ],
     "b6": [
         ("Eichmann ficou cerca de dez dias", cartela_ato("VI. O voo")),
-        ("A delegação viajaria", arquivo("britannia-el-al-1958.jpg")),
-        ("Harel e parte da equipe", documento("harel-cartao-el-al.jpg")),
+        ("A delegação viajaria", datilo("EL AL · BRISTOL BRITANNIA", rec=True)),
+        ("Harel e parte da equipe", datilo("EL AL · TRIPULAÇÃO", rec=True)),
         ("O avião decolou", rota([("Buenos Aires", -34.6, -58.4), ("Dakar", 14.7, -17.4), ("Lod", 31.95, 34.9)], ATLANTICO)),
     ],
     "b7": [
         ("No dia seguinte", cartela_ato("VII. A soberania")),
-        ("No mesmo dia, um tribunal", documento("ordem-prisao-1960-05-23.jpg")),
+        ("No mesmo dia, um tribunal", datilo("TEL AVIV · 23 MAIO 1960 · ORDEM DE PRISÃO", rec=True)),
         ("A Argentina levou o caso", documento("resolucao-138-onu.jpg",
                                                traducao="Resolução 138, 23 de junho de 1960: pede a Israel \"reparação adequada\" (tradução do canal).")),
         ("Foram oito votos", placar("8", "0", "2", "a Argentina não votou")),
     ],
     "b8": [
-        ("O julgamento começou", arquivo("eichmann-julgamento-1961.jpg")),
-        ("Eram três juízes", arquivo("juizes-julgamento-1961.jpg")),
-        ("A acusação era chefiada", arquivo("hausner-servatius-1961.jpg")),
-        ("A defesa sustentou", arquivo("eichmann-cabine-anotacoes-1961.jpg")),
+        ("O julgamento começou", arquivo("eichmann-cabine-anotacoes-1961.jpg")),
+        ("Eram três juízes", datilo("LANDAU · HALEVI · RAVEH", classe="nome")),
+        ("A acusação era chefiada", datilo("HAUSNER × SERVATIUS", classe="nome")),
+        ("A defesa sustentou", arquivo("eichmann-cabine-anotacoes-1961.jpg", zoom="out", foco=(0.5, 0.3))),
         ("A acusação chamou", arquivo("dinur-testemunha-1961.jpg")),
         ("O julgamento foi filmado", video("cinejornal-1961-eichmann.mp4")),
-        ("Em quinze de dezembro", arquivo("sentenca-1961-12-15.jpg")),
+        ("Em quinze de dezembro", datilo("15 DE DEZEMBRO DE 1961")),
         ("Adolf Eichmann foi enforcado", preto(["31 DE MAIO / 1º DE JUNHO DE 1962", "PRISÃO DE RAMLA"])),
     ],
     "b9": [

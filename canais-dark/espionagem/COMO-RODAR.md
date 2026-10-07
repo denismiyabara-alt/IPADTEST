@@ -42,13 +42,13 @@ Conferem: o roteiro passa no normalizador de números (nenhum algarismo na voz, 
 
 ## 2. Conferir os fatos (trava da voz)
 
-O `rodar.py` **não grava voz** enquanto houver fato no quadro `## Fatos conferidos` (fim do `ep01-eichmann/roteiro.md`) com status diferente de `conferido`. Hoje são **43 de 47 em `CONFERIR NO MAC`**; 4 foram conferidos aqui (F31, F37, F43, F48).
+O `rodar.py` **não grava voz** enquanto houver fato no quadro `## Fatos conferidos` (fim do `ep01-eichmann/roteiro.md`) com status diferente de `conferido`. Hoje são **38 de 48 em `CONFERIR NO MAC`**; 10 estão conferidos: F31, F37, F43, F48 (03/10) e, em 07/10/2026, F01, F02, F03, F16, F33 e F34, todos em documento primário (CIA name file no NARA, págs. citadas no quadro; texto oficial da S/RES/138). O F49 é novo: a frase "os documentos liberados não mostram repasse a Israel" saiu do F16 porque é afirmação negativa (conferir em Bascomb ou cortar).
 
 Para cada linha: abrir a fonte da coluna 3 (livro na página, documento na URL), anotar a página no lugar de "pág. CONFERIR" e trocar o status para `conferido`. Se o fato não se confirmar: corrigir a frase no roteiro (e o número na tela, se houver), ou cortar.
 
 Pontos que exigem atenção especial:
-- **F16** (memorando da CIA de março de 1958, "Clemens"): achar a página no item NAID 139332813 (110 páginas) ou nos vols. 1–3 (NAIDs 139331601, 139331937, 139332313). Sem a página, cortar as três frases.
-- **F33/F34** (Resolução 138 e votação 8–0–2): abrir `https://undocs.org/S/RES/138(1960)` e o registro de votação na UN Digital Library.
+- **F16** resolvido em 07/10/2026: despacho EGMA-32934, 19/03/1958, vol. 2 (NAID 139331937), págs. 77–78. **F33/F34** resolvidos pelo texto oficial da resolução.
+- **F49** (sem repasse a Israel em 1958): conferir em Bascomb; sem página, cortar a frase.
 - **F42** (contestação da tese de Arendt, fonte Stangneth): fora da bibliografia principal. Sem conferir, cortar as duas frases.
 - **F46** ("única pena de morte por tribunal civil"): se não achar fonte, cortar a frase.
 - **F05, F09, F15, F20, F22, F24, F25, F39, F45** têm divergência entre fontes descrita na coluna 3; o roteiro já usa a formulação mais prudente.
@@ -67,7 +67,9 @@ Para cada linha **sem** prefixo `REC-` da `licencas-ep01.csv`:
 3. trocar `verificado_por` por quem conferiu e `data_verificacao` pela data;
 4. se a base legal não se sustentar (marcadas na coluna `base_legal`: passaporte, cartão da El Al, ordem de prisão), **não usar**: trocar a cena no `cenas_hf.py` por uma peça REC.
 
-Pendências específicas: `cia-memo-1958-clemens.jpg` (página a localizar, depende de F16), `resolucao-138-onu.jpg` (não baixou daqui), `julgamento-ushmm-sessao.mp4` (USHMM bloqueado daqui: conferir o texto de direitos da sessão), e o cinejornal (`.ogv` vira `.mp4` sem áudio).
+Conferência de 07/10/2026 (páginas do Commons e catálogo do NARA lidos daqui): **6 confirmadas** (`cia-memo-dulles-1953`, `cia-memo-1958-clemens`, `resolucao-138-onu`, `eichmann-cabine-anotacoes-1961`, `dinur-testemunha-1961`, `cinejornal-1961-eichmann`) e **9 trocadas por REC** e tiradas da planilha, porque a página do Commons só traz o selo do país de origem (PD-Israel ou PD-AR-Photo) e nenhum selo dos EUA, que o próprio modelo do Commons exige: passaporte da Cruz Vermelha, Eichmann no julgamento (GPO D482-067), Isser Harel 1969, Britannia da El Al, cartão da El Al, ordem de prisão de 23/05/1960, juízes, Hausner e Servatius, sentença de 15/12/1961. Foto israelense de Estado de 1958–1969 só caiu em domínio público em Israel depois de 1996, então os EUA restauraram o copyright (URAA): o selo não existe. Uma foto equivalente com PD-author do GPO no Commons pode voltar, com linha nova na planilha. A cena virou nome ou cartela datilografada (`REC-cartelas-nomes`, `REC-cartela-*`), e "É este documento." saiu do B2. A fala do julgamento usa a foto da cabine (PD-author).
+
+Pendências: os prints das páginas (`prints/`), e `julgamento-ushmm-sessao.mp4` (USHMM ainda barrado; hoje não entra em nenhuma cena). O cinejornal: `.ogv` vira `.mp4` sem áudio.
 
 ## 4. Voz (uma vez para o canal, depois por episódio)
 

@@ -27,7 +27,7 @@ Em volta dele, homens de um serviço secreto estrangeiro esperam um ônibus.
 * fonte: F11 F22
 O homem que eles esperam trabalha numa fábrica de automóveis, do outro lado da cidade.
 Desce sempre no mesmo ponto e caminha até em casa.
-* cena: arquivo eichmann-passaporte-cruz-vermelha.jpg (só o nome, sem o rosto ainda)
+* cena: nome em máquina de escrever "RICARDO KLEMENT" (o documento de 1950 não tem base de domínio público nos EUA: não entra)
 * fonte: F09
 Os documentos dele dizem que ele se chama Ricardo Klement.  ⏸
 * fonte: F22
@@ -38,7 +38,7 @@ E ele não desce.  ⏸ {1.2}
 Então outro ônibus para na estrada, e um vulto desce na escuridão.  ⏸
 Em menos de um minuto, ele está deitado no banco de trás de um carro.  ⏸ {0.9}
 E um nome que o mundo procurava havia quinze anos volta a ter um dono.  ⏸ {1.3}
-* cena: arquivo eichmann-julgamento-1961.jpg (Ken Burns lento) + nome em máquina de escrever
+* cena: nome em máquina de escrever "ADOLF EICHMANN" (foto GPO de 1961 sem selo dos EUA: não entra)
 Adolf Eichmann.  ⏸ {1.6}
 * cena: CARTELA título "A CAPTURA DE EICHMANN" / "Buenos Aires, 1960"
 Esta é a história de como o serviço secreto de Israel encontrou, capturou e tirou da Argentina um dos organizadores do Holocausto.
@@ -90,10 +90,9 @@ Passou cerca de quatro anos escondido no norte da Alemanha, com outra identidade
 * cena: REC mapa: Alemanha → Áustria → Itália (Gênova), a linha se desenha
 * fonte: F08
 Em mil novecentos e cinquenta, atravessou para a Itália por uma das rotas de fuga que levaram centenas de nazistas para a América do Sul.
-* cena: arquivo eichmann-passaporte-cruz-vermelha.jpg (documento inteiro, zoom no nome)
+* cena: REC cartela datilografada "CRUZ VERMELHA · GÊNOVA · 1950", selo RECONSTITUIÇÃO
 * fonte: F09
-Em Gênova, conseguiu um documento de viagem da Cruz Vermelha Internacional em nome de Ricardo Klement.
-É este documento.  ⏸ {1.0}
+Em Gênova, conseguiu um documento de viagem da Cruz Vermelha Internacional em nome de Ricardo Klement.  ⏸ {1.0}
 * fonte: F09
 Com ele, embarcou para a Argentina e desembarcou em Buenos Aires em julho de mil novecentos e cinquenta.
 * fonte: F10
@@ -130,7 +129,7 @@ Bauer era judeu, tinha sido perseguido pelo regime nazista, e sabia que ainda ha
 Temia que, pelos canais oficiais, alguém avisasse Eichmann.
 * fonte: F13
 Então tomou uma decisão arriscada para um funcionário alemão: passou a informação, em segredo, para Israel.  ⏸
-* cena: arquivo isser-harel-1969.jpg (legenda: foto de mil novecentos e sessenta e nove)
+* cena: nome em máquina de escrever "ISSER HAREL · MOSSAD" (foto GPO de 1969 sem selo dos EUA: não entra)
 * fonte: F14
 Lá, o caso foi para o Mossad, o serviço de inteligência externa, chefiado por Isser Harel.
 E foi aqui que a história quase acabou.  ⏸ {1.1}
@@ -142,7 +141,7 @@ A conclusão foi que um ex-oficial graduado da SS não viveria daquele jeito, e 
 * fonte: F15
 As fontes divergem aqui: Harel, no livro que escreveu depois, atribui a demora a falhas nas informações de Hermann.
 Neal Bascomb, que comparou os relatos, mostra que o endereço estava certo.  ⏸ {0.9}
-* cena: documento cia-memo-dulles-1953.jpg (Ken Burns; caixa marca "If our people should find Eichmann"; tradução ao lado) — depois documento cia-memo-1958-clemens (CONFERIR NO MAC)
+* cena: documento cia-memo-dulles-1953.jpg (Ken Burns; caixa marca "If our people should find Eichmann"; tradução ao lado) — depois documento cia-memo-1958-clemens.jpg (despacho EGMA-32934, pág. 2, item c)
 * fonte: F16
 Arquivos da CIA abertos décadas depois mostram que, em outubro de mil novecentos e cinquenta e três, um memorando ao diretor da agência já tratava da hipótese de encontrar Eichmann.
 * fonte: F48
@@ -150,7 +149,7 @@ O texto diz que o único caminho legal seria avisar o governo alemão, que poder
 E que qualquer outra ação teria de ser, nas palavras do documento, "secreta e ilegal".  ⏸ {1.0}
 * fonte: F16
 Um memorando de março de mil novecentos e cinquenta e oito registra uma informação do serviço secreto da Alemanha Ocidental: Eichmann estaria vivendo na Argentina, com o nome de Clemens.
-* fonte: F16
+* fonte: F49
 Os documentos liberados não mostram que essa informação tenha sido repassada a Israel naquele momento.
 O sobrenome estava errado.  {0.5}
 O país estava certo.  ⏸ {1.3}
@@ -256,10 +255,10 @@ Malkin conta, no livro que publicou décadas depois, que conversou com ele mesmo
 Israel não tinha voos regulares para a Argentina.
 * fonte: F26
 A solução veio do calendário: em maio de mil novecentos e sessenta, a Argentina comemorava cento e cinquenta anos da Revolução de Maio, e Israel mandaria uma delegação oficial.
-* cena: arquivo britannia-el-al-1958.jpg (Ken Burns)
+* cena: REC cartela datilografada "EL AL · BRISTOL BRITANNIA", selo RECONSTITUIÇÃO
 * fonte: F26
 A delegação viajaria num avião da companhia israelense El Al, um quadrimotor Bristol Britannia.
-* cena: arquivo harel-cartao-el-al.jpg (zoom no nome; legenda: documento emitido em mil novecentos e cinquenta e nove)
+* cena: REC cartela datilografada "EL AL · TRIPULAÇÃO", selo RECONSTITUIÇÃO
 * fonte: F27
 Harel e parte da equipe tinham documentos de funcionários da companhia.
 * fonte: F28
@@ -283,7 +282,7 @@ Em vinte e dois de maio, o avião pousou em Lod, perto de Tel Aviv.  ⏸ {1.2}
 No dia seguinte, vinte e três de maio, Ben-Gurion falou ao Knesset, o parlamento de Israel.
 * fonte: F30
 Anunciou que Adolf Eichmann tinha sido encontrado, que estava preso em Israel e que logo seria julgado.
-* cena: arquivo ordem-prisao-1960-05-23.jpg (documento, caixa no carimbo da data)
+* cena: REC cartela datilografada "TEL AVIV · 23 MAIO 1960 · ORDEM DE PRISÃO", selo RECONSTITUIÇÃO
 * fonte: F31
 No mesmo dia, um tribunal de Tel Aviv assinou a primeira ordem de prisão.
 A notícia correu o mundo, e a Argentina reagiu.  ⏸ {0.9}
@@ -315,21 +314,21 @@ A pergunta jurídica, porém, ficou: até que ponto um país pode capturar algu�
 ## B8 — O JULGAMENTO
 
 * cena: CARTELA ato "VIII. JERUSALÉM"
-* cena: arquivo eichmann-julgamento-1961.jpg
+* cena: arquivo eichmann-cabine-anotacoes-1961.jpg (Ken Burns)
 * fonte: F36
 O julgamento começou em onze de abril de mil novecentos e sessenta e um, em Jerusalém, num centro cultural adaptado para ser tribunal, o Beit Ha'am.
 * fonte: F36
 Eichmann ficou dentro de uma cabine de vidro à prova de balas.
-* cena: arquivo juizes-julgamento-1961.jpg
+* cena: nomes em máquina de escrever "LANDAU · HALEVI · RAVEH"
 * fonte: F37
 Eram três juízes: Moshe Landau, Benjamin Halevi e Yitzhak Raveh.
-* cena: arquivo hausner-servatius-1961.jpg
+* cena: nomes em máquina de escrever "HAUSNER × SERVATIUS"
 * fonte: F37
 A acusação era chefiada pelo procurador-geral Gideon Hausner.  {0.5}
 A defesa, pelo advogado alemão Robert Servatius.
 * fonte: F38
 Eichmann respondia a quinze acusações, entre elas crimes contra o povo judeu e crimes contra a humanidade.
-* cena: arquivo eichmann-cabine-anotacoes-1961.jpg
+* cena: arquivo eichmann-cabine-anotacoes-1961.jpg (zoom para fora)
 * fonte: F38
 A defesa sustentou que ele só cumpria ordens.  ⏸
 * cena: arquivo dinur-testemunha-1961.jpg
@@ -346,7 +345,7 @@ Do que viu, ela tirou a expressão do subtítulo do livro que escreveu: "a banal
 * fonte: F42
 A tese de Arendt é discutida até hoje.  {0.5}
 Pesquisadores que estudaram o que ele escreveu e gravou na Argentina sustentam que ele era um antissemita convicto, e não só um funcionário obediente.  ⏸ {1.0}
-* cena: arquivo sentenca-1961-12-15.jpg
+* cena: data em máquina de escrever "15 DE DEZEMBRO DE 1961"
 * fonte: F43
 Em quinze de dezembro de mil novecentos e sessenta e um, Eichmann foi condenado à morte.
 * fonte: F44
@@ -386,9 +385,9 @@ Divergências entre fontes estão na coluna de fonte, marcadas DIVERGE.
 
 | id | fato | fonte (livro/página ou documento/URL) | status |
 |---|---|---|---|
-| F01 | Eichmann nasceu em 1906 em Solingen e cresceu em Linz | ARE cap. 2 (pág. CONFERIR); BAS cap. 1 (pág. CONFERIR); https://www.loc.gov/books/?q=eichmann+in+jerusalem+arendt | CONFERIR NO MAC |
-| F02 | entrou no partido nazista e na SS em 1932 | ARE cap. 2 (pág. CONFERIR); BAS cap. 1 | CONFERIR NO MAC |
-| F03 | chefiou o setor de "assuntos judeus" do RSHA (IV B4) e organizava as deportações | ARE caps. 3–8; CIA name file vol. 1 https://catalog.archives.gov/id/139331601 (procurar resumo biográfico) | CONFERIR NO MAC |
+| F01 | Eichmann nasceu em 1906 em Solingen e cresceu em Linz | documentos do CIA name file (NARA RG 263, lidos em 07/10/2026): ficha de carreira da SS "Dienstlaufbahn", "geb. 19.3.06 zu Solingen" (NAID 139332813, pág. 93: https://catalog.archives.gov/medialz/dc-metro/rg-263/640446/640446_Box31_Folder2/640446_Box31_Folder2-0093.jpg); relatório de Simon Wiesenthal, 30/03/1954, no mesmo item: "Einige Jahre nach seiner Geburt übersiedelte sein Vater nach Linz (...) Eichmann selbst besuchte das Bundesrealgymnasium in Linz" (pág. 42: https://catalog.archives.gov/medialz/dc-metro/rg-263/640446/640446_Box31_Folder2/640446_Box31_Folder2-0042.jpg). Livros (ARE cap. 2, BAS cap. 1) continuam como apoio | conferido |
+| F02 | entrou no partido nazista e na SS em 1932 | NARA RG 263, NAID 139332813 (lido em 07/10/2026): questionário da SS de 1937, "Parteinummer mit Eintrittsdatum: 899895, 31.3.1932" (pág. 96: https://catalog.archives.gov/medialz/dc-metro/rg-263/640446/640446_Box31_Folder2/640446_Box31_Folder2-0096.jpg) e ficha "Dienstlaufbahn": "1932, 1.4, Eintritt i. d. SS" (pág. 93: https://catalog.archives.gov/medialz/dc-metro/rg-263/640446/640446_Box31_Folder2/640446_Box31_Folder2-0093.jpg) | conferido |
+| F03 | chefiou o setor de "assuntos judeus" do RSHA (IV B4) e organizava as deportações | NARA RG 263, CIA name file vol. 1, NAID 139331601 (lido em 07/10/2026): telex secreto de 03/06/1942 "Evakuierung von Juden nach dem Osten", trem especial DA 22 Koblenz–Izbica com horários, assinado "RSHA – IV B 4 a (...) I.A. gez. Eichmann, SS-O'Stubaf." (pág. 190: https://catalog.archives.gov/medialz/dc-metro/rg-263/640446/640446_Box30_Folder2/640446_Box30_Folder2-0190.jpg); interrogatório de Dieter Wisliceny pelo G-2 do Exército dos EUA: "RSHA IV B4 — Obersturmführer EICHMANN" (pág. 281) e relatório do mesmo vol.: "In the RSHA EICHMANN took over (...) IV B4 (Jewish referat)" (pág. 239) | conferido |
 | F04 | redigiu a ata da Conferência de Wannsee, jan. 1942 | ARE cap. 6 (pág. CONFERIR); BAS cap. 1 | CONFERIR NO MAC |
 | F05 | Hungria 1944: dirigiu a deportação; ~8 semanas; mais de 400 mil; maioria para Auschwitz | ARE cap. 13 (pág. CONFERIR); BAS cap. 1. DIVERGE: as estimativas variam (≈ 430 a 440 mil); o roteiro diz "mais de quatrocentas mil" e "passam de quatrocentas e trinta mil" | CONFERIR NO MAC |
 | F06 | o Holocausto matou cerca de 6 milhões de judeus | USHMM Holocaust Encyclopedia https://encyclopedia.ushmm.org/content/en/article/documenting-numbers-of-victims-of-the-holocaust-and-nazi-persecution (bloqueado daqui) | CONFERIR NO MAC |
@@ -401,10 +400,10 @@ Divergências entre fontes estão na coluna de fonte, marcadas DIVERGE.
 | F13 | 1957: a pista chega a Fritz Bauer (Hesse), judeu, perseguido; desconfia das autoridades alemãs e passa a Israel | BAS cap. 4; HAR cap. 1 (pág. CONFERIR) | CONFERIR NO MAC |
 | F14 | o Mossad era chefiado por Isser Harel | HAR (prefácio); BAS; foto: https://commons.wikimedia.org/wiki/File:Isser_Harel.jpg (legenda GPO, 1969) | CONFERIR NO MAC |
 | F15 | 1958: verificação em Buenos Aires; casa pobre; conclusão de que não seria Eichmann; caso esfria | HAR caps. 2–3 (pág. CONFERIR) × BAS cap. 4–5. DIVERGE: Harel atribui a demora a erros de Hermann; Bascomb mostra que o endereço estava certo | CONFERIR NO MAC |
-| F16 | memorando da CIA de mar. 1958: o BND informa que Eichmann vive na Argentina como "Clemens" desde 1952; sem registro de repasse a Israel | CIA name file, liberado em 2006: https://catalog.archives.gov/id/139332813 (110 págs.; "Documents to be added to Declassified CIA File on Adolf Eichmann", Use Restriction: Unrestricted — conferido o arquivo; a PÁGINA do memorando de 1958 não foi localizada daqui) | CONFERIR NO MAC |
+| F16 | memorando da CIA de mar. 1958: o BND informa que Eichmann vive na Argentina como "Clemens" desde 1952 | NARA RG 263, CIA name file vol. 2, NAID 139331937 (lido em 07/10/2026): despacho EGMA-32934, 19/03/1958, do chefe da base de Munique, assunto "UPSWING Near Eastern Connections" (UPSWING = criptônimo da CIA para o BND, o serviço da Alemanha Ocidental), conversa com um oficial do UPSWING; pág. 2, item c: "Adolf EICHMANN (...) is reported to have lived in Argentina under the alias CLEMENS since 1952" (págs. 77–78: https://catalog.archives.gov/medialz/dc-metro/rg-263/640446/640446_Box30_Folder3/640446_Box30_Folder3-0077.jpg e -0078.jpg; resumo na pág. 7). O 1953 da frase anterior é o F48 | conferido |
 | F17 | fim de 1959: Bauer leva a Israel o nome Ricardo Klement, de outra fonte | BAS cap. 5 (pág. CONFERIR); HAR cap. 4 | CONFERIR NO MAC |
 | F18 | Zvi Aharoni chega a Buenos Aires no início de mar. 1960; fotografa Klement com câmera escondida | BAS caps. 5–6 (pág. CONFERIR); HAR cap. 5; Aharoni, Operation Eichmann (conferir edição) https://www.loc.gov/books/?q=aharoni+operation+eichmann | CONFERIR NO MAC |
-| F19 | pretexto do presente para achar o novo endereço; flores em 21/03/1960; casamento em 21/03/1935 | BAS cap. 6 (pág. CONFERIR); HAR cap. 5 | CONFERIR NO MAC |
+| F19 | pretexto do presente para achar o novo endereço; flores em 21/03/1960; casamento em 21/03/1935 | BAS cap. 6 (pág. CONFERIR); HAR cap. 5. A data do casamento já bate com o questionário da SS de 1937: "verheiratet: ja, 21.III.35" (NARA, NAID 139332813, pág. 96, lido em 07/10/2026); o resto depende dos livros | CONFERIR NO MAC |
 | F20 | casa de tijolos inacabada na rua Garibaldi, San Fernando, perto da estrada e do ponto | BAS cap. 6; HAR (título do livro). DIVERGE: o número da casa varia entre fontes; o roteiro não diz o número | CONFERIR NO MAC |
 | F21 | Ben-Gurion autoriza; ordem de trazer vivo; equipe pequena, vários com parentes mortos no Holocausto; Rafi Eitan comandante; Harel coordena de cafés | HAR caps. 6–9 (pág. CONFERIR); BAS caps. 7–9 | CONFERIR NO MAC |
 | F22 | 11/05/1960: dois carros, um com capô aberto; ônibus das ~19h40 sem ele; discussão sobre abortar; desce pouco depois das 20h | BAS cap. 11 (pág. CONFERIR); HAR cap. 12; MAL cap. CONFERIR. DIVERGE: os horários exatos variam entre os relatos | CONFERIR NO MAC |
@@ -417,8 +416,8 @@ Divergências entre fontes estão na coluna de fonte, marcadas DIVERGE.
 | F30 | 23/05/1960: Ben-Gurion anuncia ao Knesset a prisão e o julgamento próximo | BAS epílogo/cap. 17 (pág. CONFERIR); texto da fala: Knesset, ata de 23/05/1960 (link a localizar no Mac) | CONFERIR NO MAC |
 | F31 | 23/05/1960: primeira ordem de prisão, tribunal de Tel Aviv | documento: https://commons.wikimedia.org/wiki/File:The_first_imprisonment_order_of_Adolf_Eichmann_1960-05-23.jpg (descrição do Commons, aberta em 03/10/2026) | conferido |
 | F32 | Argentina: violação da soberania; Israel: "voluntários" agindo por conta própria | ONU, ata do Conselho de Segurança, 865ª–868ª sessões (jun. 1960) https://digitallibrary.un.org/search?ln=en&p=S%2FPV.865 (bloqueado daqui); BAS cap. 17 | CONFERIR NO MAC |
-| F33 | Resolução 138, 23/06/1960: preocupação com o julgamento; atos que afetam soberania podem ameaçar paz e segurança; pede reparação adequada; não manda devolver | S/RES/138 (1960): https://undocs.org/S/RES/138(1960) e cópia https://commons.wikimedia.org/wiki/File:ONU_-_R%C3%A9solution_138_du_Conseil_de_s%C3%A9curit%C3%A9_des_Nations_unies,_1960.djvu (não baixou daqui: limite de acesso) | CONFERIR NO MAC |
-| F34 | votação 8–0–2 (abstenções: Polônia e URSS); Argentina não votou | https://digitallibrary.un.org/search?ln=en&p=S%2FRES%2F138 (registro de votação; bloqueado daqui) | CONFERIR NO MAC |
+| F33 | Resolução 138, 23/06/1960: preocupação com o julgamento; atos que afetam soberania podem ameaçar paz e segurança; pede reparação adequada; não manda devolver | S/RES/138 (1960), texto oficial bilíngue (coletânea de resoluções do Conselho de Segurança de 1960, S/4349), cópia em https://commons.wikimedia.org/wiki/File:ONU_-_R%C3%A9solution_138_du_Conseil_de_s%C3%A9curit%C3%A9_des_Nations_unies,_1960.djvu (camada de texto lida em 07/10/2026): "concern of people in all countries that Eichmann should be brought to appropriate justice"; "1. Declares that acts such as that under consideration, which affect the sovereignty of a Member State (...) may, if repeated, endanger international peace and security"; "2. Requests the Government of Israel to make appropriate reparation in accordance with the Charter (...) and the rules of international law"; nenhum item manda devolver. undocs.org e digitallibrary.un.org seguem barrados | conferido |
+| F34 | votação 8–0–2 (abstenções: Polônia e URSS); Argentina não votou | mesmo documento do F33 (lido em 07/10/2026): "Adopted at the 868th meeting by 8 votes to none, with 2 abstentions (Poland, Union of Soviet Socialist Republics)"; nota 3: "One member (Argentina) did not participate in the voting" | conferido |
 | F35 | ago. 1960: declaração conjunta Argentina–Israel encerra o incidente | BAS cap. 17 (pág. CONFERIR); data provável 03/08/1960 a confirmar | CONFERIR NO MAC |
 | F36 | início do julgamento em 11/04/1961, Beit Ha'am, Jerusalém; cabine de vidro | ARE cap. 1 (pág. CONFERIR); USHMM https://collections.ushmm.org/search/catalog/irn1001077 (bloqueado daqui) | CONFERIR NO MAC |
 | F37 | juízes Landau, Halevi, Raveh; acusação Hausner; defesa Servatius | fotos GPO com legenda: https://commons.wikimedia.org/wiki/File:Eichman_Trial_judges.jpg e https://commons.wikimedia.org/wiki/File:Gideon_Hausner_and_Robert_Servatius_at_the_Eichmann_trial_USHMM_No_65284.jpg (legendas abertas em 03/10/2026); ARE cap. 1 | conferido |
@@ -432,4 +431,5 @@ Divergências entre fontes estão na coluna de fonte, marcadas DIVERGE.
 | F45 | execução na prisão de Ramla, noite de 31/05 para 01/06/1962; cremação; cinzas no mar fora das águas territoriais | ARE epílogo; BAS epílogo (pág. CONFERIR). DIVERGE: fontes dizem "pouco antes da meia-noite de 31/05" ou "madrugada de 01/06"; o roteiro diz "noite de 31/05 para 01/06" | CONFERIR NO MAC |
 | F46 | única pena de morte executada por tribunal civil em Israel | CONFERIR NO MAC (houve uma execução por tribunal militar de campanha em 1948; a frase diz "tribunal civil" por isso). Fonte a localizar: BAS epílogo | CONFERIR NO MAC |
 | F47 | Harel publicou em 1975 com nomes trocados; Aharoni e Malkin publicaram versões divergentes | HAR (nota do autor); MAL; Aharoni (conferir edição); BAS (nota sobre fontes) | CONFERIR NO MAC |
+| F49 | os documentos liberados não mostram repasse a Israel da informação de 1958 naquele momento | afirmação negativa: em 07/10/2026 o texto (OCR) dos vols. 1–2 e do item 139332813 não trouxe repasse a Israel em 1958, mas OCR não basta para afirmar ausência; conferir em BAS (nota sobre a CIA, pág. CONFERIR) ou cortar a frase | CONFERIR NO MAC |
 | F48 | memorando da CIA ao diretor (Mr. Dulles), 9 de outubro de 1953: se Eichmann for encontrado, o único caminho legal é informar o governo alemão para pedir extradição; qualquer ação da agência além disso seria "of a covert and illegal nature" | NARA RG 263, NAID 139332813, pág. 12: https://catalog.archives.gov/medialz/dc-metro/rg-263/640446/640446_Box31_Folder2/640446_Box31_Folder2-0012.jpg (lido nesta sessão, 03/10/2026; carimbo de liberação: 2006) | conferido |

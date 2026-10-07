@@ -40,6 +40,8 @@ O `fazer.py` **não grava voz** enquanto houver linha "CONFERIR NO MAC" no quadr
 | `ratos-compra` | a Diretoria-Geral de Saúde Pública comprava rato morto, e houve gente que criava rato para vender | https://oswaldocruz.fiocruz.br/index.php/biografia/trajetoria-cientifica/na-diretoria-geral-de-saude-publica/campanha-contra-a-peste |
 | `atestado` | o regulamento exigia atestado de vacina para matrícula, emprego, viagem e casamento | http://www.ccms.saude.gov.br/revolta/revolta.html (se não abrir, vale outra página oficial da Fiocruz ou do MS sobre a Revolta da Vacina) |
 
+Tentativa de 07/10/2026 (proxy mais aberto): o **Planalto abriu, mas não publica a Lei nº 1.261/1904** (não está no quadro de leis anteriores a 1960 nem nos Decretos do Poder Legislativo; o endereço direto dá 404). Câmara, Senado, LexML, Fiocruz (oswaldocruz, portal, agência, arca) e o CCMS continuam barrados. Os 3 continuam para o Mac. A legenda de O Malho ganhou uma segunda transcrição que bate (Commons), então o zoom na p. 13 virou opcional.
+
 - **Bateu?** Troque `CONFERIR NO MAC` por `conferido` e escreva na coluna de fonte o que viu e a data.
 - **Não bateu?** Use a **reserva** que está nas Notas do roteiro (as falas de troca já estão escritas) e apague a linha do quadro.
 - Aproveite e **dê zoom na p. 13** do PDF "PNI 50 anos" (https://www.gov.br/saude/pt-br/centrais-de-conteudo/publicacoes/svsa/vacinacao-imunizacao-pni/programa-nacional-de-imunizacoes-50-anos.pdf). Confira se a legenda da charge de O Malho diz mesmo "o Napoleão da seringa e lanceta". No PDF, a imagem está em baixa resolução.
