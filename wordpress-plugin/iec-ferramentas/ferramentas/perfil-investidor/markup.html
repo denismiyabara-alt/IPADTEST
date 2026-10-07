@@ -1,78 +1,34 @@
 <div id="perfil-inv" class="iec-ferramenta">
-  <header>
-    <p class="eyebrow">Comece aqui · Quiz</p>
-    <h2 class="titulo">Qual é o seu nível de cagaço?</h2>
-    <p>Sete perguntas sobre prazo, reserva e o que você faz quando a bolsa cai. No fim, você descobre se é Bunda na parede, Bundão ou Furico aberto. É o seu perfil de investidor, só que sem a cara de formulário de banco.</p>
-  </header>
-  <div class="grid">
-    <div class="card">
-      <h3>Responda com sinceridade</h3>
-      <div class="pergunta">
-        <p>1. Quando você vai precisar desse dinheiro?</p>
-        <div class="opcoes">
-          <label><input type="radio" name="p-q1" value="1"> Em até 1 ano</label>
-          <label><input type="radio" name="p-q1" value="2"> Entre 1 e 5 anos</label>
-          <label><input type="radio" name="p-q1" value="3"> Daqui a mais de 5 anos</label>
-        </div>
-      </div>
-      <div class="pergunta">
-        <p>2. Você já tem uma reserva de emergência?</p>
-        <div class="opcoes">
-          <label><input type="radio" name="p-q2" value="1"> Não tenho</label>
-          <label><input type="radio" name="p-q2" value="2"> Tenho, mas cobre menos de 6 meses</label>
-          <label><input type="radio" name="p-q2" value="3"> Sim, 6 meses ou mais de gastos</label>
-        </div>
-      </div>
-      <div class="pergunta">
-        <p>3. Seus investimentos caem 20% em um mês. O que você faz?</p>
-        <div class="opcoes">
-          <label><input type="radio" name="p-q3" value="1"> Vendo tudo para não perder mais</label>
-          <label><input type="radio" name="p-q3" value="2"> Espero, mas perco o sono</label>
-          <label><input type="radio" name="p-q3" value="3"> Mantenho ou compro mais</label>
-        </div>
-      </div>
-      <div class="pergunta">
-        <p>4. Qual é o seu principal objetivo com esse dinheiro?</p>
-        <div class="opcoes">
-          <label><input type="radio" name="p-q4" value="1"> Não perder nada</label>
-          <label><input type="radio" name="p-q4" value="2"> Ganhar da inflação com algum risco</label>
-          <label><input type="radio" name="p-q4" value="3"> Fazer o patrimônio crescer no longo prazo</label>
-        </div>
-      </div>
-      <div class="pergunta">
-        <p>5. Quanto você entende de investimentos?</p>
-        <div class="opcoes">
-          <label><input type="radio" name="p-q5" value="1"> Quase nada, estou começando</label>
-          <label><input type="radio" name="p-q5" value="2"> Conheço renda fixa e o básico de bolsa</label>
-          <label><input type="radio" name="p-q5" value="3"> Já invisto em ações, FIIs ou ETFs</label>
-        </div>
-      </div>
-      <div class="pergunta">
-        <p>6. Como é a sua renda?</p>
-        <div class="opcoes">
-          <label><input type="radio" name="p-q6" value="1"> Instável ou incerta</label>
-          <label><input type="radio" name="p-q6" value="2"> Estável, mas apertada</label>
-          <label><input type="radio" name="p-q6" value="3"> Estável e sobra todo mês</label>
-        </div>
-      </div>
-      <div class="pergunta">
-        <p>7. Entre estas carteiras de exemplo, qual você escolheria?</p>
-        <div class="opcoes">
-          <label><input type="radio" name="p-q7" value="1"> Pior ano −2%, melhor ano +10%</label>
-          <label><input type="radio" name="p-q7" value="2"> Pior ano −10%, melhor ano +20%</label>
-          <label><input type="radio" name="p-q7" value="3"> Pior ano −25%, melhor ano +40%</label>
-        </div>
-      </div>
+  <div class="pq-card" id="pq-card">
+    <div class="pq-capa" id="pq-capa">
+      <p class="eyebrow">Quiz · 1 minuto</p>
+      <h2 class="titulo">Qual é o seu nível de cagaço?</h2>
+      <p class="pq-sub">Sete perguntas sobre prazo, reserva e o que você faz quando a bolsa cai. No fim, você descobre se é <strong>Bunda na parede</strong>, <strong>Bundão</strong> ou <strong>Furico aberto</strong>.</p>
+      <button type="button" class="p-btn pq-comecar" id="pq-comecar">Descobrir meu nível</button>
     </div>
-    <div class="stack">
-      <div class="card">
-        <div class="fine" id="p-label">Responda as 7 perguntas para ver o seu nível.</div>
-        <div class="big" id="p-perfil">—</div>
-        <div class="fine" id="p-progresso"></div>
-        <div class="story" id="p-texto" hidden></div>
-        <div id="p-alerta" class="story bad" hidden></div>
+    <div class="pq-perguntas" id="pq-perguntas" hidden>
+      <div class="pq-barra"><span id="pq-barra"></span></div>
+<div class="pq-passo" data-passo="1" hidden><p class="pq-num">Pergunta 1 de 7</p><h3 class="pq-q">Quando você vai precisar desse dinheiro?</h3><div class="pq-ops"><button type="button" class="pq-op" data-v="1">Em até 1 ano</button><button type="button" class="pq-op" data-v="2">Entre 1 e 5 anos</button><button type="button" class="pq-op" data-v="3">Daqui a mais de 5 anos</button></div></div>
+<div class="pq-passo" data-passo="2" hidden><p class="pq-num">Pergunta 2 de 7</p><h3 class="pq-q">Você já tem uma reserva de emergência?</h3><div class="pq-ops"><button type="button" class="pq-op" data-v="1">Não tenho</button><button type="button" class="pq-op" data-v="2">Tenho, mas cobre menos de 6 meses</button><button type="button" class="pq-op" data-v="3">Sim, 6 meses ou mais de gastos</button></div></div>
+<div class="pq-passo" data-passo="3" hidden><p class="pq-num">Pergunta 3 de 7</p><h3 class="pq-q">Seus investimentos caem 20% em um mês. O que você faz?</h3><div class="pq-ops"><button type="button" class="pq-op" data-v="1">Vendo tudo para não perder mais</button><button type="button" class="pq-op" data-v="2">Espero, mas perco o sono</button><button type="button" class="pq-op" data-v="3">Mantenho ou compro mais</button></div></div>
+<div class="pq-passo" data-passo="4" hidden><p class="pq-num">Pergunta 4 de 7</p><h3 class="pq-q">Qual é o seu principal objetivo com esse dinheiro?</h3><div class="pq-ops"><button type="button" class="pq-op" data-v="1">Não perder nada</button><button type="button" class="pq-op" data-v="2">Ganhar da inflação com algum risco</button><button type="button" class="pq-op" data-v="3">Fazer o patrimônio crescer no longo prazo</button></div></div>
+<div class="pq-passo" data-passo="5" hidden><p class="pq-num">Pergunta 5 de 7</p><h3 class="pq-q">Quanto você entende de investimentos?</h3><div class="pq-ops"><button type="button" class="pq-op" data-v="1">Quase nada, estou começando</button><button type="button" class="pq-op" data-v="2">Conheço renda fixa e o básico de bolsa</button><button type="button" class="pq-op" data-v="3">Já invisto em ações, FIIs ou ETFs</button></div></div>
+<div class="pq-passo" data-passo="6" hidden><p class="pq-num">Pergunta 6 de 7</p><h3 class="pq-q">Como é a sua renda?</h3><div class="pq-ops"><button type="button" class="pq-op" data-v="1">Instável ou incerta</button><button type="button" class="pq-op" data-v="2">Estável, mas apertada</button><button type="button" class="pq-op" data-v="3">Estável e sobra todo mês</button></div></div>
+<div class="pq-passo" data-passo="7" hidden><p class="pq-num">Pergunta 7 de 7</p><h3 class="pq-q">Entre estas carteiras de exemplo, qual você escolheria?</h3><div class="pq-ops"><button type="button" class="pq-op" data-v="1">Pior ano −2%, melhor ano +10%</button><button type="button" class="pq-op" data-v="2">Pior ano −10%, melhor ano +20%</button><button type="button" class="pq-op" data-v="3">Pior ano −25%, melhor ano +40%</button></div></div>
+      <button type="button" class="pq-voltar" id="pq-voltar" hidden>← Voltar</button>
+    </div>
+    <div class="pq-resultado" id="pq-resultado" hidden>
+      <p class="fine" id="p-label">Seu nível de cagaço:</p>
+      <div class="pq-emoji" id="pq-emoji"></div>
+      <div class="big" id="p-perfil">—</div>
+      <div class="pq-medidor"><span>Bunda na parede</span><span>Bundão</span><span>Furico aberto</span><i id="pq-ponteiro"></i></div>
+      <p class="story" id="p-texto"></p>
+      <p class="story bad" id="p-alerta" hidden></p>
+      <div class="pq-acoes">
+        <a class="p-btn pq-zap" id="pq-zap" href="#" target="_blank" rel="noopener">Mandar pro grupo no WhatsApp</a>
+        <button type="button" class="pq-refazer" id="pq-refazer">Refazer o quiz</button>
       </div>
-      <div class="card" id="p-lead" hidden>
+      <div class="pq-lead" id="p-lead">
         <h3>Quer receber conteúdo pro seu nível?</h3>
         <p class="fine">Deixe o e-mail e eu mando o que faz sentido pra quem é <strong id="p-lead-nome">—</strong>. Sem spam.</p>
         <form id="p-form" action="https://b12b9383.sibforms.com/serve/MUIFADjo5wlUe6R0rK5B-Zu0-113vg6xJh1R4KwJiZvbI6qZPLxYRdiMsCK7Q8Mfz34yaEUQ9ROEIEj2aMJR9z7blbHHUe3eTf9WDeMZNMHlBRyrBC3Vc1hFEV243w6ByQtOXu9TUgrhTBiThUiiV0XOf4ZS_XMS52kBgMktMVtQdwCKT1v50iBHdcGKgabr1SN1mosP6YflFuyu" method="POST" novalidate>
@@ -84,7 +40,7 @@
         </form>
         <p class="fine" id="p-lead-msg" hidden></p>
       </div>
-      <div class="card" id="p-guia" hidden>
+      <div class="pq-guia">
         <h3>Para continuar estudando</h3>
         <ul id="p-links"></ul>
       </div>
