@@ -2,7 +2,7 @@
 titulo_trabalho: "Tesouro IPCA+ a 7% em janeiro: quanto ganhou quem comprou"
 data: 2026-10-08
 formato: longo (teleprompter)
-versao: v2.0.1 (07/10/2026; v2.0 + conserto do ouvinte-frio cego, 7,3) — reescrita com a data-base 06/10/2026. Com o CSV de 05 e 06/10 a tese da v1.x (Selic R$ 280 na frente, data-base 01/10) INVERTEU: o IPCA+ 2035 de janeiro está R$ 285 na frente. Histórico v1.0–v1.7.1 no fim do arquivo e no git.
+versao: v2.0.2 (cortes do ouvinte-frio cego de 07/10) ← v2.0.1 (07/10/2026; v2.0 + conserto do ouvinte-frio cego, 7,3) — reescrita com a data-base 06/10/2026. Com o CSV de 05 e 06/10 a tese da v1.x (Selic R$ 280 na frente, data-base 01/10) INVERTEU: o IPCA+ 2035 de janeiro está R$ 285 na frente. Histórico v1.0–v1.7.1 no fim do arquivo e no git.
 duracao_estimada: "~13 min (≈1.830 palavras de fala sem [TELA], a ~140 por minuto; teto 14)"
 briefing: pautas-canal/briefings/2026-10-08-tesouro-ipca-7-briefing.md
 fonte_unica: "Tesouro Transparente, PrecoTaxaTesouroDireto.csv (data-base 06/10/2026; baixado em 07/10/2026). Cupom: Tesouro Transparente, cupomjurostesourodireto.csv. IR: Lei 11.033/2004."
@@ -92,10 +92,6 @@ O vídeo de janeiro era meu.
 
 Então essa conta também é minha.
 
-E na quinta passada, essa mesma conta dava o Selic duzentos e oitenta na frente.
-
-Mesmos títulos, mesmo dia de compra: na quinta, ganhava o Selic; na terça, o IPCA+.
-
 [TELA: IPCA+ 2035 contra Tesouro Selic, R$ 10 mil de 28/01 · qui 01/10: Selic +R$ 280 · sex 02/10: Selic +R$ 271 · seg 05/10: IPCA+ +R$ 339 · ter 06/10: IPCA+ +R$ 285 · Tesouro Transparente]
 
 Esses valores são antes do imposto.
@@ -115,12 +111,6 @@ Em janeiro, uma fila de títulos IPCA+ pagava mais de sete por cento.
 Hoje, todos eles estão na frente do Tesouro Selic.
 
 [TELA: os 11 títulos IPCA+ acima de 7% em 28/01 (ainda não vencidos), taxa em 28/01, taxa em 06/10, "R$ 10 mil viraram" (tabela da seção 2 do briefing) · todos na frente do Tesouro Selic 2029 (R$ 10.957) · menor folga: IPCA+ c/ Juros Semestrais 2030, R$ 11.050 (com cupons) · maior: IPCA+ 2040, R$ 11.602 · Tesouro Transparente, data-base 06/10/2026]
-
-E o que separa quem passou raspando de quem passou com folga não é sorte. É a data de vencimento.
-
-Os que vencem mais cedo, em 2029 e 2030, passaram o Selic por pouco.
-
-Os que vencem lá na frente passaram com folga.
 
 Quanto mais longe o vencimento, mais o preço do título balança no caminho.
 
@@ -238,27 +228,19 @@ E se a FIPE subiu tanto, por que o IPCA+ está só duzentos e oitenta e cinco re
 
 Porque nem tudo foi a favor.
 
-Primeiro pedaço: o dia da compra.
-
-Se você comprasse os dez mil às dez da manhã de 28 de janeiro e vendesse um minuto depois, voltava quanto?
+Primeiro pedaço: o pedágio.
 
 [pausa de 1 segundo]
 
-Quem já vendeu um carro usado sabe.
-
-Voltavam nove mil, oitocentos e noventa e quatro.
-
 [TELA: IPCA+ 2035 (sem juros semestrais) · 28/01/2026 · compra a R$ 2.363,30 (7,47%) · recompra a R$ 2.338,16 (7,59%) · taxa de recompra 0,12 ponto acima da de compra · R$ 10.000 → R$ 9.894 · Tesouro Transparente]
-
-É o carro perdendo valor no minuto em que sai da loja.
 
 O título tem dois preços no mesmo dia: o que você paga pra comprar e o que o Tesouro paga pra recomprar de você.
 
 O Tesouro compra de volta um pouquinho mais barato do que vende: é o pedágio.
 
-Esse pedágio muda um pouquinho com o preço do título.
+É o carro perdendo valor no minuto em que sai da loja.
 
-Hoje, nos seus dez mil, ele está em uns cento e quinze reais.
+Hoje, nos seus dez mil, esse pedágio está em uns cento e quinze reais.
 
 [TELA: pedágio em 06/10: (PU compra R$ 2.683,91 − PU venda R$ 2.656,97) × R$ 10.000 ÷ R$ 2.363,30 = R$ 114 · Tesouro Transparente]
 
@@ -300,7 +282,7 @@ Sobram os duzentos e oitenta e cinco.
 
 Agora tira a FIPE da conta.
 
-Sobram só os dois pedaços que jogaram pro Selic, e o Selic volta pra frente, por uns duzentos reais.
+Sobram o pedágio e o juro do Selic: uns duzentos reais, e o Selic volta pra frente.
 
 [TELA: sem a mudança de taxa: R$ 114 + ~R$ 88 ≈ R$ 202 pro Selic · briefing seção 2a]
 
@@ -320,9 +302,7 @@ Em maio, caiu uns trezentos e trinta reais na conta de quem pôs dez mil em jane
 
 [TELA: Tesouro IPCA+ c/ Juros Semestrais 2035 · 28/01/2026 · IPCA + 7,53% (taxa de compra, manhã) · cupom pago em 15/05/2026: R$ 139,081198 por título (Tesouro Transparente, cupons do Tesouro Direto; regra: 6% ao ano em duas parcelas, Decreto 3.859/2001, art. 8º) · R$ 10.000 ÷ R$ 4.213,62 = 2,3733 títulos × R$ 139,08 ≈ R$ 330 bruto]
 
-Somando esse depósito com o preço de hoje, deu onze mil, cento e setenta e seis.
-
-Também na frente do Selic.
+Somando esse depósito com o preço de hoje, ele também está na frente do Selic.
 
 [TELA: Tesouro IPCA+ c/ Juros Semestrais 2035 · PU compra 28/01: R$ 4.213,62 · PU venda 06/10: R$ 4.569,97 + cupom R$ 139,08 · R$ 11.176 · Tesouro Selic no mesmo período: R$ 10.957 · data-base 06/10/2026]
 
@@ -770,3 +750,9 @@ Nota: 4 ouvintes cegos com personas diferentes ficaram entre 7,4 e 7,8, sempre c
 ### v1.7.1 (03/10/2026): "guarda esse contraste" removido
 
 O Denis decidiu em 01/10 (reafirmado em 03/10): "guarda esse número" e variações são PROIBIDOS no roteiro inteiro. O loop do B0 virou "Duzentos e oitenta reais de diferença, entre dez mil e dez mil comprados no mesmo dia." O score_roteiro.py agora trata a fórmula como eliminatório e acha o loop na primeira frase da abertura com número + consequência.
+
+### Ouvinte-frio cego (v2.0.1, persona enfermeiro) e cortes v2.0.2 (07/10/2026)
+
+Média 7,7, REPROVA (bloco dos três pedaços com 6: seis valores seguidos, e o pedágio de 28/01 — R$ 106, implícito no "nove mil, oitocentos e noventa e quatro" — não batia com o de hoje, R$ 115). Conta central recontada certa; sem empurrão.
+Cortes (só tirar/juntar; nenhum número novo): saiu o exemplo do 9.894 (o pedágio fica só o de hoje, ~R$ 114 na tabela); saiu o "na terça" (o dia da virada é a segunda, 05/10); saiu a fila de vencimentos (mantida "todos eles estão na frente" + "quanto mais longe, mais balança"); o "volta pra frente por uns duzentos" agora diz de onde vem (pedágio + juro do Selic); o 11.176 do semestral saiu da fala (fica na [TELA]).
+
