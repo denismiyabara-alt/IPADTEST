@@ -130,3 +130,16 @@ No EDGAR, use o User-Agent com nome e e-mail. Cada item traz a URL e o que olhar
 | M15 Morningstar / banco | OK (via imprensa) · NÃO ABRIU a primária | Morningstar 403. Imprensa: valor justo US$ 63 no IPO, depois US$ 62. Preço-alvo US$ 225 não conferido. BTG Pactual consta no sindicato do 424B4 | Yahoo Finance / morningstar.com (busca) |
 | M16 Hyrox | OK (via imprensa) | Comprador: consórcio liderado pela L Catterton (set/26), ~€ 600 mi, fundadores retomam controle | Kirkland, Bloomberg Law, swissinfo (busca) |
 | M17 preços de IPO | OK | FB "public offering price of $38.00"; BABA "US$68.00"; UBER "$45.00"; ARM "$51.00". Aramco não conferida | 424B4s na SEC |
+
+## Reteste de 07/10/2026 (container; planalto.gov.br, api.bcb.gov.br, commons.wikimedia.org e catalog.archives.gov abertos)
+
+Itens ainda abertos: M10 (peso no Nasdaq-100), M13, M15, M16 (primária) e Aramco. Testados com curl em 07/10/2026:
+sec.gov, indexes.nasdaqomx.com, morningstar.com, lcatterton.com, hyrox.com e saudiexchange.sa seguem **bloqueados**
+(CONNECT 403); normasinternet2.receita.fazenda.gov.br abre a página, mas a API dá 403. Fechado em parte:
+
+| item | veredito | o que a fonte diz | fonte |
+|---|---|---|---|
+| M13, parte "alguma lei de 2025/26 mudou isso?" | **OK: a MP 1.303 não mudou nada** | A MP 1.303/2025 (que aparece como "Vide" no art. 3º da Lei 11.033) teve "seu prazo de vigência encerrado no dia 8 de outubro de 2025" (Ato Declaratório do Presidente da Mesa do CN nº 67/2025). A Lei 11.033, art. 3º, I, segue com a isenção só para "operações no mercado à vista de ações" até R$ 20.000,00 por mês. **A parte da IN RFB 1.585 (15%, DARF 6015, BDR fora da isenção) continua CONFERIR NO MAC** | https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/Congresso/adc-67-mpv1.303.htm · https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm |
+| M10 peso, M15, M16 primária, Aramco | NÃO ABRIU | domínios acima bloqueados | CONFERIR NO MAC |
+
+Nada mudou no roteiro.

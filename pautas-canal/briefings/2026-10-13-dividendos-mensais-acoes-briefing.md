@@ -31,8 +31,8 @@ puxa: TY8oLvUt2Qg (324 inscritos, 18,0 por mil); ponte para o Ep. 1 (14/10)
 > 3. **O "mensal" de verdade existe e é pequeno:** R$ 4,62 por mês em R$ 10 mil de ITUB4. E um único pagamento de agosto
 >    do mesmo banco valeu mais que 3 anos desse mensal (D17, D18).
 > 4. **Imposto em 2026:** o JCP passou a reter 17,5% (as empresas escrevem isso nos avisos citando a LC 224/2025, D20 e
->    D21). A lei em si está na lista do Mac. O dividendo tem regra nova acima de R$ 50 mil por mês da mesma empresa: **uma
->    frase só**, sem alíquota na fala até o Mac conferir (M2). Os detalhes são dos Shorts de 02/11 e 09/11.
+>    D21). Lei conferida no planalto em 07/10/2026 (M1, seção 5). O dividendo tem regra nova acima de R$ 50 mil por mês da mesma empresa: **uma
+>    frase só** (M2 conferido em 07/10/2026; frase ajustada na seção 3.4). Os detalhes são dos Shorts de 02/11 e 09/11.
 > 5. **Não comparar com CDI nem falar de cota.** Isso é do Ep. 1 (amanhã). Aqui o número é renda em reais por mês.
 
 ---
@@ -183,9 +183,10 @@ cota, que é do Ep. 1. Se o roteirista quiser um número de escala, usar "cerca 
 | **JCP de 2025 pago em 2026** | ITSA4: JCP declarado em 01/12/2025 e pago em 06/03/2026 com **15%** (R$ 0,0182 → R$ 0,01547 líquido). Não generalizar: M3 | D10, D11 |
 | **Valor de referência ≠ valor creditado** | BB: o mesmo fato relevante (19/08/2026) diz "pagos em 11/09/2026" em português e "September 19, 2026" em inglês | D27 (não usar no vídeo; ver M6) |
 
-**Frase sobre o imposto do dividendo (uma só, até o Mac fechar M2):** "em 2026 o dividendo tem regra nova, mas ela só
-morde quem recebe mais de R$ 50 mil num mês da mesma empresa; o detalhe sai no Short do dia 9 de novembro." Sem "10%" e
-sem "isento" na fala até M2. O JCP pode ser dito: "o JCP chega com 17,5% a menos" (D20, D21; lei em M1).
+**Frase sobre o imposto do dividendo (uma só; M2 conferido em 07/10/2026):** "em 2026 o dividendo tem regra nova, mas a
+retenção só morde quem recebe mais de R$ 50 mil num mês da mesma empresa, e quem soma mais de R$ 600 mil no ano tem um
+imposto mínimo; o detalhe sai no Short do dia 9 de novembro." Sem "isento" na fala; "10%" pode entrar (sobre o total do
+mês, não só sobre o excedente; Lei 15.270, art. 6º-A da Lei 9.250). O JCP pode ser dito: "o JCP chega com 17,5% a menos" (D20, D21; lei em M1).
 
 ---
 
@@ -268,6 +269,20 @@ ri.taesa.com.br), investidor.gov.br. bvmf.bmfbovespa.com.br respondeu 403 na rai
 | M6 | BBAS3 3º tri/2026: 11/09 ou 19/09? | mesma página da B3 (BBAS3) | data de pagamento real | não (BBAS3 entra só com os valores por ação) |
 | M7 | anúncios novos das 4 empresas com pagamento até 31/12/2026 | RAD: https://www.rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx (ou o IPE de dados abertos, que é atualizado toda semana) | fato relevante ou aviso entre 27/09 e a gravação | só se aparecer algo |
 | M8 | YouTube | os 5 vídeos sem metadados (arquivo de concorrentes, seção 0) e comentários de `TY8oLvUt2Qg` | views, data; dúvida nº 1 no próprio vídeo do canal | não |
+
+**Conferido em 07/10/2026** (planalto.gov.br e dados.cvm.gov.br abertos neste container; testados de novo com curl e
+ainda bloqueados: sistemaswebb3-listados.b3.com.br, arquivos.b3.com.br, petrobras.com.br, api.mziq.com; normasinternet2
+abre a página, mas a API dá 403):
+
+| # | veredito | o que o texto diz | fonte |
+|---|---|---|---|
+| M1 | **bate** | LC 224/2025 (26/12/2025), art. 8º: novo § 2º do art. 9º da Lei 9.249: "Os juros ficarão sujeitos à incidência do imposto sobre a renda na fonte à alíquota de 17,5% (dezessete inteiros e cinco décimos por cento) na data do pagamento ou do crédito ao beneficiário". Art. 14, III: efeitos "a partir de 1º de janeiro de 2026" (o art. 8º não está nas exceções do inciso I). **Não há regra de transição** para JCP creditado em 2025 e pago em 2026: a lei só diz "na data do pagamento ou do crédito" (o caso da ITSA4 com 15%, D10/D11, é coerente com crédito em 2025). M3 continua aberto | https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp224.htm |
+| M2 | **bate, com uma nuance** | Lei 15.270, art. 2º, novo art. 6º-A da Lei 9.250: "A partir do mês de janeiro do ano-calendário de 2026", lucros e dividendos pagos "por uma mesma pessoa jurídica a uma mesma pessoa física residente no Brasil em montante superior a R$ 50.000,00 (cinquenta mil reais) em um mesmo mês" ficam sujeitos a retenção "à alíquota de 10% (dez por cento) sobre o total do valor pago" (a) — **10% sobre o total do mês, não só sobre o que passa de R$ 50 mil**. § 3º: fora da regra os lucros "relativos a resultados apurados até o ano-calendário de 2025" e "cuja distribuição tenha sido aprovada até 31 de dezembro de 2025", pagos nos termos originais (b). Art. 16-A: tributação mínima anual a partir do exercício 2027 para quem soma mais de **R$ 600.000,00** no ano, alíquota crescendo até **10% a partir de R$ 1.200.000,00** (c). Efeitos: art. 8º, "a partir de 1º de janeiro de 2026". **Corrigido na seção 3.4:** a frase dizia que a regra "só morde" quem passa de R$ 50 mil no mês; o imposto mínimo anual (c) também alcança dividendo de quem soma mais de R$ 600 mil no ano. Vale agora dizer "10%" na fala, se o Denis quiser | https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/l15270.htm |
+| M2b | NÃO ABRIU | normasinternet2: página abre, API 403 | CONFERIR NO MAC |
+| M3 | NÃO ABRIU | petrobras.com.br bloqueado; a LC 224 não traz transição (ver M1) | CONFERIR NO MAC |
+| M4–M6 | NÃO ABRIU | sistemaswebb3-listados.b3.com.br segue bloqueado (CONNECT 403 em 07/10/2026). **Continua bloqueando a gravação (M4)** | CONFERIR NO MAC |
+| M7 | parcial: nada novo até 03/10 | IPE 2026 dos dados abertos (arquivo de 04/10/2026, entregas até 03/10/2026): **nenhum documento** de Itaúsa, Petrobras, BB Seguridade ou Taesa entregue entre 27/09 e 03/10/2026. De 04/10 até a gravação: conferir no RAD | https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/IPE/DADOS/ipe_cia_aberta_2026.zip |
+| M8 | não feito | YouTube (yt-dlp) fora do escopo desta conferência | CONFERIR NO MAC |
 
 ---
 
@@ -447,5 +462,5 @@ Primárias (acessadas em 03/10/2026):
 Secundárias (só pista, não sustentam número): arquivo de concorrentes.
 
 *Briefing de 03/10/2026. Pesquisa de concorrentes feita antes ✅; grade montada com os avisos das próprias empresas no
-RAD ✅; JCP 17,5% escrito pelas empresas ✅ (lei no Mac, M1); regra do dividendo só em uma frase até M2 ✅; tabela da B3
+RAD ✅; JCP 17,5% escrito pelas empresas ✅ (lei conferida em 07/10/2026, M1); regra do dividendo em uma frase, M2 conferido em 07/10/2026 ✅; tabela da B3
 no Mac (M4) ⏳. Veredito: **GO, com os ajustes das seções 3.4, 13 e 14.***

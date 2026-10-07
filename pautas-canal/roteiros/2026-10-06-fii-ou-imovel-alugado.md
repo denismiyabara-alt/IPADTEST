@@ -7,7 +7,7 @@ duracao_estimada: "≈12:00 (1.735 palavras faladas: 11:58 a 145 por minuto, 12:
 briefing: pautas-canal/briefings/2026-10-06-fii-ou-imovel-briefing.md
 concorrentes: pautas-canal/briefings/2026-10-06-fii-ou-imovel-concorrentes.md
 notas_e_juizes: pautas-canal/roteiros/2026-10-06-fii-ou-imovel-alugado-notas.md
-fontes_de_dado: "1 fonte de dado, 2 datas-base — informes de FII na CVM (trimestral de 30/06/2026; mensal de ago/2026). Regras: Lei 14.754/2023, Lei 15.270/2025, MP 1.303/2025 (Denis valida na primária)"
+fontes_de_dado: "1 fonte de dado, 2 datas-base — informes de FII na CVM (trimestral de 30/06/2026; mensal de ago/2026). Regras: Lei 11.033/2004 art. 3º (red. Lei 14.754/2023), Lei 15.270/2025, MP 1.303/2025 (conferidas no planalto.gov.br em 07/10/2026; ver notas, seção 12)"
 orcamento_numeros: "fontes 2 · números novos falados por bloco: B0 5 · B1 4 · B2 4 · B3 5 · B4 5 · B5 4 · B6 4 · B7 0 · frases com 3+ números: 0"
 gancho_trecho: "Num deles, chegam os vinte e quatro mil. No outro, chega menos de dezesseis mil."
 numero_ancorado_trecho: "Oito mil e cinquenta reais de diferença por ano. Mesmo dinheiro investido. Mesmo aluguel no papel."
@@ -274,7 +274,7 @@ Fundo pequeno, com menos de cem cotistas, perde a isenção.
 
 O leão não some. O leão só não entra em fundo cheio.
 
-[TELA: Lei 14.754/2023 — isenção do rendimento de FII: cotas negociadas em bolsa, 100+ cotistas, cotista com menos de um décimo das cotas. CVM, ago/26: 48 fundos listados abertos ao público geral abaixo desse corte]
+[TELA: Lei 11.033/2004, art. 3º (red. Lei 14.754/2023) — isenção do rendimento de FII: cotas negociadas em bolsa, 100+ cotistas, cotista com menos de um décimo das cotas. CVM, ago/26: 48 fundos listados abertos ao público geral abaixo desse corte]
 
 E de onde saiu o seis por cento do fundo?
 
@@ -364,7 +364,7 @@ Seriam cinco por cento, a partir deste ano.
 
 Em outubro do ano passado, a Câmara derrubou, e a proposta caiu.
 
-[TELA: MP 1.303/2025 — 5% de IR sobre rendimento de FII a partir deste ano; derrubada pela Câmara em 08/10/25]
+[TELA: MP 1.303/2025 — 5% de IR sobre rendimento de FII a partir deste ano; perdeu a validade em 08/10/25 sem virar lei (Ato Declaratório do Congresso nº 67/2025)]
 
 O cuidado de quem compra: o dinheiro fica inteiro num lugar só.
 

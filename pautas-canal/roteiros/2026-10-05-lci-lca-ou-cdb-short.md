@@ -81,8 +81,8 @@ Quando o banco botar a taxa maior em letra grande, faz a conta do empate. E como
 
 | número (fala ou tela) | o que é | fonte primária | conferido |
 |---|---|---|---|
-| LCI e LCA isentas de IR para pessoa física | regra | Lei 11.033/2004, art. 3º, II (LCI) e IV (LCA): https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm · Receita, Perguntas e Respostas IRPF 2026, pergunta 738: https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/dirpf/p-r-irpf-2026-v1-00-2026-04-23.pdf | P&R 2026 lido em 03/10/2026 (curl, 200). **planalto: CONFERIR NO MAC** (curl devolveu "Empty reply from server") |
-| 22,5% · 20% · 17,5% · 15% (só tela) | tabela regressiva do IR na renda fixa | Lei 11.033/2004, art. 1º · Receita, P&R IRPF 2026, pergunta 734 (mesmo PDF) | P&R lido em 03/10/2026; planalto: CONFERIR NO MAC |
+| LCI e LCA isentas de IR para pessoa física | regra | Lei 11.033/2004, art. 3º, II (LCI) e IV (LCA): https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm · Receita, Perguntas e Respostas IRPF 2026, pergunta 738: https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/dirpf/p-r-irpf-2026-v1-00-2026-04-23.pdf | P&R 2026 lido em 03/10/2026 (curl, 200). **planalto conferido em 07/10/2026:** art. 3º, II ("letras de crédito imobiliário") e IV ("Letra de Crédito do Agronegócio - LCA"), isentos "na fonte e na declaração de ajuste anual das pessoas físicas"; sem redação nova em 2026 (só a remissão "Vide MP 1.303, de 2025", com vigência encerrada) |
+| 22,5% · 20% · 17,5% · 15% (só tela) | tabela regressiva do IR na renda fixa | Lei 11.033/2004, art. 1º · Receita, P&R IRPF 2026, pergunta 734 (mesmo PDF) | P&R lido em 03/10/2026; **planalto conferido em 07/10/2026:** art. 1º, I a IV: 22,5% (até 180 dias), 20% (181 a 360), 17,5% (361 a 720), 15% (acima de 720); sem redação nova |
 | "um ano" = 17,5% | 365 dias está na faixa de 361 a 720 dias | Lei 11.033/2004, art. 1º, III (a lei conta em dias; a Receita usa dias na pergunta 230 do mesmo P&R) | atenção: 360 dias ou menos é 20% (ver CUIDADOS) |
 | 105% e 90% do CDI | taxas do EXEMPLO, redondas | hipotéticas, declaradas na tela ("EXEMPLO") | não são taxa de mercado |
 | 86,6% (falado "oitenta e seis e meio") | 105 × 0,825 = 86,625 | conta própria | 03/10/2026 |
@@ -101,11 +101,11 @@ Quando o banco botar a taxa maior em letra grande, faz a conta do empate. E como
 - **Uma imagem só: o Leão que morde.** Não improvisar "sócio", "pedágio" ou "garçom".
 - **Nada de banco, corretora ou produto com nome.** As taxas são de exemplo; não dizer "hoje tem LCI a noventa" nem onde achar.
 - **Fora da fala, de propósito:** liquidez (a LCI tem carência), FGC, LCI corrigida pela inflação (prazo mínimo de 36 meses na LCI e 12 na LCA) e CDB de liquidez diária. Tudo isso é do longo de 22/10. Se alguém perguntar nos comentários, a resposta é o vídeo de 22/10.
-- **Não falar "MP 1.303".** A isenção vale em 2026 (P&R IRPF 2026, pergunta 738). A MP 1.303/2025, que tributaria LCI e LCA novas, caducou em 08/10/2025 (`livros/RELATORIO.md`, fonte secundária). Conferir no planalto antes de publicar (abaixo).
+- **Não falar "MP 1.303".** A isenção vale em 2026 (P&R IRPF 2026, pergunta 738). A MP 1.303/2025, que tributaria LCI e LCA novas, caducou em 08/10/2025 (`livros/RELATORIO.md`, fonte secundária). Conferido no planalto em 07/10/2026 (abaixo).
 
-**CONFERIR NO MAC (bloqueado aqui; não contornei)**
-1. https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm: art. 1º (tabela) e art. 3º, II e IV (isenção), sem redação nova em 2026. Aqui o curl devolveu "Empty reply from server".
-2. https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/mpv/mpv1303.htm: confirmar que a MP 1.303/2025 perdeu a eficácia sem virar lei (mesmo erro aqui; a API da Câmara deu 403 no proxy).
+**CONFERIDO EM 07/10/2026 (planalto.gov.br aberto neste container; antes era "CONFERIR NO MAC")**
+1. https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm: art. 1º (tabela 22,5/20/17,5/15 por faixa de dias) e art. 3º, II (LCI) e IV (LCA) batem com a fala e a tela; nenhuma redação nova em 2026. **Nada mudou no Short.**
+2. https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/mpv/mpv1303.htm (art. 41: IRRF de 5% sobre LCI e LCA, efeitos a partir de 01/01/2026) e https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/Congresso/adc-67-mpv1.303.htm: Ato Declaratório do Presidente da Mesa do CN nº 67/2025, a MP "teve seu prazo de vigência encerrado no dia 8 de outubro de 2025". Perdeu a eficácia sem virar lei: a isenção segue valendo em 2026.
 
 - **Duração:** 179 palavras. Se o ensaio passar de 55 s, o primeiro candidato a sair é "a régua de juros dos bancos" (vai para a tela como "CDI = a taxa que os bancos usam de régua"). Corte só com o Denis.
 

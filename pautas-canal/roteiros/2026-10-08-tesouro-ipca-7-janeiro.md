@@ -348,11 +348,11 @@ colunas Taxa Compra Manha / PU Compra Manha / PU Venda Manha. [conta] = derivado
 | 0,12 p.p. (só [TELA]; a fala diz "o Tesouro compra de volta um pouquinho mais barato do que vende: é o pedágio") | B3 | CSV | 28/01 e 01/10 | 7,59 − 7,47; 7,68 − 7,56 |
 | ~R$ 110 (pedágio) e "quase oitenta" (taxa de 7,47 para 7,56; ~R$ 77); o de ~R$ 94 só na [TELA]: a fala diz "o resto é o juro do Selic" | B3 | CSV | 01/10/2026 | R$ 108 / R$ 77 / R$ 94, briefing seção 2a (o de R$ 77 usa PU estimado por dias úteis) |
 | 7,53% (IPCA+ 2035 COM juros semestrais, compra; só [TELA]) | B4 | CSV (linha "Tesouro IPCA+ com Juros Semestrais;15/05/2035;28/01/2026") | 28/01/2026 | — |
-| 6% ao ano, pago em duas parcelas semestrais (regra do cupom; só [TELA]) | B4 | regra da NTN-B / Tesouro IPCA+ com Juros Semestrais: página do título no Tesouro Direto (www.tesourodireto.com.br, **bloqueada daqui**: 403 no proxy em 03/10/2026; planalto.gov.br também 403). Regra pública e estável; Denis confere a página no Mac | — | (1,06)^0,5 − 1 = 2,9563% por semestre |
-| ~R$ 330 de cupom em maio (só do 2035 COM juros semestrais) | B4 | CSV [conta] | 15/05/2026 | VNA 15/05 ≈ R$ 4.704,56 (estimado: IPCA+ 2026 sem cupom = VNA ÷ (1 + taxa)^(du/252), briefing seção 3) × 2,9563% = R$ 139,08 por título · R$ 10.000 ÷ R$ 4.213,62 (PU compra 28/01 do 2035 COM juros) = 2,3733 títulos · 2,3733 × 139,08 = R$ 330,08 |
+| 6% ao ano, pago em duas parcelas semestrais (regra do cupom; só [TELA]) | B4 | regra da NTN-B / Tesouro IPCA+ com Juros Semestrais: página do título no Tesouro Direto (www.tesourodireto.com.br, ainda **bloqueada** em 07/10/2026). **Conferido em 07/10/2026 por duas primárias:** Decreto 3.859/2001, art. 8º, VI, NTN-B: "pagamento de juros: semestralmente" e II, taxa "definida... quando da emissão, em porcentagem ao ano, calculada sobre o valor nominal atualizado" (https://www.planalto.gov.br/ccivil_03/decreto/2001/d3859.htm); Tesouro Transparente, "Pagamento de Cupom de Juros do Tesouro Direto": linha "Tesouro IPCA+ com Juros Semestrais;15/05/2035;15/05/2026;PU 139,081198" (https://www.tesourotransparente.gov.br/ckan/dataset/f30db6e4-6123-416c-b094-be8dfc823601/resource/de2af5cf-9dbd-4566-b933-da6871cce030/download/cupomjurostesourodireto.csv), igual ao R$ 139,08 da conta de 2,9563% × VNA | 15/05/2026 | (1,06)^0,5 − 1 = 2,9563% por semestre |
+| ~R$ 330 de cupom em maio (só do 2035 COM juros semestrais) | B4 | CSV [conta]; **PU do cupom conferido em 07/10/2026 no Tesouro Transparente: R$ 139,081198 por título** (2,3733 × 139,081198 = R$ 330,08) | 15/05/2026 | VNA 15/05 ≈ R$ 4.704,56 (estimado: IPCA+ 2026 sem cupom = VNA ÷ (1 + taxa)^(du/252), briefing seção 3) × 2,9563% = R$ 139,08 por título · R$ 10.000 ÷ R$ 4.213,62 (PU compra 28/01 do 2035 COM juros) = 2,3733 títulos · 2,3733 × 139,08 = R$ 330,08 |
 | R$ 10.744 (2035 COM juros semestrais) | B4 | CSV [conta] | 28/01 → 01/10 | 10.000 × (4.388,12 + 139,08) ÷ 4.213,62 |
 
-Não vão pra fala (bloqueados ou não reconferidos): IPCA SGS 433 e CDI SGS 12 (api.bcb.gov.br bloqueado); IBGE bloqueado;
+Não vão pra fala: IPCA SGS 433 e CDI SGS 12 (lidos em 07/10/2026 na api.bcb.gov.br, ver Validações, item 5; o vídeo não usa); IBGE bloqueado;
 "8,33% em julho" da imprensa (não verificado; o CSV de manhã dá 8,22%).
 
 ## Juiz-roteiro (rubrica 10/10)
@@ -638,15 +638,37 @@ sem "última chance", sem "vale a pena". Meme: nenhum insert entre 0:08 e 0:20.
    ```
    R$ 10 mil hoje = 10.000 × PU Venda (hoje) ÷ PU Compra (28/01), cada título com a SUA linha. Se o Selic deixar de estar
    na frente, a tese muda.
-4. **Cupom pela regra do título** (Denis não tem extrato): 6% ao ano em duas parcelas semestrais = 2,9563% do VNA por semestre; VNA
-   de 15/05 estimado pelo IPCA+ 2026 do CSV (ANBIMA bloqueada daqui). Conta inteira na tabela número → fonte. Única
-   pendência: abrir no Mac a página do Tesouro IPCA+ com Juros Semestrais no Tesouro Direto (bloqueada daqui) e confirmar
-   "6% ao ano, pagos semestralmente".
-5. **IPCA (SGS 433) e CDI (SGS 12) não foram lidos** (api.bcb.gov.br bloqueado; IBGE também). O vídeo compara com o
-   Tesouro Selic do mesmo CSV e não fala "CDI". Se quiser CDI, ler no Mac.
+   **Rodado em 07/10/2026 (tesourotransparente.gov.br aberto neste container; CSV com data-base até 06/10/2026). A TESE
+   VIROU.** Linhas do CSV (Taxa Compra · PU Compra · PU Venda, manhã):
+   - 01/10: IPCA+ 2035 7,56% · 2.545,29 · **2.519,80** | c/ juros 2035 7,55% · 4.422,66 · **4.388,12** | Selic 2029 **19.970,63**
+     → R$ 10.662 / R$ 10.744 / R$ 10.942 (os números do roteiro; Selic na frente).
+   - 05/10: IPCA+ 2035 6,86% · 2.695,45 · **2.668,37** | c/ juros 6,87% · 4.618,13 · **4.581,74** | Selic **19.989,81**.
+   - 06/10: IPCA+ 2035 6,92% · 2.683,91 · **2.656,97** | c/ juros 6,92% · 4.606,22 · **4.569,97** | Selic **19.999,59**
+     → **IPCA+ 2035 R$ 11.243** (10.000 × 2.656,97 ÷ 2.363,30) · **c/ juros R$ 11.176** (10.000 × (4.569,97 + 139,08) ÷
+     4.213,62) · **Selic R$ 10.957** (10.000 × 19.999,59 ÷ 18.252,04).
+   A taxa do 2035 caiu de 7,55% (02/10) para 6,86% (05/10), queda que aparece em todos os IPCA+ e prefixados do CSV
+   no mesmo dia. **Com a data-base de 05 ou 06/10, o IPCA+ comprado em janeiro está NA FRENTE do Selic** e a "taxa de hoje"
+   (6,9%) ficou ABAIXO da de janeiro (7,47%): o B0, o loop dos R$ 280, o B2 ("a promessa ficou mais barata"), o B3 (pedágio +
+   promessa mais barata + Selic) e o fecho deixam de valer com a data de hoje. **Não reescrevi nada:** decisão do Denis
+   (gravar com data-base 01/10 dita na tela, refazer a conta com a data da gravação, ou adiar). Qualquer caminho exige a
+   atualização na véspera, de novo, porque a taxa está andando rápido.
+4. **Resolvida (conferido em 07/10/2026):** **Cupom pela regra do título** (Denis não tem extrato): 6% ao ano em duas parcelas semestrais = 2,9563% do VNA por semestre; VNA
+   de 15/05 estimado pelo IPCA+ 2026 do CSV (ANBIMA bloqueada daqui). Conta inteira na tabela número → fonte. **Conferido
+   em 07/10/2026:** Decreto 3.859/2001, art. 8º, VI ("pagamento de juros: semestralmente") e o PU do cupom pago em
+   15/05/2026 no Tesouro Transparente, **R$ 139,081198 por título**, igual ao R$ 139,08 da conta. A página do Tesouro Direto
+   (tesourodireto.com.br) segue bloqueada; não faz mais falta.
+5. **Resolvida (lidos em 07/10/2026):** **IPCA (SGS 433) e CDI (SGS 12)** (https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados?formato=json
+   e https://api.bcb.gov.br/dados/serie/bcdata.sgs.12/dados?formato=json). IPCA 2026: jan 0,33 · fev 0,70 · mar 0,88 · abr 0,67 ·
+   mai 0,58 · jun 0,16 · jul 0,07 · ago −0,32 (% ao mês; acumulado jan–ago 3,11%; set ainda não publicado). CDI diário
+   acumulado de 28/01 a 30/09/2026 (até a véspera de 01/10): +9,42%, ou seja, R$ 10.942 em R$ 10 mil: **igual ao Tesouro
+   Selic do roteiro** (R$ 10.942). O vídeo continua sem falar "CDI"; se o Denis quiser, a frase "o Selic andou junto com o
+   CDI" tem fonte.
 6. **Rodar no Mac:** pesquisador (YouTube + comentários: confirmar a dúvida nº 1), `score_roteiro.py` (portão + molde
    repetido), ouvinte-frio novo e o checklist do empacotador.
 7. **Short 14/10:** a fala marcada tem ≈ 55 s; a nota do [CORTE] diz o que tirar pra chegar a 40 s.
+8. **Decisão nova (07/10/2026): com o CSV de 05 e 06/10, o IPCA+ de janeiro passou o Selic** (R$ 11.243 e R$ 11.176 contra
+   R$ 10.957; taxa do 2035 em 6,92%, abaixo dos 7,47% de janeiro; detalhe no item 3). O roteiro está escrito sobre a data-base
+   de 01/10 (Selic na frente). Gravar com "dados de 01/10" na tela, refazer a conta com a data da gravação ou adiar?
 
 ### 3º ouvinte-frio cego (v1.5, persona professora com app vermelho) e correções v1.6
 

@@ -85,7 +85,7 @@ Antes de comemorar a renda, olha o bolso da cota. Na vida real, nem sempre dá z
 | R$ 11.362 | renda do ano: 1% da cota de cada mês, 12 meses = 100.000 × (1 − 0,99¹²) = 11.361,5 (falado "quase onze mil e quatrocentos") | conta própria (refeita em Python em 03/10/2026) · C19 do briefing | 03/10/2026 |
 | R$ 88.638 | cota no fim: 100.000 × 0,99¹² = 88.638,5 (falado "oitenta e oito mil e seiscentos e pouco") | conta própria · C19 do briefing | 03/10/2026 |
 | R$ 100.000 / zero | 11.361,5 + 88.638,5 = 100.000,0 exato (a renda de cada mês é exatamente o que a cota perdeu no mês) | conta própria | 03/10/2026 |
-| imposto retido em cada pagamento (sem alíquota falada) | ETF da B3 que distribui: 15% retido na fonte na distribuição | Lei 14.754/2023, arts. 24 e 47, II (R5 do briefing do Ep. 1): https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm | **CONFERIR NO MAC** (planalto deu "Empty reply from server" aqui). A fala diz "se esse fundo tiver" porque FII com 100 cotistas é isento (Lei 11.033/2004, art. 3º, III) e o Short não diz o tipo |
+| imposto retido em cada pagamento (sem alíquota falada) | ETF da B3 que distribui: 15% retido na fonte na distribuição | Lei 14.754/2023, arts. 24 e 47, II (R5 do briefing do Ep. 1): https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm | **conferido no planalto em 07/10/2026:** art. 24, "retenção na fonte do IRRF à alíquota de 15% (quinze por cento), na data da distribuição de rendimentos, da amortização ou do resgate de cotas", para os fundos do art. 18 (FIP, ETF exceto renda fixa, FIDC; FIA pelo parágrafo único); art. 47, II, efeitos "a partir de 1º de janeiro de 2024". FII: Lei 11.033, art. 3º, III e § 1º, I (100 cotistas) conferidos no mesmo dia. A fala diz "se esse fundo tiver" porque FII com 100 cotistas é isento (Lei 11.033/2004, art. 3º, III) e o Short não diz o tipo |
 
 ---
 
@@ -100,8 +100,8 @@ Antes de comemorar a renda, olha o bolso da cota. Na vida real, nem sempre dá z
 - **"Quarta que vem" = 14/10.** Se o Short atrasar para depois de 07/10, trocar por "na quarta, dia catorze".
 - **Alinhado ao card da esteira-social de 07/10:** mesmos 4 números e a mesma frase final. O card diz "dois ETFs de verdade" na legenda e "dois fundos de verdade" no post C; a fala usa "fundos" (o Short não diz que é ETF).
 
-**CONFERIR NO MAC (bloqueado aqui; não contornei)**
-1. https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm: art. 24 (retenção na distribuição) e art. 47, II (vigência). Aqui: "Empty reply from server".
+**CONFERIDO EM 07/10/2026 (antes "CONFERIR NO MAC")**
+1. https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm: art. 24 (15% retidos na data da distribuição) e art. 47, II (efeitos desde 01/01/2024) batem com a tabela acima. **Nada mudou no Short** (a fala não diz alíquota).
 
 - **Na fala os valores vêm arredondados** ("quase onze mil e quatrocentos", "oitenta e oito mil e seiscentos e pouco"), porque o ouvinte só guardou "onze mil" e "oitenta e oito mil" dos valores exatos. Os exatos (R$ 11.362 e R$ 88.638) ficam na [TELA], iguais aos do card. Não ler o exato e o arredondado juntos.
 

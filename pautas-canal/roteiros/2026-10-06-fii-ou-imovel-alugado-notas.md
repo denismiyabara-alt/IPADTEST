@@ -145,26 +145,26 @@ tem "FII". Se o Denis quiser priorizar a Pesquisa (que trouxe só 13 views ao v�
 | R$ 2.000/mês, R$ 400 mil, 6% ao ano | B0, B1, B4 | **hipótese** ("se"), em linha com FipeZap ago/26 = 6,14% a.a. | FipeZap só por snippet (PDF bloqueado) — Denis confere |
 | 2.018 imóveis prontos; 176 totalmente vazios (quase 1 em 11) | B2 | CVM, informe trimestral de FII, 30/06/2026, fundos com negociação em bolsa | conferido na primária (dados.cvm.gov.br) |
 | 1 mês vazio por ano → 11 aluguéis → R$ 22.000 | B2 | hipótese, ordem de grandeza do 176/2.018 | conta |
-| R$ 5.000/mês isento; R$ 7.350; 27,5% (faixa só na cartela; na fala: "até cinco mil... acima disso, o desconto vai sumindo") | B3 | Lei 15.270/2025 e tabela do IRPF 2026 (briefing L3) | só secundária (planalto/Receita bloqueados) — Denis valida |
+| R$ 5.000/mês isento; R$ 7.350; 27,5% (faixa só na cartela; na fala: "até cinco mil... acima disso, o desconto vai sumindo") | B3 | Lei 15.270/2025 e tabela do IRPF 2026 (briefing L3) | **conferido na primária em 07/10/2026** (planalto, Lei 15.270 art. 2º → art. 3º-A da Lei 9.250; Receita, tabelas 2026: máx. 27,5%) — seção 12 |
 | Caso 1, dono com salário acima de R$ 7.350: R$ 6.050 de IR; sobra R$ 15.950; ≈ 4% | B3, B4 | hipótese ("primeiro caso") + conta: 22.000 × 27,5%; 22.000 − 6.050; 15.950 ÷ 400.000 = 3,99% (briefing L3/L4, seção 4) | conta |
-| Caso 2, aluguel como única renda: R$ 2.000/mês < R$ 5.000 → IR zero; ficam R$ 22.000 | B3, B4 | hipótese ("segundo caso") + regra L3 (zero até R$ 5.000/mês de renda tributável) e L4 (carnê-leão, soma no ajuste: 22.000/ano < 12 × 5.000 = 60.000) | conta + lei (secundária) — Denis valida (seção 10) |
-| R$ 24.000 no fundo, isento; diferença R$ 8.050 (caso 1) e R$ 2.000 (caso 2) | B0, B4, B5, B7 | conta: 400.000 × 6%; 24.000 − 15.950; 24.000 − 22.000; isenção pela Lei 11.033 art. 3º (red. Lei 14.754) | conta + lei (secundária) |
-| 100 cotistas; menos de 10% das cotas | B4 | Lei 14.754/2023 (alterou a Lei 11.033, art. 3º) | só secundária — Denis valida |
+| Caso 2, aluguel como única renda: R$ 2.000/mês < R$ 5.000 → IR zero; ficam R$ 22.000 | B3, B4 | hipótese ("segundo caso") + regra L3 (zero até R$ 5.000/mês de renda tributável) e L4 (carnê-leão, soma no ajuste: 22.000/ano < 12 × 5.000 = 60.000) | conta + lei **conferida na primária em 07/10/2026** (seção 12) |
+| R$ 24.000 no fundo, isento; diferença R$ 8.050 (caso 1) e R$ 2.000 (caso 2) | B0, B4, B5, B7 | conta: 400.000 × 6%; 24.000 − 15.950; 24.000 − 22.000; isenção pela Lei 11.033 art. 3º (red. Lei 14.754) | conta + lei (conferida no planalto em 07/10/2026) |
+| 100 cotistas; menos de 10% das cotas | B4 | Lei 11.033/2004, art. 3º, III e § 1º, I e II (o 100 é da Lei 14.754/2023; o 10% vem da Lei 11.196/2005, red. Lei 14.130/2021) | **conferido no planalto em 07/10/2026**; cartela corrigida (seção 12) |
 | 48 fundos abertos ao público com menos de 100 cotistas | só cartela B4 | CVM, informe mensal ago/2026 | conferido na primária |
 | 7,8% (mediana, 12 meses até ago/26, sobre o patrimônio) | B4 | CVM, informe mensal, soma do Dividend_Yield_Mes set/25–ago/26, 290 fundos listados com 100+ cotistas | conferido na primária |
 | 10% de queda = R$ 40 mil; 5 anos de vantagem (caso 1); 20 anos (caso 2) | B5 | hipótese ("se") e conta (8.050 × 5 = 40.250; 2.000 × 20 = 40.000) | conta |
-| MP de 5% sobre rendimento de FII, derrubada em outubro de 2025 | B6 | MP 1.303/2025; Câmara, 08/10/2025 | só secundária — Denis valida |
+| MP de 5% sobre rendimento de FII, derrubada em outubro de 2025 | B6 | MP 1.303/2025, art. 44 e art. 75, I; Ato Declaratório do Presidente da Mesa do CN nº 67/2025 | **conferido no planalto em 07/10/2026**; cartela corrigida (seção 12) |
 | 97 de 272 fundos com um imóvel só | B6 | CVM, informe trimestral 30/06/2026 | conferido na primária |
 
 ## 7. Validações que só o Denis faz
 
-1. **Lei 14.754/2023 / Lei 11.033, art. 3º:** 100 cotistas e menos de 10% das cotas (B4 e cartela).
-2. **Lei 15.270/2025:** quem tem salário acima de R$ 7.350 por mês paga 27,5% na margem sobre o aluguel em 2026 (B3);
+1. **Resolvida (conferido na primária em 07/10/2026, seção 12; cartela do B4 com a lei corrigida):** Lei 14.754/2023 / Lei 11.033, art. 3º: 100 cotistas e menos de 10% das cotas (B4 e cartela).
+2. **Resolvida (conferido na primária em 07/10/2026, seção 12):** Lei 15.270/2025: quem tem salário acima de R$ 7.350 por mês paga 27,5% na margem sobre o aluguel em 2026 (B3);
    e, desde a v1.7, quem tem o aluguel de R$ 2.000/mês como única renda tributável paga zero (seção 10).
    A conta ignora deduções do carnê-leão (IPTU, condomínio, taxa da imobiliária pagos pelo dono): se quiser, uma frase na
    cartela.
-3. **MP 1.303/2025:** 5% sobre rendimento de FII a partir de 2026 e derrubada pela Câmara em 08/10/2025 (B6).
-4. **FipeZap de ago/2026:** se 6% ao ano bruto continua honesto como hipótese (o snippet diz 6,14%).
+3. **Resolvida (conferido na primária em 07/10/2026, seção 12; cartela do B6 corrigida):** MP 1.303/2025: 5% sobre rendimento de FII a partir de 2026 e perda de validade em 08/10/2025 (B6). Fica com o Denis só o verbo da fala, "a Câmara derrubou" (a primária diz que a MP perdeu a validade; o papel da Câmara é imprensa).
+4. **FipeZap de ago/2026:** se 6% ao ano bruto continua honesto como hipótese (o snippet diz 6,14%). **CONFERIR NO MAC:** fipe.org.br e downloads.fipe.org.br seguem bloqueados em 07/10/2026.
 5. **"Cota de fundo com bastante negócio você vende no mesmo dia"** (B5): a frase é qualitativa; confirmar que não soa
    como promessa de liquidez.
 6. **Rodar no Mac:** ouvinte-frio novo (este não foi independente) e juiz-ritmo com o DNA de voz; o portão já rodou aqui.
@@ -292,7 +292,7 @@ mês (e 22.000 no ano < 60.000): **IR zero sobre o aluguel**. Conta: o apê entr
 diferença **24.000 − 22.000 = R$ 2.000 por ano, só o mês vazio**. Contraprova do B5: 40.000 ÷ 2.000 = 20 anos.
 O briefing **não** separa o carnê-leão mensal do ajuste nem diz se aposentadoria/pensão contam (contam como renda
 tributável, e aí a pessoa volta pro caso do meio). A fala diz "o aluguel é a sua única renda", que é o caso que o
-briefing cobre. **Denis valida:** (a) que o redutor da Lei 15.270 vale também no carnê-leão mensal, não só no ajuste;
+briefing cobre. **Denis valida:** Resolvida (conferido na primária em 07/10/2026, seção 12): (a) que o redutor da Lei 15.270 vale também no carnê-leão mensal, não só no ajuste;
 (b) que R$ 2.000/mês de aluguel como única renda tributável dá IR zero em 2026.
 
 Correções da v1.7 (só a fala e as cartelas; nenhum número fora do briefing e das contas declaradas):
@@ -349,3 +349,25 @@ Correções (nenhum número novo; "entre dois e oito mil" são os dois casos já
 - Segundo caso inclui o aposentado com renda total até 5 mil; caso do meio: "entre dois e oito mil por ano; a conta exata é a sua, com a sua declaração na mão".
 - "casaco e bota" → "casaco" (a bota nunca era explicada); "Em outubro" → "Em outubro do ano passado".
 Validação nova do Denis: aposentado com 65 anos ou mais tem parcela isenta extra no IR; o vídeo não entra nisso (se quiser, uma frase ou o comentário fixado).
+
+---
+
+## 12. Conferência na primária (07/10/2026, planalto.gov.br e Receita abertos neste container)
+
+Fontes abertas em 07/10/2026 (curl, 200):
+- Lei 11.033/2004 (compilada): https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11033.htm
+- Lei 14.754/2023: https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14754.htm
+- Lei 15.270/2025: https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/l15270.htm
+- MP 1.303/2025: https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/mpv/mpv1303.htm
+- Ato Declaratório do Presidente da Mesa do CN nº 67/2025: https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/Congresso/adc-67-mpv1.303.htm
+- Lei 7.713/1988 (carnê-leão, art. 8º): https://www.planalto.gov.br/ccivil_03/leis/l7713.htm
+- Receita, tabelas 2026: https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/2026
+
+| Item | O que o texto diz | Roteiro | Veredito |
+|---|---|---|---|
+| Isenção do FII | Lei 11.033, art. 3º, III: isento "na fonte e na declaração de ajuste anual das pessoas físicas" o rendimento de FII "cujas cotas sejam admitidas à negociação exclusivamente em bolsas de valores ou no mercado de balcão organizado" (red. Lei 14.130/2021; a versão "efetivamente negociadas" da MP 1.184 está com vigência encerrada). § 1º, I: "no mínimo, 100 (cem) cotistas" (red. **Lei 14.754/2023**, art. 41). § 1º, II: não vale para quem tem "10% (dez por cento) ou mais da totalidade das cotas" ou direito a mais de 10% dos rendimentos (Lei 11.196/2005, red. Lei 14.130/2021) | fala B4 "pelo menos cem cotistas... menos de dez por cento"; cartela "cotas negociadas em bolsa, 100+ cotistas, menos de um décimo" | **bate.** A cartela atribuía tudo à Lei 14.754, que só trouxe o 100 (e a trava de 30% para pessoas ligadas). **Corrigido:** "Lei 11.033/2004, art. 3º (red. Lei 14.754/2023)". Simplificações aceitáveis: "em bolsa" (a lei inclui balcão organizado) e o fundo tem 30 dias para voltar a 100 cotistas (§ 4º) |
+| Faixa de 5 mil e redutor até 7.350 | Lei 15.270, art. 2º (novo art. 3º-A da Lei 9.250): "A partir do mês de janeiro do ano-calendário de 2026", redução sobre "rendimentos tributáveis sujeitos à incidência mensal": "até R$ 5.000,00 — até R$ 312,89 (de modo que o imposto devido seja zero)"; "de R$ 5.000,01 até R$ 7.350,00 — R$ 978,62 − (0,133145 × rendimentos)"; § 2º: acima de R$ 7.350,00 "não terão redução". Anual (art. 11-A, a partir do exercício 2027): zero até R$ 60.000,00; redutor até R$ 88.200,00. Receita, tabela mensal 2026: última faixa "Acima de R$ 4.664,68 — 27,5%" | cartela B3 "imposto zero até R$ 5.000/mês de renda tributável; desconto parcial até R$ 7.350; acima disso, tabela antiga (máx. 27,5%)" | **bate** |
+| Redutor no carnê-leão | O art. 3º-A fala de "rendimentos tributáveis sujeitos à incidência mensal", sem citar carnê-leão; o carnê-leão é o imposto mensal sobre rendimento recebido de pessoa física (Lei 7.713, art. 8º), calculado pela tabela mensal. Pelo texto, o redutor vale também ali. Nem a lei nem a página de tabelas da Receita (nem a de exemplos da Lei 15.270) dizem "carnê-leão" com todas as letras | não muda nada no roteiro: o caso 2 (R$ 2.000/mês como única renda) já fica abaixo da faixa isenta da tabela mensal (R$ 2.428,80, Receita 2026) e da anual (R$ 29.145,60), **com ou sem redutor**; o caso 1 é decidido no ajuste anual (27,5% na margem para quem passa de R$ 88.200 no ano) | **(a) bate pelo texto** (falta só a confirmação operacional do programa Carnê-Leão, sem efeito na conta); **(b) bate**: IR zero |
+| MP 1.303 | MP 1.303/2025, art. 44: rendimentos de FII e Fiagro com cotas em bolsa "ficam sujeitos à retenção do imposto sobre a renda à alíquota de 5% (cinco por cento), quando possuírem, no mínimo, cem cotistas"; art. 75, I, a: efeitos "a partir de 1º de janeiro de 2026" para os arts. 1º a 60. ADC CN nº 67/2025 (DOU 15/10/2025): a MP "teve seu prazo de vigência encerrado no dia 8 de outubro de 2025" | fala B6 "Seriam cinco por cento, a partir deste ano. Em outubro do ano passado, a Câmara derrubou, e a proposta caiu."; cartela "derrubada pela Câmara em 08/10/25" | **5% e 2026 batem; a data bate.** A primária diz que a MP **perdeu a validade** em 08/10/2025; o papel da Câmara (tirou de pauta sem votar o mérito) é imprensa (camara.leg.br bloqueado aqui). **Cartela corrigida:** "perdeu a validade em 08/10/25 sem virar lei (Ato Declaratório do Congresso nº 67/2025)". A fala ficou como estava ("a Câmara derrubou" é a leitura corrente; se o Denis quiser a versão literal: "em outubro do ano passado, ela perdeu a validade sem virar lei") |
+| FipeZap ago/2026 | fipe.org.br e downloads.fipe.org.br: CONNECT 403 em 07/10/2026 | hipótese de 6% | **CONFERIR NO MAC** |
+

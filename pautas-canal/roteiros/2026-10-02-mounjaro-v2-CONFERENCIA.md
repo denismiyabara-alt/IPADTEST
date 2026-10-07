@@ -136,3 +136,12 @@ sec.gov, data.sec.gov, efts.sec.gov · novonordisk.com · lilly.com / investor.l
 | 13. Anvisa × Mercado Livre 29/09 | NÃO ACHADO | Lista de notícias 2026 carrega por script; busca no gov.br não achou nota de 29/09. Só achei a de 10/08/26 (revogação da RE 3.141/2026, "não implica em autorização automática") → **falar "segundo a imprensa"** | gov.br/anvisa (sobre-revogacoes-…-plataformas-digitais) |
 | 14. McDonald's "not material" | NÃO ABRIU (RI 403) | Imprensa: em teleconferência de resultados, "no evidence … material impact" (fev/26) | corporate.mcdonalds.com 403; Yahoo/IndexBox |
 | 15. Smart Fit fato relevante 10/02/26 | OK | "nomeação de Diogo Ferraz de Andrade Corona para o cargo de Diretor Presidente … implementadas a partir de 02 de março de 2026" | rad.cvm.gov.br (PDF abriu) |
+
+## Reteste de 07/10/2026 (container; planalto.gov.br, api.bcb.gov.br, commons.wikimedia.org e catalog.archives.gov abertos)
+
+Itens ainda abertos: 9 (Mondelez), 13 (Anvisa × Mercado Livre) e 14 (McDonald's). Nenhum dos domínios novos serve a
+eles. Testados com curl em 07/10/2026: ir.mondelezinternational.com, www.mondelezinternational.com,
+corporate.mcdonalds.com e investor.mcdonalds.com seguem **bloqueados** (CONNECT 403); www.gov.br/anvisa abre, mas a lista
+de notícias de 2026 e a busca do gov.br continuam montadas por script (sem a nota de 29/09). **Nada conferido de novo,
+nada mudou no roteiro**; as decisões de 03/10 (tirar o número da Mondelez da [TELA]; "segundo a imprensa" para a Anvisa
+e o McDonald's) continuam valendo.
